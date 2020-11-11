@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from simple import plot
-from simple import functions as f
+from smpl import plot
+from smpl import functions as f
 
-from simple import test
+from smpl import test
 
 
 

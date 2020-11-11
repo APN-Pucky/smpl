@@ -1,5 +1,5 @@
-from simple.units.safe_units import natural_unit as nu
-from simple.units.safe_units import *
+from smpl.units.safe_units import natural_unit as nu
+from smpl.units.safe_units import *
 a = nu(4,1)
 b = nu(6,'energy')/eV
 c = nu(4,2)

@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="simplepy-APN", # Replace with your own username
-    version="0.0.1",
+    name="smpl", # Replace with your own username
+    version="0.0.0",
     author="APN",
     author_email="APN-Pucky@no-reply.github.com",
     description="simple plotting and fitting",

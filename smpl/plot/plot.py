@@ -24,8 +24,8 @@ import pathlib
 import types
 import inspect
 # local imports
-from simple import functions
-from simple import io
+from smpl import functions
+from smpl import io
 #TODO create folders for file saves
 
 fig_size = (8, 6)
@@ -50,9 +50,9 @@ def data(datax,datay,function=None,p0=None,axis=("",""),label=None,fmt=None,unit
     """
     Plot datay vs datax
     """
-    return plot_fit(datax,datay,function,p0,axis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx)
+    return fit(datax,datay,function,p0,axis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx)
 
-def fit(datax,datay,function,p0=None,axis=("",""),label=None,fmt=None,units=None,save=None,lpos=0,frange=None,prange=None,sigmas=1,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False):
+def fit(datax,datay,function,params=None,axis=("",""),label=None,fmt=None,units=None,save=None,lpos=0,frange=None,prange=None,sigmas=1,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False):
     """
         Fit and plot function to datax and datay.
         ...
@@ -67,11 +67,11 @@ def fit(datax,datay,function,p0=None,axis=("",""),label=None,fmt=None,units=None
     if also_data:
         plt_data(datax,datay,axis,label,fmt)
     if also_fit:
-        fit = plt_fit(datax,datay,function,p0,units,frange=frange,prange=prange,sigmas=sigmas)
+        fit = plt_fit(datax,datay,function,params,units,frange=frange,prange=prange,sigmas=sigmas)
     if ss:
         save_plot(save,lpos,logy,logx)
     return fit
-def function(func,start,end,steps=1000,label=""):
+def _function(func,start,end,steps=1000,label=""):
     xfit = np.linspace(start,end,steps)
     if label != "":
         plt.plot(xfit,func(xfit),label=label)
@@ -207,16 +207,4 @@ def save_plot(save=None,lpos=0,logy=False,logx=False): #save
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
 
-# weitere Werte, Konstanten
-# Werte von https://physics.nist.gov/cuu/Constants/index.html[0]
 
-c = 299792458 # m/s
-k_B = unc.ufloat_fromstr("1.38064852(79)e-23") # J K-1 [0]
-h = unc.ufloat_fromstr("4.135667662(25)e-15") # eV s [0]
-h_bar = h/(2*np.pi) # J/s
-r_e = unc.ufloat_fromstr("2.8179403227(19)e-15") # m [0]
-R = unc.ufloat_fromstr("8.3144598(48)") # J mol-1 K-1 [0]
-K = 273.15 # kelvin
-g = 9.81 # m/s^2
-rad = 360 / 2 / np.pi
-grad = 1/rad

@@ -1,0 +1,17 @@
+name: Ubuntu
+
+on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+jobs:
+    compile_ubuntu:
+      runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: casperdcl/deploy-pypi@v1
+        if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
+        with:
+          password: ${{ secrets.pypi_token }}
+          build: true
