@@ -1,0 +1,4 @@
+__pycache__
+.pypirc
+dist/
+simplepy_APN.egg-info/
