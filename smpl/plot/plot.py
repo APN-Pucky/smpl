@@ -174,9 +174,12 @@ def plt_fit(datax,datay,function,p0=None,units=None,frange=None,prange=None,sigm
     l = function.__name__ + ": f(x)=" + function.__doc__
     for i in range(1,len(function.__code__.co_varnames)):
         l = l + "\n"
-        l = l + str(function.__code__.co_varnames[i]) + "=%s"%(fit[i-1])
+        l = l + "" + str(function.__code__.co_varnames[i]) + "="
         if units is not None:
-            l = l + " " + units[i-1]
+            l = l + "("
+        l = l +"%s"%(fit[i-1])
+        if units is not None:
+            l = l + ") " + units[i-1]
     if sigmas>0:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-")
         yfit = function(xfit,*fit)

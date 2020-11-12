@@ -39,9 +39,10 @@ def const(x,m):
 def linear(x,m): # lineare Funktion mit f(x) = m * x
     return(m*x)
 
-def Gerade(x, a, b): # gerade mit = f(x) = m * x + b
+def line(x, a, b): # gerade mit = f(x) = m * x + b
     '''a*x+b'''
     return (a*x + b)
+Gerade=line
 
 def cos_abs(x, a, f, phi):
     '''a*|cos(2*π*f*(x-phi))|'''
