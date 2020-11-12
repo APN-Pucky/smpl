@@ -5,7 +5,6 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="smpl", # Replace with your own username
-    version_config=True,
     setup_requires=['setuptools-git-versioning'],
     author="APN",
     author_email="APN-Pucky@no-reply.github.com",
@@ -24,5 +23,14 @@ setuptools.setup(
         "numpy",
         "matplotlib"
     ],
+    version_config={
+        "template": "{tag}",
+        "dev_template": "{tag}.dev{ccount}",
+        "dirty_template": "{tag}.dev{ccount}.dirty",
+        "starting_version": "0.0.1",
+        "version_callback": None,
+        "version_file": None,
+        "count_commits_from_version_file": False
+    },
     python_requires='>=3.6',
 )
