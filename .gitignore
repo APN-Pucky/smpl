@@ -4,3 +4,4 @@ dist/
 build/
 smpl.egg-info/
 .eggs/
+*.pyc

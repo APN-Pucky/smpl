@@ -21,7 +21,8 @@ setuptools.setup(
     install_requires = [
         "uncertainties",
         "numpy",
-        "matplotlib"
+        "matplotlib",
+        "scipy"
     ],
     version_config={
         "template": "{tag}",

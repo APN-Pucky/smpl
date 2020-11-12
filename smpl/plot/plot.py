@@ -4,7 +4,6 @@ import statistics as stat
 import scipy as sci
 import scipy.integrate as integrate
 import scipy.fftpack
-import sympy as sym
 import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.axes as axes
