@@ -5,7 +5,8 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="smpl", # Replace with your own username
-    version="0.0.0",
+    version_config=True,
+    setup_requires=['setuptools-git-versioning'],
     author="APN",
     author_email="APN-Pucky@no-reply.github.com",
     description="simple plotting and fitting",
