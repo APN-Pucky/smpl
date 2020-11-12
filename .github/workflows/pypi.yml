@@ -16,6 +16,8 @@ jobs:
             python-version: 3.7
         - name: Install setup and wheel
           run: python3.7 -m pip install --user --upgrade setuptools wheel
+        - run: git log
+        - run: git tag
         - name: Build a binary wheel and a source tarball
           run: python3.7 setup.py sdist bdist_wheel
         - name: Publish distribution 📦 to Test PyPI
