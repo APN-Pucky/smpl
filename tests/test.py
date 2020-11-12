@@ -8,5 +8,9 @@ from smpl import test
 
 
 data = np.loadtxt('tests/test_linear.txt')
-ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.Gerade, p0=[1,2], sigmas=1,lpos=2)
+ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.Gerade, sigmas=1,lpos=2)
 plt.show()
+
+
+testl = lambda x,a,b : a*x+b
+print(testl.__code__.co_argcount)

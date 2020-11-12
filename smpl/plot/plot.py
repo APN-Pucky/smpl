@@ -46,13 +46,16 @@ colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
 unv=unp.nominal_values
 usd=unp.std_devs
 
-def data(datax,datay,function=None,p0=None,axis=("",""),label=None,fmt=None,units=None,save=None,lpos=0,frange=None,prange=None,sigmas=1,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False):
+def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False):
     """
     Plot datay vs datax
     """
-    return fit(datax,datay,function,p0,axis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx)
+    if label==None and lpos==0:
+        lpos = -1
 
-def fit(datax,datay,function,params=None,axis=("",""),label=None,fmt=None,units=None,save=None,lpos=0,frange=None,prange=None,sigmas=1,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False):
+    return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx)
+
+def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False):
     """
         Fit and plot function to datax and datay.
         ...
@@ -60,12 +63,10 @@ def fit(datax,datay,function,params=None,axis=("",""),label=None,fmt=None,units=
     """
     #x,y,xerr,yerr = data_split(datax,datay)
     fit = None
-    if label==None and lpos==0:
-        lpos = -1
     if init:
         init_plot()
     if also_data:
-        plt_data(datax,datay,axis,label,fmt)
+        plt_data(datax,datay,xaxis,yaxis,label,fmt)
     if also_fit:
         fit = plt_fit(datax,datay,function,params,units,frange=frange,prange=prange,sigmas=sigmas)
     if ss:
@@ -90,9 +91,9 @@ def show():
 # https://stackoverflow.com/questions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#
 # Updated on 4/6/2016
 # User: https://stackoverflow.com/users/1476240/pedro-m-duarte
-def fit_curvefit(datax, datay, function, p0=None, yerr=None, **kwargs):
+def fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
     pfit, pcov = \
-         optimize.curve_fit(function,datax,datay,p0=p0,\
+         optimize.curve_fit(function,datax,datay,p0=params,\
                             sigma=yerr, epsfcn=0.0001, **kwargs, maxfev=1000000)
     error = []
     for i in range(len(pfit)):
@@ -104,14 +105,17 @@ def fit_curvefit(datax, datay, function, p0=None, yerr=None, **kwargs):
     perr_curvefit = np.array(error)
     return unp.uarray(pfit_curvefit, perr_curvefit)
 
-def fit_curve(datax,datay,function,p0=None,yerr=None,xerr=None):
+def fit_curve(datax,datay,function,params=None,yerr=None,xerr=None):
     model = Model(lambda p,x : function(x,*p))
     realdata = RealData(datax,datay,sy=yerr,sx=xerr)
-    odr = ODR(realdata,model,beta0=p0)
+    odr = ODR(realdata,model,beta0=params)
     out = odr.run()
     return unp.uarray(out.beta,out.sd_beta)
 
 def _data_split(datax,datay):
+    '''
+    Split data + errors
+    '''
     x = unv(datax)
     y = unv(datay)
     xerr = usd(datax)
@@ -124,27 +128,31 @@ def data_split(datax,datay,frange=None):
         return _data_split(datax[frange[0]:frange[1]],datay[frange[0]:frange[1]])
     else:
         return _data_split(datax,datay)
- 
-def _fit(datax,datay,function,p0=None,frange=None):
+def _fit(datax,datay,function,params=None,frange=None):
     x,y,xerr,yerr =data_split(datax,datay,frange)
+    # Count parameters for function
+    if params is None:
+        N=function.__code__.co_argcount
+        params = [1 for i in range(N-1)]
     def tmp(*x):
         return unv(function(*x))
     if xerr is not None:
-        fit = fit_curve(x,y,tmp,p0=p0,xerr=xerr,yerr=yerr)
+        fit = fit_curve(x,y,tmp,params=params,xerr=xerr,yerr=yerr)
     else:
-        fit = fit_curvefit(x,y,tmp,p0=p0,yerr=yerr)
+        fit = fit_curvefit(x,y,tmp,params=params,yerr=yerr)
     return fit
-def plt_data(datax,datay,axis=("",""),label=None,fmt=None):
+
+def plt_data(datax,datay,xaxis="",yaxis="",label=None,fmt=None):
     """
         Plot datay vs datax
         ...
         TODO more info
     """
     x,y,xerr,yerr = data_split(datax,datay)
-    if axis[0] != "":
-        plt.xlabel(axis[0])
-    if axis[1] != "":
-        plt.ylabel(axis[1])
+    if xaxis != "":
+        plt.xlabel(xaxis)
+    if yaxis != "":
+        plt.ylabel(yaxis)
     if  xerr is None and yerr is None :
         if fmt is None:
             plt.plot(x,y, label=label)
