@@ -25,3 +25,12 @@ def long_calc(x):
 
 print(res([calc(long_calc,x) for x in range(1,100)]))
 print(par(long_calc,x=range(1,100)))
+
+import pkg_resources  # part of setuptools
+version = pkg_resources.require("smpl")[0].version
+print(version)
+
+from outdated import check_outdated
+is_outdated, latest_version = check_outdated('smpl', version)
+if is_outdated:
+    print("New version " + str(latest_version) + " > " + str(version) + " available via: \n $ pip install smpl'")

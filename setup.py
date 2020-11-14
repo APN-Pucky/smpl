@@ -22,12 +22,13 @@ setuptools.setup(
         "uncertainties",
         "numpy",
         "matplotlib",
-        "scipy"
+        "scipy",
+        "requests"
     ],
     version_config={
         "template": "{tag}",
         "dev_template": "{tag}.{ccount}",
-        "dirty_template": "{tag}.{ccount}.dirty",
+        "dirty_template": "{tag}.{ccount}+dirty",
         "starting_version": "0.0.0",
         "version_callback": None,
         "version_file": None,
