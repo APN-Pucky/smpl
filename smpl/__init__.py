@@ -9,9 +9,9 @@ version = pkg.require(package)[0].version
 repository_url='https://pypi.python.org/pypi/%s/json'
 url = repository_url % package
 response = requests.get(url).text
-latest =  json.loads(response)['info']['version']
+latest_version =  json.loads(response)['info']['version']
 
-parsed_latest = pkg.parse_version(latest)
+parsed_latest = pkg.parse_version(latest_version)
 parsed_version = pkg.parse_version(version)
 
 if parsed_latest > parsed_version:
