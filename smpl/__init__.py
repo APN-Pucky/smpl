@@ -5,7 +5,6 @@ import requests
 package = "smpl"
 
 version = pkg.require(package)[0].version
-print(version)
 
 repository_url='https://pypi.python.org/pypi/%s/json'
 url = repository_url % package
@@ -17,3 +16,8 @@ parsed_version = pkg.parse_version(version)
 
 if parsed_latest > parsed_version:
     print("New version " + str(latest_version) + " > " + str(version) + " available via: \n $ pip install " + package + "'")
+elif parsed_latest < parsed_version:
+    print("You are using an unreleased version.")
+
+
+__version__ = version
