@@ -2,6 +2,10 @@ import pathlib
 import glob
 from pathlib import Path
 from io import StringIO
+from smpl import debug
+import os
+import sys
+
 # %% Ouput
 def gf(i):
     return "{0:." + str(i) + "g}"
@@ -12,6 +16,15 @@ def out_si(fn,s,u="",fmt="{}"):
     print(fn,": ", fmt.format(s), u)
     file.close()
 
+def pwd():
+    """
+        Returns the path to the path of current file
+    """
+    pwd_="/".join(debug.get_line_number_file(split=False,_back=1)[1].split("/")[:-1])
+    return pwd_
+def import_path(path='../..'):
+    sys.path.insert(0, os.path.abspath(path))
+
 def out(fn,s):
     mkdirs(fn)
     file = open(fn,"w")
@@ -20,7 +33,6 @@ def out(fn,s):
     file.close()
 def si(s,u="",fmt="{}"):
     return "\\SI{%s}{%s}"%((fmt.format(s)).replace("/","").replace("(","").replace(")",""),u)
-
 
 def out_si_line(fn,tab,skip=0):
     out_si_tab(fn,np.transpose([[t] for t in tab]),skip)

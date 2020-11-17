@@ -3,6 +3,9 @@ from multiprocessing import Process,Queue
 def queued(q,f,*args,**kwargs):
     q.put(f(*args,**kwargs))
 def res(a):
+    """
+        Return parallel executed values
+    """
     if isinstance(a,list):
         return [next(k) for k in a]
     return next(a)

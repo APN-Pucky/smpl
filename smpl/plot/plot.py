@@ -87,10 +87,10 @@ def function(func,start,end,steps=1000,label=""):
 def plt_residue(datax,datay,function,fit,fig,xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
     frame2=fig.add_axes((.1,.1,.8,.2))  
     if residue_err:
-        plt_data(datax,datay-function(datax,*fit),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color,show=show)
+        plt_data(datax,datay-function(datax,*fit),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color)
     else:
-        plt_data(unv(datax),unv(datay-function(datax,*fit)),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color,show=show)
-    save_plot(save,-1)
+        plt_data(unv(datax),unv(datay-function(datax,*fit)),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color)
+    save_plot(save,-1,show=show)
 
 
 

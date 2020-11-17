@@ -30,7 +30,7 @@ jobs:
             password: ${{ secrets.pypi_token }}
         - name: Instll (nb)sphinx
           run: sudo apt-get install python3-sphinx python3-nbsphinx
-        - name: Test install smpl
+        - name: Test install smpl+dependencies
           run: python3 -m pip install smpl
         - name: Run sphinx
           run: make clean html

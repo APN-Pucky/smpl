@@ -4,10 +4,12 @@ from smpl import plot
 from smpl import functions as f
 
 from smpl import test
+from smpl import io
 from smpl.parallel import *
 import smpl
 
 
+print(io.pwd())
 
 
 data = np.loadtxt('tests/test_linear.txt')
