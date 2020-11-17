@@ -45,20 +45,19 @@ colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
 unv=unp.nominal_values
 usd=unp.std_devs
 
-def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None):
+def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None,show=False):
     """
     Plot datay vs datax
     """
     if label==None and lpos==0:
         lpos = -1
 
-    return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color)
+    return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
 
-def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None, fit_color =None,residue=False,residue_err=True):
+def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None, fit_color =None,residue=False,residue_err=True,show=False):
     """
         Fit and plot function to datax and datay.
         ...
-        TODO more info
     """
     #x,y,xerr,yerr = data_split(datax,datay)
     fit = None
@@ -70,29 +69,30 @@ def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',un
     if also_fit:
         fit,fit_color = plt_fit(datax,datay,function,params,units,frange=frange,prange=prange,sigmas=sigmas,residue=residue,fig =fig,fit_color=fit_color)
     if ss:
-        save_plot(save,lpos,logy,logx,show=False)
+        save_plot(save,lpos,logy,logx,show=show and not residue)
     if residue and fig is not None:
-        plt_residue(datax,datay,function,fit,fig,xaxis,yaxis,fit_color,save)
+        plt_residue(datax,datay,function,fit,fig,xaxis,yaxis,fit_color,save,residue_err,show=show)
     return fit
 
-def plt_residue(datax,datay,function,fit,fig,xaxis="",yaxis="",fit_color=None,save = None):
-    frame2=fig.add_axes((.1,.1,.8,.2))  
-    plt_data(datax,datay-function(datax,*fit),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color)
-    save_plot(save,-1)
-
-
-def _function(func,start,end,steps=1000,label=""):
+def function(func,start,end,steps=1000,label=""):
+    """
+    Plot a function
+    """
     xfit = np.linspace(start,end,steps)
     if label != "":
         plt.plot(xfit,func(xfit),label=label)
     else:
         plt.plot(xfit,func(xfit))
 
+def plt_residue(datax,datay,function,fit,fig,xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
+    frame2=fig.add_axes((.1,.1,.8,.2))  
+    if residue_err:
+        plt_data(datax,datay-function(datax,*fit),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color,show=show)
+    else:
+        plt_data(unv(datax),unv(datay-function(datax,*fit)),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color,show=show)
+    save_plot(save,-1)
 
-show_=False
-def plt_show():
-    if show_:
-        plt.show()
+
 
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
@@ -228,7 +228,7 @@ def save_plot(save=None,lpos=0,logy=False,logx=False,show=True): #save
         mkdirs(save)
         plt.savefig(save +".pdf")
     if show:
-        plt_show()
+        plt.show()
     #plt.show()
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])

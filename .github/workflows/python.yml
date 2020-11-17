@@ -28,3 +28,9 @@ jobs:
           uses: pypa/gh-action-pypi-publish@master
           with:
             password: ${{ secrets.pypi_token }}
+        - name: Install nbsphinx
+          run: python3 -m pip install nbsphinx --user
+        - uses: seanzhengw/sphinx-pages@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            create_readme: true

@@ -11,7 +11,7 @@ import smpl
 
 
 data = np.loadtxt('tests/test_linear.txt')
-ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.Gerade, units=["l","b"],sigmas=1,lpos=2,residue=True,xaxis="t",yaxis="s")
+ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.Gerade, units=["l","b"],sigmas=1,lpos=2,residue=True,residue_err=False,xaxis="t",yaxis="s")
 
 plt.show()
 
