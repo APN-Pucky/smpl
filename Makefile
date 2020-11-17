@@ -21,7 +21,7 @@ help:
 
 install:
 	python3.7 setup.py install --user 
-commit: html
+commit: 
 	-git add .
 	-git commit
 
@@ -31,6 +31,6 @@ push: commit
 pull: commit
 	git pull
 
-release: push
+release: push html
 	git tag $(shell git describe --tags --abbrev=0 | perl -lpe 'BEGIN { sub inc { my ($$num) = @_; ++$$num } } s/(\d+\.\d+\.)(\d+)/$$1 . (inc($$2))/eg')
 	git push --tags
