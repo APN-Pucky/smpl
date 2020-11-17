@@ -34,7 +34,7 @@ jobs:
           run: sudo apt-get install python3-nbsphinx ipython3 jupyter-notebook
         - name: Test install smpl+dependencies
           run: python3 -m pip install smpl
-       - name: Run sphinx
+        - name: Run sphinx
           run: make clean html
         - name: Deploy
           uses: JamesIves/github-pages-deploy-action@releases/v3
