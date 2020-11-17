@@ -29,7 +29,7 @@ jobs:
           with:
             password: ${{ secrets.pypi_token }}
         - name: Instll (nb)sphinx
-          run: sudo apt-get install python3-sphinx python3-nbsphinx
+          run: sudo apt-get install python3-sphinx python3-nbsphinx jupyter
         - name: Test install smpl+dependencies
           run: python3 -m pip install smpl
         - name: Run sphinx
