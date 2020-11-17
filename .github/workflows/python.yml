@@ -9,14 +9,14 @@ jobs:
           with:
             fetch-depth: "0"
         - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-        - name: Set up Python 3.7
+        - name: Set up Python 3.6
           uses: actions/setup-python@v1
           with:
-            python-version: 3.7
+            python-version: 3.6
         - name: Install setup and wheel
-          run: python3.7 -m pip install --user --upgrade setuptools wheel
+          run: python3.6 -m pip install --user --upgrade setuptools wheel
         - name: Build a binary wheel and a source tarball
-          run: python3.7 setup.py sdist bdist_wheel
+          run: python3.6 setup.py sdist bdist_wheel
         - name: Publish distribution 📦 to Test PyPI
           if: startsWith(github.ref, 'refs/tags') != true
           uses: pypa/gh-action-pypi-publish@master
@@ -31,9 +31,9 @@ jobs:
         - name: Install (nb)sphinx
           run: sudo apt-get install ipython3 jupyter-notebook
         - name: Install sphinx
-          run: python3.7 -m pip install -U sphinx nbsphinx
+          run: python3.6 -m pip install -U sphinx nbsphinx
         - name: Test install smpl+dependencies
-          run: python3.7 -m pip install smpl
+          run: python3.6 -m pip install smpl
         - name: Run sphinx
           run: make clean html
         - name: Deploy
