@@ -19,15 +19,16 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-commit:
+commit: html
 	-git add .
 	-git commit
+
 push: commit
 	git push
 
 pull: commit
 	git pull
 
-release: push html
+release: push
 	git tag $(shell git describe --tags --abbrev=0 | perl -lpe 'BEGIN { sub inc { my ($$num) = @_; ++$$num } } s/(\d+\.\d+\.)(\d+)/$$1 . (inc($$2))/eg')
 	git push --tags
