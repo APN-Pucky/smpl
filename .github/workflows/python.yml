@@ -29,11 +29,11 @@ jobs:
           with:
             password: ${{ secrets.pypi_token }}
         - name: Install (nb)sphinx
-          run: sudo apt-get install ipython3 jupyter-notebook python3-scipy
+          run: sudo apt-get install ipython3 jupyter-notebook python3-scipy matplotlib 
         - name: Install sphinx
           run: python3.6 -m pip install -U sphinx nbsphinx
         - name: Test install smpl+dependencies
-          run: python3.6 -m pip install smpl
+          run: python3.6 -m pip install -U smpl
         - name: Run sphinx
           run: make clean html
         - name: Deploy
