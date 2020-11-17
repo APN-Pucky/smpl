@@ -20,7 +20,7 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 install:
-	python3.7 setup.py install --user 
+	python3.6 setup.py install --user 
 commit: 
 	-git add .
 	-git commit
