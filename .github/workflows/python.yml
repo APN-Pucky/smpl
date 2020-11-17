@@ -28,8 +28,10 @@ jobs:
           uses: pypa/gh-action-pypi-publish@master
           with:
             password: ${{ secrets.pypi_token }}
+        - name: Instll sphinx
+          run: sudo apt-get install sphinx
         - name: Install (nb)sphinx
-          run: python3 -m pip install sphinx nbsphinx --user
+          run: python3 -m pip install nbsphinx --user
         - name: Test install smpl
           run: python3 -m pip install smpl
         - name: Run sphinx
