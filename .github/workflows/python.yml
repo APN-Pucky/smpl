@@ -28,11 +28,16 @@ jobs:
           uses: pypa/gh-action-pypi-publish@master
           with:
             password: ${{ secrets.pypi_token }}
-        - name: Install nbsphinx
-          run: python3 -m pip install nbsphinx --user
+        - name: Install (nb)sphinx
+          run: python3 -m pip install sphinx nbsphinx --user
         - name: Test install smpl
-          run: python3.9 -m pip install smpl
-        - uses: seanzhengw/sphinx-pages@master
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            create_readme: true
+          run: python3 -m pip install smpl
+        - name: Run sphinx
+          run: make clean html
+        - name: Deploy
+            uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          #ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: build # The folder the action should deploy.
