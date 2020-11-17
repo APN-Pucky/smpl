@@ -45,16 +45,16 @@ colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
 unv=unp.nominal_values
 usd=unp.std_devs
 
-def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False):
+def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None):
     """
     Plot datay vs datax
     """
     if label==None and lpos==0:
         lpos = -1
 
-    return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx)
+    return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color)
 
-def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False):
+def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None, fit_color =None,residue=False,residue_err=True):
     """
         Fit and plot function to datax and datay.
         ...
@@ -62,15 +62,25 @@ def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',un
     """
     #x,y,xerr,yerr = data_split(datax,datay)
     fit = None
+    fig = None
     if init:
-        init_plot()
+        fig = init_plot(residue=residue)
     if also_data:
-        plt_data(datax,datay,xaxis,yaxis,label,fmt)
+        plt_data(datax,datay,xaxis,yaxis,label,fmt,data_color=data_color)
     if also_fit:
-        fit = plt_fit(datax,datay,function,params,units,frange=frange,prange=prange,sigmas=sigmas)
+        fit,fit_color = plt_fit(datax,datay,function,params,units,frange=frange,prange=prange,sigmas=sigmas,residue=residue,fig =fig,fit_color=fit_color)
     if ss:
-        save_plot(save,lpos,logy,logx)
+        save_plot(save,lpos,logy,logx,show=False)
+    if residue and fig is not None:
+        plt_residue(datax,datay,function,fit,fig,xaxis,yaxis,fit_color,save)
     return fit
+
+def plt_residue(datax,datay,function,fit,fig,xaxis="",yaxis="",fit_color=None,save = None):
+    frame2=fig.add_axes((.1,.1,.8,.2))  
+    plt_data(datax,datay-function(datax,*fit),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color)
+    save_plot(save,-1)
+
+
 def _function(func,start,end,steps=1000,label=""):
     xfit = np.linspace(start,end,steps)
     if label != "":
@@ -80,7 +90,7 @@ def _function(func,start,end,steps=1000,label=""):
 
 
 show_=False
-def show():
+def plt_show():
     if show_:
         plt.show()
 
@@ -141,7 +151,7 @@ def _fit(datax,datay,function,params=None,frange=None):
         fit = fit_curvefit(x,y,tmp,params=params,yerr=yerr)
     return fit
 
-def plt_data(datax,datay,xaxis="",yaxis="",label=None,fmt=None):
+def plt_data(datax,datay,xaxis="",yaxis="",label=None,fmt=None,data_color=None):
     """
         Plot datay vs datax
         ...
@@ -154,13 +164,13 @@ def plt_data(datax,datay,xaxis="",yaxis="",label=None,fmt=None):
         plt.ylabel(yaxis)
     if  xerr is None and yerr is None :
         if fmt is None:
-            plt.plot(x,y, label=label)
+            plt.plot(x,y, label=label,color =data_color)
         else:
-            plt.plot(x,y, fmt, label=label)
+            plt.plot(x,y, fmt, label=label,color =data_color)
     else:
-        plt.errorbar(x,y,yerr=yerr,xerr=xerr,fmt=" ",capsize=5,label=label)
+        plt.errorbar(x,y,yerr=yerr,xerr=xerr,fmt=" ",capsize=5,label=label,color =data_color)
  
-def plt_fit(datax,datay,function,p0=None,units=None,frange=None,prange=None,sigmas=1):
+def plt_fit(datax,datay,function,p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
     """
         
     """
@@ -170,7 +180,9 @@ def plt_fit(datax,datay,function,p0=None,units=None,frange=None,prange=None,sigm
         xfit = np.linspace(unv(x[0]),unv(x[-1]),1000)
     else:
         xfit = np.linspace(prange[0],prange[1],1000)
-    l = function.__name__ + ": f(x)=" + function.__doc__
+    l = function.__name__
+    if function.__doc__ is not None:
+        l = l + ": f(x)=" + function.__doc__
     for i in range(1,len(function.__code__.co_varnames)):
         l = l + "\n"
         l = l + "" + str(function.__code__.co_varnames[i]) + "="
@@ -179,24 +191,28 @@ def plt_fit(datax,datay,function,p0=None,units=None,frange=None,prange=None,sigm
         l = l +"%s"%(fit[i-1])
         if units is not None:
             l = l + ") " + units[i-1]
+    ll = None
     if sigmas>0:
-        ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-")
+        ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",color =fit_color)
         yfit = function(xfit,*fit)
         plt.fill_between(xfit, unv(yfit)-sigmas*usd(yfit),unv(yfit)+sigmas*usd(yfit),alpha=0.4,label=l,color = ll.get_color())    
     else:
-        l, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l)
+        ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l,color =fit_color)
         if frange is not None:
             xfit = np.linspace(unv(datax[0]),unv(datax[-1]))
-            plt.plot(xfit,unv(function(xfit,*fit)),"--",color=l.get_color())
-    return fit
+            plt.plot(xfit,unv(function(xfit,*fit)),"--",color=ll.get_color())
+    return fit,ll.get_color()
 
-def init_plot(size=None): #init
+def init_plot(size=None,residue=False): #init
     #fig = plt.figure(figsize=fig_size)
     if size==None:
         fig = plt.figure()
     else:
         fig = plt.figure(figsize=size)
-def save_plot(save=None,lpos=0,logy=False,logx=False): #save
+    if residue:
+        frame1=fig.add_axes((.1,.3,.8,.6))
+    return fig
+def save_plot(save=None,lpos=0,logy=False,logx=False,show=True): #save
     """
         save plot
     """
@@ -211,7 +227,8 @@ def save_plot(save=None,lpos=0,logy=False,logx=False): #save
     if not save==None:
         mkdirs(save)
         plt.savefig(save +".pdf")
-    show()
+    if show:
+        plt_show()
     #plt.show()
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])

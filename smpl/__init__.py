@@ -15,7 +15,7 @@ parsed_latest = pkg.parse_version(latest_version)
 parsed_version = pkg.parse_version(version)
 
 if parsed_latest > parsed_version:
-    print("New version " + str(latest_version) + " > " + str(version) + " available via: \n $ pip install " + package + "'")
+    print("New version " + str(latest_version) + " > " + str(version) + " available via: \n $ pip install " + package + " --upgrade [--user]'")
 elif parsed_latest < parsed_version:
     print("You are using an unreleased version.")
 

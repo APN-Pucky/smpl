@@ -10,8 +10,9 @@ from smpl.parallel import *
 
 
 data = np.loadtxt('tests/test_linear.txt')
-ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.Gerade, units=["l","b"],sigmas=1,lpos=2)
+ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.Gerade, units=["l","b"],sigmas=1,lpos=2,residue=True,xaxis="t",yaxis="s")
 
+plt.show()
 
 testl = lambda x,a,b : a*x+b
 print(testl.__code__.co_argcount)
