@@ -30,6 +30,8 @@ jobs:
             password: ${{ secrets.pypi_token }}
         - name: Install nbsphinx
           run: python3 -m pip install nbsphinx --user
+        - name: Test install smpl
+          run: python3 -m pip install smpl
         - uses: seanzhengw/sphinx-pages@master
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
