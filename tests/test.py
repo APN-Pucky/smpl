@@ -5,6 +5,7 @@ from smpl import functions as f
 
 from smpl import test
 from smpl.parallel import *
+import smpl
 
 
 
