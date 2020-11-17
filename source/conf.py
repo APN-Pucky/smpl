@@ -14,8 +14,9 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
 import smpl
+import re
 
-version = smpl.__version__
+version = re.sub('^', '', os.popen('git describe').read().strip())
 
 
 # -- Project information -----------------------------------------------------
