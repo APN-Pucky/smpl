@@ -175,11 +175,19 @@
 <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">save</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">prange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_fit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">logx</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">data_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Plot datay against datax via :func:`fit`</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        datax (array): X data</span>
-<span class="sd">        datay (array): Y data</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    datax : array_like</span>
+<span class="sd">        X data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
+<span class="sd">    datay : array_like</span>
+<span class="sd">        Y data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
+<span class="sd">    function : func,optional</span>
+<span class="sd">        Fit function with parameters: ``x``, ``params``</span>
 
-<span class="sd">    :return: Fit of `func` function</span>
+<span class="sd">    Returns</span>
+<span class="sd">    =======</span>
+<span class="sd">    array_like</span>
+<span class="sd">        Optimized fit parameters of ``function`` to ``datax`` and ``datay``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">label</span><span class="o">==</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">lpos</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
         <span class="n">lpos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -189,7 +197,21 @@
 
 <div class="viewcode-block" id="function"><a class="viewcode-back" href="../../../index.html#smpl.plot.function">[docs]</a><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Plot a function</span>
+<span class="sd">    Plot function ``func`` between ``start`` and ``end``</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    func : function</span>
+<span class="sd">        Function to be plotted between ``start`` and ``end``, only taking `array_like` ``x`` as parameter</span>
+<span class="sd">    start : float</span>
+<span class="sd">        lowest ``x``</span>
+<span class="sd">    end : float</span>
+<span class="sd">        highest ``x``</span>
+<span class="sd">    steps : int</span>
+<span class="sd">        resolution of the plotted function</span>
+<span class="sd">    label : str</span>
+<span class="sd">        Legend name of the function</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">steps</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>

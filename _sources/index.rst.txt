@@ -12,16 +12,27 @@ Welcome to smpl's documentation!
 
    example/*
 
-
+:mod:`smpl` library
+===================
 .. automodule:: smpl
+
+:mod:`smpl.plot` module
+-----------------------
 .. automodule:: smpl.plot
    :members:
+
+:mod:`smpl.parallel` module
+---------------------------
+
 .. automodule:: smpl.parallel
    :members:
+ 
+:mod:`smpl.doc` module
+----------------------
+  
 .. automodule:: smpl.doc
    :members:
 
-libdoc
 
 
 Indices and tables
