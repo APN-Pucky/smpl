@@ -2,21 +2,22 @@ def add_doc(original):
     """
     Append doc string of ``original`` to ``target`` object.
 
+    Paramerters
+    ===========
+    original : ``class`` or ``function``
+        ``orignal.__doc__`` is appended to the ``__doc__`` of the ``target``
+
     Examples
     ========
 
     >>> def ho():
-    ...     '''
-    ...     Ho
-    ...     ''' 
+    ...     '''Ho'''
     ...     print(ho.__doc__)
-    ... @add_doc(ho)
+    >>> @add_doc(ho)
     ... def hi():
-    ...     '''
-    ...     Hi
-    ...     ''' 
+    ...     '''Hi'''
     ...     print(hi.__doc__)
-    ... hi()
+    >>> hi()
     HiHo
     """
     def wrapper(target):
