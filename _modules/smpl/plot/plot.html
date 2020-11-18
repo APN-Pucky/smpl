@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>smpl.plot.plot &#8212; smpl  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for smpl.plot.plot</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">stat</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sci</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
+<span class="kn">import</span> <span class="nn">scipy.fftpack</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.axes</span> <span class="k">as</span> <span class="nn">axes</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span> <span class="k">as</span> <span class="n">mcolors</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
+<span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+<span class="kn">import</span> <span class="nn">uncertainties.umath</span> <span class="k">as</span> <span class="nn">umath</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.odr</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">pylab</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="c1"># local imports</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span>  <span class="n">add_doc</span>
+<span class="c1">#TODO create folders for file saves</span>
+
+<span class="n">fig_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">fig_legendsize</span> <span class="o">=</span> <span class="mi">14</span>
+<span class="n">fig_labelsize</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># ‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’.</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">:</span> <span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;figure.figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+         <span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span> <span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;axes.titlesize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">:</span><span class="s1">&#39;x-large&#39;</span><span class="p">}</span>
+<span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="c1">#matplotlib.rcParams.update({&#39;font.size&#39;: fig_labelsize})</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">mcolors</span><span class="o">.</span><span class="n">BASE_COLORS</span><span class="p">,</span> <span class="o">**</span><span class="n">mcolors</span><span class="o">.</span><span class="n">CSS4_COLORS</span><span class="p">)</span>
+      
+<span class="n">unv</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
+<span class="n">usd</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
+
+
+<span class="k">def</span> <span class="nf">kwargslist</span><span class="p">()</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Other Parameters</span>
+<span class="sd">    ================</span>
+<span class="sd">    params : array_like</span>
+<span class="sd">        Initial fit parameters</span>
+<span class="sd">    xaxis : str</span>
+<span class="sd">        X axis label</span>
+<span class="sd">    yaxis : str</span>
+<span class="sd">        Y axis label</span>
+<span class="sd">    label : str</span>
+<span class="sd">        Legend name of plotted ``data``</span>
+<span class="sd">    fmt : str</span>
+<span class="sd">        Format for plotting fit function</span>
+<span class="sd">    units : array</span>
+<span class="sd">        Units of the fit parameters as strings. Displayed in the Legend</span>
+<span class="sd">    save : str</span>
+<span class="sd">        File to save the plot</span>
+<span class="sd">    lpos: int</span>
+<span class="sd">        Legend position</span>
+<span class="sd">    frange : array</span>
+<span class="sd">        Limit the fit to given range</span>
+<span class="sd">    prange : array</span>
+<span class="sd">        Limit the plot of the fit to given range</span>
+<span class="sd">    sigmas : int</span>
+<span class="sd">        Color the array of given ``sigma`` times uncertainty</span>
+<span class="sd">    init : bool</span>
+<span class="sd">        Initialize a new plot</span>
+<span class="sd">    ss : bool</span>
+<span class="sd">        save, add legends and grid to the plot</span>
+<span class="sd">    also_data: bool</span>
+<span class="sd">        also plot the data</span>
+<span class="sd">    also_fit : bool</span>
+<span class="sd">        also plot the fit</span>
+<span class="sd">    logy : bool</span>
+<span class="sd">        logarithmic y axis</span>
+<span class="sd">    logx : bool</span>
+<span class="sd">        logarithmic x axis</span>
+<span class="sd">    data_color : str</span>
+<span class="sd">        Color of the data plot</span>
+<span class="sd">    fit_color : str</span>
+<span class="sd">        Color of the fit plot</span>
+<span class="sd">    residue : bool</span>
+<span class="sd">        Display difference between fit and data in a second plot </span>
+<span class="sd">    residue_err : bool</span>
+<span class="sd">        Differences between fit and data will have errorbars</span>
+<span class="sd">    show : bool</span>
+<span class="sd">        Call plt.show()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{}</span> 
+
+<div class="viewcode-block" id="fit"><a class="viewcode-back" href="../../../index.html#smpl.plot.fit">[docs]</a><span class="nd">@add_doc</span><span class="p">(</span><span class="n">kwargslist</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">save</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">prange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_fit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">logx</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">data_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fit_color</span> <span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">residue</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">residue_err</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Fit and plot function to datax and datay.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    datax : array_like</span>
+<span class="sd">        X data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
+<span class="sd">    datay : array_like</span>
+<span class="sd">        Y data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
+<span class="sd">    function : func</span>
+<span class="sd">        Fit function with parameters: ``x``, ``params``</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    =======</span>
+<span class="sd">    array_like</span>
+<span class="sd">        Optimized fit parameters of ``function`` to ``datax`` and ``datay``</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ======== </span>
+<span class="sd">    &gt;&gt;&gt; from smpl import functions as f</span>
+<span class="sd">    &gt;&gt;&gt; unv(fit([0,1,2,3],[0,1,2,3],f.Line)).round()[0]</span>
+<span class="sd">    1.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">init</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">init_plot</span><span class="p">(</span><span class="n">residue</span><span class="o">=</span><span class="n">residue</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">also_data</span><span class="p">:</span>
+        <span class="n">plt_data</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">xaxis</span><span class="p">,</span><span class="n">yaxis</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="n">fmt</span><span class="p">,</span><span class="n">data_color</span><span class="o">=</span><span class="n">data_color</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">also_fit</span><span class="p">:</span>
+        <span class="n">fit</span><span class="p">,</span><span class="n">fit_color</span> <span class="o">=</span> <span class="n">plt_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">units</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="n">frange</span><span class="p">,</span><span class="n">prange</span><span class="o">=</span><span class="n">prange</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="n">sigmas</span><span class="p">,</span><span class="n">residue</span><span class="o">=</span><span class="n">residue</span><span class="p">,</span><span class="n">fig</span> <span class="o">=</span><span class="n">fig</span><span class="p">,</span><span class="n">fit_color</span><span class="o">=</span><span class="n">fit_color</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ss</span><span class="p">:</span>
+        <span class="n">save_plot</span><span class="p">(</span><span class="n">save</span><span class="p">,</span><span class="n">lpos</span><span class="p">,</span><span class="n">logy</span><span class="p">,</span><span class="n">logx</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="n">show</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">residue</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">residue</span> <span class="ow">and</span> <span class="n">fig</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt_residue</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">fit</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">xaxis</span><span class="p">,</span><span class="n">yaxis</span><span class="p">,</span><span class="n">fit_color</span><span class="p">,</span><span class="n">save</span><span class="p">,</span><span class="n">residue_err</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fit</span></div>
+
+<div class="viewcode-block" id="data"><a class="viewcode-back" href="../../../index.html#smpl.plot.data">[docs]</a><span class="nd">@add_doc</span><span class="p">(</span><span class="n">kwargslist</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">save</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">prange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_fit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">logx</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">data_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot datay against datax via :func:`fit`</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        datax (array): X data</span>
+<span class="sd">        datay (array): Y data</span>
+
+<span class="sd">    :return: Fit of `func` function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">label</span><span class="o">==</span><span class="kc">None</span> <span class="ow">and</span> <span class="n">lpos</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">lpos</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">xaxis</span><span class="p">,</span><span class="n">yaxis</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="n">fmt</span><span class="p">,</span><span class="n">units</span><span class="p">,</span><span class="n">save</span><span class="p">,</span><span class="n">lpos</span><span class="p">,</span><span class="n">frange</span><span class="p">,</span><span class="n">prange</span><span class="p">,</span><span class="n">sigmas</span><span class="p">,</span><span class="n">init</span><span class="p">,</span><span class="n">ss</span><span class="p">,</span><span class="n">also_data</span><span class="p">,</span><span class="n">also_fit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">logy</span><span class="o">=</span><span class="n">logy</span><span class="p">,</span><span class="n">logx</span><span class="o">=</span><span class="n">logx</span><span class="p">,</span><span class="n">data_color</span> <span class="o">=</span><span class="n">data_color</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="function"><a class="viewcode-back" href="../../../index.html#smpl.plot.function">[docs]</a><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">steps</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">func</span><span class="p">(</span><span class="n">xfit</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">func</span><span class="p">(</span><span class="n">xfit</span><span class="p">))</span></div>
+
+<span class="k">def</span> <span class="nf">plt_residue</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">fit</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">fit_color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">save</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">residue_err</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">frame2</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span><span class="o">.</span><span class="mi">2</span><span class="p">))</span>  
+    <span class="k">if</span> <span class="n">residue_err</span><span class="p">:</span>
+        <span class="n">plt_data</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="o">-</span><span class="n">function</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="o">*</span><span class="n">fit</span><span class="p">),</span><span class="n">xaxis</span><span class="o">=</span><span class="n">xaxis</span><span class="p">,</span><span class="n">yaxis</span> <span class="o">=</span> <span class="s2">&quot;$\Delta$&quot;</span> <span class="o">+</span> <span class="n">yaxis</span><span class="p">,</span> <span class="n">data_color</span><span class="o">=</span><span class="n">fit_color</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt_data</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">),</span><span class="n">unv</span><span class="p">(</span><span class="n">datay</span><span class="o">-</span><span class="n">function</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="o">*</span><span class="n">fit</span><span class="p">)),</span><span class="n">xaxis</span><span class="o">=</span><span class="n">xaxis</span><span class="p">,</span><span class="n">yaxis</span> <span class="o">=</span> <span class="s2">&quot;$\Delta$&quot;</span> <span class="o">+</span> <span class="n">yaxis</span><span class="p">,</span> <span class="n">data_color</span><span class="o">=</span><span class="n">fit_color</span><span class="p">)</span>
+    <span class="n">save_plot</span><span class="p">(</span><span class="n">save</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="n">show</span><span class="p">)</span>
+
+
+
+<span class="c1"># fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler</span>
+<span class="c1"># gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck</span>
+<span class="c1">#</span>
+<span class="c1"># https://stackoverflow.com/questions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#</span>
+<span class="c1"># Updated on 4/6/2016</span>
+<span class="c1"># User: https://stackoverflow.com/users/1476240/pedro-m-duarte</span>
+<span class="k">def</span> <span class="nf">fit_curvefit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> \
+         <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">p0</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>\
+                            <span class="n">sigma</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span> <span class="n">epsfcn</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">maxfev</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pfit</span><span class="p">)):</span>
+        <span class="k">try</span><span class="p">:</span>
+          <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+          <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="mf">0.00</span> <span class="p">)</span>
+    <span class="n">pfit_curvefit</span> <span class="o">=</span> <span class="n">pfit</span>
+    <span class="n">perr_curvefit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">pfit_curvefit</span><span class="p">,</span> <span class="n">perr_curvefit</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fit_curve</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">xerr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span><span class="n">x</span> <span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">realdata</span> <span class="o">=</span> <span class="n">RealData</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">sy</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span><span class="n">sx</span><span class="o">=</span><span class="n">xerr</span><span class="p">)</span>
+    <span class="n">odr</span> <span class="o">=</span> <span class="n">ODR</span><span class="p">(</span><span class="n">realdata</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="n">beta0</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">odr</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span><span class="n">out</span><span class="o">.</span><span class="n">sd_beta</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Split data + errors</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">unv</span><span class="p">(</span><span class="n">datay</span><span class="p">)</span>
+    <span class="n">xerr</span> <span class="o">=</span> <span class="n">usd</span><span class="p">(</span><span class="n">datax</span><span class="p">)</span>
+    <span class="n">yerr</span> <span class="o">=</span> <span class="n">usd</span><span class="p">(</span><span class="n">datay</span><span class="p">)</span>
+    <span class="n">xerr</span> <span class="o">=</span> <span class="n">xerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xerr</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">yerr</span> <span class="o">=</span> <span class="n">yerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yerr</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span>
+<span class="k">def</span> <span class="nf">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">frange</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="n">frange</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">frange</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span><span class="n">datay</span><span class="p">[</span><span class="n">frange</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">frange</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span><span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">frange</span><span class="p">)</span>
+    <span class="c1"># Count parameters for function</span>
+    <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">N</span><span class="o">=</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="k">def</span> <span class="nf">tmp</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">unv</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fit</span> <span class="o">=</span> <span class="n">fit_curve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">tmp</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span><span class="n">xerr</span><span class="o">=</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fit</span> <span class="o">=</span> <span class="n">fit_curvefit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">tmp</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span><span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fit</span>
+
+<span class="k">def</span> <span class="nf">plt_data</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">data_color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plot datay vs datax</span>
+<span class="sd">        ...</span>
+<span class="sd">        TODO more info</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span> <span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">xaxis</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xaxis</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">yaxis</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span>
+    <span class="k">if</span>  <span class="n">xerr</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">yerr</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">fmt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="n">data_color</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="n">data_color</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span><span class="n">xerr</span><span class="o">=</span><span class="n">xerr</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="n">data_color</span><span class="p">)</span>
+ 
+<span class="k">def</span> <span class="nf">plt_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">p0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">prange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">residue</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">fit_color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span><span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">frange</span><span class="p">)</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">p0</span><span class="p">,</span><span class="n">frange</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">prange</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">unv</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">prange</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">prange</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">1000</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">if</span> <span class="n">function</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;: f(x)=&quot;</span> <span class="o">+</span> <span class="n">function</span><span class="o">.</span><span class="vm">__doc__</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)):</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span>
+        <span class="k">if</span> <span class="n">units</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">fit</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">units</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;) &quot;</span> <span class="o">+</span> <span class="n">units</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ll</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">sigmas</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">ll</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">function</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="o">*</span><span class="n">unv</span><span class="p">(</span><span class="n">fit</span><span class="p">)),</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="n">fit_color</span><span class="p">)</span>
+        <span class="n">yfit</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="o">*</span><span class="n">fit</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span> <span class="n">unv</span><span class="p">(</span><span class="n">yfit</span><span class="p">)</span><span class="o">-</span><span class="n">sigmas</span><span class="o">*</span><span class="n">usd</span><span class="p">(</span><span class="n">yfit</span><span class="p">),</span><span class="n">unv</span><span class="p">(</span><span class="n">yfit</span><span class="p">)</span><span class="o">+</span><span class="n">sigmas</span><span class="o">*</span><span class="n">usd</span><span class="p">(</span><span class="n">yfit</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">l</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span> <span class="n">ll</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ll</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">function</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="o">*</span><span class="n">unv</span><span class="p">(</span><span class="n">fit</span><span class="p">)),</span><span class="s2">&quot;-&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">l</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span><span class="n">fit_color</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">frange</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">unv</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="o">*</span><span class="n">fit</span><span class="p">)),</span><span class="s2">&quot;--&quot;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">ll</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">fit</span><span class="p">,</span><span class="n">ll</span><span class="o">.</span><span class="n">get_color</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">init_plot</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">residue</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span> <span class="c1">#init</span>
+    <span class="c1">#fig = plt.figure(figsize=fig_size)</span>
+    <span class="k">if</span> <span class="n">size</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">residue</span><span class="p">:</span>
+        <span class="n">frame1</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span><span class="o">.</span><span class="mi">3</span><span class="p">,</span><span class="o">.</span><span class="mi">8</span><span class="p">,</span><span class="o">.</span><span class="mi">6</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">fig</span>
+<span class="k">def</span> <span class="nf">save_plot</span><span class="p">(</span><span class="n">save</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">logy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">logx</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span> <span class="c1">#save</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        save plot</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">logy</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">logx</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">lpos</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">lpos</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">save</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="n">mkdirs</span><span class="p">(</span><span class="n">save</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save</span> <span class="o">+</span><span class="s2">&quot;.pdf&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1">#plt.show()</span>
+<span class="c1"># usage zB:</span>
+<span class="c1"># pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])</span>
+<span class="c1"># fuer eine gerade mit anfangswerten m = 1, b = 0</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">smpl</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, APN-Pucky.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -51,47 +51,199 @@
 </div>
 <span class="target" id="module-smpl"></span><span class="target" id="module-smpl.plot"></span><dl class="py function">
 <dt id="smpl.plot.data">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xaxis</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">yaxis</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fmt</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">save</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lpos</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">frange</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prange</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sigmas</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">init</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ss</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">also_data</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">also_fit</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">logy</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">logx</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">data_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot datay vs datax</p>
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xaxis</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">yaxis</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fmt</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">save</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lpos</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">frange</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prange</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sigmas</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">init</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ss</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">also_data</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">also_fit</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">logy</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">logx</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">data_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/plot/plot.html#data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>datax (array): X data
+datay (array): Y data</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Fit of <cite>func</cite> function</p>
+</dd>
+<dt class="field-even">Other Parameters</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">array_like</span></dt><dd><p>Initial fit parameters</p>
+</dd>
+<dt><strong>xaxis</strong><span class="classifier">str</span></dt><dd><p>X axis label</p>
+</dd>
+<dt><strong>yaxis</strong><span class="classifier">str</span></dt><dd><p>Y axis label</p>
+</dd>
+<dt><strong>label</strong><span class="classifier">str</span></dt><dd><p>Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
+</dd>
+<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>Format for plotting fit function</p>
+</dd>
+<dt><strong>units</strong><span class="classifier">array</span></dt><dd><p>Units of the fit parameters as strings. Displayed in the Legend</p>
+</dd>
+<dt><strong>save</strong><span class="classifier">str</span></dt><dd><p>File to save the plot</p>
+</dd>
+<dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
+</dd>
+<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range</p>
+</dd>
+<dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
+</dd>
+<dt><strong>sigmas</strong><span class="classifier">int</span></dt><dd><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty</p>
+</dd>
+<dt><strong>init</strong><span class="classifier">bool</span></dt><dd><p>Initialize a new plot</p>
+</dd>
+<dt><strong>ss</strong><span class="classifier">bool</span></dt><dd><p>save, add legends and grid to the plot</p>
+</dd>
+<dt><strong>also_data: bool</strong></dt><dd><p>also plot the data</p>
+</dd>
+<dt><strong>also_fit</strong><span class="classifier">bool</span></dt><dd><p>also plot the fit</p>
+</dd>
+<dt><strong>logy</strong><span class="classifier">bool</span></dt><dd><p>logarithmic y axis</p>
+</dd>
+<dt><strong>logx</strong><span class="classifier">bool</span></dt><dd><p>logarithmic x axis</p>
+</dd>
+<dt><strong>data_color</strong><span class="classifier">str</span></dt><dd><p>Color of the data plot</p>
+</dd>
+<dt><strong>fit_color</strong><span class="classifier">str</span></dt><dd><p>Color of the fit plot</p>
+</dd>
+<dt><strong>residue</strong><span class="classifier">bool</span></dt><dd><p>Display difference between fit and data in a second plot</p>
+</dd>
+<dt><strong>residue_err</strong><span class="classifier">bool</span></dt><dd><p>Differences between fit and data will have errorbars</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="smpl.plot.fit">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span></em>, <em class="sig-param"><span class="n">params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xaxis</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">yaxis</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fmt</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">save</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lpos</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">frange</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prange</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sigmas</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">init</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ss</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">also_data</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">also_fit</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">logy</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">logx</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">data_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fit_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">residue</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">residue_err</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit and plot function to datax and datay.
-…</p>
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span></em>, <em class="sig-param"><span class="n">params</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">xaxis</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">yaxis</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fmt</span><span class="o">=</span><span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">save</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lpos</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">frange</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">prange</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sigmas</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">init</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">ss</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">also_data</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">also_fit</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">logy</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">logx</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">data_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">fit_color</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">residue</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">residue_err</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/plot/plot.html#fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit and plot function to datax and datay.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+<dt><strong>function</strong><span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>array_like</dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Other Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">array_like</span></dt><dd><p>Initial fit parameters</p>
+</dd>
+<dt><strong>xaxis</strong><span class="classifier">str</span></dt><dd><p>X axis label</p>
+</dd>
+<dt><strong>yaxis</strong><span class="classifier">str</span></dt><dd><p>Y axis label</p>
+</dd>
+<dt><strong>label</strong><span class="classifier">str</span></dt><dd><p>Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
+</dd>
+<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>Format for plotting fit function</p>
+</dd>
+<dt><strong>units</strong><span class="classifier">array</span></dt><dd><p>Units of the fit parameters as strings. Displayed in the Legend</p>
+</dd>
+<dt><strong>save</strong><span class="classifier">str</span></dt><dd><p>File to save the plot</p>
+</dd>
+<dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
+</dd>
+<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range</p>
+</dd>
+<dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
+</dd>
+<dt><strong>sigmas</strong><span class="classifier">int</span></dt><dd><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty</p>
+</dd>
+<dt><strong>init</strong><span class="classifier">bool</span></dt><dd><p>Initialize a new plot</p>
+</dd>
+<dt><strong>ss</strong><span class="classifier">bool</span></dt><dd><p>save, add legends and grid to the plot</p>
+</dd>
+<dt><strong>also_data: bool</strong></dt><dd><p>also plot the data</p>
+</dd>
+<dt><strong>also_fit</strong><span class="classifier">bool</span></dt><dd><p>also plot the fit</p>
+</dd>
+<dt><strong>logy</strong><span class="classifier">bool</span></dt><dd><p>logarithmic y axis</p>
+</dd>
+<dt><strong>logx</strong><span class="classifier">bool</span></dt><dd><p>logarithmic x axis</p>
+</dd>
+<dt><strong>data_color</strong><span class="classifier">str</span></dt><dd><p>Color of the data plot</p>
+</dd>
+<dt><strong>fit_color</strong><span class="classifier">str</span></dt><dd><p>Color of the fit plot</p>
+</dd>
+<dt><strong>residue</strong><span class="classifier">bool</span></dt><dd><p>Display difference between fit and data in a second plot</p>
+</dd>
+<dt><strong>residue_err</strong><span class="classifier">bool</span></dt><dd><p>Differences between fit and data will have errorbars</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unv</span><span class="p">(</span><span class="n">fit</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="n">f</span><span class="o">.</span><span class="n">Line</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
 <dt id="smpl.plot.function">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span></em>, <em class="sig-param"><span class="n">steps</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span></em>, <em class="sig-param"><span class="n">steps</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/plot/plot.html#function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot a function</p>
 </dd></dl>
 
 <span class="target" id="module-smpl.parallel"></span><dl class="py function">
 <dt id="smpl.parallel.calc">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="smpl.parallel.gen">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">gen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">gen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates parallel execution list generator</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="smpl.parallel.par">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallel execution of f on each element of args and kwargs</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="smpl.parallel.res">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">res</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">res</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return parallel executed values</p>
 </dd></dl>
 
+<span class="target" id="module-smpl.doc"></span><dl class="py function">
+<dt id="smpl.doc.add_doc">
+<code class="sig-prename descclassname">smpl.doc.</code><code class="sig-name descname">add_doc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">original</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/doc/doc.html#add_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.doc.add_doc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append doc string of <code class="docutils literal notranslate"><span class="pre">original</span></code> to <code class="docutils literal notranslate"><span class="pre">target</span></code> object.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="sd">    Ho</span>
+<span class="gp">... </span><span class="sd">    &#39;&#39;&#39;</span> 
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="gp">... </span><span class="nd">@add_doc</span><span class="p">(</span><span class="n">ho</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">hi</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="sd">    Hi</span>
+<span class="gp">... </span><span class="sd">    &#39;&#39;&#39;</span> 
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">hi</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">hi</span><span class="p">()</span>
+<span class="go">HiHo</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>libdoc</p>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
