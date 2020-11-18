@@ -150,9 +150,16 @@ def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None
 
     Examples
     ======== 
-    >>> from smpl import functions as f
-    >>> unv(fit([0,1,2,3],[0,1,2,3],f.Line)).round()[0]
-    1.0
+
+    .. plot::
+        :include-source:
+
+        >>> from smpl import functions as f
+        >>> from smpl import plot
+        >>> param = plot.fit([0,1,2],[0,1,2],f.line)
+        >>> plot.unv(param).round()[0]
+        1.0
+
     """
     kwargs = default_kwargs(kwargs)
     fit = None
@@ -211,6 +218,7 @@ def function(func,start,end,**kwargs):
         highest ``x``
 
     """
+    kwargs = default_kwargs(kwargs)
     xfit = np.linspace(start,end,kwargs['steps'])
     if kwargs['init']:
         fig = init_plot(**kwargs)

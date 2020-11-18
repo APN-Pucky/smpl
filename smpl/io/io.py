@@ -6,25 +6,29 @@ from smpl import debug
 import os
 import sys
 
-# %% Ouput
-def gf(i):
-    return "{0:." + str(i) + "g}"
-def out_si(fn,s,u="",fmt="{}"):
-    mkdirs(fn)
-    file = open(fn,"w")
-    file.write(si(s,u,fmt))
-    print(fn,": ", fmt.format(s), u)
-    file.close()
-
 def pwd():
     """
         Returns the path to the path of current file
     """
     pwd_="/".join(debug.get_line_number_file(split=False,_back=1)[1].split("/")[:-1])
     return pwd_
+
 def import_path(path='../..'):
+    """
+        Adds ``path`` to the ``sys.path``
+    """
     sys.path.insert(0, os.path.abspath(path))
 
+
+def gf(i):
+    return "{0:." + str(i) + "g}"
+
+def out_si(fn,s,u="",fmt="{}"):
+    mkdirs(fn)
+    file = open(fn,"w")
+    file.write(si(s,u,fmt))
+    print(fn,": ", fmt.format(s), u)
+    file.close()
 def out(fn,s):
     mkdirs(fn)
     file = open(fn,"w")
@@ -77,10 +81,13 @@ def smart_out(fn,x):
     else:
         out_si(fn,x)
     '''
+
 def frange(x, y, jump):
   while x < y:
     yield x
     x += jump
+
+
 def pn(a,nnl=False):
     gl = globals()
     for key in gl:
