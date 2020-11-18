@@ -227,17 +227,13 @@ datay (array): Y data</p>
 <dd><p>Append doc string of <code class="docutils literal notranslate"><span class="pre">original</span></code> to <code class="docutils literal notranslate"><span class="pre">target</span></code> object.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;</span>
-<span class="gp">... </span><span class="sd">    Ho</span>
-<span class="gp">... </span><span class="sd">    &#39;&#39;&#39;</span> 
+<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="gp">... </span><span class="nd">@add_doc</span><span class="p">(</span><span class="n">ho</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@add_doc</span><span class="p">(</span><span class="n">ho</span><span class="p">)</span>
 <span class="gp">... </span><span class="k">def</span> <span class="nf">hi</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;</span>
-<span class="gp">... </span><span class="sd">    Hi</span>
-<span class="gp">... </span><span class="sd">    &#39;&#39;&#39;</span> 
+<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Hi&#39;&#39;&#39;</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">hi</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="gp">... </span><span class="n">hi</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hi</span><span class="p">()</span>
 <span class="go">HiHo</span>
 </pre></div>
 </div>

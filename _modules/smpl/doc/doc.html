@@ -37,21 +37,22 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Append doc string of ``original`` to ``target`` object.</span>
 
+<span class="sd">    Paramerters</span>
+<span class="sd">    ===========</span>
+<span class="sd">    original : ``class`` or ``function``</span>
+<span class="sd">        ``orignal.__doc__`` is appended to the ``__doc__`` of the ``target``</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    ========</span>
 
 <span class="sd">    &gt;&gt;&gt; def ho():</span>
-<span class="sd">    ...     &#39;&#39;&#39;</span>
-<span class="sd">    ...     Ho</span>
-<span class="sd">    ...     &#39;&#39;&#39; </span>
+<span class="sd">    ...     &#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
 <span class="sd">    ...     print(ho.__doc__)</span>
-<span class="sd">    ... @add_doc(ho)</span>
+<span class="sd">    &gt;&gt;&gt; @add_doc(ho)</span>
 <span class="sd">    ... def hi():</span>
-<span class="sd">    ...     &#39;&#39;&#39;</span>
-<span class="sd">    ...     Hi</span>
-<span class="sd">    ...     &#39;&#39;&#39; </span>
+<span class="sd">    ...     &#39;&#39;&#39;Hi&#39;&#39;&#39;</span>
 <span class="sd">    ...     print(hi.__doc__)</span>
-<span class="sd">    ... hi()</span>
+<span class="sd">    &gt;&gt;&gt; hi()</span>
 <span class="sd">    HiHo</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
