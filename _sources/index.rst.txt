@@ -21,6 +21,12 @@ Welcome to smpl's documentation!
 .. automodule:: smpl.plot
    :members:
 
+:mod:`smpl.io` module
+-----------------------
+.. automodule:: smpl.io
+   :members:
+
+
 :mod:`smpl.parallel` module
 ---------------------------
 

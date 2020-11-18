@@ -185,9 +185,16 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    ======== </span>
-<span class="sd">    &gt;&gt;&gt; from smpl import functions as f</span>
-<span class="sd">    &gt;&gt;&gt; unv(fit([0,1,2,3],[0,1,2,3],f.Line)).round()[0]</span>
-<span class="sd">    1.0</span>
+
+<span class="sd">    .. plot::</span>
+<span class="sd">        :include-source:</span>
+
+<span class="sd">        &gt;&gt;&gt; from smpl import functions as f</span>
+<span class="sd">        &gt;&gt;&gt; from smpl import plot</span>
+<span class="sd">        &gt;&gt;&gt; param = plot.fit([0,1,2],[0,1,2],f.line)</span>
+<span class="sd">        &gt;&gt;&gt; plot.unv(param).round()[0]</span>
+<span class="sd">        1.0</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">default_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">fit</span> <span class="o">=</span> <span class="kc">None</span>
@@ -246,6 +253,7 @@
 <span class="sd">        highest ``x``</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">default_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;steps&#39;</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">]:</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">init_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
