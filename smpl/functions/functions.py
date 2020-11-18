@@ -36,6 +36,7 @@ def fft(y):
 def const(x,m):
     '''m'''
     return (np.ones(np.shape(x))*m)
+
 def linear(x,m): # lineare Funktion mit f(x) = m * x
     '''mx'''
     return(m*x)

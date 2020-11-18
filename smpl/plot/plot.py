@@ -140,11 +140,19 @@ def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',un
 def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None,show=False):
     """Plot datay against datax via :func:`fit`
 
-    Args:
-        datax (array): X data
-        datay (array): Y data
+    Parameters
+    ==========
+    datax : array_like
+        X data either as ``unp.uarray`` or ``np.array`` or ``list``
+    datay : array_like
+        Y data either as ``unp.uarray`` or ``np.array`` or ``list``
+    function : func,optional
+        Fit function with parameters: ``x``, ``params``
 
-    :return: Fit of `func` function
+    Returns
+    =======
+    array_like
+        Optimized fit parameters of ``function`` to ``datax`` and ``datay``
     """
     if label==None and lpos==0:
         lpos = -1
@@ -154,7 +162,21 @@ def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt=
 
 def function(func,start,end,steps=1000,label=""):
     """
-    Plot a function
+    Plot function ``func`` between ``start`` and ``end``
+
+    Parameters
+    ==========
+    func : function
+        Function to be plotted between ``start`` and ``end``, only taking `array_like` ``x`` as parameter
+    start : float
+        lowest ``x``
+    end : float
+        highest ``x``
+    steps : int
+        resolution of the plotted function
+    label : str
+        Legend name of the function
+
     """
     xfit = np.linspace(start,end,steps)
     if label != "":
