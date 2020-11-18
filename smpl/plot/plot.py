@@ -47,7 +47,7 @@ unv=unp.nominal_values
 usd=unp.std_devs
 
 
-def kwargslist() :
+def default_kwargs(kwargs) :
     """
     Other Parameters
     ================
@@ -95,11 +95,43 @@ def kwargslist() :
         Differences between fit and data will have errorbars
     show : bool
         Call plt.show()
-    """
-    return {} 
+    steps : int
+        resolution of the plotted function
 
-@add_doc(kwargslist)
-def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None, fit_color =None,residue=False,residue_err=True,show=False):
+    """
+    default = {'params':None,
+            'xaxis':"",
+            'yaxis':"",
+            'label':None,
+            'fmt':'.',
+            'units':None,
+            'save':None,
+            'lpos':0,
+            'frange':None,
+            'prange':None,
+            'sigmas':0,
+            'init':True,
+            'ss':True,
+            'also_data':True,
+            'also_fit':True,
+            'logy':False,
+            'logx':False,
+            'data_color':None, 
+            'fit_color' :None,
+            'residue':False,
+            'residue_err':True,
+            'show':False,
+            'size':None
+            }
+    for k,v in default.items():
+        if not k in kwargs:
+            kwargs[k] = v
+    return kwargs
+
+  
+
+@add_doc(default_kwargs)
+def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None, fit_color =None,residue=False,residue_err=True,show=False):
     """Fit and plot function to datax and datay.
 
     Parameters
@@ -122,22 +154,26 @@ def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',un
     >>> unv(fit([0,1,2,3],[0,1,2,3],f.Line)).round()[0]
     1.0
     """
+    kwargs = default_kwargs(kwargs)
     fit = None
     fig = None
-    if init:
-        fig = init_plot(residue=residue)
-    if also_data:
-        plt_data(datax,datay,xaxis,yaxis,label,fmt,data_color=data_color)
-    if also_fit:
-        fit,fit_color = plt_fit(datax,datay,function,params,units,frange=frange,prange=prange,sigmas=sigmas,residue=residue,fig =fig,fit_color=fit_color)
-    if ss:
-        save_plot(save,lpos,logy,logx,show=show and not residue)
-    if residue and fig is not None:
-        plt_residue(datax,datay,function,fit,fig,xaxis,yaxis,fit_color,save,residue_err,show=show)
+    if kwargs['init']:
+        fig = init_plot(**kwargs)
+    if kwargs['also_data']:
+        plt_data(datax,datay,**kwargs)
+    if kwargs['also_fit']:
+        fit,kwargs['fit_color'] = plt_fit(datax,datay,function,**kwargs)#params,units,frange=frange,prange=prange,sigmas=sigmas,residue=residue,fig =fig,fit_color=fit_color)
+    if kwargs['ss']:
+        kwargs['oldshow'] = kwargs['show']
+        kwargs['show'] = kwargs['show'] and not kwargs['residue']
+        save_plot(**kwargs)
+        kwargs['show'] = kwargs['oldshow']
+    if kwargs['residue'] and fig is not None:
+        plt_residue(datax,datay,function,fit,fig,**kwargs)#xaxis,yaxis,fit_color,save,residue_err,show=show)
     return fit
 
-@add_doc(kwargslist)
-def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None,show=False):
+@add_doc(default_kwargs)
+def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None,show=False):
     """Plot datay against datax via :func:`fit`
 
     Parameters
@@ -154,13 +190,14 @@ def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt=
     array_like
         Optimized fit parameters of ``function`` to ``datax`` and ``datay``
     """
+    kwargs = default_kwargs(kwargs)
     if label==None and lpos==0:
         lpos = -1
 
     return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
 
-
-def function(func,start,end,steps=1000,label=""):
+@add_doc(default_kwargs)
+def function(func,start,end,**kwargs):
     """
     Plot function ``func`` between ``start`` and ``end``
 
@@ -172,25 +209,30 @@ def function(func,start,end,steps=1000,label=""):
         lowest ``x``
     end : float
         highest ``x``
-    steps : int
-        resolution of the plotted function
-    label : str
-        Legend name of the function
 
     """
-    xfit = np.linspace(start,end,steps)
-    if label != "":
-        plt.plot(xfit,func(xfit),label=label)
+    xfit = np.linspace(start,end,kwargs['steps'])
+    if kwargs['init']:
+        fig = init_plot(**kwargs)
+    if kwargs['label'] != "":
+        plt.plot(xfit,func(xfit),label=kwargs['label'])
     else:
         plt.plot(xfit,func(xfit))
+    if kwargs['ss']:
+        save_plot(**kwargs)
 
-def plt_residue(datax,datay,function,fit,fig,xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
+
+def plt_residue(datax,datay,function,fit,fig,**kwargs):#xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
     frame2=fig.add_axes((.1,.1,.8,.2))  
-    if residue_err:
-        plt_data(datax,datay-function(datax,*fit),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color)
+    kwargs['yaxis'] = "$\Delta$" + kwargs['yaxis']
+    kwargs['data_color'] = kwargs['fit_color']
+
+    if kwargs['residue_err']:
+        plt_data(datax,datay-function(datax,*fit),**kwargs)
     else:
-        plt_data(unv(datax),unv(datay-function(datax,*fit)),xaxis=xaxis,yaxis = "$\Delta$" + yaxis, data_color=fit_color)
-    save_plot(save,-1,show=show)
+        plt_data(unv(datax),unv(datay-function(datax,*fit)),**kwargs)
+    kwargs['lpos'] = -1
+    save_plot(**kwargs)
 
 
 
@@ -251,83 +293,83 @@ def _fit(datax,datay,function,params=None,frange=None):
         fit = fit_curvefit(x,y,tmp,params=params,yerr=yerr)
     return fit
 
-def plt_data(datax,datay,xaxis="",yaxis="",label=None,fmt=None,data_color=None):
+@add_doc(default_kwargs)
+def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_color=None):
     """
         Plot datay vs datax
-        ...
-        TODO more info
     """
     x,y,xerr,yerr = data_split(datax,datay)
-    if xaxis != "":
-        plt.xlabel(xaxis)
-    if yaxis != "":
-        plt.ylabel(yaxis)
+    if kwargs['xaxis'] != "":
+        plt.xlabel(kwargs['xaxis'])
+    if kwargs['xaxis'] != "":
+        plt.ylabel(kwargs['yaxis'])
     if  xerr is None and yerr is None :
-        if fmt is None:
-            plt.plot(x,y, label=label,color =data_color)
+        if kwargs['fmt'] is None:
+            plt.plot(x,y, label=kwargs['label'],color=kwargs['data_color'])
         else:
-            plt.plot(x,y, fmt, label=label,color =data_color)
+            plt.plot(x,y, kwargs['fmt'], label=kwargs['label'],color=kwargs['data_color'])
     else:
-        plt.errorbar(x,y,yerr=yerr,xerr=xerr,fmt=" ",capsize=5,label=label,color =data_color)
+        plt.errorbar(x,y,yerr=yerr,xerr=xerr,fmt=" ",capsize=5,label=kwargs['label'],color=kwargs['data_color'])
  
-def plt_fit(datax,datay,function,p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
+@add_doc(default_kwargs)
+def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
     """
-        
+       Plot Fit 
     """
-    x,y,xerr,yerr =data_split(datax,datay,frange)
-    fit = _fit(datax,datay,function,p0,frange)
-    if prange is None:
+    x,y,xerr,yerr =data_split(datax,datay,kwargs['frange'])
+    fit = _fit(datax,datay,function,kwargs['params'],kwargs['frange'])
+    if kwargs['prange'] is None:
         xfit = np.linspace(unv(x[0]),unv(x[-1]),1000)
     else:
-        xfit = np.linspace(prange[0],prange[1],1000)
+        xfit = np.linspace(kwargs['prange'][0],kwargs['prange'][1],1000)
     l = function.__name__
     if function.__doc__ is not None:
         l = l + ": f(x)=" + function.__doc__
     for i in range(1,len(function.__code__.co_varnames)):
         l = l + "\n"
         l = l + "" + str(function.__code__.co_varnames[i]) + "="
-        if units is not None:
+        if kwargs['units'] is not None:
             l = l + "("
         l = l +"%s"%(fit[i-1])
-        if units is not None:
-            l = l + ") " + units[i-1]
+        if kwargs['units'] is not None:
+            l = l + ") " + kwargs['units'][i-1]
     ll = None
-    if sigmas>0:
-        ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",color =fit_color)
+    if kwargs['sigmas']>0:
+        ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",color =kwargs['fit_color'])
         yfit = function(xfit,*fit)
-        plt.fill_between(xfit, unv(yfit)-sigmas*usd(yfit),unv(yfit)+sigmas*usd(yfit),alpha=0.4,label=l,color = ll.get_color())    
+        plt.fill_between(xfit, unv(yfit)-kwargs['sigmas']*usd(yfit),unv(yfit)+kwargs['sigmas']*usd(yfit),alpha=0.4,label=l,color = ll.get_color())    
     else:
-        ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l,color =fit_color)
-        if frange is not None:
+        ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l,color =kwargs['fit_color'])
+        if kwargs['frange'] is not None:
             xfit = np.linspace(unv(datax[0]),unv(datax[-1]))
             plt.plot(xfit,unv(function(xfit,*fit)),"--",color=ll.get_color())
     return fit,ll.get_color()
 
-def init_plot(size=None,residue=False): #init
+def init_plot(**kwargs):#size=None,residue=False): #init
     #fig = plt.figure(figsize=fig_size)
-    if size==None:
+    if kwargs['size']==None:
         fig = plt.figure()
     else:
-        fig = plt.figure(figsize=size)
-    if residue:
+        fig = plt.figure(figsize=kwargs['size'])
+    if kwargs['residue']:
         frame1=fig.add_axes((.1,.3,.8,.6))
     return fig
-def save_plot(save=None,lpos=0,logy=False,logx=False,show=True): #save
+def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #save
     """
         save plot
     """
-    if logy:
+    if kwargs['logy']:
         plt.gca().set_yscale('log')
-    if logx:
+    if kwargs['logx']:
         plt.gca().set_xscale('log')
     plt.tight_layout()
-    if lpos>=0:
-        plt.legend(loc=lpos)
+    if kwargs['lpos']>=0:
+        plt.legend(loc=kwargs['lpos'])
     plt.grid()
-    if not save==None:
-        mkdirs(save)
-        plt.savefig(save +".pdf")
-    if show:
+    if not kwargs['save']==None:
+        mkdirs(kwargs['save'])
+        plt.savefig(kwargs['save'] +".pdf")
+    if kwargs['show']:
         plt.show()
     #plt.show()
 # usage zB:
