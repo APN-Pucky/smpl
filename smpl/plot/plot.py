@@ -25,6 +25,7 @@ import inspect
 # local imports
 from smpl import functions
 from smpl import io
+from smpl.doc import  add_doc
 #TODO create folders for file saves
 
 fig_size = (8, 6)
@@ -45,21 +46,82 @@ colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
 unv=unp.nominal_values
 usd=unp.std_devs
 
-def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None,show=False):
-    """
-    Plot datay vs datax
-    """
-    if label==None and lpos==0:
-        lpos = -1
 
-    return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
+def kwargslist() :
+    """
+    Other Parameters
+    ================
+    params : array_like
+        Initial fit parameters
+    xaxis : str
+        X axis label
+    yaxis : str
+        Y axis label
+    label : str
+        Legend name of plotted ``data``
+    fmt : str
+        Format for plotting fit function
+    units : array
+        Units of the fit parameters as strings. Displayed in the Legend
+    save : str
+        File to save the plot
+    lpos: int
+        Legend position
+    frange : array
+        Limit the fit to given range
+    prange : array
+        Limit the plot of the fit to given range
+    sigmas : int
+        Color the array of given ``sigma`` times uncertainty
+    init : bool
+        Initialize a new plot
+    ss : bool
+        save, add legends and grid to the plot
+    also_data: bool
+        also plot the data
+    also_fit : bool
+        also plot the fit
+    logy : bool
+        logarithmic y axis
+    logx : bool
+        logarithmic x axis
+    data_color : str
+        Color of the data plot
+    fit_color : str
+        Color of the fit plot
+    residue : bool
+        Display difference between fit and data in a second plot 
+    residue_err : bool
+        Differences between fit and data will have errorbars
+    show : bool
+        Call plt.show()
+    """
+    return {} 
 
+@add_doc(kwargslist)
 def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None, fit_color =None,residue=False,residue_err=True,show=False):
+    """Fit and plot function to datax and datay.
+
+    Parameters
+    ==========
+    datax : array_like
+        X data either as ``unp.uarray`` or ``np.array`` or ``list``
+    datay : array_like
+        Y data either as ``unp.uarray`` or ``np.array`` or ``list``
+    function : func
+        Fit function with parameters: ``x``, ``params``
+    
+    Returns
+    =======
+    array_like
+        Optimized fit parameters of ``function`` to ``datax`` and ``datay``
+
+    Examples
+    ======== 
+    >>> from smpl import functions as f
+    >>> unv(fit([0,1,2,3],[0,1,2,3],f.Line)).round()[0]
+    1.0
     """
-        Fit and plot function to datax and datay.
-        ...
-    """
-    #x,y,xerr,yerr = data_split(datax,datay)
     fit = None
     fig = None
     if init:
@@ -73,6 +135,22 @@ def fit(datax,datay,function,params=None,xaxis="",yaxis="",label=None,fmt='.',un
     if residue and fig is not None:
         plt_residue(datax,datay,function,fit,fig,xaxis,yaxis,fit_color,save,residue_err,show=show)
     return fit
+
+@add_doc(kwargslist)
+def data(datax,datay,function=None,params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None,show=False):
+    """Plot datay against datax via :func:`fit`
+
+    Args:
+        datax (array): X data
+        datay (array): Y data
+
+    :return: Fit of `func` function
+    """
+    if label==None and lpos==0:
+        lpos = -1
+
+    return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
+
 
 def function(func,start,end,steps=1000,label=""):
     """
@@ -235,3 +313,6 @@ def save_plot(save=None,lpos=0,logy=False,logx=False,show=True): #save
 # fuer eine gerade mit anfangswerten m = 1, b = 0
 
 
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

@@ -18,6 +18,10 @@ Welcome to smpl's documentation!
    :members:
 .. automodule:: smpl.parallel
    :members:
+.. automodule:: smpl.doc
+   :members:
+
+libdoc
 
 
 Indices and tables
