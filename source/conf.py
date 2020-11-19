@@ -35,7 +35,7 @@ extensions = [ 'sphinx.ext.autodoc', 'nbsphinx', 'sphinx.ext.githubpages',
     'sphinx.ext.viewcode', 'sphinx.ext.mathjax', 'sphinx.ext.todo', 'sphinx.ext.doctest',
     'matplotlib.sphinxext.plot_directive', 'numpydoc', 'sphinx_math_dollar'
 ]
-#nbsphinx_execute = 'always'
+nbsphinx_execute = 'always'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

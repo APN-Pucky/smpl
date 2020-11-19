@@ -1,2 +1,2 @@
 from .doc import *
-__all__ = ['append']
+__all__ = ['append','insert', 'insert_eq']

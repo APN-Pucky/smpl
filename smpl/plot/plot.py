@@ -197,11 +197,13 @@ def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",labe
     array_like
         Optimized fit parameters of ``function`` to ``datax`` and ``datay``
     """
+    if not 'also_fit' in kwargs:
+        kwargs['also_fit'] = False
     kwargs = default_kwargs(kwargs)
-    if label==None and lpos==0:
-        lpos = -1
-
-    return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
+    if kwargs['label']==None and kwargs['lpos']==0:
+        kwargs['lpos'] = -1
+    #return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
+    return fit(datax,datay,function,**kwargs)
 
 @append(default_kwargs)
 def function(func,start,end,**kwargs):

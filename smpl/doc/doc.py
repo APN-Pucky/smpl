@@ -40,6 +40,7 @@ def insert(original):
 
 def insert_eq():
     """
+    Inserts the function and its parameters and a equal sign
     """
     def wrapper(target):
         if target.__doc__ is None:
@@ -53,6 +54,21 @@ def insert_eq():
         return target
     return wrapper
 
+def insert_latex():
+    """
+    TODO 
+    """
+    def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = ""
+        safe = target.__doc__
+        target.__doc__ = target.__name__  + "("
+        for v in target.__code__.co_varnames:
+            target.__doc__ += v + ","
+        target.__doc__ = target.__doc__[:-1]
+        target.__doc__ += ") = " + safe
+        return target
+    return wrapper
 
 
 
