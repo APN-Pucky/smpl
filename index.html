@@ -14,6 +14,8 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/language_data.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Examples" href="example/index.html" />
@@ -52,6 +54,159 @@
 </div>
 <div class="section" id="module-smpl">
 <span id="smpl-library"></span><h1><a class="reference internal" href="#module-smpl" title="smpl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl</span></code></a> library<a class="headerlink" href="#module-smpl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-smpl.debug">
+<span id="smpl-debug-module"></span><h2><a class="reference internal" href="#module-smpl.debug" title="smpl.debug"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a> module<a class="headerlink" href="#module-smpl.debug" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-smpl.doc">
+<span id="smpl-doc-module"></span><h2><a class="reference internal" href="#module-smpl.doc" title="smpl.doc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a> module<a class="headerlink" href="#module-smpl.doc" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="smpl.doc.append">
+<code class="sig-prename descclassname">smpl.doc.</code><code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">original</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/doc/doc.html#append"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.doc.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append doc string of <code class="docutils literal notranslate"><span class="pre">original</span></code> to <code class="docutils literal notranslate"><span class="pre">target</span></code> object.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@append</span><span class="p">(</span><span class="n">ho</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">hi</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Hi&#39;&#39;&#39;</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">hi</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hi</span><span class="p">()</span>
+<span class="go">HiHo</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-smpl.functions">
+<span id="smpl-functions-module"></span><h2><a class="reference internal" href="#module-smpl.functions" title="smpl.functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a> module<a class="headerlink" href="#module-smpl.functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="smpl.functions.const">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">const</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.const" title="Permalink to this definition">¶</a></dt>
+<dd><p>const(x,m) = m</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.cos_abs">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">cos_abs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">phi</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#cos_abs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.cos_abs" title="Permalink to this definition">¶</a></dt>
+<dd><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a|\cos(2πf(x-\phi))|\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.exponential">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">exponential</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">c</span></em>, <em class="sig-param"><span class="n">y_0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#exponential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.exponential" title="Permalink to this definition">¶</a></dt>
+<dd><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(\exp(cx)y_0\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.fft">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">fft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#fft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.fft" title="Permalink to this definition">¶</a></dt>
+<dd><p>fft(y,N,fft) = 
+<span class="math notranslate nohighlight">\(F(y)\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.gauss">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">gauss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#gauss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.gauss" title="Permalink to this definition">¶</a></dt>
+<dd><p>gauss(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(A\cdot \exp\left(\frac{-(x-x_0)^2}{2d^2}\right)+y\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.line">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.line" title="Permalink to this definition">¶</a></dt>
+<dd><p>line(x,a,b) = ax+b</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.linear">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">linear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#linear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>linear(x,m) = mx</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.lorentz">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">lorentz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#lorentz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.lorentz" title="Permalink to this definition">¶</a></dt>
+<dd><p>lorentz(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(\frac{A}{\pi d (1+ (\frac{x-x_0}{d})^2)} + y\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.quadratic">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">quadratic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#quadratic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.quadratic" title="Permalink to this definition">¶</a></dt>
+<dd><p>quadratic(x,x_0,A,y) = <span class="math notranslate nohighlight">\(A(x-x_0)^2+y\)</span></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-smpl.io">
+<span id="smpl-io-module"></span><h2><a class="reference internal" href="#module-smpl.io" title="smpl.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a> module<a class="headerlink" href="#module-smpl.io" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="smpl.io.pwd">
+<code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">pwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/io/io.html#pwd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.pwd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the path to the path of current file</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-smpl.parallel">
+<span id="smpl-parallel-module"></span><h2><a class="reference internal" href="#module-smpl.parallel" title="smpl.parallel"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a> module<a class="headerlink" href="#module-smpl.parallel" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="smpl.parallel.calc">
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="n">calc</span><span class="p">(</span><span class="n">twice</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="go">0</span>
+<span class="go">2</span>
+<span class="go">4</span>
+<span class="go">6</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="p">([</span><span class="n">calc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+<span class="go">[0, 1, 8, 27, 64]</span>
+</pre></div>
+</div>
+<p>Return parallel executed values</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.parallel.gen">
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">gen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates parallel execution list generator</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.parallel.par">
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parallel execution of f on each element of args and kwargs</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">par</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">[0, 1, 4, 9, 16]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.parallel.res">
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">res</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="n">calc</span><span class="p">(</span><span class="n">twice</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="go">0</span>
+<span class="go">2</span>
+<span class="go">4</span>
+<span class="go">6</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="p">([</span><span class="n">calc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+<span class="go">[0, 1, 8, 27, 64]</span>
+</pre></div>
+</div>
+<p>Return parallel executed values</p>
+</dd></dl>
+
+</div>
 <div class="section" id="module-smpl.plot">
 <span id="smpl-plot-module"></span><h2><a class="reference internal" href="#module-smpl.plot" title="smpl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a> module<a class="headerlink" href="#module-smpl.plot" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -280,63 +435,6 @@
 </dl>
 </dd>
 </dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-smpl.io">
-<span id="smpl-io-module"></span><h2><a class="reference internal" href="#module-smpl.io" title="smpl.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a> module<a class="headerlink" href="#module-smpl.io" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.io.pwd">
-<code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">pwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/io/io.html#pwd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.pwd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the path to the path of current file</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-smpl.parallel">
-<span id="smpl-parallel-module"></span><h2><a class="reference internal" href="#module-smpl.parallel" title="smpl.parallel"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a> module<a class="headerlink" href="#module-smpl.parallel" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.parallel.calc">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.parallel.gen">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">gen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates parallel execution list generator</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.parallel.par">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parallel execution of f on each element of args and kwargs</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.parallel.res">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">res</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return parallel executed values</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-smpl.doc">
-<span id="smpl-doc-module"></span><h2><a class="reference internal" href="#module-smpl.doc" title="smpl.doc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a> module<a class="headerlink" href="#module-smpl.doc" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.doc.add_doc">
-<code class="sig-prename descclassname">smpl.doc.</code><code class="sig-name descname">add_doc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">original</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/doc/doc.html#add_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.doc.add_doc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append doc string of <code class="docutils literal notranslate"><span class="pre">original</span></code> to <code class="docutils literal notranslate"><span class="pre">target</span></code> object.</p>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@add_doc</span><span class="p">(</span><span class="n">ho</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">def</span> <span class="nf">hi</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Hi&#39;&#39;&#39;</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">hi</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hi</span><span class="p">()</span>
-<span class="go">HiHo</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </div>
