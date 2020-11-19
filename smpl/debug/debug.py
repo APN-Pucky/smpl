@@ -157,12 +157,12 @@ def table(key,value,level=0,times=-1,seperator=";",_print=False,_back=0,filename
 # only once
 def msg1(_msg,tag="",level=0,times=1,line_=False,_back=0,**kwargs):
     """
-    Just like :func:``msg`` but ``times`` set to 1.
+    Just like :func:`msg` but ``times`` set to 1.
     """
     return msg(_msg,level=level,tag=tag,times=times,line_=line,_back=_back+1,**kwargs)
 def file1(_key,_value,level=0,times=1,_back=0,**kwargs):
     """
-    Just like :func:``file`` but ``times`` set to 1.
+    Just like :func:`file` but ``times`` set to 1.
     """
     return file(_key,_value,level=level,times=1,_back=_back+1,**kwargs)
 
