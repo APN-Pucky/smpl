@@ -75,8 +75,25 @@
         <span class="k">return</span> <span class="n">target</span>
     <span class="k">return</span> <span class="n">wrapper</span>
 
-<span class="k">def</span> <span class="nf">insert_eq</span><span class="p">():</span>
+<div class="viewcode-block" id="insert_eq"><a class="viewcode-back" href="../../../index.html#smpl.doc.insert_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_eq</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inserts the function and its parameters and a equal sign</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">safe</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span>
+        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="vm">__name__</span>  <span class="o">+</span> <span class="s2">&quot;(&quot;</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">:</span>
+            <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span>
+        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="s2">&quot;) = &quot;</span> <span class="o">+</span> <span class="n">safe</span>
+        <span class="k">return</span> <span class="n">target</span>
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+<span class="k">def</span> <span class="nf">insert_latex</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    TODO </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -89,7 +106,6 @@
         <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="s2">&quot;) = &quot;</span> <span class="o">+</span> <span class="n">safe</span>
         <span class="k">return</span> <span class="n">target</span>
     <span class="k">return</span> <span class="n">wrapper</span>
-
 
 
 
