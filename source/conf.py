@@ -33,7 +33,7 @@ author = 'APN-Pucky'
 # ones.
 extensions = [ 'sphinx.ext.autodoc', 'nbsphinx', 'sphinx.ext.githubpages',
     'sphinx.ext.viewcode', 'sphinx.ext.mathjax', 'sphinx.ext.todo', 'sphinx.ext.doctest',
-    'matplotlib.sphinxext.plot_directive', 'numpydoc'
+    'matplotlib.sphinxext.plot_directive', 'numpydoc', 'sphinx_math_dollar'
 ]
 #nbsphinx_execute = 'always'
 

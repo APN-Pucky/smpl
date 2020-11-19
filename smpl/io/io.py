@@ -1,7 +1,7 @@
 import pathlib
 import glob
 from pathlib import Path
-from io import StringIO
+#from io import StringIO
 from smpl import debug
 import os
 import sys

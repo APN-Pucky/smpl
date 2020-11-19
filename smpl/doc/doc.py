@@ -1,4 +1,7 @@
-def add_doc(original):
+params = 0
+name = 1
+
+def append(original):
     """
     Append doc string of ``original`` to ``target`` object.
 
@@ -13,7 +16,7 @@ def add_doc(original):
     >>> def ho():
     ...     '''Ho'''
     ...     print(ho.__doc__)
-    >>> @add_doc(ho)
+    >>> @append(ho)
     ... def hi():
     ...     '''Hi'''
     ...     print(hi.__doc__)
@@ -21,9 +24,35 @@ def add_doc(original):
     HiHo
     """
     def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = ""
         target.__doc__ += original.__doc__
         return target
     return wrapper
+
+def insert(original):
+    def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = ""
+        target.__doc__ = original.__doc__ + target.__doc__
+        return target
+    return wrapper
+
+def insert_eq():
+    """
+    """
+    def wrapper(target):
+        if target.__doc__ is None:
+            target.__doc__ = ""
+        safe = target.__doc__
+        target.__doc__ = target.__name__  + "("
+        for v in target.__code__.co_varnames:
+            target.__doc__ += v + ","
+        target.__doc__ = target.__doc__[:-1]
+        target.__doc__ += ") = " + safe
+        return target
+    return wrapper
+
 
 
 

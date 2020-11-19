@@ -15,11 +15,25 @@ Welcome to smpl's documentation!
 :mod:`smpl` library
 ===================
 .. automodule:: smpl
-
-:mod:`smpl.plot` module
------------------------
-.. automodule:: smpl.plot
+  
+:mod:`smpl.debug` module
+------------------------
+  
+.. automodule:: smpl.debug
    :members:
+
+
+:mod:`smpl.doc` module
+----------------------
+  
+.. automodule:: smpl.doc
+   :members:
+
+:mod:`smpl.functions` module
+----------------------------
+.. automodule:: smpl.functions
+   :members:
+
 
 :mod:`smpl.io` module
 -----------------------
@@ -32,14 +46,13 @@ Welcome to smpl's documentation!
 
 .. automodule:: smpl.parallel
    :members:
- 
-:mod:`smpl.doc` module
-----------------------
-  
-.. automodule:: smpl.doc
+
+
+
+:mod:`smpl.plot` module
+-----------------------
+.. automodule:: smpl.plot
    :members:
-
-
 
 Indices and tables
 ==================

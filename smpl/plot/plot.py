@@ -25,7 +25,7 @@ import inspect
 # local imports
 from smpl import functions
 from smpl import io
-from smpl.doc import  add_doc
+from smpl.doc import  append
 #TODO create folders for file saves
 
 fig_size = (8, 6)
@@ -130,7 +130,7 @@ def default_kwargs(kwargs) :
 
   
 
-@add_doc(default_kwargs)
+@append(default_kwargs)
 def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None, fit_color =None,residue=False,residue_err=True,show=False):
     """Fit and plot function to datax and datay.
 
@@ -179,7 +179,7 @@ def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None
         plt_residue(datax,datay,function,fit,fig,**kwargs)#xaxis,yaxis,fit_color,save,residue_err,show=show)
     return fit
 
-@add_doc(default_kwargs)
+@append(default_kwargs)
 def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None,show=False):
     """Plot datay against datax via :func:`fit`
 
@@ -203,7 +203,7 @@ def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",labe
 
     return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
 
-@add_doc(default_kwargs)
+@append(default_kwargs)
 def function(func,start,end,**kwargs):
     """
     Plot function ``func`` between ``start`` and ``end``
@@ -301,7 +301,7 @@ def _fit(datax,datay,function,params=None,frange=None):
         fit = fit_curvefit(x,y,tmp,params=params,yerr=yerr)
     return fit
 
-@add_doc(default_kwargs)
+@append(default_kwargs)
 def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_color=None):
     """
         Plot datay vs datax
@@ -319,7 +319,7 @@ def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_c
     else:
         plt.errorbar(x,y,yerr=yerr,xerr=xerr,fmt=" ",capsize=5,label=kwargs['label'],color=kwargs['data_color'])
  
-@add_doc(default_kwargs)
+@append(default_kwargs)
 def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
     """
        Plot Fit 
@@ -330,9 +330,9 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
         xfit = np.linspace(unv(x[0]),unv(x[-1]),1000)
     else:
         xfit = np.linspace(kwargs['prange'][0],kwargs['prange'][1],1000)
-    l = function.__name__
+    #l = function.__name__
     if function.__doc__ is not None:
-        l = l + ": f(x)=" + function.__doc__
+        l = function.__doc__
     for i in range(1,len(function.__code__.co_varnames)):
         l = l + "\n"
         l = l + "" + str(function.__code__.co_varnames[i]) + "="
