@@ -30,3 +30,6 @@ Simple 3d plotting
 simple animations?
 
 Overwrite option for fit function text , split show text or equation
+
+
+smpl.debug to kwargs based

@@ -26,6 +26,9 @@ def get_frame(_back=0):
         cf = cf.f_back
     return cf
 def once(_back=0):
+    """
+    Returns true only one time
+    """
     return times(1,_back+1)
 def times(t=1,_back=0):
    line,fname = get_line_number_file(_back+1) 
@@ -73,6 +76,9 @@ def check_count(line,fname,t):
 # _line enables printint src line
 # t stands for times
 def msg(msg,tag="",level=0,times=-1,line_=False,_back=0):
+    """
+    Prints the message ``msg`` if level > debug_level
+    """
     if(level<=DEBUG_LEVEL):
         line,fname = get_line_number_file(_back+1)
         src=""
@@ -85,6 +91,9 @@ def msg(msg,tag="",level=0,times=-1,line_=False,_back=0):
     return msg
 
 def file(key,value,level=0,times=-1,seperator=";",_print=True,_back=0,filename="debug.csv"):
+    """
+    Prints the message ``msg`` if level > debug_level to file ``filename``
+    """
     if(level<=DEBUG_LEVEL):
         line,fname = get_line_number_file(_back+1)
         inc_count(line,fname)
@@ -98,6 +107,9 @@ def file(key,value,level=0,times=-1,seperator=";",_print=True,_back=0,filename="
     return value 
 
 def table_flush_header(filename = "debug_table.csv",seperator=";"):
+    """
+    Saves the current keys from :func:`table` to ``filename``
+    """
     f=open(filename,"a+")
     for key in sorted(cur_table_line):
         f.write(key + seperator)
@@ -106,6 +118,9 @@ def table_flush_header(filename = "debug_table.csv",seperator=";"):
 
 
 def table_flush_line(filename = "debug_table.csv",seperator=";"):
+    """
+    Saves the current values from :func:`table` to ``filename``
+    """
     f=open(filename,"a+")
     itt = iter(cur_table_line)
     ok = False
@@ -124,6 +139,9 @@ def table_flush_line(filename = "debug_table.csv",seperator=";"):
 
 
 def table(key,value,level=0,times=-1,seperator=";",_print=False,_back=0,filename="debug_table.csv"):
+    """
+    Saves ``key``:``value`` in ``filename``.
+    """
     if(level<=DEBUG_LEVEL):
         line,fname = get_line_number_file(_back+1)
         inc_count(line,fname)
@@ -138,9 +156,15 @@ def table(key,value,level=0,times=-1,seperator=";",_print=False,_back=0,filename
 
 # only once
 def msg1(_msg,tag="",level=0,times=1,line_=False,_back=0,**kwargs):
+    """
+    Just like :func:``msg`` but ``times`` set to 1.
+    """
     return msg(_msg,level=level,tag=tag,times=times,line_=line,_back=_back+1,**kwargs)
 def file1(_key,_value,level=0,times=1,_back=0,**kwargs):
-    return file(_key,_value,level=level,times=times,_back=_back+1,**kwargs)
+    """
+    Just like :func:``file`` but ``times`` set to 1.
+    """
+    return file(_key,_value,level=level,times=1,_back=_back+1,**kwargs)
 
 # resets counts
 def reset_times():
