@@ -375,20 +375,22 @@ def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #sav
     """
         save plot
     """
-    if kwargs['logy']:
+    if 'logy' in kwargs and kwargs['logy']:
         plt.gca().set_yscale('log')
-    if kwargs['logx']:
+    if 'logx' in kwargs and kwargs['logx']:
         plt.gca().set_xscale('log')
     plt.tight_layout()
-    if kwargs['lpos']>=0:
+    if 'lpos' in kwargs and kwargs['lpos']>=0:
         plt.legend(loc=kwargs['lpos'])
     plt.grid()
-    if not kwargs['save']==None:
+    if 'save' in kwargs and not kwargs['save']==None:
         mkdirs(kwargs['save'])
         plt.savefig(kwargs['save'] +".pdf")
-    if kwargs['show']:
-        plt.show()
-    #plt.show()
+    if 'show' in kwargs and kwargs['show']:
+        show(**kwargs)
+
+def show(**kwargs):
+    plt.show()
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
