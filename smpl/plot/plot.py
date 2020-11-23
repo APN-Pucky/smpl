@@ -121,7 +121,8 @@ def default_kwargs(kwargs) :
             'residue':False,
             'residue_err':True,
             'show':False,
-            'size':None
+            'size':None,
+            'steps' : 1000
             }
     for k,v in default.items():
         if not k in kwargs:
@@ -206,7 +207,7 @@ def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",labe
     return fit(datax,datay,function,**kwargs)
 
 @append(default_kwargs)
-def function(func,start,end,**kwargs):
+def function(func,*args,**kwargs):
     """
     Plot function ``func`` between ``start`` and ``end``
 
@@ -220,14 +221,20 @@ def function(func,start,end,**kwargs):
         highest ``x``
 
     """
+    if not 'lpos' in kwargs:
+        kwargs['lpos'] =-1
     kwargs = default_kwargs(kwargs)
-    xfit = np.linspace(start,end,kwargs['steps'])
+    xfit = np.linspace(kwargs['xmin'],kwargs['xmax'],kwargs['steps'])
     if kwargs['init']:
         fig = init_plot(**kwargs)
+    if kwargs['xaxis'] != "":
+        plt.xlabel(kwargs['xaxis'])
+    if kwargs['xaxis'] != "":
+        plt.ylabel(kwargs['yaxis'])
     if kwargs['label'] != "":
-        plt.plot(xfit,func(xfit),label=kwargs['label'])
+        plt.plot(xfit,func(xfit,*args),label=kwargs['label'])
     else:
-        plt.plot(xfit,func(xfit))
+        plt.plot(xfit,func(xfit,*args))
     if kwargs['ss']:
         save_plot(**kwargs)
 
