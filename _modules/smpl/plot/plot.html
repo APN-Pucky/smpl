@@ -158,7 +158,8 @@
             <span class="s1">&#39;residue&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
             <span class="s1">&#39;residue_err&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
             <span class="s1">&#39;show&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
-            <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="kc">None</span>
+            <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;steps&#39;</span> <span class="p">:</span> <span class="mi">1000</span>
             <span class="p">}</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
@@ -243,7 +244,7 @@
     <span class="k">return</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="function"><a class="viewcode-back" href="../../../index.html#smpl.plot.function">[docs]</a><span class="nd">@append</span><span class="p">(</span><span class="n">default_kwargs</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plot function ``func`` between ``start`` and ``end``</span>
 
@@ -257,14 +258,20 @@
 <span class="sd">        highest ``x``</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="s1">&#39;lpos&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">]</span> <span class="o">=-</span><span class="mi">1</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">default_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;steps&#39;</span><span class="p">])</span>
+    <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xmin&#39;</span><span class="p">],</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xmax&#39;</span><span class="p">],</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;steps&#39;</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">]:</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">init_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xaxis&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xaxis&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xaxis&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yaxis&#39;</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">func</span><span class="p">(</span><span class="n">xfit</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">func</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">func</span><span class="p">(</span><span class="n">xfit</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="n">func</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ss&#39;</span><span class="p">]:</span>
         <span class="n">save_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
@@ -405,20 +412,22 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        save plot</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;logy&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="s1">&#39;logy&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;logy&#39;</span><span class="p">]:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;logx&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="s1">&#39;logx&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;logx&#39;</span><span class="p">]:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;lpos&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;save&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save&#39;</span><span class="p">]</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
         <span class="n">mkdirs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save&#39;</span><span class="p">])</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;save&#39;</span><span class="p">]</span> <span class="o">+</span><span class="s2">&quot;.pdf&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;show&#39;</span><span class="p">]:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="c1">#plt.show()</span>
+    <span class="k">if</span> <span class="s1">&#39;show&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;show&#39;</span><span class="p">]:</span>
+        <span class="n">show</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1"># usage zB:</span>
 <span class="c1"># pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])</span>
 <span class="c1"># fuer eine gerade mit anfangswerten m = 1, b = 0</span>
