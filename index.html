@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>smpl 0.0.38 documentation &#8212; smpl  documentation</title>
+    <title>smpl 0.0.39 documentation &#8212; smpl  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -36,7 +36,7 @@
           <div class="body" role="main">
             
   <div class="section" id="smpl-version-documentation">
-<h1>smpl 0.0.38 documentation<a class="headerlink" href="#smpl-version-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>smpl 0.0.39 documentation<a class="headerlink" href="#smpl-version-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="example/index.html">Examples</a><ul>
@@ -55,445 +55,34 @@
 </div>
 </div>
 <div class="section" id="module-smpl">
-<span id="smpl-library"></span><h1><a class="reference internal" href="#module-smpl" title="smpl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl</span></code></a> library<a class="headerlink" href="#module-smpl" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-smpl.debug">
-<span id="smpl-debug-module"></span><h2><a class="reference internal" href="#module-smpl.debug" title="smpl.debug"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a> module<a class="headerlink" href="#module-smpl.debug" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.debug.file">
-<code class="sig-prename descclassname">smpl.debug.</code><code class="sig-name descname">file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">times</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">seperator</span><span class="o">=</span><span class="default_value">';'</span></em>, <em class="sig-param"><span class="n">_print</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">_back</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'debug.csv'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/debug/debug.html#file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.debug.file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level to file <code class="docutils literal notranslate"><span class="pre">filename</span></code></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.debug.file1">
-<code class="sig-prename descclassname">smpl.debug.</code><code class="sig-name descname">file1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_key</span></em>, <em class="sig-param"><span class="n">_value</span></em>, <em class="sig-param"><span class="n">level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">times</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">_back</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/debug/debug.html#file1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.debug.file1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Just like <a class="reference internal" href="#smpl.debug.file" title="smpl.debug.file"><code class="xref py py-func docutils literal notranslate"><span class="pre">file()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.debug.msg">
-<code class="sig-prename descclassname">smpl.debug.</code><code class="sig-name descname">msg</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">times</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">line_</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">_back</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/debug/debug.html#msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.debug.msg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.debug.msg1">
-<code class="sig-prename descclassname">smpl.debug.</code><code class="sig-name descname">msg1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_msg</span></em>, <em class="sig-param"><span class="n">tag</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">times</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">line_</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">_back</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/debug/debug.html#msg1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.debug.msg1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Just like <a class="reference internal" href="#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-func docutils literal notranslate"><span class="pre">msg()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.debug.once">
-<code class="sig-prename descclassname">smpl.debug.</code><code class="sig-name descname">once</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_back</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/debug/debug.html#once"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.debug.once" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns true only one time</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.debug.table">
-<code class="sig-prename descclassname">smpl.debug.</code><code class="sig-name descname">table</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">level</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">times</span><span class="o">=</span><span class="default_value">- 1</span></em>, <em class="sig-param"><span class="n">seperator</span><span class="o">=</span><span class="default_value">';'</span></em>, <em class="sig-param"><span class="n">_print</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">_back</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'debug_table.csv'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/debug/debug.html#table"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.debug.table" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves <code class="docutils literal notranslate"><span class="pre">key</span></code>:<code class="docutils literal notranslate"><span class="pre">value</span></code> in <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.debug.table_flush_header">
-<code class="sig-prename descclassname">smpl.debug.</code><code class="sig-name descname">table_flush_header</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'debug_table.csv'</span></em>, <em class="sig-param"><span class="n">seperator</span><span class="o">=</span><span class="default_value">';'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/debug/debug.html#table_flush_header"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.debug.table_flush_header" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves the current keys from <a class="reference internal" href="#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.debug.table_flush_line">
-<code class="sig-prename descclassname">smpl.debug.</code><code class="sig-name descname">table_flush_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'debug_table.csv'</span></em>, <em class="sig-param"><span class="n">seperator</span><span class="o">=</span><span class="default_value">';'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/debug/debug.html#table_flush_line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.debug.table_flush_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves the current values from <a class="reference internal" href="#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code></p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-smpl.doc">
-<span id="smpl-doc-module"></span><h2><a class="reference internal" href="#module-smpl.doc" title="smpl.doc"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a> module<a class="headerlink" href="#module-smpl.doc" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.doc.append">
-<code class="sig-prename descclassname">smpl.doc.</code><code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">original</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/doc/doc.html#append"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.doc.append" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append doc string of <code class="docutils literal notranslate"><span class="pre">original</span></code> to <code class="docutils literal notranslate"><span class="pre">target</span></code> object.</p>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nd">@append</span><span class="p">(</span><span class="n">ho</span><span class="p">)</span>
-<span class="gp">... </span><span class="k">def</span> <span class="nf">hi</span><span class="p">():</span>
-<span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Hi&#39;&#39;&#39;</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">hi</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hi</span><span class="p">()</span>
-<span class="go">HiHo</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.doc.insert_eq">
-<code class="sig-prename descclassname">smpl.doc.</code><code class="sig-name descname">insert_eq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/doc/doc.html#insert_eq"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.doc.insert_eq" title="Permalink to this definition">¶</a></dt>
-<dd><p>Inserts the function and its parameters and a equal sign</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-smpl.functions">
-<span id="smpl-functions-module"></span><h2><a class="reference internal" href="#module-smpl.functions" title="smpl.functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a> module<a class="headerlink" href="#module-smpl.functions" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.functions.const">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">const</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.const" title="Permalink to this definition">¶</a></dt>
-<dd><p>const(x,m) = m</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.functions.cos_abs">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">cos_abs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">phi</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#cos_abs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.cos_abs" title="Permalink to this definition">¶</a></dt>
-<dd><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a|\cos(2πf(x-\phi))|\)</span></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.functions.exponential">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">exponential</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">c</span></em>, <em class="sig-param"><span class="n">y_0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#exponential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.exponential" title="Permalink to this definition">¶</a></dt>
-<dd><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(\exp(cx)y_0\)</span></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.functions.fft">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">fft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#fft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.fft" title="Permalink to this definition">¶</a></dt>
-<dd><p>fft(y,N,fft) = 
-<span class="math notranslate nohighlight">\(F(y)\)</span></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.functions.gauss">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">gauss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#gauss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.gauss" title="Permalink to this definition">¶</a></dt>
-<dd><p>gauss(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(A\cdot \exp\left(\frac{-(x-x_0)^2}{2d^2}\right)+y\)</span></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.functions.line">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.line" title="Permalink to this definition">¶</a></dt>
-<dd><p>line(x,a,b) = ax+b</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.functions.linear">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">linear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#linear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.linear" title="Permalink to this definition">¶</a></dt>
-<dd><p>linear(x,m) = mx</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.functions.lorentz">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">lorentz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#lorentz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.lorentz" title="Permalink to this definition">¶</a></dt>
-<dd><p>lorentz(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(\frac{A}{\pi d (1+ (\frac{x-x_0}{d})^2)} + y\)</span></p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.functions.quadratic">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">quadratic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/functions/functions.html#quadratic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.quadratic" title="Permalink to this definition">¶</a></dt>
-<dd><p>quadratic(x,x_0,A,y) = <span class="math notranslate nohighlight">\(A(x-x_0)^2+y\)</span></p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-smpl.io">
-<span id="smpl-io-module"></span><h2><a class="reference internal" href="#module-smpl.io" title="smpl.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a> module<a class="headerlink" href="#module-smpl.io" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.io.pwd">
-<code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">pwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/io/io.html#pwd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.pwd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the path to the path of current file</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-smpl.parallel">
-<span id="smpl-parallel-module"></span><h2><a class="reference internal" href="#module-smpl.parallel" title="smpl.parallel"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a> module<a class="headerlink" href="#module-smpl.parallel" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.parallel.calc">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="n">calc</span><span class="p">(</span><span class="n">twice</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)]:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-<span class="go">0</span>
-<span class="go">2</span>
-<span class="go">4</span>
-<span class="go">6</span>
-<span class="go">8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="p">([</span><span class="n">calc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
-<span class="go">[0, 1, 8, 27, 64]</span>
-</pre></div>
-</div>
-<p>Return parallel executed values</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.parallel.gen">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">gen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates parallel execution list generator</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.parallel.par">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parallel execution of f on each element of args and kwargs</p>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">par</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="go">[0, 1, 4, 9, 16]</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.parallel.res">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">res</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="n">calc</span><span class="p">(</span><span class="n">twice</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)]:</span>
-<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-<span class="go">0</span>
-<span class="go">2</span>
-<span class="go">4</span>
-<span class="go">6</span>
-<span class="go">8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="p">([</span><span class="n">calc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
-<span class="go">[0, 1, 8, 27, 64]</span>
-</pre></div>
-</div>
-<p>Return parallel executed values</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-smpl.plot">
-<span id="smpl-plot-module"></span><h2><a class="reference internal" href="#module-smpl.plot" title="smpl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a> module<a class="headerlink" href="#module-smpl.plot" title="Permalink to this headline">¶</a></h2>
-<dl class="py function">
-<dt id="smpl.plot.data">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/plot/plot.html#data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
-</dd>
-<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
-</dd>
-<dt><strong>function</strong><span class="classifier">func,optional</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>array_like</dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-odd">Other Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">array_like</span></dt><dd><p>Initial fit parameters</p>
-</dd>
-<dt><strong>xaxis</strong><span class="classifier">str</span></dt><dd><p>X axis label</p>
-</dd>
-<dt><strong>yaxis</strong><span class="classifier">str</span></dt><dd><p>Y axis label</p>
-</dd>
-<dt><strong>label</strong><span class="classifier">str</span></dt><dd><p>Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
-</dd>
-<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>Format for plotting fit function</p>
-</dd>
-<dt><strong>units</strong><span class="classifier">array</span></dt><dd><p>Units of the fit parameters as strings. Displayed in the Legend</p>
-</dd>
-<dt><strong>save</strong><span class="classifier">str</span></dt><dd><p>File to save the plot</p>
-</dd>
-<dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
-</dd>
-<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range</p>
-</dd>
-<dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
-</dd>
-<dt><strong>sigmas</strong><span class="classifier">int</span></dt><dd><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty</p>
-</dd>
-<dt><strong>init</strong><span class="classifier">bool</span></dt><dd><p>Initialize a new plot</p>
-</dd>
-<dt><strong>ss</strong><span class="classifier">bool</span></dt><dd><p>save, add legends and grid to the plot</p>
-</dd>
-<dt><strong>also_data: bool</strong></dt><dd><p>also plot the data</p>
-</dd>
-<dt><strong>also_fit</strong><span class="classifier">bool</span></dt><dd><p>also plot the fit</p>
-</dd>
-<dt><strong>logy</strong><span class="classifier">bool</span></dt><dd><p>logarithmic y axis</p>
-</dd>
-<dt><strong>logx</strong><span class="classifier">bool</span></dt><dd><p>logarithmic x axis</p>
-</dd>
-<dt><strong>data_color</strong><span class="classifier">str</span></dt><dd><p>Color of the data plot</p>
-</dd>
-<dt><strong>fit_color</strong><span class="classifier">str</span></dt><dd><p>Color of the fit plot</p>
-</dd>
-<dt><strong>residue</strong><span class="classifier">bool</span></dt><dd><p>Display difference between fit and data in a second plot</p>
-</dd>
-<dt><strong>residue_err</strong><span class="classifier">bool</span></dt><dd><p>Differences between fit and data will have errorbars</p>
-</dd>
-<dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
-</dd>
-<dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.plot.fit">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/plot/plot.html#fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit and plot function to datax and datay.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
-</dd>
-<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
-</dd>
-<dt><strong>function</strong><span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>array_like</dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-odd">Other Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">array_like</span></dt><dd><p>Initial fit parameters</p>
-</dd>
-<dt><strong>xaxis</strong><span class="classifier">str</span></dt><dd><p>X axis label</p>
-</dd>
-<dt><strong>yaxis</strong><span class="classifier">str</span></dt><dd><p>Y axis label</p>
-</dd>
-<dt><strong>label</strong><span class="classifier">str</span></dt><dd><p>Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
-</dd>
-<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>Format for plotting fit function</p>
-</dd>
-<dt><strong>units</strong><span class="classifier">array</span></dt><dd><p>Units of the fit parameters as strings. Displayed in the Legend</p>
-</dd>
-<dt><strong>save</strong><span class="classifier">str</span></dt><dd><p>File to save the plot</p>
-</dd>
-<dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
-</dd>
-<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range</p>
-</dd>
-<dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
-</dd>
-<dt><strong>sigmas</strong><span class="classifier">int</span></dt><dd><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty</p>
-</dd>
-<dt><strong>init</strong><span class="classifier">bool</span></dt><dd><p>Initialize a new plot</p>
-</dd>
-<dt><strong>ss</strong><span class="classifier">bool</span></dt><dd><p>save, add legends and grid to the plot</p>
-</dd>
-<dt><strong>also_data: bool</strong></dt><dd><p>also plot the data</p>
-</dd>
-<dt><strong>also_fit</strong><span class="classifier">bool</span></dt><dd><p>also plot the fit</p>
-</dd>
-<dt><strong>logy</strong><span class="classifier">bool</span></dt><dd><p>logarithmic y axis</p>
-</dd>
-<dt><strong>logx</strong><span class="classifier">bool</span></dt><dd><p>logarithmic x axis</p>
-</dd>
-<dt><strong>data_color</strong><span class="classifier">str</span></dt><dd><p>Color of the data plot</p>
-</dd>
-<dt><strong>fit_color</strong><span class="classifier">str</span></dt><dd><p>Color of the fit plot</p>
-</dd>
-<dt><strong>residue</strong><span class="classifier">bool</span></dt><dd><p>Display difference between fit and data in a second plot</p>
-</dd>
-<dt><strong>residue_err</strong><span class="classifier">bool</span></dt><dd><p>Differences between fit and data will have errorbars</p>
-</dd>
-<dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
-</dd>
-<dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">unv</span><span class="p">(</span><span class="n">param</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">1.0</span>
-</pre></div>
-</div>
-<p>(<a class="reference external" href=".//index-1.py">Source code</a>, <a class="reference external" href=".//index-1.png">png</a>, <a class="reference external" href=".//index-1.hires.png">hires.png</a>, <a class="reference external" href=".//index-1.pdf">pdf</a>)</p>
-<div class="figure align-default">
-<img alt="_images/index-1.png" src="_images/index-1.png" />
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.plot.function">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/smpl/plot/plot.html#function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>func</strong><span class="classifier">function</span></dt><dd><p>Function to be plotted between <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code>, only taking <cite>array_like</cite> <code class="docutils literal notranslate"><span class="pre">x</span></code> as parameter</p>
-</dd>
-<dt><strong>start</strong><span class="classifier">float</span></dt><dd><p>lowest <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
-</dd>
-<dt><strong>end</strong><span class="classifier">float</span></dt><dd><p>highest <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Other Parameters</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">array_like</span></dt><dd><p>Initial fit parameters</p>
-</dd>
-<dt><strong>xaxis</strong><span class="classifier">str</span></dt><dd><p>X axis label</p>
-</dd>
-<dt><strong>yaxis</strong><span class="classifier">str</span></dt><dd><p>Y axis label</p>
-</dd>
-<dt><strong>label</strong><span class="classifier">str</span></dt><dd><p>Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
-</dd>
-<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>Format for plotting fit function</p>
-</dd>
-<dt><strong>units</strong><span class="classifier">array</span></dt><dd><p>Units of the fit parameters as strings. Displayed in the Legend</p>
-</dd>
-<dt><strong>save</strong><span class="classifier">str</span></dt><dd><p>File to save the plot</p>
-</dd>
-<dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
-</dd>
-<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range</p>
-</dd>
-<dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
-</dd>
-<dt><strong>sigmas</strong><span class="classifier">int</span></dt><dd><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty</p>
-</dd>
-<dt><strong>init</strong><span class="classifier">bool</span></dt><dd><p>Initialize a new plot</p>
-</dd>
-<dt><strong>ss</strong><span class="classifier">bool</span></dt><dd><p>save, add legends and grid to the plot</p>
-</dd>
-<dt><strong>also_data: bool</strong></dt><dd><p>also plot the data</p>
-</dd>
-<dt><strong>also_fit</strong><span class="classifier">bool</span></dt><dd><p>also plot the fit</p>
-</dd>
-<dt><strong>logy</strong><span class="classifier">bool</span></dt><dd><p>logarithmic y axis</p>
-</dd>
-<dt><strong>logx</strong><span class="classifier">bool</span></dt><dd><p>logarithmic x axis</p>
-</dd>
-<dt><strong>data_color</strong><span class="classifier">str</span></dt><dd><p>Color of the data plot</p>
-</dd>
-<dt><strong>fit_color</strong><span class="classifier">str</span></dt><dd><p>Color of the fit plot</p>
-</dd>
-<dt><strong>residue</strong><span class="classifier">bool</span></dt><dd><p>Display difference between fit and data in a second plot</p>
-</dd>
-<dt><strong>residue_err</strong><span class="classifier">bool</span></dt><dd><p>Differences between fit and data will have errorbars</p>
-</dd>
-<dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
-</dd>
-<dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
+<span id="smpl-package"></span><h1><a class="reference internal" href="#module-smpl" title="smpl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl</span></code></a> package<a class="headerlink" href="#module-smpl" title="Permalink to this headline">¶</a></h1>
+<p>A collection of simplified utilities</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/smpl.debug.html#module-smpl.debug" title="smpl.debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug</span></code></a></p></td>
+<td><p>Simplified python debuging</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/smpl.doc.html#module-smpl.doc" title="smpl.doc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">doc</span></code></a></p></td>
+<td><p>Simplified python code documentation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/smpl.functions.html#module-smpl.functions" title="smpl.functions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">functions</span></code></a></p></td>
+<td><p>A list of various functions</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/smpl.io.html#module-smpl.io" title="smpl.io"><code class="xref py py-obj docutils literal notranslate"><span class="pre">io</span></code></a></p></td>
+<td><p>Simplified input and output</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/smpl.parallel.html#module-smpl.parallel" title="smpl.parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parallel</span></code></a></p></td>
+<td><p>Very basic parallelization</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/smpl.plot.html#module-smpl.plot" title="smpl.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a></p></td>
+<td><p>Simplified plotting</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
@@ -523,6 +112,14 @@
 <h3>Navigation</h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="example/index.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code> module</a></li>
 </ul>
 
 <div class="relations">

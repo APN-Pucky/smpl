@@ -12,47 +12,24 @@ smpl |version| documentation
 
    example/*
 
-:mod:`smpl` library
+
+:mod:`smpl` package
 ===================
+.. currentmodule:: smpl
 .. automodule:: smpl
-  
-:mod:`smpl.debug` module
-------------------------
-  
-.. automodule:: smpl.debug
-   :members:
+.. autosummary::
+   :toctree: _autosummary
+   :template: as_module.rst
 
-
-:mod:`smpl.doc` module
-----------------------
-  
-.. automodule:: smpl.doc
-   :members:
-
-:mod:`smpl.functions` module
-----------------------------
-.. automodule:: smpl.functions
-   :members:
-
-
-:mod:`smpl.io` module
------------------------
-.. automodule:: smpl.io
-   :members:
-
-
-:mod:`smpl.parallel` module
----------------------------
-
-.. automodule:: smpl.parallel
-   :members:
+   debug
+   doc
+   functions
+   io
+   parallel
+   plot
 
 
 
-:mod:`smpl.plot` module
------------------------
-.. automodule:: smpl.plot
-   :members:
 
 Indices and tables
 ==================

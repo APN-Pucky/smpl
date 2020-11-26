@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>smpl.parallel module &#8212; smpl  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.plot module" href="smpl.plot.html" />
+    <link rel="prev" title="smpl.io module" href="smpl.io.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="smpl-parallel-module">
+<h1><a class="reference internal" href="#module-smpl.parallel" title="smpl.parallel"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a> module<a class="headerlink" href="#smpl-parallel-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-smpl.parallel"></span><p>Very basic parallelization</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.parallel.calc" title="smpl.parallel.calc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc</span></code></a>(f, *args, **kwargs)</p></td>
+<td><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen</span></code></a>(f, *args, **kwargs)</p></td>
+<td><p>Generates parallel execution list generator</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.parallel.par" title="smpl.parallel.par"><code class="xref py py-obj docutils literal notranslate"><span class="pre">par</span></code></a>(f, *args, **kwargs)</p></td>
+<td><p>Parallel execution of f on each element of args and kwargs</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.parallel.res" title="smpl.parallel.res"><code class="xref py py-obj docutils literal notranslate"><span class="pre">res</span></code></a>(a)</p></td>
+<td><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="smpl.parallel.calc">
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="n">calc</span><span class="p">(</span><span class="n">twice</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="go">0</span>
+<span class="go">2</span>
+<span class="go">4</span>
+<span class="go">6</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="p">([</span><span class="n">calc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+<span class="go">[0, 1, 8, 27, 64]</span>
+</pre></div>
+</div>
+<p>Return parallel executed values</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.parallel.gen">
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">gen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates parallel execution list generator</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.parallel.par">
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parallel execution of f on each element of args and kwargs</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">par</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">[0, 1, 4, 9, 16]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.parallel.res">
+<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">res</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="n">calc</span><span class="p">(</span><span class="n">twice</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="go">0</span>
+<span class="go">2</span>
+<span class="go">4</span>
+<span class="go">6</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="p">([</span><span class="n">calc</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)])</span>
+<span class="go">[0, 1, 8, 27, 64]</span>
+</pre></div>
+</div>
+<p>Return parallel executed values</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">smpl</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code> module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code> module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="smpl.io.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code> module</a></li>
+      <li>Next: <a href="smpl.plot.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code> module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, APN-Pucky.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/smpl.parallel.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

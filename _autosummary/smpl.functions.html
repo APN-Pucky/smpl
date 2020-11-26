@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>smpl.functions module &#8212; smpl  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.io module" href="smpl.io.html" />
+    <link rel="prev" title="smpl.doc module" href="smpl.doc.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="smpl-functions-module">
+<h1><a class="reference internal" href="#module-smpl.functions" title="smpl.functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a> module<a class="headerlink" href="#smpl-functions-module" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-smpl.functions"></span><p>A list of various functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.const" title="smpl.functions.const"><code class="xref py py-obj docutils literal notranslate"><span class="pre">const</span></code></a>(x, m)</p></td>
+<td><p>const(x,m) = m</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.cos_abs" title="smpl.functions.cos_abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos_abs</span></code></a>(x, a, f, phi)</p></td>
+<td><p>cos_abs(x,a,f,phi) = $a|cos(2πf(x-phi))|$</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.exponential" title="smpl.functions.exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exponential</span></code></a>(x, c, y_0)</p></td>
+<td><p>exponential(x,c,y_0) = $exp(cx)y_0$</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.fft" title="smpl.functions.fft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft</span></code></a>(y)</p></td>
+<td><p>fft(y,N,fft) =  $F(y)$</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.gauss" title="smpl.functions.gauss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss</span></code></a>(x, x_0, A, d, y)</p></td>
+<td><p>gauss(x,x_0,A,d,y) = $Acdot expleft(frac{-(x-x_0)^2}{2d^2}right)+y$</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.line" title="smpl.functions.line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">line</span></code></a>(x, a, b)</p></td>
+<td><p>line(x,a,b) = ax+b</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.linear" title="smpl.functions.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear</span></code></a>(x, m)</p></td>
+<td><p>linear(x,m) = mx</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.lorentz" title="smpl.functions.lorentz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lorentz</span></code></a>(x, x_0, A, d, y)</p></td>
+<td><p>lorentz(x,x_0,A,d,y) = $frac{A}{pi d (1+ (frac{x-x_0}{d})^2)} + y$</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.quadratic" title="smpl.functions.quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quadratic</span></code></a>(x, x_0, A, y)</p></td>
+<td><p>quadratic(x,x_0,A,y) = $A(x-x_0)^2+y$</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="smpl.functions.const">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">const</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.const" title="Permalink to this definition">¶</a></dt>
+<dd><p>const(x,m) = m</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.cos_abs">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">cos_abs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">phi</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#cos_abs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.cos_abs" title="Permalink to this definition">¶</a></dt>
+<dd><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a|\cos(2πf(x-\phi))|\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.exponential">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">exponential</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">c</span></em>, <em class="sig-param"><span class="n">y_0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#exponential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.exponential" title="Permalink to this definition">¶</a></dt>
+<dd><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(\exp(cx)y_0\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.fft">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">fft</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#fft"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.fft" title="Permalink to this definition">¶</a></dt>
+<dd><p>fft(y,N,fft) = 
+<span class="math notranslate nohighlight">\(F(y)\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.gauss">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">gauss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#gauss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.gauss" title="Permalink to this definition">¶</a></dt>
+<dd><p>gauss(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(A\cdot \exp\left(\frac{-(x-x_0)^2}{2d^2}\right)+y\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.line">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.line" title="Permalink to this definition">¶</a></dt>
+<dd><p>line(x,a,b) = ax+b</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.linear">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">linear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#linear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>linear(x,m) = mx</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.lorentz">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">lorentz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#lorentz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.lorentz" title="Permalink to this definition">¶</a></dt>
+<dd><p>lorentz(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(\frac{A}{\pi d (1+ (\frac{x-x_0}{d})^2)} + y\)</span></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.quadratic">
+<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">quadratic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#quadratic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.quadratic" title="Permalink to this definition">¶</a></dt>
+<dd><p>quadratic(x,x_0,A,y) = <span class="math notranslate nohighlight">\(A(x-x_0)^2+y\)</span></p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">smpl</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code> module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code> module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="smpl.doc.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code> module</a></li>
+      <li>Next: <a href="smpl.io.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code> module</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, APN-Pucky.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/smpl.functions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
