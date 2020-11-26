@@ -1,3 +1,6 @@
+"""
+A collection of simplified utilities
+"""
 import pkg_resources as pkg  # part of setuptools
 import json
 import requests

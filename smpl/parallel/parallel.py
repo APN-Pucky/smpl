@@ -1,5 +1,5 @@
 from multiprocessing import Process,Queue
-from smpl.doc import append
+from smpl.doc import append 
 
 def queued(q,f,*args,**kwargs):
     q.put(f(*args,**kwargs))

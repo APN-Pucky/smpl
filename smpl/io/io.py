@@ -1,6 +1,6 @@
 import pathlib
 import glob
-from pathlib import Path
+import pathlib
 #from io import StringIO
 from smpl import debug
 import os

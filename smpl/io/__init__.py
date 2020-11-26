@@ -1,3 +1,6 @@
-from .io import *
+"""
+Simplified input and output
+"""
+from .io import pwd
 
 __all__ = ['pwd']
