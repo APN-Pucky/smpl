@@ -382,14 +382,15 @@ def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #sav
     plt.tight_layout()
     if 'lpos' in kwargs and kwargs['lpos']>=0:
         plt.legend(loc=kwargs['lpos'])
-    plt.grid()
     if 'save' in kwargs and not kwargs['save']==None:
         mkdirs(kwargs['save'])
         plt.savefig(kwargs['save'] +".pdf")
+    plt.grid()
     if 'show' in kwargs and kwargs['show']:
         show(**kwargs)
 
 def show(**kwargs):
+    plt.grid()
     plt.show()
 # usage zB:
 # pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
