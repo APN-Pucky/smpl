@@ -62,6 +62,7 @@
 <span class="c1"># local imports</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">util</span>
 <span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span>  <span class="n">append</span>
 <span class="c1">#TODO create folders for file saves</span>
 
@@ -134,8 +135,11 @@
 <span class="sd">        Call plt.show()</span>
 <span class="sd">    number_format : str</span>
 <span class="sd">        Format to display numbers.</span>
+<span class="sd">    selector : func</span>
+<span class="sd">        Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting.</span>
 <span class="sd">    steps : int</span>
 <span class="sd">        resolution of the plotted function</span>
+<span class="sd">    </span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">default</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;params&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">,</span>
@@ -162,6 +166,7 @@
             <span class="s1">&#39;show&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
             <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">,</span>
             <span class="s1">&#39;number_format&#39;</span><span class="p">:</span> <span class="n">io</span><span class="o">.</span><span class="n">gf</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+            <span class="s1">&#39;selector&#39;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
             <span class="s1">&#39;steps&#39;</span> <span class="p">:</span> <span class="mi">1000</span>
             <span class="p">}</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -331,13 +336,17 @@
     <span class="n">xerr</span> <span class="o">=</span> <span class="n">xerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xerr</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
     <span class="n">yerr</span> <span class="o">=</span> <span class="n">yerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yerr</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span>
-<span class="k">def</span> <span class="nf">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">frange</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="n">frange</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">frange</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span><span class="n">datay</span><span class="p">[</span><span class="n">frange</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">frange</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="k">def</span> <span class="nf">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;selector&#39;</span><span class="p">,</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">sel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="n">sel</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">)],</span><span class="n">datay</span><span class="p">[</span><span class="n">sel</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">)])</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;frange&#39;</span><span class="p">,</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]],</span><span class="n">datay</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span><span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">frange</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span><span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span>
     <span class="c1"># Count parameters for function</span>
     <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">N</span><span class="o">=</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span>
@@ -373,8 +382,8 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">       Plot Fit </span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span><span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">])</span>
-    <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">],</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">])</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span><span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;prange&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="n">unv</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="mi">1000</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -472,6 +481,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 </ul>
 
 <div class="relations">

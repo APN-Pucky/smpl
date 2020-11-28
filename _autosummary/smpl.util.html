@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>smpl.io &#8212; smpl  documentation</title>
+    <title>smpl.util &#8212; smpl  documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,8 +18,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="smpl.parallel" href="smpl.parallel.html" />
-    <link rel="prev" title="smpl.functions" href="smpl.functions.html" />
+    <link rel="prev" title="smpl.plot" href="smpl.plot.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -36,34 +35,25 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-smpl.io">
-<span id="smpl-io"></span><h1><a class="reference internal" href="#module-smpl.io" title="smpl.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a><a class="headerlink" href="#module-smpl.io" title="Permalink to this headline">¶</a></h1>
-<p>Simplified input and output</p>
+  <div class="section" id="module-smpl.util">
+<span id="smpl-util"></span><h1><a class="reference internal" href="#module-smpl.util" title="smpl.util"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a><a class="headerlink" href="#module-smpl.util" title="Permalink to this headline">¶</a></h1>
+<p>Simplified general utilities</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>(i)</p></td>
-<td><p>Scientific format with <code class="docutils literal notranslate"><span class="pre">i</span></code> digits.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.pwd" title="smpl.io.pwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a>()</p></td>
-<td><p>Returns the path to the path of current file</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.util.has" title="smpl.util.has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code></a>(key, dict)</p></td>
+<td><p>Checks if the key is in the dict and not None.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
-<dt id="smpl.io.gf">
-<code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">gf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#gf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.gf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Scientific format with <code class="docutils literal notranslate"><span class="pre">i</span></code> digits.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="smpl.io.pwd">
-<code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">pwd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#pwd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.pwd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the path to the path of current file</p>
+<dt id="smpl.util.has">
+<code class="sig-prename descclassname">smpl.util.</code><code class="sig-name descname">has</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#has"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.util.has" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the key is in the dict and not None.</p>
 </dd></dl>
 
 </div>
@@ -92,18 +82,17 @@
 <li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="smpl.functions.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
-      <li>Next: <a href="smpl.parallel.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+      <li>Previous: <a href="smpl.plot.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
   </ul></li>
 </ul>
 </div>
@@ -137,7 +126,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/_autosummary/smpl.io.rst.txt"
+      <a href="../_sources/_autosummary/smpl.util.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
