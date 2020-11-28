@@ -1,5 +1,5 @@
-:mod:`{{fullname}}` module
-==========================
+:mod:`{{fullname}}` 
+======================
 
 .. currentmodule:: {{fullname}}
 

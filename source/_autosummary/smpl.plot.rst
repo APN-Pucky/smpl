@@ -1,5 +1,5 @@
-﻿:mod:`smpl.plot` module
-==========================
+﻿:mod:`smpl.plot` 
+======================
 
 .. currentmodule:: smpl.plot
 

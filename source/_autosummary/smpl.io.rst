@@ -1,5 +1,5 @@
-﻿:mod:`smpl.io` module
-==========================
+﻿:mod:`smpl.io` 
+======================
 
 .. currentmodule:: smpl.io
 

@@ -1,5 +1,5 @@
-﻿:mod:`smpl.debug` module
-==========================
+﻿:mod:`smpl.debug` 
+======================
 
 .. currentmodule:: smpl.debug
 

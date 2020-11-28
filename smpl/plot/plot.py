@@ -68,7 +68,7 @@ def default_kwargs(kwargs) :
     lpos: int
         Legend position
     frange : array
-        Limit the fit to given range
+        Limit the fit to given range. First integer is the lowest and second the highest index.
     prange : array
         Limit the plot of the fit to given range
     sigmas : int
@@ -95,6 +95,8 @@ def default_kwargs(kwargs) :
         Differences between fit and data will have errorbars
     show : bool
         Call plt.show()
+    number_format : str
+        Format to display numbers.
     steps : int
         resolution of the plotted function
 
@@ -122,6 +124,7 @@ def default_kwargs(kwargs) :
             'residue_err':True,
             'show':False,
             'size':None,
+            'number_format': io.gf(4),
             'steps' : 1000
             }
     for k,v in default.items():
@@ -209,7 +212,7 @@ def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",labe
 @append(default_kwargs)
 def function(func,*args,**kwargs):
     """
-    Plot function ``func`` between ``start`` and ``end``
+    Plot function ``func`` between ``xmin`` and ``xmax``
 
     Parameters
     ==========
@@ -347,7 +350,11 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
         l = l + "" + str(function.__code__.co_varnames[i]) + "="
         if kwargs['units'] is not None:
             l = l + "("
-        l = l +"%s"%(fit[i-1])
+        if 'number_format' in kwargs:
+            l = l +kwargs['number_format'].format(fit[i-1])
+        else:
+            l = l +"%s"%(fit[i-1])
+
         if kwargs['units'] is not None:
             l = l + ") " + kwargs['units'][i-1]
     ll = None

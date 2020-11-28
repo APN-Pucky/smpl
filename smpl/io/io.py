@@ -21,6 +21,9 @@ def import_path(path='../..'):
 
 
 def gf(i):
+    """
+    Scientific format with ``i`` digits.
+    """
     return "{0:." + str(i) + "g}"
 
 def out_si(fn,s,u="",fmt="{}"):

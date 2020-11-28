@@ -1,5 +1,5 @@
-﻿:mod:`smpl.doc` module
-==========================
+﻿:mod:`smpl.doc` 
+======================
 
 .. currentmodule:: smpl.doc
 

@@ -1,5 +1,5 @@
-﻿:mod:`smpl.parallel` module
-==========================
+﻿:mod:`smpl.parallel` 
+======================
 
 .. currentmodule:: smpl.parallel
 
