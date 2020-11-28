@@ -1,5 +1,5 @@
-﻿:mod:`smpl.functions` module
-==========================
+﻿:mod:`smpl.functions` 
+======================
 
 .. currentmodule:: smpl.functions
 

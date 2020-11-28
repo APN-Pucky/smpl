@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>smpl.plot module &#8212; smpl  documentation</title>
+    <title>smpl.plot &#8212; smpl  documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -18,7 +18,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="smpl.parallel module" href="smpl.parallel.html" />
+    <link rel="prev" title="smpl.parallel" href="smpl.parallel.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -36,7 +36,7 @@
           <div class="body" role="main">
             
   <div class="section" id="module-smpl.plot">
-<span id="smpl-plot-module"></span><h1><a class="reference internal" href="#module-smpl.plot" title="smpl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a> module<a class="headerlink" href="#module-smpl.plot" title="Permalink to this headline">¶</a></h1>
+<span id="smpl-plot"></span><h1><a class="reference internal" href="#module-smpl.plot" title="smpl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a><a class="headerlink" href="#module-smpl.plot" title="Permalink to this headline">¶</a></h1>
 <p>Simplified plotting</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -51,12 +51,15 @@
 <td><p>Fit and plot function to datax and datay.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></a>(func, *args, **kwargs)</p></td>
-<td><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code></p></td>
+<td><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
 <td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
 <td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
 </tr>
 </tbody>
@@ -101,7 +104,7 @@
 </dd>
 <dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
 </dd>
-<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range</p>
+<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p>
 </dd>
 <dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
 </dd>
@@ -128,6 +131,8 @@
 <dt><strong>residue_err</strong><span class="classifier">bool</span></dt><dd><p>Differences between fit and data will have errorbars</p>
 </dd>
 <dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
+</dd>
+<dt><strong>number_format</strong><span class="classifier">str</span></dt><dd><p>Format to display numbers.</p>
 </dd>
 <dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
 </dd>
@@ -175,7 +180,7 @@
 </dd>
 <dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
 </dd>
-<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range</p>
+<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p>
 </dd>
 <dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
 </dd>
@@ -203,6 +208,8 @@
 </dd>
 <dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
 </dd>
+<dt><strong>number_format</strong><span class="classifier">str</span></dt><dd><p>Format to display numbers.</p>
+</dd>
 <dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
 </dd>
 </dl>
@@ -225,7 +232,7 @@
 <dl class="py function">
 <dt id="smpl.plot.function">
 <code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code></p>
+<dd><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -255,7 +262,7 @@
 </dd>
 <dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
 </dd>
-<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range</p>
+<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p>
 </dd>
 <dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
 </dd>
@@ -282,6 +289,8 @@
 <dt><strong>residue_err</strong><span class="classifier">bool</span></dt><dd><p>Differences between fit and data will have errorbars</p>
 </dd>
 <dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
+</dd>
+<dt><strong>number_format</strong><span class="classifier">str</span></dt><dd><p>Format to display numbers.</p>
 </dd>
 <dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
 </dd>
@@ -339,19 +348,19 @@ numbers with uncertainties.</p>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code> module</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="smpl.parallel.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code> module</a></li>
+      <li>Previous: <a href="smpl.parallel.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
   </ul></li>
 </ul>
 </div>

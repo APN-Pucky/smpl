@@ -105,7 +105,7 @@
 <span class="sd">    lpos: int</span>
 <span class="sd">        Legend position</span>
 <span class="sd">    frange : array</span>
-<span class="sd">        Limit the fit to given range</span>
+<span class="sd">        Limit the fit to given range. First integer is the lowest and second the highest index.</span>
 <span class="sd">    prange : array</span>
 <span class="sd">        Limit the plot of the fit to given range</span>
 <span class="sd">    sigmas : int</span>
@@ -132,6 +132,8 @@
 <span class="sd">        Differences between fit and data will have errorbars</span>
 <span class="sd">    show : bool</span>
 <span class="sd">        Call plt.show()</span>
+<span class="sd">    number_format : str</span>
+<span class="sd">        Format to display numbers.</span>
 <span class="sd">    steps : int</span>
 <span class="sd">        resolution of the plotted function</span>
 
@@ -159,6 +161,7 @@
             <span class="s1">&#39;residue_err&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span>
             <span class="s1">&#39;show&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span>
             <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">,</span>
+            <span class="s1">&#39;number_format&#39;</span><span class="p">:</span> <span class="n">io</span><span class="o">.</span><span class="n">gf</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
             <span class="s1">&#39;steps&#39;</span> <span class="p">:</span> <span class="mi">1000</span>
             <span class="p">}</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -246,7 +249,7 @@
 <div class="viewcode-block" id="function"><a class="viewcode-back" href="../../../_autosummary/smpl.plot.html#smpl.plot.function">[docs]</a><span class="nd">@append</span><span class="p">(</span><span class="n">default_kwargs</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Plot function ``func`` between ``start`` and ``end``</span>
+<span class="sd">    Plot function ``func`` between ``xmin`` and ``xmax``</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ==========</span>
@@ -384,7 +387,11 @@
         <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span>
         <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span>
-        <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">fit</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="s1">&#39;number_format&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;number_format&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fit</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">fit</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
         <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">l</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;) &quot;</span> <span class="o">+</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">ll</span> <span class="o">=</span> <span class="kc">None</span>
@@ -459,12 +466,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code> module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
 </ul>
 
 <div class="relations">
