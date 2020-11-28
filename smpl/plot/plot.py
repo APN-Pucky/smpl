@@ -302,7 +302,10 @@ def _data_split(datax,datay):
 def data_split(datax,datay,**kwargs):
     if util.has('selector',kwargs):
         sel = kwargs['selector']
-        return _data_split(datax[sel(datax,datay)],datay[sel(datax,datay)])
+        if callable(sel):
+            return _data_split(datax[sel(datax,datay)],datay[sel(datax,datay)])
+        else:
+            return _data_split(datax[sel],datay[sel])
     if util.has('frange',kwargs):
         return _data_split(datax[kwargs['frange'][0]:kwargs['frange'][1]],datay[kwargs['frange'][0]:kwargs['frange'][1]])
     else:
