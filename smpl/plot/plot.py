@@ -25,6 +25,7 @@ import inspect
 # local imports
 from smpl import functions
 from smpl import io
+from smpl import util
 from smpl.doc import  append
 #TODO create folders for file saves
 
@@ -97,8 +98,11 @@ def default_kwargs(kwargs) :
         Call plt.show()
     number_format : str
         Format to display numbers.
+    selector : func
+        Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting.
     steps : int
         resolution of the plotted function
+    
 
     """
     default = {'params':None,
@@ -125,6 +129,7 @@ def default_kwargs(kwargs) :
             'show':False,
             'size':None,
             'number_format': io.gf(4),
+            'selector' : None,
             'steps' : 1000
             }
     for k,v in default.items():
@@ -294,13 +299,17 @@ def _data_split(datax,datay):
     xerr = xerr if np.any(np.abs(xerr)>0) else None
     yerr = yerr if np.any(np.abs(yerr)>0) else None
     return x,y,xerr,yerr
-def data_split(datax,datay,frange=None):
-    if frange is not None:
-        return _data_split(datax[frange[0]:frange[1]],datay[frange[0]:frange[1]])
+def data_split(datax,datay,**kwargs):
+    if util.has('selector',kwargs):
+        sel = kwargs['selector']
+        return _data_split(datax[sel(datax,datay)],datay[sel(datax,datay)])
+    if util.has('frange',kwargs):
+        return _data_split(datax[kwargs['frange'][0]:kwargs['frange'][1]],datay[kwargs['frange'][0]:kwargs['frange'][1]])
     else:
         return _data_split(datax,datay)
-def _fit(datax,datay,function,params=None,frange=None):
-    x,y,xerr,yerr =data_split(datax,datay,frange)
+def _fit(datax,datay,function,**kwargs):
+    x,y,xerr,yerr =data_split(datax,datay,**kwargs)
+    params = kwargs['params']
     # Count parameters for function
     if params is None:
         N=function.__code__.co_argcount
@@ -336,8 +345,8 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
     """
        Plot Fit 
     """
-    x,y,xerr,yerr =data_split(datax,datay,kwargs['frange'])
-    fit = _fit(datax,datay,function,kwargs['params'],kwargs['frange'])
+    x,y,xerr,yerr =data_split(datax,datay,**kwargs)
+    fit = _fit(datax,datay,function,**kwargs)
     if kwargs['prange'] is None:
         xfit = np.linspace(unv(x[0]),unv(x[-1]),1000)
     else:

@@ -9,6 +9,8 @@
    
    .. autosummary:: 
    
+      gf
+   
       pwd
    
    
