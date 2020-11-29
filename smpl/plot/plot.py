@@ -98,8 +98,9 @@ def default_kwargs(kwargs) :
         Call plt.show()
     number_format : str
         Format to display numbers.
-    selector : func
+    selector : func, mask
         Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting.
+        Alternatively a mask for selecting elements from datax and datay.
     steps : int
         resolution of the plotted function
     

@@ -27,6 +27,7 @@ smpl |version| documentation
    io
    parallel
    plot
+   stat
    util
 
 

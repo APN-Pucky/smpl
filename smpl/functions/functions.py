@@ -1,32 +1,8 @@
 import numpy as np
-import uncertainties as unc
-import uncertainties.unumpy as unp
+
 from smpl import doc
 
 # %% Konstanten fuer einheitliche Darstellung
-unv=unp.nominal_values
-usd=unp.std_devs
-def unv_lambda(f):
-    return lambda *a : unv(f(*a))
-
-# mathe Funktionen
-def poisson_dist(N):
-    return unp.uarray(N,np.sqrt(N))
-def find_nearest_index(array, value):
-    array = np.asarray(array)
-    idx = (np.abs(array - value)).argmin()
-    return idx
-def find_nearest(array, value):
-    array[find_nearest_index(array,value)]
-def normalize(ydata):
-   return (ydata-np.amin(ydata))/(np.amax(ydata)-np.amin(ydata))
-def novar_mean(f):
-    return np.sum(f)/len(f)
-def mean(n):
-    # find the mean value and add uncertainties
-    k = np.mean(n)
-    err = stat.variance(unv(n))
-    return unc.ufloat(unv(k), math.sqrt(usd(k)**2 + err))
 
 @doc.insert_eq()
 def fft(y):
