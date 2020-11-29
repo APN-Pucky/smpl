@@ -36,34 +36,10 @@
             
   <h1>Source code for smpl.functions.functions</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
-<span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
 
 <span class="c1"># %% Konstanten fuer einheitliche Darstellung</span>
-<span class="n">unv</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
-<span class="n">usd</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
-<span class="k">def</span> <span class="nf">unv_lambda</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span> <span class="p">:</span> <span class="n">unv</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
-
-<span class="c1"># mathe Funktionen</span>
-<span class="k">def</span> <span class="nf">poisson_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">find_nearest_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">array</span> <span class="o">-</span> <span class="n">value</span><span class="p">))</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">idx</span>
-<span class="k">def</span> <span class="nf">find_nearest</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="n">array</span><span class="p">[</span><span class="n">find_nearest_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">value</span><span class="p">)]</span>
-<span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">ydata</span><span class="p">):</span>
-   <span class="k">return</span> <span class="p">(</span><span class="n">ydata</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">novar_mean</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="c1"># find the mean value and add uncertainties</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">err</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">usd</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">err</span><span class="p">))</span>
 
 <div class="viewcode-block" id="fft"><a class="viewcode-back" href="../../../_autosummary/smpl.functions.html#smpl.functions.fft">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">insert_eq</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
@@ -182,6 +158,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 </ul>
 

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>smpl.stat &#8212; smpl  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.util" href="smpl.util.html" />
+    <link rel="prev" title="smpl.plot" href="smpl.plot.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-smpl.stat">
+<span id="smpl-stat"></span><h1><a class="reference internal" href="#module-smpl.stat" title="smpl.stat"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a><a class="headerlink" href="#module-smpl.stat" title="Permalink to this headline">¶</a></h1>
+<p>Simplified input and output</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.mean" title="smpl.stat.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>(n)</p></td>
+<td><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with combined error of variance and unvertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.normalize" title="smpl.stat.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(ydata)</p></td>
+<td><p>Return normalized <code class="docutils literal notranslate"><span class="pre">ydata</span></code> .</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.novar_mean" title="smpl.stat.novar_mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">novar_mean</span></code></a>(f)</p></td>
+<td><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with only the uncertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code> and no variance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.poisson_dist" title="smpl.stat.poisson_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson_dist</span></code></a>(N)</p></td>
+<td><p>Return <code class="docutils literal notranslate"><span class="pre">N</span></code> with added poissonian uncertainties.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.unv_lambda" title="smpl.stat.unv_lambda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv_lambda</span></code></a>(f)</p></td>
+<td><p>Returns a function which applies <a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unv()</span></code></a> on the result of <code class="docutils literal notranslate"><span class="pre">f</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.usd" title="smpl.stat.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="smpl.stat.mean">
+<code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">mean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#mean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.stat.mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with combined error of variance and unvertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.stat.normalize">
+<code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ydata</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.stat.normalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return normalized <code class="docutils literal notranslate"><span class="pre">ydata</span></code> .</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.stat.novar_mean">
+<code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">novar_mean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#novar_mean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.stat.novar_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with only the uncertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code> and no variance.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.stat.poisson_dist">
+<code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">poisson_dist</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">N</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#poisson_dist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.stat.poisson_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">N</span></code> with added poissonian uncertainties.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.stat.unv">
+<code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">unv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.stat.unv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal values of the numbers in NumPy array arr.</p>
+<p>Elements that are not numbers with uncertainties (derived from a
+class from this module) are passed through untouched (because a
+numpy.array can contain numbers with uncertainties and pure floats
+simultaneously).</p>
+<p>If arr is of type unumpy.matrix, the returned array is a
+numpy.matrix, because the resulting matrix does not contain
+numbers with uncertainties.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.stat.unv_lambda">
+<code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">unv_lambda</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#unv_lambda"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.stat.unv_lambda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a function which applies <a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unv()</span></code></a> on the result of <code class="docutils literal notranslate"><span class="pre">f</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.stat.usd">
+<code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">usd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.stat.usd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard deviations of the numbers in NumPy array arr.</p>
+<p>Elements that are not numbers with uncertainties (derived from a
+class from this module) are passed through untouched (because a
+numpy.array can contain numbers with uncertainties and pure floats
+simultaneously).</p>
+<p>If arr is of type unumpy.matrix, the returned array is a
+numpy.matrix, because the resulting matrix does not contain
+numbers with uncertainties.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">smpl</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="smpl.plot.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+      <li>Next: <a href="smpl.util.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, APN-Pucky.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/_autosummary/smpl.stat.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

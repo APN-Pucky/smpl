@@ -112,7 +112,7 @@
     }
    ],
    "source": [
-    "ff = plot.fit(xdata, ydata, fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",function=f.Line, params=[1,2])\n"
+    "ff = plot.fit(xdata, ydata, fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",function=f.line, params=[1,2])\n"
    ]
   },
   {
@@ -141,7 +141,7 @@
     }
    ],
    "source": [
-    "ff = plot.fit(xdata, y, fmt='.', function=f.Line, params=[1,1], sigmas=1,lpos=2)"
+    "ff = plot.fit(xdata, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)"
    ]
   },
   {
@@ -163,7 +163,7 @@
     }
    ],
    "source": [
-    "ff = plot.fit(x, y, fmt='.', function=f.Line, params=[1,1], sigmas=1,lpos=2)"
+    "ff = plot.fit(x, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)"
    ]
   },
   {

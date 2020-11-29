@@ -18,7 +18,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="smpl.util" href="smpl.util.html" />
+    <link rel="next" title="smpl.stat" href="smpl.stat.html" />
     <link rel="prev" title="smpl.parallel" href="smpl.parallel.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -135,7 +135,8 @@
 </dd>
 <dt><strong>number_format</strong><span class="classifier">str</span></dt><dd><p>Format to display numbers.</p>
 </dd>
-<dt><strong>selector</strong><span class="classifier">func</span></dt><dd><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting.</p>
+<dt><strong>selector</strong><span class="classifier">func, mask</span></dt><dd><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting.
+Alternatively a mask for selecting elements from datax and datay.</p>
 </dd>
 <dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
 </dd>
@@ -213,7 +214,8 @@
 </dd>
 <dt><strong>number_format</strong><span class="classifier">str</span></dt><dd><p>Format to display numbers.</p>
 </dd>
-<dt><strong>selector</strong><span class="classifier">func</span></dt><dd><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting.</p>
+<dt><strong>selector</strong><span class="classifier">func, mask</span></dt><dd><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting.
+Alternatively a mask for selecting elements from datax and datay.</p>
 </dd>
 <dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
 </dd>
@@ -297,7 +299,8 @@
 </dd>
 <dt><strong>number_format</strong><span class="classifier">str</span></dt><dd><p>Format to display numbers.</p>
 </dd>
-<dt><strong>selector</strong><span class="classifier">func</span></dt><dd><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting.</p>
+<dt><strong>selector</strong><span class="classifier">func, mask</span></dt><dd><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting.
+Alternatively a mask for selecting elements from datax and datay.</p>
 </dd>
 <dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
 </dd>
@@ -361,6 +364,7 @@ numbers with uncertainties.</p>
 <li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 </ul>
 
@@ -369,7 +373,7 @@ numbers with uncertainties.</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="smpl.parallel.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
-      <li>Next: <a href="smpl.util.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+      <li>Next: <a href="smpl.stat.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
   </ul></li>
 </ul>
 </div>
