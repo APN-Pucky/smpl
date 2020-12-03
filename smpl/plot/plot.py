@@ -138,6 +138,29 @@ def default_kwargs(kwargs) :
             kwargs[k] = v
     return kwargs
 
+
+@append(default_kwargs)
+def auto(datax,datay,**kwargs):
+    """
+    Automatically loop over ``smpl.functions`` and fit the best one.
+    """
+    min_sq = None
+    best_f = None
+    best_ff = None
+    
+    
+    for n,f in functions.__dict__.items():
+        if callable(f):
+            #print(n)
+            ff = _fit(datax,datay,f,**kwargs)
+            sum_sq = np.sum((f(datax,*ff) - datay)**2)
+            if min_sq is None or sum_sq < min_sq:
+                min_sq = sum_sq
+                best_f = f
+                best_ff = ff
+    if not best_f is None:
+        fit(datax,datay,best_f)
+
   
 
 @append(default_kwargs)
@@ -268,7 +291,7 @@ def plt_residue(datax,datay,function,fit,fig,**kwargs):#xaxis="",yaxis="",fit_co
 # https://stackoverflow.com/questions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#
 # Updated on 4/6/2016
 # User: https://stackoverflow.com/users/1476240/pedro-m-duarte
-def fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
+def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
     pfit, pcov = \
          optimize.curve_fit(function,datax,datay,p0=params,\
                             sigma=yerr, epsfcn=0.0001, **kwargs, maxfev=1000000)
@@ -282,7 +305,7 @@ def fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
     perr_curvefit = np.array(error)
     return unp.uarray(pfit_curvefit, perr_curvefit)
 
-def fit_curve(datax,datay,function,params=None,yerr=None,xerr=None):
+def _fit_odr(datax,datay,function,params=None,yerr=None,xerr=None):
     model = Model(lambda p,x : function(x,*p))
     realdata = RealData(datax,datay,sy=yerr,sx=xerr)
     odr = ODR(realdata,model,beta0=params)
@@ -313,18 +336,59 @@ def data_split(datax,datay,**kwargs):
         return _data_split(datax,datay)
 def _fit(datax,datay,function,**kwargs):
     x,y,xerr,yerr =data_split(datax,datay,**kwargs)
-    params = kwargs['params']
+    params = None
+    if util.has('params',kwargs):
+        params = kwargs['params']
+
+    fixed = {}
+    Ntot = len(function.__code__.co_varnames)-1
+
+    for i in range(1,len(function.__code__.co_varnames)):
+        if util.has(function.__code__.co_varnames[i],kwargs):
+            fixed[i] = kwargs[function.__code__.co_varnames[i]]
     # Count parameters for function
     if params is None:
         N=function.__code__.co_argcount
         params = [1 for i in range(N-1)]
+    tmp_params = []
+    for i in range(len(params)):
+        if not util.has(i+1,fixed):
+            tmp_params += [params[i]]
+    params = tmp_params
+    N=len(params)
+    Nfree = len(params)
+
     def tmp(*x):
-        return unv(function(*x))
+        tmp_x = []
+        j = 1
+        print(x)
+        for i in range(1,Ntot+1):
+            print(i," ",j)
+            if not util.has(i,fixed):
+                tmp_x += [x[j]]
+                print(x[j])
+                j = j+1
+            else:
+                tmp_x += [fixed[i]]
+        
+        print(Ntot)
+        print(tmp_x)
+        return unv(function(x[0],*tmp_x))
     if xerr is not None:
-        fit = fit_curve(x,y,tmp,params=params,xerr=xerr,yerr=yerr)
+        fit = _fit_odr(x,y,tmp,params=params,xerr=xerr,yerr=yerr)
     else:
-        fit = fit_curvefit(x,y,tmp,params=params,yerr=yerr)
-    return fit
+        fit = _fit_curvefit(x,y,tmp,params=params,yerr=yerr)
+
+    rfit = []
+    j = 0
+    for i in range(1,Ntot+1):
+        if not util.has(i,fixed):
+            rfit += [fit[j]]
+            j = j+1
+        else:
+            rfit += [fixed[i]]
+
+    return rfit
 
 @append(default_kwargs)
 def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_color=None):
@@ -357,19 +421,21 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
         xfit = np.linspace(kwargs['prange'][0],kwargs['prange'][1],1000)
     #l = function.__name__
     if function.__doc__ is not None:
-        l = function.__doc__
+        l = function.__doc__.split('\n')[0]
     for i in range(1,len(function.__code__.co_varnames)):
         l = l + "\n"
         l = l + "" + str(function.__code__.co_varnames[i]) + "="
-        if kwargs['units'] is not None:
+        if kwargs['units'] is not None and usd(fit[i-1])>0:
             l = l + "("
         if 'number_format' in kwargs:
             l = l +kwargs['number_format'].format(fit[i-1])
         else:
             l = l +"%s"%(fit[i-1])
 
+        if kwargs['units'] is not None and usd(fit[i-1])>0:
+            l = l + ")" 
         if kwargs['units'] is not None:
-            l = l + ") " + kwargs['units'][i-1]
+            l = l + " " +kwargs['units'][i-1]
     ll = None
     if kwargs['sigmas']>0:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",color =kwargs['fit_color'])
@@ -413,7 +479,7 @@ def show(**kwargs):
     plt.grid()
     plt.show()
 # usage zB:
-# pfit, perr = fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
+# pfit, perr = _fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
 # fuer eine gerade mit anfangswerten m = 1, b = 0
 
 

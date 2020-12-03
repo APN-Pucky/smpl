@@ -1,5 +1,5 @@
 """
 Simplified plotting
 """
-from .plot import data,fit,function,unv,usd,show
-__all__ = ['data','fit','function','unv','usd','show']
+from .plot import data,fit,function,unv,usd,show,auto
+__all__ = ['data','fit','function','unv','usd','show','auto']

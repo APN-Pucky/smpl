@@ -15,8 +15,6 @@
    
       exponential
    
-      fft
-   
       gauss
    
       line

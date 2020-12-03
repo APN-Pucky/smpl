@@ -10,12 +10,13 @@ import smpl
 
 
 plot.function( lambda N,a,b : -a * N * np.log(b*N), 1,1, xaxis="$N$", yaxis="$\\dot N$",xmin=0, xmax=100 )
-
-print(io.pwd())
+plot.show()
+#print(io.pwd())
 
 
 data = np.loadtxt('tests/test_linear.txt')
-ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.Gerade, units=["l","b"],sigmas=1,lpos=2,residue=True,residue_err=False,xaxis="t",yaxis="s")
+ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.linear, units=["l","b"],sigmas=1,lpos=2,residue=True,residue_err=False,xaxis="t",yaxis="s")
+ff = plot.fit(data[:,0], data[:,1], fmt='.', function=f.line, units=["l","b"],sigmas=1,lpos=2,residue=True,residue_err=False,xaxis="t",yaxis="s",b=0)
 
 plt.show()
 

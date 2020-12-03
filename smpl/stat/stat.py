@@ -1,6 +1,7 @@
 import numpy as np
 import uncertainties as unc
 import uncertainties.unumpy as unp
+from smpl import doc
 
 unv=unp.nominal_values
 usd=unp.std_devs
@@ -36,3 +37,12 @@ def mean(n):
     err = stat.variance(unv(n))
     return unc.ufloat(unv(k), math.sqrt(usd(k)**2 + err))
 
+
+@doc.insert_eq()
+def fft(y):
+    """
+    $F(y)$
+    """
+    N = len(y)
+    fft = scipy.fftpack.fft(y)
+    return 2 * abs(fft[:N//2]) / N

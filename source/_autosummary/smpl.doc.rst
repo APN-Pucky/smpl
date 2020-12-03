@@ -11,6 +11,8 @@
    
       append
    
+      append_plot
+   
       insert
    
       insert_eq

@@ -1,5 +1,5 @@
 """
-Simplified input and output
+Simplified statistics
 """
 from .stat import unv,usd,unv_lambda, poisson_dist,normalize,novar_mean,mean
 

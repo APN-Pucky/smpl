@@ -1,37 +1,35 @@
 import numpy as np
+import scipy
+import uncertainties.unumpy as unp
 
 from smpl import doc
 
 # %% Konstanten fuer einheitliche Darstellung
 
-@doc.insert_eq()
-def fft(y):
-    """
-    $F(y)$
-    """
-    N = len(y)
-    fft = scipy.fftpack.fft(y)
-    return 2 * abs(fft[:N//2]) / N
 
-    # allgemeine Fitfunktionen
+# allgemeine Fitfunktionen
 @doc.insert_eq()
+@doc.append_plot(4)
 def const(x,m):
     '''m'''
     return (np.ones(np.shape(x))*m)
 
 @doc.insert_eq()
+@doc.append_plot(2)
 def linear(x,m): # lineare Funktion mit f(x) = m * x
     '''mx'''
     return(m*x)
 
 @doc.insert_eq()
+@doc.append_plot(2,-1)
 def line(x, a, b): # gerade mit = f(x) = m * x + b
     '''ax+b'''
     return (a*x + b)
-Gerade=line
-Line=line
+#Gerade=line
+#Line=line
 
 @doc.insert_eq()
+@doc.append_plot(3,0.02,3)
 def cos_abs(x, a, f, phi):
     '''$a|\\cos(2πf(x-\\phi))|$'''
     return a * np.abs(unp.cos(2*np.pi*f*(x-phi)))
@@ -40,10 +38,11 @@ def cyclicOff(x, a, f, phi, offset):
     return cyclic(x, a, f, phi) + offset
 
 @doc.insert_eq()
+@doc.append_plot(0,5,3,0)
 def lorentz(x,x_0,A,d,y):
     '''$\\frac{A}{\\pi d (1+ (\\frac{x-x_0}{d})^2)} + y$'''
     return 1/(np.pi*d*(1+(x-x_0)**2/d**2))*A + y
-Lorentz=lorentz
+#Lorentz=lorentz
 def Two_Lorentz(x, x0, A0, d0, x1, A1, d1,y):
     '''$\\frac{A}{\\pi d (1+ (\\frac{x-x0}{d})^2)} + y$'''
     return Lorentz(x,x0,A0,d0,y)+Lorentz(x,x1,A1,d1,0)
@@ -56,6 +55,7 @@ def Split_Gauss(x,x0,A0,d0,d1,y):
     return np.where(x>x0,gauss(x,x0,A0,d0,y) ,gauss(x,x0,A0,d1,y))
 
 @doc.insert_eq()
+@doc.append_plot(0,5,3,0)
 def gauss(x, x_0, A, d, y):
     '''$A\\cdot \\exp\\left(\\frac{-(x-x_0)^2}{2d^2}\\right)+y$'''
     return A * unp.exp(-(x - x_0)**2 / 2 / d**2) + y
@@ -76,10 +76,12 @@ def Two_Exp(x,A0,A1,l0,l1):
     return exponential(x,-l0,A0)+exponential(x,-l1,A1)
 
 @doc.insert_eq()
+@doc.append_plot(0.5,4)
 def exponential(x, c, y_0):
     '''$\\exp(cx)y_0$'''
-    return np.exp(c * x) * y_0
+    return unp.exp(c * x) * y_0
 @doc.insert_eq()
+@doc.append_plot(1,5,0)
 def quadratic(x,x_0,A,y):
     '''$A(x-x_0)^2+y$'''
     return A*(x-x_0)**2+y
