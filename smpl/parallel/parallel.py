@@ -1,5 +1,5 @@
 from multiprocessing import Process,Queue
-from smpl.doc import append 
+from smpl.doc import append_doc 
 
 def queued(q,f,*args,**kwargs):
     q.put(f(*args,**kwargs))
@@ -37,7 +37,7 @@ def gen(f,*args,**kwargs):
     yield p.start()
     yield [q.get(),p.join()][0]
 
-@append(res)
+@append_doc(res)
 def calc(f,*args,**kwargs):
     g=gen(f,*args,**kwargs)
     next(g)

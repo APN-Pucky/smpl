@@ -1,6 +1,6 @@
 """
 Simplified general utilities
 """
-from .util import has
+from .util import has,times
 
-__all__ = ['has']
+__all__ = ['has','times']

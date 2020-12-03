@@ -1,4 +1,5 @@
-
+def times(str,int):
+    return str.join(["" for i in range(0,int+1)])
 def has(key, dict):
     """
         Checks if the key is in the dict and not None.

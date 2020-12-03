@@ -1,10 +1,6 @@
 replace varible names eg: omega to \omega + latex
 underscore => index => WHOLE?!?
 
-
-Auto function ? => loop all functions in functions.py
-
-limited fit
 multi fit + subtract
 histogram + errors?
 add lines
@@ -24,15 +20,16 @@ Function text
 Todo expanded plot parameters 
 
 
-Fitting:  mask on data
-
 
 Simple 3d plotting
 simple animations?
-
-Overwrite option for fit function text , split show text or equation
 
 
 smpl.debug to kwargs based
 
 Fix Residue plot This figure includes Axes that are not compatible
+
+
+compatibile with pandas?!?!?
+
+doc insert skip first line option

@@ -11,6 +11,8 @@
    
       has
    
+      times
+   
    
    .. rubric:: Functions
 

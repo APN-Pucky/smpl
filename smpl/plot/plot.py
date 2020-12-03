@@ -26,7 +26,8 @@ import inspect
 from smpl import functions
 from smpl import io
 from smpl import util
-from smpl.doc import  append
+from smpl.doc import  append_doc,append_str
+from smpl import doc
 #TODO create folders for file saves
 
 fig_size = (8, 6)
@@ -47,111 +48,71 @@ colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
 unv=unp.nominal_values
 usd=unp.std_devs
 
+default = {   'params'        :[None      ,"Initial fit parameters",
+],            'xaxis'         :[""        ,"X axis label",
+],            'yaxis'         :[""        ,"Y axis label",
+],            'label'         :[None      ,"Legend name of plotted ``data``",
+],            'fmt'           :['.'       ,"Format for plotting fit function",
+ ],           'units'         :[None      ,"Units of the fit parameters as strings. Displayed in the Legend",
+ ],           'save'          :[None      ," File to save the plot",
+   ],         'lpos'          :[0         ,"Legend position",
+ ],           'frange'        :[None      ,"Limit the fit to given range. First integer is the lowest and second the highest index.",
+  ],          'prange'        :[None      ,"Limit the plot of the fit to given range",
+   ],         'sigmas'        :[0         ,"Color the array of given ``sigma`` times uncertaint",
+ ],           'init'          :[True      ,"Initialize a new plot"
+  ],          'ss'            :[True      ,"save, add legends and grid to the plot",
+  ],          'also_data'     :[True      ," also plot the data"
+  ],          'also_fit'      :[True      ,"also plot the fit",
+  ],          'logy'          :[False     ,"logarithmic x axis",
+  ],          'logx'          :[False     ,"logarithmic y axis",
+  ],          'data_color'    :[None      , "Color of the data plot", 
+  ],          'fit_color'     :[None      ,"Color of the fit plot",
+   ],         'residue'       :[False     ,"Display difference between fit and data in a second plot",
+  ],          'residue_err'   :[True      ,"Differences between fit and data will have errorbars",
+  ],          'show'          :[False     ,"Call plt.show()",
+   ],         'size'          :[None      ,"Size of the plot",
+  ],          'number_format' :[ io.gf(4) ,"Format to display numbers.",
+  ],          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
+  ],          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
+  ],          'steps'         :[ 1000     ,"resolution of the plotted function" 
+  ]          }
 
-def default_kwargs(kwargs) :
+#@doc.insert_str("\tDefault kwargs\n\n\t")
+@doc.append_str(doc.table(default,init=False))
+@doc.append_str(doc.table({"kwargs":["default","description"]}, bottom=False))
+def default_kwargs(kwargs):
     """
-    Other Parameters
-    ================
-    params : array_like
-        Initial fit parameters
-    xaxis : str
-        X axis label
-    yaxis : str
-        Y axis label
-    label : str
-        Legend name of plotted ``data``
-    fmt : str
-        Format for plotting fit function
-    units : array
-        Units of the fit parameters as strings. Displayed in the Legend
-    save : str
-        File to save the plot
-    lpos: int
-        Legend position
-    frange : array
-        Limit the fit to given range. First integer is the lowest and second the highest index.
-    prange : array
-        Limit the plot of the fit to given range
-    sigmas : int
-        Color the array of given ``sigma`` times uncertainty
-    init : bool
-        Initialize a new plot
-    ss : bool
-        save, add legends and grid to the plot
-    also_data: bool
-        also plot the data
-    also_fit : bool
-        also plot the fit
-    logy : bool
-        logarithmic y axis
-    logx : bool
-        logarithmic x axis
-    data_color : str
-        Color of the data plot
-    fit_color : str
-        Color of the fit plot
-    residue : bool
-        Display difference between fit and data in a second plot 
-    residue_err : bool
-        Differences between fit and data will have errorbars
-    show : bool
-        Call plt.show()
-    number_format : str
-        Format to display numbers.
-    selector : func, mask
-        Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting.
-        Alternatively a mask for selecting elements from datax and datay.
-    steps : int
-        resolution of the plotted function
+    Set default kwargs if not set.
+    """
     
-
-    """
-    default = {'params':None,
-            'xaxis':"",
-            'yaxis':"",
-            'label':None,
-            'fmt':'.',
-            'units':None,
-            'save':None,
-            'lpos':0,
-            'frange':None,
-            'prange':None,
-            'sigmas':0,
-            'init':True,
-            'ss':True,
-            'also_data':True,
-            'also_fit':True,
-            'logy':False,
-            'logx':False,
-            'data_color':None, 
-            'fit_color' :None,
-            'residue':False,
-            'residue_err':True,
-            'show':False,
-            'size':None,
-            'number_format': io.gf(4),
-            'selector' : None,
-            'steps' : 1000
-            }
     for k,v in default.items():
         if not k in kwargs:
-            kwargs[k] = v
+            kwargs[k] = v[0]
     return kwargs
 
 
-@append(default_kwargs)
-def auto(datax,datay,**kwargs):
+#@append_doc(default_kwargs)
+def auto(datax,datay,funcs = None,**kwargs):
     """
-    Automatically loop over ``smpl.functions`` and fit the best one.
+    Automatically loop over functions and fit the best one.
 
-    TODO condition to penalize mutliple varaibles
+    Parameters
+    ==========
+    funcs : function array
+        functions to consider as fit. Default all ``smpl.functions``.
+    **kwargs : optional
+        see :func:`default_kwargs`.
+
     """
     min_sq = None
     best_f = None
     best_ff = None
     
+
     
-    for n,f in functions.__dict__.items():
+    if funcs is None:
+        funcs = functions.__dict__.values()
+    for f in funcs:
         if callable(f):
             #print(n)
             ff = _fit(datax,datay,f,**kwargs)
@@ -166,7 +127,7 @@ def auto(datax,datay,**kwargs):
 
   
 
-@append(default_kwargs)
+#@append_doc(default_kwargs)
 def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None, fit_color =None,residue=False,residue_err=True,show=False):
     """Fit and plot function to datax and datay.
 
@@ -178,7 +139,8 @@ def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None
         Y data either as ``unp.uarray`` or ``np.array`` or ``list``
     function : func
         Fit function with parameters: ``x``, ``params``
-
+    **kwargs : optional
+        see :func:`default_kwargs`.
     Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.
     
     Returns
@@ -217,7 +179,7 @@ def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None
         plt_residue(datax,datay,function,fit,fig,**kwargs)#xaxis,yaxis,fit_color,save,residue_err,show=show)
     return fit
 
-@append(default_kwargs)
+#@append_doc(default_kwargs)
 def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",label=None,fmt='.',units=None,save=None,lpos=0,frange=None,prange=None,sigmas=0,init=True,ss=True,also_data=True,also_fit=True,logy=False,logx=False,data_color=None,show=False):
     """Plot datay against datax via :func:`fit`
 
@@ -229,7 +191,8 @@ def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",labe
         Y data either as ``unp.uarray`` or ``np.array`` or ``list``
     function : func,optional
         Fit function with parameters: ``x``, ``params``
-
+    **kwargs : optional
+        see :func:`default_kwargs`.
     Returns
     =======
     array_like
@@ -243,7 +206,7 @@ def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",labe
     #return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
     return fit(datax,datay,function,**kwargs)
 
-@append(default_kwargs)
+#@append_doc(default_kwargs)
 def function(func,*args,**kwargs):
     """
     Plot function ``func`` between ``xmin`` and ``xmax``
@@ -251,12 +214,9 @@ def function(func,*args,**kwargs):
     Parameters
     ==========
     func : function
-        Function to be plotted between ``start`` and ``end``, only taking `array_like` ``x`` as parameter
-    start : float
-        lowest ``x``
-    end : float
-        highest ``x``
-
+        Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter
+    **kwargs : optional
+        see :func:`default_kwargs`.
     """
     if not 'lpos' in kwargs:
         kwargs['lpos'] =-1
@@ -352,10 +312,10 @@ def _fit(datax,datay,function,**kwargs):
 
     fixed = {}
     Ntot = len(function.__code__.co_varnames)-1
-
-    for i in range(1,len(function.__code__.co_varnames)):
-        if util.has(function.__code__.co_varnames[i],kwargs):
-            fixed[i] = kwargs[function.__code__.co_varnames[i]]
+    if util.has("fixed_params",kwargs) and kwargs['fixed_params']:
+        for i in range(1,len(function.__code__.co_varnames)):
+            if util.has(function.__code__.co_varnames[i],kwargs):
+                fixed[i] = kwargs[function.__code__.co_varnames[i]]
     # Count parameters for function
     if params is None:
         N=function.__code__.co_argcount
@@ -400,7 +360,7 @@ def _fit(datax,datay,function,**kwargs):
 
     return rfit
 
-@append(default_kwargs)
+@append_doc(default_kwargs)
 def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_color=None):
     """
         Plot datay vs datax
@@ -418,7 +378,7 @@ def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_c
     else:
         plt.errorbar(x,y,yerr=yerr,xerr=xerr,fmt=" ",capsize=5,label=kwargs['label'],color=kwargs['data_color'])
  
-@append(default_kwargs)
+@append_doc(default_kwargs)
 def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
     """
        Plot Fit 
