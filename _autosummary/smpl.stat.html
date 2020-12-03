@@ -38,7 +38,7 @@
             
   <div class="section" id="module-smpl.stat">
 <span id="smpl-stat"></span><h1><a class="reference internal" href="#module-smpl.stat" title="smpl.stat"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a><a class="headerlink" href="#module-smpl.stat" title="Permalink to this headline">¶</a></h1>
-<p>Simplified input and output</p>
+<p>Simplified statistics</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -48,22 +48,25 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.mean" title="smpl.stat.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>(n)</p></td>
 <td><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with combined error of variance and unvertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.normalize" title="smpl.stat.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(ydata)</p></td>
-<td><p>Return normalized <code class="docutils literal notranslate"><span class="pre">ydata</span></code> .</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.noisy" title="smpl.stat.noisy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noisy</span></code></a>(x[, mean, std])</p></td>
+<td><p>Add noise to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.novar_mean" title="smpl.stat.novar_mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">novar_mean</span></code></a>(f)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.normalize" title="smpl.stat.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(ydata)</p></td>
+<td><p>Return normalized <code class="docutils literal notranslate"><span class="pre">ydata</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.novar_mean" title="smpl.stat.novar_mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">novar_mean</span></code></a>(f)</p></td>
 <td><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with only the uncertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code> and no variance.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.poisson_dist" title="smpl.stat.poisson_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson_dist</span></code></a>(N)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.poisson_dist" title="smpl.stat.poisson_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson_dist</span></code></a>(N)</p></td>
 <td><p>Return <code class="docutils literal notranslate"><span class="pre">N</span></code> with added poissonian uncertainties.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
 <td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.unv_lambda" title="smpl.stat.unv_lambda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv_lambda</span></code></a>(f)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.unv_lambda" title="smpl.stat.unv_lambda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv_lambda</span></code></a>(f)</p></td>
 <td><p>Returns a function which applies <a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unv()</span></code></a> on the result of <code class="docutils literal notranslate"><span class="pre">f</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.usd" title="smpl.stat.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.usd" title="smpl.stat.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
 <td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
 </tr>
 </tbody>
@@ -76,9 +79,15 @@
 </dd></dl>
 
 <dl class="py function">
+<dt id="smpl.stat.noisy">
+<code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">noisy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">mean</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">std</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#noisy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.stat.noisy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add noise to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="smpl.stat.normalize">
 <code class="sig-prename descclassname">smpl.stat.</code><code class="sig-name descname">normalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ydata</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#normalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.stat.normalize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return normalized <code class="docutils literal notranslate"><span class="pre">ydata</span></code> .</p>
+<dd><p>Return normalized <code class="docutils literal notranslate"><span class="pre">ydata</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">

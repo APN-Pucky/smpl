@@ -38,6 +38,7 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
 <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
 
 <span class="n">unv</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
 <span class="n">usd</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
@@ -56,7 +57,7 @@
 
 <div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">ydata</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return normalized ``ydata`` .</span>
+<span class="sd">    Return normalized ``ydata``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">ydata</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span></div>
 <div class="viewcode-block" id="novar_mean"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.novar_mean">[docs]</a><span class="k">def</span> <span class="nf">novar_mean</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
@@ -73,6 +74,20 @@
     <span class="n">err</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">usd</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">err</span><span class="p">))</span></div>
 
+<div class="viewcode-block" id="noisy"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.noisy">[docs]</a><span class="k">def</span> <span class="nf">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add noise to ``x``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span><span class="n">std</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
+
+<span class="nd">@doc</span><span class="o">.</span><span class="n">insert_eq</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    $F(y)$</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">fft</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fftpack</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fft</span><span class="p">[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">N</span>
 </pre></div>
 
           </div>

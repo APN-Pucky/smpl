@@ -9,6 +9,8 @@
    
    .. autosummary:: 
    
+      auto
+   
       data
    
       fit

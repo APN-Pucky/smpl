@@ -45,27 +45,94 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.data" title="smpl.plot.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>(datax, datay[, function])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.auto" title="smpl.plot.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>(datax, datay, **kwargs)</p></td>
+<td><p>Automatically loop over <code class="docutils literal notranslate"><span class="pre">smpl.functions</span></code> and fit the best one.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.data" title="smpl.plot.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>(datax, datay[, function])</p></td>
 <td><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(datax, datay, function, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(datax, datay, function, **kwargs)</p></td>
 <td><p>Fit and plot function to datax and datay.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></a>(func, *args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></a>(func, *args, **kwargs)</p></td>
 <td><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
 <td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
 <td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="smpl.plot.auto">
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">auto</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically loop over <code class="docutils literal notranslate"><span class="pre">smpl.functions</span></code> and fit the best one.</p>
+<p>TODO condition to penalize mutliple varaibles</p>
+<dl class="field-list simple">
+<dt class="field-odd">Other Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">array_like</span></dt><dd><p>Initial fit parameters</p>
+</dd>
+<dt><strong>xaxis</strong><span class="classifier">str</span></dt><dd><p>X axis label</p>
+</dd>
+<dt><strong>yaxis</strong><span class="classifier">str</span></dt><dd><p>Y axis label</p>
+</dd>
+<dt><strong>label</strong><span class="classifier">str</span></dt><dd><p>Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code></p>
+</dd>
+<dt><strong>fmt</strong><span class="classifier">str</span></dt><dd><p>Format for plotting fit function</p>
+</dd>
+<dt><strong>units</strong><span class="classifier">array</span></dt><dd><p>Units of the fit parameters as strings. Displayed in the Legend</p>
+</dd>
+<dt><strong>save</strong><span class="classifier">str</span></dt><dd><p>File to save the plot</p>
+</dd>
+<dt><strong>lpos: int</strong></dt><dd><p>Legend position</p>
+</dd>
+<dt><strong>frange</strong><span class="classifier">array</span></dt><dd><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p>
+</dd>
+<dt><strong>prange</strong><span class="classifier">array</span></dt><dd><p>Limit the plot of the fit to given range</p>
+</dd>
+<dt><strong>sigmas</strong><span class="classifier">int</span></dt><dd><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty</p>
+</dd>
+<dt><strong>init</strong><span class="classifier">bool</span></dt><dd><p>Initialize a new plot</p>
+</dd>
+<dt><strong>ss</strong><span class="classifier">bool</span></dt><dd><p>save, add legends and grid to the plot</p>
+</dd>
+<dt><strong>also_data: bool</strong></dt><dd><p>also plot the data</p>
+</dd>
+<dt><strong>also_fit</strong><span class="classifier">bool</span></dt><dd><p>also plot the fit</p>
+</dd>
+<dt><strong>logy</strong><span class="classifier">bool</span></dt><dd><p>logarithmic y axis</p>
+</dd>
+<dt><strong>logx</strong><span class="classifier">bool</span></dt><dd><p>logarithmic x axis</p>
+</dd>
+<dt><strong>data_color</strong><span class="classifier">str</span></dt><dd><p>Color of the data plot</p>
+</dd>
+<dt><strong>fit_color</strong><span class="classifier">str</span></dt><dd><p>Color of the fit plot</p>
+</dd>
+<dt><strong>residue</strong><span class="classifier">bool</span></dt><dd><p>Display difference between fit and data in a second plot</p>
+</dd>
+<dt><strong>residue_err</strong><span class="classifier">bool</span></dt><dd><p>Differences between fit and data will have errorbars</p>
+</dd>
+<dt><strong>show</strong><span class="classifier">bool</span></dt><dd><p>Call plt.show()</p>
+</dd>
+<dt><strong>number_format</strong><span class="classifier">str</span></dt><dd><p>Format to display numbers.</p>
+</dd>
+<dt><strong>selector</strong><span class="classifier">func, mask</span></dt><dd><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting.
+Alternatively a mask for selecting elements from datax and datay.</p>
+</dd>
+<dt><strong>steps</strong><span class="classifier">int</span></dt><dd><p>resolution of the plotted function</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt id="smpl.plot.data">
 <code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
@@ -158,6 +225,7 @@ Alternatively a mask for selecting elements from datax and datay.</p>
 </dd>
 <dt><strong>function</strong><span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
 </dd>
+<dt><strong>Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.</strong></dt><dd></dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
