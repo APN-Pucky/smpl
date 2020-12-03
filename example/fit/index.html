@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plotting &#8212; smpl  documentation</title>
+    <title>Fitting &#8212; smpl  documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Functions" href="functions/funcs.html" />
-    <link rel="prev" title="Examples" href="../index.html" />
+    <link rel="next" title="Auto Fit" href="auto/test_auto.html" />
+    <link rel="prev" title="Residue Plot" href="../plot/residue/residue.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -36,18 +36,16 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="plotting">
-<h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="fitting">
+<h1>Fitting<a class="headerlink" href="#fitting" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="functions/funcs.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="functions/funcs.html#\dot-x-=-1--\exp(--x^2)"><span class="math notranslate nohighlight">\(\dot x = 1- \exp(- x^2)\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/funcs.html#\dot-x-=-\ln-x"><span class="math notranslate nohighlight">\(\dot x = \ln x\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="functions/funcs.html#\dot-x-=--\tan-x"><span class="math notranslate nohighlight">\(\dot x = -\tan x\)</span></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="multiplot/multi.html">Multiplot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="residue/residue.html">Residue Plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto/test_auto.html">Auto Fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto/test_linear.html">Auto Fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom/test_custom.html">Custom Fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fixed_fit/test_fixed.html">Fixed Fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear/test_linear.html">Linear Fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="selective_fit/test_selective_fit.html">Selective Fit</a></li>
 </ul>
 </div>
 </div>
@@ -71,13 +69,16 @@
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Plotting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="functions/funcs.html">Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="multiplot/multi.html">Multiplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="residue/residue.html">Residue Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot/index.html">Plotting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Fitting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="auto/test_auto.html">Auto Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto/test_linear.html">Auto Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom/test_custom.html">Custom Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fixed_fit/test_fixed.html">Fixed Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linear/test_linear.html">Linear Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selective_fit/test_selective_fit.html">Selective Fit</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../fit/index.html">Fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../parallel/parallel.html">Parallel</a></li>
 </ul>
 </li>
@@ -98,8 +99,8 @@
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../index.html">Examples</a><ul>
-      <li>Previous: <a href="../index.html" title="previous chapter">Examples</a></li>
-      <li>Next: <a href="functions/funcs.html" title="next chapter">Functions</a></li>
+      <li>Previous: <a href="../plot/residue/residue.html" title="previous chapter">Residue Plot</a></li>
+      <li>Next: <a href="auto/test_auto.html" title="next chapter">Auto Fit</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -134,7 +135,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/example/plot/index.rst.txt"
+      <a href="../../_sources/example/fit/index.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

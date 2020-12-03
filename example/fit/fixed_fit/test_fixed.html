@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linear Fit &#8212; smpl  documentation</title>
+    <title>Fixed Fit &#8212; smpl  documentation</title>
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
@@ -18,8 +18,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Multiplot" href="../multiplot/multi.html" />
-    <link rel="prev" title="Functions" href="../functions/funcs.html" />
+    <link rel="next" title="Linear Fit" href="../linear/test_linear.html" />
+    <link rel="prev" title="Custom Fit" href="../custom/test_custom.html" />
    
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
   
@@ -284,8 +284,8 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="section" id="Linear-Fit">
-<h1>Linear Fit<a class="headerlink" href="#Linear-Fit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Fixed-Fit">
+<h1>Fixed Fit<a class="headerlink" href="#Fixed-Fit" title="Permalink to this headline">¶</a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -295,6 +295,7 @@ div.rendered_html tbody tr:hover {
 from smpl import plot
 from smpl import functions as f
 import uncertainties.unumpy as unp
+import uncertainties as un
 
 </pre></div>
 </div>
@@ -345,7 +346,7 @@ array([[ 0. ,  1. ,  0.1,  0.2],
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
 
-<span></span>ff = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,function=f.linear, params=[1])
+<span></span>ff = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,function=f.line, b=0)
 </pre></div>
 </div>
 </div>
@@ -353,7 +354,7 @@ array([[ 0. ,  1. ,  0.1,  0.2],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_plot_linear_test_linear_4_0.png" src="../../../_images/example_plot_linear_test_linear_4_0.png" />
+<img alt="../../../_images/example_fit_fixed_fit_test_fixed_4_0.png" src="../../../_images/example_fit_fixed_fit_test_fixed_4_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -361,7 +362,7 @@ array([[ 0. ,  1. ,  0.1,  0.2],
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>ff = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,function=f.line, params=[1,2])
+<span></span>ff = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,function=f.line, a=un.ufloat(1,0.1),sigmas=1)
 
 </pre></div>
 </div>
@@ -370,7 +371,7 @@ array([[ 0. ,  1. ,  0.1,  0.2],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_plot_linear_test_linear_5_0.png" src="../../../_images/example_plot_linear_test_linear_5_0.png" />
+<img alt="../../../_images/example_fit_fixed_fit_test_fixed_5_0.png" src="../../../_images/example_fit_fixed_fit_test_fixed_5_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -382,36 +383,22 @@ array([[ 0. ,  1. ,  0.1,  0.2],
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>ff = plot.fit(xdata, y, fmt=&#39;.&#39;, function=f.line, params=[1,1], sigmas=1,lpos=2)
+<span></span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_linear_test_linear_7_0.png" src="../../../_images/example_plot_linear_test_linear_7_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>ff = plot.fit(x, y, fmt=&#39;.&#39;, function=f.line, params=[1,1], sigmas=1,lpos=2)
+<span></span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_linear_test_linear_8_0.png" src="../../../_images/example_plot_linear_test_linear_8_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -444,13 +431,13 @@ array([[ 0. ,  1. ,  0.1,  0.2],
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Examples</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Plotting</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../plot/index.html">Plotting</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Fitting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../auto/test_auto.html">Auto Fit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto/test_linear.html">Auto Fit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../custom/test_custom.html">Custom Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../functions/funcs.html">Functions</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Linear Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../multiplot/multi.html">Multiplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../residue/residue.html">Residue Plot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Fixed Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../linear/test_linear.html">Linear Fit</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../selective_fit/test_selective_fit.html">Selective Fit</a></li>
 </ul>
 </li>
@@ -474,9 +461,9 @@ array([[ 0. ,  1. ,  0.1,  0.2],
 <ul>
   <li><a href="../../../index.html">Documentation overview</a><ul>
   <li><a href="../../index.html">Examples</a><ul>
-  <li><a href="../index.html">Plotting</a><ul>
-      <li>Previous: <a href="../functions/funcs.html" title="previous chapter">Functions</a></li>
-      <li>Next: <a href="../multiplot/multi.html" title="next chapter">Multiplot</a></li>
+  <li><a href="../index.html">Fitting</a><ul>
+      <li>Previous: <a href="../custom/test_custom.html" title="previous chapter">Custom Fit</a></li>
+      <li>Next: <a href="../linear/test_linear.html" title="next chapter">Linear Fit</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -512,7 +499,7 @@ array([[ 0. ,  1. ,  0.1,  0.2],
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../../_sources/example/plot/linear/test_linear.ipynb.txt"
+      <a href="../../../_sources/example/fit/fixed_fit/test_fixed.ipynb.txt"
           rel="nofollow">Page source</a>
     </div>
 
