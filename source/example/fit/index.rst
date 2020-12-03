@@ -1,10 +1,8 @@
 
-Examples
+Fitting
 ================================
 .. toctree::
     :glob:
     :maxdepth: 2
 
-    plot/*
-    fit/*
-    parallel/*
+    **

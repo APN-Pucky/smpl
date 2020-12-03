@@ -11,6 +11,8 @@
    
       mean
    
+      noisy
+   
       normalize
    
       novar_mean
