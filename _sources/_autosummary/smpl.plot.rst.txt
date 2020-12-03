@@ -13,6 +13,8 @@
    
       data
    
+      default_kwargs
+   
       fit
    
       function

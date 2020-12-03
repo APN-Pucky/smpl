@@ -9,13 +9,19 @@
    
    .. autosummary:: 
    
-      append
+      append_doc
    
       append_plot
    
-      insert
+      append_str
+   
+      insert_doc
    
       insert_eq
+   
+      insert_str
+   
+      table
    
    
    .. rubric:: Functions

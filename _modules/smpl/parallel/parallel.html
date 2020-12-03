@@ -36,7 +36,7 @@
             
   <h1>Source code for smpl.parallel.parallel</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span><span class="n">Queue</span>
-<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append</span> 
+<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append_doc</span> 
 
 <span class="k">def</span> <span class="nf">queued</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
@@ -74,7 +74,7 @@
     <span class="k">yield</span> <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
     <span class="k">yield</span> <span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span><span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="calc"><a class="viewcode-back" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.calc">[docs]</a><span class="nd">@append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<div class="viewcode-block" id="calc"><a class="viewcode-back" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.calc">[docs]</a><span class="nd">@append_doc</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">g</span><span class="o">=</span><span class="n">gen</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
@@ -118,6 +118,7 @@
 
 <h3>Navigation</h3>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
 </ul>
 <ul>
