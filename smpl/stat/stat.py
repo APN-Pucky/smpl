@@ -20,7 +20,7 @@ def poisson_dist(N):
 
 def normalize(ydata):
     """
-    Return normalized ``ydata`` .
+    Return normalized ``ydata``.
     """
     return (ydata-np.amin(ydata))/(np.amax(ydata)-np.amin(ydata))
 def novar_mean(f):
@@ -37,6 +37,11 @@ def mean(n):
     err = stat.variance(unv(n))
     return unc.ufloat(unv(k), math.sqrt(usd(k)**2 + err))
 
+def noisy(x, mean=0,std=1):
+    """
+    Add noise to ``x``.
+    """
+    return x+np.random.normal(mean,std,len(x))
 
 @doc.insert_eq()
 def fft(y):

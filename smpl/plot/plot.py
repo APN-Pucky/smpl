@@ -143,6 +143,8 @@ def default_kwargs(kwargs) :
 def auto(datax,datay,**kwargs):
     """
     Automatically loop over ``smpl.functions`` and fit the best one.
+
+    TODO condition to penalize mutliple varaibles
     """
     min_sq = None
     best_f = None
@@ -153,13 +155,14 @@ def auto(datax,datay,**kwargs):
         if callable(f):
             #print(n)
             ff = _fit(datax,datay,f,**kwargs)
-            sum_sq = np.sum((f(datax,*ff) - datay)**2)
+            fy = f(datax,*ff)
+            sum_sq = np.sum((fy - datay)**2) + np.sum((fy + usd(fy) - datay)**2) + np.sum((fy - usd(fy) - datay)**2)
             if min_sq is None or sum_sq < min_sq:
                 min_sq = sum_sq
                 best_f = f
                 best_ff = ff
     if not best_f is None:
-        fit(datax,datay,best_f)
+        fit(datax,datay,best_f,**kwargs)
 
   
 
@@ -175,6 +178,8 @@ def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None
         Y data either as ``unp.uarray`` or ``np.array`` or ``list``
     function : func
         Fit function with parameters: ``x``, ``params``
+
+    Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.
     
     Returns
     =======
@@ -255,6 +260,7 @@ def function(func,*args,**kwargs):
     """
     if not 'lpos' in kwargs:
         kwargs['lpos'] =-1
+
     kwargs = default_kwargs(kwargs)
     xfit = np.linspace(kwargs['xmin'],kwargs['xmax'],kwargs['steps'])
     if kwargs['init']:
@@ -292,9 +298,13 @@ def plt_residue(datax,datay,function,fit,fig,**kwargs):#xaxis="",yaxis="",fit_co
 # Updated on 4/6/2016
 # User: https://stackoverflow.com/users/1476240/pedro-m-duarte
 def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
-    pfit, pcov = \
-         optimize.curve_fit(function,datax,datay,p0=params,\
-                            sigma=yerr, epsfcn=0.0001, **kwargs, maxfev=1000000)
+    try:
+        pfit, pcov = \
+            optimize.curve_fit(function,datax,datay,p0=params,\
+                            sigma=yerr, epsfcn=0.0001, **kwargs, maxfev=10000)
+    except:
+        #print("No fit found")
+        return params
     error = []
     for i in range(len(pfit)):
         try:
@@ -361,18 +371,18 @@ def _fit(datax,datay,function,**kwargs):
     def tmp(*x):
         tmp_x = []
         j = 1
-        print(x)
+        #print(x)
         for i in range(1,Ntot+1):
-            print(i," ",j)
+            #print(i," ",j)
             if not util.has(i,fixed):
                 tmp_x += [x[j]]
-                print(x[j])
+                #print(x[j])
                 j = j+1
             else:
                 tmp_x += [fixed[i]]
         
-        print(Ntot)
-        print(tmp_x)
+        #print(Ntot)
+        #print(tmp_x)
         return unv(function(x[0],*tmp_x))
     if xerr is not None:
         fit = _fit_odr(x,y,tmp,params=params,xerr=xerr,yerr=yerr)
