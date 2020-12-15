@@ -74,6 +74,10 @@ default = {   'params'        :[None      ,"Initial fit parameters",
   ],          'number_format' :[ io.gf(4) ,"Format to display numbers.",
   ],          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
   ],          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
+#  ],          'ymax'          :[None      ,"Set maximum of y axis",
+#  ],          'ymin'          :[None      ,"Set minimum of y axis",
+#  ],          'xmax'          :[None      ,"Set maximum of x axis",
+#  ],          'xmin'          :[None      ,"Set minimum of x axis",
   ],          'steps'         :[ 1000     ,"resolution of the plotted function" 
   ]          }
 
@@ -206,6 +210,16 @@ def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",labe
     #return fit(datax,datay,function,params,xaxis,yaxis,label,fmt,units,save,lpos,frange,prange,sigmas,init,ss,also_data,also_fit=False,logy=logy,logx=logx,data_color =data_color,show=show)
     return fit(datax,datay,function,**kwargs)
 
+def _plot(x,y,**kwargs):
+    args = [x,y]
+    kargs = {}
+    if util.has('fmt',kwargs):
+        args += [kwargs["fmt"]]
+    if util.has('label',kwargs) and kwargs['label']!="":
+        kargs['label'] = kwargs['label']
+    if util.has('color',kwargs) and kwargs['color']!="":
+        kargs['color'] = kwargs['color']
+    plt.plot(*args,**kargs)
 #@append_doc(default_kwargs)
 def function(func,*args,**kwargs):
     """
@@ -218,8 +232,10 @@ def function(func,*args,**kwargs):
     **kwargs : optional
         see :func:`default_kwargs`.
     """
-    if not 'lpos' in kwargs:
+    if not util.has('lpos',kwargs) and not util.has('label',kwargs):
         kwargs['lpos'] =-1
+    if not util.has('fmt',kwargs):
+        kwargs['fmt'] ="-"
 
     kwargs = default_kwargs(kwargs)
     xfit = np.linspace(kwargs['xmin'],kwargs['xmax'],kwargs['steps'])
@@ -229,10 +245,7 @@ def function(func,*args,**kwargs):
         plt.xlabel(kwargs['xaxis'])
     if kwargs['xaxis'] != "":
         plt.ylabel(kwargs['yaxis'])
-    if kwargs['label'] != "":
-        plt.plot(xfit,func(xfit,*args),label=kwargs['label'])
-    else:
-        plt.plot(xfit,func(xfit,*args))
+    _plot(xfit,func(xfit,*args),**kwargs)
     if kwargs['ss']:
         save_plot(**kwargs)
 
@@ -438,6 +451,8 @@ def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #sav
     plt.tight_layout()
     if 'lpos' in kwargs and kwargs['lpos']>=0:
         plt.legend(loc=kwargs['lpos'])
+    #plt.gca().set_xlim([kwargs['xmin'],kwargs['xmax']])
+    #plt.gca().set_ylim([kwargs['ymin'],kwargs['ymax']])
     if 'save' in kwargs and not kwargs['save']==None:
         mkdirs(kwargs['save'])
         plt.savefig(kwargs['save'] +".pdf")
@@ -446,6 +461,8 @@ def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #sav
         show(**kwargs)
 
 def show(**kwargs):
+    kwargs = default_kwargs(kwargs)
+
     plt.grid()
     plt.show()
 # usage zB:

@@ -15,6 +15,7 @@ import sys
 sys.path.insert(0, os.path.abspath('../..'))
 import smpl
 import re
+from sphinx_math_dollar import NODE_BLACKLIST
 
 version = re.sub('^', '', os.popen('git describe --tags').read().strip())
 
@@ -38,6 +39,10 @@ extensions = [ 'sphinx.ext.autodoc', 'nbsphinx', 'sphinx.ext.githubpages',
 #nbsphinx_execute = 'always'
 autosummary_generate=True
 autosummary_imported_members=True
+
+from docutils.nodes import FixedTextElement, literal,math
+math_dollar_node_blacklist = (literal,) #(FixedTextElement,math)
+print(NODE_BLACKLIST)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
