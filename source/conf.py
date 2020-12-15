@@ -41,8 +41,9 @@ autosummary_generate=True
 autosummary_imported_members=True
 
 from docutils.nodes import FixedTextElement, literal,math
-math_dollar_node_blacklist = (literal,) #(FixedTextElement,math)
-print(NODE_BLACKLIST)
+from docutils.nodes import  comment, doctest_block, image, literal_block, math_block, paragraph, pending, raw, rubric, substitution_definition, target
+math_dollar_node_blacklist = (literal,math,doctest_block, image, literal_block,  math_block,  pending,  raw,rubric, substitution_definition,target) #(FixedTextElement,math)
+#print(NODE_BLACKLIST)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
