@@ -77,12 +77,29 @@
     <span class="n">srcline</span> <span class="o">=</span> <span class="n">getsource</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="n">cf</span><span class="o">.</span><span class="n">f_lineno</span><span class="o">-</span><span class="n">cf</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_firstlineno</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">srcline</span>
 
-<span class="k">def</span> <span class="nf">get_line_number_file</span><span class="p">(</span><span class="n">split</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="get_line_number_file"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.get_line_number_file">[docs]</a><span class="k">def</span> <span class="nf">get_line_number_file</span><span class="p">(</span><span class="n">split</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span><span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Gets the current filename and the current linenumber within it.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    split : bool</span>
+<span class="sd">        Indicates whenever the folders above of the file should be included in the returned filename.</span>
+<span class="sd">    _back : int</span>
+<span class="sd">        Number of stack/frames to go back.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    =======</span>
+<span class="sd">    filenumber : int</span>
+<span class="sd">        First element in the return array</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Second element in the return array</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">cf</span> <span class="o">=</span> <span class="n">get_frame</span><span class="p">(</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span>
     <span class="k">if</span> <span class="n">split</span><span class="p">:</span>
         <span class="n">fname</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">cf</span><span class="o">.</span><span class="n">f_lineno</span><span class="p">,</span><span class="n">fname</span>
+    <span class="k">return</span> <span class="n">cf</span><span class="o">.</span><span class="n">f_lineno</span><span class="p">,</span><span class="n">fname</span></div>
 
 <span class="k">def</span> <span class="nf">get_line_number</span><span class="p">(</span><span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">get_line_number_file</span><span class="p">(</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
