@@ -74,6 +74,7 @@ default = {   'params'        :[None      ,"Initial fit parameters",
   ],          'number_format' :[ io.gf(4) ,"Format to display numbers.",
   ],          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
   ],          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
+  ],          'sortbyx'       :[ True     , "Enable sorting the x and y data so that x is sorted.",
 #  ],          'ymax'          :[None      ,"Set maximum of y axis",
 #  ],          'ymin'          :[None      ,"Set minimum of y axis",
 #  ],          'xmax'          :[None      ,"Set maximum of x axis",
@@ -301,28 +302,32 @@ def _fit_odr(datax,datay,function,params=None,yerr=None,xerr=None):
     out = odr.run()
     return unp.uarray(out.beta,out.sd_beta)
 
-def _data_split(datax,datay):
+def __data_split(datax,datay,sortbyx=True):
     '''
     Split data + errors
     '''
-    x = unv(datax)
-    y = unv(datay)
-    xerr = usd(datax)
-    yerr = usd(datay)
+    ind = np.argsort(unv(datax))
+    x = unv(datax)[ind]
+    y = unv(datay)[ind]
+    xerr = usd(datax)[ind]
+    yerr = usd(datay)[ind]
     xerr = xerr if np.any(np.abs(xerr)>0) else None
     yerr = yerr if np.any(np.abs(yerr)>0) else None
     return x,y,xerr,yerr
-def data_split(datax,datay,**kwargs):
+def _data_split(datax,datay,**kwargs):
     if util.has('selector',kwargs):
         sel = kwargs['selector']
         if callable(sel):
-            return _data_split(datax[sel(datax,datay)],datay[sel(datax,datay)])
+            return __data_split(datax[sel(datax,datay)],datay[sel(datax,datay)],kwargs['sortbyx'])
         else:
-            return _data_split(datax[sel],datay[sel])
+            return __data_split(datax[sel],datay[sel],kwargs['sortbyx'])
+
+def data_split(datax,datay,**kwargs):
+    x,y,xerr,yerr = _data_split(datax,datay,**kwargs)
     if util.has('frange',kwargs):
-        return _data_split(datax[kwargs['frange'][0]:kwargs['frange'][1]],datay[kwargs['frange'][0]:kwargs['frange'][1]])
-    else:
-        return _data_split(datax,datay)
+        x,y,xerr,yerr = x[kwargs['frange'][0]:kwargs['frange'][1]],y[kwargs['frange'][0]:kwargs['frange'][1]],xerr[kwargs['frange'][0]:kwargs['frange'][1]],yerr[kwargs['frange'][0]:kwargs['frange'][1]]
+    return x,y,xerr,yerr
+
 def _fit(datax,datay,function,**kwargs):
     x,y,xerr,yerr =data_split(datax,datay,**kwargs)
     params = None
@@ -471,9 +476,6 @@ def show(**kwargs):
 
     plt.grid()
     plt.show()
-# usage zB:
-# pfit, perr = _fit_curvefit(unv(xdata), unv(ydata), gerade, yerr = usd(ydata), p0 = [1, 0])
-# fuer eine gerade mit anfangswerten m = 1, b = 0
 
 
 if __name__ == "__main__":

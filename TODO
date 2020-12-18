@@ -33,3 +33,7 @@ Fix Residue plot This figure includes Axes that are not compatible
 compatibile with pandas?!?!?
 
 doc insert skip first line option
+
+
+Check interpolation of fit with frange
+
