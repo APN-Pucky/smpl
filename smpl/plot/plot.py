@@ -321,11 +321,20 @@ def _data_split(datax,datay,**kwargs):
             return __data_split(datax[sel(datax,datay)],datay[sel(datax,datay)],kwargs['sortbyx'])
         else:
             return __data_split(datax[sel],datay[sel],kwargs['sortbyx'])
+    if util.has("sortbyx", kwargs):
+        return __data_split(datax,datay,kwargs['sortbyx'])
+    else:
+        return __data_split(datax,datay)
 
 def data_split(datax,datay,**kwargs):
     x,y,xerr,yerr = _data_split(datax,datay,**kwargs)
     if util.has('frange',kwargs):
-        x,y,xerr,yerr = x[kwargs['frange'][0]:kwargs['frange'][1]],y[kwargs['frange'][0]:kwargs['frange'][1]],xerr[kwargs['frange'][0]:kwargs['frange'][1]],yerr[kwargs['frange'][0]:kwargs['frange'][1]]
+        x =x[kwargs['frange'][0]:kwargs['frange'][1]]
+        y =y[kwargs['frange'][0]:kwargs['frange'][1]]
+        if not yerr is None:
+            yerr =yerr[kwargs['frange'][0]:kwargs['frange'][1]]
+        if not xerr is None:
+            xerr =xerr[kwargs['frange'][0]:kwargs['frange'][1]]
     return x,y,xerr,yerr
 
 def _fit(datax,datay,function,**kwargs):
@@ -413,7 +422,8 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
         xfit = np.linspace(np.min(unv(x)),np.max(unv(x)),1000)
     else:
         xfit = np.linspace(kwargs['prange'][0],kwargs['prange'][1],1000)
-    #l = function.__name__
+    l = function.__name__
+    #l = ""
     if function.__doc__ is not None:
         l = function.__doc__.split('\n')[0]
     for i in range(1,len(function.__code__.co_varnames)):
@@ -437,9 +447,9 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
         plt.fill_between(xfit, unv(yfit)-kwargs['sigmas']*usd(yfit),unv(yfit)+kwargs['sigmas']*usd(yfit),alpha=0.4,label=l,color = ll.get_color())    
     else:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l,color =kwargs['fit_color'])
-        if kwargs['frange'] is not None:
-            xfit = np.linspace(unv(datax[0]),unv(datax[-1]))
-            plt.plot(xfit,unv(function(xfit,*fit)),"--",color=ll.get_color())
+    if kwargs['frange'] is not None:
+        xfit = np.linspace(unv(datax[0]),unv(datax[-1]))
+        plt.plot(xfit,unv(function(xfit,*fit)),"--",color=ll.get_color())
     return fit,ll.get_color()
 
 def init_plot(**kwargs):#size=None,residue=False): #init
