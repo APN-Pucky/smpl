@@ -29,13 +29,24 @@ def line(x, a, b): # gerade mit = f(x) = m * x + b
 #Line=line
 
 @doc.insert_eq()
-@doc.append_plot(3,0.02,3)
+@doc.append_plot(3,0.02,3,1)
 def cos_abs(x, a, f, phi):
     '''$a|\\cos(2πf(x-\\phi))|$'''
     return a * np.abs(unp.cos(2*np.pi*f*(x-phi)))
 
-def cyclicOff(x, a, f, phi, offset):
-    return cyclic(x, a, f, phi) + offset
+@doc.insert_eq()
+@doc.append_plot(3,0.02,3,1)
+def cos(x, a, f, phi):
+    '''$a\\cos(2πf(x-\\phi))$'''
+    return a * unp.cos(2*np.pi*f*(x-phi))
+@doc.insert_eq()
+@doc.append_plot(3,0.02,3)
+def sin(x, a, f, phi):
+    '''$a\\sin(2πf(x-\\phi))$'''
+    return a * unp.sin(2*np.pi*f*(x-phi))
+
+#def cyclicOff(x, a, f, phi, offset):
+#    return cyclic(x, a, f, phi) + offset
 
 @doc.insert_eq()
 @doc.append_plot(0,5,3,0)
@@ -45,10 +56,7 @@ def lorentz(x,x_0,A,d,y):
 #Lorentz=lorentz
 def Two_Lorentz(x, x0, A0, d0, x1, A1, d1,y):
     '''$\\frac{A}{\\pi d (1+ (\\frac{x-x0}{d})^2)} + y$'''
-    return Lorentz(x,x0,A0,d0,y)+Lorentz(x,x1,A1,d1,0)
-def Six_Lorentz(x, x0, A0, d0, x1, A1, d1,y):
-    '''$\\frac{A}{\\pi d (1+ (\\frac{x-x0}{d})^2)} + y$'''
-    return Lorentz(x,x0,A0,d0,y)+Lorentz(x,x1,A1,d1,0)+Lorentz(x,x2,A2,d2,0)+Lorentz(x,x3,A3,d3,0)+Lorentz(x,x4,A4,d4,0)+Lorentz(x,x5,A5,d5,0)
+    return lorentz(x,x0,A0,d0,y)+lorentz(x,x1,A1,d1,0)
 
 def Split_Gauss(x,x0,A0,d0,d1,y):
     '''\n$A\\cdot \\exp\\left(\\frac{-(x-x0)^2}{2d0^2}\\right)+y$, für x>x0\n$A\\cdot \\exp\\left(\\frac{-(x-x0)^2}{2d1^2}\\right)+y$, sonst'''

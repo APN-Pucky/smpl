@@ -41,6 +41,23 @@ def get_line_src(_back=0):
     return srcline
 
 def get_line_number_file(split = True,_back=0):
+    '''
+    Gets the current filename and the current linenumber within it.
+
+    Parameters
+    ==========
+    split : bool
+        Indicates whenever the folders above of the file should be included in the returned filename.
+    _back : int
+        Number of stack/frames to go back.
+
+    Returns
+    =======
+    filenumber : int
+        First element in the return array
+    filename : str
+        Second element in the return array
+    '''
     cf = get_frame(_back+1)
     fname = cf.f_code.co_filename
     if split:

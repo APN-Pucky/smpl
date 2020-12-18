@@ -3,6 +3,7 @@ import glob
 import pathlib
 #from io import StringIO
 from smpl import debug
+import numpy as np
 import os
 import sys
 
@@ -25,6 +26,11 @@ def gf(i):
     Scientific format with ``i`` digits.
     """
     return "{0:." + str(i) + "g}"
+def mkdirs(fn):
+    '''
+    Creates the neccessary directories above ``fn``.
+    '''
+    pathlib.Path(fn).parent.mkdir(parents=True, exist_ok=True)
 
 def out_si(fn,s,u="",fmt="{}"):
     mkdirs(fn)
@@ -56,8 +62,7 @@ def out_si_tab(fn, tab,skip=0, fmt="{}"):
                 file.write(pr("%s"%(tab[i][j]),nnl=True))
         file.write(pr("\\\\\n",nnl=True))
     file.close()
-def mkdirs(fn):
-    pathlib.Path(fn).parent.mkdir(parents=True, exist_ok=True)
+
 def dump_vars(fd):
     key = ""
     gl = globals()

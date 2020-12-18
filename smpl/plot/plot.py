@@ -107,6 +107,12 @@ def auto(datax,datay,funcs = None,**kwargs):
     **kwargs : optional
         see :func:`default_kwargs`.
 
+    Returns
+    =======
+    The best fit function and it's parameters.
+
+
+
     """
     min_sq = None
     best_f = None
@@ -128,7 +134,7 @@ def auto(datax,datay,funcs = None,**kwargs):
                 best_ff = ff
     if not best_f is None:
         fit(datax,datay,best_f,**kwargs)
-
+    return best_f,best_ff
   
 
 #@append_doc(default_kwargs)
@@ -399,7 +405,7 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
     x,y,xerr,yerr =data_split(datax,datay,**kwargs)
     fit = _fit(datax,datay,function,**kwargs)
     if kwargs['prange'] is None:
-        xfit = np.linspace(unv(x[0]),unv(x[-1]),1000)
+        xfit = np.linspace(np.min(unv(x)),np.max(unv(x)),1000)
     else:
         xfit = np.linspace(kwargs['prange'][0],kwargs['prange'][1],1000)
     #l = function.__name__
@@ -454,7 +460,7 @@ def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #sav
     #plt.gca().set_xlim([kwargs['xmin'],kwargs['xmax']])
     #plt.gca().set_ylim([kwargs['ymin'],kwargs['ymax']])
     if 'save' in kwargs and not kwargs['save']==None:
-        mkdirs(kwargs['save'])
+        io.mkdirs(kwargs['save'])
         plt.savefig(kwargs['save'] +".pdf")
     plt.grid()
     if 'show' in kwargs and kwargs['show']:
