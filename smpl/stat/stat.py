@@ -2,9 +2,13 @@ import numpy as np
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from smpl import doc
+import scipy
+import math
+import statistics as stat
 
 unv=unp.nominal_values
 usd=unp.std_devs
+
 def unv_lambda(f):
     """
     Returns a function which applies :func:`unv` on the result of ``f``
