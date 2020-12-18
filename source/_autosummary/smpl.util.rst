@@ -13,6 +13,8 @@
    
       times
    
+      true
+   
    
    .. rubric:: Functions
 

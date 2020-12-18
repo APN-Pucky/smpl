@@ -75,6 +75,7 @@ default = {   'params'        :[None      ,"Initial fit parameters",
   ],          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
   ],          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
   ],          'sortbyx'       :[ True     , "Enable sorting the x and y data so that x is sorted.",
+  ],          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",
 #  ],          'ymax'          :[None      ,"Set maximum of y axis",
 #  ],          'ymin'          :[None      ,"Set minimum of y axis",
 #  ],          'xmax'          :[None      ,"Set maximum of x axis",
@@ -447,8 +448,8 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
         plt.fill_between(xfit, unv(yfit)-kwargs['sigmas']*usd(yfit),unv(yfit)+kwargs['sigmas']*usd(yfit),alpha=0.4,label=l,color = ll.get_color())    
     else:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l,color =kwargs['fit_color'])
-    if kwargs['frange'] is not None:
-        xfit = np.linspace(unv(datax[0]),unv(datax[-1]))
+    if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate',kwargs):
+        xfit = np.linspace(np.min(unv(datax)),np.max(unv(datax)))
         plt.plot(xfit,unv(function(xfit,*fit)),"--",color=ll.get_color())
     return fit,ll.get_color()
 
