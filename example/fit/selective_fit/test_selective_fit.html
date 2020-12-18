@@ -373,8 +373,8 @@ plot.show()
 <span></span>def sinus(x,a,f,p,y):
     return a*unp.sin(f*x+p)+y
 x= np.linspace(-5,5,200)
-y = stat.noisy(np.sin(3.5*x +4)*4)-2
-ff = plot.fit(x, y,sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,sigmas=1,a=4,f=3.5,frange=[0,20])
+y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2
+ff = plot.fit(x[x&lt;0], y[x&lt;0],sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,sigmas=1,frange=[0,30])
 </pre></div>
 </div>
 </div>
@@ -383,6 +383,42 @@ ff = plot.fit(x, y,sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x i
 </div>
 <div class="output_area docutils container">
 <img alt="../../../_images/example_fit_selective_fit_test_selective_fit_6_0.png" src="../../../_images/example_fit_selective_fit_test_selective_fit_6_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>x= np.linspace(-5,5,200)
+y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2
+ff = plot.fit(x, y,sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,sigmas=1,selector= x&gt;0)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_selective_fit_test_selective_fit_7_0.png" src="../../../_images/example_fit_selective_fit_test_selective_fit_7_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>x= np.linspace(-5,5,200)
+y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2
+ff = plot.fit(x, y,sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,sigmas=1,selector= x&gt;0,interpolate=False)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_selective_fit_test_selective_fit_8_0.png" src="../../../_images/example_fit_selective_fit_test_selective_fit_8_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

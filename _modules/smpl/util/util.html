@@ -37,11 +37,19 @@
   <h1>Source code for smpl.util.util</h1><div class="highlight"><pre>
 <span></span><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="nb">int</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">str</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">int</span><span class="o">+</span><span class="mi">1</span><span class="p">)])</span>
+
 <div class="viewcode-block" id="has"><a class="viewcode-back" href="../../../_autosummary/smpl.util.html#smpl.util.has">[docs]</a><span class="k">def</span> <span class="nf">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if the key is in the dict and not None.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">dict</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="true"><a class="viewcode-back" href="../../../_autosummary/smpl.util.html#smpl.util.true">[docs]</a><span class="k">def</span> <span class="nf">true</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the key is in the dict and not None and True.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
+
 
 <span class="k">def</span> <span class="nf">find_nearest_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
