@@ -29,7 +29,7 @@ def line(x, a, b): # gerade mit = f(x) = m * x + b
 #Line=line
 
 @doc.insert_eq()
-@doc.append_plot(3,0.02,3,1)
+@doc.append_plot(3,0.02,3)
 def cos_abs(x, a, f, phi):
     '''$a|\\cos(2πf(x-\\phi))|$'''
     return a * np.abs(unp.cos(2*np.pi*f*(x-phi)))
