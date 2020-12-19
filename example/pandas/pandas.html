@@ -18,8 +18,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Parallel" href="../parallel/parallel.html" />
-    <link rel="prev" title="Selective Fit" href="../fit/selective_fit/test_selective_fit.html" />
+    <link rel="next" title="smpl.debug" href="../../_autosummary/smpl.debug.html" />
+    <link rel="prev" title="uncertainties" href="../uncertainties/uncertainties.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -486,14 +486,21 @@ data
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9d2aeeef28&gt;
+&lt;AxesSubplot:xlabel=&#39;x&#39;&gt;
 </pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_pandas_pandas_5_1.png" src="../../_images/example_pandas_pandas_5_1.png" />
+</div>
 </div>
 </div>
 <div class="section" id="To-Latex">
@@ -519,10 +526,10 @@ print(df.to_latex())
 <div class="highlight"><pre>
 \begin{tabular}{llll}
 \toprule
-{} &amp;    mask &amp;       name &amp;    weapon \\
+{} &amp;       name &amp;    mask &amp;    weapon \\
 \midrule
-0 &amp;     red &amp;    Raphael &amp;       sai \\
-1 &amp;  purple &amp;  Donatello &amp;  bo staff \\
+0 &amp;    Raphael &amp;     red &amp;       sai \\
+1 &amp;  Donatello &amp;  purple &amp;  bo staff \\
 \bottomrule
 \end{tabular}
 
@@ -731,20 +738,12 @@ plot.data(data[&#39;x&#39;],data[&#39;z&#39;])
 <ul class="current">
 <li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../fit/auto/test_auto.html">Auto Fit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fit/custom/test_custom.html">Custom Fit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fit/fixed_fit/test_fixed.html">Fixed Fit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fit/index.html">Fitting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fit/linear/test_linear.html">Linear Fit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fit/selective_fit/test_selective_fit.html">Selective Fit</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../parallel/parallel.html">Parallel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plot/functions/funcs.html">Function Plot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plot/index.html">Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plot/legend/legend.html">Legend</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plot/multiplot/multi.html">Multi Plot</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plot/residue/residue.html">Residue Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fit/index.html">Fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../latex/latex.html">Latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parallel/parallel.html">Parallel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../uncertainties/uncertainties.html">uncertainties</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pandas</a></li>
 </ul>
 </li>
 </ul>
@@ -763,8 +762,8 @@ plot.data(data[&#39;x&#39;],data[&#39;z&#39;])
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../index.html">Examples</a><ul>
-      <li>Previous: <a href="../fit/selective_fit/test_selective_fit.html" title="previous chapter">Selective Fit</a></li>
-      <li>Next: <a href="../parallel/parallel.html" title="next chapter">Parallel</a></li>
+      <li>Previous: <a href="../uncertainties/uncertainties.html" title="previous chapter">uncertainties</a></li>
+      <li>Next: <a href="../../_autosummary/smpl.debug.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
   </ul></li>
   </ul></li>
 </ul>

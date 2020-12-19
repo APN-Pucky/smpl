@@ -45,11 +45,17 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>(i)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.files" title="smpl.io.files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">files</span></code></a>(folder, ending)</p></td>
+<td><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>(i)</p></td>
 <td><p>Scientific format with <code class="docutils literal notranslate"><span class="pre">i</span></code> digits.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.mkdirs" title="smpl.io.mkdirs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdirs</span></code></a>(fn)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.mkdirs" title="smpl.io.mkdirs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdirs</span></code></a>(fn)</p></td>
 <td><p>Creates the neccessary directories above <code class="docutils literal notranslate"><span class="pre">fn</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.pr" title="smpl.io.pr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pr</span></code></a>(a[, nnl])</p></td>
+<td><p>Prints the passed <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.pwd" title="smpl.io.pwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a>()</p></td>
 <td><p>Returns the path to the path of current file</p></td>
@@ -57,6 +63,12 @@
 </tbody>
 </table>
 <p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="smpl.io.files">
+<code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">folder</span></em>, <em class="sig-param"><span class="n">ending</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p>
+</dd></dl>
+
 <dl class="py function">
 <dt id="smpl.io.gf">
 <code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">gf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#gf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.gf" title="Permalink to this definition">¶</a></dt>
@@ -67,6 +79,26 @@
 <dt id="smpl.io.mkdirs">
 <code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">mkdirs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fn</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#mkdirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.mkdirs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the neccessary directories above <code class="docutils literal notranslate"><span class="pre">fn</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.io.pr">
+<code class="sig-prename descclassname">smpl.io.</code><code class="sig-name descname">pr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">nnl</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#pr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.io.pr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the passed <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>nnl</strong><span class="classifier">bool</span></dt><dd><p>no-new-line</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">any</span></dt><dd><p>unchanged <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
