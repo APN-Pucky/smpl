@@ -24,6 +24,7 @@ smpl |version| documentation
 
    debug
    doc
+   fit
    functions
    io
    latex
