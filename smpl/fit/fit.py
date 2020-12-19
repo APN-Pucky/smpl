@@ -1,20 +1,13 @@
-import matplotlib.patches as mpatches
 import numpy as np
 import statistics as stat
 import scipy as sci
 import scipy.integrate as integrate
 import scipy.fftpack
-import matplotlib.pyplot as plt
-import matplotlib
-import matplotlib.axes as axes
-from matplotlib import colors as mcolors
 import math
 from scipy import optimize
 import uncertainties as unc
 import uncertainties.unumpy as unp
 import uncertainties.umath as umath
-import glob
-import os
 import matplotlib.pyplot as plt
 from scipy.odr import *
 from tqdm import tqdm
@@ -28,22 +21,6 @@ from smpl import io
 from smpl import util
 from smpl.doc import  append_doc,append_str
 from smpl import doc
-#TODO create folders for file saves
-
-fig_size = (8, 6)
-fig_legendsize = 14
-fig_labelsize = 12 # ‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’.
-params = {'legend.fontsize': 'x-large',
-          'figure.figsize': (8, 6),
-         'axes.labelsize': 'x-large',
-         'axes.titlesize':'x-large',
-         'xtick.labelsize':'x-large',
-         'ytick.labelsize':'x-large'}
-pylab.rcParams.update(params)
-matplotlib.rcParams.update(params)
-#matplotlib.rcParams.update({'font.size': fig_labelsize})
-
-colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
       
 unv=unp.nominal_values
 usd=unp.std_devs
