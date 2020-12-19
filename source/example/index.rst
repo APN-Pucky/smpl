@@ -5,6 +5,4 @@ Examples
     :glob:
     :maxdepth: 2
 
-    plot/*
-    fit/*
-    parallel/*
+    **
