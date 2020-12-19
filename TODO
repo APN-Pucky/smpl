@@ -28,9 +28,15 @@ simple animations?
 smpl.debug to kwargs based
 
 Fix Residue plot This figure includes Axes that are not compatible
+external legend
 
 
-compatibile with pandas?!?!?
+replace own lpos by loc?
+
+inherit matplotlib.pyplot and expand it?
+
+
+compatibile with pandas?!?!? apparently :)
 
 doc insert skip first line option
 

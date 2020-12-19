@@ -70,7 +70,7 @@ default = {   'params'        :[None      ,"Initial fit parameters",
    ],         'residue'       :[False     ,"Display difference between fit and data in a second plot",
   ],          'residue_err'   :[True      ,"Differences between fit and data will have errorbars",
   ],          'show'          :[False     ,"Call plt.show()",
-   ],         'size'          :[None      ,"Size of the plot",
+   ],         'size'          :[None      ,"Size of the plot as a tuple (x,y)",
   ],          'number_format' :[ io.gf(4) ,"Format to display numbers.",
   ],          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
   ],          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
@@ -472,7 +472,13 @@ def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #sav
         plt.gca().set_xscale('log')
     plt.tight_layout()
     if 'lpos' in kwargs and kwargs['lpos']>=0:
-        plt.legend(loc=kwargs['lpos'])
+        if(util.has('bbox_to_anchor', kwargs)):
+            if(util.has('ncol', kwargs)):
+                plt.legend(loc=kwargs['lpos'],bbox_to_anchor=kwargs['bbox_to_anchor'],ncol=kwargs['ncol'],borderaxespad=0)
+            else:
+                plt.legend(loc=kwargs['lpos'],bbox_to_anchor=kwargs['bbox_to_anchor'])
+        else:
+            plt.legend(loc=kwargs['lpos'])
     #plt.gca().set_xlim([kwargs['xmin'],kwargs['xmax']])
     #plt.gca().set_ylim([kwargs['ymin'],kwargs['ymax']])
     if 'save' in kwargs and not kwargs['save']==None:
