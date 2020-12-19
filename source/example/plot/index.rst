@@ -5,9 +5,5 @@ Plotting
     :glob:
     :maxdepth: 2
 
-    plot/*
-    fit/*
-    parallel/*
-    uncertainties/*
-    pandas/*
+    **
     
