@@ -44,3 +44,6 @@ doc insert skip first line option
 Check interpolation of fit with frange
 
 units/safe_units example ipynb?
+
+
+more doc tests

@@ -41,7 +41,7 @@ def si_line(a,skip = 0,fmt="{}"):
     return si_tab(np.transpose([[t] for t in a]),skip,fmt)
 def si_ttab(tab,skip=0, fmt="{}"):
     """
-    Transposed ``si_tab``.
+    Transposed :func:`si_tab`.
     """
     return si_tab(np.transpose(tab),skip,fmt)
 def si_tab(tab,skip=0, fmt="{}"):

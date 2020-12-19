@@ -13,11 +13,11 @@
    
       data
    
-      default_kwargs
-   
       fit
    
       function
+   
+      plot_kwargs
    
       show
    

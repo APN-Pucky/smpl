@@ -140,6 +140,8 @@ def table(dic,top=True,bottom=True,init=True,tabs=1):
         rs += "\n" + t
     if bottom:
         rs += table_sep(tabs=tabs)
+    else:
+        rs += "\n"
     return rs
 
 
