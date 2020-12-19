@@ -6,54 +6,27 @@ from smpl import debug
 import numpy as np
 import os
 import sys
-
-def pwd():
-    """
-        Returns the path to the path of current file
-    """
-    pwd_="/".join(debug.get_line_number_file(split=False,_back=1)[1].split("/")[:-1])
-    return pwd_
-
-def import_path(path='../..'):
-    """
-        Adds ``path`` to the ``sys.path``
-    """
-    sys.path.insert(0, os.path.abspath(path))
-
+from smpl.io import mkdirs
 
 def gf(i):
     """
     Scientific format with ``i`` digits.
     """
     return "{0:." + str(i) + "g}"
-def mkdirs(fn):
-    '''
-    Creates the neccessary directories above ``fn``.
-    '''
-    pathlib.Path(fn).parent.mkdir(parents=True, exist_ok=True)
 
-def pr(a,nnl=False):
+def si(s,u="",fmt="{}"):
     """
-    Prints the passed ``a``.     
+    Get number with uncertainty and unit in ``si`` format for latex.
 
     Parameters
     ==========
-    nnl : bool
-        no-new-line
+    s : ufloat
+        number to be returned in a latex compatible format
+    u : str
+        unit of that number
+    fmt : str
+        format string for the numbers
 
-    Returns 
-    =======
-    a : any
-        unchanged ``a``.
-    """
-    if nnl:
-        print(a,end='')    
-    else:
-        print(a)
-    return a
-def si(s,u="",fmt="{}"):
-    """
-    Get nuber with uncertainty and unit in ``si`` format for latex.
     Returns
     =======
     sistr : str
@@ -61,18 +34,47 @@ def si(s,u="",fmt="{}"):
     """
     return "\\SI{%s}{%s}"%((fmt.format(s)).replace("/","").replace("(","").replace(")",""),u)
 
-def files(folder,ending):
+def si_line(a,skip = 0,fmt="{}"):
     """
-    Get all the files in ``folder`` ending with ``ending``.
+    Get array ``a`` in the format of a line of a latex table.
     """
-    r = []
-    i=0
-    for file in os.scandir(folder):
-        if file.path.endswith(ending):
-            r.append((i,os.path.splitext(os.path.basename(file.path))[0],file.path))
-            i=i+1
-    return r
+    return si_tab(np.transpose([[t] for t in a]),skip,fmt)
+def si_ttab(tab,skip=0, fmt="{}"):
+    """
+    Transposed ``si_tab``.
+    """
+    return si_tab(np.transpose(tab),skip,fmt)
+def si_tab(tab,skip=0, fmt="{}"):
+    """
+    Get arrays of (uncertainty) numbers in  a latex table compatible form.
 
+    Parameters
+    ==========
+    tab : array_like
+        Array containing the values of the table
+    skip : number
+        Skip this many table lines
+    fmt : str
+        format string for the numbers
+
+    Returns
+    =======
+    tabstr : str
+        table latex string
+    """
+    #mkdirs(fn)
+    #file = open(fn,"w")
+    s = ""
+    for i in range(len(tab)):
+        for j in range(len(tab[i])):
+            if(j!=0):
+                s += "&"
+            if(j>=skip):
+                s+=si(tab[i][j],fmt=fmt)
+            else:
+                s+="%s"%(tab[i][j])
+        s += "\\\\\n"
+    return s
 
 def out_si(fn,s,u="",fmt="{}"):
     mkdirs(fn)
@@ -112,6 +114,7 @@ def dump_vars(fd):
     #print(globals())
 def iter(a):
     return zip(range(len(a)),a)
+
 def smart_out(fn,x):
     '''TODO'''
     out_si(fn,x)
@@ -138,5 +141,11 @@ def pn(a,nnl=False):
         print("%s=%s"%(a.__name__,a),end='')    
     else:
         print("%s=%s"%(a.__name__,a))
+    return a
+def pr(a,nnl=False):
+    if nnl:
+        print(a,end='')    
+    else:
+        print(a)
     return a
 

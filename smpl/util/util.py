@@ -1,3 +1,5 @@
+import numpy as np
+
 def times(str,int):
     return str.join(["" for i in range(0,int+1)])
 
