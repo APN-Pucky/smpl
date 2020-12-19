@@ -23,9 +23,9 @@ setuptools.setup(
         "numpy",
         "matplotlib",
         "scipy",
-        "requests",
-        "tqdm",
-        "pandas"
+        #"requests",
+        #"tqdm",
+        #"pandas",
     ],
     version_config={
         "template": "{tag}",

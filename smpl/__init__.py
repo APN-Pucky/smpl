@@ -3,20 +3,21 @@ A collection of simplified utilities
 """
 import pkg_resources as pkg  # part of setuptools
 import json
-import requests
-from urllib.request import urlopen
-
-def is_internet_available():
-    try:
-        urlopen('http://216.58.192.142', timeout=1)
-        return True
-    except:
-        return False
+#import requests
+#from urllib.request import urlopen
 
 package = "smpl"
 
 version = pkg.require(package)[0].version
 __version__ = version
+
+#def is_internet_available():
+#    try:
+#        urlopen('http://216.58.192.142', timeout=1)
+#        return True
+#    except:
+#        return False
+
 
 #
 # repository_url='https://pypi.python.org/pypi/%s/json'
