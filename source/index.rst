@@ -26,6 +26,7 @@ smpl |version| documentation
    doc
    functions
    io
+   latex
    parallel
    plot
    stat

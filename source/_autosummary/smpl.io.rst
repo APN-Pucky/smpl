@@ -9,9 +9,13 @@
    
    .. autosummary:: 
    
+      files
+   
       gf
    
       mkdirs
+   
+      pr
    
       pwd
    
