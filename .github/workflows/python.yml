@@ -28,6 +28,7 @@ jobs:
           uses: pypa/gh-action-pypi-publish@master
           with:
             password: ${{ secrets.pypi_token }}
+        - run: sudo apt-get update --fix-missing
         - name: Install (nb)sphinx
           run: sudo apt-get install ipython3 jupyter-notebook python3-scipy python3-matplotlib python3-pandas python3-numpy python3-requests python3-uncertainties python3-tqdm python3-numpy 
         - name: Install sphinx
