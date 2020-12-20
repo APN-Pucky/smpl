@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>smpl.fit.fit &#8212; smpl  documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for smpl.fit.fit</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">stat</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sci</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
+<span class="kn">import</span> <span class="nn">scipy.fftpack</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
+<span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
+<span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+<span class="kn">import</span> <span class="nn">uncertainties.umath</span> <span class="k">as</span> <span class="nn">umath</span>
+<span class="kn">from</span> <span class="nn">scipy.odr</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1">#from tqdm import tqdm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">pylab</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="c1"># local imports</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">util</span>
+<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span>  <span class="n">append_doc</span><span class="p">,</span><span class="n">append_str</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
+      
+<span class="n">unv</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
+<span class="n">usd</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
+
+<span class="n">default</span> <span class="o">=</span> <span class="p">{</span>   <span class="s1">&#39;params&#39;</span>        <span class="p">:[</span><span class="kc">None</span>      <span class="p">,</span><span class="s2">&quot;Initial fit parameters&quot;</span><span class="p">,</span>
+  <span class="c1">#],            &#39;xaxis&#39;         :[&quot;&quot;        ,&quot;X axis label&quot;,</span>
+  <span class="c1">#],            &#39;yaxis&#39;         :[&quot;&quot;        ,&quot;Y axis label&quot;,</span>
+  <span class="c1">#],            &#39;label&#39;         :[None      ,&quot;Legend name of plotted ``data``&quot;,</span>
+  <span class="c1">#],            &#39;fmt&#39;           :[&#39;.&#39;       ,&quot;Format for plotting fit function&quot;,</span>
+  <span class="c1">#],           &#39;units&#39;         :[None      ,&quot;Units of the fit parameters as strings. Displayed in the Legend&quot;,</span>
+  <span class="c1">#],           &#39;save&#39;          :[None      ,&quot; File to save the plot&quot;,</span>
+  <span class="c1">#],         &#39;lpos&#39;          :[0         ,&quot;Legend position&quot;,</span>
+  <span class="p">],</span>           <span class="s1">&#39;frange&#39;</span>        <span class="p">:[</span><span class="kc">None</span>      <span class="p">,</span><span class="s2">&quot;Limit the fit to given range. First integer is the lowest and second the highest index.&quot;</span><span class="p">,</span>
+  <span class="c1">#],          &#39;prange&#39;        :[None      ,&quot;Limit the plot of the fit to given range&quot;,</span>
+  <span class="c1">#],         &#39;sigmas&#39;        :[0         ,&quot;Color the array of given ``sigma`` times uncertaint&quot;,</span>
+  <span class="c1">#],          &#39;init&#39;          :[True      ,&quot;Initialize a new plot&quot;</span>
+  <span class="c1">#],          &#39;ss&#39;            :[True      ,&quot;save, add legends and grid to the plot&quot;,</span>
+  <span class="c1">#],          &#39;also_data&#39;     :[True      ,&quot; also plot the data&quot;</span>
+  <span class="c1">#],          &#39;also_fit&#39;      :[True      ,&quot;also plot the fit&quot;,</span>
+  <span class="c1">#],          &#39;logy&#39;          :[False     ,&quot;logarithmic x axis&quot;,</span>
+  <span class="c1">#],          &#39;logx&#39;          :[False     ,&quot;logarithmic y axis&quot;,</span>
+  <span class="c1">#],          &#39;data_color&#39;    :[None      , &quot;Color of the data plot&quot;, </span>
+  <span class="c1">#],          &#39;fit_color&#39;     :[None      ,&quot;Color of the fit plot&quot;,</span>
+  <span class="c1">#],         &#39;residue&#39;       :[False     ,&quot;Display difference between fit and data in a second plot&quot;,</span>
+  <span class="c1">#],          &#39;residue_err&#39;   :[True      ,&quot;Differences between fit and data will have errorbars&quot;,</span>
+  <span class="c1">#],          &#39;show&#39;          :[False     ,&quot;Call plt.show()&quot;,</span>
+  <span class="c1">#],         &#39;size&#39;          :[None      ,&quot;Size of the plot as a tuple (x,y)&quot;,</span>
+  <span class="c1">#],          &#39;number_format&#39; :[ io.gf(4) ,&quot;Format to display numbers.&quot;,</span>
+  <span class="p">],</span>          <span class="s1">&#39;selector&#39;</span>      <span class="p">:[</span> <span class="kc">None</span>     <span class="p">,</span><span class="s2">&quot;Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>          <span class="s1">&#39;fixed_params&#39;</span>  <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span><span class="s2">&quot;Enable fixing parameters by choosing the same-named variables from ``kwargs``.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>          <span class="s1">&#39;sortbyx&#39;</span>       <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span> <span class="s2">&quot;Enable sorting the x and y data so that x is sorted.&quot;</span><span class="p">,</span>
+  <span class="c1">#],          &#39;interpolate&#39;   :[ True     , &quot;Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.&quot;,</span>
+  <span class="c1">#],          &#39;bbox_to_anchor&#39;:[ None     , &quot;Position in a tuple (x,y),Shift position of the legend out of the main pane. &quot;,</span>
+  <span class="c1">#],          &#39;ncol&#39;          :[ None     , &quot;Columns in the legend if used with ``bbox_to_anchor``.&quot;,</span>
+  <span class="c1">#],          &#39;steps&#39;         :[ 1000     ,&quot;resolution of the plotted function&quot; </span>
+  <span class="p">]</span>          <span class="p">}</span>
+
+<span class="c1">#@doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
+<div class="viewcode-block" id="fit_kwargs"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;fit_kwargs&quot;</span><span class="p">:[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span><span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set default fit_kwargs if not set.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">kwargs</span></div>
+
+
+<span class="c1">#@append_doc(default_kwargs)</span>
+<div class="viewcode-block" id="auto"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.auto">[docs]</a><span class="k">def</span> <span class="nf">auto</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">funcs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Automatically loop over functions and fit the best one.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    funcs : function array</span>
+<span class="sd">        functions to consider as fit. Default all ``smpl.functions``.</span>
+<span class="sd">    **kwargs : optional</span>
+<span class="sd">        see :func:`fit_kwargs`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    =======</span>
+<span class="sd">    The best fit function and it&#39;s parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">min_sq</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">best_f</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">best_ff</span> <span class="o">=</span> <span class="kc">None</span>
+    
+
+    
+    <span class="k">if</span> <span class="n">funcs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">funcs</span> <span class="o">=</span> <span class="n">functions</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">funcs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+            <span class="c1">#print(n)</span>
+            <span class="n">ff</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">fy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="o">*</span><span class="n">ff</span><span class="p">)</span>
+            <span class="n">sum_sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">+</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">min_sq</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">sum_sq</span> <span class="o">&lt;</span> <span class="n">min_sq</span><span class="p">:</span>
+                <span class="n">min_sq</span> <span class="o">=</span> <span class="n">sum_sq</span>
+                <span class="n">best_f</span> <span class="o">=</span> <span class="n">f</span>
+                <span class="n">best_ff</span> <span class="o">=</span> <span class="n">ff</span>
+    <span class="c1">#if not best_f is None:</span>
+    <span class="c1">#    fit(datax,datay,best_f,**kwargs)</span>
+    <span class="k">return</span> <span class="n">best_f</span><span class="p">,</span><span class="n">best_ff</span></div>
+
+<div class="viewcode-block" id="fit"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit">[docs]</a><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a fit of ``function`` to ``datax`` and ``datay``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    datax : array_like</span>
+<span class="sd">        X data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
+<span class="sd">    datay : array_like</span>
+<span class="sd">        Y data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
+<span class="sd">    function : func</span>
+<span class="sd">        Fit function with parameters: ``x``, ``params``</span>
+<span class="sd">    **kwargs : optional</span>
+<span class="sd">        see :func:`fit_kwargs`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span><span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;params&#39;</span><span class="p">,</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span>
+
+    <span class="n">fixed</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">Ntot</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;fixed_params&quot;</span><span class="p">,</span><span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;fixed_params&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="n">fixed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="c1"># Count parameters for function</span>
+    <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">N</span><span class="o">=</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">tmp_params</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">fixed</span><span class="p">):</span>
+            <span class="n">tmp_params</span> <span class="o">+=</span> <span class="p">[</span><span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">tmp_params</span>
+    <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">Nfree</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tmp</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">tmp_x</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="c1">#print(x)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ntot</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="c1">#print(i,&quot; &quot;,j)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">fixed</span><span class="p">):</span>
+                <span class="n">tmp_x</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
+                <span class="c1">#print(x[j])</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tmp_x</span> <span class="o">+=</span> <span class="p">[</span><span class="n">fixed</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        
+        <span class="c1">#print(Ntot)</span>
+        <span class="c1">#print(tmp_x)</span>
+        <span class="k">return</span> <span class="n">unv</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="o">*</span><span class="n">tmp_x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit_odr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">tmp</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span><span class="n">xerr</span><span class="o">=</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit_curvefit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">tmp</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span><span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+
+    <span class="n">rfit</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ntot</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">fixed</span><span class="p">):</span>
+            <span class="n">rfit</span> <span class="o">+=</span> <span class="p">[</span><span class="n">fit</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">rfit</span> <span class="o">+=</span> <span class="p">[</span><span class="n">fixed</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">rfit</span></div>
+  
+
+<div class="viewcode-block" id="data_split"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.data_split">[docs]</a><span class="k">def</span> <span class="nf">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Splits datax and datay into (x,y,xerr,yerr).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+<span class="sd">    **kwargs : optional</span>
+<span class="sd">        see :func:`fit_kwargs`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span> <span class="o">=</span> <span class="n">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;frange&#39;</span><span class="p">,</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">y</span> <span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">yerr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">yerr</span> <span class="o">=</span><span class="n">yerr</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">xerr</span> <span class="o">=</span><span class="n">xerr</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;frange&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span></div>
+
+
+
+<span class="c1"># fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler</span>
+<span class="c1"># gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck</span>
+<span class="c1">#</span>
+<span class="c1"># https://stackoverflow.com/questions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#</span>
+<span class="c1"># Updated on 4/6/2016</span>
+<span class="c1"># User: https://stackoverflow.com/users/1476240/pedro-m-duarte</span>
+<span class="k">def</span> <span class="nf">_fit_curvefit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> \
+            <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">p0</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>\
+                            <span class="n">sigma</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span> <span class="n">epsfcn</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">maxfev</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="c1">#print(&quot;No fit found&quot;)</span>
+        <span class="k">return</span> <span class="n">params</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pfit</span><span class="p">)):</span>
+        <span class="k">try</span><span class="p">:</span>
+          <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+          <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="mf">0.00</span> <span class="p">)</span>
+    <span class="n">pfit_curvefit</span> <span class="o">=</span> <span class="n">pfit</span>
+    <span class="n">perr_curvefit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">pfit_curvefit</span><span class="p">,</span> <span class="n">perr_curvefit</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_fit_odr</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">xerr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span><span class="n">x</span> <span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">realdata</span> <span class="o">=</span> <span class="n">RealData</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">sy</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span><span class="n">sx</span><span class="o">=</span><span class="n">xerr</span><span class="p">)</span>
+    <span class="n">odr</span> <span class="o">=</span> <span class="n">ODR</span><span class="p">(</span><span class="n">realdata</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="n">beta0</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">odr</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span><span class="n">out</span><span class="o">.</span><span class="n">sd_beta</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">sortbyx</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Split data + errors</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">unv</span><span class="p">(</span><span class="n">datay</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">xerr</span> <span class="o">=</span> <span class="n">usd</span><span class="p">(</span><span class="n">datax</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">yerr</span> <span class="o">=</span> <span class="n">usd</span><span class="p">(</span><span class="n">datay</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">xerr</span> <span class="o">=</span> <span class="n">xerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xerr</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">yerr</span> <span class="o">=</span> <span class="n">yerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yerr</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span>
+
+<span class="k">def</span> <span class="nf">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;selector&#39;</span><span class="p">,</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">sel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;selector&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="n">sel</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">)],</span><span class="n">datay</span><span class="p">[</span><span class="n">sel</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">)],</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;sortbyx&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span><span class="n">datay</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;sortbyx&#39;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;sortbyx&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;sortbyx&#39;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">smpl</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, APN-Pucky.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

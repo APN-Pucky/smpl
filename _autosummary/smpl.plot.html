@@ -18,6 +18,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.stat" href="smpl.stat.html" />
+    <link rel="prev" title="smpl.parallel" href="smpl.parallel.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -34,8 +36,331 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="smpl-plot">
-<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code><a class="headerlink" href="#smpl-plot" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-smpl.plot">
+<span id="smpl-plot"></span><h1><a class="reference internal" href="#module-smpl.plot" title="smpl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a><a class="headerlink" href="#module-smpl.plot" title="Permalink to this headline">¶</a></h1>
+<p>Simplified plotting</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.auto" title="smpl.plot.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>(datax, datay[, funcs])</p></td>
+<td><p>Automatically loop over functions and fit the best one.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.data" title="smpl.plot.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>(datax, datay[, function])</p></td>
+<td><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(datax, datay, function, **kwargs)</p></td>
+<td><p>Fit and plot function to datax and datay.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></a>(func, *args, **kwargs)</p></td>
+<td><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_kwargs</span></code></a>(kwargs)</p></td>
+<td><p>Set default plot_kwargs if not set.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt id="smpl.plot.auto">
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">auto</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">funcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition">¶</a></dt>
+<dd><p>Automatically loop over functions and fit the best one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>funcs</strong><span class="classifier">function array</span></dt><dd><p>functions to consider as fit. Default all <code class="docutils literal notranslate"><span class="pre">smpl.functions</span></code>.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>The best fit function and it’s parameters.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.plot.data">
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+<dt><strong>function</strong><span class="classifier">func,optional</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>=======</strong></dt><dd></dd>
+<dt><strong>array_like</strong></dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.plot.fit">
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit and plot function to datax and datay.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+<dt><strong>function</strong><span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+</dd>
+<dt><strong>Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.</strong></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>array_like</dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">unv</span><span class="p">(</span><span class="n">param</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../_autosummary/smpl-plot-1.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-plot-1.png">png</a>, <a class="reference external" href="../_autosummary/smpl-plot-1.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-plot-1.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../_images/smpl-plot-1.png" src="../_images/smpl-plot-1.png" />
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.plot.function">
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>func</strong><span class="classifier">function</span></dt><dd><p>Function to be plotted between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, only taking <cite>array_like</cite> <code class="docutils literal notranslate"><span class="pre">x</span></code> as parameter</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.plot.plot_kwargs">
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">plot_kwargs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#plot_kwargs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.plot_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>Set default plot_kwargs if not set.</dt><dd><table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 76%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>plot_kwargs</p></th>
+<th class="head"><p>default</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>xaxis</p></td>
+<td></td>
+<td><p>X axis label</p></td>
+</tr>
+<tr class="row-odd"><td><p>yaxis</p></td>
+<td></td>
+<td><p>Y axis label</p></td>
+</tr>
+<tr class="row-even"><td><p>label</p></td>
+<td><p>None</p></td>
+<td><p>Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>fmt</p></td>
+<td><p>.</p></td>
+<td><p>Format for plotting fit function</p></td>
+</tr>
+<tr class="row-even"><td><p>units</p></td>
+<td><p>None</p></td>
+<td><p>Units of the fit parameters as strings. Displayed in the Legend</p></td>
+</tr>
+<tr class="row-odd"><td><p>save</p></td>
+<td><p>None</p></td>
+<td><p>File to save the plot</p></td>
+</tr>
+<tr class="row-even"><td><p>lpos</p></td>
+<td><p>0</p></td>
+<td><p>Legend position</p></td>
+</tr>
+<tr class="row-odd"><td><p>prange</p></td>
+<td><p>None</p></td>
+<td><p>Limit the plot of the fit to given range</p></td>
+</tr>
+<tr class="row-even"><td><p>sigmas</p></td>
+<td><p>0</p></td>
+<td><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertaint</p></td>
+</tr>
+<tr class="row-odd"><td><p>init</p></td>
+<td><p>True</p></td>
+<td><p>Initialize a new plot</p></td>
+</tr>
+<tr class="row-even"><td><p>ss</p></td>
+<td><p>True</p></td>
+<td><p>save, add legends and grid to the plot</p></td>
+</tr>
+<tr class="row-odd"><td><p>also_data</p></td>
+<td><p>True</p></td>
+<td><p>also plot the data</p></td>
+</tr>
+<tr class="row-even"><td><p>also_fit</p></td>
+<td><p>True</p></td>
+<td><p>also plot the fit</p></td>
+</tr>
+<tr class="row-odd"><td><p>logy</p></td>
+<td><p>False</p></td>
+<td><p>logarithmic x axis</p></td>
+</tr>
+<tr class="row-even"><td><p>logx</p></td>
+<td><p>False</p></td>
+<td><p>logarithmic y axis</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_color</p></td>
+<td><p>None</p></td>
+<td><p>Color of the data plot</p></td>
+</tr>
+<tr class="row-even"><td><p>fit_color</p></td>
+<td><p>None</p></td>
+<td><p>Color of the fit plot</p></td>
+</tr>
+<tr class="row-odd"><td><p>residue</p></td>
+<td><p>False</p></td>
+<td><p>Display difference between fit and data in a second plot</p></td>
+</tr>
+<tr class="row-even"><td><p>residue_err</p></td>
+<td><p>True</p></td>
+<td><p>Differences between fit and data will have errorbars</p></td>
+</tr>
+<tr class="row-odd"><td><p>show</p></td>
+<td><p>False</p></td>
+<td><p>Call plt.show()</p></td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>None</p></td>
+<td><p>Size of the plot as a tuple (x,y)</p></td>
+</tr>
+<tr class="row-odd"><td><p>number_format</p></td>
+<td><p>{0:.4g}</p></td>
+<td><p>Format to display numbers.</p></td>
+</tr>
+<tr class="row-even"><td><p>interpolate</p></td>
+<td><p>True</p></td>
+<td><p>Enable interpolation of whole data if fit range is limited by <code class="docutils literal notranslate"><span class="pre">frange</span></code> or <code class="docutils literal notranslate"><span class="pre">selector</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>bbox_to_anchor</p></td>
+<td><p>None</p></td>
+<td><p>Position in a tuple (x,y),Shift position of the legend out of the main pane.</p></td>
+</tr>
+<tr class="row-even"><td><p>ncol</p></td>
+<td><p>None</p></td>
+<td><p>Columns in the legend if used with <code class="docutils literal notranslate"><span class="pre">bbox_to_anchor</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>steps</p></td>
+<td><p>1000</p></td>
+<td><p>resolution of the plotted function</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Set default fit_kwargs if not set.</dt><dd><table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 87%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>fit_kwargs</p></th>
+<th class="head"><p>default</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>params</p></td>
+<td><p>None</p></td>
+<td><p>Initial fit parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>frange</p></td>
+<td><p>None</p></td>
+<td><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p></td>
+</tr>
+<tr class="row-even"><td><p>selector</p></td>
+<td><p>None</p></td>
+<td><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.</p></td>
+</tr>
+<tr class="row-odd"><td><p>fixed_params</p></td>
+<td><p>True</p></td>
+<td><p>Enable fixing parameters by choosing the same-named variables from <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>sortbyx</p></td>
+<td><p>True</p></td>
+<td><p>Enable sorting the x and y data so that x is sorted.</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.plot.unv">
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">unv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.unv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal values of the numbers in NumPy array arr.</p>
+<p>Elements that are not numbers with uncertainties (derived from a
+class from this module) are passed through untouched (because a
+numpy.array can contain numbers with uncertainties and pure floats
+simultaneously).</p>
+<p>If arr is of type unumpy.matrix, the returned array is a
+numpy.matrix, because the resulting matrix does not contain
+numbers with uncertainties.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.plot.usd">
+<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">usd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.usd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the standard deviations of the numbers in NumPy array arr.</p>
+<p>Elements that are not numbers with uncertainties (derived from a
+class from this module) are passed through untouched (because a
+numpy.array can contain numbers with uncertainties and pure floats
+simultaneously).</p>
+<p>If arr is of type unumpy.matrix, the returned array is a
+numpy.matrix, because the resulting matrix does not contain
+numbers with uncertainties.</p>
+</dd></dl>
+
 </div>
 
 
@@ -59,13 +384,15 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 </ul>
@@ -74,6 +401,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="smpl.parallel.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+      <li>Next: <a href="smpl.stat.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
   </ul></li>
 </ul>
 </div>
