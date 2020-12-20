@@ -8,7 +8,6 @@ from scipy import optimize
 import uncertainties as unc
 import uncertainties.unumpy as unp
 import uncertainties.umath as umath
-import matplotlib.pyplot as plt
 from scipy.odr import *
 from tqdm import tqdm
 import matplotlib.pylab as pylab
@@ -82,7 +81,7 @@ def auto(datax,datay,funcs = None,**kwargs):
     funcs : function array
         functions to consider as fit. Default all ``smpl.functions``.
     **kwargs : optional
-        see :func:`default_kwargs`.
+        see :func:`fit_kwargs`.
 
     Returns
     =======

@@ -108,7 +108,7 @@ def auto(datax,datay,funcs = None,**kwargs):
     funcs : function array
         functions to consider as fit. Default all ``smpl.functions``.
     **kwargs : optional
-        see :func:`default_kwargs`.
+        see :func:`plot_kwargs`.
 
     Returns
     =======
@@ -136,7 +136,7 @@ def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None
     function : func
         Fit function with parameters: ``x``, ``params``
     **kwargs : optional
-        see :func:`default_kwargs`.
+        see :func:`plot_kwargs`.
     Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.
     
     Returns
@@ -188,7 +188,7 @@ def data(datax,datay,function=None,**kwargs):#params=None,xaxis="",yaxis="",labe
     function : func,optional
         Fit function with parameters: ``x``, ``params``
     **kwargs : optional
-        see :func:`default_kwargs`.
+        see :func:`plot_kwargs`.
     Returns
     =======
     array_like
@@ -222,7 +222,7 @@ def function(func,*args,**kwargs):
     func : function
         Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter
     **kwargs : optional
-        see :func:`default_kwargs`.
+        see :func:`plot_kwargs`.
     """
     if not util.has('lpos',kwargs) and not util.has('label',kwargs):
         kwargs['lpos'] =-1
