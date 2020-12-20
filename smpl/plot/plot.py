@@ -17,7 +17,7 @@ import glob
 import os
 import matplotlib.pyplot as plt
 from scipy.odr import *
-from tqdm import tqdm
+#from tqdm import tqdm
 import matplotlib.pylab as pylab
 import pathlib
 import types
@@ -244,7 +244,7 @@ def function(func,*args,**kwargs):
 
 def plt_residue(datax,datay,function,fit,fig,**kwargs):#xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
     frame2=fig.add_axes((.1,.1,.8,.2))  
-    kwargs['yaxis'] = "$\Delta$" + kwargs['yaxis']
+    kwargs['yaxis'] = "$\\Delta$" + kwargs['yaxis']
     kwargs['data_color'] = kwargs['fit_color']
 
     if kwargs['residue_err']:

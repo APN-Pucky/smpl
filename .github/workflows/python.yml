@@ -34,10 +34,10 @@ jobs:
         - name: Install sphinx
           run: python3.6 -m pip install -U sphinx nbsphinx numpydoc sphinx-math-dollar 
         - name: Test install smpl+dependencies
-          #run: make install
           run: python3.6 -m pip install -U smpl
+          #run: make install
         - name: Run sphinx
-          run: make clean html
+          run: make clean && make html
         - name: Deploy
           uses: JamesIves/github-pages-deploy-action@releases/v3
           with:

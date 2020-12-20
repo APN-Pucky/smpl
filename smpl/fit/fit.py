@@ -9,7 +9,7 @@ import uncertainties as unc
 import uncertainties.unumpy as unp
 import uncertainties.umath as umath
 from scipy.odr import *
-from tqdm import tqdm
+#from tqdm import tqdm
 import matplotlib.pylab as pylab
 import pathlib
 import types
