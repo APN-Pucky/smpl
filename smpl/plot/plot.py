@@ -17,6 +17,7 @@ import glob
 import os
 import matplotlib.pyplot as plt
 from scipy.odr import *
+import sympy
 #from tqdm import tqdm
 import matplotlib.pylab as pylab
 import pathlib
@@ -299,7 +300,7 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
         l = function.__doc__.split('\n')[0]
     for i in range(1,len(function.__code__.co_varnames)):
         l = l + "\n"
-        l = l + "" + str(function.__code__.co_varnames[i]) + "="
+        l = l + "" + sympy.latex(sympy.symbols(str(function.__code__.co_varnames[i]))) + "="
         if kwargs['units'] is not None and usd(fit[i-1])>0:
             l = l + "("
         if 'number_format' in kwargs:
