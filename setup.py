@@ -23,6 +23,7 @@ setuptools.setup(
         "numpy",
         "matplotlib",
         "scipy",
+        "sympy"
         #"requests",
         #"tqdm",
         #"pandas",
