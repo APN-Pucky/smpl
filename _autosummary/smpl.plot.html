@@ -13,8 +13,6 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="smpl.stat" href="smpl.stat.html" />
@@ -73,7 +71,7 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="smpl.plot.auto">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">auto</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">funcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">auto</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatically loop over functions and fit the best one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -86,7 +84,7 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>The best fit function and it’s parameters.</dt><dd></dd>
+<dt>The best fit function and it’s parameters. Also a lambda function where the parameters are already applied.</dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -94,7 +92,7 @@
 
 <dl class="py function">
 <dt id="smpl.plot.data">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -118,7 +116,7 @@
 
 <dl class="py function">
 <dt id="smpl.plot.fit">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">fit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit and plot function to datax and datay.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -157,12 +155,14 @@
 
 <dl class="py function">
 <dt id="smpl.plot.function">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>func</strong><span class="classifier">function</span></dt><dd><p>Function to be plotted between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, only taking <cite>array_like</cite> <code class="docutils literal notranslate"><span class="pre">x</span></code> as parameter</p>
+</dd>
+<dt><strong>*args</strong><span class="classifier">optional</span></dt><dd><p>arguments for <code class="docutils literal notranslate"><span class="pre">func</span></code></p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
@@ -173,7 +173,7 @@
 
 <dl class="py function">
 <dt id="smpl.plot.plot_kwargs">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">plot_kwargs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#plot_kwargs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.plot.plot_kwargs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">plot_kwargs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#plot_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot_kwargs" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
 <dt>Set default plot_kwargs if not set.</dt><dd><table class="docutils align-default">
 <colgroup>
@@ -188,11 +188,11 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>xaxis</p></td>
+<tr class="row-even"><td><p>xlabel</p></td>
 <td></td>
 <td><p>X axis label</p></td>
 </tr>
-<tr class="row-odd"><td><p>yaxis</p></td>
+<tr class="row-odd"><td><p>ylabel</p></td>
 <td></td>
 <td><p>Y axis label</p></td>
 </tr>
@@ -225,7 +225,7 @@
 <td><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertaint</p></td>
 </tr>
 <tr class="row-odd"><td><p>init</p></td>
-<td><p>True</p></td>
+<td><p>False</p></td>
 <td><p>Initialize a new plot</p></td>
 </tr>
 <tr class="row-even"><td><p>ss</p></td>
@@ -292,6 +292,10 @@
 <td><p>1000</p></td>
 <td><p>resolution of the plotted function</p></td>
 </tr>
+<tr class="row-even"><td><p>fitinline</p></td>
+<td><p>False</p></td>
+<td><p>No newlines for each fit parameter</p></td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -328,6 +332,14 @@
 <td><p>True</p></td>
 <td><p>Enable sorting the x and y data so that x is sorted.</p></td>
 </tr>
+<tr class="row-odd"><td><p>maxfev</p></td>
+<td><p>10000</p></td>
+<td><p>Maximum function evaluations during fitting.</p></td>
+</tr>
+<tr class="row-even"><td><p>epsfcn</p></td>
+<td><p>0.0001</p></td>
+<td><p>Suitable step length for jacobian approximation.</p></td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -336,7 +348,7 @@
 
 <dl class="py function">
 <dt id="smpl.plot.unv">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">unv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.unv" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">unv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.unv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the nominal values of the numbers in NumPy array arr.</p>
 <p>Elements that are not numbers with uncertainties (derived from a
 class from this module) are passed through untouched (because a
@@ -349,7 +361,7 @@ numbers with uncertainties.</p>
 
 <dl class="py function">
 <dt id="smpl.plot.usd">
-<code class="sig-prename descclassname">smpl.plot.</code><code class="sig-name descname">usd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.usd" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">usd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.usd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the standard deviations of the numbers in NumPy array arr.</p>
 <p>Elements that are not numbers with uncertainties (derived from a
 class from this module) are passed through untouched (because a
@@ -431,7 +443,7 @@ numbers with uncertainties.</p>
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

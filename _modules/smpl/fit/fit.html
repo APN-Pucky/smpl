@@ -13,8 +13,6 @@
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
    
@@ -84,9 +82,11 @@
   <span class="c1">#],          &#39;show&#39;          :[False     ,&quot;Call plt.show()&quot;,</span>
   <span class="c1">#],         &#39;size&#39;          :[None      ,&quot;Size of the plot as a tuple (x,y)&quot;,</span>
   <span class="c1">#],          &#39;number_format&#39; :[ io.gf(4) ,&quot;Format to display numbers.&quot;,</span>
-  <span class="p">],</span>          <span class="s1">&#39;selector&#39;</span>      <span class="p">:[</span> <span class="kc">None</span>     <span class="p">,</span><span class="s2">&quot;Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.&quot;</span><span class="p">,</span>
-  <span class="p">],</span>          <span class="s1">&#39;fixed_params&#39;</span>  <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span><span class="s2">&quot;Enable fixing parameters by choosing the same-named variables from ``kwargs``.&quot;</span><span class="p">,</span>
-  <span class="p">],</span>          <span class="s1">&#39;sortbyx&#39;</span>       <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span> <span class="s2">&quot;Enable sorting the x and y data so that x is sorted.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>            <span class="s1">&#39;selector&#39;</span>        <span class="p">:[</span> <span class="kc">None</span>     <span class="p">,</span><span class="s2">&quot;Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>            <span class="s1">&#39;fixed_params&#39;</span>    <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span><span class="s2">&quot;Enable fixing parameters by choosing the same-named variables from ``kwargs``.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>            <span class="s1">&#39;sortbyx&#39;</span>         <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span> <span class="s2">&quot;Enable sorting the x and y data so that x is sorted.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>            <span class="s1">&#39;maxfev&#39;</span>          <span class="p">:[</span> <span class="mi">10000</span>    <span class="p">,</span> <span class="s2">&quot;Maximum function evaluations during fitting.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>            <span class="s1">&#39;epsfcn&#39;</span>          <span class="p">:[</span> <span class="mf">0.0001</span>   <span class="p">,</span> <span class="s2">&quot;Suitable step length for jacobian approximation.&quot;</span>
   <span class="c1">#],          &#39;interpolate&#39;   :[ True     , &quot;Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.&quot;,</span>
   <span class="c1">#],          &#39;bbox_to_anchor&#39;:[ None     , &quot;Position in a tuple (x,y),Shift position of the legend out of the main pane. &quot;,</span>
   <span class="c1">#],          &#39;ncol&#39;          :[ None     , &quot;Columns in the legend if used with ``bbox_to_anchor``.&quot;,</span>
@@ -121,7 +121,7 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    =======</span>
-<span class="sd">    The best fit function and it&#39;s parameters.</span>
+<span class="sd">    The best fit function and it&#39;s parameters and a ``lambda`` where the parameters are already applied to the function.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
@@ -136,8 +136,12 @@
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">funcs</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
             <span class="c1">#print(n)</span>
-            <span class="n">ff</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="n">fy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="o">*</span><span class="n">ff</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ff</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="n">fy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="o">*</span><span class="n">ff</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="n">ve</span><span class="p">)</span>
+                <span class="k">continue</span>
             <span class="n">sum_sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">+</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">min_sq</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">sum_sq</span> <span class="o">&lt;</span> <span class="n">min_sq</span><span class="p">:</span>
                 <span class="n">min_sq</span> <span class="o">=</span> <span class="n">sum_sq</span>
@@ -145,11 +149,11 @@
                 <span class="n">best_ff</span> <span class="o">=</span> <span class="n">ff</span>
     <span class="c1">#if not best_f is None:</span>
     <span class="c1">#    fit(datax,datay,best_f,**kwargs)</span>
-    <span class="k">return</span> <span class="n">best_f</span><span class="p">,</span><span class="n">best_ff</span></div>
+    <span class="k">return</span> <span class="n">best_f</span><span class="p">,</span><span class="n">best_ff</span><span class="p">,</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">best_f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">*</span><span class="n">best_ff</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="fit"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit">[docs]</a><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">function</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a fit of ``function`` to ``datax`` and ``datay``.</span>
+<span class="sd">    Returns a fit of ``function`` to ``datax`` and ``datay``. </span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ==========</span>
@@ -245,14 +249,14 @@
 <span class="c1"># fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler</span>
 <span class="c1"># gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck</span>
 <span class="c1">#</span>
-<span class="c1"># https://stackoverflow.com/questions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#</span>
+<span class="c1"># https://stackoverflow.com/questionsquestions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#</span>
 <span class="c1"># Updated on 4/6/2016</span>
 <span class="c1"># User: https://stackoverflow.com/users/1476240/pedro-m-duarte</span>
 <span class="k">def</span> <span class="nf">_fit_curvefit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> \
             <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">p0</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>\
-                            <span class="n">sigma</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span> <span class="n">epsfcn</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">maxfev</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+                            <span class="n">sigma</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span> <span class="n">epsfcn</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epsfcn&quot;</span><span class="p">,</span><span class="mf">0.0001</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">maxfev</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;maxfev&quot;</span><span class="p">,</span><span class="mi">10000</span><span class="p">))</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="c1">#print(&quot;No fit found&quot;)</span>
         <span class="k">return</span> <span class="n">params</span>
@@ -371,7 +375,7 @@
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

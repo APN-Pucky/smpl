@@ -13,8 +13,6 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="smpl.plot" href="smpl.plot.html" />
@@ -61,7 +59,7 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="smpl.parallel.calc">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">calc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></code><code class="sig-name descname"><span class="pre">calc</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -82,13 +80,13 @@
 
 <dl class="py function">
 <dt id="smpl.parallel.gen">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">gen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></code><code class="sig-name descname"><span class="pre">gen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates parallel execution list generator</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="smpl.parallel.par">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">par</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></code><code class="sig-name descname"><span class="pre">par</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallel execution of f on each element of args and kwargs</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">par</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -99,7 +97,7 @@
 
 <dl class="py function">
 <dt id="smpl.parallel.res">
-<code class="sig-prename descclassname">smpl.parallel.</code><code class="sig-name descname">res</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></code><code class="sig-name descname"><span class="pre">res</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -189,7 +187,7 @@
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

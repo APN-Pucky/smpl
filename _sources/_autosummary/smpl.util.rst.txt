@@ -9,6 +9,8 @@
    
    .. autosummary:: 
    
+      get
+   
       has
    
       times

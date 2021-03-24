@@ -13,8 +13,6 @@
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Custom Fit" href="../custom/test_custom.html" />
@@ -285,8 +283,8 @@ div.rendered_html tbody tr:hover {
 </style>
 <div class="section" id="Auto-Fit">
 <h1>Auto Fit<a class="headerlink" href="#Auto-Fit" title="Permalink to this headline">¶</a></h1>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -295,9 +293,18 @@ from smpl import plot
 from smpl import stat
 from smpl import functions as f
 import uncertainties.unumpy as unp
-
+import smpl
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;0.0.69&#39;
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -314,35 +321,66 @@ import uncertainties.unumpy as unp
     y = unp.uarray(ydata,yerr)
 
 
-    ff = plot.auto(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,sigmas=1)
+    function,fitparams,lfunc = plot.auto(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,sigmas=1)
 </pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-No fit found
-No fit found
-No fit found
-No fit found
-No fit found
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_fit_auto_test_auto_2_1.png" src="../../../_images/example_fit_auto_test_auto_2_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_auto_test_auto_2_2.png" src="../../../_images/example_fit_auto_test_auto_2_2.png" />
-</div>
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-8aa46362470b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span>
+<span class="ansi-green-intense-fg ansi-bold">     10</span>
+<span class="ansi-green-fg">---&gt; 11</span><span class="ansi-red-fg">     </span>ff <span class="ansi-blue-fg">=</span> plot<span class="ansi-blue-fg">.</span>auto<span class="ansi-blue-fg">(</span>xdata<span class="ansi-blue-fg">,</span> ydata<span class="ansi-blue-fg">,</span> fmt<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;.&#39;</span><span class="ansi-blue-fg">,</span> label<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;data&#39;</span><span class="ansi-blue-fg">,</span> xaxis<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;x in a.u.&#34;</span><span class="ansi-blue-fg">,</span>yaxis<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;y in a.u.&#34;</span><span class="ansi-blue-fg">,</span>sigmas<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/smpl/plot/plot.py</span> in <span class="ansi-cyan-fg">auto</span><span class="ansi-blue-fg">(datax, datay, funcs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    120</span>
+<span class="ansi-green-intense-fg ansi-bold">    121</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 122</span><span class="ansi-red-fg">     </span>best_f<span class="ansi-blue-fg">,</span>best_ff <span class="ansi-blue-fg">=</span> ffit<span class="ansi-blue-fg">.</span>auto<span class="ansi-blue-fg">(</span>datax<span class="ansi-blue-fg">,</span>datay<span class="ansi-blue-fg">,</span>funcs<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    123</span>     <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> best_f <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    124</span>         fit<span class="ansi-blue-fg">(</span>datax<span class="ansi-blue-fg">,</span>datay<span class="ansi-blue-fg">,</span>best_f<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/smpl/fit/fit.py</span> in <span class="ansi-cyan-fg">auto</span><span class="ansi-blue-fg">(datax, datay, funcs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    104</span>             <span class="ansi-red-fg">#print(n)</span>
+<span class="ansi-green-intense-fg ansi-bold">    105</span>             ff <span class="ansi-blue-fg">=</span> fit<span class="ansi-blue-fg">(</span>datax<span class="ansi-blue-fg">,</span>datay<span class="ansi-blue-fg">,</span>f<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 106</span><span class="ansi-red-fg">             </span>fy <span class="ansi-blue-fg">=</span> f<span class="ansi-blue-fg">(</span>datax<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">*</span>ff<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    107</span>             sum_sq <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>sum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>fy <span class="ansi-blue-fg">-</span> datay<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">**</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> np<span class="ansi-blue-fg">.</span>sum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>fy <span class="ansi-blue-fg">+</span> usd<span class="ansi-blue-fg">(</span>fy<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> datay<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">**</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> np<span class="ansi-blue-fg">.</span>sum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>fy <span class="ansi-blue-fg">-</span> usd<span class="ansi-blue-fg">(</span>fy<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> datay<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">**</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    108</span>             <span class="ansi-green-fg">if</span> min_sq <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">or</span> sum_sq <span class="ansi-blue-fg">&lt;</span> min_sq<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/smpl/functions/functions.py</span> in <span class="ansi-cyan-fg">log</span><span class="ansi-blue-fg">(x, c, y_0)</span>
+<span class="ansi-green-intense-fg ansi-bold">     76</span> <span class="ansi-green-fg">def</span> log<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> c<span class="ansi-blue-fg">,</span> y_0<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     77</span>     <span class="ansi-blue-fg">&#39;&#39;&#39;$\\log(cx)y_0$&#39;&#39;&#39;</span>
+<span class="ansi-green-fg">---&gt; 78</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> unp<span class="ansi-blue-fg">.</span>log<span class="ansi-blue-fg">(</span>c <span class="ansi-blue-fg">*</span> x<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">*</span> y_0
+<span class="ansi-green-intense-fg ansi-bold">     79</span>
+<span class="ansi-green-intense-fg ansi-bold">     80</span> <span class="ansi-blue-fg">@</span>doc<span class="ansi-blue-fg">.</span>insert_eq<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/numpy/lib/function_base.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2089</span>             vargs<span class="ansi-blue-fg">.</span>extend<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>kwargs<span class="ansi-blue-fg">[</span>_n<span class="ansi-blue-fg">]</span> <span class="ansi-green-fg">for</span> _n <span class="ansi-green-fg">in</span> names<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2090</span>
+<span class="ansi-green-fg">-&gt; 2091</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_vectorize_call<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">=</span>func<span class="ansi-blue-fg">,</span> args<span class="ansi-blue-fg">=</span>vargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2092</span>
+<span class="ansi-green-intense-fg ansi-bold">   2093</span>     <span class="ansi-green-fg">def</span> _get_ufunc_and_otypes<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> func<span class="ansi-blue-fg">,</span> args<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/numpy/lib/function_base.py</span> in <span class="ansi-cyan-fg">_vectorize_call</span><span class="ansi-blue-fg">(self, func, args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2165</span>                       for a in args]
+<span class="ansi-green-intense-fg ansi-bold">   2166</span>
+<span class="ansi-green-fg">-&gt; 2167</span><span class="ansi-red-fg">             </span>outputs <span class="ansi-blue-fg">=</span> ufunc<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>inputs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2168</span>
+<span class="ansi-green-intense-fg ansi-bold">   2169</span>             <span class="ansi-green-fg">if</span> ufunc<span class="ansi-blue-fg">.</span>nout <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/usr/lib/python3.7/site-packages/uncertainties/core.py</span> in <span class="ansi-cyan-fg">f_with_affine_output</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    666</span>         <span class="ansi-red-fg"># uncertainty is provided:</span>
+<span class="ansi-green-intense-fg ansi-bold">    667</span>         <span class="ansi-green-fg">if</span> <span class="ansi-blue-fg">(</span><span class="ansi-green-fg">not</span> pos_w_uncert<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> <span class="ansi-blue-fg">(</span><span class="ansi-green-fg">not</span> names_w_uncert<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 668</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    669</span>
+<span class="ansi-green-intense-fg ansi-bold">    670</span>         <span class="ansi-red-fg">### Nominal values of the (scalar) arguments:</span>
+
+<span class="ansi-red-fg">ValueError</span>: math domain error
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -368,8 +406,58 @@ ff = plot.auto(x, y, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_auto_test_auto_4_0.png" src="../../../_images/example_fit_auto_test_auto_4_0.png" />
-</div>
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-5327060ad4a7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> x<span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>linspace<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">5</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">100</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> y <span class="ansi-blue-fg">=</span> stat<span class="ansi-blue-fg">.</span>noisy<span class="ansi-blue-fg">(</span>np<span class="ansi-blue-fg">.</span>exp<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>ff <span class="ansi-blue-fg">=</span> plot<span class="ansi-blue-fg">.</span>auto<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> y<span class="ansi-blue-fg">,</span> fmt<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;.&#39;</span><span class="ansi-blue-fg">,</span> label<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;data&#39;</span><span class="ansi-blue-fg">,</span> xaxis<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;x in a.u.&#34;</span><span class="ansi-blue-fg">,</span>yaxis<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;y in a.u.&#34;</span><span class="ansi-blue-fg">,</span>sigmas<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/smpl/plot/plot.py</span> in <span class="ansi-cyan-fg">auto</span><span class="ansi-blue-fg">(datax, datay, funcs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    120</span>
+<span class="ansi-green-intense-fg ansi-bold">    121</span>     &#34;&#34;&#34;
+<span class="ansi-green-fg">--&gt; 122</span><span class="ansi-red-fg">     </span>best_f<span class="ansi-blue-fg">,</span>best_ff <span class="ansi-blue-fg">=</span> ffit<span class="ansi-blue-fg">.</span>auto<span class="ansi-blue-fg">(</span>datax<span class="ansi-blue-fg">,</span>datay<span class="ansi-blue-fg">,</span>funcs<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    123</span>     <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> best_f <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    124</span>         fit<span class="ansi-blue-fg">(</span>datax<span class="ansi-blue-fg">,</span>datay<span class="ansi-blue-fg">,</span>best_f<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/smpl/fit/fit.py</span> in <span class="ansi-cyan-fg">auto</span><span class="ansi-blue-fg">(datax, datay, funcs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    104</span>             <span class="ansi-red-fg">#print(n)</span>
+<span class="ansi-green-intense-fg ansi-bold">    105</span>             ff <span class="ansi-blue-fg">=</span> fit<span class="ansi-blue-fg">(</span>datax<span class="ansi-blue-fg">,</span>datay<span class="ansi-blue-fg">,</span>f<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 106</span><span class="ansi-red-fg">             </span>fy <span class="ansi-blue-fg">=</span> f<span class="ansi-blue-fg">(</span>datax<span class="ansi-blue-fg">,</span><span class="ansi-blue-fg">*</span>ff<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    107</span>             sum_sq <span class="ansi-blue-fg">=</span> np<span class="ansi-blue-fg">.</span>sum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>fy <span class="ansi-blue-fg">-</span> datay<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">**</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> np<span class="ansi-blue-fg">.</span>sum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>fy <span class="ansi-blue-fg">+</span> usd<span class="ansi-blue-fg">(</span>fy<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> datay<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">**</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> np<span class="ansi-blue-fg">.</span>sum<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">(</span>fy <span class="ansi-blue-fg">-</span> usd<span class="ansi-blue-fg">(</span>fy<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> datay<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">**</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    108</span>             <span class="ansi-green-fg">if</span> min_sq <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">or</span> sum_sq <span class="ansi-blue-fg">&lt;</span> min_sq<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/smpl/functions/functions.py</span> in <span class="ansi-cyan-fg">log</span><span class="ansi-blue-fg">(x, c, y_0)</span>
+<span class="ansi-green-intense-fg ansi-bold">     76</span> <span class="ansi-green-fg">def</span> log<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> c<span class="ansi-blue-fg">,</span> y_0<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">     77</span>     <span class="ansi-blue-fg">&#39;&#39;&#39;$\\log(cx)y_0$&#39;&#39;&#39;</span>
+<span class="ansi-green-fg">---&gt; 78</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> unp<span class="ansi-blue-fg">.</span>log<span class="ansi-blue-fg">(</span>c <span class="ansi-blue-fg">*</span> x<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">*</span> y_0
+<span class="ansi-green-intense-fg ansi-bold">     79</span>
+<span class="ansi-green-intense-fg ansi-bold">     80</span> <span class="ansi-blue-fg">@</span>doc<span class="ansi-blue-fg">.</span>insert_eq<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/numpy/lib/function_base.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2089</span>             vargs<span class="ansi-blue-fg">.</span>extend<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>kwargs<span class="ansi-blue-fg">[</span>_n<span class="ansi-blue-fg">]</span> <span class="ansi-green-fg">for</span> _n <span class="ansi-green-fg">in</span> names<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2090</span>
+<span class="ansi-green-fg">-&gt; 2091</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_vectorize_call<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">=</span>func<span class="ansi-blue-fg">,</span> args<span class="ansi-blue-fg">=</span>vargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2092</span>
+<span class="ansi-green-intense-fg ansi-bold">   2093</span>     <span class="ansi-green-fg">def</span> _get_ufunc_and_otypes<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> func<span class="ansi-blue-fg">,</span> args<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/.local/lib/python3.7/site-packages/numpy/lib/function_base.py</span> in <span class="ansi-cyan-fg">_vectorize_call</span><span class="ansi-blue-fg">(self, func, args)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2165</span>                       for a in args]
+<span class="ansi-green-intense-fg ansi-bold">   2166</span>
+<span class="ansi-green-fg">-&gt; 2167</span><span class="ansi-red-fg">             </span>outputs <span class="ansi-blue-fg">=</span> ufunc<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>inputs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   2168</span>
+<span class="ansi-green-intense-fg ansi-bold">   2169</span>             <span class="ansi-green-fg">if</span> ufunc<span class="ansi-blue-fg">.</span>nout <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/usr/lib/python3.7/site-packages/uncertainties/core.py</span> in <span class="ansi-cyan-fg">f_with_affine_output</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    666</span>         <span class="ansi-red-fg"># uncertainty is provided:</span>
+<span class="ansi-green-intense-fg ansi-bold">    667</span>         <span class="ansi-green-fg">if</span> <span class="ansi-blue-fg">(</span><span class="ansi-green-fg">not</span> pos_w_uncert<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> <span class="ansi-blue-fg">(</span><span class="ansi-green-fg">not</span> names_w_uncert<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 668</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> f<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    669</span>
+<span class="ansi-green-intense-fg ansi-bold">    670</span>         <span class="ansi-red-fg">### Nominal values of the (scalar) arguments:</span>
+
+<span class="ansi-red-fg">ValueError</span>: math domain error
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -527,7 +615,7 @@ ff = plot.auto(x, y, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

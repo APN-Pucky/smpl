@@ -1,3 +1,3 @@
-from smpl.functions.functions import line
+from smpl.functions.functions import exponential
 from smpl import plot
-plot.function(line,2,-1,xmin=-5,xmax=5)
+plot.function(exponential,0.5,4,xmin=-5,xmax=5)

@@ -47,10 +47,16 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.const" title="smpl.functions.const"><code class="xref py py-obj docutils literal notranslate"><span class="pre">const</span></code></a>(x, m)</p></td>
 <td><p>const(x,m) = m</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.cos_abs" title="smpl.functions.cos_abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos_abs</span></code></a>(x, a, f, phi)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.cos" title="smpl.functions.cos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos</span></code></a>(x, a, f, phi)</p></td>
+<td><p>cos(x,a,f,phi) = <span class="math notranslate nohighlight">\(a\cos(2πf(x-\phi))\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.cos_abs" title="smpl.functions.cos_abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos_abs</span></code></a>(x, a, f, phi)</p></td>
 <td><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a|\cos(2πf(x-\phi))|\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.exponential" title="smpl.functions.exponential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exponential</span></code></a>(x, c, y_0)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.cube" title="smpl.functions.cube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cube</span></code></a>(x, a, b, c, d)</p></td>
+<td><p>cube(x,a,b,c,d) = <span class="math notranslate nohighlight">\(ax^3+bx^2+cx+d\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.exp" title="smpl.functions.exp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exp</span></code></a>(x, c, y_0)</p></td>
 <td><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(\exp(cx)y_0\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.gauss" title="smpl.functions.gauss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss</span></code></a>(x, x_0, A, d, y)</p></td>
@@ -62,18 +68,30 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.linear" title="smpl.functions.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear</span></code></a>(x, m)</p></td>
 <td><p>linear(x,m) = mx</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.lorentz" title="smpl.functions.lorentz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lorentz</span></code></a>(x, x_0, A, d, y)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.log" title="smpl.functions.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>(x, c, y_0)</p></td>
+<td><p>log(x,c,y_0) = <span class="math notranslate nohighlight">\(\log(cx)y_0\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.lorentz" title="smpl.functions.lorentz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lorentz</span></code></a>(x, x_0, A, d, y)</p></td>
 <td><p>lorentz(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(\frac{A}{\pi d (1+ (\frac{x-x_0}{d})^2)} + y\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.quadratic" title="smpl.functions.quadratic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quadratic</span></code></a>(x, x_0, A, y)</p></td>
-<td><p>quadratic(x,x_0,A,y) = <span class="math notranslate nohighlight">\(A(x-x_0)^2+y\)</span></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.sin" title="smpl.functions.sin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sin</span></code></a>(x, a, f, phi)</p></td>
+<td><p>sin(x,a,f,phi) = <span class="math notranslate nohighlight">\(a\sin(2πf(x-\phi))\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.sqrt" title="smpl.functions.sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt</span></code></a>(x, a, b, c)</p></td>
+<td><p>sqrt(x,a,b,c) = <span class="math notranslate nohighlight">\(a\sqrt{x+b}+c\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.square" title="smpl.functions.square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square</span></code></a>(x, x_0, A, y)</p></td>
+<td><p>square(x,x_0,A,y) = <span class="math notranslate nohighlight">\(A(x-x_0)^2+y\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.tan" title="smpl.functions.tan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tan</span></code></a>(x, a, f, phi)</p></td>
+<td><p>tan(x,a,f,phi) = <span class="math notranslate nohighlight">\(\tan(2πf(x-\phi))a\)</span></p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="smpl.functions.const">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">const</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#const"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.const" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">const</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#const"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.const" title="Permalink to this definition">¶</a></dt>
 <dd><p>const(x,m) = m</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">const</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
@@ -87,12 +105,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.functions.cos_abs">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">cos_abs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">phi</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#cos_abs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.cos_abs" title="Permalink to this definition">¶</a></dt>
-<dd><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a|\cos(2πf(x-\phi))|\)</span></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">cos_abs</span>
+<dt id="smpl.functions.cos">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">cos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#cos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.cos" title="Permalink to this definition">¶</a></dt>
+<dd><p>cos(x,a,f,phi) = <span class="math notranslate nohighlight">\(a\cos(2πf(x-\phi))\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">cos</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">cos_abs</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">cos</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../_autosummary/smpl-functions-2.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-2.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-2.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-2.pdf">pdf</a>)</p>
@@ -102,12 +120,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.functions.exponential">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">exponential</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">c</span></em>, <em class="sig-param"><span class="n">y_0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#exponential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.exponential" title="Permalink to this definition">¶</a></dt>
-<dd><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(\exp(cx)y_0\)</span></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">exponential</span>
+<dt id="smpl.functions.cos_abs">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">cos_abs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#cos_abs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.cos_abs" title="Permalink to this definition">¶</a></dt>
+<dd><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a|\cos(2πf(x-\phi))|\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">cos_abs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">exponential</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">cos_abs</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../_autosummary/smpl-functions-3.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-3.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-3.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-3.pdf">pdf</a>)</p>
@@ -117,12 +135,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.functions.gauss">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">gauss</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#gauss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.gauss" title="Permalink to this definition">¶</a></dt>
-<dd><p>gauss(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(A\cdot \exp\left(\frac{-(x-x_0)^2}{2d^2}\right)+y\)</span></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">gauss</span>
+<dt id="smpl.functions.cube">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">cube</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#cube"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>cube(x,a,b,c,d) = <span class="math notranslate nohighlight">\(ax^3+bx^2+cx+d\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">cube</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">gauss</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../_autosummary/smpl-functions-4.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-4.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-4.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-4.pdf">pdf</a>)</p>
@@ -132,12 +150,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.functions.line">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#line"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.line" title="Permalink to this definition">¶</a></dt>
-<dd><p>line(x,a,b) = ax+b</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">line</span>
+<dt id="smpl.functions.exp">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">exp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.functions.exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(\exp(cx)y_0\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">exponential</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">exponential</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../_autosummary/smpl-functions-5.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-5.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-5.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-5.pdf">pdf</a>)</p>
@@ -147,12 +165,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.functions.linear">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">linear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#linear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.linear" title="Permalink to this definition">¶</a></dt>
-<dd><p>linear(x,m) = mx</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">linear</span>
+<dt id="smpl.functions.gauss">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">gauss</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#gauss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.gauss" title="Permalink to this definition">¶</a></dt>
+<dd><p>gauss(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(A\cdot \exp\left(\frac{-(x-x_0)^2}{2d^2}\right)+y\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">gauss</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">gauss</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../_autosummary/smpl-functions-6.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-6.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-6.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-6.pdf">pdf</a>)</p>
@@ -162,12 +180,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.functions.lorentz">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">lorentz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">d</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#lorentz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.lorentz" title="Permalink to this definition">¶</a></dt>
-<dd><p>lorentz(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(\frac{A}{\pi d (1+ (\frac{x-x_0}{d})^2)} + y\)</span></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">lorentz</span>
+<dt id="smpl.functions.line">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">line</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.line" title="Permalink to this definition">¶</a></dt>
+<dd><p>line(x,a,b) = ax+b</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">line</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">lorentz</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../_autosummary/smpl-functions-7.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-7.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-7.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-7.pdf">pdf</a>)</p>
@@ -177,17 +195,107 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.functions.quadratic">
-<code class="sig-prename descclassname">smpl.functions.</code><code class="sig-name descname">quadratic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">x_0</span></em>, <em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#quadratic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.functions.quadratic" title="Permalink to this definition">¶</a></dt>
-<dd><p>quadratic(x,x_0,A,y) = <span class="math notranslate nohighlight">\(A(x-x_0)^2+y\)</span></p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">quadratic</span>
+<dt id="smpl.functions.linear">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">linear</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#linear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>linear(x,m) = mx</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">linear</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">quadratic</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">linear</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../_autosummary/smpl-functions-8.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-8.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-8.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-8.pdf">pdf</a>)</p>
 <div class="figure align-default">
 <img alt="../_images/smpl-functions-8.png" src="../_images/smpl-functions-8.png" />
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.log">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">log</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>log(x,c,y_0) = <span class="math notranslate nohighlight">\(\log(cx)y_0\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">log</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">log</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../_autosummary/smpl-functions-9.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-9.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-9.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-9.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../_images/smpl-functions-9.png" src="../_images/smpl-functions-9.png" />
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.lorentz">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">lorentz</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#lorentz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.lorentz" title="Permalink to this definition">¶</a></dt>
+<dd><p>lorentz(x,x_0,A,d,y) = <span class="math notranslate nohighlight">\(\frac{A}{\pi d (1+ (\frac{x-x_0}{d})^2)} + y\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">lorentz</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">lorentz</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../_autosummary/smpl-functions-10.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-10.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-10.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-10.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../_images/smpl-functions-10.png" src="../_images/smpl-functions-10.png" />
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.sin">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">sin</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#sin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.sin" title="Permalink to this definition">¶</a></dt>
+<dd><p>sin(x,a,f,phi) = <span class="math notranslate nohighlight">\(a\sin(2πf(x-\phi))\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">sin</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../_autosummary/smpl-functions-11.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-11.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-11.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-11.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../_images/smpl-functions-11.png" src="../_images/smpl-functions-11.png" />
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.sqrt">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">sqrt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#sqrt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.sqrt" title="Permalink to this definition">¶</a></dt>
+<dd><p>sqrt(x,a,b,c) = <span class="math notranslate nohighlight">\(a\sqrt{x+b}+c\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">sqrt</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">3.3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../_autosummary/smpl-functions-12.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-12.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-12.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-12.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../_images/smpl-functions-12.png" src="../_images/smpl-functions-12.png" />
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.square">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">square</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#square"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.square" title="Permalink to this definition">¶</a></dt>
+<dd><p>square(x,x_0,A,y) = <span class="math notranslate nohighlight">\(A(x-x_0)^2+y\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">square</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">square</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../_autosummary/smpl-functions-13.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-13.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-13.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-13.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../_images/smpl-functions-13.png" src="../_images/smpl-functions-13.png" />
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="smpl.functions.tan">
+<code class="sig-prename descclassname"><span class="pre">smpl.functions.</span></code><code class="sig-name descname"><span class="pre">tan</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#tan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.tan" title="Permalink to this definition">¶</a></dt>
+<dd><p>tan(x,a,f,phi) = <span class="math notranslate nohighlight">\(\tan(2πf(x-\phi))a\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">tan</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">tan</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../_autosummary/smpl-functions-14.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-14.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-14.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-14.pdf">pdf</a>)</p>
+<div class="figure align-default">
+<img alt="../_images/smpl-functions-14.png" src="../_images/smpl-functions-14.png" />
 </div>
 </dd></dl>
 
@@ -262,7 +370,7 @@
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

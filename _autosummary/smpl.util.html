@@ -13,8 +13,6 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="smpl.stat" href="smpl.stat.html" />
@@ -43,27 +41,42 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.util.has" title="smpl.util.has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code></a>(key, dict)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.util.get" title="smpl.util.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(key, dict, default)</p></td>
+<td><p>Returns dict[key] if this exists else default.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.util.has" title="smpl.util.has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code></a>(key, dict)</p></td>
 <td><p>Checks if the key is in the dict and not None.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">times</span></code>(str, int)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.util.times" title="smpl.util.times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">times</span></code></a>(str, n)</p></td>
+<td><p>Concats str n times.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.util.true" title="smpl.util.true"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code></a>(key, dict)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.util.true" title="smpl.util.true"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code></a>(key, dict)</p></td>
 <td><p>Checks if the key is in the dict and not None and True.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
+<dt id="smpl.util.get">
+<code class="sig-prename descclassname"><span class="pre">smpl.util.</span></code><code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns dict[key] if this exists else default.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="smpl.util.has">
-<code class="sig-prename descclassname">smpl.util.</code><code class="sig-name descname">has</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#has"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.util.has" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.util.</span></code><code class="sig-name descname"><span class="pre">has</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#has"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.has" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the key is in the dict and not None.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt id="smpl.util.times">
+<code class="sig-prename descclassname"><span class="pre">smpl.util.</span></code><code class="sig-name descname"><span class="pre">times</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#times"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concats str n times.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt id="smpl.util.true">
-<code class="sig-prename descclassname">smpl.util.</code><code class="sig-name descname">true</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span></em>, <em class="sig-param"><span class="n">dict</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#true"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.util.true" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.util.</span></code><code class="sig-name descname"><span class="pre">true</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#true"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.true" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if the key is in the dict and not None and True.</p>
 </dd></dl>
 
@@ -137,7 +150,7 @@
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

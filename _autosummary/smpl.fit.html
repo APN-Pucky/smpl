@@ -13,8 +13,6 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="smpl.functions" href="smpl.functions.html" />
@@ -61,7 +59,7 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt id="smpl.fit.auto">
-<code class="sig-prename descclassname">smpl.fit.</code><code class="sig-name descname">auto</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">funcs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#auto"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.fit.auto" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.fit.</span></code><code class="sig-name descname"><span class="pre">auto</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.auto" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatically loop over functions and fit the best one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -74,7 +72,7 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>The best fit function and it’s parameters.</dt><dd></dd>
+<dt>The best fit function and it’s parameters and a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> where the parameters are already applied to the function.</dt><dd></dd>
 </dl>
 </dd>
 </dl>
@@ -82,7 +80,7 @@
 
 <dl class="py function">
 <dt id="smpl.fit.data_split">
-<code class="sig-prename descclassname">smpl.fit.</code><code class="sig-name descname">data_split</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#data_split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.fit.data_split" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.fit.</span></code><code class="sig-name descname"><span class="pre">data_split</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#data_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.data_split" title="Permalink to this definition">¶</a></dt>
 <dd><p>Splits datax and datay into (x,y,xerr,yerr).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -96,7 +94,7 @@
 
 <dl class="py function">
 <dt id="smpl.fit.fit">
-<code class="sig-prename descclassname">smpl.fit.</code><code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datax</span></em>, <em class="sig-param"><span class="n">datay</span></em>, <em class="sig-param"><span class="n">function</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.fit.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.fit.</span></code><code class="sig-name descname"><span class="pre">fit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a fit of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -116,7 +114,7 @@
 
 <dl class="py function">
 <dt id="smpl.fit.fit_kwargs">
-<code class="sig-prename descclassname">smpl.fit.</code><code class="sig-name descname">fit_kwargs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit_kwargs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#smpl.fit.fit_kwargs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">smpl.fit.</span></code><code class="sig-name descname"><span class="pre">fit_kwargs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.fit_kwargs" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
 <dt>Set default fit_kwargs if not set.</dt><dd><table class="docutils align-default">
 <colgroup>
@@ -150,6 +148,14 @@
 <tr class="row-even"><td><p>sortbyx</p></td>
 <td><p>True</p></td>
 <td><p>Enable sorting the x and y data so that x is sorted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>maxfev</p></td>
+<td><p>10000</p></td>
+<td><p>Maximum function evaluations during fitting.</p></td>
+</tr>
+<tr class="row-even"><td><p>epsfcn</p></td>
+<td><p>0.0001</p></td>
+<td><p>Suitable step length for jacobian approximation.</p></td>
 </tr>
 </tbody>
 </table>
@@ -228,7 +234,7 @@
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
