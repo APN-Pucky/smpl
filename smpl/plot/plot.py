@@ -114,15 +114,15 @@ def auto(datax,datay,funcs = None,**kwargs):
 
     Returns
     =======
-    The best fit function and it's parameters.
+    The best fit function and it's parameters. Also a lambda function where the parameters are already applied.
 
 
 
     """
-    best_f,best_ff = ffit.auto(datax,datay,funcs,**kwargs)
+    best_f,best_ff,lambda_f = ffit.auto(datax,datay,funcs,**kwargs)
     if not best_f is None:
         fit(datax,datay,best_f,**kwargs)
-    return best_f,best_ff
+    return best_f,best_ff,lambda_f
   
 
 #@append_doc(default_kwargs)
