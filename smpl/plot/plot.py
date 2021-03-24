@@ -30,22 +30,22 @@ from smpl import util
 from smpl.doc import  append_doc,append_str
 from smpl import doc
 from smpl import fit as ffit
-#TODO create folders for file saves
 
-fig_size = (8, 6)
-fig_legendsize = 14
-fig_labelsize = 12 # ‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’.
-params = {'legend.fontsize': 'x-large',
-          'figure.figsize': (8, 6),
-         'axes.labelsize': 'x-large',
-         'axes.titlesize':'x-large',
-         'xtick.labelsize':'x-large',
-         'ytick.labelsize':'x-large'}
-pylab.rcParams.update(params)
-matplotlib.rcParams.update(params)
-#matplotlib.rcParams.update({'font.size': fig_labelsize})
+def set_plot_style():
+    fig_size = (8, 6)
+    fig_legendsize = 14
+    fig_labelsize = 12 # ‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’.
+    params = {'legend.fontsize': 'x-large',
+              'figure.figsize': (8, 6),
+             'axes.labelsize': 'x-large',
+             'axes.titlesize':'x-large',
+             'xtick.labelsize':'x-large',
+             'ytick.labelsize':'x-large'}
+    pylab.rcParams.update(params)
+    matplotlib.rcParams.update(params)
+    #matplotlib.rcParams.update({'font.size': fig_labelsize})
 
-colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
+    colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
       
 unv=unp.nominal_values
 usd=unp.std_devs
