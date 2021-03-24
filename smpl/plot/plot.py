@@ -339,10 +339,15 @@ def init_plot(**kwargs):#size=None,residue=False): #init
             fig = plt.figure(figsize=kwargs['size'])
         if kwargs['residue']:
             frame1=fig.add_axes((.1,.3,.8,.6))
-    if kwargs['xlabel'] != "":
+    if util.has("xlabel",kwargs) and kwargs['xlabel'] != "":
         plt.xlabel(kwargs['xlabel'])
-    if kwargs['ylabel'] != "":
+    if  util.has("ylabel",kwargs) and kwargs['ylabel'] != "":
         plt.ylabel(kwargs['ylabel'])
+    if  util.has("xaxis",kwargs) and kwargs['xaxis'] != "":
+        plt.xlabel(kwargs['xaxis'])
+    if  util.has("yaxis",kwargs) and kwargs['yaxis'] != "":
+        plt.ylabel(kwargs['yaxis'])
+
     return fig
 
 def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #save

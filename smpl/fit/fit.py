@@ -102,8 +102,12 @@ def auto(datax,datay,funcs = None,**kwargs):
     for f in funcs:
         if callable(f):
             #print(n)
-            ff = fit(datax,datay,f,**kwargs)
-            fy = f(datax,*ff)
+            try:
+                ff = fit(datax,datay,f,**kwargs)
+                fy = f(datax,*ff)
+            except ValueError as ve:
+                print (ve)
+                continue
             sum_sq = np.sum((fy - datay)**2) + np.sum((fy + usd(fy) - datay)**2) + np.sum((fy - usd(fy) - datay)**2)
             if min_sq is None or sum_sq < min_sq:
                 min_sq = sum_sq
