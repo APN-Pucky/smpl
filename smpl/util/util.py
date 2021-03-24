@@ -1,7 +1,10 @@
 import numpy as np
 
-def times(str,int):
-    return str.join(["" for i in range(0,int+1)])
+def times(str,n):
+    """
+        Concats str n times.
+    """
+    return str.join(["" for i in range(0,n+1)])
 
 def get(key,dict,default):
     """

@@ -81,7 +81,8 @@ default = {
   ],          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",
   ],          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",
   ],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
-  ],          'steps'         :[ 1000     ,"resolution of the plotted function" 
+  ],          'steps'         :[ 1000     ,"resolution of the plotted function",
+  ],            'fitinline'     : [ False ,  "No newlines for each fit parameter",
   ],          }
 
 #@doc.insert_str("\tDefault kwargs\n\n\t")
@@ -222,6 +223,8 @@ def function(func,*args,**kwargs):
     ==========
     func : function
         Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter
+    *args : optional
+        arguments for ``func``
     **kwargs : optional
         see :func:`plot_kwargs`.
     """
@@ -238,6 +241,9 @@ def function(func,*args,**kwargs):
         plt.xlabel(kwargs['xaxis'])
     if kwargs['xaxis'] != "":
         plt.ylabel(kwargs['yaxis'])
+    if not util.has("label",kwargs) or kwargs['label']is None:
+        kwargs['label']=get_fnc_legend(func,args,**kwargs)
+        kwargs['lpos'] =0
     _plot(xfit,func(xfit,*args),**kwargs)
     if kwargs['ss']:
         save_plot(**kwargs)
@@ -283,23 +289,13 @@ def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_c
     else:
         plt.errorbar(x,y,yerr=yerr,xerr=xerr,fmt=" ",capsize=5,label=kwargs['label'],color=kwargs['data_color'])
  
-#@append_doc(default_kwargs)
-def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
-    """
-       Plot Fit 
-    """
-    x,y,xerr,yerr =data_split(datax,datay,**kwargs)
-    fit = _fit(datax,datay,function,**kwargs)
-    if kwargs['prange'] is None:
-        xfit = np.linspace(np.min(unv(x)),np.max(unv(x)),1000)
-    else:
-        xfit = np.linspace(kwargs['prange'][0],kwargs['prange'][1],1000)
+def get_fnc_legend(function,fit,**kwargs):
     l = function.__name__
     #l = ""
     if function.__doc__ is not None:
         l = function.__doc__.split('\n')[0]
     for i in range(1,len(function.__code__.co_varnames)):
-        l = l + "\n"
+        l = l + ("\n" if not kwargs["fitinline"] or i==1 else " ")
         l = l + "$" + sympy.latex(sympy.symbols(str(function.__code__.co_varnames[i]))) + "$="
         if kwargs['units'] is not None and usd(fit[i-1])>0:
             l = l + "("
@@ -312,6 +308,20 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
             l = l + ")" 
         if kwargs['units'] is not None:
             l = l + " " +kwargs['units'][i-1]
+    return l
+
+#@append_doc(default_kwargs)
+def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
+    """
+       Plot Fit 
+    """
+    x,y,xerr,yerr =data_split(datax,datay,**kwargs)
+    fit = _fit(datax,datay,function,**kwargs)
+    if kwargs['prange'] is None:
+        xfit = np.linspace(np.min(unv(x)),np.max(unv(x)),1000)
+    else:
+        xfit = np.linspace(kwargs['prange'][0],kwargs['prange'][1],1000)
+    l = get_fnc_legend(function,fit,**kwargs)
     ll = None
     if kwargs['sigmas']>0:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",color =kwargs['fit_color'])

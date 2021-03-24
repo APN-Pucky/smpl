@@ -11,9 +11,13 @@
    
       const
    
+      cos
+   
       cos_abs
    
-      exponential
+      cube
+   
+      exp
    
       gauss
    
@@ -21,9 +25,17 @@
    
       linear
    
+      log
+   
       lorentz
    
-      quadratic
+      sin
+   
+      sqrt
+   
+      square
+   
+      tan
    
    
    .. rubric:: Functions

@@ -87,7 +87,7 @@ def auto(datax,datay,funcs = None,**kwargs):
 
     Returns
     =======
-    The best fit function and it's parameters.
+    The best fit function and it's parameters and a ``lambda`` where the parameters are already applied to the function.
 
     """
     kwargs = fit_kwargs(kwargs)
@@ -111,11 +111,11 @@ def auto(datax,datay,funcs = None,**kwargs):
                 best_ff = ff
     #if not best_f is None:
     #    fit(datax,datay,best_f,**kwargs)
-    return best_f,best_ff
+    return best_f,best_ff,lambda x : best_f(x,*best_ff)
 
 def fit(datax,datay,function,**kwargs):
     """
-    Returns a fit of ``function`` to ``datax`` and ``datay``.
+    Returns a fit of ``function`` to ``datax`` and ``datay``. 
 
     Parameters
     ==========
