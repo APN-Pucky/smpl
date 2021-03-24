@@ -48,9 +48,12 @@ default = {   'params'        :[None      ,"Initial fit parameters",
   #],          'show'          :[False     ,"Call plt.show()",
   #],         'size'          :[None      ,"Size of the plot as a tuple (x,y)",
   #],          'number_format' :[ io.gf(4) ,"Format to display numbers.",
-  ],          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
-  ],          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
-  ],          'sortbyx'       :[ True     , "Enable sorting the x and y data so that x is sorted.",
+  ],            'selector'        :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
+  ],            'fixed_params'    :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
+  ],            'sortbyx'         :[ True     , "Enable sorting the x and y data so that x is sorted.",
+  ],            'maxfev'          :[ 10000    , "Maximum function evaluations during fitting.",
+  ],            'epsfcn'          :[ 0.0001   , "Suitable step length for jacobian approximation."
+  ],
   #],          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",
   #],          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",
   #],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
@@ -209,14 +212,14 @@ def data_split(datax,datay,**kwargs):
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
 #
-# https://stackoverflow.com/questions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#
+# https://stackoverflow.com/questionsquestions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#
 # Updated on 4/6/2016
 # User: https://stackoverflow.com/users/1476240/pedro-m-duarte
 def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
     try:
         pfit, pcov = \
             optimize.curve_fit(function,datax,datay,p0=params,\
-                            sigma=yerr, epsfcn=0.0001, **kwargs, maxfev=10000)
+                            sigma=yerr, epsfcn=util.get("epsfcn",0.0001), **kwargs, maxfev=util.get("maxfev",10000))
     except:
         #print("No fit found")
         return params

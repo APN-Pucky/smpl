@@ -3,6 +3,15 @@ import numpy as np
 def times(str,int):
     return str.join(["" for i in range(0,int+1)])
 
+def get(key,dict,default):
+    """
+        Returns dict[key] if this exists else default.
+    """
+    if has(key,dict):
+        return dict[key]
+    else:
+        return default
+
 def has(key, dict):
     """
         Checks if the key is in the dict and not None.
