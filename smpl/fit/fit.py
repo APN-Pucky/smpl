@@ -53,7 +53,6 @@ default = {   'params'        :[None      ,"Initial fit parameters",
   ],            'sortbyx'         :[ True     , "Enable sorting the x and y data so that x is sorted.",
   ],            'maxfev'          :[ 10000    , "Maximum function evaluations during fitting.",
   ],            'epsfcn'          :[ 0.0001   , "Suitable step length for jacobian approximation."
-  ],
   #],          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",
   #],          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",
   #],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
