@@ -52,8 +52,8 @@ usd=unp.std_devs
 
 default = {
 #    'params'        :[None      ,"Initial fit parameters",
-            'xaxis'         :[""        ,"X axis label",
-],            'yaxis'         :[""        ,"Y axis label",
+              'xlabel'         :[""        ,"X axis label",
+],            'ylabel'         :[""        ,"Y axis label",
 ],            'label'         :[None      ,"Legend name of plotted ``data``",
 ],            'fmt'           :['.'       ,"Format for plotting fit function",
  ],           'units'         :[None      ,"Units of the fit parameters as strings. Displayed in the Legend",
@@ -62,7 +62,7 @@ default = {
 # ],           'frange'        :[None      ,"Limit the fit to given range. First integer is the lowest and second the highest index.",
   ],          'prange'        :[None      ,"Limit the plot of the fit to given range",
    ],         'sigmas'        :[0         ,"Color the array of given ``sigma`` times uncertaint",
- ],           'init'          :[True      ,"Initialize a new plot"
+ ],           'init'          :[False,"Initialize a new plot"
   ],          'ss'            :[True      ,"save, add legends and grid to the plot",
   ],          'also_data'     :[True      ," also plot the data"
   ],          'also_fit'      :[True      ,"also plot the fit",
@@ -82,7 +82,7 @@ default = {
   ],          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",
   ],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
   ],          'steps'         :[ 1000     ,"resolution of the plotted function",
-  ],            'fitinline'     : [ False ,  "No newlines for each fit parameter",
+  ],          'fitinline'     : [ False ,  "No newlines for each fit parameter",
   ],          }
 
 #@doc.insert_str("\tDefault kwargs\n\n\t")
@@ -162,8 +162,7 @@ def fit(datax,datay,function,**kwargs):#params=None,xaxis="",yaxis="",label=None
     kwargs = plot_kwargs(kwargs)
     fit = None
     fig = None
-    if kwargs['init']:
-        fig = init_plot(**kwargs)
+    fig = init_plot(**kwargs)
     if kwargs['also_data']:
         plt_data(datax,datay,**kwargs)
     if kwargs['also_fit']:
@@ -228,6 +227,9 @@ def function(func,*args,**kwargs):
     **kwargs : optional
         see :func:`plot_kwargs`.
     """
+    if not util.has("xmin",kwargs) or not util.has("xmin",kwargs):
+        raise Exception("xmin or xmax missing.")
+
     if not util.has('lpos',kwargs) and not util.has('label',kwargs):
         kwargs['lpos'] =-1
     if not util.has('fmt',kwargs):
@@ -235,12 +237,8 @@ def function(func,*args,**kwargs):
 
     kwargs = plot_kwargs(kwargs)
     xfit = np.linspace(kwargs['xmin'],kwargs['xmax'],kwargs['steps'])
-    if kwargs['init']:
-        fig = init_plot(**kwargs)
-    if kwargs['xaxis'] != "":
-        plt.xlabel(kwargs['xaxis'])
-    if kwargs['xaxis'] != "":
-        plt.ylabel(kwargs['yaxis'])
+    fig = init_plot(**kwargs)
+
     if not util.has("label",kwargs) or kwargs['label']is None:
         kwargs['label']=get_fnc_legend(func,args,**kwargs)
         kwargs['lpos'] =0
@@ -277,10 +275,7 @@ def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_c
         Plot datay vs datax
     """
     x,y,xerr,yerr = data_split(datax,datay)
-    if kwargs['xaxis'] != "":
-        plt.xlabel(kwargs['xaxis'])
-    if kwargs['xaxis'] != "":
-        plt.ylabel(kwargs['yaxis'])
+
     if  xerr is None and yerr is None :
         if kwargs['fmt'] is None:
             plt.plot(x,y, label=kwargs['label'],color=kwargs['data_color'])
@@ -336,12 +331,18 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
 
 def init_plot(**kwargs):#size=None,residue=False): #init
     #fig = plt.figure(figsize=fig_size)
-    if kwargs['size']==None:
-        fig = plt.figure()
-    else:
-        fig = plt.figure(figsize=kwargs['size'])
-    if kwargs['residue']:
-        frame1=fig.add_axes((.1,.3,.8,.6))
+    fig = None
+    if kwargs['init'] or util.has("size",kwargs) or util.has("residue",kwargs):
+        if kwargs['size']==None:
+            fig = plt.figure()
+        else:
+            fig = plt.figure(figsize=kwargs['size'])
+        if kwargs['residue']:
+            frame1=fig.add_axes((.1,.3,.8,.6))
+    if kwargs['xlabel'] != "":
+        plt.xlabel(kwargs['xlabel'])
+    if kwargs['ylabel'] != "":
+        plt.ylabel(kwargs['ylabel'])
     return fig
 
 def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #save
