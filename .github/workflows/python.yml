@@ -14,9 +14,9 @@ jobs:
           with:
             python-version: 3.6
         - name: Install setup and wheel
-          run: python3.6 -m pip install --user --upgrade setuptools wheel
+          run: python3 -m pip install --user --upgrade setuptools wheel
         - name: Build a binary wheel and a source tarball
-          run: python3.6 setup.py sdist bdist_wheel
+          run: python3 setup.py sdist bdist_wheel
         - name: Publish distribution 📦 to Test PyPI
           if: startsWith(github.ref, 'refs/tags') != true
           uses: pypa/gh-action-pypi-publish@master
@@ -32,9 +32,9 @@ jobs:
         - name: Install (nb)sphinx
           run: sudo apt-get install ipython3 jupyter-notebook python3-scipy python3-matplotlib python3-pandas python3-numpy python3-requests python3-uncertainties python3-tqdm python3-numpy 
         - name: Install sphinx
-          run: python3.6 -m pip install -U sphinx nbsphinx numpydoc sphinx-math-dollar 
+          run: python3 -m pip install -U sphinx nbsphinx numpydoc sphinx-math-dollar 
         - name: Test install smpl+dependencies
-          run: python3.6 -m pip install -U smpl
+          run: python3 -m pip install -U smpl
           #run: make install
         - name: Run sphinx
           run: make clean && make html

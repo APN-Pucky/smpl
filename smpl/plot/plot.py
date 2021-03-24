@@ -32,9 +32,9 @@ from smpl import doc
 from smpl import fit as ffit
 
 def set_plot_style():
-    fig_size = (8, 6)
-    fig_legendsize = 14
-    fig_labelsize = 12 # ‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’.
+    #fig_size = (8, 6)
+    #fig_legendsize = 14
+    #fig_labelsize = 12 # ‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’.
     params = {'legend.fontsize': 'x-large',
               'figure.figsize': (8, 6),
              'axes.labelsize': 'x-large',
@@ -44,8 +44,7 @@ def set_plot_style():
     pylab.rcParams.update(params)
     matplotlib.rcParams.update(params)
     #matplotlib.rcParams.update({'font.size': fig_labelsize})
-
-    colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
+    #colors = dict(mcolors.BASE_COLORS, **mcolors.CSS4_COLORS)
       
 unv=unp.nominal_values
 usd=unp.std_devs
