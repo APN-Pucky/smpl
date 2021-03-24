@@ -106,7 +106,7 @@ def auto(datax,datay,funcs = None,**kwargs):
                 ff = fit(datax,datay,f,**kwargs)
                 fy = f(datax,*ff)
             except ValueError as ve:
-                print (ve)
+                #print (ve)
                 continue
             sum_sq = np.sum((fy - datay)**2) + np.sum((fy + usd(fy) - datay)**2) + np.sum((fy - usd(fy) - datay)**2)
             if min_sq is None or sum_sq < min_sq:
@@ -222,9 +222,9 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
     try:
         pfit, pcov = \
             optimize.curve_fit(function,datax,datay,p0=params,\
-                            sigma=yerr, epsfcn=util.get("epsfcn",0.0001), **kwargs, maxfev=util.get("maxfev",10000))
-    except:
-        #print("No fit found")
+                            sigma=yerr, epsfcn=util.get("epsfcn",kwargs,0.0001), **kwargs, maxfev=util.get("maxfev",kwargs,10000))
+    except RuntimeError as e:
+        #print(e)
         return params
     error = []
     for i in range(len(pfit)):

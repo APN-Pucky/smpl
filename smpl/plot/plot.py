@@ -61,7 +61,7 @@ default = {
 # ],           'frange'        :[None      ,"Limit the fit to given range. First integer is the lowest and second the highest index.",
   ],          'prange'        :[None      ,"Limit the plot of the fit to given range",
    ],         'sigmas'        :[0         ,"Color the array of given ``sigma`` times uncertaint",
- ],           'init'          :[False,"Initialize a new plot"
+ ],           'init'          :[False     ,"Initialize a new plot"
   ],          'ss'            :[True      ,"save, add legends and grid to the plot",
   ],          'also_data'     :[True      ," also plot the data"
   ],          'also_fit'      :[True      ,"also plot the fit",
@@ -331,22 +331,21 @@ def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prang
 def init_plot(**kwargs):#size=None,residue=False): #init
     #fig = plt.figure(figsize=fig_size)
     fig = None
-    if kwargs['init'] or util.has("size",kwargs) or util.has("residue",kwargs):
-        if kwargs['size']==None:
+    if kwargs['init'] or util.true("residue",kwargs):
+        if kwargs['size'] is None:
             fig = plt.figure()
         else:
             fig = plt.figure(figsize=kwargs['size'])
         if kwargs['residue']:
             frame1=fig.add_axes((.1,.3,.8,.6))
-    if util.has("xlabel",kwargs) and kwargs['xlabel'] != "":
-        plt.xlabel(kwargs['xlabel'])
-    if  util.has("ylabel",kwargs) and kwargs['ylabel'] != "":
-        plt.ylabel(kwargs['ylabel'])
-    if  util.has("xaxis",kwargs) and kwargs['xaxis'] != "":
-        plt.xlabel(kwargs['xaxis'])
-    if  util.has("yaxis",kwargs) and kwargs['yaxis'] != "":
-        plt.ylabel(kwargs['yaxis'])
-
+        if util.has("xlabel",kwargs) and kwargs['xlabel'] != "":
+            plt.xlabel(kwargs['xlabel'])
+        if  util.has("ylabel",kwargs) and kwargs['ylabel'] != "":
+            plt.ylabel(kwargs['ylabel'])
+        if  util.has("xaxis",kwargs) and kwargs['xaxis'] != "":
+            plt.xlabel(kwargs['xaxis'])
+        if  util.has("yaxis",kwargs) and kwargs['yaxis'] != "":
+            plt.ylabel(kwargs['yaxis'])
     return fig
 
 def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #save
