@@ -370,14 +370,14 @@ def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #sav
     if 'save' in kwargs and not kwargs['save']==None:
         io.mkdirs(kwargs['save'])
         plt.savefig(kwargs['save'] +".pdf")
-    plt.grid()
+    plt.grid(b=True)
     if 'show' in kwargs and kwargs['show']:
         show(**kwargs)
 
 def show(**kwargs):
     kwargs = plot_kwargs(kwargs)
 
-    plt.grid()
+    plt.grid(b=True)
     plt.show()
 
 
