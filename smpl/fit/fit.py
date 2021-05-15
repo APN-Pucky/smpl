@@ -234,7 +234,10 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
           error.append( 0.00 )
     pfit_curvefit = pfit
     perr_curvefit = np.array(error)
-    return unp.uarray(pfit_curvefit, perr_curvefit)
+    #This was the old wrong way! Now use correct co. matrix through unc-package
+    tmp = unp.uarray(pfit_curvefit, perr_curvefit)
+    tmp2 =unc.correlated_values(pfit,pcov)
+    return tmp2
 
 def _fit_odr(datax,datay,function,params=None,yerr=None,xerr=None):
     model = Model(lambda p,x : function(x,*p))
