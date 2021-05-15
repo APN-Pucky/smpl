@@ -6,10 +6,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>matplotlib.pyplot &#8212; smpl  documentation</title>
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -353,6 +353,14 @@
 
 <span class="c1"># This function&#39;s signature is rewritten upon backend-load by switch_backend.</span>
 <span class="k">def</span> <span class="nf">draw_if_interactive</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Redraw the current figure if in interactive mode.</span>
+
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        End users will typically not have to call this function because the</span>
+<span class="sd">        the interactive mode takes care of this.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_backend_mod</span><span class="o">.</span><span class="n">draw_if_interactive</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
@@ -361,29 +369,45 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Display all open figures.</span>
 
-<span class="sd">    In non-interactive mode, *block* defaults to True.  All figures</span>
-<span class="sd">    will display and show will not return until all windows are closed.</span>
-<span class="sd">    If there are no figures, return immediately.</span>
-
-<span class="sd">    In interactive mode *block* defaults to False.  This will ensure</span>
-<span class="sd">    that all of the figures are shown and this function immediately returns.</span>
-
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    block : bool, optional</span>
+<span class="sd">        Whether to wait for all figures to be closed before returning.</span>
 
-<span class="sd">        If `True` block and run the GUI main loop until all windows</span>
+<span class="sd">        If `True` block and run the GUI main loop until all figure windows</span>
 <span class="sd">        are closed.</span>
 
-<span class="sd">        If `False` ensure that all windows are displayed and return</span>
+<span class="sd">        If `False` ensure that all figure windows are displayed and return</span>
 <span class="sd">        immediately.  In this case, you are responsible for ensuring</span>
 <span class="sd">        that the event loop is running to have responsive figures.</span>
 
+<span class="sd">        Defaults to True in non-interactive mode and to False in interactive</span>
+<span class="sd">        mode (see `.pyplot.isinteractive`).</span>
+
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
-<span class="sd">    ion : enable interactive mode</span>
-<span class="sd">    ioff : disable interactive mode</span>
+<span class="sd">    ion : Enable interactive mode, which shows / updates the figure after</span>
+<span class="sd">          every plotting command, so that calling ``show()`` is not necessary.</span>
+<span class="sd">    ioff : Disable interactive mode.</span>
+<span class="sd">    savefig : Save the figure to an image file instead of showing it on screen.</span>
 
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    **Saving figures to file and showing a window at the same time**</span>
+
+<span class="sd">    If you want an image file as well as a user interface window, use</span>
+<span class="sd">    `.pyplot.savefig` before `.pyplot.show`. At the end of (a blocking)</span>
+<span class="sd">    ``show()`` the figure is closed and thus unregistered from pyplot. Calling</span>
+<span class="sd">    `.pyplot.savefig` afterwards would save a new and thus empty figure. This</span>
+<span class="sd">    limitation of command order does not apply if the show is non-blocking or</span>
+<span class="sd">    if you keep a reference to the figure and use `.Figure.savefig`.</span>
+
+<span class="sd">    **Auto-show in jupyter notebooks**</span>
+
+<span class="sd">    The jupyter backends (activated via ``%matplotlib inline``,</span>
+<span class="sd">    ``%matplotlib notebook``, or ``%matplotlib widget``), call ``show()`` at</span>
+<span class="sd">    the end of every cell by default. Thus, you usually don&#39;t have to call it</span>
+<span class="sd">    explicitly there.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_warn_if_gui_out_of_main_thread</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">_backend_mod</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -391,15 +415,19 @@
 
 <span class="k">def</span> <span class="nf">isinteractive</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return if pyplot is in &quot;interactive mode&quot; or not.</span>
+<span class="sd">    Return whether plots are updated after every plotting command.</span>
 
-<span class="sd">    If in interactive mode then:</span>
+<span class="sd">    The interactive mode is mainly useful if you build plots from the command</span>
+<span class="sd">    line and want to see the effect of each command while you are building the</span>
+<span class="sd">    figure.</span>
+
+<span class="sd">    In interactive mode:</span>
 
 <span class="sd">    - newly created figures will be shown immediately;</span>
 <span class="sd">    - figures will automatically redraw on change;</span>
 <span class="sd">    - `.pyplot.show` will not block by default.</span>
 
-<span class="sd">    If not in interactive mode then:</span>
+<span class="sd">    In non-interactive mode:</span>
 
 <span class="sd">    - newly created figures and changes to figures will not be reflected until</span>
 <span class="sd">      explicitly asked to be;</span>
@@ -407,11 +435,10 @@
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
-<span class="sd">    ion : enable interactive mode</span>
-<span class="sd">    ioff : disable interactive mode</span>
-
-<span class="sd">    show : show windows (and maybe block)</span>
-<span class="sd">    pause : show windows, run GUI event loop, and block for a time</span>
+<span class="sd">    ion : Enable interactive mode.</span>
+<span class="sd">    ioff : Disable interactive mode.</span>
+<span class="sd">    show : Show all figures (and maybe block).</span>
+<span class="sd">    pause : Show all figures, and block for a time.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">is_interactive</span><span class="p">()</span>
 
@@ -470,15 +497,16 @@
 
 <span class="k">def</span> <span class="nf">ioff</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Turn interactive mode off.</span>
+<span class="sd">    Disable interactive mode.</span>
+
+<span class="sd">    See `.pyplot.isinteractive` for more details.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
-<span class="sd">    ion : enable interactive mode</span>
-<span class="sd">    isinteractive : query current state</span>
-
-<span class="sd">    show : show windows (and maybe block)</span>
-<span class="sd">    pause : show windows, run GUI event loop, and block for a time</span>
+<span class="sd">    ion : Enable interactive mode.</span>
+<span class="sd">    isinteractive : Whether interactive mode is enabled.</span>
+<span class="sd">    show : Show all figures (and maybe block).</span>
+<span class="sd">    pause : Show all figures, and block for a time.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -505,15 +533,16 @@
 
 <span class="k">def</span> <span class="nf">ion</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Turn interactive mode on.</span>
+<span class="sd">    Enable interactive mode.</span>
+
+<span class="sd">    See `.pyplot.isinteractive` for more details.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
-<span class="sd">    ioff : disable interactive mode</span>
-<span class="sd">    isinteractive : query current state</span>
-
-<span class="sd">    show : show windows (and maybe block)</span>
-<span class="sd">    pause : show windows, run GUI event loop, and block for a time</span>
+<span class="sd">    ioff : Disable interactive mode.</span>
+<span class="sd">    isinteractive : Whether interactive mode is enabled.</span>
+<span class="sd">    show : Show all figures (and maybe block).</span>
+<span class="sd">    pause : Show all figures, and block for a time.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -552,8 +581,8 @@
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
-<span class="sd">    matplotlib.animation : Complex animation</span>
-<span class="sd">    show : show figures and optional block forever</span>
+<span class="sd">    matplotlib.animation : Proper animations</span>
+<span class="sd">    show : Show all figures and optional block until all figures are closed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">manager</span> <span class="o">=</span> <span class="n">_pylab_helpers</span><span class="o">.</span><span class="n">Gcf</span><span class="o">.</span><span class="n">get_active</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">manager</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1449,7 +1478,7 @@
     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span>
 
 
-<span class="k">def</span> <span class="nf">subplot_mosaic</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="k">def</span> <span class="nf">subplot_mosaic</span><span class="p">(</span><span class="n">mosaic</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                    <span class="n">empty_sentinel</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">fig_kw</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Build a layout of Axes based on ASCII art or nested lists.</span>
@@ -1464,7 +1493,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    layout : list of list of {hashable or nested} or str</span>
+<span class="sd">    mosaic : list of list of {hashable or nested} or str</span>
 
 <span class="sd">        A visual layout of how you want your Axes to be arranged</span>
 <span class="sd">        labeled as strings.  For example ::</span>
@@ -1517,12 +1546,14 @@
 <span class="sd">       The new figure</span>
 
 <span class="sd">    dict[label, Axes]</span>
-<span class="sd">       A dictionary mapping the labels to the Axes objects.</span>
+<span class="sd">       A dictionary mapping the labels to the Axes objects.  The order of</span>
+<span class="sd">       the axes is left-to-right and top-to-bottom of their position in the</span>
+<span class="sd">       total layout.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fig</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="o">**</span><span class="n">fig_kw</span><span class="p">)</span>
     <span class="n">ax_dict</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">subplot_mosaic</span><span class="p">(</span>
-        <span class="n">layout</span><span class="p">,</span>
+        <span class="n">mosaic</span><span class="p">,</span>
         <span class="n">subplot_kw</span><span class="o">=</span><span class="n">subplot_kw</span><span class="p">,</span>
         <span class="n">gridspec_kw</span><span class="o">=</span><span class="n">gridspec_kw</span><span class="p">,</span>
         <span class="n">empty_sentinel</span><span class="o">=</span><span class="n">empty_sentinel</span>
@@ -3413,7 +3444,7 @@
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

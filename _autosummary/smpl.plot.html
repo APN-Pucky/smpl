@@ -4,12 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>smpl.plot &#8212; smpl  documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -34,7 +35,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-smpl.plot">
+  <section id="module-smpl.plot">
 <span id="smpl-plot"></span><h1><a class="reference internal" href="#module-smpl.plot" title="smpl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a><a class="headerlink" href="#module-smpl.plot" title="Permalink to this headline">¶</a></h1>
 <p>Simplified plotting</p>
 <table class="longtable docutils align-default">
@@ -170,7 +171,7 @@
 <td><p>Redraw all stale managed figures, or, if <em>force</em> is True, all managed figures.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_if_interactive</span></code>()</p></td>
-<td><p></p></td>
+<td><p>Redraw the current figure if in interactive mode.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">errorbar</span></code>(x, y[, yerr, xerr, fmt, ecolor, …])</p></td>
 <td><p>Plot y versus x as lines and/or markers with attached errorbars.</p></td>
@@ -299,13 +300,13 @@
 <td><p>Set whether to redraw after every plotting command (e.g.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ioff</span></code>()</p></td>
-<td><p>Turn interactive mode off.</p></td>
+<td><p>Disable interactive mode.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ion</span></code>()</p></td>
-<td><p>Turn interactive mode on.</p></td>
+<td><p>Enable interactive mode.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">isinteractive</span></code>()</p></td>
-<td><p>Return if pyplot is in “interactive mode” or not.</p></td>
+<td><p>Return whether plots are updated after every plotting command.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">jet</span></code>()</p></td>
 <td><p>Set the colormap to ‘jet’.</p></td>
@@ -466,7 +467,7 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot2grid</span></code>(shape, loc[, rowspan, colspan, fig])</p></td>
 <td><p>Create a subplot at a specific location inside a regular grid.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_mosaic</span></code>(layout, *[, subplot_kw, …])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_mosaic</span></code>(mosaic, *[, subplot_kw, …])</p></td>
 <td><p>Build a layout of Axes based on ASCII art or nested lists.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_tool</span></code>([targetfig])</p></td>
@@ -584,8 +585,8 @@
 </table>
 <p class="rubric">Functions</p>
 <dl class="py function">
-<dt id="smpl.plot.auto">
-<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">auto</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="smpl.plot.auto">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">auto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatically loop over functions and fit the best one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -605,8 +606,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.plot.data">
-<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="smpl.plot.data">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -629,8 +630,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.plot.fit">
-<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">fit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="smpl.plot.fit">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit and plot function to datax and datay.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -662,14 +663,14 @@
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../_autosummary/smpl-plot-1.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-plot-1.png">png</a>, <a class="reference external" href="../_autosummary/smpl-plot-1.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-plot-1.pdf">pdf</a>)</p>
-<div class="figure align-default">
+<figure class="align-default">
 <img alt="../_images/smpl-plot-1.png" class="plot-directive" src="../_images/smpl-plot-1.png" />
-</div>
+</figure>
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.plot.function">
-<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">function</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="smpl.plot.function">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -686,8 +687,8 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.plot.plot_kwargs">
-<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">plot_kwargs</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#plot_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot_kwargs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="smpl.plot.plot_kwargs">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#plot_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot_kwargs" title="Permalink to this definition">¶</a></dt>
 <dd><dl>
 <dt>Set default plot_kwargs if not set.</dt><dd><table class="docutils align-default">
 <colgroup>
@@ -861,22 +862,20 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.plot.show">
-<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">show</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/pyplot.html#show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.show" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="smpl.plot.show">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/pyplot.html#show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.show" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display all open figures.</p>
-<p>In non-interactive mode, <em>block</em> defaults to True.  All figures
-will display and show will not return until all windows are closed.
-If there are no figures, return immediately.</p>
-<p>In interactive mode <em>block</em> defaults to False.  This will ensure
-that all of the figures are shown and this function immediately returns.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>block</strong><span class="classifier">bool, optional</span></dt><dd><p>If <cite>True</cite> block and run the GUI main loop until all windows
+<dt><strong>block</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to wait for all figures to be closed before returning.</p>
+<p>If <cite>True</cite> block and run the GUI main loop until all figure windows
 are closed.</p>
-<p>If <cite>False</cite> ensure that all windows are displayed and return
+<p>If <cite>False</cite> ensure that all figure windows are displayed and return
 immediately.  In this case, you are responsible for ensuring
 that the event loop is running to have responsive figures.</p>
+<p>Defaults to True in non-interactive mode and to False in interactive
+mode (see <cite>.pyplot.isinteractive</cite>).</p>
 </dd>
 </dl>
 </dd>
@@ -884,17 +883,32 @@ that the event loop is running to have responsive figures.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">ion</span></code></dt><dd><p>enable interactive mode</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">ion</span></code></dt><dd><p>Enable interactive mode, which shows / updates the figure after every plotting command, so that calling <code class="docutils literal notranslate"><span class="pre">show()</span></code> is not necessary.</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">ioff</span></code></dt><dd><p>disable interactive mode</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">ioff</span></code></dt><dd><p>Disable interactive mode.</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code></dt><dd><p>Save the figure to an image file instead of showing it on screen.</p>
 </dd>
 </dl>
 </div>
+<p class="rubric">Notes</p>
+<p><strong>Saving figures to file and showing a window at the same time</strong></p>
+<p>If you want an image file as well as a user interface window, use
+<cite>.pyplot.savefig</cite> before <cite>.pyplot.show</cite>. At the end of (a blocking)
+<code class="docutils literal notranslate"><span class="pre">show()</span></code> the figure is closed and thus unregistered from pyplot. Calling
+<cite>.pyplot.savefig</cite> afterwards would save a new and thus empty figure. This
+limitation of command order does not apply if the show is non-blocking or
+if you keep a reference to the figure and use <cite>.Figure.savefig</cite>.</p>
+<p><strong>Auto-show in jupyter notebooks</strong></p>
+<p>The jupyter backends (activated via <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>,
+<code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, or <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">widget</span></code>), call <code class="docutils literal notranslate"><span class="pre">show()</span></code> at
+the end of every cell by default. Thus, you usually don’t have to call it
+explicitly there.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.plot.unv">
-<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">unv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.unv" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="smpl.plot.unv">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">unv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.unv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the nominal values of the numbers in NumPy array arr.</p>
 <p>Elements that are not numbers with uncertainties (derived from a
 class from this module) are passed through untouched (because a
@@ -906,8 +920,8 @@ numbers with uncertainties.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="smpl.plot.usd">
-<code class="sig-prename descclassname"><span class="pre">smpl.plot.</span></code><code class="sig-name descname"><span class="pre">usd</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.usd" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="smpl.plot.usd">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">usd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.usd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the standard deviations of the numbers in NumPy array arr.</p>
 <p>Elements that are not numbers with uncertainties (derived from a
 class from this module) are passed through untouched (because a
@@ -918,7 +932,7 @@ numpy.matrix, because the resulting matrix does not contain
 numbers with uncertainties.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
@@ -989,7 +1003,7 @@ numbers with uncertainties.</p>
       &copy;2020, APN-Pucky.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
