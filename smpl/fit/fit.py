@@ -17,8 +17,9 @@ import inspect
 # local imports
 from smpl import functions
 from smpl import io
-from smpl import util
 from smpl.doc import  append_doc,append_str
+from smpl import util
+from smpl import wrap
 from smpl import doc
       
 unv=unp.nominal_values
@@ -140,14 +141,15 @@ def fit(datax,datay,function,**kwargs):
         params = kwargs['params']
 
     fixed = {}
-    Ntot = len(function.__code__.co_varnames)-1
+    vnames = wrap.get_varnames(function)
+    Ntot = len(vnames)-1
     if util.has("fixed_params",kwargs) and kwargs['fixed_params']:
-        for i in range(1,len(function.__code__.co_varnames)):
-            if util.has(function.__code__.co_varnames[i],kwargs):
-                fixed[i] = kwargs[function.__code__.co_varnames[i]]
+        for i in range(1,len(vnames)):
+            if util.has(vnames[i],kwargs):
+                fixed[i] = kwargs[vnames[i]]
     # Count parameters for function
     if params is None:
-        N=function.__code__.co_argcount
+        N=len(vnames)
         params = [1 for i in range(N-1)]
     tmp_params = []
     for i in range(len(params)):
@@ -172,7 +174,7 @@ def fit(datax,datay,function,**kwargs):
         
         #print(Ntot)
         #print(tmp_x)
-        return unv(function(x[0],*tmp_x))
+        return unv(wrap.get_lambda(function)(x[0],*tmp_x))
     if xerr is not None:
         fit = _fit_odr(x,y,tmp,params=params,xerr=xerr,yerr=yerr)
     else:
@@ -244,7 +246,11 @@ def _fit_odr(datax,datay,function,params=None,yerr=None,xerr=None):
     realdata = RealData(datax,datay,sy=yerr,sx=xerr)
     odr = ODR(realdata,model,beta0=params)
     out = odr.run()
-    #This was the old wrong way! Now use correct co. matrix through unc-package
+    # This was the old wrong way! Now use correct co. matrix through unc-package!
+    # Note Issues on scipy odr and curve_fit, regarding different definitions/namings of standard deviation or error and covaraince matrix
+    # https://github.com/scipy/scipy/issues/6842
+    # https://github.com/scipy/scipy/pull/12207
+    # https://stackoverflow.com/questions/62460399/comparison-of-curve-fit-and-scipy-odr-absolute-sigma
     tmp = unp.uarray(out.beta,out.sd_beta)
     tmp2 = unc.correlated_values(out.beta,out.cov_beta)
     return tmp2

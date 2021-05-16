@@ -27,9 +27,11 @@ import inspect
 from smpl import functions
 from smpl import io
 from smpl import util
+from smpl import wrap 
 from smpl.doc import  append_doc,append_str
 from smpl import doc
 from smpl import fit as ffit
+import inspect
 
 def set_plot_style():
     #fig_size = (8, 6)
@@ -246,7 +248,8 @@ def function(func,*args,**kwargs):
         save_plot(**kwargs)
 
 
-def plt_residue(datax,datay,function,fit,fig,**kwargs):#xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
+def plt_residue(datax,datay,gfunction,fit,fig,**kwargs):#xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
+    function = wrap.get_lambda(gfunction)
     frame2=fig.add_axes((.1,.1,.8,.2))  
     kwargs['yaxis'] = "$\\Delta$" + kwargs['yaxis']
     kwargs['data_color'] = kwargs['fit_color']
@@ -284,13 +287,26 @@ def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_c
         plt.errorbar(x,y,yerr=yerr,xerr=xerr,fmt=" ",capsize=5,label=kwargs['label'],color=kwargs['data_color'])
  
 def get_fnc_legend(function,fit,**kwargs):
-    l = function.__name__
+    if isinstance(function,str):
+        l = sympy.lambdify(wrap.get_varnames(function),function)
+    else:
+        l = function.__name__
     #l = ""
+    if l == "<lambda>":
+        #l = "$\\lambda$(" +  ','.join(function.__code__.co_varnames) + ") = " #sympy.latex(eval(function.__code__.co_code))
+        try:
+            cc,li = inspect.findsource(function)
+            f = ''.join(cc[li:]).split('lambda')[-1].split(':')[1].split(',')[0].replace("\n","")#.replace("#", "").replace("'''","")
+            l = "$" + sympy.latex(wrap.str_get_expr(f)) + "$"
+        except OSError:
+            l = "$\\lambda$(" +  ','.join(function.__code__.co_varnames) + ")"
+        
     if function.__doc__ is not None:
-        l = function.__doc__.split('\n')[0]
-    for i in range(1,len(function.__code__.co_varnames)):
+        l = "$" + sympy.latex(wrap.str_get_expr(function)) + "$"
+    vnames = wrap.get_varnames(function)
+    for i in range(1,len(vnames)):
         l = l + ("\n" if not kwargs["fitinline"] or i==1 else " ")
-        l = l + "$" + sympy.latex(sympy.symbols(str(function.__code__.co_varnames[i]))) + "$="
+        l = l + "$" + sympy.latex(sympy.symbols(str(vnames[i]))) + "$="
         if kwargs['units'] is not None and usd(fit[i-1])>0:
             l = l + "("
         if 'number_format' in kwargs:
@@ -305,17 +321,18 @@ def get_fnc_legend(function,fit,**kwargs):
     return l
 
 #@append_doc(default_kwargs)
-def plt_fit(datax,datay,function,**kwargs):#p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
+def plt_fit(datax,datay,gfunction,**kwargs):#p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
     """
        Plot Fit 
     """
+    function = wrap.get_lambda(gfunction)
     x,y,xerr,yerr =data_split(datax,datay,**kwargs)
-    fit = _fit(datax,datay,function,**kwargs)
+    fit = _fit(datax,datay,gfunction,**kwargs)
     if kwargs['prange'] is None:
         xfit = np.linspace(np.min(unv(x)),np.max(unv(x)),1000)
     else:
         xfit = np.linspace(kwargs['prange'][0],kwargs['prange'][1],1000)
-    l = get_fnc_legend(function,fit,**kwargs)
+    l = get_fnc_legend(gfunction,fit,**kwargs)
     ll = None
     if kwargs['sigmas']>0:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",color =kwargs['fit_color'])

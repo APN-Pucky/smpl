@@ -32,6 +32,7 @@ smpl |version| documentation
    plot
    stat
    util
+   wrap
 
 
 

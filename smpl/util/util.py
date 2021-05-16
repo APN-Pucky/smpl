@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def times(str,n):
     """
         Concats str n times.
@@ -34,3 +35,7 @@ def find_nearest_index(array, value):
     return idx
 def find_nearest(array, value):
     array[find_nearest_index(array,value)]
+
+
+
+
