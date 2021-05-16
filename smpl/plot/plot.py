@@ -62,7 +62,7 @@ default = {
    ],         'lpos'          :[0         ,"Legend position",
 # ],           'frange'        :[None      ,"Limit the fit to given range. First integer is the lowest and second the highest index.",
   ],          'prange'        :[None      ,"Limit the plot of the fit to given range",
-   ],         'sigmas'        :[0         ,"Color the array of given ``sigma`` times uncertaint",
+   ],         'sigmas'        :[0         ,"Color the array of given ``sigma`` times uncertainty. Only works if the fit function is coded with ``unp``",
  ],           'init'          :[False     ,"Initialize a new plot"
   ],          'ss'            :[True      ,"save, add legends and grid to the plot",
   ],          'also_data'     :[True      ," also plot the data"
@@ -288,7 +288,7 @@ def plt_data(datax,datay,**kwargs):#xaxis="",yaxis="",label=None,fmt=None,data_c
  
 def get_fnc_legend(function,fit,**kwargs):
     if isinstance(function,str):
-        l = sympy.lambdify(wrap.get_varnames(function),function)
+        l = "$" + sympy.latex(wrap.str_get_expr(function)) + "$"
     else:
         l = function.__name__
     #l = ""
@@ -301,8 +301,8 @@ def get_fnc_legend(function,fit,**kwargs):
         except OSError:
             l = "$\\lambda$(" +  ','.join(function.__code__.co_varnames) + ")"
         
-    if function.__doc__ is not None:
-        l = "$" + sympy.latex(wrap.str_get_expr(function)) + "$"
+    if function.__doc__ is not None and not isinstance(function,str):
+        l =  function.__doc__.split('\n')[0]
     vnames = wrap.get_varnames(function)
     for i in range(1,len(vnames)):
         l = l + ("\n" if not kwargs["fitinline"] or i==1 else " ")

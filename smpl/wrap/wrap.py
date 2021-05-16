@@ -36,7 +36,7 @@ def fnc_get_varnames(func):
     return func.__code__.co_varnames
 
 def str_get_expr(expr):
-    expr = expr.replace("np.","")
+    expr = expr.replace("unp.","").replace("np.","")
     parsed_expr = sympy.parsing.sympy_parser.parse_expr(
         expr,
         local_dict=None,

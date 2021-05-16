@@ -21,6 +21,7 @@ from smpl.doc import  append_doc,append_str
 from smpl import util
 from smpl import wrap
 from smpl import doc
+from numpy.linalg import LinAlgError
       
 unv=unp.nominal_values
 usd=unp.std_devs
@@ -106,7 +107,7 @@ def auto(datax,datay,funcs = None,**kwargs):
             try:
                 ff = fit(datax,datay,f,**kwargs)
                 fy = f(datax,*ff)
-            except ValueError as ve:
+            except (ValueError,LinAlgError) as ve:
                 #print (ve)
                 continue
             sum_sq = np.sum((fy - datay)**2) + np.sum((fy + usd(fy) - datay)**2) + np.sum((fy - usd(fy) - datay)**2)
