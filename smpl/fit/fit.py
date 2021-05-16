@@ -244,7 +244,10 @@ def _fit_odr(datax,datay,function,params=None,yerr=None,xerr=None):
     realdata = RealData(datax,datay,sy=yerr,sx=xerr)
     odr = ODR(realdata,model,beta0=params)
     out = odr.run()
-    return unp.uarray(out.beta,out.sd_beta)
+    #This was the old wrong way! Now use correct co. matrix through unc-package
+    tmp = unp.uarray(out.beta,out.sd_beta)
+    tmp2 = unc.correlated_values(out.beta,out.cov_beta)
+    return tmp2
 
 def __data_split(datax,datay,sortbyx=True):
     '''
