@@ -1,6 +1,9 @@
 from sympy.parsing.sympy_parser import standard_transformations,implicit_multiplication_application
 from sympy.parsing.sympy_parser import parse_expr
 import sympy
+from sympy.printing.pycode import pycode
+import uncertainties.unumpy as unp
+
 import numpy as np
 
 def get_lambda(expr):
@@ -11,7 +14,14 @@ def get_lambda(expr):
 
 def str_get_lambda(expr):
     parsed_expr = str_get_expr(expr)
-    return sympy.lambdify(get_varnames(expr),parsed_expr)
+    pc = pycode(parsed_expr)
+    for s in unp.__all__:
+        pc = pc.replace("math." + s, "unp."+s)
+    # old direct way. Doesn't use unp.
+    #__l__ = sympy.lambdify(get_varnames(expr),parsed_expr)
+    __l__ = eval("lambda " + ','.join(get_varnames(expr)) + ": "+ pc)
+    #exec("global __l__; __l__ = lambda " + ','.join(get_varnames(expr)) + ": "+ pc)
+    return __l__
 
 def get_varnames(expr):
     if isinstance(expr,str):
