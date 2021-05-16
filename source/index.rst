@@ -8,7 +8,7 @@ smpl |version| documentation
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 3
 
    GitHub <https://github.com/APN-Pucky/smpl>
    example/*
