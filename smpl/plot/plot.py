@@ -249,7 +249,7 @@ def function(func,*args,**kwargs):
 
 
 def plt_residue(datax,datay,gfunction,fit,fig,**kwargs):#xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
-    function = wrap.get_lambda(gfunction)
+    function = wrap.get_lambda(gfunction,kwargs['xvar'])
     frame2=fig.add_axes((.1,.1,.8,.2))  
     kwargs['yaxis'] = "$\\Delta$" + kwargs['yaxis']
     kwargs['data_color'] = kwargs['fit_color']
@@ -303,7 +303,7 @@ def get_fnc_legend(function,fit,**kwargs):
         
     if function.__doc__ is not None and not isinstance(function,str):
         l =  function.__doc__.split('\n')[0]
-    vnames = wrap.get_varnames(function)
+    vnames = wrap.get_varnames(function,kwargs['xvar'])
     for i in range(1,len(vnames)):
         l = l + ("\n" if not kwargs["fitinline"] or i==1 else " ")
         l = l + "$" + sympy.latex(sympy.symbols(str(vnames[i]))) + "$="
@@ -325,7 +325,7 @@ def plt_fit(datax,datay,gfunction,**kwargs):#p0=None,units=None,frange=None,pran
     """
        Plot Fit 
     """
-    function = wrap.get_lambda(gfunction)
+    function = wrap.get_lambda(gfunction,kwargs['xvar'])
     x,y,xerr,yerr =data_split(datax,datay,**kwargs)
     fit = _fit(datax,datay,gfunction,**kwargs)
     if kwargs['prange'] is None:

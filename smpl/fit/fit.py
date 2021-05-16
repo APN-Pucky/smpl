@@ -50,11 +50,12 @@ default = {   'params'        :[None      ,"Initial fit parameters",
   #],          'show'          :[False     ,"Call plt.show()",
   #],         'size'          :[None      ,"Size of the plot as a tuple (x,y)",
   #],          'number_format' :[ io.gf(4) ,"Format to display numbers.",
-  ],            'selector'        :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
-  ],            'fixed_params'    :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
+  ],            'selector'        :[ None     , "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
+  ],            'fixed_params'    :[ True     , "Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
   ],            'sortbyx'         :[ True     , "Enable sorting the x and y data so that x is sorted.",
   ],            'maxfev'          :[ 10000    , "Maximum function evaluations during fitting.",
-  ],            'epsfcn'          :[ 0.0001   , "Suitable step length for jacobian approximation."
+  ],            'epsfcn'          :[ 0.0001   , "Suitable step length for jacobian approximation.",
+  ],            'xvar'            :[ None     , "Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.",
   #],          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",
   #],          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",
   #],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
@@ -142,7 +143,7 @@ def fit(datax,datay,function,**kwargs):
         params = kwargs['params']
 
     fixed = {}
-    vnames = wrap.get_varnames(function)
+    vnames = wrap.get_varnames(function,kwargs['xvar'])
     Ntot = len(vnames)-1
     if util.has("fixed_params",kwargs) and kwargs['fixed_params']:
         for i in range(1,len(vnames)):
@@ -175,7 +176,7 @@ def fit(datax,datay,function,**kwargs):
         
         #print(Ntot)
         #print(tmp_x)
-        return unv(wrap.get_lambda(function)(x[0],*tmp_x))
+        return unv(wrap.get_lambda(function,kwargs['xvar'])(x[0],*tmp_x))
     if xerr is not None:
         fit = _fit_odr(x,y,tmp,params=params,xerr=xerr,yerr=yerr)
     else:
