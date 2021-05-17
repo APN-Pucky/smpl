@@ -1,6 +1,9 @@
-name: Ubuntu
+name: stable
 
-on: push
+on: 
+  push:
+    branches:
+      - stable 
 jobs:
     publish:
       runs-on: ubuntu-latest

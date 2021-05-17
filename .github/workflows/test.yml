@@ -1,0 +1,26 @@
+name: stable
+
+on: push
+
+jobs:
+    publish:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: "0"
+        - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+        - name: Set up Python 3.7
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.7
+        - name: Install setup and wheel
+          run: python3 -m pip install --user --upgrade setuptools wheel
+        - name: Build a binary wheel and a source tarball
+          run: python3 setup.py sdist bdist_wheel
+        - name: Publish distribution 📦 to Test PyPI
+          if: startsWith(github.ref, 'refs/tags') != true
+          uses: pypa/gh-action-pypi-publish@master
+          with:
+            password: ${{ secrets.test_pypi_token }}
+            repository_url: https://test.pypi.org/legacy/
