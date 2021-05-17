@@ -38,6 +38,7 @@
   <section id="module-smpl.fit">
 <span id="smpl-fit"></span><h1><a class="reference internal" href="#module-smpl.fit" title="smpl.fit"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a><a class="headerlink" href="#module-smpl.fit" title="Permalink to this headline">¶</a></h1>
 <p>Simplified Fitting</p>
+<p>Uses scipy.curve_fit (no x errors) or scipy.odr (with x errors).</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -159,6 +160,10 @@
 <td><p>0.0001</p></td>
 <td><p>Suitable step length for jacobian approximation.</p></td>
 </tr>
+<tr class="row-odd"><td><p>xvar</p></td>
+<td><p>None</p></td>
+<td><p>Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.</p></td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -199,6 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
 </ul>
 
 <div class="relations">

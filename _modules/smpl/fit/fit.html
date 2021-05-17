@@ -52,9 +52,11 @@
 <span class="c1"># local imports</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">util</span>
 <span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span>  <span class="n">append_doc</span><span class="p">,</span><span class="n">append_str</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">util</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">LinAlgError</span>
       
 <span class="n">unv</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
 <span class="n">usd</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
@@ -83,11 +85,12 @@
   <span class="c1">#],          &#39;show&#39;          :[False     ,&quot;Call plt.show()&quot;,</span>
   <span class="c1">#],         &#39;size&#39;          :[None      ,&quot;Size of the plot as a tuple (x,y)&quot;,</span>
   <span class="c1">#],          &#39;number_format&#39; :[ io.gf(4) ,&quot;Format to display numbers.&quot;,</span>
-  <span class="p">],</span>            <span class="s1">&#39;selector&#39;</span>        <span class="p">:[</span> <span class="kc">None</span>     <span class="p">,</span><span class="s2">&quot;Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.&quot;</span><span class="p">,</span>
-  <span class="p">],</span>            <span class="s1">&#39;fixed_params&#39;</span>    <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span><span class="s2">&quot;Enable fixing parameters by choosing the same-named variables from ``kwargs``.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>            <span class="s1">&#39;selector&#39;</span>        <span class="p">:[</span> <span class="kc">None</span>     <span class="p">,</span> <span class="s2">&quot;Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>            <span class="s1">&#39;fixed_params&#39;</span>    <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span> <span class="s2">&quot;Enable fixing parameters by choosing the same-named variables from ``kwargs``.&quot;</span><span class="p">,</span>
   <span class="p">],</span>            <span class="s1">&#39;sortbyx&#39;</span>         <span class="p">:[</span> <span class="kc">True</span>     <span class="p">,</span> <span class="s2">&quot;Enable sorting the x and y data so that x is sorted.&quot;</span><span class="p">,</span>
   <span class="p">],</span>            <span class="s1">&#39;maxfev&#39;</span>          <span class="p">:[</span> <span class="mi">10000</span>    <span class="p">,</span> <span class="s2">&quot;Maximum function evaluations during fitting.&quot;</span><span class="p">,</span>
-  <span class="p">],</span>            <span class="s1">&#39;epsfcn&#39;</span>          <span class="p">:[</span> <span class="mf">0.0001</span>   <span class="p">,</span> <span class="s2">&quot;Suitable step length for jacobian approximation.&quot;</span>
+  <span class="p">],</span>            <span class="s1">&#39;epsfcn&#39;</span>          <span class="p">:[</span> <span class="mf">0.0001</span>   <span class="p">,</span> <span class="s2">&quot;Suitable step length for jacobian approximation.&quot;</span><span class="p">,</span>
+  <span class="p">],</span>            <span class="s1">&#39;xvar&#39;</span>            <span class="p">:[</span> <span class="kc">None</span>     <span class="p">,</span> <span class="s2">&quot;Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.&quot;</span><span class="p">,</span>
   <span class="c1">#],          &#39;interpolate&#39;   :[ True     , &quot;Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.&quot;,</span>
   <span class="c1">#],          &#39;bbox_to_anchor&#39;:[ None     , &quot;Position in a tuple (x,y),Shift position of the legend out of the main pane. &quot;,</span>
   <span class="c1">#],          &#39;ncol&#39;          :[ None     , &quot;Columns in the legend if used with ``bbox_to_anchor``.&quot;,</span>
@@ -140,7 +143,7 @@
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">ff</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="n">fy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="o">*</span><span class="n">ff</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span><span class="n">LinAlgError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
                 <span class="c1">#print (ve)</span>
                 <span class="k">continue</span>
             <span class="n">sum_sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">+</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -175,14 +178,15 @@
         <span class="n">params</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span>
 
     <span class="n">fixed</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">Ntot</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">vnames</span> <span class="o">=</span> <span class="n">wrap</span><span class="o">.</span><span class="n">get_varnames</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">])</span>
+    <span class="n">Ntot</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vnames</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
     <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;fixed_params&quot;</span><span class="p">,</span><span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;fixed_params&#39;</span><span class="p">]:</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">kwargs</span><span class="p">):</span>
-                <span class="n">fixed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">vnames</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">vnames</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="n">fixed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">vnames</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
     <span class="c1"># Count parameters for function</span>
     <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">N</span><span class="o">=</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span>
+        <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">vnames</span><span class="p">)</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
     <span class="n">tmp_params</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)):</span>
@@ -207,7 +211,7 @@
         
         <span class="c1">#print(Ntot)</span>
         <span class="c1">#print(tmp_x)</span>
-        <span class="k">return</span> <span class="n">unv</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="o">*</span><span class="n">tmp_x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">unv</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">])(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="o">*</span><span class="n">tmp_x</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit_odr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">tmp</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span><span class="n">xerr</span><span class="o">=</span><span class="n">xerr</span><span class="p">,</span><span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -279,7 +283,14 @@
     <span class="n">realdata</span> <span class="o">=</span> <span class="n">RealData</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">sy</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span><span class="n">sx</span><span class="o">=</span><span class="n">xerr</span><span class="p">)</span>
     <span class="n">odr</span> <span class="o">=</span> <span class="n">ODR</span><span class="p">(</span><span class="n">realdata</span><span class="p">,</span><span class="n">model</span><span class="p">,</span><span class="n">beta0</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">odr</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span><span class="n">out</span><span class="o">.</span><span class="n">sd_beta</span><span class="p">)</span>
+    <span class="c1"># This was the old wrong way! Now use correct co. matrix through unc-package!</span>
+    <span class="c1"># Note Issues on scipy odr and curve_fit, regarding different definitions/namings of standard deviation or error and covaraince matrix</span>
+    <span class="c1"># https://github.com/scipy/scipy/issues/6842</span>
+    <span class="c1"># https://github.com/scipy/scipy/pull/12207</span>
+    <span class="c1"># https://stackoverflow.com/questions/62460399/comparison-of-curve-fit-and-scipy-odr-absolute-sigma</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span><span class="n">out</span><span class="o">.</span><span class="n">sd_beta</span><span class="p">)</span>
+    <span class="n">tmp2</span> <span class="o">=</span> <span class="n">unc</span><span class="o">.</span><span class="n">correlated_values</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span><span class="n">out</span><span class="o">.</span><span class="n">cov_beta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tmp2</span>
 
 <span class="k">def</span> <span class="nf">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">sortbyx</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
@@ -342,6 +353,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
 </ul>
 
 <div class="relations">
