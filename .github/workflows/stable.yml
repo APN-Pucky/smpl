@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - stable 
+    tags: *
 jobs:
     publish:
       runs-on: ubuntu-latest
