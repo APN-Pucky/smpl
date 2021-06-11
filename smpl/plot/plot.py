@@ -343,7 +343,7 @@ def plt_fit(datax,datay,gfunction,**kwargs):#p0=None,units=None,frange=None,pran
     else:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l,color =kwargs['fit_color'])
     if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate',kwargs) or util.has("interpolate_max",kwargs) or util.has("interpolate_min",kwargs):
-        xfit = np.linspace(util.get("interpolate_min",kwargs,np.min(unv(datax))),util.get("interpolate_min",kwargs,np.max(unv(datax))))
+        xfit = np.linspace(util.get("interpolate_min",kwargs,np.min(unv(datax))),util.get("interpolate_max",kwargs,np.max(unv(datax))))
         plt.plot(xfit,unv(function(xfit,*fit)),"--",color=ll.get_color())
     return fit,ll.get_color()
 
