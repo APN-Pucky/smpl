@@ -80,6 +80,8 @@ default = {
 #  ],          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
 #  ],          'sortbyx'       :[ True     , "Enable sorting the x and y data so that x is sorted.",
   ],          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",
+  ],          'interpolate_min'   :[ None     , "Lower interpolation bound",
+  ],          'interpolate_max'   :[ None , "Higher interpolation bound",
   ],          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",
   ],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
   ],          'steps'         :[ 1000     ,"resolution of the plotted function",
@@ -340,8 +342,8 @@ def plt_fit(datax,datay,gfunction,**kwargs):#p0=None,units=None,frange=None,pran
         plt.fill_between(xfit, unv(yfit)-kwargs['sigmas']*usd(yfit),unv(yfit)+kwargs['sigmas']*usd(yfit),alpha=0.4,label=l,color = ll.get_color())    
     else:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l,color =kwargs['fit_color'])
-    if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate',kwargs):
-        xfit = np.linspace(np.min(unv(datax)),np.max(unv(datax)))
+    if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate',kwargs) or util.has("interpolate_max",kwargs) or util.has("interpolate_min",kwargs):
+        xfit = np.linspace(util.get("interpolate_min",kwargs,np.min(unv(datax))),util.get("interpolate_min",kwargs,np.max(unv(datax))))
         plt.plot(xfit,unv(function(xfit,*fit)),"--",color=ll.get_color())
     return fit,ll.get_color()
 
