@@ -74,7 +74,7 @@ default = {
    ],         'residue'       :[False     ,"Display difference between fit and data in a second plot",
   ],          'residue_err'   :[True      ,"Differences between fit and data will have errorbars",
   ],          'show'          :[False     ,"Call plt.show()",
-   ],         'size'          :[None      ,"Size of the plot as a tuple (x,y)",
+   ],         'size'          :[None      ,"Size of the plot as a tuple (x,y). Only has an effect if ``init`` is True",
   ],          'number_format' :[ io.gf(4) ,"Format to display numbers.",
 #  ],          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",
 #  ],          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",
@@ -82,6 +82,7 @@ default = {
   ],          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",
   ],          'interpolate_min'   :[ None     , "Lower interpolation bound",
   ],          'interpolate_max'   :[ None , "Higher interpolation bound",
+  ],          'interpolate_hatch'   :[ r"||" , "Interpolation shape/hatch for filled area in case of ``sigmas``>0",
   ],          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",
   ],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
   ],          'steps'         :[ 1000     ,"resolution of the plotted function",
@@ -343,8 +344,15 @@ def plt_fit(datax,datay,gfunction,**kwargs):#p0=None,units=None,frange=None,pran
     else:
         ll, = plt.plot(xfit,function(xfit,*unv(fit)),"-",label=l,color =kwargs['fit_color'])
     if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate',kwargs) or util.has("interpolate_max",kwargs) or util.has("interpolate_min",kwargs):
-        xfit = np.linspace(util.get("interpolate_min",kwargs,np.min(unv(datax))),util.get("interpolate_max",kwargs,np.max(unv(datax))))
-        plt.plot(xfit,unv(function(xfit,*fit)),"--",color=ll.get_color())
+        xxfit = np.linspace(util.get("interpolate_min",kwargs,np.min(unv(datax))),util.get("interpolate_max",kwargs,np.max(unv(datax))))
+        plt.plot(xxfit,unv(function(xxfit,*fit)),"--",color=ll.get_color())
+        if kwargs['sigmas']>0:
+            xxxfit = np.linspace(np.min(xxfit),np.min(xfit))
+            yfit = function(xxxfit,*fit)
+            plt.fill_between(xxxfit, unv(yfit)-kwargs['sigmas']*usd(yfit),unv(yfit)+kwargs['sigmas']*usd(yfit),alpha=0.4,color = ll.get_color(),hatch=util.get("interpolate_hatch",kwargs,r"||"))    
+            xxxfit = np.linspace(np.max(xfit),np.max(xxfit))
+            yfit = function(xxxfit,*fit)
+            plt.fill_between(xxxfit, unv(yfit)-kwargs['sigmas']*usd(yfit),unv(yfit)+kwargs['sigmas']*usd(yfit),alpha=0.4,color = ll.get_color(),hatch=util.get("interpolate_hatch",kwargs,r"||"))    
     return fit,ll.get_color()
 
 def init_plot(**kwargs):#size=None,residue=False): #init
