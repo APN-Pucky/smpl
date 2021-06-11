@@ -118,9 +118,11 @@ def insert_latex():
         return target
     return wrapper
 
+tab_len = 20
 
 def table_sep(tabs=1):
-    return "==============  ==============  ==============\n" +"\t".join(["" for i in range(0,tabs+1)])
+    return "="*(tab_len-2)+ "  " +"="*(tab_len-2)+ "  " + "="*(tab_len-2)+ "\n" +"\t".join(["" for i in range(0,tabs+1)])
+
 def table(dic,top=True,bottom=True,init=True,tabs=1):
     """
     Add dict= {'key': [values...]} to a simple reST table.
@@ -135,7 +137,7 @@ def table(dic,top=True,bottom=True,init=True,tabs=1):
         rs += str(k) 
         p = str(k)
         for v in vs:
-            rs += "".join([' ' for i in range(16-len(p))]) + str(v)
+            rs += "".join([' ' for i in range(tab_len-len(p))]) + str(v)
             p = str(v)
         rs += "\n" + t
     if bottom:

@@ -82,17 +82,19 @@ default = {
   ],          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",
   ],          'interpolate_min'   :[ None     , "Lower interpolation bound",
   ],          'interpolate_max'   :[ None , "Higher interpolation bound",
-  ],          'interpolate_hatch'   :[ r"||" , "Interpolation shape/hatch for filled area in case of ``sigmas``>0",
+  ],          'interpolate_hatch'   :[ r"||" , "Interpolation shape/hatch for filled area in case of ``sigmas``>0. See https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html",
   ],          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",
   ],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
   ],          'steps'         :[ 1000     ,"resolution of the plotted function",
   ],          'fitinline'     : [ False ,  "No newlines for each fit parameter",
   ],          }
 
+
+
 #@doc.insert_str("\tDefault kwargs\n\n\t")
 @doc.append_doc(ffit.fit_kwargs)
 @doc.append_str(doc.table(default))
-@doc.append_str(doc.table({"plot_kwargs":["default","description"]}, bottom=False))
+@doc.append_str(doc.table({"plot_kwargs        ":["default","description"]}, bottom=False))
 def plot_kwargs(kwargs):
     """
     Set default plot_kwargs if not set.
