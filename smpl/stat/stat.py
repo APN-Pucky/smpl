@@ -5,6 +5,7 @@ from smpl import doc
 import scipy
 import math
 import statistics as stat
+import pandas as pd
 
 unv=unp.nominal_values
 usd=unp.std_devs
@@ -27,16 +28,18 @@ def normalize(ydata):
     Return normalized ``ydata``.
     """
     return (ydata-np.amin(ydata))/(np.amax(ydata)-np.amin(ydata))
-def novar_mean(f):
+def novar_mean(n):
     """
     Return mean of ``n`` with only the uncertainties of ``n`` and no variance.
     """
-    return np.sum(f)/len(f)
+    return np.sum(n)/len(n)
 def mean(n):
     """
     Return mean of ``n`` with combined error of variance and unvertainties of ``n``.
     """
     # find the mean value and add uncertainties
+    if isinstance(n,pd.core.series.Series):
+        n = n.to_numpy()
     k = np.mean(n)
     err = stat.variance(unv(n))
     return unc.ufloat(unv(k), math.sqrt(usd(k)**2 + err))

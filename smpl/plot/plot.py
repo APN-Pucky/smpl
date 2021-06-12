@@ -87,6 +87,7 @@ default = {
   ],          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",
   ],          'steps'         :[ 1000     ,"resolution of the plotted function",
   ],          'fitinline'     : [ False ,  "No newlines for each fit parameter",
+  ],          'grid'     : [ True,  "Enable grid for the plot",
   ],          }
 
 
@@ -399,14 +400,14 @@ def save_plot(**kwargs):#save=None,lpos=0,logy=False,logx=False,show=True): #sav
     if 'save' in kwargs and not kwargs['save']==None:
         io.mkdirs(kwargs['save'])
         plt.savefig(kwargs['save'] +".pdf")
-    plt.grid(b=True)
+    plt.grid(b=kwargs["grid"])
     if 'show' in kwargs and kwargs['show']:
         show(**kwargs)
 
 def show(**kwargs):
     kwargs = plot_kwargs(kwargs)
 
-    plt.grid(b=True)
+    plt.grid(b=kwargs["grid"])
     plt.show()
 
 
