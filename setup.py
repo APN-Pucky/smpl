@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="smpl", # Replace with your own username
+    name="smpl",
     setup_requires=['setuptools-git-versioning'],
     author="APN",
     author_email="APN-Pucky@no-reply.github.com",
