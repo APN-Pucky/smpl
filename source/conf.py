@@ -25,7 +25,7 @@ version = re.sub('^', '', os.popen('git describe --tags').read().strip())
 # -- Project information -----------------------------------------------------
 
 project = 'smpl'
-copyright = '2020, APN-Pucky'
+copyright = '2021, APN-Pucky'
 author = 'APN-Pucky'
 
 
@@ -38,7 +38,7 @@ extensions = ['sphinx.ext.autodoc', 'nbsphinx', 'sphinx.ext.githubpages',
               'sphinx.ext.viewcode', 'sphinx.ext.mathjax', 'sphinx.ext.todo', 'sphinx.ext.doctest',
               'matplotlib.sphinxext.plot_directive', 'numpydoc', 'sphinx_math_dollar', 'sphinx.ext.autosummary',
               ]
-nbsphinx_execute = 'always'
+#nbsphinx_execute = 'always'
 autosummary_generate = True
 autosummary_imported_members = True
 
@@ -61,6 +61,7 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
