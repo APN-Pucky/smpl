@@ -29,3 +29,21 @@ jobs:
           with:
             password: ${{ secrets.test_pypi_token }}
             repository_url: https://test.pypi.org/legacy/
+        - run: sudo apt-get update --fix-missing
+        - name: Install (nb)sphinx
+          run: sudo apt-get install ipython3 jupyter-notebook python3-scipy python3-matplotlib python3-pandas python3-numpy python3-requests python3-uncertainties python3-tqdm python3-numpy 
+        - name: Install sphinx
+          run: python3 -m pip install -U sphinx nbsphinx numpydoc sphinx-math-dollar 
+        - name: Test install smpl+dependencies
+          run: python3 -m pip --index-url https://test.pypi.org/simple/ install -U smpl
+          #run: make install
+        - name: Run sphinx
+          run: make clean && make html
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@releases/v3
+          with:
+            #ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            BRANCH: gh-pages # The branch the action should deploy to.
+            FOLDER: build/html # The folder the action should deploy.
+            target-folder: test
