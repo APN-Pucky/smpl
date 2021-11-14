@@ -8,7 +8,7 @@ smpl |version| documentation
 
 .. toctree::
    :glob:
-   :maxdepth: 3
+   :maxdepth: 2
 
    Stable <https://apn-pucky.github.io/smpl/>
    Test <https://apn-pucky.github.io/smpl/test/>
