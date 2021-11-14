@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="smpl", # Replace with your own username
+    name="smpl",  # Replace with your own username
     setup_requires=['setuptools-git-versioning'],
     author="APN",
     author_email="APN-Pucky@no-reply.github.com",
@@ -18,15 +18,15 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
-    install_requires = [
+    install_requires=[
         "uncertainties",
         "numpy",
         "matplotlib",
         "scipy",
-        "sympy"
-        #"requests",
-        #"tqdm",
-        #"pandas",
+        "sympy",
+        "tqdm",
+        # "requests",
+        # "pandas",
     ],
     version_config={
         "template": "{tag}",
