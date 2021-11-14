@@ -31,9 +31,9 @@ jobs:
             repository_url: https://test.pypi.org/legacy/
         - run: sudo apt-get update --fix-missing
         - name: Install (nb)sphinx
-          run: sudo apt-get install ipython3 jupyter-notebook python3-scipy python3-pandas python3-numpy python3-requests python3-uncertainties python3-tqdm python3-numpy 
+          run: sudo apt-get install ipython3 jupyter-notebook python3-numpy python3-numpy 
         - name: Install sphinx
-          run: python3 -m pip install -U sphinx nbsphinx numpydoc sphinx-math-dollar 
+          run: python3 -m pip install -U sympy tqdm matplotlib scipy pandas uncertainties sphinx nbsphinx numpydoc sphinx-math-dollar 
         - name: Test install smpl+dependencies
           run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
           #run: make install
