@@ -10,12 +10,14 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+from docutils.nodes import FixedTextElement, literal, math
+from docutils.nodes import comment, doctest_block, image, literal_block, math_block, paragraph, pending, raw, rubric, substitution_definition, target
+from sphinx_math_dollar import NODE_BLACKLIST
+import re
+import smpl
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
-import smpl
-import re
-from sphinx_math_dollar import NODE_BLACKLIST
 
 version = re.sub('^', '', os.popen('git describe --tags').read().strip())
 
@@ -32,18 +34,17 @@ author = 'APN-Pucky'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = [ 'sphinx.ext.autodoc', 'nbsphinx', 'sphinx.ext.githubpages',
-    'sphinx.ext.viewcode', 'sphinx.ext.mathjax', 'sphinx.ext.todo', 'sphinx.ext.doctest',
-    'matplotlib.sphinxext.plot_directive', 'numpydoc', 'sphinx_math_dollar', 'sphinx.ext.autosummary',
-]
-#nbsphinx_execute = 'always'
-autosummary_generate=True
-autosummary_imported_members=True
+extensions = ['sphinx.ext.autodoc', 'nbsphinx', 'sphinx.ext.githubpages',
+              'sphinx.ext.viewcode', 'sphinx.ext.mathjax', 'sphinx.ext.todo', 'sphinx.ext.doctest',
+              'matplotlib.sphinxext.plot_directive', 'numpydoc', 'sphinx_math_dollar', 'sphinx.ext.autosummary',
+              ]
+nbsphinx_execute = 'always'
+autosummary_generate = True
+autosummary_imported_members = True
 
-from docutils.nodes import FixedTextElement, literal,math
-from docutils.nodes import  comment, doctest_block, image, literal_block, math_block, paragraph, pending, raw, rubric, substitution_definition, target
-math_dollar_node_blacklist = (literal,math,doctest_block, image, literal_block,  math_block,  pending,  raw,rubric, substitution_definition,target) #(FixedTextElement,math)
-#print(NODE_BLACKLIST)
+math_dollar_node_blacklist = (literal, math, doctest_block, image, literal_block,  math_block,
+                              pending,  raw, rubric, substitution_definition, target)  # (FixedTextElement,math)
+# print(NODE_BLACKLIST)
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
