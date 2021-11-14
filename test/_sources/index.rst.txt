@@ -8,11 +8,11 @@ smpl |version| documentation
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 3
 
+   GitHub <https://github.com/APN-Pucky/smpl>
    Stable <https://apn-pucky.github.io/smpl/>
    Test <https://apn-pucky.github.io/smpl/test/>
-   GitHub <https://github.com/APN-Pucky/smpl>
    example/*
 
 
@@ -23,6 +23,7 @@ smpl |version| documentation
 .. autosummary::
    :toctree: _autosummary
    :template: as_module.rst
+   :caption: modules:
 
    debug
    doc
