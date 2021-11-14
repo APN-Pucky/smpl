@@ -10,6 +10,8 @@ smpl |version| documentation
    :glob:
    :maxdepth: 3
 
+   Stable <https://apn-pucky.github.io/smpl/>
+   Test <https://apn-pucky.github.io/smpl/test/>
    GitHub <https://github.com/APN-Pucky/smpl>
    example/*
 
