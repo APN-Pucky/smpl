@@ -9,11 +9,19 @@ smpl |version| documentation
 .. toctree::
    :glob:
    :hidden:
+   :caption: Versions:
+   :maxdepth: 3
+
+   Stable <https://apn-pucky.github.io/smpl/>
+   Test <https://apn-pucky.github.io/smpl/test/>
+
+.. toctree::
+   :glob:
+   :hidden:
+   :caption: Links:
    :maxdepth: 3
 
    GitHub <https://github.com/APN-Pucky/smpl>
-   Stable <https://apn-pucky.github.io/smpl/>
-   Test <https://apn-pucky.github.io/smpl/test/>
  
 .. toctree::
    :glob:
