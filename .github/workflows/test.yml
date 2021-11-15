@@ -38,7 +38,7 @@ jobs:
           run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
           #run: make install
         - name: Run sphinx
-          run: rm -rf build && make clean && make html
+          run: rm -rf build && make clean-all && make html
         - name: Deploy
           uses: JamesIves/github-pages-deploy-action@4.1.5
           with:

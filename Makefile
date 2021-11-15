@@ -35,6 +35,10 @@ push: commit
 pull: commit
 	git pull
 
+clean-all: clean
+	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --clear-output --inplace
+
+
 release: push html
 	git tag $(shell git describe --tags --abbrev=0 | perl -lpe 'BEGIN { sub inc { my ($$num) = @_; ++$$num } } s/(\d+\.\d+\.)(\d+)/$$1 . (inc($$2))/eg')
 	git push --tags
