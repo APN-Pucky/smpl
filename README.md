@@ -11,7 +11,7 @@ pip install smpl
 ```
 Optional: --user or --upgrade
 
-### unstable version
+### test version
 ```
 pip install --index-url https://test.pypi.org/simple/ smpl
 ```
