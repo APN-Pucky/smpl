@@ -2,9 +2,23 @@
    sphinx-quickstart on Tue Nov 17 13:55:14 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-
+============================
 smpl |version| documentation
 ============================
+
+Install
+=======
+
+stable version::
+
+   $ pip install smpl
+
+test version::
+
+   $ pip install --index-url https://test.pypi.org/simple/ smpl
+
+
+
 
 .. toctree::
    :glob:
@@ -23,6 +37,10 @@ smpl |version| documentation
 
    GitHub <https://github.com/APN-Pucky/smpl>
  
+
+Examples
+=======
+
 .. toctree::
    :glob:
    :maxdepth: 3  
