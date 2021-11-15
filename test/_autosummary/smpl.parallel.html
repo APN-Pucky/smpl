@@ -1,42 +1,120 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>smpl.parallel &#8212; smpl  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>smpl.parallel &mdash; smpl  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="smpl.plot" href="smpl.plot.html" />
-    <link rel="prev" title="smpl.latex" href="smpl.latex.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="smpl.latex" href="smpl.latex.html" /> 
+</head>
 
-  </head><body>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> smpl
+          </a>
+              <div class="version">
+                0.0.100
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Test</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">modules:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smpl</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/smpl.parallel.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   
+<style>
+/* CSS overrides for sphinx_rtd_theme */
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
 
-          <div class="body" role="main">
-            
-  <section id="module-smpl.parallel">
-<span id="smpl-parallel"></span><h1><a class="reference internal" href="#module-smpl.parallel" title="smpl.parallel"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a><a class="headerlink" href="#module-smpl.parallel" title="Permalink to this headline">¶</a></h1>
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="module-smpl.parallel">
+<span id="smpl-parallel"></span><h1><a class="reference internal" href="#module-smpl.parallel" title="smpl.parallel"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a><a class="headerlink" href="#module-smpl.parallel" title="Permalink to this headline"></a></h1>
 <p>Very basic parallelization</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -61,7 +139,7 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.parallel.calc">
-<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">calc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">calc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition"></a></dt>
 <dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -82,13 +160,13 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.parallel.gen">
-<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition"></a></dt>
 <dd><p>Generates parallel execution list generator</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.parallel.par">
-<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">par</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">par</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#par"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.par" title="Permalink to this definition"></a></dt>
 <dd><p>Parallel execution of f on each element of args and kwargs</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">par</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
@@ -99,7 +177,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.parallel.res">
-<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">res</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">res</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition"></a></dt>
 <dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -121,88 +199,34 @@
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="smpl.latex.html" class="btn btn-neutral float-left" title="smpl.latex" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smpl.plot.html" class="btn btn-neutral float-right" title="smpl.plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, APN-Pucky.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">smpl</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Test</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">modules:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="smpl.latex.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
-      <li>Next: <a href="smpl.plot.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2020, APN-Pucky.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/_autosummary/smpl.parallel.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
