@@ -34,7 +34,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.100-2-g4e4e036
+                0.0.101-3-g56552d1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -390,13 +390,13 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>import numpy as np
-from smpl import plot
-from smpl import stat
-from smpl import functions as f
-import uncertainties.unumpy as unp
-import smpl
-smpl.__version__
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">stat</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
+<span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+<span class="kn">import</span> <span class="nn">smpl</span>
+<span class="n">smpl</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
@@ -406,7 +406,7 @@ smpl.__version__
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.0.73.0+dirty&#39;
+&#39;0.0.101.3+dirty&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -415,13 +415,13 @@ smpl.__version__
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
-<span></span>data = np.loadtxt(&#39;test_data.txt&#39;)
-xdata = data[:,0]
-xerr = data[:,2]
-ydata = data[:,1]
-yerr = data[:,3]
-x = unp.uarray(xdata,xerr)
-y = unp.uarray(ydata,yerr)
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;test_data.txt&#39;</span><span class="p">)</span>
+<span class="n">xdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">xerr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">ydata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">yerr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="n">xerr</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span><span class="n">yerr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -442,9 +442,9 @@ y = unp.uarray(ydata,yerr)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
 
-<span></span>ff = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xlabel=&quot;x in a.u.&quot;,ylabel=&quot;y in a.u.&quot;,function=f.line, frange=[0,6])
-ff = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xlabel=&quot;x in a.u.&quot;,ylabel=&quot;y in a.u.&quot;,function=f.line, frange=[6,10],also_data=False)
-plot.show()
+<span></span><span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span> <span class="n">frange</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span> <span class="n">frange</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="n">also_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -461,9 +461,9 @@ plot.show()
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
-<span></span>ff = plot.fit(x, y, fmt=&#39;.&#39;, label=&#39;data&#39;, xlabel=&quot;x in a.u.&quot;,ylabel=&quot;y in a.u.&quot;,function=f.line, selector=lambda x,y : x&lt;10)
-ff = plot.fit(x, y, fmt=&#39;.&#39;, label=&#39;data&#39;, xlabel=&quot;x in a.u.&quot;,ylabel=&quot;y in a.u.&quot;,function=f.line, selector=x &gt;10,also_data=False)
-plot.show()
+<span></span><span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">:</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span> <span class="n">selector</span><span class="o">=</span><span class="n">x</span> <span class="o">&gt;</span><span class="mi">10</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -479,11 +479,11 @@ plot.show()
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>def sinus(x,a,f,p,y):
-    return a*unp.sin(f*x+p)+y
-x= np.linspace(-5,5,200)
-y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2
-ff = plot.fit(x[x&lt;0], y[x&lt;0],sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xlabel=&quot;x in a.u.&quot;,ylabel=&quot;y in a.u.&quot;,sigmas=1,frange=[0,30])
+<span></span><span class="k">def</span> <span class="nf">sinus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">unp</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">f</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">+</span><span class="n">y</span>
+<span class="n">x</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">3.5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span><span class="n">sinus</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">frange</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -499,9 +499,9 @@ ff = plot.fit(x[x&lt;0], y[x&lt;0],sinus, fmt=&#39;.&#39;, label=&#39;data&#39;,
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>x= np.linspace(-5,5,200)
-y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2
-ff = plot.fit(x, y,sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xlabel=&quot;x in a.u.&quot;,ylabel=&quot;y in a.u.&quot;,sigmas=1,selector= x&gt;0)
+<span></span><span class="n">x</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">3.5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">sinus</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">selector</span><span class="o">=</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -517,9 +517,9 @@ ff = plot.fit(x, y,sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xlabel=&quot;x 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>x= np.linspace(-5,5,200)
-y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2
-ff = plot.fit(x, y,sinus, fmt=&#39;.&#39;, label=&#39;data&#39;, xlabel=&quot;x in a.u.&quot;,ylabel=&quot;y in a.u.&quot;,sigmas=1,selector= x&gt;0,interpolate=False)
+<span></span><span class="n">x</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">3.5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">sinus</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">selector</span><span class="o">=</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

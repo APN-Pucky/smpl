@@ -9,7 +9,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -22,24 +22,16 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\\SI{1.0+-1.0}{\\tesla}\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "print(latex.si(ufloat(1,1),\"\\\\tesla\"))"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -54,60 +46,27 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\\SI{0.00+-0.10}{}&\\SI{1.00+-0.20}{}&\\SI{2.00+-0.30}{}&\\SI{3.00+-0.10}{}&\\SI{4.00+-0.10}{}&\\SI{5.00+-0.10}{}\\\\\n",
-      "\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "print(latex.si_line(x))"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\\SI{0.00+-0.10}{}&\\SI{1.00+-0.20}{}&\\SI{2.00+-0.30}{}&\\SI{3.00+-0.10}{}&\\SI{4.00+-0.10}{}&\\SI{5.00+-0.10}{}\\\\\n",
-      "\\SI{1.00+-0.20}{}&\\SI{2.00+-0.10}{}&\\SI{3.00+-0.10}{}&\\SI{5.0+-0.4}{}&\\SI{5.00+-0.10}{}&\\SI{6.00+-0.20}{}\\\\\n",
-      "\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "print(latex.si_tab([x,y]))"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\\SI{0.00+-0.10}{}&\\SI{1.00+-0.20}{}\\\\\n",
-      "\\SI{1.00+-0.20}{}&\\SI{2.00+-0.10}{}\\\\\n",
-      "\\SI{2.00+-0.30}{}&\\SI{3.00+-0.10}{}\\\\\n",
-      "\\SI{3.00+-0.10}{}&\\SI{5.0+-0.4}{}\\\\\n",
-      "\\SI{4.00+-0.10}{}&\\SI{5.00+-0.10}{}\\\\\n",
-      "\\SI{5.00+-0.10}{}&\\SI{6.00+-0.20}{}\\\\\n",
-      "\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "print(latex.si_ttab([x,y]))"
    ]
