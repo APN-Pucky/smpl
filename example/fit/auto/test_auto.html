@@ -34,7 +34,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.101
+                0.0.102
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -76,10 +76,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
 </ul>
@@ -387,12 +390,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>import numpy as np
-from smpl import plot
-from smpl import stat
-from smpl import functions as f
-import uncertainties.unumpy as unp
-import smpl
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">stat</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
+<span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+<span class="kn">import</span> <span class="nn">smpl</span>
 </pre></div>
 </div>
 </div>
@@ -401,32 +404,41 @@ import smpl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>for n in [&#39;test_linear_data.txt&#39;, &#39;test_quad_data.txt&#39;]:
-    data = np.loadtxt(n)
-    xdata = data[:,0]
-    xerr = data[:,2]
-    ydata = data[:,1]
-    yerr = data[:,3]
-    x = unp.uarray(xdata,xerr)
-    y = unp.uarray(ydata,yerr)
+<span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;test_linear_data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;test_quad_data.txt&#39;</span><span class="p">]:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">xdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">xerr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">ydata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">yerr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="n">xerr</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">ydata</span><span class="p">,</span><span class="n">yerr</span><span class="p">)</span>
 
 
-    function,fitparams,lfunc = plot.auto(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,sigmas=1,epsfcn=0.00001,maxfev=1000000,init=True)
+    <span class="n">function</span><span class="p">,</span><span class="n">fitparams</span><span class="p">,</span><span class="n">lfunc</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">epsfcn</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">,</span><span class="n">maxfev</span><span class="o">=</span><span class="mi">1000000</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+100%|██████████| 25/25 [00:01&lt;00:00, 13.17it/s]
+100%|██████████| 25/25 [00:01&lt;00:00, 18.87it/s]
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_auto_test_auto_2_0.png" src="../../../_images/example_fit_auto_test_auto_2_0.png" />
+<img alt="../../../_images/example_fit_auto_test_auto_2_1.png" src="../../../_images/example_fit_auto_test_auto_2_1.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_auto_test_auto_2_1.png" src="../../../_images/example_fit_auto_test_auto_2_1.png" />
+<img alt="../../../_images/example_fit_auto_test_auto_2_2.png" src="../../../_images/example_fit_auto_test_auto_2_2.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -443,17 +455,27 @@ import smpl
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>x= np.linspace(-5,5,100)
-y = stat.noisy(np.exp(2*x))
-ff = plot.auto(x, y, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,sigmas=1)
+<span></span><span class="n">x</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+  0%|          | 0/25 [00:00&lt;?, ?it/s]/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/uncertainties/core.py:171: RuntimeWarning: invalid value encountered in sqrt
+  std_devs = numpy.sqrt(numpy.diag(covariance_mat))
+100%|██████████| 25/25 [00:02&lt;00:00, 11.77it/s]
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_auto_test_auto_4_0.png" src="../../../_images/example_fit_auto_test_auto_4_0.png" />
+<img alt="../../../_images/example_fit_auto_test_auto_4_1.png" src="../../../_images/example_fit_auto_test_auto_4_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
