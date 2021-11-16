@@ -15,7 +15,7 @@ def get_lambda(expr, xvar):
 
 
 def fnc_get_lambda(expr, xvar):
-    __l__ = ast.literal_eval("lambda " + ','.join(get_varnames(expr, xvar)) +
+    __l__ = eval("lambda " + ','.join(get_varnames(expr, xvar)) +
                              ": expr(" + ','.join(expr.__code__.co_varnames) + ")", {"expr": expr})
     __l__.__doc__ = expr.__doc__
     return __l__

@@ -4,8 +4,7 @@ from scipy import optimize
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from scipy.odr import *
-# from tqdm import tqdm
-# local imports
+from smpl import debug
 from smpl import functions
 from smpl import stat
 from smpl import util
@@ -102,7 +101,7 @@ def auto(datax, datay, funcs=None, **kwargs):
                 ff = fit(datax, datay, f, **kwargs)
                 fy = f(datax, *ff)
             except (ValueError, LinAlgError) as ve:
-                # print (ve)
+                debug.msg(ve)
                 continue
             sum_sq = np.sum((fy - datay)**2) + np.sum((fy + usd(fy) -
                                                        datay)**2) + np.sum((fy - usd(fy) - datay)**2)
@@ -223,7 +222,7 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
             optimize.curve_fit(function, datax, datay, p0=params,
                                sigma=yerr, epsfcn=util.get("epsfcn", kwargs, 0.0001), **kwargs, maxfev=util.get("maxfev", kwargs, 10000))
     except RuntimeError as e:
-        # print(e)
+        debug.msg(str(e))
         return params
     error = []
     for i in range(len(pfit)):
@@ -231,12 +230,7 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
             error.append(np.absolute(pcov[i][i])**0.5)
         except:
             error.append(0.00)
-    pfit_curvefit = pfit
-    perr_curvefit = np.array(error)
-    # This was the old wrong way! Now use correct co. matrix through unc-package
-    tmp = unp.uarray(pfit_curvefit, perr_curvefit)
-    tmp2 = unc.correlated_values(pfit, pcov)
-    return tmp2
+    return unc.correlated_values(pfit, pcov)
 
 
 def _fit_odr(datax, datay, function, params=None, yerr=None, xerr=None):
@@ -268,18 +262,18 @@ def __data_split(datax, datay, **kwargs):
         ind = np.argsort(unv(datax))
     else:
         ind = np.array(range(len(datax)))
-    x=unv(datax)[ind]
-    y=unv(datay)[ind]
-    xerr=usd(datax)[ind]
-    yerr=usd(datay)[ind]
-    xerr=xerr if np.any(np.abs(xerr) > 0) else None
-    yerr=yerr if np.any(np.abs(yerr) > 0) else None
+    x = unv(datax)[ind]
+    y = unv(datay)[ind]
+    xerr = usd(datax)[ind]
+    yerr = usd(datay)[ind]
+    xerr = xerr if np.any(np.abs(xerr) > 0) else None
+    yerr = yerr if np.any(np.abs(yerr) > 0) else None
     return x, y, xerr, yerr
 
 
 def _data_split(datax, datay, **kwargs):
     if util.has('selector', kwargs):
-        sel=kwargs['selector']
+        sel = kwargs['selector']
         if callable(sel):
             return __data_split(datax[sel(datax, datay)], datay[sel(datax, datay)], **kwargs)
         else:
