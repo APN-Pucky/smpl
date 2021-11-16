@@ -267,7 +267,7 @@ def __data_split(datax, datay, **kwargs):
     if util.has("sortbyx", kwargs) and kwargs['sortbyx']:
         ind = np.argsort(unv(datax))
     else:
-        ind = np.array(range((datax))))
+        ind = np.array(range(len(datax)))
     x=unv(datax)[ind]
     y=unv(datay)[ind]
     xerr=usd(datax)[ind]
