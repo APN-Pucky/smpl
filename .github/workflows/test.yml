@@ -47,7 +47,7 @@ jobs:
       runs-on: ubuntu-latest
       needs: test
       container:
-        image: apnpucky/ubuntu
+        image: apnpucky/ubuntu-pip
       steps:
         - uses: actions/checkout@v2
           with:
@@ -66,7 +66,7 @@ jobs:
       runs-on: ubuntu-latest
       #needs: pypi
       container:
-        image: apnpucky/ubuntu
+        image: apnpucky/ubuntu-pip
       steps:
         - uses: actions/checkout@v2
           with:
