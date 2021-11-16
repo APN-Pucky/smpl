@@ -43,8 +43,9 @@ jobs:
             #api-token: ${{ secrets.CODACY_API_TOKEN }}
             coverage-reports: coverage.xml
 
-    publish:
+    pypi:
       runs-on: ubuntu-latest
+      needs: test
       container:
         image: apnpucky/ubuntu
       steps:
@@ -60,6 +61,13 @@ jobs:
           with:
             password: ${{ secrets.test_pypi_token }}
             repository_url: https://test.pypi.org/legacy/
+
+    sphinx:
+      runs-on: ubuntu-latest
+      #needs: pypi
+      container:
+        image: apnpucky/ubuntu
+      steps:
         - name: Test install smpl+dependencies
           run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
           #run: make install
