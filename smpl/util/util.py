@@ -39,4 +39,4 @@ def find_nearest_index(array, value):
 
 
 def find_nearest(array, value):
-    array[find_nearest_index(array, value)]
+    return array[find_nearest_index(array, value)]
