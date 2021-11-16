@@ -4,6 +4,25 @@ from smpl import debug
 import numpy as np
 import os
 import sys
+from pathlib import Path
+
+
+def find_file(fname, up=0):
+    """
+    Searches for ``fname`` in all down folders or up folder to given order respectively.
+    """
+
+    p = Path(fname).parent
+    n = Path(fname).name
+    if (p / n).is_file():
+        return str(p / n)
+    for i in range(up):
+        p = p.parent
+
+    for f in p.rglob(n):
+        if f.is_file():
+            return str(f)
+    return None
 
 
 def pwd():

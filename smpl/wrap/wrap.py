@@ -28,7 +28,7 @@ def str_get_lambda(expr, xvar):
         pc = pc.replace("math." + s, "unp."+s)
     # old direct way. Doesn't use unp.
     #__l__ = sympy.lambdify(get_varnames(expr),parsed_expr)
-    __l__ = ast.literal_eval(
+    __l__ = eval(
         "lambda " + ','.join(get_varnames(expr, xvar)) + ": " + pc)
     #exec("global __l__; __l__ = lambda " + ','.join(get_varnames(expr)) + ": "+ pc)
     return __l__

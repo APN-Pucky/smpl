@@ -27,9 +27,12 @@ build:
 
 livehtml:
 	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --watch smpl/
+
 test:
-	 pytest smpl --cov-config=.coveragerc --doctest-modules --cov=smpl  --cov-append
-	 pytest smpl --cov-config=.coveragerc --doctest-modules --cov=smpl  --cov-append --cov-report=xml
+	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --to script
+	pytest -v --cov=smpl  --cov-append  --cov-report=term --cov-report=xml
+	pytest smpl --cov-config=.coveragerc --doctest-modules --cov=smpl  --cov-append --cov-report=xml
+
 commit: 
 	-git add .
 	-git commit

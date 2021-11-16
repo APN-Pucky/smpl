@@ -7,10 +7,14 @@ import pkg_resources as pkg  # part of setuptools
 
 package = "smpl"
 
-version = pkg.require(package)[0].version
+try:
+    version = pkg.require(package)[0].version
+except pkg.DistributionNotFound:
+    version = "dirty"
+
 __version__ = version
 
-#def is_internet_available():
+# def is_internet_available():
 #    try:
 #        urlopen('http://216.58.192.142', timeout=1)
 #        return True

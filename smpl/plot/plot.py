@@ -445,6 +445,7 @@ def save_plot(**kwargs):  # save=None,lpos=0,logy=False,logx=False,show=True): #
         plt.savefig(kwargs['save'] + ".pdf")
     plt.grid(b=kwargs["grid"])
     if 'show' in kwargs and kwargs['show']:
+        raise Exception("show")
         show(**kwargs)
 
 
@@ -452,6 +453,7 @@ def show(**kwargs):
     kwargs = plot_kwargs(kwargs)
 
     plt.grid(b=kwargs["grid"])
+    print("showing")
     plt.show()
 
 
