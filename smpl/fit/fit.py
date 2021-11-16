@@ -1,24 +1,13 @@
 import numpy as np
 import statistics as stat
-import scipy as sci
-import scipy.integrate as integrate
-import scipy.fftpack
-import math
 from scipy import optimize
 import uncertainties as unc
 import uncertainties.unumpy as unp
-import uncertainties.umath as umath
 from scipy.odr import *
 #from tqdm import tqdm
-import matplotlib.pylab as pylab
-import pathlib
-import types
-import inspect
 # local imports
 from smpl import functions
 from smpl import stat
-from smpl import io
-from smpl.doc import append_doc, append_str
 from smpl import util
 from smpl import wrap
 from smpl import doc

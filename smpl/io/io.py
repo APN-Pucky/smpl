@@ -1,6 +1,4 @@
 import pathlib
-import glob
-import pathlib
 #from io import StringIO
 from smpl import debug
 import numpy as np
@@ -115,13 +113,7 @@ def iter(a):
 def smart_out(fn,x):
     '''TODO'''
     out_si(fn,x)
-    '''if isinstance(x,list):
-        out_si_tab(fn,x)
-    elif isinstance(x,types.FunctionType):
-        out(fn,inspect.getsourcelines(x)[0])
-    else:
-        out_si(fn,x)
-    '''
+
 
 def frange(x, y, jump):
   while x < y:

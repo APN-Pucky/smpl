@@ -7,26 +7,26 @@ def times(str,n):
     """
     return str.join(["" for i in range(0,n+1)])
 
-def get(key,dict,default):
+def get(key,ddict,default):
     """
         Returns dict[key] if this exists else default.
     """
-    if has(key,dict):
-        return dict[key]
+    if has(key,ddict):
+        return ddict[key]
     else:
         return default
 
-def has(key, dict):
+def has(key, ddict):
     """
         Checks if the key is in the dict and not None.
     """
-    return key in dict and not dict[key] is None
+    return key in ddict and not ddict[key] is None
 
-def true(key, dict):
+def true(key, ddict):
     """
         Checks if the key is in the dict and not None and True.
     """
-    return has(key,dict) and dict[key]
+    return has(key,ddict) and ddict[key]
 
 
 def find_nearest_index(array, value):

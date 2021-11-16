@@ -1,12 +1,6 @@
 import pathlib
-import glob
-import pathlib
 #from io import StringIO
-from smpl import debug
 import numpy as np
-import os
-import sys
-from smpl.io import mkdirs
 
 def gf(i):
     """

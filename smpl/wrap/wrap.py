@@ -55,20 +55,20 @@ def str_get_varnames(expr, xvar):
     if xvar is None:
         return np.roll(new_locals, 1)
     else:
-        vars = new_locals
-        assert(xvar in vars)
-        vars.remove(xvar)
-        return [xvar, *vars]
+        varss = new_locals
+        assert(xvar in varss)
+        varss.remove(xvar)
+        return [xvar, *varss]
 
 
 def fnc_get_varnames(func, xvar):
     if xvar is None:
         return func.__code__.co_varnames
     else:
-        vars = [s for s in func.__code__.co_varnames]
-        assert(xvar in vars)
-        vars.remove(xvar)
-        return [xvar, *vars]
+        varss = [s for s in func.__code__.co_varnames]
+        assert(xvar in varss)
+        varss.remove(xvar)
+        return [xvar, *varss]
 
 
 def str_get_expr(expr):

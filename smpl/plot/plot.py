@@ -1,37 +1,20 @@
-import matplotlib.patches as mpatches
 import numpy as np
-import statistics as stat
-import scipy as sci
-import scipy.integrate as integrate
-import scipy.fftpack
 import matplotlib.pyplot as plt
 import matplotlib
-import matplotlib.axes as axes
-from matplotlib import colors as mcolors
 import math
-from scipy import optimize
-import uncertainties as unc
 import uncertainties.unumpy as unp
-import uncertainties.umath as umath
-import glob
-import os
-import matplotlib.pyplot as plt
 from scipy.odr import *
 import sympy
 # from tqdm import tqdm
 import matplotlib.pylab as pylab
-import pathlib
-import types
 import inspect
 # local imports
-from smpl import functions
 from smpl import io
 from smpl import util
 from smpl import wrap
 from smpl.doc import append_doc, append_str
 from smpl import doc
 from smpl import fit as ffit
-import inspect
 
 
 def set_plot_style():
