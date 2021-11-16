@@ -246,9 +246,9 @@ def _fit_odr(datax, datay, function, params=None, yerr=None, xerr=None):
 
 
 def __data_split(datax, datay, **kwargs):
-    '''
+    """
     Split data + errors
-    '''
+    """
     if kwargs['bins'] > 0:
         N, bins = np.histogram(unv(datax), bins=kwargs['bins'])
         y = kwargs['binunc'](N)

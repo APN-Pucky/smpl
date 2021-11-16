@@ -50,7 +50,7 @@ def get_line_src(_back=0):
 
 
 def get_line_number_file(split=True, _back=0):
-    '''
+    """
     Gets the current filename and the current linenumber within it.
 
     Parameters
@@ -66,7 +66,7 @@ def get_line_number_file(split=True, _back=0):
         First element in the return array
     filename : str
         Second element in the return array
-    '''
+    """
     cf = get_frame(_back+1)
     fname = cf.f_code.co_filename
     if split:
