@@ -53,11 +53,11 @@ def append_doc(original):
     ========
 
     >>> def ho():
-    ...     """Ho"""
+    ...     '''Ho'''
     ...     print(ho.__doc__)
     >>> @append_doc(ho)
     ... def hi():
-    ...     """Hi"""
+    ...     '''Hi'''
     ...     print(hi.__doc__)
     >>> hi()
     HiHo
