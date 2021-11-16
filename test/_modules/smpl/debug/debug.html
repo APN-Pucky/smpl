@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-50-geab9f0f
+                0.0.103-54-gfa33ae6
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -143,7 +143,7 @@
 
 
 <div class="viewcode-block" id="get_line_number_file"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.get_line_number_file">[docs]</a><span class="k">def</span> <span class="nf">get_line_number_file</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Gets the current filename and the current linenumber within it.</span>
 
 <span class="sd">    Parameters</span>
@@ -159,7 +159,7 @@
 <span class="sd">        First element in the return array</span>
 <span class="sd">    filename : str</span>
 <span class="sd">        Second element in the return array</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">cf</span> <span class="o">=</span> <span class="n">get_frame</span><span class="p">(</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span>
     <span class="k">if</span> <span class="n">split</span><span class="p">:</span>
