@@ -62,7 +62,6 @@ jobs:
           with:
             password: ${{ secrets.test_pypi_token }}
             repository_url: https://test.pypi.org/legacy/
-        - run: sudo apt-get update --fix-missing
         - name: Install (nb)sphinx
           run: sudo apt-get install python3-numpy pandoc
         - name: Install sphinx
