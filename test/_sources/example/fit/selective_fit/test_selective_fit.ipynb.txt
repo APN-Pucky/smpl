@@ -15,6 +15,7 @@
    "source": [
     "import numpy as np\n",
     "from smpl import plot\n",
+    "from smpl import io\n",
     "from smpl import stat\n",
     "from smpl import functions as f\n",
     "import uncertainties.unumpy as unp\n",
@@ -29,7 +30,7 @@
    "outputs": [],
    "source": [
     "\n",
-    "data = np.loadtxt('test_data.txt')\n",
+    "data = np.loadtxt(io.find_file('test_data.txt',3))\n",
     "xdata = data[:,0]\n",
     "xerr = data[:,2]\n",
     "ydata = data[:,1]\n",
@@ -56,8 +57,7 @@
     "\n",
     "\n",
     "ff = plot.fit(xdata, ydata, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",function=f.line, frange=[0,6])\n",
-    "ff = plot.fit(xdata, ydata, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",function=f.line, frange=[6,10],also_data=False)\n",
-    "plot.show()"
+    "ff = plot.fit(xdata, ydata, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",function=f.line, frange=[6,10],also_data=False)"
    ]
   },
   {
@@ -68,8 +68,7 @@
    "source": [
     "\n",
     "ff = plot.fit(x, y, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",function=f.line, selector=lambda x,y : x<10)\n",
-    "ff = plot.fit(x, y, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",function=f.line, selector=x >10,also_data=False)\n",
-    "plot.show()"
+    "ff = plot.fit(x, y, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",function=f.line, selector=x >10,also_data=False)"
    ]
   },
   {

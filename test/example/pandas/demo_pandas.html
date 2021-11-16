@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="smpl.debug" href="../../_autosummary/smpl.debug.html" />
-    <link rel="prev" title="uncertainties" href="../uncertainties/uncertainties.html" /> 
+    <link rel="prev" title="uncertainties" href="../uncertainties/demo_uncertainties.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-12-ga4575a0
+                0.0.103-49-g552b8fe
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -59,7 +59,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../fit/index.html">Fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../latex/latex.html">Latex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../parallel/parallel.html">Parallel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uncertainties/uncertainties.html">uncertainties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../uncertainties/demo_uncertainties.html">uncertainties</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">pandas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Read">Read</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#To-Latex">To Latex</a></li>
@@ -102,7 +102,7 @@
           <li><a href="../index.html">Examples</a> &raquo;</li>
       <li>pandas</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/example/pandas/pandas.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/example/pandas/demo_pandas.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -389,6 +389,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
 </pre></div>
 </div>
 </div>
@@ -399,7 +400,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test_linear_data.txt&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">find_file</span><span class="p">(</span><span class="s1">&#39;test_linear_data2.txt&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
 </div>
@@ -703,7 +704,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/example_pandas_pandas_6_1.png" src="../../_images/example_pandas_pandas_6_1.png" />
+<img alt="../../_images/example_pandas_demo_pandas_6_1.png" src="../../_images/example_pandas_demo_pandas_6_1.png" />
 </div>
 </div>
 </section>
@@ -766,7 +767,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">rdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test_linear_data.txt&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span></span><span class="n">rdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">find_file</span><span class="p">(</span><span class="s1">&#39;test_linear_data2.txt&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">rdata</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span><span class="n">rdata</span><span class="p">[</span><span class="s1">&#39;dx&#39;</span><span class="p">])</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">rdata</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="n">rdata</span><span class="p">[</span><span class="s1">&#39;dy&#39;</span><span class="p">])</span>
@@ -987,7 +988,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/example_pandas_pandas_20_0.png" src="../../_images/example_pandas_pandas_20_0.png" />
+<img alt="../../_images/example_pandas_demo_pandas_20_0.png" src="../../_images/example_pandas_demo_pandas_20_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -1006,7 +1007,7 @@ div.rendered_html tbody tr:hover {
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../uncertainties/uncertainties.html" class="btn btn-neutral float-left" title="uncertainties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../uncertainties/demo_uncertainties.html" class="btn btn-neutral float-left" title="uncertainties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../../_autosummary/smpl.debug.html" class="btn btn-neutral float-right" title="smpl.debug" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

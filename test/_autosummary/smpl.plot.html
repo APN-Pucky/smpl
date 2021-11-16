@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-12-ga4575a0
+                0.0.103-49-g552b8fe
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -513,7 +513,7 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setp</span></code>(obj, *args, **kwargs)</p></td>
 <td><p>Set one or more properties on an <cite>.Artist</cite>, or list allowed values.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.show" title="smpl.plot.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>(*[, block])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(*[, block])</p></td>
 <td><p>Display all open figures.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">specgram</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
@@ -923,51 +923,6 @@
 </dd>
 <dt>Set default fit_kwargs if not set.</dt><dd></dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="smpl.plot.show">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/pyplot.html#show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.show" title="Permalink to this definition"></a></dt>
-<dd><p>Display all open figures.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
-<dt><strong>block</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to wait for all figures to be closed before returning.</p>
-<p>If <cite>True</cite> block and run the GUI main loop until all figure windows
-are closed.</p>
-<p>If <cite>False</cite> ensure that all figure windows are displayed and return
-immediately.  In this case, you are responsible for ensuring
-that the event loop is running to have responsive figures.</p>
-<p>Defaults to True in non-interactive mode and to False in interactive
-mode (see <cite>.pyplot.isinteractive</cite>).</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">ion</span></code></dt><dd><p>Enable interactive mode, which shows / updates the figure after every plotting command, so that calling <code class="docutils literal notranslate"><span class="pre">show()</span></code> is not necessary.</p>
-</dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">ioff</span></code></dt><dd><p>Disable interactive mode.</p>
-</dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code></dt><dd><p>Save the figure to an image file instead of showing it on screen.</p>
-</dd>
-</dl>
-</div>
-<p class="rubric">Notes</p>
-<p><strong>Saving figures to file and showing a window at the same time</strong></p>
-<p>If you want an image file as well as a user interface window, use
-<cite>.pyplot.savefig</cite> before <cite>.pyplot.show</cite>. At the end of (a blocking)
-<code class="docutils literal notranslate"><span class="pre">show()</span></code> the figure is closed and thus unregistered from pyplot. Calling
-<cite>.pyplot.savefig</cite> afterwards would save a new and thus empty figure. This
-limitation of command order does not apply if the show is non-blocking or
-if you keep a reference to the figure and use <cite>.Figure.savefig</cite>.</p>
-<p><strong>Auto-show in jupyter notebooks</strong></p>
-<p>The jupyter backends (activated via <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>,
-<code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, or <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">widget</span></code>), call <code class="docutils literal notranslate"><span class="pre">show()</span></code> at
-the end of every cell by default. Thus, you usually don’t have to call it
-explicitly there.</p>
 </dd></dl>
 
 <dl class="py function">
