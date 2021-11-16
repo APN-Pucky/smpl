@@ -20,10 +20,10 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 install:
-	python -m pip install --user .
+	python3 -m pip install --user .
 
 build:
-	python -m build
+	python3 -m build
 
 livehtml:
 	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --watch smpl/

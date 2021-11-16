@@ -73,9 +73,9 @@ jobs:
             fetch-depth: "0"
         - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
         - name: Test install smpl+dependencies
-          run: python -m pip install matplotlib
+          run: python3 -m pip install matplotlib
         - name: Test install smpl+dependencies
-          run: python -m pip install --index-url https://test.pypi.org/simple/ -U smpl
+          run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
           #run: make install
         - name: Run sphinx
           run: rm -rf build && make clean-all && make html
