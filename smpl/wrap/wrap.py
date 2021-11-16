@@ -4,7 +4,6 @@ from sympy.printing.pycode import pycode
 import uncertainties.unumpy as unp
 
 import numpy as np
-import ast
 
 
 def get_lambda(expr, xvar):

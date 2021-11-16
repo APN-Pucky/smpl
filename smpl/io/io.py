@@ -16,7 +16,7 @@ def find_file(fname, up=0):
     n = Path(fname).name
     if (p / n).is_file():
         return str(p / n)
-    for i in range(up):
+    for _ in range(up):
         p = p.parent
 
     for f in p.rglob(n):

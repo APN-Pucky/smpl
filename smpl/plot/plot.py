@@ -234,7 +234,7 @@ def function(func, *args, **kwargs):
 
     kwargs = plot_kwargs(kwargs)
     xfit = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
-    fig = init_plot(**kwargs)
+    init_plot(**kwargs)
 
     if not util.has("label", kwargs) or kwargs['label'] is None:
         kwargs['label'] = get_fnc_legend(func, args, **kwargs)
@@ -247,7 +247,7 @@ def function(func, *args, **kwargs):
 # xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
 def plt_residue(datax, datay, gfunction, fit, fig, **kwargs):
     function = wrap.get_lambda(gfunction, kwargs['xvar'])
-    frame2 = fig.add_axes((.1, .1, .8, .2))
+    fig.add_axes((.1, .1, .8, .2))
     kwargs['yaxis'] = "$\\Delta$" + kwargs['yaxis']
     kwargs['data_color'] = kwargs['fit_color']
 
@@ -365,9 +365,9 @@ def plt_fit(datax, datay, gfunction, **kwargs):
        Plot Fit 
     """
     function = wrap.get_lambda(gfunction, kwargs['xvar'])
-    x, y, xerr, yerr = data_split(datax, datay, **kwargs)
     fit = _fit(datax, datay, gfunction, **kwargs)
     if kwargs['prange'] is None:
+        x, _, _, _ = data_split(datax, datay, **kwargs)
         xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), 1000)
     else:
         xfit = np.linspace(kwargs['prange'][0], kwargs['prange'][1], 1000)
@@ -407,7 +407,7 @@ def init_plot(**kwargs):  # size=None,residue=False): #init
         else:
             fig = plt.figure(figsize=kwargs['size'])
         if kwargs['residue']:
-            frame1 = fig.add_axes((.1, .3, .8, .6))
+            fig.add_axes((.1, .3, .8, .6))
     if util.has("xlabel", kwargs) and kwargs['xlabel'] != "":
         plt.xlabel(kwargs['xlabel'])
     if util.has("ylabel", kwargs) and kwargs['ylabel'] != "":
@@ -445,7 +445,6 @@ def save_plot(**kwargs):  # save=None,lpos=0,logy=False,logx=False,show=True): #
         plt.savefig(kwargs['save'] + ".pdf")
     plt.grid(b=kwargs["grid"])
     if 'show' in kwargs and kwargs['show']:
-        raise Exception("show")
         show(**kwargs)
 
 
@@ -453,7 +452,6 @@ def show(**kwargs):
     kwargs = plot_kwargs(kwargs)
 
     plt.grid(b=kwargs["grid"])
-    print("showing")
     plt.show()
 
 

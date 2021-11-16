@@ -7,7 +7,7 @@ on:
     tags-ignore: 
       - '*'
 jobs:
-    publish:
+    test:
       runs-on: ubuntu-latest
       container:
         image: apnpucky/ubuntu-pip
@@ -22,6 +22,8 @@ jobs:
           run: make install
         - name: Tests
           run: make test
+        - name: Build Sphinx
+          run: rm -rf build && make clean-all && make html
         - name: Report Coveralls
           uses: AndreMiras/coveralls-python-action@develop
         - name: Report Codacy

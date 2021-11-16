@@ -25,6 +25,8 @@ jobs:
           run: make install
         - name: Tests
           run: make test
+        - name: Build Sphinx
+          run: rm -rf build && make clean-all && make html
         - name: Report Coveralls
           uses: AndreMiras/coveralls-python-action@develop
         - name: Report Codacy
@@ -40,8 +42,6 @@ jobs:
           with:
             password: ${{ secrets.test_pypi_token }}
             repository_url: https://test.pypi.org/legacy/
-        - name: Build Sphinx
-          run: rm -rf build && make clean-all && make html
         - name: Upload Github PAges
           uses: JamesIves/github-pages-deploy-action@4.1.5
           with:

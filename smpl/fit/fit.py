@@ -153,7 +153,6 @@ def fit(datax, datay, function, **kwargs):
             tmp_params += [params[i]]
     params = tmp_params
     N = len(params)
-    Nfree = len(params)
 
     def tmp(*x):
         tmp_x = []
@@ -243,9 +242,7 @@ def _fit_odr(datax, datay, function, params=None, yerr=None, xerr=None):
     # https://github.com/scipy/scipy/issues/6842
     # https://github.com/scipy/scipy/pull/12207
     # https://stackoverflow.com/questions/62460399/comparison-of-curve-fit-and-scipy-odr-absolute-sigma
-    tmp = unp.uarray(out.beta, out.sd_beta)
-    tmp2 = unc.correlated_values(out.beta, out.cov_beta)
-    return tmp2
+    return unc.correlated_values(out.beta, out.cov_beta)
 
 
 def __data_split(datax, datay, **kwargs):
