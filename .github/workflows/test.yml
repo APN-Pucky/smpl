@@ -9,7 +9,7 @@ on:
 
 jobs:
     test:
-      runs-on: ubuntu-latest
+      runs-on: apnpucky/ubuntu
       steps:
         - uses: actions/checkout@v2
           with:
