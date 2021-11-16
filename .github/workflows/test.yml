@@ -8,6 +8,34 @@ on:
       - '*'
 
 jobs:
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: "0"
+        - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+        - name: Set up Python 3.7
+          uses: actions/setup-python@v1
+          with:
+            python-version: 3.7
+        - name: Install setup and wheel
+          run: python3 -m pip install --user --upgrade setuptools wheel
+        - name: Build a binary wheel and a source tarball
+          run: python3 setup.py sdist bdist_wheel
+       - run: sudo apt-get update --fix-missing
+        - name: Install (nb)sphinx
+          run: sudo apt-get install python3-numpy pandoc
+        - name: Install sphinx
+          run: python3 -m pip install -U sympy tqdm matplotlib scipy jupyterlab pandas uncertainties sphinx nbsphinx numpydoc sphinx-math-dollar sphinx-rtd-theme pytest  pytest-coverage
+        - name: Test install smpl+dependencies
+          run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
+          #run: make install
+        - name: Unit tests
+          run: make test
+        - name: Coveralls
+          uses: AndreMiras/coveralls-python-action@develop
+
     publish:
       runs-on: ubuntu-latest
       steps:
@@ -37,8 +65,6 @@ jobs:
         - name: Test install smpl+dependencies
           run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
           #run: make install
-        - name: Version
-          run: python3
         - name: Run sphinx
           run: rm -rf build && make clean-all && make html
         - name: Deploy

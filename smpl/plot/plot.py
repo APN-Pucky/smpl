@@ -350,7 +350,7 @@ def get_fnc_legend(function, fit, **kwargs):
         # l = "$\\lambda$(" +  ','.join(function.__code__.co_varnames) + ") = " #sympy.latex(eval(function.__code__.co_code))
         try:
             cc, li = inspect.findsource(function)
-            f = ''.join(cc[li:]).split('lambda')[-1].split(':')[1].split(',')[
+            f = ''.join(cc[li:]).split('lambda')[1].split(':')[1].split(',')[
                 0].replace("\n", "")  # .replace("#", "").replace("'''","")
             l = "$" + sympy.latex(wrap.str_get_expr(f)) + "$"
         except OSError:

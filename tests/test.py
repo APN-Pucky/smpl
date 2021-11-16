@@ -9,7 +9,7 @@ from smpl.parallel import *
 import smpl
 
 
-plot.function( lambda N,a,b : -a * N * np.log(b*N), 1,1, xaxis="$N$", yaxis="$\\dot N$",xmin=0, xmax=100 )
+plot.function( lambda n,a,b : -a * n * np.log(b*n), 1,1, xaxis="$N$", yaxis="$\\dot N$",xmin=0, xmax=100 )
 plot.show()
 #print(io.pwd())
 
