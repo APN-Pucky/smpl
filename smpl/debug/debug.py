@@ -18,13 +18,13 @@ BLACK_LIST_FILES = []
 
 active = debug = on = DEBUG_LEVEL >= 0
 # count debug events by file+line
-count_times = {}
+# count_times = {}
 cur_table_line = {}
 
 
 def get_frame(_back=0):
     cf = currentframe()
-    for i in range(_back+1):
+    for _ in range(_back+1):
         cf = cf.f_back
     return cf
 
