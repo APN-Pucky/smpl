@@ -10,8 +10,6 @@ on:
 jobs:
     test:
       runs-on: ubuntu-latest
-      container:
-        image: apnpucky/ubuntu
       steps:
         - uses: actions/checkout@v2
           with:
@@ -47,6 +45,8 @@ jobs:
 
     publish:
       runs-on: ubuntu-latest
+      container:
+        image: apnpucky/ubuntu
       steps:
         - uses: actions/checkout@v2
           with:
