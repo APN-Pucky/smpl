@@ -2,9 +2,7 @@ name: stable
 
 on: 
   push:
-    branches:
-      - 'master'
-    tags-ignore: 
+    tags: 
       - '*'
 jobs:
     publish:
@@ -37,3 +35,11 @@ jobs:
           #run: make install
         - name: Run sphinx
           run: rm -rf build && make clean-all && make html
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@4.1.5
+          with:
+            #ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            BRANCH: gh-pages # The branch the action should deploy to.
+            FOLDER: build/html # The folder the action should deploy.
+            clean-exclude: test/
