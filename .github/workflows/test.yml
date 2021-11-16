@@ -23,7 +23,7 @@ jobs:
           run: python3 -m pip install --user --upgrade setuptools wheel
         - name: Build a binary wheel and a source tarball
           run: python3 setup.py sdist bdist_wheel
-       - run: sudo apt-get update --fix-missing
+        - run: sudo apt-get update --fix-missing
         - name: Install (nb)sphinx
           run: sudo apt-get install python3-numpy pandoc
         - name: Install sphinx
