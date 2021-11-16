@@ -67,8 +67,6 @@
    
       colorbar
    
-      colormaps
-   
       connect
    
       contour

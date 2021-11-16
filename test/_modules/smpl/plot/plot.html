@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103
+                0.0.103-3-g3f99caa
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -443,7 +443,7 @@
         <span class="c1"># l = &quot;$\\lambda$(&quot; +  &#39;,&#39;.join(function.__code__.co_varnames) + &quot;) = &quot; #sympy.latex(eval(function.__code__.co_code))</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">cc</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">findsource</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
-            <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span>
                 <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># .replace(&quot;#&quot;, &quot;&quot;).replace(&quot;&#39;&#39;&#39;&quot;,&quot;&quot;)</span>
             <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
         <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
