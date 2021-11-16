@@ -52,8 +52,6 @@ jobs:
           with:
             fetch-depth: "0"
         - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-        - name: Install setup and wheel
-          run: python3 -m pip install --user --upgrade setuptools wheel
         - name: Build a binary wheel and a source tarball
           run: python3 setup.py sdist bdist_wheel
         - name: Publish distribution 📦 to Test PyPI
@@ -62,10 +60,6 @@ jobs:
           with:
             password: ${{ secrets.test_pypi_token }}
             repository_url: https://test.pypi.org/legacy/
-        - name: Install (nb)sphinx
-          run: sudo apt-get install python3-numpy pandoc
-        - name: Install sphinx
-          run: python3 -m pip install -U sympy tqdm matplotlib scipy jupyterlab pandas uncertainties sphinx nbsphinx numpydoc sphinx-math-dollar sphinx-rtd-theme
         - name: Test install smpl+dependencies
           run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
           #run: make install
