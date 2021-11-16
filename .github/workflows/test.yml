@@ -28,8 +28,11 @@ jobs:
           run: sudo apt-get install python3-numpy pandoc
         - name: Install sphinx
           run: python3 -m pip install -U sympy tqdm matplotlib scipy jupyterlab pandas uncertainties sphinx nbsphinx numpydoc sphinx-math-dollar sphinx-rtd-theme pytest  pytest-coverage
+        #- name: Test install smpl+dependencies
+        #  run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
         - name: Test install smpl+dependencies
-          run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
+          run: make install
+         
           #run: make install
         - name: Unit tests
           run: make test
