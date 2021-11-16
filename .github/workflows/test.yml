@@ -9,7 +9,9 @@ on:
 
 jobs:
     test:
-      runs-on: apnpucky/ubuntu
+      runs-on: ubuntu-latest
+      container:
+        image: apnpucky/ubuntu
       steps:
         - uses: actions/checkout@v2
           with:
