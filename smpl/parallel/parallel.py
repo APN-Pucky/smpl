@@ -54,7 +54,7 @@ def par(f,*args,**kwargs):
         [0, 1, 4, 9, 16]
 
     """
-    return res([calc(f,*[args[k][i] for k in enumerate(args)],**{k:v[i] for k,v in kwargs.items()}) for i in range(len(args[0]) if len(args)>0 else len(next(iter(kwargs.values()))))])
+    return res([calc(f,*[args[k][i] for k in range(len(args))],**{k:v[i] for k,v in kwargs.items()}) for i in range(len(args[0]) if len(args)>0 else len(next(iter(kwargs.values()))))])
  
  
  

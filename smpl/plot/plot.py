@@ -304,7 +304,7 @@ def plt_data(datax, datay, **kwargs):
             ll, = plt.step(x, y, where='mid',
                            color=kwargs['data_color'])
             if xerr is not None:
-                for ix in enumerate(x):
+                for ix in range(len(x)):
                     dx = (xerr[ix])
                     tx = [x[ix]-dx, x[ix]+dx]
                     plt.fill_between(tx, y[ix]-yerr[ix], y[ix]+yerr[ix],

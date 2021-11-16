@@ -4,7 +4,7 @@ from scipy import optimize
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from scipy.odr import *
-#from tqdm import tqdm
+# from tqdm import tqdm
 # local imports
 from smpl import functions
 from smpl import stat
@@ -102,7 +102,7 @@ def auto(datax, datay, funcs=None, **kwargs):
                 ff = fit(datax, datay, f, **kwargs)
                 fy = f(datax, *ff)
             except (ValueError, LinAlgError) as ve:
-                #print (ve)
+                # print (ve)
                 continue
             sum_sq = np.sum((fy - datay)**2) + np.sum((fy + usd(fy) -
                                                        datay)**2) + np.sum((fy - usd(fy) - datay)**2)
@@ -117,7 +117,7 @@ def auto(datax, datay, funcs=None, **kwargs):
 
 def fit(datax, datay, function, **kwargs):
     """
-    Returns a fit of ``function`` to ``datax`` and ``datay``. 
+    Returns a fit of ``function`` to ``datax`` and ``datay``.
 
     Parameters
     ==========
@@ -149,7 +149,7 @@ def fit(datax, datay, function, **kwargs):
         N = len(vnames)
         params = [1 for i in range(N-1)]
     tmp_params = []
-    for i in enumerate(params):
+    for i in range(len(params)):
         if not util.has(i+1, fixed):
             tmp_params += [params[i]]
     params = tmp_params
@@ -161,7 +161,7 @@ def fit(datax, datay, function, **kwargs):
         j = 1
         # print(x)
         for i in range(1, Ntot+1):
-            #print(i," ",j)
+            # print(i," ",j)
             if not util.has(i, fixed):
                 tmp_x += [x[j]]
                 # print(x[j])
@@ -226,7 +226,7 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
         # print(e)
         return params
     error = []
-    for i in enumerate(pfit):
+    for i in range(len(pfit)):
         try:
             error.append(np.absolute(pcov[i][i])**0.5)
         except:
@@ -267,19 +267,19 @@ def __data_split(datax, datay, **kwargs):
     if util.has("sortbyx", kwargs) and kwargs['sortbyx']:
         ind = np.argsort(unv(datax))
     else:
-        ind = np.array(enumerate(datax))
-    x = unv(datax)[ind]
-    y = unv(datay)[ind]
-    xerr = usd(datax)[ind]
-    yerr = usd(datay)[ind]
-    xerr = xerr if np.any(np.abs(xerr) > 0) else None
-    yerr = yerr if np.any(np.abs(yerr) > 0) else None
+        ind = np.array(range((datax))))
+    x=unv(datax)[ind]
+    y=unv(datay)[ind]
+    xerr=usd(datax)[ind]
+    yerr=usd(datay)[ind]
+    xerr=xerr if np.any(np.abs(xerr) > 0) else None
+    yerr=yerr if np.any(np.abs(yerr) > 0) else None
     return x, y, xerr, yerr
 
 
 def _data_split(datax, datay, **kwargs):
     if util.has('selector', kwargs):
-        sel = kwargs['selector']
+        sel=kwargs['selector']
         if callable(sel):
             return __data_split(datax[sel(datax, datay)], datay[sel(datax, datay)], **kwargs)
         else:

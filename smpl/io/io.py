@@ -105,8 +105,8 @@ def out_si_line(fn, tab, skip=0):
 def out_si_tab(fn, tab, skip=0, fmt="{}"):
     mkdirs(fn)
     file = open(fn, "w")
-    for i in enumerate(tab):
-        for j in enumerate(tab[i]):
+    for i in range(len(tab)):
+        for j in range(len(tab[i])):
             if(j != 0):
                 file.write(pr("&", nnl=True))
             if(j >= skip):
@@ -126,7 +126,7 @@ def dump_vars(fd):
 
 
 def iteri(a):
-    return zip(enumerate(a), a)
+    return zip(range(len(a)), a)
 
 
 def smart_out(fn, x):

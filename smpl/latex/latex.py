@@ -66,8 +66,8 @@ def si_tab(tab, skip=0, fmt="{}"):
     # mkdirs(fn)
     #file = open(fn,"w")
     s = ""
-    for i in enumerate(tab):
-        for j in enumerate(tab[i]):
+    for i in range(len(tab)):
+        for j in range(len(tab[i])):
             if(j != 0):
                 s += "&"
             if(j >= skip):
