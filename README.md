@@ -8,7 +8,7 @@ Doc: https://apn-pucky.github.io/smpl/index.html
 | ![downloads](https://img.shields.io/pypi/dm/smpl.svg) | -     |
 | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2)](https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade) | [![Codacy Badge](https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2)](https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade)      |
 | [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2)](https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&utm_medium=referral&utm_content=APN-Pucky/smpl&utm_campaign=Badge_Coverage) | [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2)](https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&utm_medium=referral&utm_content=APN-Pucky/smpl&utm_campaign=Badge_Coverage)      |
-| [![Coverage Status](https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=master)](https://coveralls.io/github/APN-Pucky/smpl?branch=stable) | [![Coverage Status](https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=test)](https://coveralls.io/github/APN-Pucky/smpl?branch=stable) |
+| [![Coverage Status](https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=master)](https://coveralls.io/github/APN-Pucky/smpl?branch=stable) | [![Coverage Status](https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=test)](https://coveralls.io/github/APN-Pucky/smpl?branch=test) |
 
 
 ## Versions
