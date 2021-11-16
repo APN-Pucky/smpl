@@ -30,8 +30,7 @@ livehtml:
 
 test:
 	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --to script
-	pytest -v --cov=smpl  --cov-append  --cov-report=term --cov-report=xml
-	pytest smpl --cov-config=.coveragerc --doctest-modules --cov=smpl  --cov-append --cov-report=xml
+	pytest -v --cov=smpl --cov-config=.coveragerc --cov-append  --cov-report=term --cov-report=xml --doctest-modules
 
 commit: 
 	-git add .
