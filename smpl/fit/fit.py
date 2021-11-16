@@ -149,7 +149,7 @@ def fit(datax, datay, function, **kwargs):
         N = len(vnames)
         params = [1 for i in range(N-1)]
     tmp_params = []
-    for i in range(len(params)):
+    for i in enumerate(params):
         if not util.has(i+1, fixed):
             tmp_params += [params[i]]
     params = tmp_params
@@ -226,7 +226,7 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
         # print(e)
         return params
     error = []
-    for i in range(len(pfit)):
+    for i in enumerate(pfit):
         try:
             error.append(np.absolute(pcov[i][i])**0.5)
         except:
@@ -267,7 +267,7 @@ def __data_split(datax, datay, **kwargs):
     if util.has("sortbyx", kwargs) and kwargs['sortbyx']:
         ind = np.argsort(unv(datax))
     else:
-        ind = np.array(range(len(datax)))
+        ind = np.array(enumerate(datax))
     x = unv(datax)[ind]
     y = unv(datay)[ind]
     xerr = usd(datax)[ind]

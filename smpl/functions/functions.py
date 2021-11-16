@@ -1,5 +1,4 @@
 import numpy as np
-import scipy
 import uncertainties.unumpy as unp
 
 from smpl import doc

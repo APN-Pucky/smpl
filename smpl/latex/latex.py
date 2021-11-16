@@ -2,13 +2,15 @@ import pathlib
 #from io import StringIO
 import numpy as np
 
+
 def gf(i):
     """
     Scientific format with ``i`` digits.
     """
     return "{0:." + str(i) + "g}"
 
-def si(s,u="",fmt="{}"):
+
+def si(s, u="", fmt="{}"):
     """
     Get number with uncertainty and unit in ``si`` format for latex.
 
@@ -26,19 +28,24 @@ def si(s,u="",fmt="{}"):
     sistr : str
         latex SI string of the number with it's uncertainty and unit.
     """
-    return "\\SI{%s}{%s}"%((fmt.format(s)).replace("/","").replace("(","").replace(")",""),u)
+    return "\\SI{%s}{%s}" % ((fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""), u)
 
-def si_line(a,skip = 0,fmt="{}"):
+
+def si_line(a, skip=0, fmt="{}"):
     """
     Get array ``a`` in the format of a line of a latex table.
     """
-    return si_tab(np.transpose([[t] for t in a]),skip,fmt)
-def si_ttab(tab,skip=0, fmt="{}"):
+    return si_tab(np.transpose([[t] for t in a]), skip, fmt)
+
+
+def si_ttab(tab, skip=0, fmt="{}"):
     """
     Transposed :func:`si_tab`.
     """
-    return si_tab(np.transpose(tab),skip,fmt)
-def si_tab(tab,skip=0, fmt="{}"):
+    return si_tab(np.transpose(tab), skip, fmt)
+
+
+def si_tab(tab, skip=0, fmt="{}"):
     """
     Get arrays of (uncertainty) numbers in  a latex table compatible form.
 
@@ -56,17 +63,16 @@ def si_tab(tab,skip=0, fmt="{}"):
     tabstr : str
         table latex string
     """
-    #mkdirs(fn)
+    # mkdirs(fn)
     #file = open(fn,"w")
     s = ""
-    for i in range(len(tab)):
-        for j in range(len(tab[i])):
-            if(j!=0):
+    for i in enumerate(tab):
+        for j in enumerate(tab[i]):
+            if(j != 0):
                 s += "&"
-            if(j>=skip):
-                s+=si(tab[i][j],fmt=fmt)
+            if(j >= skip):
+                s += si(tab[i][j], fmt=fmt)
             else:
-                s+="%s"%(tab[i][j])
+                s += "%s" % (tab[i][j])
         s += "\\\\\n"
     return s
-

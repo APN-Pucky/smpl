@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-import math
 import uncertainties.unumpy as unp
 from scipy.odr import *
 import sympy
@@ -12,7 +11,6 @@ import inspect
 from smpl import io
 from smpl import util
 from smpl import wrap
-from smpl.doc import append_doc, append_str
 from smpl import doc
 from smpl import fit as ffit
 
@@ -306,7 +304,7 @@ def plt_data(datax, datay, **kwargs):
             ll, = plt.step(x, y, where='mid',
                            color=kwargs['data_color'])
             if xerr is not None:
-                for ix in range(len(x)):
+                for ix in enumerate(x):
                     dx = (xerr[ix])
                     tx = [x[ix]-dx, x[ix]+dx]
                     plt.fill_between(tx, y[ix]-yerr[ix], y[ix]+yerr[ix],

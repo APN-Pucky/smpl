@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 from smpl import plot
 from smpl import functions as f
 
-from smpl import test
-from smpl import io
 from smpl.parallel import *
 import smpl
 
