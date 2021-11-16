@@ -25,7 +25,7 @@ install:
 livehtml:
 	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --watch smpl/
 test:
-	 pytest smpl --doctest-modules --cov=smpl  --cov-append
+	 pytest smpl --cov-config=.coveragerc --doctest-modules --cov=smpl  --cov-append
 commit: 
 	-git add .
 	-git commit
