@@ -1,7 +1,7 @@
 # simple plotting + fitting
 Doc: https://apn-pucky.github.io/smpl/index.html
 
-| Stable        | Test           |
+| [Stable](https://apn-pucky.github.io/smpl/index.html)        | [Test](https://apn-pucky.github.io/smpl/test/index.html)           |
 | ------------- |:-------------:|
 | [![PyPI version](https://badge.fury.io/py/smpl.svg)](https://badge.fury.io/py/smpl)      | - | 
 | ![workflow](https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml/badge.svg)      | [![test](https://github.com/APN-Pucky/smpl/actions/workflows/test.yml/badge.svg)](https://github.com/APN-Pucky/smpl/actions/workflows/test.yml)     |
