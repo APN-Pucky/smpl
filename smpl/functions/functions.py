@@ -111,35 +111,3 @@ def order(x, a, k, y):
 @doc.insert_latex_eq()
 def sqrt(x, a, b, c):
     return a*unp.sqrt(x+b)+c
-
-
-def Gauß(x, x0, A, d):
-    """$A\\cdot \\exp\\left(\\frac{-(x-x0)^2}{2d^2}\\right)$"""
-    return A * unp.exp(-(x - x0)**2 / 2 / d**2)
-
-
-def Two_Gauss(x, x0, A0, d0, x1, A1, d1, y):
-    """$A\\cdot \\exp\\left(\\frac{-(x-x0)^2}{2d^2}\\right)+y$"""
-    # return A0 * np.exp(-(x - x0)**2 / 2 / d0**2) + y0 + A1 * np.exp(-(x - x1)**2 / 2 / d1**2) + y1
-    return gauss(x, x0, A0, d0, y)+gauss(x, x1, A1, d1, 0)
-
-
-def Six_Gauss(x, x0, A0, d0, x1, A1, d1, x2, A2, d2, x3, A3, d3, x4, A4, d4, x5, A5, d5, y):
-    """$A\\cdot \\exp\\left(\\frac{-(x-x0)^2}{2d^2}\\right)+y$"""
-    # return A0 * np.exp(-(x - x0)**2 / 2 / d0**2) + y0 + A1 * np.exp(-(x - x1)**2 / 2 / d1**2) + y1
-    return gauss(x, x0, A0, d0, y)+gauss(x, x1, A1, d1, 0)+gauss(x, x2, A2, d2, 0)+gauss(x, x3, A3, d3, 0)+gauss(x, x4, A4, d4, 0)+gauss(x, x5, A5, d5, 0)
-
-
-def Two_Exp(x, A0, A1, l0, l1):
-    """A0*exp(-l0*x)+A1*exp(-l1*x)"""
-    return exponential(x, -l0, A0)+exponential(x, -l1, A1)
-
-
-def Two_Lorentz(x, x0, A0, d0, x1, A1, d1, y):
-    """$\\frac{A}{\\pi d (1+ (\\frac{x-x0}{d})^2)} + y$"""
-    return lorentz(x, x0, A0, d0, y)+lorentz(x, x1, A1, d1, 0)
-
-
-def Split_Gauss(x, x0, A0, d0, d1, y):
-    """\n$A\\cdot \\exp\\left(\\frac{-(x-x0)^2}{2d0^2}\\right)+y$, für x>x0\n$A\\cdot \\exp\\left(\\frac{-(x-x0)^2}{2d1^2}\\right)+y$, sonst"""
-    return np.where(x > x0, gauss(x, x0, A0, d0, y), gauss(x, x0, A0, d1, y))

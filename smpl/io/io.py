@@ -27,7 +27,7 @@ def find_file(fname, up=0):
 
 def pwd():
     """
-        Returns the path to the path of current file
+    Returns the path to the path of current file
     """
     pwd_ = "/".join(debug.get_line_number_file(split=False,
                     _back=1)[1].split("/")[:-1])
@@ -68,14 +68,14 @@ def mkdirs(fn):
 
 def pr(a, nnl=False):
     """
-    Prints the passed ``a``.     
+    Prints the passed ``a``.
 
     Parameters
     ==========
     nnl : bool
         no-new-line
 
-    Returns 
+    Returns
     =======
     a : any
         unchanged ``a``.
@@ -157,7 +157,7 @@ def out_si_tab(fn, tab, skip=0, fmt="{}"):
     mkdirs(fn)
     file = open(fn, "w")
     for i, ti in enumerate(tab):
-        for j, tij in enumerate(tab[i]):
+        for j, tij in enumerate(ti):
             if(j != 0):
                 file.write(pr("&", nnl=True))
             if(j >= skip):

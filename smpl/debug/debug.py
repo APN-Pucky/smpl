@@ -32,6 +32,15 @@ def get_frame(_back=0):
 def once(_back=0):
     """
     Returns true only one time
+
+    Examples
+    ========
+
+    >>> for i in range(10):
+    ...     if once():
+    ...         print(i)
+    0
+
     """
     return times(1, _back+1)
 
@@ -113,7 +122,15 @@ def check_count(line, fname, t):
 # t stands for times
 def msg(msg, tag="", level=0, times=-1, line_=False, _back=0):
     """
-    Prints the message ``msg`` if level > debug_level
+    Prints the message ``msg`` if level > debug_level and always returns the msg.
+
+    Examples
+    ========
+
+    >>> msg("hi")
+    hi
+    'hi'
+
     """
     if(level <= DEBUG_LEVEL):
         line, fname = get_line_number_file(_back+1)

@@ -346,7 +346,7 @@ def get_fnc_legend(function, fit, **kwargs):
 # p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
 def plt_fit(datax, datay, gfunction, **kwargs):
     """
-       Plot Fit 
+    Plot Fit
     """
     function = wrap.get_lambda(gfunction, kwargs['xvar'])
     fit = _fit(datax, datay, gfunction, **kwargs)
