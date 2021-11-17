@@ -39,7 +39,7 @@ def get_latex(function):
     ========
     >>> get_latex(lambda a,b,c,x : (a+b+c)*x,)
     '$x \\\\left(a + b + c\\\\right)$'
-    >>> l = get_latex("(a+b+c)*x")
+    >>> get_latex("(a+b+c)*x")
     '$x \\\\left(a + b + c\\\\right)$'
     >>> def fun(a,b,x,c):
     ...     return (a+b+c)*x

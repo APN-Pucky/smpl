@@ -128,7 +128,7 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0):
     ========
 
     >>> msg("hi", level = -9999)
-    hi
+    DBG::debug.py:...: hi
     'hi'
     >>> msg("hi")
     'hi'
@@ -241,3 +241,7 @@ if os.path.exists("debug.csv"):
     os.remove("debug.csv")
 if os.path.exists("debug_table.csv"):
     os.remove("debug_table.csv")
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
