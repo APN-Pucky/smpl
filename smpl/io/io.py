@@ -44,6 +44,17 @@ def import_path(path='../..'):
 def gf(i):
     """
     Scientific format with ``i`` digits.
+
+    Examples
+    ========
+
+    >>> gf(2)
+    '{0:.2g}'
+    >>> io.gf(2).format(789234578934)
+    7.9e+11
+    >>> io.gf(5).format(789234578934)
+    7.8923e+11
+
     """
     return "{0:." + str(i) + "g}"
 
@@ -68,6 +79,15 @@ def pr(a, nnl=False):
     =======
     a : any
         unchanged ``a``.
+
+    Examples
+
+    >>> 5 + pr(4)
+    4
+    9
+    >>> 5 + pr(4, nnl=True)
+    49
+    ...
     """
     if nnl:
         print(a, end='')
@@ -79,10 +99,22 @@ def pr(a, nnl=False):
 def si(s, u="", fmt="{}"):
     """
     Get nuber with uncertainty and unit in ``si`` format for latex.
+
     Returns
     =======
     sistr : str
         latex SI string of the number with it's uncertainty and unit.
+
+    Examples
+    ========
+    >>> import unceratinties as unc
+    >>> si(unc.ufloat(2000,0.1))
+    \\SI{2000.00+-0.10}{}
+    >>> si(unc.ufloat(2000,0.1),"\\meter")
+    \\SI{2000.00+-0.10}{\\meter}
+    >>> si(unc.ufloat(2000,0.1),"\\meter", gf(2))
+    \\SI{2.0+-0.0e+03}{\\meter}
+
     """
     return "\\SI{%s}{%s}" % ((fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""), u)
 
