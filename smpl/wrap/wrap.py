@@ -5,22 +5,42 @@ import uncertainties.unumpy as unp
 import inspect
 import numpy as np
 
+
 def get_latex(function):
+    """
+    Return a latex string for passed function.
+
+    Parameters
+    ==========
+
+    function : function_like
+        function as str lambda or (oneline) function
+    """
     if isinstance(function, str):
         l = "$" + sympy.latex(str_get_expr(function)) + "$"
     else:
         l = function.__name__
-    # l = ""
     if l == "<lambda>":
-        # l = "$\\lambda$(" +  ','.join(function.__code__.co_varnames) + ") = " #sympy.latex(eval(function.__code__.co_code))
         try:
             cc, li = inspect.findsource(function)
             f = ''.join(cc[li:]).split('lambda')[1].split(':')[1].split(',')[
-                0].replace("\n", "")  # .replace("#", "").replace(""""","")
+                0].replace("\n", "")
             l = "$" + sympy.latex(str_get_expr(f)) + "$"
         except OSError:
             l = "$\\lambda$(" + ','.join(function.__code__.co_varnames) + ")"
+    elif not isinstance(function, str):
+        if function.__doc__ is not None:
+            l = function.__doc__.split('\n')[0]
+        else:
+            try:
+                cc, li = inspect.findsource(function)
+                s = ''.join(cc[li:]).split('return')[1].split('\n')[0]
+                l = "$" + sympy.latex(str_get_expr(s)) + "$"
+            except OSError:
+                l = function.__name__
+
     return l
+
 
 def get_lambda(expr, xvar):
     if isinstance(expr, str):
@@ -88,7 +108,7 @@ def fnc_get_varnames(func, xvar):
 
 
 def str_get_expr(expr):
-    expr = expr.replace("unp.", "").replace("np.", "")
+    expr = expr.replace("math.", "").replace("unp.", "").replace("np.", "")
     parsed_expr = sympy.parsing.sympy_parser.parse_expr(
         expr,
         local_dict=None,

@@ -323,8 +323,6 @@ def plt_data(datax, datay, **kwargs):
 def get_fnc_legend(function, fit, **kwargs):
     l = wrap.get_latex(function)
 
-    if function.__doc__ is not None and not isinstance(function, str):
-        l = function.__doc__.split('\n')[0]
     vnames = wrap.get_varnames(function, kwargs['xvar'])
     for i in range(1, len(vnames)):
         l = l + ("\n" if not kwargs["fitinline"] or i == 1 else " ")
