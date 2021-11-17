@@ -16,8 +16,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "def gompertz(N,a,b):\n",
-    "    return -a * N * np.log(b*N)\n",
+    "def gompertz(n,a,b):\n",
+    "    return -a * n * np.log(b*n)\n",
     "\n",
     "def solution_gompertz(t,a,b,c):\n",
     "    return 1/b*np.exp(np.exp(-t*a)*c)"
