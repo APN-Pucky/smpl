@@ -11,6 +11,8 @@
    
       get_lambda
    
+      get_latex
+   
       get_varnames
    
       str_get_expr
