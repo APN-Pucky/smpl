@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-66-g732d33c
+                0.0.103-85-g78831ac
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -125,6 +125,15 @@
 <div class="viewcode-block" id="once"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.once">[docs]</a><span class="k">def</span> <span class="nf">once</span><span class="p">(</span><span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns true only one time</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ========</span>
+
+<span class="sd">    &gt;&gt;&gt; for i in range(10):</span>
+<span class="sd">    ...     if once():</span>
+<span class="sd">    ...         print(i)</span>
+<span class="sd">    0</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">times</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span></div>
 
@@ -206,7 +215,17 @@
 <span class="c1"># t stands for times</span>
 <div class="viewcode-block" id="msg"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.msg">[docs]</a><span class="k">def</span> <span class="nf">msg</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Prints the message ``msg`` if level &gt; debug_level</span>
+<span class="sd">    Prints the message ``msg`` if level &gt; debug_level and always returns the msg.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ========</span>
+
+<span class="sd">    &gt;&gt;&gt; msg(&quot;hi&quot;, level = -9999)</span>
+<span class="sd">    DBG::debug.py:...: hi</span>
+<span class="sd">    &#39;hi&#39;</span>
+<span class="sd">    &gt;&gt;&gt; msg(&quot;hi&quot;)</span>
+<span class="sd">    &#39;hi&#39;</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span><span class="p">(</span><span class="n">level</span> <span class="o">&lt;=</span> <span class="n">DEBUG_LEVEL</span><span class="p">):</span>
         <span class="n">line</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">get_line_number_file</span><span class="p">(</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -315,6 +334,10 @@
     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;debug.csv&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;debug_table.csv&quot;</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;debug_table.csv&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">ELLIPSIS</span><span class="p">)</span>
 </pre></div>
 
            </div>

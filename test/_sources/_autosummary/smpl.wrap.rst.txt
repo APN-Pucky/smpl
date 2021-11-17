@@ -15,8 +15,6 @@
    
       get_varnames
    
-      str_get_expr
-   
    
    .. rubric:: Functions
 

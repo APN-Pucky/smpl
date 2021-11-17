@@ -31,7 +31,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-66-g732d33c
+                0.0.103-85-g78831ac
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -125,21 +125,38 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_lambda</span></code>(expr, xvar)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.wrap.get_lambda" title="smpl.wrap.get_lambda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_lambda</span></code></a>(expr, xvar)</p></td>
+<td><p>Returns a lambda of given <code class="docutils literal notranslate"><span class="pre">str</span></code>/<code class="docutils literal notranslate"><span class="pre">function</span></code>/<code class="docutils literal notranslate"><span class="pre">lambda</span></code> expression with <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> set to the latex expression.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.wrap.get_latex" title="smpl.wrap.get_latex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_latex</span></code></a>(function)</p></td>
 <td><p>Return a latex string for passed function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_varnames</span></code>(expr, xvar)</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.wrap.str_get_expr" title="smpl.wrap.str_get_expr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str_get_expr</span></code></a>(expr)</p></td>
-<td><p>Converte a pythonic string expression ot a sympy expression.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.wrap.get_varnames" title="smpl.wrap.get_varnames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_varnames</span></code></a>(expr, xvar)</p></td>
+<td><p>Returns a list of variables used in the <code class="docutils literal notranslate"><span class="pre">str</span></code> math-expression via sympy and puts <code class="docutils literal notranslate"><span class="pre">xvar</span></code> to the front.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.wrap.get_lambda">
+<span class="sig-prename descclassname"><span class="pre">smpl.wrap.</span></span><span class="sig-name descname"><span class="pre">get_lambda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xvar</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/wrap/wrap.html#get_lambda"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.wrap.get_lambda" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a lambda of given <code class="docutils literal notranslate"><span class="pre">str</span></code>/<code class="docutils literal notranslate"><span class="pre">function</span></code>/<code class="docutils literal notranslate"><span class="pre">lambda</span></code> expression with <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> set to the latex expression. <code class="docutils literal notranslate"><span class="pre">xvar</span></code> is moved to the front.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">get_lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">x</span> <span class="p">:</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">get_lambda</span><span class="p">(</span><span class="s2">&quot;(a+b+c)*x&quot;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">get_lambda</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.wrap.get_latex">
 <span class="sig-prename descclassname"><span class="pre">smpl.wrap.</span></span><span class="sig-name descname"><span class="pre">get_latex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/wrap/wrap.html#get_latex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.wrap.get_latex" title="Permalink to this definition"></a></dt>
@@ -152,13 +169,28 @@
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_latex</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">x</span> <span class="p">:</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">,)</span>
+<span class="go">&#39;$x \\left(a + b + c\\right)$&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_latex</span><span class="p">(</span><span class="s2">&quot;(a+b+c)*x&quot;</span><span class="p">)</span>
+<span class="go">&#39;$x \\left(a + b + c\\right)$&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_latex</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
+<span class="go">&#39;$x \\left(a + b + c\\right)$&#39;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="smpl.wrap.str_get_expr">
-<span class="sig-prename descclassname"><span class="pre">smpl.wrap.</span></span><span class="sig-name descname"><span class="pre">str_get_expr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/wrap/wrap.html#str_get_expr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.wrap.str_get_expr" title="Permalink to this definition"></a></dt>
-<dd><p>Converte a pythonic string expression ot a sympy expression.</p>
-<p>Only works with np or unp naming.</p>
+<dt class="sig sig-object py" id="smpl.wrap.get_varnames">
+<span class="sig-prename descclassname"><span class="pre">smpl.wrap.</span></span><span class="sig-name descname"><span class="pre">get_varnames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xvar</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/wrap/wrap.html#get_varnames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.wrap.get_varnames" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of variables used in the <code class="docutils literal notranslate"><span class="pre">str</span></code> math-expression via sympy and puts <code class="docutils literal notranslate"><span class="pre">xvar</span></code> to the front.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_varnames</span><span class="p">(</span><span class="s2">&quot;a**x*b+c&quot;</span><span class="p">,</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="go">[&#39;x&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

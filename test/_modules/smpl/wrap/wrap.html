@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-66-g732d33c
+                0.0.103-85-g78831ac
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -91,12 +91,31 @@
            <div itemprop="articleBody">
              
   <h1>Source code for smpl.wrap.wrap</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">sympy.parsing.sympy_parser</span> <span class="kn">import</span> <span class="n">standard_transformations</span><span class="p">,</span> <span class="n">implicit_multiplication_application</span>
+<span></span><span class="kn">from</span> <span class="nn">tokenize</span> <span class="kn">import</span> <span class="n">TokenError</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">sympy.parsing.sympy_parser</span> <span class="kn">import</span> <span class="n">standard_transformations</span><span class="p">,</span> <span class="n">implicit_multiplication_application</span>
 <span class="kn">import</span> <span class="nn">sympy</span>
 <span class="kn">from</span> <span class="nn">sympy.printing.pycode</span> <span class="kn">import</span> <span class="n">pycode</span>
 <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="get_varnames"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_varnames">[docs]</a><span class="k">def</span> <span class="nf">get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ========</span>
+
+<span class="sd">    &gt;&gt;&gt; get_varnames(&quot;a**x*b+c&quot;,&quot;x&quot;)</span>
+<span class="sd">    [&#39;x&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">str_get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fnc_get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="get_latex"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_latex">[docs]</a><span class="k">def</span> <span class="nf">get_latex</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
@@ -108,6 +127,18 @@
 
 <span class="sd">    function : function_like</span>
 <span class="sd">        function as str lambda or (oneline) function</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ========</span>
+<span class="sd">    &gt;&gt;&gt; get_latex(lambda a,b,c,x : (a+b+c)*x,)</span>
+<span class="sd">    &#39;$x \\\\left(a + b + c\\\\right)$&#39;</span>
+<span class="sd">    &gt;&gt;&gt; get_latex(&quot;(a+b+c)*x&quot;)</span>
+<span class="sd">    &#39;$x \\\\left(a + b + c\\\\right)$&#39;</span>
+<span class="sd">    &gt;&gt;&gt; def fun(a,b,x,c):</span>
+<span class="sd">    ...     return (a+b+c)*x</span>
+<span class="sd">    &gt;&gt;&gt; get_latex(fun)</span>
+<span class="sd">    &#39;$x \\\\left(a + b + c\\\\right)$&#39;</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">function</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
@@ -115,10 +146,14 @@
         <span class="n">l</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
     <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="s2">&quot;&lt;lambda&gt;&quot;</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">cc</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">findsource</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
-            <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span>
-                <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-            <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">cc</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">findsource</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+                <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span>
+                    <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
+            <span class="k">except</span> <span class="n">TokenError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                    <span class="s2">&quot;Make sure there is a &#39;,&#39; behind the lambda expression and no commas are in the lambda expression and no newlines&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
             <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">lambda$(&quot;</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
     <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -135,11 +170,30 @@
     <span class="k">return</span> <span class="n">l</span></div>
 
 
-<span class="k">def</span> <span class="nf">get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+<div class="viewcode-block" id="get_lambda"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_lambda">[docs]</a><span class="k">def</span> <span class="nf">get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ========</span>
+
+<span class="sd">    &gt;&gt;&gt; l = get_lambda(lambda a,b,c,x : (a+b+c)*x,&#39;x&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; l(4,1,1,1)</span>
+<span class="sd">    12</span>
+<span class="sd">    &gt;&gt;&gt; l = get_lambda(&quot;(a+b+c)*x&quot;,&#39;x&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; l(4,1,1,1)</span>
+<span class="sd">    12</span>
+<span class="sd">    &gt;&gt;&gt; def fun(a,b,x,c):</span>
+<span class="sd">    ...     return (a+b+c)*x</span>
+<span class="sd">    &gt;&gt;&gt; l = get_lambda(fun,&#39;x&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; l(4,1,1,1)</span>
+<span class="sd">    12</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">str_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fnc_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fnc_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">fnc_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
@@ -162,19 +216,7 @@
     <span class="k">return</span> <span class="n">__l__</span>
 
 
-<span class="k">def</span> <span class="nf">get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">str_get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">fnc_get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span>
-<span class="c1"># def get_argcount(expr):</span>
-<span class="c1">#    return len(get_varnames(expr))</span>
-
-
 <span class="k">def</span> <span class="nf">str_get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a list of variables used in the ``str`` math-expression via sympy.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">parsed_expr</span> <span class="o">=</span> <span class="n">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 
@@ -200,7 +242,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="n">xvar</span><span class="p">,</span> <span class="o">*</span><span class="n">varss</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="str_get_expr"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.str_get_expr">[docs]</a><span class="k">def</span> <span class="nf">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Converte a pythonic string expression ot a sympy expression.</span>
 
@@ -217,10 +259,11 @@
                              <span class="p">(</span><span class="n">implicit_multiplication_application</span><span class="p">,)),</span>
             <span class="n">evaluate</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
             <span class="s2">&quot;Illegal variable/function name (try uncap. letters) &quot;</span> <span class="o">+</span> <span class="n">expr</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">parsed_expr</span></div>
+        <span class="k">raise</span> <span class="n">e</span>
+    <span class="k">return</span> <span class="n">parsed_expr</span>
 </pre></div>
 
            </div>

@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-66-g732d33c
+                0.0.103-85-g78831ac
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -136,7 +136,7 @@
 <td><p>Gets the current filename and the current linenumber within it.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">msg</span></code></a>(msg[, tag, level, times, line_, _back])</p></td>
-<td><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level</p></td>
+<td><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level and always returns the msg.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.debug.msg1" title="smpl.debug.msg1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">msg1</span></code></a>(_msg[, tag, level, times, line_, _back])</p></td>
 <td><p>Just like <a class="reference internal" href="#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-func docutils literal notranslate"><span class="pre">msg()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p></td>
@@ -195,7 +195,15 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.debug.msg">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#msg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.msg" title="Permalink to this definition"></a></dt>
-<dd><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level</p>
+<dd><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level and always returns the msg.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
+<span class="go">DBG::debug.py:...: hi</span>
+<span class="go">&#39;hi&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<span class="go">&#39;hi&#39;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -208,6 +216,13 @@
 <dt class="sig sig-object py" id="smpl.debug.once">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#once"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.once" title="Permalink to this definition"></a></dt>
 <dd><p>Returns true only one time</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">once</span><span class="p">():</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
