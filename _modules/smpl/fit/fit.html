@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103
+                0.0.104
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -93,25 +93,13 @@
   <h1>Source code for smpl.fit.fit</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">stat</span>
-<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sci</span>
-<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
-<span class="kn">import</span> <span class="nn">scipy.fftpack</span>
-<span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
 <span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
 <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
-<span class="kn">import</span> <span class="nn">uncertainties.umath</span> <span class="k">as</span> <span class="nn">umath</span>
 <span class="kn">from</span> <span class="nn">scipy.odr</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="c1">#from tqdm import tqdm</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">pylab</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">import</span> <span class="nn">types</span>
-<span class="kn">import</span> <span class="nn">inspect</span>
-<span class="c1"># local imports</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">debug</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">stat</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
-<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append_doc</span><span class="p">,</span> <span class="n">append_str</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">util</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
@@ -206,7 +194,7 @@
                 <span class="n">ff</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="n">fy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="o">*</span><span class="n">ff</span><span class="p">)</span>
             <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">LinAlgError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
-                <span class="c1">#print (ve)</span>
+                <span class="n">debug</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">ve</span><span class="p">)</span>
                 <span class="k">continue</span>
             <span class="n">sum_sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">+</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span>
                                                        <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -221,7 +209,7 @@
 
 <div class="viewcode-block" id="fit"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit">[docs]</a><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a fit of ``function`` to ``datax`` and ``datay``. </span>
+<span class="sd">    Returns a fit of ``function`` to ``datax`` and ``datay``.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ==========</span>
@@ -258,14 +246,13 @@
             <span class="n">tmp_params</span> <span class="o">+=</span> <span class="p">[</span><span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
     <span class="n">params</span> <span class="o">=</span> <span class="n">tmp_params</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-    <span class="n">Nfree</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">tmp</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">):</span>
         <span class="n">tmp_x</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="c1"># print(x)</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ntot</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="c1">#print(i,&quot; &quot;,j)</span>
+            <span class="c1"># print(i,&quot; &quot;,j)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fixed</span><span class="p">):</span>
                 <span class="n">tmp_x</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
                 <span class="c1"># print(x[j])</span>
@@ -327,7 +314,7 @@
             <span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
                                <span class="n">sigma</span><span class="o">=</span><span class="n">yerr</span><span class="p">,</span> <span class="n">epsfcn</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;epsfcn&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">maxfev</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;maxfev&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="mi">10000</span><span class="p">))</span>
     <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="c1"># print(e)</span>
+        <span class="n">debug</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">params</span>
     <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pfit</span><span class="p">)):</span>
@@ -335,12 +322,7 @@
             <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">pcov</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.00</span><span class="p">)</span>
-    <span class="n">pfit_curvefit</span> <span class="o">=</span> <span class="n">pfit</span>
-    <span class="n">perr_curvefit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-    <span class="c1"># This was the old wrong way! Now use correct co. matrix through unc-package</span>
-    <span class="n">tmp</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">pfit_curvefit</span><span class="p">,</span> <span class="n">perr_curvefit</span><span class="p">)</span>
-    <span class="n">tmp2</span> <span class="o">=</span> <span class="n">unc</span><span class="o">.</span><span class="n">correlated_values</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tmp2</span>
+    <span class="k">return</span> <span class="n">unc</span><span class="o">.</span><span class="n">correlated_values</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_fit_odr</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -353,15 +335,13 @@
     <span class="c1"># https://github.com/scipy/scipy/issues/6842</span>
     <span class="c1"># https://github.com/scipy/scipy/pull/12207</span>
     <span class="c1"># https://stackoverflow.com/questions/62460399/comparison-of-curve-fit-and-scipy-odr-absolute-sigma</span>
-    <span class="n">tmp</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">sd_beta</span><span class="p">)</span>
-    <span class="n">tmp2</span> <span class="o">=</span> <span class="n">unc</span><span class="o">.</span><span class="n">correlated_values</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">cov_beta</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tmp2</span>
+    <span class="k">return</span> <span class="n">unc</span><span class="o">.</span><span class="n">correlated_values</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">cov_beta</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Split data + errors</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;bins&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">N</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;bins&#39;</span><span class="p">])</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;binunc&#39;</span><span class="p">](</span><span class="n">N</span><span class="p">)</span>

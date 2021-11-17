@@ -18,7 +18,8 @@
     "from smpl import stat\n",
     "from smpl import functions as f\n",
     "import numpy as np\n",
-    "print(smpl.__version__)"
+    "np.random.seed(1337)\n",
+    "print(smpl.__version__)\n"
    ]
   },
   {

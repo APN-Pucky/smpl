@@ -17,7 +17,6 @@
     "from smpl import plot\n",
     "from smpl import functions as f\n",
     "\n",
-    "from smpl import test\n",
     "from smpl.parallel import *\n"
    ]
   },

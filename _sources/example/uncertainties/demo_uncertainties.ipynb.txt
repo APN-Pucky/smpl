@@ -4,9 +4,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# pandas\n",
+    "# uncertainties\n",
     "\n",
-    "see: https://pandas.pydata.org/pandas-docs/stable/"
+    "see: https://uncertainties-python-package.readthedocs.io/en/latest/"
    ]
   },
   {
@@ -15,14 +15,18 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "import pandas as pd"
+    "from uncertainties import ufloat\n",
+    "import uncertainties.umath as umath\n",
+    "import uncertainties.unumpy as unp\n",
+    "import numpy as np\n",
+    "from smpl import io"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Read"
+    "## Single number"
    ]
   },
   {
@@ -31,8 +35,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "data = pd.read_csv('test_linear_data.txt',delimiter=\" \")\n",
-    "data"
+    "x = ufloat(1,0.1)\n",
+    "print(x)"
    ]
   },
   {
@@ -41,33 +45,14 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "data['z'] = data['x']*data['y']\n",
-    "data"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "data.describe()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "data.plot(x='x',y='z')"
+    "print(x*x)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## To Latex"
+    "This is error propagation of the function $f(x)=x^2$ yielding $\\Delta f = \\frac{\\partial f(x)}{\\partial x} \\Delta x=2\\Delta x$"
    ]
   },
   {
@@ -76,33 +61,15 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "df = pd.DataFrame({'name': ['Raphael', 'Donatello'],\n",
-    "\n",
-    "                   'mask': ['red', 'purple'],\n",
-    "\n",
-    "                   'weapon': ['sai', 'bo staff']})\n",
-    "print(df.to_latex())"
+    "y = ufloat(1,0.2)\n",
+    "print(x*y)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Needs \\usepackage{booktabs}"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## pandas + uncertainties"
+    "Here $f(x,y)=x*y$ gives $\\Delta f = \\sqrt{(\\frac{\\partial f(x)}{\\partial x} \\Delta x)^2 +(\\frac{\\partial f(y)}{\\partial y} \\Delta y)^2}$"
    ]
   },
   {
@@ -111,38 +78,14 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "import uncertainties.unumpy as unp"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "rdata = pd.read_csv('test_linear_data.txt',delimiter=\" \")\n",
-    "data = pd.DataFrame()\n",
-    "data['x'] = unp.uarray(rdata['x'],rdata['dx'])\n",
-    "data['y'] = unp.uarray(rdata['y'],rdata['dy'])\n",
-    "data['z'] = data['x']*data['y']\n",
-    "data"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "data.describe()"
+    "umath.sin(2*y)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Error once with variance and once without:\n",
-    "$nerr=\\sqrt{\\text{var}^2+\\text{err}^2}$"
+    "## Arrays"
    ]
   },
   {
@@ -151,9 +94,13 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "from smpl import stat\n",
-    "print(stat.novar_mean(data['x']))\n",
-    "print(stat.mean(data['x']))"
+    "data = np.loadtxt(io.find_file('test_linear_data.txt',3))\n",
+    "xdata = data[:,0]\n",
+    "xerr = data[:,2]\n",
+    "ydata = data[:,1]\n",
+    "yerr = data[:,3]\n",
+    "x = unp.uarray(xdata,xerr)\n",
+    "y = unp.uarray(ydata,yerr)"
    ]
   },
   {
@@ -162,7 +109,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "print(data.to_latex())"
+    "print(x)\n",
+    "print(y)"
    ]
   },
   {
@@ -170,13 +118,15 @@
    "execution_count": null,
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "print(x*y)"
+   ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## pandas + plot"
+    "Error propagation for each number in the array."
    ]
   },
   {
@@ -185,9 +135,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "from smpl import plot\n",
-    "plot.data(data['x'],data['y'])\n",
-    "plot.data(data['x'],data['z'])"
+    "print(unp.sin(x)*y)"
    ]
   },
   {

@@ -34,7 +34,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103
+                0.0.104
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -67,8 +67,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../fit/index.html">Fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../latex/latex.html">Latex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../parallel/parallel.html">Parallel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../uncertainties/uncertainties.html">uncertainties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../pandas/pandas.html">pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uncertainties/demo_uncertainties.html">uncertainties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandas/demo_pandas.html">pandas</a></li>
 </ul>
 </li>
 </ul>
@@ -391,6 +391,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
@@ -403,7 +404,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;dat.dat&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">find_file</span><span class="p">(</span><span class="s2">&quot;dat.dat&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 
 
 <span class="n">xdata</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
@@ -444,7 +445,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;test_linear_data.txt&#39;</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">find_file</span><span class="p">(</span><span class="s1">&#39;test_linear_data.txt&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">xdata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">xerr</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">ydata</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
@@ -469,9 +470,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/runner/.local/lib/python3.7/site-packages/smpl-0.0.103.0+dirty-py3.7.egg/smpl/plot/plot.py:449: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+/github/home/.local/lib/python3.8/site-packages/smpl/plot/plot.py:430: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
   plt.tight_layout()
-/home/runner/.local/lib/python3.7/site-packages/smpl-0.0.103.0+dirty-py3.7.egg/smpl/plot/plot.py:449: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+/github/home/.local/lib/python3.8/site-packages/smpl/plot/plot.py:430: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
   plt.tight_layout()
 </pre></div></div>
 </div>
@@ -506,9 +507,9 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/home/runner/.local/lib/python3.7/site-packages/smpl-0.0.103.0+dirty-py3.7.egg/smpl/plot/plot.py:449: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+/github/home/.local/lib/python3.8/site-packages/smpl/plot/plot.py:430: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
   plt.tight_layout()
-/home/runner/.local/lib/python3.7/site-packages/smpl-0.0.103.0+dirty-py3.7.egg/smpl/plot/plot.py:449: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+/github/home/.local/lib/python3.8/site-packages/smpl/plot/plot.py:430: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
   plt.tight_layout()
 </pre></div></div>
 </div>

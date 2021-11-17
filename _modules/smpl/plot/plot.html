@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103
+                0.0.104
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -91,40 +91,21 @@
            <div itemprop="articleBody">
              
   <h1>Source code for smpl.plot.plot</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">stat</span>
-<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sci</span>
-<span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span>
-<span class="kn">import</span> <span class="nn">scipy.fftpack</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.axes</span> <span class="k">as</span> <span class="nn">axes</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span> <span class="k">as</span> <span class="n">mcolors</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
 <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
-<span class="kn">import</span> <span class="nn">uncertainties.umath</span> <span class="k">as</span> <span class="nn">umath</span>
-<span class="kn">import</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.odr</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">sympy</span>
 <span class="c1"># from tqdm import tqdm</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">pylab</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">import</span> <span class="nn">types</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
 <span class="c1"># local imports</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">util</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
-<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append_doc</span><span class="p">,</span> <span class="n">append_str</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">fit</span> <span class="k">as</span> <span class="n">ffit</span>
-<span class="kn">import</span> <span class="nn">inspect</span>
 
 
 <span class="k">def</span> <span class="nf">set_plot_style</span><span class="p">():</span>
@@ -346,7 +327,7 @@
 
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xmin&#39;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xmax&#39;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;steps&#39;</span><span class="p">])</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">init_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">init_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fnc_legend</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -359,7 +340,7 @@
 <span class="c1"># xaxis=&quot;&quot;,yaxis=&quot;&quot;,fit_color=None,save = None,residue_err=True,show=False):</span>
 <span class="k">def</span> <span class="nf">plt_residue</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">gfunction</span><span class="p">,</span> <span class="n">fit</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">function</span> <span class="o">=</span> <span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda</span><span class="p">(</span><span class="n">gfunction</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">])</span>
-    <span class="n">frame2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.1</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="mf">.2</span><span class="p">))</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.1</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="mf">.2</span><span class="p">))</span>
     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yaxis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">Delta$&quot;</span> <span class="o">+</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yaxis&#39;</span><span class="p">]</span>
     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;data_color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;fit_color&#39;</span><span class="p">]</span>
 
@@ -443,8 +424,8 @@
         <span class="c1"># l = &quot;$\\lambda$(&quot; +  &#39;,&#39;.join(function.__code__.co_varnames) + &quot;) = &quot; #sympy.latex(eval(function.__code__.co_code))</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">cc</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">findsource</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
-            <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span>
-                <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># .replace(&quot;#&quot;, &quot;&quot;).replace(&quot;&#39;&#39;&#39;&quot;,&quot;&quot;)</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span>
+                <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>  <span class="c1"># .replace(&quot;#&quot;, &quot;&quot;).replace(&quot;&quot;&quot;&quot;&quot;,&quot;&quot;)</span>
             <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
         <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
             <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">lambda$(&quot;</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
@@ -477,9 +458,9 @@
 <span class="sd">       Plot Fit </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">function</span> <span class="o">=</span> <span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda</span><span class="p">(</span><span class="n">gfunction</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">])</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">gfunction</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;prange&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="mi">1000</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">xfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;prange&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;prange&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1000</span><span class="p">)</span>
@@ -519,7 +500,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">])</span>
         <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;residue&#39;</span><span class="p">]:</span>
-            <span class="n">frame1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="mf">.6</span><span class="p">))</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="mf">.6</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xlabel&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlabel&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlabel&#39;</span><span class="p">])</span>
     <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;ylabel&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ylabel&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>

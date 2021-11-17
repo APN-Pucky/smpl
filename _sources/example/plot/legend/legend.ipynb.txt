@@ -16,6 +16,7 @@
    "source": [
     "import numpy as np\n",
     "from smpl import plot\n",
+    "from smpl import io\n",
     "from smpl import functions as f\n",
     "import uncertainties.unumpy as unp\n"
    ]
@@ -27,7 +28,7 @@
    "outputs": [],
    "source": [
     "\n",
-    "data = np.loadtxt('test_linear_data.txt')\n",
+    "data = np.loadtxt(io.find_file('test_linear_data.txt',3))\n",
     "xdata = data[:,0]\n",
     "xerr = data[:,2]\n",
     "ydata = data[:,1]\n",

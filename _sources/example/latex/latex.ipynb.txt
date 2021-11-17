@@ -15,6 +15,7 @@
    "source": [
     "import smpl\n",
     "from smpl import latex\n",
+    "from smpl import io\n",
     "from uncertainties import ufloat\n",
     "import uncertainties.unumpy as unp\n",
     "import numpy as np\n"
@@ -35,7 +36,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "data = np.loadtxt('test_linear_data.txt')\n",
+    "data = np.loadtxt(io.find_file('test_linear_data.txt',3))\n",
     "xdata = data[:,0]\n",
     "xerr = data[:,2]\n",
     "ydata = data[:,1]\n",

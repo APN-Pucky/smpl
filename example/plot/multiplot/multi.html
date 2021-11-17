@@ -34,7 +34,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103
+                0.0.104
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -67,8 +67,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../fit/index.html">Fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../latex/latex.html">Latex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../parallel/parallel.html">Parallel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../uncertainties/uncertainties.html">uncertainties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../pandas/pandas.html">pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../uncertainties/demo_uncertainties.html">uncertainties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../pandas/demo_pandas.html">pandas</a></li>
 </ul>
 </li>
 </ul>
@@ -421,21 +421,28 @@ div.rendered_html tbody tr:hover {
 <span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]:</span>
         <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="n">gompertz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$N$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot N$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">3</span> <span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
-    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">]:</span>
-        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
-            <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="n">solution_gompertz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$t$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$N$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../../_images/example_plot_multiplot_multi_3_0.png" src="../../../_images/example_plot_multiplot_multi_3_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+
+<span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="n">solution_gompertz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$t$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$N$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -443,21 +450,21 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-No handles with labels found to put in legend.
-No handles with labels found to put in legend.
-No handles with labels found to put in legend.
-No handles with labels found to put in legend.
-No handles with labels found to put in legend.
-No handles with labels found to put in legend.
-No handles with labels found to put in legend.
-No handles with labels found to put in legend.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_plot_multiplot_multi_3_2.png" src="../../../_images/example_plot_multiplot_multi_3_2.png" />
+<img alt="../../../_images/example_plot_multiplot_multi_4_1.png" src="../../../_images/example_plot_multiplot_multi_4_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

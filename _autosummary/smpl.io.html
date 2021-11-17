@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103
+                0.0.104
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -129,16 +129,19 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.files" title="smpl.io.files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">files</span></code></a>(folder, ending)</p></td>
 <td><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>(i)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.find_file" title="smpl.io.find_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_file</span></code></a>(fname[, up])</p></td>
+<td><p>Searches for <code class="docutils literal notranslate"><span class="pre">fname</span></code> in all down folders or up folder to given order respectively.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>(i)</p></td>
 <td><p>Scientific format with <code class="docutils literal notranslate"><span class="pre">i</span></code> digits.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.mkdirs" title="smpl.io.mkdirs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdirs</span></code></a>(fn)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.mkdirs" title="smpl.io.mkdirs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdirs</span></code></a>(fn)</p></td>
 <td><p>Creates the neccessary directories above <code class="docutils literal notranslate"><span class="pre">fn</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.pr" title="smpl.io.pr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pr</span></code></a>(a[, nnl])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.pr" title="smpl.io.pr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pr</span></code></a>(a[, nnl])</p></td>
 <td><p>Prints the passed <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.pwd" title="smpl.io.pwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.pwd" title="smpl.io.pwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a>()</p></td>
 <td><p>Returns the path to the path of current file</p></td>
 </tr>
 </tbody>
@@ -148,6 +151,12 @@
 <dt class="sig sig-object py" id="smpl.io.files">
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ending</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.files" title="Permalink to this definition"></a></dt>
 <dd><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.io.find_file">
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">find_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#find_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.find_file" title="Permalink to this definition"></a></dt>
+<dd><p>Searches for <code class="docutils literal notranslate"><span class="pre">fname</span></code> in all down folders or up folder to given order respectively.</p>
 </dd></dl>
 
 <dl class="py function">

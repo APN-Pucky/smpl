@@ -44,14 +44,20 @@
    "source": [
     "for a in [1,2]:\n",
     "    for b in [1,0.5]:\n",
-    "        plot.function( gompertz, a,b, xaxis=\"$N$\", yaxis=\"$\\\\dot N$\",xmin=0.1, xmax=3 ,init=False )\n",
-    "plot.show()\n",
+    "        plot.function( gompertz, a,b, xaxis=\"$N$\", yaxis=\"$\\\\dot N$\",xmin=0.1, xmax=3 ,init=False )\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
     "\n",
     "for a in [1,2]:\n",
     "    for b in [1,1/8]:\n",
     "        for c in [1,2]:\n",
-    "            plot.function( solution_gompertz, a,b,c, xaxis=\"$t$\", yaxis=\"$N$\",xmin=0.1, xmax=3,init=False,label=\"\")\n",
-    "plot.show()"
+    "            plot.function( solution_gompertz, a,b,c, xaxis=\"$t$\", yaxis=\"$N$\",xmin=0.1, xmax=3,init=False,label=\"\")"
    ]
   },
   {
