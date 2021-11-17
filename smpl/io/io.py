@@ -49,9 +49,9 @@ def gf(i):
 
 
 def mkdirs(fn):
-    '''
+    """
     Creates the neccessary directories above ``fn``.
-    '''
+    """
     pathlib.Path(fn).parent.mkdir(parents=True, exist_ok=True)
 
 
@@ -149,7 +149,7 @@ def iteri(a):
 
 
 def smart_out(fn, x):
-    '''TODO'''
+    """TODO"""
     out_si(fn, x)
 
 
