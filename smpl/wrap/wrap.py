@@ -108,6 +108,7 @@ def fnc_get_varnames(func, xvar):
 
 
 def str_get_expr(expr):
+    expr = expr.replace("math.abs(","Abs(").replace("np.abs(","Abs(").replace("unp.abs(","Abs(")
     expr = expr.replace("math.", "").replace("unp.", "").replace("np.", "")
     try:
         parsed_expr = sympy.parsing.sympy_parser.parse_expr(

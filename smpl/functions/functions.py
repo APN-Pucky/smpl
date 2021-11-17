@@ -6,8 +6,8 @@ from smpl import doc
 
 # allgemeine Fitfunktionen
 @doc.append_plot(4)
-@doc.insert_latex_eq()
 def const(x, m):
+    """const = m"""
     return x-x + m
 
 
