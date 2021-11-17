@@ -6,9 +6,10 @@ import uncertainties.unumpy as unp
 import inspect
 import numpy as np
 
+
 def get_varnames(expr, xvar):
     """
-    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front
+    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.
 
     Examples
     ========
@@ -21,6 +22,7 @@ def get_varnames(expr, xvar):
         return str_get_varnames(expr, xvar)
     else:
         return fnc_get_varnames(expr, xvar)
+
 
 def get_latex(function):
     """

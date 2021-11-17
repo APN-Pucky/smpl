@@ -9,7 +9,7 @@ def times(s, n):
     ========
 
     >>> times("hi",5)
-    hihihihihi
+    'hihihihihi'
 
     """
     return s.join(["" for i in range(0, n+1)])
@@ -61,11 +61,11 @@ def true(key, ddict):
     ========
 
     >>> d = {'a' : True , 'b' : True , 'c' : False}
-    >>> true('a')
+    >>> true('a', d)
     True
-    >>> has('c',d)
+    >>> has('c', d)
     False
-    >>> has('x',d)
+    >>> has('x', d)
     False
 
     """
