@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-64-g52efa16
+                0.0.103-65-ge8c6877
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -201,6 +201,7 @@
 
 
 <span class="k">def</span> <span class="nf">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
+    <span class="n">expr</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;math.abs(&quot;</span><span class="p">,</span><span class="s2">&quot;Abs(&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;np.abs(&quot;</span><span class="p">,</span><span class="s2">&quot;Abs(&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;unp.abs(&quot;</span><span class="p">,</span><span class="s2">&quot;Abs(&quot;</span><span class="p">)</span>
     <span class="n">expr</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;math.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;unp.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;np.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">parsed_expr</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">parsing</span><span class="o">.</span><span class="n">sympy_parser</span><span class="o">.</span><span class="n">parse_expr</span><span class="p">(</span>

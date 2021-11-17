@@ -34,7 +34,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-64-g52efa16
+                0.0.103-65-ge8c6877
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -129,13 +129,13 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.const" title="smpl.functions.const"><code class="xref py py-obj docutils literal notranslate"><span class="pre">const</span></code></a>(x, m)</p></td>
-<td><p>const(x,m) = <span class="math notranslate nohighlight">\(m - x + x\)</span></p></td>
+<td><p>const = m</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.cos" title="smpl.functions.cos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos</span></code></a>(x, a, f, phi)</p></td>
 <td><p>cos(x,a,f,phi) = <span class="math notranslate nohighlight">\(a \cos{\left(2 \pi f \left(- \phi + x\right) \right)}\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.cos_abs" title="smpl.functions.cos_abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos_abs</span></code></a>(x, a, f, phi)</p></td>
-<td><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a a b s \cos{\left(2 \pi f \left(- \phi + x\right) \right)}\)</span></p></td>
+<td><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a \left|{\cos{\left(2 \pi f \left(- \phi + x\right) \right)}}\right|\)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.cube" title="smpl.functions.cube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cube</span></code></a>(x, a, b, c, d)</p></td>
 <td><p>cube(x,a,b,c,d) = <span class="math notranslate nohighlight">\(a x^{3} + b x^{2} + c x + d\)</span></p></td>
@@ -176,7 +176,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.functions.const">
 <span class="sig-prename descclassname"><span class="pre">smpl.functions.</span></span><span class="sig-name descname"><span class="pre">const</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#const"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.const" title="Permalink to this definition"></a></dt>
-<dd><p>const(x,m) = <span class="math notranslate nohighlight">\(m - x + x\)</span></p>
+<dd><p>const = m</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">const</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">const</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -206,7 +206,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.functions.cos_abs">
 <span class="sig-prename descclassname"><span class="pre">smpl.functions.</span></span><span class="sig-name descname"><span class="pre">cos_abs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#cos_abs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.cos_abs" title="Permalink to this definition"></a></dt>
-<dd><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a a b s \cos{\left(2 \pi f \left(- \phi + x\right) \right)}\)</span></p>
+<dd><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a \left|{\cos{\left(2 \pi f \left(- \phi + x\right) \right)}}\right|\)</span></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">cos_abs</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">cos_abs</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
