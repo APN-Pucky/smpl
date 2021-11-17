@@ -2,9 +2,25 @@ from sympy.parsing.sympy_parser import standard_transformations, implicit_multip
 import sympy
 from sympy.printing.pycode import pycode
 import uncertainties.unumpy as unp
-
+import inspect
 import numpy as np
 
+def get_latex(function):
+    if isinstance(function, str):
+        l = "$" + sympy.latex(str_get_expr(function)) + "$"
+    else:
+        l = function.__name__
+    # l = ""
+    if l == "<lambda>":
+        # l = "$\\lambda$(" +  ','.join(function.__code__.co_varnames) + ") = " #sympy.latex(eval(function.__code__.co_code))
+        try:
+            cc, li = inspect.findsource(function)
+            f = ''.join(cc[li:]).split('lambda')[1].split(':')[1].split(',')[
+                0].replace("\n", "")  # .replace("#", "").replace(""""","")
+            l = "$" + sympy.latex(str_get_expr(f)) + "$"
+        except OSError:
+            l = "$\\lambda$(" + ','.join(function.__code__.co_varnames) + ")"
+    return l
 
 def get_lambda(expr, xvar):
     if isinstance(expr, str):

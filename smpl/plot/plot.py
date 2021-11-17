@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 import uncertainties.unumpy as unp
-from scipy.odr import *
 import sympy
 # from tqdm import tqdm
 import matplotlib.pylab as pylab
@@ -322,20 +321,7 @@ def plt_data(datax, datay, **kwargs):
 
 
 def get_fnc_legend(function, fit, **kwargs):
-    if isinstance(function, str):
-        l = "$" + sympy.latex(wrap.str_get_expr(function)) + "$"
-    else:
-        l = function.__name__
-    # l = ""
-    if l == "<lambda>":
-        # l = "$\\lambda$(" +  ','.join(function.__code__.co_varnames) + ") = " #sympy.latex(eval(function.__code__.co_code))
-        try:
-            cc, li = inspect.findsource(function)
-            f = ''.join(cc[li:]).split('lambda')[1].split(':')[1].split(',')[
-                0].replace("\n", "")  # .replace("#", "").replace(""""","")
-            l = "$" + sympy.latex(wrap.str_get_expr(f)) + "$"
-        except OSError:
-            l = "$\\lambda$(" + ','.join(function.__code__.co_varnames) + ")"
+    l = wrap.get_latex(function)
 
     if function.__doc__ is not None and not isinstance(function, str):
         l = function.__doc__.split('\n')[0]
