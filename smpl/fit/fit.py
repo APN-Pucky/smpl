@@ -1,6 +1,5 @@
 import numpy as np
 import warnings
-import statistics as stat
 from scipy import optimize
 from scipy.odr.odrpack import ODR, Model, RealData
 import uncertainties as unc
