@@ -1,3 +1,4 @@
+from tokenize import TokenError
 import warnings
 from sympy.parsing.sympy_parser import standard_transformations, implicit_multiplication_application
 import sympy
@@ -36,7 +37,7 @@ def get_latex(function):
 
     Examples
     ========
-    >>> get_latex(lambda a,b,c,x : (a+b+c)*x)
+    >>> get_latex(lambda a,b,c,x : (a+b+c)*x,)
     '$x \\left(a + b + c\\right)$'
     >>> l = get_latex("(a+b+c)*x")
     '$x \\left(a + b + c\\right)$'
@@ -52,10 +53,14 @@ def get_latex(function):
         l = function.__name__
     if l == "<lambda>":
         try:
-            cc, li = inspect.findsource(function)
-            f = ''.join(cc[li:]).split('lambda')[1].split(':')[1].split(',')[
-                0].replace("\n", "")
-            l = "$" + sympy.latex(str_get_expr(f)) + "$"
+            try:
+                cc, li = inspect.findsource(function)
+                f = ''.join(cc[li:]).split('lambda')[1].split(':')[1].split(',')[
+                    0].replace("\n", "")
+                l = "$" + sympy.latex(str_get_expr(f)) + "$"
+            except TokenError:
+                raise Exception(
+                    "Make sure there is a ',' behind the lambda expression and no commas are in the lambda expression and no newlines")
         except OSError:
             l = "$\\lambda$(" + ','.join(function.__code__.co_varnames) + ")"
     elif not isinstance(function, str):
