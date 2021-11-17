@@ -50,9 +50,9 @@ def gf(i):
 
     >>> gf(2)
     '{0:.2g}'
-    >>> io.gf(2).format(789234578934)
+    >>> gf(2).format(789234578934)
     7.9e+11
-    >>> io.gf(5).format(789234578934)
+    >>> gf(5).format(789234578934)
     7.8923e+11
 
     """
@@ -87,7 +87,7 @@ def pr(a, nnl=False):
     9
     >>> 5 + pr(4, nnl=True)
     49
-    ...
+
     """
     if nnl:
         print(a, end='')
@@ -107,7 +107,7 @@ def si(s, u="", fmt="{}"):
 
     Examples
     ========
-    >>> import unceratinties as unc
+    >>> import uncertainties as unc
     >>> si(unc.ufloat(2000,0.1))
     \\SI{2000.00+-0.10}{}
     >>> si(unc.ufloat(2000,0.1),"\\meter")

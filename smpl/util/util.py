@@ -63,9 +63,9 @@ def true(key, ddict):
     >>> d = {'a' : True , 'b' : True , 'c' : False}
     >>> true('a', d)
     True
-    >>> has('c', d)
+    >>> true('c', d)
     False
-    >>> has('x', d)
+    >>> true('x', d)
     False
 
     """
