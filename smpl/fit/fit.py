@@ -1,6 +1,7 @@
 import numpy as np
 import statistics as stat
 from scipy import optimize
+from scipy.odr.odrpack import ODR, Model, RealData
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from scipy.odr import *
@@ -146,7 +147,7 @@ def fit(datax, datay, function, **kwargs):
         N = len(vnames)
         params = [1 for i in range(N-1)]
     tmp_params = []
-    for i,pi in enumerate(params):
+    for i, pi in enumerate(params):
         if not util.has(i+1, fixed):
             tmp_params += [pi]
     params = tmp_params
