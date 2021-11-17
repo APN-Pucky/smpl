@@ -61,9 +61,7 @@ default = {'params': [None, "Initial fit parameters", ],
 @doc.append_str(doc.table(default))
 @doc.append_str(doc.table({"fit_kwargs": ["default", "description"]}, bottom=False))
 def fit_kwargs(kwargs):
-    """
-    Set default fit_kwargs if not set.
-    """
+    """Set default fit_kwargs if not set."""
 
     for k, v in default.items():
         if not k in kwargs:
@@ -148,9 +146,9 @@ def fit(datax, datay, function, **kwargs):
         N = len(vnames)
         params = [1 for i in range(N-1)]
     tmp_params = []
-    for i in range(len(params)):
+    for i,pi in enumerate(params):
         if not util.has(i+1, fixed):
-            tmp_params += [params[i]]
+            tmp_params += [pi]
     params = tmp_params
     N = len(params)
 

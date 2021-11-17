@@ -65,13 +65,13 @@ def si_tab(tab, skip=0, fmt="{}"):
     # mkdirs(fn)
     #file = open(fn,"w")
     s = ""
-    for i in range(len(tab)):
-        for j in range(len(tab[i])):
+    for i,ti in enumerate(tab):
+        for j,tij in enumerate(tab[i]):
             if(j != 0):
                 s += "&"
             if(j >= skip):
-                s += si(tab[i][j], fmt=fmt)
+                s += si(tij, fmt=fmt)
             else:
-                s += "%s" % (tab[i][j])
+                s += "%s" % (tij)
         s += "\\\\\n"
     return s

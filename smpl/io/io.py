@@ -124,14 +124,14 @@ def out_si_line(fn, tab, skip=0):
 def out_si_tab(fn, tab, skip=0, fmt="{}"):
     mkdirs(fn)
     file = open(fn, "w")
-    for i in range(len(tab)):
-        for j in range(len(tab[i])):
+    for i, ti in enumerate(tab):
+        for j, tij in enumerate(tab[i]):
             if(j != 0):
                 file.write(pr("&", nnl=True))
             if(j >= skip):
-                file.write(pr(si(tab[i][j], fmt=fmt), nnl=True))
+                file.write(pr(si(tij, fmt=fmt), nnl=True))
             else:
-                file.write(pr("%s" % (tab[i][j]), nnl=True))
+                file.write(pr("%s" % (tij), nnl=True))
         file.write(pr("\\\\\n", nnl=True))
     file.close()
 
