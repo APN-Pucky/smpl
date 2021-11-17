@@ -3,9 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import uncertainties.unumpy as unp
 import sympy
-# from tqdm import tqdm
 import matplotlib.pylab as pylab
-import inspect
 # local imports
 from smpl import io
 from smpl import util

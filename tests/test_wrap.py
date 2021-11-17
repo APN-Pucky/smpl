@@ -1,7 +1,3 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from smpl import plot
-
 
 from smpl import wrap
 from smpl import functions

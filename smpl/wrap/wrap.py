@@ -124,7 +124,7 @@ def str_get_expr(expr):
                              (implicit_multiplication_application,)),
             evaluate=False
         )
-    except Exception:
+    except Exception as e:
         raise Exception(
-            "Illegal variable/function name (try uncap. letters) " + expr)
+            "Illegal variable/function name (try uncap. letters) " + expr) 
     return parsed_expr

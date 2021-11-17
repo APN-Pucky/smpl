@@ -226,7 +226,7 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
     for i in range(len(pfit)):
         try:
             error.append(np.absolute(pcov[i][i])**0.5)
-        except:
+        except Exception as e:
             error.append(0.00)
     return unc.correlated_values(pfit, pcov)
 
