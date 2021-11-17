@@ -6,7 +6,7 @@ from smpl.parallel import *
 
 
 def gompertz(n, a, b):
-    return -a * N * np.log(b*n)
+    return -a * n * np.log(b*n)
 
 
 def solution_gompertz(t, a, b, c):
