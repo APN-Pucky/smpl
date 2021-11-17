@@ -51,9 +51,9 @@ def gf(i):
     >>> gf(2)
     '{0:.2g}'
     >>> gf(2).format(789234578934)
-    7.9e+11
+    '7.9e+11'
     >>> gf(5).format(789234578934)
-    7.8923e+11
+    '7.8923e+11'
 
     """
     return "{0:." + str(i) + "g}"
@@ -109,11 +109,11 @@ def si(s, u="", fmt="{}"):
     ========
     >>> import uncertainties as unc
     >>> si(unc.ufloat(2000,0.1))
-    \\SI{2000.00+-0.10}{}
+    '\\SI{2000.00+-0.10}{}'
     >>> si(unc.ufloat(2000,0.1),"\\meter")
-    \\SI{2000.00+-0.10}{\\meter}
+    '\\SI{2000.00+-0.10}{\\meter}'
     >>> si(unc.ufloat(2000,0.1),"\\meter", gf(2))
-    \\SI{2.0+-0.0e+03}{\\meter}
+    '\\SI{2.0+-0.0e+03}{\\meter}'
 
     """
     return "\\SI{%s}{%s}" % ((fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""), u)

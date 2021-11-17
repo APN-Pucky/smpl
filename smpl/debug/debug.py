@@ -127,8 +127,10 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0):
     Examples
     ========
 
-    >>> msg("hi")
+    >>> msg("hi", level = -9999)
     hi
+    'hi'
+    >>> msg("hi")
     'hi'
 
     """

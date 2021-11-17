@@ -45,7 +45,6 @@ def get_latex(function):
     >>> get_latex(fun)
     '$x \\left(a + b + c\\right)$'
 
-    >>> 
     """
     if isinstance(function, str):
         l = "$" + sympy.latex(str_get_expr(function)) + "$"
