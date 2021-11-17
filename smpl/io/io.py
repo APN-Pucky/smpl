@@ -109,11 +109,11 @@ def si(s, u="", fmt="{}"):
     ========
     >>> import uncertainties as unc
     >>> si(unc.ufloat(2000,0.1))
-    '\\SI{2000.00+-0.10}{}'
+    '\\\\SI{2000.00+-0.10}{}'
     >>> si(unc.ufloat(2000,0.1),"\\meter")
-    '\\SI{2000.00+-0.10}{\\meter}'
+    '\\\\SI{2000.00+-0.10}{\\\\meter}'
     >>> si(unc.ufloat(2000,0.1),"\\meter", gf(2))
-    '\\SI{2.0+-0.0e+03}{\\meter}'
+    '\\\\SI{2.0+-0.0e+03}{\\\\meter}'
 
     """
     return "\\SI{%s}{%s}" % ((fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""), u)
