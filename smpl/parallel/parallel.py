@@ -1,8 +1,10 @@
-from multiprocessing import Process,Queue
-from smpl.doc import append_doc 
+from multiprocessing import Process, Queue
+from smpl.doc import append_doc
 
-def queued(q,f,*args,**kwargs):
-    q.put(f(*args,**kwargs))
+
+def queued(q, f, *args, **kwargs):
+    q.put(f(*args, **kwargs))
+
 
 def res(a):
     """
@@ -25,25 +27,29 @@ def res(a):
 
         Return parallel executed values
     """
-    if isinstance(a,list):
+    if isinstance(a, list):
         return [next(k) for k in a]
     return next(a)
-def gen(f,*args,**kwargs):
+
+
+def gen(f, *args, **kwargs):
     """
         Generates parallel execution list generator
     """
     q = Queue()
-    p = Process(target=queued,args=(q,f,*args),kwargs=kwargs)
+    p = Process(target=queued, args=(q, f, *args), kwargs=kwargs)
     yield p.start()
-    yield [q.get(),p.join()][0]
+    yield [q.get(), p.join()][0]
+
 
 @append_doc(res)
-def calc(f,*args,**kwargs):
-    g=gen(f,*args,**kwargs)
+def calc(f, *args, **kwargs):
+    g = gen(f, *args, **kwargs)
     next(g)
     return g
 
-def par(f,*args,**kwargs):
+
+def par(f, *args, **kwargs):
     """
         Parallel execution of f on each element of args and kwargs
 
@@ -54,11 +60,9 @@ def par(f,*args,**kwargs):
         [0, 1, 4, 9, 16]
 
     """
-    return res([calc(f,*[args[k][i] for k in range(len(args))],**{k:v[i] for k,v in kwargs.items()}) for i in range(len(args[0]) if len(args)>0 else len(next(iter(kwargs.values()))))])
- 
- 
- 
+    return res([calc(f, *[args[k][i] for k in range(len(args))], **{k: v[i] for k, v in kwargs.items()}) for i in range(len(args[0]) if len(args) > 0 else len(next(iter(kwargs.values()))))])
+
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
- 

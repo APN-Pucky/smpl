@@ -5,8 +5,8 @@ from .stat import unv, usd, unv_lambda, poisson_dist, normalize, novar_mean, mea
 
 __all__ = ['unv',
            'usd',
-           'unv_lambda', 'poisson_dist', 
-	   'no_dist',
-	   'normalize', 'novar_mean',
+           'unv_lambda', 'poisson_dist',
+           'no_dist',
+           'normalize', 'novar_mean',
            'mean', 'noisy'
            ]
