@@ -6,6 +6,21 @@ import uncertainties.unumpy as unp
 import inspect
 import numpy as np
 
+def get_varnames(expr, xvar):
+    """
+    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front
+
+    Examples
+    ========
+
+    >>> get_varnames("a**x*b+c","x")
+    ['x', 'a', 'b', 'c']
+
+    """
+    if isinstance(expr, str):
+        return str_get_varnames(expr, xvar)
+    else:
+        return fnc_get_varnames(expr, xvar)
 
 def get_latex(function):
     """
@@ -16,6 +31,19 @@ def get_latex(function):
 
     function : function_like
         function as str lambda or (oneline) function
+
+    Examples
+    ========
+    >>> get_latex(lambda a,b,c,x : (a+b+c)*x,'x')
+    '$x \\left(a + b + c\\right)$'
+    >>> l = get_latex("(a+b+c)*x",'x')
+    '$x \\left(a + b + c\\right)$'
+    >>> def fun(a,b,x,c):
+    ...     return (a+b+c)*x
+    >>> get_latex(fun,'x')
+    '$x \\left(a + b + c\\right)$'
+
+    >>> 
     """
     if isinstance(function, str):
         l = "$" + sympy.latex(str_get_expr(function)) + "$"
@@ -87,25 +115,6 @@ def str_get_lambda(expr, xvar):
         "lambda " + ','.join(get_varnames(expr, xvar)) + ": " + pc)
     #exec("global __l__; __l__ = lambda " + ','.join(get_varnames(expr)) + ": "+ pc)
     return __l__
-
-
-def get_varnames(expr, xvar):
-    """
-    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front
-
-    Examples
-    ========
-
-    >>> get_varnames("a**x*b+c","x")
-    ['x', 'a', 'b', 'c']
-
-    """
-    if isinstance(expr, str):
-        return str_get_varnames(expr, xvar)
-    else:
-        return fnc_get_varnames(expr, xvar)
-# def get_argcount(expr):
-#    return len(get_varnames(expr))
 
 
 def str_get_varnames(expr, xvar):
