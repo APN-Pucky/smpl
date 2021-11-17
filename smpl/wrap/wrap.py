@@ -109,11 +109,14 @@ def fnc_get_varnames(func, xvar):
 
 def str_get_expr(expr):
     expr = expr.replace("math.", "").replace("unp.", "").replace("np.", "")
-    parsed_expr = sympy.parsing.sympy_parser.parse_expr(
-        expr,
-        local_dict=None,
-        transformations=(standard_transformations +
-                         (implicit_multiplication_application,)),
-        evaluate=False
-    )
+    try:
+        parsed_expr = sympy.parsing.sympy_parser.parse_expr(
+            expr,
+            local_dict=None,
+            transformations=(standard_transformations +
+                             (implicit_multiplication_application,)),
+            evaluate=False
+        )
+    except Exception:
+        raise Exception ("Illegal variable/function name (try uncap. letters) " + expr)
     return parsed_expr

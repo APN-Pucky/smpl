@@ -8,7 +8,7 @@ from smpl import doc
 @doc.append_plot(4)
 @doc.insert_latex_eq()
 def const(x, m):
-    return (np.ones(np.shape(x))*m)
+    return x-x + m
 
 
 @doc.append_plot(2)
@@ -51,15 +51,15 @@ def tan(x, a, f, phi):
 
 @doc.append_plot(0, 5, 3, 0)
 @doc.insert_latex_eq()
-def lorentz(x, x_0, A, d, y):
-    return 1/(np.pi*d*(1+(x-x_0)**2/d**2))*A + y
+def lorentz(x, x_0, a, d, y):
+    return 1/(np.pi*d*(1+(x-x_0)**2/d**2))*a + y
 # Lorentz=lorentz
 
 
 @doc.append_plot(0, 5, 3, 0)
 @doc.insert_latex_eq()
-def gauss(x, x_0, A, d, y):
-    return A * unp.exp(-(x - x_0)**2 / 2 / d**2) + y
+def gauss(x, x_0, a, d, y):
+    return a * unp.exp(-(x - x_0)**2 / 2 / d**2) + y
 
 
 Gauss = gauss
@@ -82,13 +82,13 @@ def log(x, c, y_0):
 
 @doc.append_plot(1, 5, 0)
 @doc.insert_latex_eq()
-def square(x, x_0, A, y):
-    return A*(x-x_0)**2+y
+def square(x, x_0, a, y):
+    return a*(x-x_0)**2+y
 
 
-def quadratic_(x, A, y):
+def quadratic_(x, a, y):
     """A*(x)**2+y"""
-    return A*(x)**2+y
+    return a*(x)**2+y
 
 
 quadratic = square
@@ -103,8 +103,8 @@ def cube(x, a, b, c, d):
 
 @doc.append_plot(1, 3.3, 0)
 @doc.insert_latex_eq()
-def order(x, A, k, y):
-    return A*(x)**k+y
+def order(x, a, k, y):
+    return a*(x)**k+y
 
 
 @doc.append_plot(1, 3.3, 0, xmin=0)
