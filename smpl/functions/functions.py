@@ -52,7 +52,7 @@ def tan(x, a, f, phi):
 @doc.append_plot(0, 5, 3, 0)
 @doc.insert_latex_eq()
 def lorentz(x, x_0, a, d, y):
-    return 1/(np.pi*d*(1+(x-x_0)**2/d**2))*a + y
+    return a/(np.pi*d*(1+(x-x_0)**2/d**2)) + y
 # Lorentz=lorentz
 
 
