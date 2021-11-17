@@ -117,7 +117,8 @@ def auto(datax, datay, funcs=None, **kwargs):
 
 # @append_doc(default_kwargs)
 def fit(datax, datay, function, **kwargs):
-    """Fit and plot function to datax and datay.
+    """
+    Fit and plot function to datax and datay.
 
     Parameters
     ==========
@@ -170,7 +171,8 @@ def fit(datax, datay, function, **kwargs):
 
 
 def data(datax, datay, function=None, **kwargs):
-    """Plot datay against datax via :func:`fit`
+    """
+    Plot datay against datax via :func:`fit`
 
     Parameters
     ==========

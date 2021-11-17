@@ -1,10 +1,10 @@
 import numpy as np
+import warnings
 import statistics as stat
 from scipy import optimize
 from scipy.odr.odrpack import ODR, Model, RealData
 import uncertainties as unc
 import uncertainties.unumpy as unp
-from scipy.odr import *
 from smpl import debug
 from smpl import functions
 from smpl import stat
@@ -227,6 +227,7 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
         try:
             error.append(np.absolute(pcov[i][i])**0.5)
         except Exception as e:
+            warnings.warn(str(e))
             error.append(0.00)
     return unc.correlated_values(pfit, pcov)
 

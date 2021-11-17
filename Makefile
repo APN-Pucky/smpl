@@ -29,6 +29,7 @@ livehtml:
 	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --watch smpl/
 
 test:
+	rm -f .coverage coverage.xml
 	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --to script
 	pytest -v --cov=smpl --cov-config=.coveragerc --cov-append  --cov-report=term --cov-report=xml --doctest-modules
 

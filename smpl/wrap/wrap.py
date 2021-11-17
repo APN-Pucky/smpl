@@ -1,3 +1,4 @@
+import warnings
 from sympy.parsing.sympy_parser import standard_transformations, implicit_multiplication_application
 import sympy
 from sympy.printing.pycode import pycode
@@ -43,6 +44,25 @@ def get_latex(function):
 
 
 def get_lambda(expr, xvar):
+    """
+    Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.
+
+    Examples
+    ========
+
+    >>> l = get_lambda(lambda a,b,c,x : (a+b+c)*x,'x')
+    >>> l(4,1,1,1)
+    12
+    >>> l = get_lambda("(a+b+c)*x",'x')
+    >>> l(4,1,1,1)
+    12
+    >>> def fun(a,b,x,c):
+    ...     return (a+b+c)*x
+    >>> l = get_lambda(fun,'x')
+    >>> l(4,1,1,1)
+    12
+
+    """
     if isinstance(expr, str):
         return str_get_lambda(expr, xvar)
     else:
@@ -70,6 +90,16 @@ def str_get_lambda(expr, xvar):
 
 
 def get_varnames(expr, xvar):
+    """
+    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front
+
+    Examples
+    ========
+
+    >>> get_varnames("a**x*b+c","x")
+    ['x', 'a', 'b', 'c']
+
+    """
     if isinstance(expr, str):
         return str_get_varnames(expr, xvar)
     else:
@@ -79,9 +109,6 @@ def get_varnames(expr, xvar):
 
 
 def str_get_varnames(expr, xvar):
-    """
-    Returns a list of variables used in the ``str`` math-expression via sympy.
-    """
 
     parsed_expr = str_get_expr(expr)
 
@@ -125,6 +152,7 @@ def str_get_expr(expr):
             evaluate=False
         )
     except Exception as e:
-        raise Exception(
-            "Illegal variable/function name (try uncap. letters) " + expr) 
+        warnings.warn(
+            "Illegal variable/function name (try uncap. letters) " + expr)
+        raise e
     return parsed_expr
