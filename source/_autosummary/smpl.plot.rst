@@ -39,6 +39,8 @@
    
       bar
    
+      bar_label
+   
       barbs
    
       barh
@@ -276,6 +278,8 @@
       spy
    
       stackplot
+   
+      stairs
    
       stem
    

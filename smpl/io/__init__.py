@@ -1,6 +1,6 @@
 """
 Simplified input and output
 """
-from .io import pwd, gf, mkdirs, pr, files, find_file
+from .io import pwd, gf, mkdirs, pr, files, find_file, si
 
-__all__ = ['pwd', 'gf', 'mkdirs', 'pr', 'files', 'find_file']
+__all__ = ['pwd', 'gf', 'mkdirs', 'pr', 'files', 'find_file', 'si']

@@ -19,6 +19,10 @@
    
       insert_eq
    
+      insert_latex
+   
+      insert_latex_eq
+   
       insert_str
    
       table

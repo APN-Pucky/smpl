@@ -27,7 +27,7 @@ def find_file(fname, up=0):
 
 def pwd():
     """
-        Returns the path to the path of current file
+    Returns the path to the path of current file
     """
     pwd_ = "/".join(debug.get_line_number_file(split=False,
                     _back=1)[1].split("/")[:-1])
@@ -44,6 +44,17 @@ def import_path(path='../..'):
 def gf(i):
     """
     Scientific format with ``i`` digits.
+
+    Examples
+    ========
+
+    >>> gf(2)
+    '{0:.2g}'
+    >>> gf(2).format(789234578934)
+    '7.9e+11'
+    >>> gf(5).format(789234578934)
+    '7.8923e+11'
+
     """
     return "{0:." + str(i) + "g}"
 
@@ -57,17 +68,26 @@ def mkdirs(fn):
 
 def pr(a, nnl=False):
     """
-    Prints the passed ``a``.     
+    Prints the passed ``a``.
 
     Parameters
     ==========
     nnl : bool
         no-new-line
 
-    Returns 
+    Returns
     =======
     a : any
         unchanged ``a``.
+
+    Examples
+
+    >>> 5 + pr(4)
+    4
+    9
+    >>> 5 + pr(4, nnl=True)
+    49
+
     """
     if nnl:
         print(a, end='')
@@ -79,10 +99,22 @@ def pr(a, nnl=False):
 def si(s, u="", fmt="{}"):
     """
     Get nuber with uncertainty and unit in ``si`` format for latex.
+
     Returns
     =======
     sistr : str
         latex SI string of the number with it's uncertainty and unit.
+
+    Examples
+    ========
+    >>> import uncertainties as unc
+    >>> si(unc.ufloat(2000,0.1))
+    '\\\\SI{2000.00+-0.10}{}'
+    >>> si(unc.ufloat(2000,0.1),"\\meter")
+    '\\\\SI{2000.00+-0.10}{\\\\meter}'
+    >>> si(unc.ufloat(2000,0.1),"\\meter", gf(2))
+    '\\\\SI{2.0+-0.0e+03}{\\\\meter}'
+
     """
     return "\\SI{%s}{%s}" % ((fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""), u)
 
@@ -124,14 +156,14 @@ def out_si_line(fn, tab, skip=0):
 def out_si_tab(fn, tab, skip=0, fmt="{}"):
     mkdirs(fn)
     file = open(fn, "w")
-    for i in range(len(tab)):
-        for j in range(len(tab[i])):
+    for i, ti in enumerate(tab):
+        for j, tij in enumerate(ti):
             if(j != 0):
                 file.write(pr("&", nnl=True))
             if(j >= skip):
-                file.write(pr(si(tab[i][j], fmt=fmt), nnl=True))
+                file.write(pr(si(tij, fmt=fmt), nnl=True))
             else:
-                file.write(pr("%s" % (tab[i][j]), nnl=True))
+                file.write(pr("%s" % (tij), nnl=True))
         file.write(pr("\\\\\n", nnl=True))
     file.close()
 

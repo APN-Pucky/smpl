@@ -18,7 +18,7 @@ BLACK_LIST_FILES = []
 
 active = debug = on = DEBUG_LEVEL >= 0
 # count debug events by file+line
-# count_times = {}
+count_times = {}
 cur_table_line = {}
 
 
@@ -32,6 +32,15 @@ def get_frame(_back=0):
 def once(_back=0):
     """
     Returns true only one time
+
+    Examples
+    ========
+
+    >>> for i in range(10):
+    ...     if once():
+    ...         print(i)
+    0
+
     """
     return times(1, _back+1)
 
@@ -90,10 +99,12 @@ def line1(msg_, tag="", level=0, times=-1, _back=0):
 
 
 def get_count(line, fname):
+    global count_times
     return count_times[fname+str(line)]
 
 
 def inc_count(line, fname):
+    global count_times
     if fname+str(line) in count_times:
         count_times[fname+str(line)] += 1
     else:
@@ -111,7 +122,17 @@ def check_count(line, fname, t):
 # t stands for times
 def msg(msg, tag="", level=0, times=-1, line_=False, _back=0):
     """
-    Prints the message ``msg`` if level > debug_level
+    Prints the message ``msg`` if level > debug_level and always returns the msg.
+
+    Examples
+    ========
+
+    >>> msg("hi", level = -9999)
+    DBG::debug.py:...: hi
+    'hi'
+    >>> msg("hi")
+    'hi'
+
     """
     if(level <= DEBUG_LEVEL):
         line, fname = get_line_number_file(_back+1)
@@ -148,6 +169,7 @@ def table_flush_header(filename="debug_table.csv", seperator=";"):
     """
     Saves the current keys from :func:`table` to ``filename``
     """
+    global cur_table_line
     f = open(filename, "a+")
     for key in sorted(cur_table_line):
         f.write(key + seperator)
@@ -159,6 +181,7 @@ def table_flush_line(filename="debug_table.csv", seperator=";"):
     """
     Saves the current values from :func:`table` to ``filename``
     """
+    global cur_table_line
     f = open(filename, "a+")
     itt = iter(cur_table_line)
     ok = False
@@ -180,6 +203,7 @@ def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, f
     """
     Saves ``key``:``value`` in ``filename``.
     """
+    global cur_table_line
     if(level <= DEBUG_LEVEL):
         line, fname = get_line_number_file(_back+1)
         inc_count(line, fname)
@@ -209,6 +233,7 @@ def file1(_key, _value, level=0, times=1, _back=0, **kwargs):
 
 
 def reset_times():
+    global count_times
     count_times = {}
 
 
@@ -216,3 +241,7 @@ if os.path.exists("debug.csv"):
     os.remove("debug.csv")
 if os.path.exists("debug_table.csv"):
     os.remove("debug_table.csv")
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)

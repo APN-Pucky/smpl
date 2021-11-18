@@ -1,9 +1,9 @@
 import numpy as np
-import statistics as stat
+import warnings
 from scipy import optimize
+from scipy.odr.odrpack import ODR, Model, RealData
 import uncertainties as unc
 import uncertainties.unumpy as unp
-from scipy.odr import *
 from smpl import debug
 from smpl import functions
 from smpl import stat
@@ -61,10 +61,7 @@ default = {'params': [None, "Initial fit parameters", ],
 @doc.append_str(doc.table(default))
 @doc.append_str(doc.table({"fit_kwargs": ["default", "description"]}, bottom=False))
 def fit_kwargs(kwargs):
-    """
-    Set default fit_kwargs if not set.
-    """
-
+    """Set default fit_kwargs if not set."""
     for k, v in default.items():
         if not k in kwargs:
             kwargs[k] = v[0]
@@ -148,9 +145,9 @@ def fit(datax, datay, function, **kwargs):
         N = len(vnames)
         params = [1 for i in range(N-1)]
     tmp_params = []
-    for i in range(len(params)):
+    for i, pi in enumerate(params):
         if not util.has(i+1, fixed):
-            tmp_params += [params[i]]
+            tmp_params += [pi]
     params = tmp_params
     N = len(params)
 
@@ -227,7 +224,8 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
     for i in range(len(pfit)):
         try:
             error.append(np.absolute(pcov[i][i])**0.5)
-        except:
+        except Exception as e:
+            warnings.warn(str(e))
             error.append(0.00)
     return unc.correlated_values(pfit, pcov)
 

@@ -2,11 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from smpl import plot
 
-from smpl.parallel import *
 
-
-def gompertz(N, a, b):
-    return -a * N * np.log(b*N)
+def gompertz(n, a, b):
+    return -a * n * np.log(b*n)
 
 
 def solution_gompertz(t, a, b, c):

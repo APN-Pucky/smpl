@@ -2,11 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 import uncertainties.unumpy as unp
-from scipy.odr import *
 import sympy
-# from tqdm import tqdm
 import matplotlib.pylab as pylab
-import inspect
 # local imports
 from smpl import io
 from smpl import util
@@ -120,7 +117,8 @@ def auto(datax, datay, funcs=None, **kwargs):
 
 # @append_doc(default_kwargs)
 def fit(datax, datay, function, **kwargs):
-    """Fit and plot function to datax and datay.
+    """
+    Fit and plot function to datax and datay.
 
     Parameters
     ==========
@@ -173,7 +171,8 @@ def fit(datax, datay, function, **kwargs):
 
 
 def data(datax, datay, function=None, **kwargs):
-    """Plot datay against datax via :func:`fit`
+    """
+    Plot datay against datax via :func:`fit`
 
     Parameters
     ==========
@@ -322,23 +321,8 @@ def plt_data(datax, datay, **kwargs):
 
 
 def get_fnc_legend(function, fit, **kwargs):
-    if isinstance(function, str):
-        l = "$" + sympy.latex(wrap.str_get_expr(function)) + "$"
-    else:
-        l = function.__name__
-    # l = ""
-    if l == "<lambda>":
-        # l = "$\\lambda$(" +  ','.join(function.__code__.co_varnames) + ") = " #sympy.latex(eval(function.__code__.co_code))
-        try:
-            cc, li = inspect.findsource(function)
-            f = ''.join(cc[li:]).split('lambda')[1].split(':')[1].split(',')[
-                0].replace("\n", "")  # .replace("#", "").replace(""""","")
-            l = "$" + sympy.latex(wrap.str_get_expr(f)) + "$"
-        except OSError:
-            l = "$\\lambda$(" + ','.join(function.__code__.co_varnames) + ")"
+    l = wrap.get_latex(function)
 
-    if function.__doc__ is not None and not isinstance(function, str):
-        l = function.__doc__.split('\n')[0]
     vnames = wrap.get_varnames(function, kwargs['xvar'])
     for i in range(1, len(vnames)):
         l = l + ("\n" if not kwargs["fitinline"] or i == 1 else " ")
@@ -362,7 +346,7 @@ def get_fnc_legend(function, fit, **kwargs):
 # p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
 def plt_fit(datax, datay, gfunction, **kwargs):
     """
-       Plot Fit 
+    Plot Fit
     """
     function = wrap.get_lambda(gfunction, kwargs['xvar'])
     fit = _fit(datax, datay, gfunction, **kwargs)
