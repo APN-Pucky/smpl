@@ -4,7 +4,6 @@ Doc: <https://apn-pucky.github.io/smpl/index.html>
 
 | [Stable][doc stable]        | [Test][doc test]           |
 | ------------- |:-------------:|
-<<<<<<< HEAD
 | [![PyPI version][pypi image]][pypi link]      | - |
 | [![workflow][action stable image]][action stable link]      | [![test][action test image]][action test link]     |
 | ![downloads](https://img.shields.io/pypi/dm/smpl.svg) | -     |
