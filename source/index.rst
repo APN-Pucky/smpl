@@ -39,7 +39,7 @@ test version::
  
 
 Examples
-=======
+========
 
 .. toctree::
    :glob:
