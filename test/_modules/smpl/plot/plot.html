@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106-4-g24f6ef8
+                0.0.106-5-ga8acf4d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -168,13 +168,13 @@
 <span class="p">}</span>
 
 
-<span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
 <div class="viewcode-block" id="plot_kwargs"><a class="viewcode-back" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_doc</span><span class="p">(</span><span class="n">ffit</span><span class="o">.</span><span class="n">fit_kwargs</span><span class="p">)</span>
-<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;plot_kwargs        &quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Set default plot_kwargs if not set.</span>
+    <span class="sd">&quot;&quot;&quot;Set default plot_kwargs if not set.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">ffit</span><span class="o">.</span><span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>

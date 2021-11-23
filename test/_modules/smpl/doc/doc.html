@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106-4-g24f6ef8
+                0.0.106-5-ga8acf4d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -118,9 +118,7 @@
 
 
 <div class="viewcode-block" id="append_plot"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.append_plot">[docs]</a><span class="k">def</span> <span class="nf">append_plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Append a plot to a function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Append a plot to a function. &quot;&quot;&quot;</span>
     <span class="c1"># return _append(&quot;\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t&gt;&gt;&gt; from &quot; + target.__module__ + &quot; import &quot; +target.__name__ + &quot;\n\t\t&gt;&gt;&gt; from smpl import plot\n\t\t&gt;&gt;&gt; plot.function(&quot;+ target.__name__ + &quot;,&quot; + &#39;,&#39;.join([str(a) for a in args]) + &quot;,xmin=&quot;+str(xmin) + &quot;,xmax=&quot; + str(xmax)+&quot;)&quot;)</span>
 
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
@@ -135,8 +133,7 @@
 
 
 <div class="viewcode-block" id="append_doc"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.append_doc">[docs]</a><span class="k">def</span> <span class="nf">append_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Append doc string of ``original`` to ``target`` object.</span>
+    <span class="sd">&quot;&quot;&quot;Append doc string of ``original`` to ``target`` object.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -173,16 +170,12 @@
 
 
 <div class="viewcode-block" id="insert_doc"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_doc">[docs]</a><span class="k">def</span> <span class="nf">insert_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Inserts the docstring from passed function ``original`` in the ``target`` function docstring.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Inserts the docstring from passed function ``original`` in the ``target`` function docstring.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="insert_eq"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_eq</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Inserts the function and its parameters and an equal sign</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Inserts the function and its parameters and an equal sign.&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -197,16 +190,12 @@
 
 
 <div class="viewcode-block" id="insert_latex_eq"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_latex_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_latex_eq</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Inserts latexed code of a oneline function with parameters.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function with parameters.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">insert_eq</span><span class="p">()(</span><span class="n">insert_latex</span><span class="p">()(</span><span class="n">f</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="insert_latex"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_latex">[docs]</a><span class="k">def</span> <span class="nf">insert_latex</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Inserts latexed code of a oneline function.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function.&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">wrap</span><span class="o">.</span><span class="n">get_latex</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
@@ -222,9 +211,7 @@
 
 
 <div class="viewcode-block" id="table"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.table">[docs]</a><span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Add dict= {&#39;key&#39;: [values...]} to a simple reST table.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Add dict= {&#39;key&#39;: [values...]} to a simple reST table.&quot;&quot;&quot;</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">times</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">tabs</span><span class="p">)</span>
     <span class="n">rs</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">if</span> <span class="n">init</span><span class="p">:</span>
@@ -242,9 +229,9 @@
             <span class="n">p</span> <span class="o">=</span> <span class="n">sv</span>
         <span class="n">rs</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">t</span>
     <span class="k">if</span> <span class="n">bottom</span><span class="p">:</span>
-        <span class="n">rs</span> <span class="o">+=</span> <span class="n">table_sep</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="n">tabs</span><span class="p">)</span>
+        <span class="n">rs</span> <span class="o">+=</span> <span class="n">table_sep</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="n">tabs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">rs</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">rs</span> <span class="o">+=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">return</span> <span class="n">rs</span></div>
 
 

@@ -77,13 +77,7 @@
    "execution_count": null,
    "metadata": {},
    "outputs": [],
-   "source": [
-    "from smpl import functions as f\n",
-    "from smpl import stat\n",
-    "from smpl import plot\n",
-    "print(plot.plot_kwargs.__doc__)\n",
-    "str(stat.poisson_dist.__qualname__)"
-   ]
+   "source": []
   },
   {
    "cell_type": "code",

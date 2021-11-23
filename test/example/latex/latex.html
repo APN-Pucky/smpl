@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106-4-g24f6ef8
+                0.0.106-5-ga8acf4d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -483,94 +483,14 @@ div.rendered_html tbody tr:hover {
 
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">stat</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">plot</span><span class="o">.</span><span class="n">plot_kwargs</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">poisson_dist</span><span class="o">.</span><span class="vm">__qualname__</span><span class="p">)</span>
+<span></span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-    Set default plot_kwargs if not set.
-        ==================  ==================  ==================
-        plot_kwargs         default             description
-
-        ==================  ==================  ==================
-        xlabel                                  X axis label
-        ylabel                                  Y axis label
-        label               None                Legend name of plotted ``data``
-        fmt                 .                   Format for plotting fit function
-        units               None                Units of the fit parameters as strings. Displayed in the Legend
-        save                None                 File to save the plot
-        lpos                0                   Legend position
-        prange              None                Limit the plot of the fit to given range
-        sigmas              0                   Color the array of given ``sigma`` times uncertainty. Only works if the fit function is coded with ``unp``
-        data_sigmas         1                   Color the array of given ``sigma`` times uncertainty. Only works if the data has uncertainties
-        init                False               Initialize a new plot
-        ss                  True                save, add legends and grid to the plot
-        also_data           True                 also plot the data
-        also_fit            True                also plot the fit
-        logy                False               logarithmic x axis
-        logx                False               logarithmic y axis
-        data_color          None                Color of the data plot
-        fit_color           None                Color of the fit plot
-        residue             False               Display difference between fit and data in a second plot
-        residue_err         True                Differences between fit and data will have errorbars
-        show                False               Call plt.show()
-        size                None                Size of the plot as a tuple (x,y). Only has an effect if ``init`` is True
-        number_format       {0:.4g}             Format to display numbers.
-        interpolate         True                Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.
-        interpolate_min     None                Lower interpolation bound
-        interpolate_max     None                Higher interpolation bound
-        interpolate_hatch   ||                  Interpolation shape/hatch for filled area in case of ``sigmas``&gt;0. See https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html
-        bbox_to_anchor      None                Position in a tuple (x,y),Shift position of the legend out of the main pane.
-        ncol                None                Columns in the legend if used with ``bbox_to_anchor``.
-        steps               1000                resolution of the plotted function
-        fitinline           False               No newlines for each fit parameter
-        grid                True                Enable grid for the plot
-        hist                False               Enable histogram plot
-        stairs              False               Enable stair plot
-        ==================  ==================  ==================
-
-    Set default fit_kwargs if not set.
-        ==================  ==================  ==================
-        fit_kwargs          default             description
-
-        ==================  ==================  ==================
-        params              None                Initial fit parameters
-        frange              None                Limit the fit to given range. First integer is the lowest and second the highest index.
-        selector            None                Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.
-        fixed_params        True                Enable fixing parameters by choosing the same-named variables from ``kwargs``.
-        sortbyx             True                Enable sorting the x and y data so that x is sorted.
-        maxfev              10000               Maximum function evaluations during fitting.
-        epsfcn              0.0001              Suitable step length for jacobian approximation.
-        xvar                None                Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.
-        bins                0                   Number of bins for histogram
-        binunc              poisson_dist        Number of bins for histogram
-        autotqdm            True                Auto fitting display tqdm
-        ==================  ==================  ==================
-
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;poisson_dist&#39;
-</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
