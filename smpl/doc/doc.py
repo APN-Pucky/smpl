@@ -162,16 +162,6 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
     return rs 
 
 
-def name_to_str():
-    """
-    Replace __str__ with __name__.
-    """
-    def wrapper(target):
-        target.__str__ = lambda s="": target.__name__
-        target.__repr__ = lambda s="": target.__name__
-        return target
-    return wrapper
-
 
 if __name__ == "__main__":
     import doctest

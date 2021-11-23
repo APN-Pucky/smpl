@@ -12,9 +12,8 @@
 #
 from docutils.nodes import literal, math
 from docutils.nodes import doctest_block, image, literal_block, math_block,  pending, raw, rubric, substitution_definition, target
-from sphinx_math_dollar import NODE_BLACKLIST
+
 import re
-import smpl
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))

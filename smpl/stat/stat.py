@@ -19,7 +19,6 @@ def unv_lambda(f):
     return lambda *a: unv(f(*a))
 
 
-@doc.name_to_str()
 def poisson_dist(N):
     """
     Return ``N`` with added poissonian uncertainties.
@@ -27,7 +26,6 @@ def poisson_dist(N):
     return unp.uarray(N, np.sqrt(N))
 
 
-@doc.name_to_str()
 def no_dist(N):
     """
     Return ``N`` with no uncertainties.
