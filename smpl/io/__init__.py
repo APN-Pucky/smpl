@@ -1,6 +1,5 @@
-"""
-Simplified input and output
-"""
-from .io import pwd, gf, mkdirs, pr, files, find_file, si
+"""Simplified input and output."""
 
-__all__ = ['pwd', 'gf', 'mkdirs', 'pr', 'files', 'find_file', 'si']
+from .io import pwd, mkdirs, pr, files, find_file, gf
+
+__all__ = ['pwd', 'mkdirs', 'pr', 'files', 'find_file', 'gf']

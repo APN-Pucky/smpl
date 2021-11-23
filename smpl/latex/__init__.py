@@ -1,5 +1,5 @@
-"""Simplified input and output"""
+"""Simplified latex."""
 
-from .latex import gf, si, si_line, si_tab, si_ttab
+from .latex import si, si_line, si_tab, si_ttab
 
-__all__ = ['gf', 'si', 'si_line', 'si_tab', 'si_ttab']
+__all__ = ['si', 'si_line', 'si_tab', 'si_ttab']

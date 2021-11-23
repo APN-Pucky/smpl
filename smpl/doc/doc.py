@@ -65,13 +65,6 @@ def append_doc(original):
     """
     return _append(original.__doc__)
 
-    def wrapper(target):
-        if target.__doc__ is None:
-            target.__doc__ = ""
-        target.__doc__ += original.__doc__
-        return target
-    return wrapper
-
 
 def _insert(txt):
     def wrapper(target):
@@ -164,6 +157,16 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
     else:
         rs += "\n"
     return rs
+
+
+def name_to_str():
+    """
+    Replace __str__ with __name__.
+    """
+    def wrapper(target):
+        target.__str__ = lambda s: target.__name__
+        return target
+    return wrapper
 
 
 if __name__ == "__main__":
