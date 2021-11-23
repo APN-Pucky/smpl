@@ -85,13 +85,6 @@ def insert_doc(original):
     """
     return _insert(original.__doc__)
 
-    def wrapper(target):
-        if target.__doc__ is None:
-            target.__doc__ = ""
-        target.__doc__ = original.__doc__ + target.__doc__
-        return target
-    return wrapper
-
 
 def insert_eq():
     """
@@ -159,8 +152,7 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
         rs += table_sep(tabs=tabs)
     else:
         rs += "\n"
-    return rs 
-
+    return rs
 
 
 if __name__ == "__main__":

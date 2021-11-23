@@ -3,7 +3,7 @@ name: stable
 on: 
   push:
     branches:
-      - 'master'
+      - 'stable'
     tags-ignore: 
       - '*'
 jobs:
