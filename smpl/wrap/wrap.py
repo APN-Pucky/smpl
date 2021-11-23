@@ -14,7 +14,6 @@ def get_varnames(expr, xvar):
 
     Examples
     ========
-
     >>> get_varnames("a**x*b+c","x")
     ['x', 'a', 'b', 'c']
 

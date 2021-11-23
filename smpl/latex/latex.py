@@ -40,7 +40,7 @@ def si_line(a, skip=0, fmt="{}"):
     Examples
     ========
     >>> latex.si_line([1,2,3,])
-    '\\\\SI{1}{}&\\\\SI{2}{}&\\\\SI{3}{}\\\\\\\\\n'
+    '\\\\SI{1}{}&\\\\SI{2}{}&\\\\SI{3}{}\\\\\\\\\\n'
 
     """
     return si_tab(np.transpose([[t] for t in a]), skip, fmt)
@@ -67,7 +67,7 @@ def si_ttab(tab, skip=0, fmt="{}"):
     Examples
     ========
     >>> latex.si_tab([[1,2],[3,4]])
-    '\\\\SI{1}{}&\\\\SI{3}{}\\\\\\\\\n\\\\SI{2}{}&\\\\SI{4}{}\\\\\\\\\n'
+    '\\\\SI{1}{}&\\\\SI{3}{}\\\\\\\\\\n\\\\SI{2}{}&\\\\SI{4}{}\\\\\\\\\\n'
 
     """
     return si_tab(np.transpose(tab), skip, fmt)
@@ -94,7 +94,7 @@ def si_tab(tab, skip=0, fmt="{}"):
     Examples
     ========
     >>> latex.si_tab([[1,2],[3,4]])
-    '\\\\SI{1}{}&\\\\SI{2}{}\\\\\\\\\n\\\\SI{3}{}&\\\\SI{4}{}\\\\\\\\\n'
+    '\\\\SI{1}{}&\\\\SI{2}{}\\\\\\\\\\n\\\\SI{3}{}&\\\\SI{4}{}\\\\\\\\\\n'
 
     """
     # mkdirs(fn)

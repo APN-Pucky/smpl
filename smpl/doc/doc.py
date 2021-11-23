@@ -65,13 +65,6 @@ def append_doc(original):
     """
     return _append(original.__doc__)
 
-    def wrapper(target):
-        if target.__doc__ is None:
-            target.__doc__ = ""
-        target.__doc__ += original.__doc__
-        return target
-    return wrapper
-
 
 def _insert(txt):
     def wrapper(target):
