@@ -77,6 +77,19 @@
    "execution_count": null,
    "metadata": {},
    "outputs": [],
+   "source": [
+    "from smpl import functions as f\n",
+    "from smpl import stat\n",
+    "from smpl import plot\n",
+    "print(plot.plot_kwargs.__doc__)\n",
+    "str(stat.poisson_dist.__qualname__)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
    "source": []
   }
  ],
@@ -96,7 +109,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.9"
+   "version": "3.8.7"
   }
  },
  "nbformat": 4,

@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.105
+                0.0.106
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -112,16 +112,14 @@
     <span class="k">return</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">unv</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="poisson_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.poisson_dist">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">name_to_str</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">poisson_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<div class="viewcode-block" id="poisson_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.poisson_dist">[docs]</a><span class="k">def</span> <span class="nf">poisson_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return ``N`` with added poissonian uncertainties.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="no_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.no_dist">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">name_to_str</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">no_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<div class="viewcode-block" id="no_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.no_dist">[docs]</a><span class="k">def</span> <span class="nf">no_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return ``N`` with no uncertainties.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
