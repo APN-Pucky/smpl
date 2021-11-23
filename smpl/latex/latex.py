@@ -22,11 +22,12 @@ def si(s, u="", fmt="{}"):
     Examples
     ========
     >>> import uncertainties as unc
+    >>> from smpl import io
     >>> si(unc.ufloat(2000,0.1))
     '\\\\SI{2000.00+-0.10}{}'
     >>> si(unc.ufloat(2000,0.1),"\\meter")
     '\\\\SI{2000.00+-0.10}{\\\\meter}'
-    >>> si(unc.ufloat(2000,0.1),"\\meter", gf(2))
+    >>> si(unc.ufloat(2000,0.1),"\\meter", io.gf(2))
     '\\\\SI{2.0+-0.0e+03}{\\\\meter}'
 
     """
@@ -66,7 +67,7 @@ def si_ttab(tab, skip=0, fmt="{}"):
 
     Examples
     ========
-    >>> si_tab([[1,2],[3,4]])
+    >>> si_ttab([[1,2],[3,4]])
     '\\\\SI{1}{}&\\\\SI{3}{}\\\\\\\\\\n\\\\SI{2}{}&\\\\SI{4}{}\\\\\\\\\\n'
 
     """
