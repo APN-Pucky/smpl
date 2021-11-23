@@ -34,7 +34,7 @@ def once(_back=0):
     Returns true only one time
 
     Examples
-    ========
+    --------
 
     >>> for i in range(10):
     ...     if once():
@@ -63,14 +63,14 @@ def get_line_number_file(split=True, _back=0):
     Gets the current filename and the current linenumber within it.
 
     Parameters
-    ==========
+    ----------
     split : bool
         Indicates whenever the folders above of the file should be included in the returned filename.
     _back : int
         Number of stack/frames to go back.
 
     Returns
-    =======
+    -------
     filenumber : int
         First element in the return array
     filename : str
@@ -125,7 +125,7 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0):
     Prints the message ``msg`` if level > debug_level and always returns the msg.
 
     Examples
-    ========
+    --------
 
     >>> msg("hi", level = -9999)
     DBG::debug.py:...: hi

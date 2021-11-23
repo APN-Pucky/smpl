@@ -11,7 +11,7 @@ def res(a):
         Parallel evaluation of the list generator from :func:`gen`
 
         Examples
-        ========
+        --------
 
         >>> def twice(x):
         ...     return x+x
@@ -54,7 +54,7 @@ def par(f, *args, **kwargs):
         Parallel execution of f on each element of args and kwargs
 
         Examples
-        ========
+        --------
 
         >>> par(lambda x : x**2, range(0,5))
         [0, 1, 4, 9, 16]

@@ -6,21 +6,21 @@ def si(s, u="", fmt="{}"):
     Get number with uncertainty and unit in ``si`` format for latex.
 
     Parameters
-    ==========
+    ----------
     s : ufloat
-        number to be returned in a latex compatible format
+        number to be returned in a latex compatible format.
     u : str
-        unit of that number
+        unit of that number.
     fmt : str
-        format string for the numbers
+        format string for the numbers.
 
     Returns
-    =======
-    sistr : str
+    -------
+    str
         latex SI string of the number with it's uncertainty and unit.
 
     Examples
-    ========
+    --------
     >>> import uncertainties as unc
     >>> from smpl import io
     >>> si(unc.ufloat(2000,0.1))
@@ -39,7 +39,7 @@ def si_line(a, skip=0, fmt="{}"):
     Get array ``a`` in the format of a line of a latex table.
 
     Examples
-    ========
+    --------
     >>> si_line([1,2,3,])
     '\\\\SI{1}{}&\\\\SI{2}{}&\\\\SI{3}{}\\\\\\\\\\n'
 
@@ -52,7 +52,7 @@ def si_ttab(tab, skip=0, fmt="{}"):
     Transposed :func:`si_tab`.
 
     Parameters
-    ==========
+    ----------
     tab : array_like
         Array containing the values of the table
     skip : number
@@ -61,12 +61,12 @@ def si_ttab(tab, skip=0, fmt="{}"):
         format string for the numbers
 
     Returns
-    =======
+    -------
     tabstr : str
         table latex string
 
     Examples
-    ========
+    --------
     >>> si_ttab([[1,2],[3,4]])
     '\\\\SI{1}{}&\\\\SI{3}{}\\\\\\\\\\n\\\\SI{2}{}&\\\\SI{4}{}\\\\\\\\\\n'
 
@@ -79,7 +79,7 @@ def si_tab(tab, skip=0, fmt="{}"):
     Get arrays of (uncertainty) numbers in  a latex table compatible form.
 
     Parameters
-    ==========
+    ----------
     tab : array_like
         Array containing the values of the table
     skip : number
@@ -88,12 +88,12 @@ def si_tab(tab, skip=0, fmt="{}"):
         format string for the numbers
 
     Returns
-    =======
+    -------
     tabstr : str
         table latex string
 
     Examples
-    ========
+    --------
     >>> si_tab([[1,2],[3,4]])
     '\\\\SI{1}{}&\\\\SI{2}{}\\\\\\\\\\n\\\\SI{3}{}&\\\\SI{4}{}\\\\\\\\\\n'
 

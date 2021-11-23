@@ -96,14 +96,14 @@ def auto(datax, datay, funcs=None, **kwargs):
     Automatically loop over functions and fit the best one.
 
     Parameters
-    ==========
+    ----------
     funcs : function array
         functions to consider as fit. Default all ``smpl.functions``.
     **kwargs : optional
         see :func:`plot_kwargs`.
 
     Returns
-    =======
+    -------
     The best fit function and it's parameters. Also a lambda function where the parameters are already applied.
 
 
@@ -121,7 +121,7 @@ def fit(datax, datay, function, **kwargs):
     Fit and plot function to datax and datay.
 
     Parameters
-    ==========
+    ----------
     datax : array_like
         X data either as ``unp.uarray`` or ``np.array`` or ``list``
     datay : array_like
@@ -133,12 +133,12 @@ def fit(datax, datay, function, **kwargs):
     Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.
 
     Returns
-    =======
+    -------
     array_like
         Optimized fit parameters of ``function`` to ``datax`` and ``datay``
 
     Examples
-    ========
+    --------
 
     .. plot::
         :include-source:
@@ -175,7 +175,7 @@ def data(datax, datay, function=None, **kwargs):
     Plot datay against datax via :func:`fit`
 
     Parameters
-    ==========
+    ----------
     datax : array_like
         X data either as ``unp.uarray`` or ``np.array`` or ``list``
     datay : array_like
@@ -185,7 +185,7 @@ def data(datax, datay, function=None, **kwargs):
     **kwargs : optional
         see :func:`plot_kwargs`.
     Returns
-    =======
+    -------
     array_like
         Optimized fit parameters of ``function`` to ``datax`` and ``datay``
     """
@@ -215,7 +215,7 @@ def function(func, *args, **kwargs):
     Plot function ``func`` between ``xmin`` and ``xmax``
 
     Parameters
-    ==========
+    ----------
     func : function
         Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter
     *args : optional
@@ -303,9 +303,9 @@ def plt_data(datax, datay, **kwargs):
             ll, = plt.step(x, y, where='mid',
                            color=kwargs['data_color'])
             if xerr is not None:
-                for ix in range(len(x)):
+                for ix, xv in enumerate(x):
                     dx = (xerr[ix])
-                    tx = [x[ix]-dx, x[ix]+dx]
+                    tx = [xv-dx, xv+dx]
                     plt.fill_between(tx, y[ix]-yerr[ix], y[ix]+yerr[ix],
                                      label=kwargs['label']if ix == 1 else None, alpha=0.2, step='pre', color=ll.get_color())
             else:

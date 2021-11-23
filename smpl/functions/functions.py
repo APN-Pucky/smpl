@@ -6,8 +6,8 @@ from smpl import doc
 
 # allgemeine Fitfunktionen
 @doc.append_plot(4)
+@doc.insert_str("const(x) = $m$")
 def const(x, m):
-    """const(x) = $m$"""
     return x-x + m
 
 

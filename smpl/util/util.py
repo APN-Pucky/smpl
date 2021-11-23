@@ -2,11 +2,10 @@ import numpy as np
 
 
 def times(s, n):
-    """
-    Concats string ``s`` ``n`` times.
+    """Concats string ``s`` ``n`` times.
 
     Examples
-    ========
+    --------
 
     >>> times("hi",5)
     'hihihihihi'
@@ -16,12 +15,10 @@ def times(s, n):
 
 
 def get(key, ddict, default):
-    """
-    Returns dict[key] if this exists else default.
+    """Returns dict[key] if this exists else default.
 
     Examples
-    ========
-
+    --------
     >>> d = {'a' : 1 , 'b' : 2 , 'c' : 3}
     >>> get('a',d,5)
     1
@@ -36,11 +33,10 @@ def get(key, ddict, default):
 
 
 def has(key, ddict):
-    """
-    Checks if the key is in the dict and not None.
+    """Checks if the key is in the dict and not None.
 
     Examples
-    ========
+    --------
 
     >>> d = {'a' : 1 , 'b' : 2 , 'c' : 3}
     >>> has('a',d)
@@ -54,11 +50,10 @@ def has(key, ddict):
 
 
 def true(key, ddict):
-    """
-    Checks if the key is in the dict and not None and True.
+    """Checks if the key is in the dict and not None and True.
 
     Examples
-    ========
+    --------
 
     >>> d = {'a' : True , 'b' : True , 'c' : False}
     >>> true('a', d)
@@ -73,11 +68,10 @@ def true(key, ddict):
 
 
 def find_nearest_index(array, value):
-    """"
-    Returns the index of the element in ``array`` closest to ``value``
+    """Returns the index of the element in ``array`` closest to ``value``
 
     Examples
-    ========
+    --------
 
     >>> find_nearest_index([1,7,6,2] , 1.9)
     3
@@ -89,11 +83,10 @@ def find_nearest_index(array, value):
 
 
 def find_nearest(array, value):
-    """
-    Return the element in ``array`` closest to ``value``
+    """Return the element in ``array`` closest to ``value``
 
     Examples
-    ========
+    --------
 
     >>> find_nearest([1,7,6,2] , 1.9)
     2

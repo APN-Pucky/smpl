@@ -46,12 +46,12 @@ def append_doc(original):
     Append doc string of ``original`` to ``target`` object.
 
     Parameters
-    ==========
+    ----------
     original : ``class`` or ``function``
         ``orignal.__doc__`` is appended to the ``__doc__`` of the ``target``
 
     Examples
-    ========
+    --------
 
     >>> def ho():
     ...     '''Ho'''

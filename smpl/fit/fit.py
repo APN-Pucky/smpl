@@ -76,14 +76,14 @@ def auto(datax, datay, funcs=None, **kwargs):
     Automatically loop over functions and fit the best one.
 
     Parameters
-    ==========
+    ----------
     funcs : function array
         functions to consider as fit. Default all ``smpl.functions``.
     **kwargs : optional
         see :func:`fit_kwargs`.
 
     Returns
-    =======
+    -------
     The best fit function and it's parameters and a ``lambda`` where the parameters are already applied to the function.
 
     """
@@ -118,7 +118,7 @@ def fit(datax, datay, function, **kwargs):
     Returns a fit of ``function`` to ``datax`` and ``datay``.
 
     Parameters
-    ==========
+    ----------
     datax : array_like
         X data either as ``unp.uarray`` or ``np.array`` or ``list``
     datay : array_like
@@ -191,7 +191,7 @@ def data_split(datax, datay, **kwargs):
     Splits datax and datay into (x,y,xerr,yerr).
 
     Parameters
-    ==========
+    ----------
     **kwargs : optional
         see :func:`fit_kwargs`.
     """

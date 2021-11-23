@@ -6,12 +6,22 @@ import sys
 from pathlib import Path
 
 
-def gf(i):
+def gf(i=3):
     """
-    Scientific format with ``i`` digits.
+    Scientific number format.
+
+    Parameters
+    ----------
+    i : int
+        Number of digits.
+
+    Returns
+    -------
+    str
+        Scientific number format string.
 
     Examples
-    ========
+    --------
     >>> gf(2)
     '{0:.2g}'
     >>> gf(2).format(789234578934)
@@ -21,6 +31,7 @@ def gf(i):
 
     """
     return "{0:." + str(i) + "g}"
+
 
 def find_file(fname, up=0):
     """
@@ -67,17 +78,17 @@ def pr(a, nnl=False):
     Prints the passed ``a``.
 
     Parameters
-    ==========
+    ----------
     nnl : bool
         no-new-line
 
     Returns
-    =======
+    -------
     a : any
         unchanged ``a``.
 
     Examples
-    ========
+    --------
     >>> 5 + pr(4)
     4
     9

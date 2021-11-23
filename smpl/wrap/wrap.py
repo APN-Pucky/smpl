@@ -9,11 +9,10 @@ import numpy as np
 
 
 def get_varnames(expr, xvar):
-    """
-    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.
+    """Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.
 
     Examples
-    ========
+    --------
     >>> get_varnames("a**x*b+c","x")
     ['x', 'a', 'b', 'c']
 
@@ -25,17 +24,16 @@ def get_varnames(expr, xvar):
 
 
 def get_latex(function):
-    """
-    Return a latex string for passed function.
+    """Return a latex string for passed function.
+
 
     Parameters
-    ==========
-
+    ----------
     function : function_like
         function as str lambda or (oneline) function
 
     Examples
-    ========
+    --------
     >>> get_latex(lambda a,b,c,x : (a+b+c)*x,)
     '$x \\\\left(a + b + c\\\\right)$'
     >>> get_latex("(a+b+c)*x")
@@ -77,12 +75,10 @@ def get_latex(function):
 
 
 def get_lambda(expr, xvar):
-    """
-    Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.
+    """Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.
 
     Examples
-    ========
-
+    --------
     >>> l = get_lambda(lambda a,b,c,x : (a+b+c)*x,'x')
     >>> l(4,1,1,1)
     12
@@ -149,8 +145,7 @@ def fnc_get_varnames(func, xvar):
 
 
 def str_get_expr(expr):
-    """
-    Converte a pythonic string expression ot a sympy expression.
+    """Converte a pythonic string expression ot a sympy expression.
 
     Only works with np or unp naming.
     """
