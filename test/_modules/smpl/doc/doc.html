@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-85-g78831ac
+                0.0.103-92-g872811d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -156,14 +156,7 @@
 <span class="sd">    &gt;&gt;&gt; hi()</span>
 <span class="sd">    HiHo</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_append</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span>
-        <span class="k">return</span> <span class="n">target</span>
-    <span class="k">return</span> <span class="n">wrapper</span></div>
+    <span class="k">return</span> <span class="n">_append</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">_insert</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
@@ -257,6 +250,16 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">rs</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
     <span class="k">return</span> <span class="n">rs</span></div>
+
+
+<div class="viewcode-block" id="name_to_str"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.name_to_str">[docs]</a><span class="k">def</span> <span class="nf">name_to_str</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replace __str__ with __name__.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="n">target</span><span class="o">.</span><span class="fm">__str__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">target</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="k">return</span> <span class="n">target</span>
+    <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>

@@ -21,8 +21,6 @@
    
       pwd
    
-      si
-   
    
    .. rubric:: Functions
 

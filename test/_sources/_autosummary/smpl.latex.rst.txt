@@ -9,8 +9,6 @@
    
    .. autosummary:: 
    
-      gf
-   
       si
    
       si_line
