@@ -1,4 +1,4 @@
-"""Simplified input and output"""
+"""Simplified latex."""
 
 from .latex import si, si_line, si_tab, si_ttab
 

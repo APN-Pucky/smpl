@@ -99,7 +99,7 @@ def si_tab(tab, skip=0, fmt="{}"):
     # mkdirs(fn)
     #file = open(fn,"w")
     s = ""
-    for i, ti in enumerate(tab):
+    for _, ti in enumerate(tab):
         for j, tij in enumerate(ti):
             if(j != 0):
                 s += "&"

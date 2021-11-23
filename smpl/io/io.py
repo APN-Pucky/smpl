@@ -1,7 +1,6 @@
 import pathlib
 #from io import StringIO
 from smpl import debug
-import numpy as np
 import os
 import sys
 from pathlib import Path
@@ -78,7 +77,7 @@ def pr(a, nnl=False):
         unchanged ``a``.
 
     Examples
-
+    ========
     >>> 5 + pr(4)
     4
     9
