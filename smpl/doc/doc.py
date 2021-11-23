@@ -25,9 +25,7 @@ def append_str(txt):
 
 
 def append_plot(*args, xmin=-5, xmax=5):
-    """
-    Append a plot to a function.
-    """
+    """Append a plot to a function. """
     # return _append("\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t>>> from " + target.__module__ + " import " +target.__name__ + "\n\t\t>>> from smpl import plot\n\t\t>>> plot.function("+ target.__name__ + "," + ','.join([str(a) for a in args]) + ",xmin="+str(xmin) + ",xmax=" + str(xmax)+")")
 
     def wrapper(target):
@@ -42,8 +40,7 @@ def append_plot(*args, xmin=-5, xmax=5):
 
 
 def append_doc(original):
-    """
-    Append doc string of ``original`` to ``target`` object.
+    """Append doc string of ``original`` to ``target`` object.
 
     Parameters
     ----------
@@ -80,16 +77,12 @@ def insert_str(txt):
 
 
 def insert_doc(original):
-    """
-    Inserts the docstring from passed function ``original`` in the ``target`` function docstring.
-    """
+    """Inserts the docstring from passed function ``original`` in the ``target`` function docstring."""
     return _insert(original.__doc__)
 
 
 def insert_eq():
-    """
-    Inserts the function and its parameters and an equal sign
-    """
+    """Inserts the function and its parameters and an equal sign."""
     def wrapper(target):
         if target.__doc__ is None:
             target.__doc__ = ""
@@ -104,16 +97,12 @@ def insert_eq():
 
 
 def insert_latex_eq():
-    """
-    Inserts latexed code of a oneline function with parameters.
-    """
+    """Inserts latexed code of a oneline function with parameters."""
     return lambda f: insert_eq()(insert_latex()(f))
 
 
 def insert_latex():
-    """
-    Inserts latexed code of a oneline function.
-    """
+    """Inserts latexed code of a oneline function."""
     def wrapper(target):
         if target.__doc__ is None:
             target.__doc__ = wrap.get_latex(target)
@@ -129,9 +118,7 @@ def table_sep(tabs=1):
 
 
 def table(dic, top=True, bottom=True, init=True, tabs=1):
-    """
-    Add dict= {'key': [values...]} to a simple reST table.
-    """
+    """Add dict= {'key': [values...]} to a simple reST table."""
     t = util.times("\t", tabs)
     rs = ""
     if init:
@@ -149,9 +136,9 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
             p = sv
         rs += "\n" + t
     if bottom:
-        rs += table_sep(tabs=tabs)
+        rs += table_sep(tabs=tabs) + "\n"
     else:
-        rs += "\n"
+        rs += ""
     return rs
 
 

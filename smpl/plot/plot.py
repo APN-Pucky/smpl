@@ -75,13 +75,13 @@ default = {
 }
 
 
-# @doc.insert_str("\tDefault kwargs\n\n\t")
 @doc.append_doc(ffit.fit_kwargs)
-@doc.append_str(doc.table(default))
+@doc.append_str("\t")
+@doc.append_str(doc.table(default, init=False))
 @doc.append_str(doc.table({"plot_kwargs        ": ["default", "description"]}, bottom=False))
 def plot_kwargs(kwargs):
-    """
-    Set default plot_kwargs if not set.
+    """Set default plot_kwargs if not set.
+
     """
     kwargs = ffit.fit_kwargs(kwargs)
     for k, v in default.items():

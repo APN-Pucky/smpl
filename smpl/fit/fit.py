@@ -58,11 +58,11 @@ default = {'params': [None, "Initial fit parameters", ],
 # @doc.insert_str("\tDefault kwargs\n\n\t")
 
 
-@doc.append_str(doc.table(default))
+@doc.append_str(doc.table(default, init=False))
 @doc.append_str(doc.table({"fit_kwargs": ["default", "description"]}, bottom=False))
 def fit_kwargs(kwargs):
-    """
-    Set default fit_kwargs if not set.
+    """Set default fit_kwargs if not set.
+
     """
     for k, v in default.items():
         if not k in kwargs:
