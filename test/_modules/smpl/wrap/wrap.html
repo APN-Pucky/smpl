@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106-3-gf57aa59
+                0.0.106-4-g24f6ef8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -102,11 +102,10 @@
 
 
 <div class="viewcode-block" id="get_varnames"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_varnames">[docs]</a><span class="k">def</span> <span class="nf">get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.</span>
+    <span class="sd">&quot;&quot;&quot;Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; get_varnames(&quot;a**x*b+c&quot;,&quot;x&quot;)</span>
 <span class="sd">    [&#39;x&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
 
@@ -118,17 +117,16 @@
 
 
 <div class="viewcode-block" id="get_latex"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_latex">[docs]</a><span class="k">def</span> <span class="nf">get_latex</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return a latex string for passed function.</span>
+    <span class="sd">&quot;&quot;&quot;Return a latex string for passed function.</span>
+
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
-
+<span class="sd">    ----------</span>
 <span class="sd">    function : function_like</span>
 <span class="sd">        function as str lambda or (oneline) function</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; get_latex(lambda a,b,c,x : (a+b+c)*x,)</span>
 <span class="sd">    &#39;$x \\\\left(a + b + c\\\\right)$&#39;</span>
 <span class="sd">    &gt;&gt;&gt; get_latex(&quot;(a+b+c)*x&quot;)</span>
@@ -170,12 +168,10 @@
 
 
 <div class="viewcode-block" id="get_lambda"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_lambda">[docs]</a><span class="k">def</span> <span class="nf">get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.</span>
+    <span class="sd">&quot;&quot;&quot;Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
-
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; l = get_lambda(lambda a,b,c,x : (a+b+c)*x,&#39;x&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; l(4,1,1,1)</span>
 <span class="sd">    12</span>
@@ -242,8 +238,7 @@
 
 
 <span class="k">def</span> <span class="nf">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Converte a pythonic string expression ot a sympy expression.</span>
+    <span class="sd">&quot;&quot;&quot;Converte a pythonic string expression ot a sympy expression.</span>
 
 <span class="sd">    Only works with np or unp naming.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
