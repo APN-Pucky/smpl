@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.103-92-g872811d
+                0.0.103-93-g2a5c473
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -200,8 +200,68 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.fit.fit_kwargs">
 <span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">fit_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.fit_kwargs" title="Permalink to this definition"></a></dt>
-<dd><p>Set default fit_kwargs if not set.      ==================  ==================  ==================
-fit_kwargs          default             description</p>
+<dd><dl>
+<dt>Set default fit_kwargs if not set.</dt><dd><table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>fit_kwargs</p></th>
+<th class="head"><p>default</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>params</p></td>
+<td><p>None</p></td>
+<td><p>Initial fit parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>frange</p></td>
+<td><p>None</p></td>
+<td><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p></td>
+</tr>
+<tr class="row-even"><td><p>selector</p></td>
+<td><p>None</p></td>
+<td><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.</p></td>
+</tr>
+<tr class="row-odd"><td><p>fixed_params</p></td>
+<td><p>True</p></td>
+<td><p>Enable fixing parameters by choosing the same-named variables from <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>sortbyx</p></td>
+<td><p>True</p></td>
+<td><p>Enable sorting the x and y data so that x is sorted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>maxfev</p></td>
+<td><p>10000</p></td>
+<td><p>Maximum function evaluations during fitting.</p></td>
+</tr>
+<tr class="row-even"><td><p>epsfcn</p></td>
+<td><p>0.0001</p></td>
+<td><p>Suitable step length for jacobian approximation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>xvar</p></td>
+<td><p>None</p></td>
+<td><p>Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.</p></td>
+</tr>
+<tr class="row-even"><td><p>bins</p></td>
+<td><p>0</p></td>
+<td><p>Number of bins for histogram</p></td>
+</tr>
+<tr class="row-odd"><td><p>binunc</p></td>
+<td><p>poisson_dist</p></td>
+<td><p>Number of bins for histogram</p></td>
+</tr>
+<tr class="row-even"><td><p>autotqdm</p></td>
+<td><p>True</p></td>
+<td><p>Auto fitting display tqdm</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
