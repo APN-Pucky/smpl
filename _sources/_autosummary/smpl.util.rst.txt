@@ -9,6 +9,10 @@
    
    .. autosummary:: 
    
+      find_nearest
+   
+      find_nearest_index
+   
       get
    
       has

@@ -11,9 +11,9 @@
    
       get_lambda
    
-      get_varnames
+      get_latex
    
-      str_get_expr
+      get_varnames
    
    
    .. rubric:: Functions

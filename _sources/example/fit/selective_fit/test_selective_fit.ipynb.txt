@@ -20,6 +20,7 @@
     "from smpl import functions as f\n",
     "import uncertainties.unumpy as unp\n",
     "import smpl\n",
+    "np.random.seed(1337)\n",
     "smpl.__version__"
    ]
   },
@@ -79,7 +80,7 @@
    "source": [
     "def sinus(x,a,f,p,y):\n",
     "    return a*unp.sin(f*x+p)+y\n",
-    "x= np.linspace(-5,5,200)\n",
+    "x= np.linspace(-5,5,1000)\n",
     "y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2\n",
     "ff = plot.fit(x[x<0], y[x<0],sinus, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",sigmas=1,frange=[0,30])"
    ]
@@ -90,7 +91,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "x= np.linspace(-5,5,200)\n",
+    "x= np.linspace(-5,5,1000)\n",
     "y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2\n",
     "ff = plot.fit(x, y,sinus, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",sigmas=1,selector= x>0)"
    ]

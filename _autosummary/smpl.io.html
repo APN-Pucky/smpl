@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.104
+                0.0.105
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -119,7 +119,7 @@
 </style>
 <section id="module-smpl.io">
 <span id="smpl-io"></span><h1><a class="reference internal" href="#module-smpl.io" title="smpl.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a><a class="headerlink" href="#module-smpl.io" title="Permalink to this headline"></a></h1>
-<p>Simplified input and output</p>
+<p>Simplified input and output.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -163,6 +163,15 @@
 <dt class="sig sig-object py" id="smpl.io.gf">
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">gf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#gf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.gf" title="Permalink to this definition"></a></dt>
 <dd><p>Scientific format with <code class="docutils literal notranslate"><span class="pre">i</span></code> digits.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&#39;{0:.2g}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">789234578934</span><span class="p">)</span>
+<span class="go">&#39;7.9e+11&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gf</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">789234578934</span><span class="p">)</span>
+<span class="go">&#39;7.8923e+11&#39;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -189,6 +198,14 @@
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">+</span> <span class="n">pr</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">4</span>
+<span class="go">9</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">+</span> <span class="n">pr</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">nnl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">49</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
