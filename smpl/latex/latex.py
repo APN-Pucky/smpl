@@ -1,12 +1,6 @@
-#from io import StringIO
 import numpy as np
 
 
-def gf(i):
-    """
-    Scientific format with ``i`` digits.
-    """
-    return "{0:." + str(i) + "g}"
 
 
 def si(s, u="", fmt="{}"):
@@ -26,6 +20,17 @@ def si(s, u="", fmt="{}"):
     =======
     sistr : str
         latex SI string of the number with it's uncertainty and unit.
+
+    Examples
+    ========
+    >>> import uncertainties as unc
+    >>> si(unc.ufloat(2000,0.1))
+    '\\\\SI{2000.00+-0.10}{}'
+    >>> si(unc.ufloat(2000,0.1),"\\meter")
+    '\\\\SI{2000.00+-0.10}{\\\\meter}'
+    >>> si(unc.ufloat(2000,0.1),"\\meter", gf(2))
+    '\\\\SI{2.0+-0.0e+03}{\\\\meter}'
+
     """
     return "\\SI{%s}{%s}" % ((fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""), u)
 
@@ -61,6 +66,12 @@ def si_tab(tab, skip=0, fmt="{}"):
     =======
     tabstr : str
         table latex string
+
+    Examples
+    ========
+    >>> latex.si_tab([[1,2],[3,4]])
+    '\\\\SI{1}{}&\\\\SI{2}{}\\\\\\\\\n\\\\SI{3}{}&\\\\SI{4}{}\\\\\\\\\n'
+
     """
     # mkdirs(fn)
     #file = open(fn,"w")
