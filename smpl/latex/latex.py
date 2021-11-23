@@ -68,6 +68,7 @@ def si_ttab(tab, skip=0, fmt="{}"):
     ========
     >>> latex.si_tab([[1,2],[3,4]])
     '\\\\SI{1}{}&\\\\SI{3}{}\\\\\\\\\n\\\\SI{2}{}&\\\\SI{4}{}\\\\\\\\\n'
+
     """
     return si_tab(np.transpose(tab), skip, fmt)
 

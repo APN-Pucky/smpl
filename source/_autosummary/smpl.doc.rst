@@ -25,6 +25,8 @@
    
       insert_str
    
+      name_to_str
+   
       table
    
    
