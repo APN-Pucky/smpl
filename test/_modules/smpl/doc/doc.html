@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.105-96-ge6edc72
+                0.0.106-3-gf57aa59
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -176,14 +176,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Inserts the docstring from passed function ``original`` in the ``target`` function docstring.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span>
-        <span class="k">return</span> <span class="n">target</span>
-    <span class="k">return</span> <span class="n">wrapper</span></div>
+    <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="insert_eq"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_eq</span><span class="p">():</span>
@@ -252,8 +245,7 @@
         <span class="n">rs</span> <span class="o">+=</span> <span class="n">table_sep</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="n">tabs</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">rs</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
-    <span class="k">return</span> <span class="n">rs</span> </div>
-
+    <span class="k">return</span> <span class="n">rs</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
