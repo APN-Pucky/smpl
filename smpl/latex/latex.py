@@ -1,8 +1,6 @@
 import numpy as np
 
 
-
-
 def si(s, u="", fmt="{}"):
     """
     Get number with uncertainty and unit in ``si`` format for latex.
@@ -38,6 +36,12 @@ def si(s, u="", fmt="{}"):
 def si_line(a, skip=0, fmt="{}"):
     """
     Get array ``a`` in the format of a line of a latex table.
+
+    Examples
+    ========
+    >>> latex.si_line([1,2,3,])
+    '\\\\SI{1}{}&\\\\SI{2}{}&\\\\SI{3}{}\\\\\\\\\n'
+
     """
     return si_tab(np.transpose([[t] for t in a]), skip, fmt)
 
@@ -45,6 +49,25 @@ def si_line(a, skip=0, fmt="{}"):
 def si_ttab(tab, skip=0, fmt="{}"):
     """
     Transposed :func:`si_tab`.
+
+    Parameters
+    ==========
+    tab : array_like
+        Array containing the values of the table
+    skip : number
+        Skip this many table lines
+    fmt : str
+        format string for the numbers
+
+    Returns
+    =======
+    tabstr : str
+        table latex string
+
+    Examples
+    ========
+    >>> latex.si_tab([[1,2],[3,4]])
+    '\\\\SI{1}{}&\\\\SI{3}{}\\\\\\\\\n\\\\SI{2}{}&\\\\SI{4}{}\\\\\\\\\n'
     """
     return si_tab(np.transpose(tab), skip, fmt)
 
