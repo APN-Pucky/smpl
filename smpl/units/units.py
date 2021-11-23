@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Dec 23 23:26:59 2019
-
-@author: apn
-"""
 import math
 
 

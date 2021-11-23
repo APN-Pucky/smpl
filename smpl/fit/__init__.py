@@ -1,5 +1,4 @@
-"""
-Simplified Fitting.
+"""Simplified Fitting.
 
 Uses scipy.curve_fit (no x errors) or scipy.odr (with x errors).
 """

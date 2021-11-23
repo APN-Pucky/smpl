@@ -2,7 +2,8 @@ import numpy as np
 
 
 def times(s, n):
-    """Concats string ``s`` ``n`` times.
+    """
+    Concats string ``s`` ``n`` times.
 
     Examples
     --------
@@ -15,7 +16,8 @@ def times(s, n):
 
 
 def get(key, ddict, default):
-    """Returns dict[key] if this exists else default.
+    """
+    Returns dict[key] if this exists else default.
 
     Examples
     --------
@@ -33,7 +35,8 @@ def get(key, ddict, default):
 
 
 def has(key, ddict):
-    """Checks if the key is in the dict and not None.
+    """
+    Checks if the key is in the dict and not None.
 
     Examples
     --------
@@ -50,7 +53,8 @@ def has(key, ddict):
 
 
 def true(key, ddict):
-    """Checks if the key is in the dict and not None and True.
+    """
+    Checks if the key is in the dict and not None and True.
 
     Examples
     --------
@@ -68,7 +72,8 @@ def true(key, ddict):
 
 
 def find_nearest_index(array, value):
-    """Returns the index of the element in ``array`` closest to ``value``
+    """
+    Returns the index of the element in ``array`` closest to ``value``
 
     Examples
     --------
@@ -83,7 +88,8 @@ def find_nearest_index(array, value):
 
 
 def find_nearest(array, value):
-    """Return the element in ``array`` closest to ``value``
+    """
+    Return the element in ``array`` closest to ``value``
 
     Examples
     --------
