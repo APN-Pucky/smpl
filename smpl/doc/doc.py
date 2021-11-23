@@ -149,14 +149,17 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
         rs += str(k)
         p = str(k)
         for v in vs:
-            rs += "".join([' ' for i in range(tab_len-len(p))]) + str(v)
-            p = str(v)
+            sv = str(v)
+            if("<function " in sv and "at 0x" in sv):
+                sv = sv.split("<function ")[1].split("at 0x")[0]
+            rs += "".join([' ' for i in range(tab_len-len(p))]) + sv
+            p = sv
         rs += "\n" + t
     if bottom:
         rs += table_sep(tabs=tabs)
     else:
         rs += "\n"
-    return rs
+    return rs 
 
 
 def name_to_str():
@@ -164,7 +167,8 @@ def name_to_str():
     Replace __str__ with __name__.
     """
     def wrapper(target):
-        target.__str__ = lambda s: target.__name__
+        target.__str__ = lambda s="": target.__name__
+        target.__repr__ = lambda s="": target.__name__
         return target
     return wrapper
 
