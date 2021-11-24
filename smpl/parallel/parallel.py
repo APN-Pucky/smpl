@@ -26,7 +26,6 @@ def res(a):
     >>> res([calc(lambda x : x**3, i) for i in range(0,5)])
     [0, 1, 8, 27, 64]
 
-        
     """
     if isinstance(a, list):
         return [next(k) for k in a]
