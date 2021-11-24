@@ -7,7 +7,6 @@ def times(s, n):
 
     Examples
     --------
-
     >>> times("hi",5)
     'hihihihihi'
 
@@ -40,7 +39,6 @@ def has(key, ddict):
 
     Examples
     --------
-
     >>> d = {'a' : 1 , 'b' : 2 , 'c' : 3}
     >>> has('a',d)
     True
@@ -58,7 +56,6 @@ def true(key, ddict):
 
     Examples
     --------
-
     >>> d = {'a' : True , 'b' : True , 'c' : False}
     >>> true('a', d)
     True
@@ -77,7 +74,6 @@ def find_nearest_index(array, value):
 
     Examples
     --------
-
     >>> find_nearest_index([1,7,6,2] , 1.9)
     3
 
@@ -93,7 +89,6 @@ def find_nearest(array, value):
 
     Examples
     --------
-
     >>> find_nearest([1,7,6,2] , 1.9)
     2
 
