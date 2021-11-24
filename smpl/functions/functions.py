@@ -86,15 +86,6 @@ def square(x, x_0, a, y):
     return a*(x-x_0)**2+y
 
 
-def quadratic_(x, a, y):
-    """A*(x)**2+y"""
-    return a*(x)**2+y
-
-
-quadratic = square
-Quadratisch = quadratic_
-
-
 @doc.append_plot(1, 5, 0, -2)
 @doc.insert_latex_eq()
 def cube(x, a, b, c, d):
