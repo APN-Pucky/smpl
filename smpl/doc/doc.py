@@ -57,6 +57,7 @@ def append_doc(original):
     ...     print(hi.__doc__)
     >>> hi()
     HiHo
+
     """
     return _append(original.__doc__)
 
