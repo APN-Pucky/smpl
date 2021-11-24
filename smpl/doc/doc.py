@@ -48,7 +48,6 @@ def append_doc(original):
 
     Examples
     --------
-
     >>> def ho():
     ...     '''Ho'''
     ...     print(ho.__doc__)
