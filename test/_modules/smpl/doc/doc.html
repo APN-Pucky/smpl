@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106-6-g6987acc
+                0.0.106-7-g03d022f
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -107,9 +107,7 @@
 
 
 <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    TODO split cases doc/txt/plot?</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;TODO split cases doc/txt/plot?&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="kc">None</span>
 
 
@@ -118,7 +116,7 @@
 
 
 <div class="viewcode-block" id="append_plot"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.append_plot">[docs]</a><span class="k">def</span> <span class="nf">append_plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Append a plot to a function. &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Append a plot to a function.&quot;&quot;&quot;</span>
     <span class="c1"># return _append(&quot;\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t&gt;&gt;&gt; from &quot; + target.__module__ + &quot; import &quot; +target.__name__ + &quot;\n\t\t&gt;&gt;&gt; from smpl import plot\n\t\t&gt;&gt;&gt; plot.function(&quot;+ target.__name__ + &quot;,&quot; + &#39;,&#39;.join([str(a) for a in args]) + &quot;,xmin=&quot;+str(xmin) + &quot;,xmax=&quot; + str(xmax)+&quot;)&quot;)</span>
 
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
@@ -133,7 +131,8 @@
 
 
 <div class="viewcode-block" id="append_doc"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.append_doc">[docs]</a><span class="k">def</span> <span class="nf">append_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Append doc string of ``original`` to ``target`` object.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Append doc string of ``original`` to ``target`` object.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
