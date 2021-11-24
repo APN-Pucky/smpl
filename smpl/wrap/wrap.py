@@ -9,7 +9,8 @@ import numpy as np
 
 
 def get_varnames(expr, xvar):
-    """Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.
+    """
+    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.
 
     Examples
     --------
@@ -24,7 +25,8 @@ def get_varnames(expr, xvar):
 
 
 def get_latex(function):
-    """Return a latex string for passed function.
+    """
+    Return a latex string for passed function.
 
 
     Parameters
@@ -75,7 +77,8 @@ def get_latex(function):
 
 
 def get_lambda(expr, xvar):
-    """Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.
+    """
+    Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.
 
     Examples
     --------
@@ -145,7 +148,8 @@ def fnc_get_varnames(func, xvar):
 
 
 def str_get_expr(expr):
-    """Converte a pythonic string expression ot a sympy expression.
+    """
+    Convert a pythonic string expression ot a sympy expression.
 
     Only works with np or unp naming.
     """
