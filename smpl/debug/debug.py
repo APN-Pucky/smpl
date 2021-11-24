@@ -35,7 +35,6 @@ def once(_back=0):
 
     Examples
     --------
-
     >>> for i in range(10):
     ...     if once():
     ...         print(i)
@@ -75,6 +74,7 @@ def get_line_number_file(split=True, _back=0):
         First element in the return array
     filename : str
         Second element in the return array
+
     """
     cf = get_frame(_back+1)
     fname = cf.f_code.co_filename
@@ -126,7 +126,6 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0):
 
     Examples
     --------
-
     >>> msg("hi", level = -9999)
     DBG::debug.py:...: hi
     'hi'
