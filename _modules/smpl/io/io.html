@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106
+                0.0.107
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -99,12 +99,22 @@
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 
-<div class="viewcode-block" id="gf"><a class="viewcode-back" href="../../../_autosummary/smpl.io.html#smpl.io.gf">[docs]</a><span class="k">def</span> <span class="nf">gf</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<div class="viewcode-block" id="gf"><a class="viewcode-back" href="../../../_autosummary/smpl.io.html#smpl.io.gf">[docs]</a><span class="k">def</span> <span class="nf">gf</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Scientific format with ``i`` digits.</span>
+<span class="sd">    Scientific number format.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    i : int</span>
+<span class="sd">        Number of digits.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Scientific number format string.</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; gf(2)</span>
 <span class="sd">    &#39;{0:.2g}&#39;</span>
 <span class="sd">    &gt;&gt;&gt; gf(2).format(789234578934)</span>
@@ -114,6 +124,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;{0:.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;g}&quot;</span></div>
+
 
 <div class="viewcode-block" id="find_file"><a class="viewcode-back" href="../../../_autosummary/smpl.io.html#smpl.io.find_file">[docs]</a><span class="k">def</span> <span class="nf">find_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">up</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -160,17 +171,17 @@
 <span class="sd">    Prints the passed ``a``.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    nnl : bool</span>
 <span class="sd">        no-new-line</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    =======</span>
+<span class="sd">    -------</span>
 <span class="sd">    a : any</span>
 <span class="sd">        unchanged ``a``.</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; 5 + pr(4)</span>
 <span class="sd">    4</span>
 <span class="sd">    9</span>

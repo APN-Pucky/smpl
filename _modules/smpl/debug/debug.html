@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106
+                0.0.107
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -127,8 +127,7 @@
 <span class="sd">    Returns true only one time</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
-
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; for i in range(10):</span>
 <span class="sd">    ...     if once():</span>
 <span class="sd">    ...         print(i)</span>
@@ -156,18 +155,19 @@
 <span class="sd">    Gets the current filename and the current linenumber within it.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    split : bool</span>
 <span class="sd">        Indicates whenever the folders above of the file should be included in the returned filename.</span>
 <span class="sd">    _back : int</span>
 <span class="sd">        Number of stack/frames to go back.</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    =======</span>
+<span class="sd">    -------</span>
 <span class="sd">    filenumber : int</span>
 <span class="sd">        First element in the return array</span>
 <span class="sd">    filename : str</span>
 <span class="sd">        Second element in the return array</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">cf</span> <span class="o">=</span> <span class="n">get_frame</span><span class="p">(</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span>
@@ -218,8 +218,7 @@
 <span class="sd">    Prints the message ``msg`` if level &gt; debug_level and always returns the msg.</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
-
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; msg(&quot;hi&quot;, level = -9999)</span>
 <span class="sd">    DBG::debug.py:...: hi</span>
 <span class="sd">    &#39;hi&#39;</span>

@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106
+                0.0.107
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -133,6 +133,7 @@
     <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Units of the fit parameters as strings. Displayed in the Legend&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="s1">&#39;save&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot; File to save the plot&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="s1">&#39;lpos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Legend position&quot;</span><span class="p">,</span> <span class="p">],</span>
+    <span class="s1">&#39;tight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;tight_layout&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="c1">#          &#39;frange&#39;        :[None      ,&quot;Limit the fit to given range. First integer is the lowest and second the highest index.&quot;,],</span>
     <span class="s1">&#39;prange&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Limit the plot of the fit to given range&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="s1">&#39;sigmas&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Color the array of given ``sigma`` times uncertainty. Only works if the fit function is coded with ``unp``&quot;</span><span class="p">,</span> <span class="p">],</span>
@@ -168,13 +169,13 @@
 <span class="p">}</span>
 
 
-<span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
 <div class="viewcode-block" id="plot_kwargs"><a class="viewcode-back" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_doc</span><span class="p">(</span><span class="n">ffit</span><span class="o">.</span><span class="n">fit_kwargs</span><span class="p">)</span>
-<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;plot_kwargs        &quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="k">def</span> <span class="nf">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Set default plot_kwargs if not set.</span>
+    <span class="sd">&quot;&quot;&quot;Set default plot_kwargs if not set.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">ffit</span><span class="o">.</span><span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -189,14 +190,14 @@
 <span class="sd">    Automatically loop over functions and fit the best one.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    funcs : function array</span>
 <span class="sd">        functions to consider as fit. Default all ``smpl.functions``.</span>
 <span class="sd">    **kwargs : optional</span>
 <span class="sd">        see :func:`plot_kwargs`.</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    =======</span>
+<span class="sd">    -------</span>
 <span class="sd">    The best fit function and it&#39;s parameters. Also a lambda function where the parameters are already applied.</span>
 
 
@@ -214,7 +215,7 @@
 <span class="sd">    Fit and plot function to datax and datay.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    datax : array_like</span>
 <span class="sd">        X data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
 <span class="sd">    datay : array_like</span>
@@ -226,12 +227,12 @@
 <span class="sd">    Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    =======</span>
+<span class="sd">    -------</span>
 <span class="sd">    array_like</span>
 <span class="sd">        Optimized fit parameters of ``function`` to ``datax`` and ``datay``</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 
 <span class="sd">    .. plot::</span>
 <span class="sd">        :include-source:</span>
@@ -268,7 +269,7 @@
 <span class="sd">    Plot datay against datax via :func:`fit`</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    datax : array_like</span>
 <span class="sd">        X data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
 <span class="sd">    datay : array_like</span>
@@ -278,7 +279,7 @@
 <span class="sd">    **kwargs : optional</span>
 <span class="sd">        see :func:`plot_kwargs`.</span>
 <span class="sd">    Returns</span>
-<span class="sd">    =======</span>
+<span class="sd">    -------</span>
 <span class="sd">    array_like</span>
 <span class="sd">        Optimized fit parameters of ``function`` to ``datax`` and ``datay``</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -308,7 +309,7 @@
 <span class="sd">    Plot function ``func`` between ``xmin`` and ``xmax``</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    func : function</span>
 <span class="sd">        Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter</span>
 <span class="sd">    *args : optional</span>
@@ -319,8 +320,8 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmin&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmin&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;xmin or xmax missing.&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;lpos&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="c1"># if not util.has(&#39;lpos&#39;, kwargs) and not util.has(&#39;label&#39;, kwargs):</span>
+    <span class="c1">#    kwargs[&#39;lpos&#39;] = -1</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;fmt&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;fmt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
 
@@ -330,7 +331,7 @@
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fnc_legend</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">#kwargs[&#39;lpos&#39;] = 0</span>
     <span class="n">_plot</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">xfit</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ss&#39;</span><span class="p">]:</span>
         <span class="n">save_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -396,9 +397,9 @@
             <span class="n">ll</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;mid&#39;</span><span class="p">,</span>
                            <span class="n">color</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;data_color&#39;</span><span class="p">])</span>
             <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+                <span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">xv</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
                     <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">xerr</span><span class="p">[</span><span class="n">ix</span><span class="p">])</span>
-                    <span class="n">tx</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span><span class="o">-</span><span class="n">dx</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span><span class="o">+</span><span class="n">dx</span><span class="p">]</span>
+                    <span class="n">tx</span> <span class="o">=</span> <span class="p">[</span><span class="n">xv</span><span class="o">-</span><span class="n">dx</span><span class="p">,</span> <span class="n">xv</span><span class="o">+</span><span class="n">dx</span><span class="p">]</span>
                     <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span><span class="o">-</span><span class="n">yerr</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span><span class="o">+</span><span class="n">yerr</span><span class="p">[</span><span class="n">ix</span><span class="p">],</span>
                                      <span class="n">label</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="k">if</span> <span class="n">ix</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="s1">&#39;pre&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">ll</span><span class="o">.</span><span class="n">get_color</span><span class="p">())</span>
             <span class="k">else</span><span class="p">:</span>
@@ -504,7 +505,8 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="s1">&#39;logx&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;logx&#39;</span><span class="p">]:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s1">&#39;tight&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;tight&#39;</span><span class="p">]:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="k">if</span> <span class="s1">&#39;lpos&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">if</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;bbox_to_anchor&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)):</span>
             <span class="k">if</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;ncol&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)):</span>

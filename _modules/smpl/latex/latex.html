@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106
+                0.0.107
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -99,21 +99,21 @@
 <span class="sd">    Get number with uncertainty and unit in ``si`` format for latex.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    s : ufloat</span>
-<span class="sd">        number to be returned in a latex compatible format</span>
+<span class="sd">        number to be returned in a latex compatible format.</span>
 <span class="sd">    u : str</span>
-<span class="sd">        unit of that number</span>
+<span class="sd">        unit of that number.</span>
 <span class="sd">    fmt : str</span>
-<span class="sd">        format string for the numbers</span>
+<span class="sd">        format string for the numbers.</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    =======</span>
-<span class="sd">    sistr : str</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
 <span class="sd">        latex SI string of the number with it&#39;s uncertainty and unit.</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import uncertainties as unc</span>
 <span class="sd">    &gt;&gt;&gt; from smpl import io</span>
 <span class="sd">    &gt;&gt;&gt; si(unc.ufloat(2000,0.1))</span>
@@ -132,7 +132,7 @@
 <span class="sd">    Get array ``a`` in the format of a line of a latex table.</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; si_line([1,2,3,])</span>
 <span class="sd">    &#39;\\\\SI{1}{}&amp;\\\\SI{2}{}&amp;\\\\SI{3}{}\\\\\\\\\\n&#39;</span>
 
@@ -145,7 +145,7 @@
 <span class="sd">    Transposed :func:`si_tab`.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    tab : array_like</span>
 <span class="sd">        Array containing the values of the table</span>
 <span class="sd">    skip : number</span>
@@ -154,12 +154,12 @@
 <span class="sd">        format string for the numbers</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    =======</span>
+<span class="sd">    -------</span>
 <span class="sd">    tabstr : str</span>
 <span class="sd">        table latex string</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; si_ttab([[1,2],[3,4]])</span>
 <span class="sd">    &#39;\\\\SI{1}{}&amp;\\\\SI{3}{}\\\\\\\\\\n\\\\SI{2}{}&amp;\\\\SI{4}{}\\\\\\\\\\n&#39;</span>
 
@@ -172,7 +172,7 @@
 <span class="sd">    Get arrays of (uncertainty) numbers in  a latex table compatible form.</span>
 
 <span class="sd">    Parameters</span>
-<span class="sd">    ==========</span>
+<span class="sd">    ----------</span>
 <span class="sd">    tab : array_like</span>
 <span class="sd">        Array containing the values of the table</span>
 <span class="sd">    skip : number</span>
@@ -181,12 +181,12 @@
 <span class="sd">        format string for the numbers</span>
 
 <span class="sd">    Returns</span>
-<span class="sd">    =======</span>
+<span class="sd">    -------</span>
 <span class="sd">    tabstr : str</span>
 <span class="sd">        table latex string</span>
 
 <span class="sd">    Examples</span>
-<span class="sd">    ========</span>
+<span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; si_tab([[1,2],[3,4]])</span>
 <span class="sd">    &#39;\\\\SI{1}{}&amp;\\\\SI{2}{}\\\\\\\\\\n\\\\SI{3}{}&amp;\\\\SI{4}{}\\\\\\\\\\n&#39;</span>
 

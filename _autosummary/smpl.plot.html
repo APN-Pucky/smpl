@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106
+                0.0.107
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -700,7 +700,7 @@
 <dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
 <dt><strong>Returns</strong></dt><dd></dd>
-<dt><strong>=======</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
 <dt><strong>array_like</strong></dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
 </dd>
 </dl>
@@ -768,8 +768,8 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.plot_kwargs">
 <span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#plot_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot_kwargs" title="Permalink to this definition"></a></dt>
-<dd><dl>
-<dt>Set default plot_kwargs if not set.</dt><dd><table class="docutils align-default">
+<dd><p>Set default plot_kwargs if not set.</p>
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 9%" />
 <col style="width: 9%" />
@@ -810,118 +810,122 @@
 <td><p>0</p></td>
 <td><p>Legend position</p></td>
 </tr>
-<tr class="row-odd"><td><p>prange</p></td>
+<tr class="row-odd"><td><p>tight</p></td>
+<td><p>True</p></td>
+<td><p>tight_layout</p></td>
+</tr>
+<tr class="row-even"><td><p>prange</p></td>
 <td><p>None</p></td>
 <td><p>Limit the plot of the fit to given range</p></td>
 </tr>
-<tr class="row-even"><td><p>sigmas</p></td>
+<tr class="row-odd"><td><p>sigmas</p></td>
 <td><p>0</p></td>
 <td><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty. Only works if the fit function is coded with <code class="docutils literal notranslate"><span class="pre">unp</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>data_sigmas</p></td>
+<tr class="row-even"><td><p>data_sigmas</p></td>
 <td><p>1</p></td>
 <td><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty. Only works if the data has uncertainties</p></td>
 </tr>
-<tr class="row-even"><td><p>init</p></td>
+<tr class="row-odd"><td><p>init</p></td>
 <td><p>False</p></td>
 <td><p>Initialize a new plot</p></td>
 </tr>
-<tr class="row-odd"><td><p>ss</p></td>
+<tr class="row-even"><td><p>ss</p></td>
 <td><p>True</p></td>
 <td><p>save, add legends and grid to the plot</p></td>
 </tr>
-<tr class="row-even"><td><p>also_data</p></td>
+<tr class="row-odd"><td><p>also_data</p></td>
 <td><p>True</p></td>
 <td><p>also plot the data</p></td>
 </tr>
-<tr class="row-odd"><td><p>also_fit</p></td>
+<tr class="row-even"><td><p>also_fit</p></td>
 <td><p>True</p></td>
 <td><p>also plot the fit</p></td>
 </tr>
-<tr class="row-even"><td><p>logy</p></td>
+<tr class="row-odd"><td><p>logy</p></td>
 <td><p>False</p></td>
 <td><p>logarithmic x axis</p></td>
 </tr>
-<tr class="row-odd"><td><p>logx</p></td>
+<tr class="row-even"><td><p>logx</p></td>
 <td><p>False</p></td>
 <td><p>logarithmic y axis</p></td>
 </tr>
-<tr class="row-even"><td><p>data_color</p></td>
+<tr class="row-odd"><td><p>data_color</p></td>
 <td><p>None</p></td>
 <td><p>Color of the data plot</p></td>
 </tr>
-<tr class="row-odd"><td><p>fit_color</p></td>
+<tr class="row-even"><td><p>fit_color</p></td>
 <td><p>None</p></td>
 <td><p>Color of the fit plot</p></td>
 </tr>
-<tr class="row-even"><td><p>residue</p></td>
+<tr class="row-odd"><td><p>residue</p></td>
 <td><p>False</p></td>
 <td><p>Display difference between fit and data in a second plot</p></td>
 </tr>
-<tr class="row-odd"><td><p>residue_err</p></td>
+<tr class="row-even"><td><p>residue_err</p></td>
 <td><p>True</p></td>
 <td><p>Differences between fit and data will have errorbars</p></td>
 </tr>
-<tr class="row-even"><td><p>show</p></td>
+<tr class="row-odd"><td><p>show</p></td>
 <td><p>False</p></td>
 <td><p>Call plt.show()</p></td>
 </tr>
-<tr class="row-odd"><td><p>size</p></td>
+<tr class="row-even"><td><p>size</p></td>
 <td><p>None</p></td>
 <td><p>Size of the plot as a tuple (x,y). Only has an effect if <code class="docutils literal notranslate"><span class="pre">init</span></code> is True</p></td>
 </tr>
-<tr class="row-even"><td><p>number_format</p></td>
+<tr class="row-odd"><td><p>number_format</p></td>
 <td><p>{0:.4g}</p></td>
 <td><p>Format to display numbers.</p></td>
 </tr>
-<tr class="row-odd"><td><p>interpolate</p></td>
+<tr class="row-even"><td><p>interpolate</p></td>
 <td><p>True</p></td>
 <td><p>Enable interpolation of whole data if fit range is limited by <code class="docutils literal notranslate"><span class="pre">frange</span></code> or <code class="docutils literal notranslate"><span class="pre">selector</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p>interpolate_min</p></td>
+<tr class="row-odd"><td><p>interpolate_min</p></td>
 <td><p>None</p></td>
 <td><p>Lower interpolation bound</p></td>
 </tr>
-<tr class="row-odd"><td><p>interpolate_max</p></td>
+<tr class="row-even"><td><p>interpolate_max</p></td>
 <td><p>None</p></td>
 <td><p>Higher interpolation bound</p></td>
 </tr>
-<tr class="row-even"><td><p>interpolate_hatch</p></td>
+<tr class="row-odd"><td><p>interpolate_hatch</p></td>
 <td><p>||</p></td>
 <td><p>Interpolation shape/hatch for filled area in case of <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>&gt;0. See <a class="reference external" href="https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html">https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>bbox_to_anchor</p></td>
+<tr class="row-even"><td><p>bbox_to_anchor</p></td>
 <td><p>None</p></td>
 <td><p>Position in a tuple (x,y),Shift position of the legend out of the main pane.</p></td>
 </tr>
-<tr class="row-even"><td><p>ncol</p></td>
+<tr class="row-odd"><td><p>ncol</p></td>
 <td><p>None</p></td>
 <td><p>Columns in the legend if used with <code class="docutils literal notranslate"><span class="pre">bbox_to_anchor</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>steps</p></td>
+<tr class="row-even"><td><p>steps</p></td>
 <td><p>1000</p></td>
 <td><p>resolution of the plotted function</p></td>
 </tr>
-<tr class="row-even"><td><p>fitinline</p></td>
+<tr class="row-odd"><td><p>fitinline</p></td>
 <td><p>False</p></td>
 <td><p>No newlines for each fit parameter</p></td>
 </tr>
-<tr class="row-odd"><td><p>grid</p></td>
+<tr class="row-even"><td><p>grid</p></td>
 <td><p>True</p></td>
 <td><p>Enable grid for the plot</p></td>
 </tr>
-<tr class="row-even"><td><p>hist</p></td>
+<tr class="row-odd"><td><p>hist</p></td>
 <td><p>False</p></td>
 <td><p>Enable histogram plot</p></td>
 </tr>
-<tr class="row-odd"><td><p>stairs</p></td>
+<tr class="row-even"><td><p>stairs</p></td>
 <td><p>False</p></td>
 <td><p>Enable stair plot</p></td>
 </tr>
 </tbody>
 </table>
-</dd>
-<dt>Set default fit_kwargs if not set.</dt><dd><table class="docutils align-default">
+<p>Set default fit_kwargs if not set.</p>
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 8%" />
 <col style="width: 8%" />
@@ -980,8 +984,6 @@
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">

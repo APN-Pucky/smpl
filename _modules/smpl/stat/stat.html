@@ -29,7 +29,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106
+                0.0.107
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -106,44 +106,32 @@
 
 
 <div class="viewcode-block" id="unv_lambda"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.unv_lambda">[docs]</a><span class="k">def</span> <span class="nf">unv_lambda</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns a function which applies :func:`unv` on the result of ``f``</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Returns a function which applies :func:`unv` on the result of ``f``.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">unv</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="poisson_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.poisson_dist">[docs]</a><span class="k">def</span> <span class="nf">poisson_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return ``N`` with added poissonian uncertainties.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Return ``N`` with added poissonian uncertainties.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="no_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.no_dist">[docs]</a><span class="k">def</span> <span class="nf">no_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return ``N`` with no uncertainties.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Return ``N`` with no uncertainties.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">ydata</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return normalized ``ydata``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Return normalized ``ydata``.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">ydata</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="novar_mean"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.novar_mean">[docs]</a><span class="k">def</span> <span class="nf">novar_mean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return mean of ``n`` with only the uncertainties of ``n`` and no variance.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Return mean of ``n`` with only the uncertainties of ``n`` and no variance.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="mean"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.mean">[docs]</a><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Return mean of ``n`` with combined error of variance and unvertainties of ``n``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Return mean of ``n`` with combined error of variance and unvertainties of ``n``.&quot;&quot;&quot;</span>
     <span class="c1"># find the mean value and add uncertainties</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
@@ -153,9 +141,7 @@
 
 
 <div class="viewcode-block" id="noisy"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.noisy">[docs]</a><span class="k">def</span> <span class="nf">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Add noise to ``x``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Add noise to ``x``.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
 
 

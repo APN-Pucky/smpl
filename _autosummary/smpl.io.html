@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106
+                0.0.107
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -132,8 +132,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.find_file" title="smpl.io.find_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_file</span></code></a>(fname[, up])</p></td>
 <td><p>Searches for <code class="docutils literal notranslate"><span class="pre">fname</span></code> in all down folders or up folder to given order respectively.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>(i)</p></td>
-<td><p>Scientific format with <code class="docutils literal notranslate"><span class="pre">i</span></code> digits.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>([i])</p></td>
+<td><p>Scientific number format.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.mkdirs" title="smpl.io.mkdirs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdirs</span></code></a>(fn)</p></td>
 <td><p>Creates the neccessary directories above <code class="docutils literal notranslate"><span class="pre">fn</span></code>.</p></td>
@@ -161,8 +161,22 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.gf">
-<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">gf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#gf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.gf" title="Permalink to this definition"></a></dt>
-<dd><p>Scientific format with <code class="docutils literal notranslate"><span class="pre">i</span></code> digits.</p>
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">gf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#gf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.gf" title="Permalink to this definition"></a></dt>
+<dd><p>Scientific number format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>i</strong><span class="classifier">int</span></dt><dd><p>Number of digits.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>str</dt><dd><p>Scientific number format string.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">&#39;{0:.2g}&#39;</span>

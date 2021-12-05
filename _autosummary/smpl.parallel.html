@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.106
+                0.0.107
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -127,16 +127,16 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.parallel.calc" title="smpl.parallel.calc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calc</span></code></a>(f, *args, **kwargs)</p></td>
-<td><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p></td>
+<td><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen</span></code></a>(f, *args, **kwargs)</p></td>
-<td><p>Generates parallel execution list generator</p></td>
+<td><p>Generates parallel execution list generator.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.parallel.par" title="smpl.parallel.par"><code class="xref py py-obj docutils literal notranslate"><span class="pre">par</span></code></a>(f, *args, **kwargs)</p></td>
 <td><p>Parallel execution of f on each element of args and kwargs</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.parallel.res" title="smpl.parallel.res"><code class="xref py py-obj docutils literal notranslate"><span class="pre">res</span></code></a>(a)</p></td>
-<td><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p></td>
+<td><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -144,7 +144,8 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.parallel.calc">
 <span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">calc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#calc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.calc" title="Permalink to this definition"></a></dt>
-<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
+<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a>.</p>
+<p>Return parallel executed values.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span>
@@ -159,13 +160,12 @@
 <span class="go">[0, 1, 8, 27, 64]</span>
 </pre></div>
 </div>
-<p>Return parallel executed values</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.parallel.gen">
 <span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">gen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#gen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.gen" title="Permalink to this definition"></a></dt>
-<dd><p>Generates parallel execution list generator</p>
+<dd><p>Generates parallel execution list generator.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -182,7 +182,8 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.parallel.res">
 <span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">res</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#res"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.res" title="Permalink to this definition"></a></dt>
-<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a></p>
+<dd><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a>.</p>
+<p>Return parallel executed values.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">twice</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">x</span>
@@ -197,7 +198,6 @@
 <span class="go">[0, 1, 8, 27, 64]</span>
 </pre></div>
 </div>
-<p>Return parallel executed values</p>
 </dd></dl>
 
 </section>

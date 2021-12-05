@@ -4,7 +4,10 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Latex"
+    "# Animation of a function\n",
+    "\n",
+    "This is done through rendering the figure first and then reload it in a FuncAnimation with imshow.\n",
+    "Therefore the zoom function is limited to the resolution of the figure."
    ]
   },
   {
@@ -14,11 +17,22 @@
    "outputs": [],
    "source": [
     "import smpl\n",
-    "from smpl import latex\n",
+    "from smpl import animation\n",
+    "from smpl import plot\n",
     "from smpl import io\n",
-    "from uncertainties import ufloat\n",
-    "import uncertainties.unumpy as unp\n",
-    "import numpy as np\n"
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import tqdm\n",
+    "from IPython import get_ipython"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Interactive\n",
+    "\n",
+    "live-render:"
    ]
   },
   {
@@ -27,7 +41,20 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "print(latex.si(ufloat(1,1),\"\\\\tesla\"))"
+    "%matplotlib notebook \n",
+    "plt.ioff()\n",
+    "def update(a):\n",
+    "    plot.function(lambda x : a*x**2,xmin=0,xmax=5,init=True,tight=False)\n",
+    "\n",
+    "ani = animation.animate(update = update,frames=np.linspace(0,10,200), interval=10,blit=True)\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "or pre-render:"
    ]
   },
   {
@@ -36,13 +63,22 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "data = np.loadtxt(io.find_file('test_linear_data.txt',3))\n",
-    "xdata = data[:,0]\n",
-    "xerr = data[:,2]\n",
-    "ydata = data[:,1]\n",
-    "yerr = data[:,3]\n",
-    "x = unp.uarray(xdata,xerr)\n",
-    "y = unp.uarray(ydata,yerr)"
+    "%matplotlib notebook \n",
+    "plt.ioff()\n",
+    "for a in tqdm.tqdm(np.linspace(0,10,200)):\n",
+    "    plot.function(lambda x : a*x**2,xmin=0,xmax=5,init=True,tight=False)\n",
+    "    animation.frame()\n",
+    "\n",
+    "#ani.save(\"test.gif\")\n",
+    "ani = animation.animate(interval=10,blit=True)\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Save"
    ]
   },
   {
@@ -51,25 +87,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "print(latex.si_line(x))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "print(latex.si_tab([x,y]))"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "print(latex.si_ttab([x,y]))"
+    "ani.save(\"test.gif\")"
    ]
   },
   {
