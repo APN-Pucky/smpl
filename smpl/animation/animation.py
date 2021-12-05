@@ -2,8 +2,37 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib as mpl
 from smpl import io
+from PIL import Image
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+import numpy as np
 
 frames = []
+
+
+class FigAnimation(animation.FuncAnimation):
+    def __init__(self, figs, *args, **kwargs):
+        # Use the list of figures as the framedata, which will be iterated
+        # over by the machinery.
+        self._figs = figs
+        f = plt.figure()
+        plt.axis('off')
+
+        canvas = FigureCanvasAgg(figs[0])
+        canvas.draw()
+        rgba = np.asarray(canvas.buffer_rgba())
+        im = Image.fromarray(rgba)
+        self.im = plt.imshow(im)
+
+        def update(frame):
+            canvas = FigureCanvasAgg(figs[frame])
+            canvas.draw()
+            rgba = np.asarray(canvas.buffer_rgba())
+            im = Image.fromarray(rgba)
+            self.im.set_array(mpl.image.pil_to_array(im))
+            return self.im,
+
+        animation.FuncAnimation.__init__(
+            self, f, update, frames=len(figs), *args, **kwargs)
 
 
 class FigureAnimation(animation.TimedAnimation):
@@ -30,23 +59,25 @@ class FigureAnimation(animation.TimedAnimation):
     """
 
     def __init__(self, figs, *args, **kwargs):
-        # Internal list of artists drawn in the most recent frame.
-        self._drawn_artists = []
-
-        # Use the list of artists as the framedata, which will be iterated
+        # Use the list of figures as the framedata, which will be iterated
         # over by the machinery.
         self._framedata = figs
         animation.TimedAnimation.__init__(
             self, figs[0], *args, blit=False, **kwargs)
 
     def _draw_frame(self, fig):
-        self._fig = fig
+        #self._fig.lines = fig.lines
+        self._fig.imshow
+
+        #self._fig._axes = fig._axes
+        self._fig_n = fig
         #print("pl " + str(fig.number))
         # plt.figure(fig.number)
 
     def save(self, filename, writer=None, fps=None, dpi=None, codec=None,
              bitrate=None, extra_args=None, metadata=None, extra_anim=None,
              savefig_kwargs=None, *, progress_callback=None):
+        # We use same code as original Animation, but inject the figures into the writer per frame
         if writer is None:
             writer = mpl.rcParams['animation.writer']
         elif (not isinstance(writer, str) and
@@ -104,7 +135,7 @@ class FigureAnimation(animation.TimedAnimation):
 
         def gf(**kwargs):
             gfo(**kwargs)
-            writer.fig = self._fig
+            writer.fig = self._fig_n
             #print("fixed fig")
         writer.grab_frame = gf
         animation.TimedAnimation.save(self, filename, writer=writer,  extra_anim=extra_anim,
@@ -124,7 +155,7 @@ def frame():
     #    diold()) if len(frames) == 0 else None
 
     frames.append(plt.gcf())
-    plt.savefig("test"+str(len(frames))+".jpg")
+    # plt.savefig("test"+str(len(frames))+".jpg")
     plt.close()
 
 
@@ -151,6 +182,6 @@ def animate(**kwargs):
 
     """
     global frames
-    ani = FigureAnimation(frames, **kwargs)
-    clear()
+    ani = FigAnimation(frames, **kwargs)
+    # clear()
     return ani
