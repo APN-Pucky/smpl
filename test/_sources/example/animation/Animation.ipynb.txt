@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Animation of a function\n",
+    "# Animation of a function\n",
     "\n",
     "This is done through rendering the figure first and then reload it in a FuncAnimation with imshow.\n",
     "Therefore the zoom function is limited to the resolution of the figure."
@@ -30,7 +30,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Interactive\n",
+    "## Interactive\n",
     "\n",
     "live-render:"
    ]
@@ -78,7 +78,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Save"
+    "## Save"
    ]
   },
   {
