@@ -13,44 +13,32 @@ usd = unp.std_devs
 
 
 def unv_lambda(f):
-    """
-    Returns a function which applies :func:`unv` on the result of ``f``
-    """
+    """Returns a function which applies :func:`unv` on the result of ``f``."""
     return lambda *a: unv(f(*a))
 
 
 def poisson_dist(N):
-    """
-    Return ``N`` with added poissonian uncertainties.
-    """
+    """Return ``N`` with added poissonian uncertainties."""
     return unp.uarray(N, np.sqrt(N))
 
 
 def no_dist(N):
-    """
-    Return ``N`` with no uncertainties.
-    """
+    """Return ``N`` with no uncertainties."""
     return unp.uarray(N, 0)
 
 
 def normalize(ydata):
-    """
-    Return normalized ``ydata``.
-    """
+    """Return normalized ``ydata``."""
     return (ydata-np.amin(ydata))/(np.amax(ydata)-np.amin(ydata))
 
 
 def novar_mean(n):
-    """
-    Return mean of ``n`` with only the uncertainties of ``n`` and no variance.
-    """
+    """Return mean of ``n`` with only the uncertainties of ``n`` and no variance."""
     return np.sum(n)/len(n)
 
 
 def mean(n):
-    """
-    Return mean of ``n`` with combined error of variance and unvertainties of ``n``.
-    """
+    """Return mean of ``n`` with combined error of variance and unvertainties of ``n``."""
     # find the mean value and add uncertainties
     if isinstance(n, pd.core.series.Series):
         n = n.to_numpy()
@@ -60,9 +48,7 @@ def mean(n):
 
 
 def noisy(x, mean=0, std=1):
-    """
-    Add noise to ``x``.
-    """
+    """Add noise to ``x``."""
     return x+np.random.normal(mean, std, len(x))
 
 

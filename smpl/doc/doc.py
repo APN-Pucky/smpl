@@ -14,9 +14,7 @@ def _append(txt):
 
 
 def append(txt):
-    """
-    TODO split cases doc/txt/plot?
-    """
+    """TODO split cases doc/txt/plot?"""
     return None
 
 
@@ -25,7 +23,7 @@ def append_str(txt):
 
 
 def append_plot(*args, xmin=-5, xmax=5):
-    """Append a plot to a function. """
+    """Append a plot to a function."""
     # return _append("\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t>>> from " + target.__module__ + " import " +target.__name__ + "\n\t\t>>> from smpl import plot\n\t\t>>> plot.function("+ target.__name__ + "," + ','.join([str(a) for a in args]) + ",xmin="+str(xmin) + ",xmax=" + str(xmax)+")")
 
     def wrapper(target):
@@ -40,7 +38,8 @@ def append_plot(*args, xmin=-5, xmax=5):
 
 
 def append_doc(original):
-    """Append doc string of ``original`` to ``target`` object.
+    """
+    Append doc string of ``original`` to ``target`` object.
 
     Parameters
     ----------
@@ -49,7 +48,6 @@ def append_doc(original):
 
     Examples
     --------
-
     >>> def ho():
     ...     '''Ho'''
     ...     print(ho.__doc__)
@@ -59,6 +57,7 @@ def append_doc(original):
     ...     print(hi.__doc__)
     >>> hi()
     HiHo
+
     """
     return _append(original.__doc__)
 
