@@ -31,7 +31,7 @@ livehtml:
 test:
 	rm -f .coverage coverage.xml
 	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --to script
-	pytest -v --cov=smpl --cov-config=.coveragerc --cov-append  --cov-report=term --cov-report=xml --doctest-modules --ignore=source/example/animation/Animation.py
+	pytest
 
 commit: 
 	-git add .
