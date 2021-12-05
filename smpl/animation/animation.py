@@ -68,7 +68,7 @@ def frame():
 
 def clear():
     """
-    Empties strored frames.
+    Empties stored frames.
     """
     global frames
     frames = []
