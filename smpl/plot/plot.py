@@ -40,6 +40,7 @@ default = {
     'units': [None, "Units of the fit parameters as strings. Displayed in the Legend", ],
     'save': [None, " File to save the plot", ],
     'lpos': [0, "Legend position", ],
+    'tight': [True, "tight_layout", ],
     #          'frange'        :[None      ,"Limit the fit to given range. First integer is the lowest and second the highest index.",],
     'prange': [None, "Limit the plot of the fit to given range", ],
     'sigmas': [0, "Color the array of given ``sigma`` times uncertainty. Only works if the fit function is coded with ``unp``", ],
@@ -226,8 +227,8 @@ def function(func, *args, **kwargs):
     if not util.has("xmin", kwargs) or not util.has("xmin", kwargs):
         raise Exception("xmin or xmax missing.")
 
-    if not util.has('lpos', kwargs) and not util.has('label', kwargs):
-        kwargs['lpos'] = -1
+    # if not util.has('lpos', kwargs) and not util.has('label', kwargs):
+    #    kwargs['lpos'] = -1
     if not util.has('fmt', kwargs):
         kwargs['fmt'] = "-"
 
@@ -237,7 +238,7 @@ def function(func, *args, **kwargs):
 
     if not util.has("label", kwargs) or kwargs['label'] is None:
         kwargs['label'] = get_fnc_legend(func, args, **kwargs)
-        kwargs['lpos'] = 0
+        #kwargs['lpos'] = 0
     _plot(xfit, func(xfit, *args), **kwargs)
     if kwargs['ss']:
         save_plot(**kwargs)
@@ -411,7 +412,8 @@ def save_plot(**kwargs):  # save=None,lpos=0,logy=False,logx=False,show=True): #
         plt.gca().set_yscale('log')
     if 'logx' in kwargs and kwargs['logx']:
         plt.gca().set_xscale('log')
-    plt.tight_layout()
+    if 'tight' in kwargs and kwargs['tight']:
+        plt.tight_layout()
     if 'lpos' in kwargs and kwargs['lpos'] >= 0:
         if(util.has('bbox_to_anchor', kwargs)):
             if(util.has('ncol', kwargs)):
