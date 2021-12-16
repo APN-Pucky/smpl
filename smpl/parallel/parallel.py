@@ -60,6 +60,8 @@ def par(f, *args, **kwargs):
     return res([calc(f, *[args[k][i] for k in range(len(args))], **{k: v[i] for k, v in kwargs.items()}) for i in range(len(args[0]) if len(args) > 0 else len(next(iter(kwargs.values()))))])
 
 
+parallel = par
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()

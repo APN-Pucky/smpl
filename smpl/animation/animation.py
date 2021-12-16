@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import matplotlib as mpl
-from smpl import io
 from PIL import Image
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import numpy as np
@@ -51,7 +50,7 @@ class FigAnimation(animation.FuncAnimation):
 
 def frame():
     """
-    Saves current Matplotlib Graphic.
+    Saves current Matplotlib figure.
     """
     global frames
     # f = plt.gcf()
