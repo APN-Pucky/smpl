@@ -388,15 +388,16 @@ def plt_fit(datax, datay, gfunction, **kwargs):
         xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), 1000)
     else:
         xfit = np.linspace(kwargs['prange'][0], kwargs['prange'][1], 1000)
-    ll = __function(fitted, xfit, l, "-", kwargs['fit_color'], **kwargs)
+    ll = __function(fitted, xfit, "-", label=l,
+                    color=kwargs['fit_color'], sigmas=kwargs['sigmas'])
 
     if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate', kwargs) or util.has("interpolate_max", kwargs) or util.has("interpolate_min", kwargs):
         xxfit = np.linspace(util.get("interpolate_min", kwargs, np.min(
             unv(datax))), util.get("interpolate_max", kwargs, np.max(unv(datax))))
         __function(fitted, np.linspace(np.min(xxfit), np.min(xfit)), "--",
-                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"))
+                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
         __function(fitted, np.linspace(np.max(xfit), np.max(xxfit)), "--",
-                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"))
+                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
     return fit, ll.get_color()
 # p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
 
