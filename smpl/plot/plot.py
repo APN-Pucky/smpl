@@ -302,10 +302,8 @@ def _fit(datax, datay, function, **kwargs):
     """
     return ffit.fit(datax, datay, function, **kwargs)
 
-# @append_doc(plot_kwargs)
 
 
-# xaxis="",yaxis="",label=None,fmt=None,data_color=None):
 def plt_data(datax, datay, **kwargs):
     """
         Plot datay vs datax
@@ -399,51 +397,9 @@ def plt_fit(datax, datay, gfunction, **kwargs):
         __function(fitted, np.linspace(np.max(xfit), np.max(xxfit)), "--",
                    color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
     return fit, ll.get_color()
-# p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
 
 
-def plt_fit_deprecated(datax, datay, gfunction, **kwargs):
-    """
-    Plot Fit
-    """
-    function = wrap.get_lambda(gfunction, kwargs['xvar'])
-    fit = _fit(datax, datay, gfunction, **kwargs)
-    if kwargs['prange'] is None:
-        x, _, _, _ = data_split(datax, datay, **kwargs)
-        xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), 1000)
-    else:
-        xfit = np.linspace(kwargs['prange'][0], kwargs['prange'][1], 1000)
-    l = get_fnc_legend(gfunction, fit, **kwargs)
-    ll = None
-    if kwargs['sigmas'] > 0:
-        ll, = plt.plot(xfit, function(xfit, *unv(fit)),
-                       "-", color=kwargs['fit_color'])
-        yfit = function(xfit, *fit)
-        plt.fill_between(xfit, unv(yfit)-kwargs['sigmas']*usd(yfit), unv(
-            yfit)+kwargs['sigmas']*usd(yfit), alpha=0.4, label=l, color=ll.get_color())
-    else:
-        ll, = plt.plot(xfit, function(xfit, *unv(fit)), "-",
-                       label=l, color=kwargs['fit_color'])
-    if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate', kwargs) or util.has("interpolate_max", kwargs) or util.has("interpolate_min", kwargs):
-        xxfit = np.linspace(util.get("interpolate_min", kwargs, np.min(
-            unv(datax))), util.get("interpolate_max", kwargs, np.max(unv(datax))))
-        plt.plot(xxfit, unv(function(xxfit, *fit)),
-                 "--", color=ll.get_color())
-        if kwargs['sigmas'] > 0:
-            xxxfit = np.linspace(np.min(xxfit), np.min(xfit))
-            yfit = function(xxxfit, *fit)
-            plt.fill_between(xxxfit, unv(yfit)-kwargs['sigmas']*usd(yfit), unv(yfit)+kwargs['sigmas']*usd(
-                yfit), alpha=0.4, color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"))
-
-            xxxfit = np.linspace(np.max(xfit), np.max(xxfit))
-            yfit = function(xxxfit, *fit)
-            plt.fill_between(xxxfit, unv(yfit)-kwargs['sigmas']*usd(yfit), unv(yfit)+kwargs['sigmas']*usd(
-                yfit), alpha=0.4, color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"))
-    return fit, ll.get_color()
-
-
-def init_plot(**kwargs):  # size=None,residue=False): #init
-    # fig = plt.figure(figsize=fig_size)
+def init_plot(**kwargs):
     fig = None
     if kwargs['init'] or util.true("residue", kwargs):
         if kwargs['size'] is None:
@@ -463,7 +419,7 @@ def init_plot(**kwargs):  # size=None,residue=False): #init
     return fig
 
 
-def save_plot(**kwargs):  # save=None,lpos=0,logy=False,logx=False,show=True): #save
+def save_plot(**kwargs):  
     """
         save plot
     """
