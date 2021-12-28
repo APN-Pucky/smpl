@@ -76,7 +76,7 @@ def get_latex(function):
     return l
 
 
-def get_lambda_argd(expr, xvar, args):
+def get_lambda_argd(expr, xvar, *args):
     function = get_lambda(expr, xvar)
     return lambda x: function(x, *args)
 

@@ -199,20 +199,6 @@ def data(datax, datay, function=None, **kwargs):
     return fit(datax, datay, function, **kwargs)
 
 
-def _plot(x, y, **kwargs):
-    args = [x, y]
-    kargs = {}
-    if util.has('fmt', kwargs):
-        args += [kwargs["fmt"]]
-    if util.has('label', kwargs) and kwargs['label'] != "":
-        kargs['label'] = kwargs['label']
-    if util.has('color', kwargs) and kwargs['color'] != "":
-        kargs['color'] = kwargs['color']
-    plt.plot(*args, **kargs)
-
-
-# def _function(gfunc, xmin, xmax, steps, fmt, color, **kwargs):
-#    __function(gfunc, np.linspace(xmin, xmax, steps), fmt, color, **kwargs)
 def _function(func, xfit, **kwargs):
     kargs = {}
     if util.has('fmt', kwargs):
@@ -265,14 +251,14 @@ def function(func, *args, **kwargs):
         kwargs['fmt'] = "-"
 
     kwargs = plot_kwargs(kwargs)
-    xfit = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
+    xlin = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
     init_plot(**kwargs)
 
     if not util.has("label", kwargs) or kwargs['label'] is None:
         kwargs['label'] = get_fnc_legend(func, args, **kwargs)
         # kwargs['lpos'] = 0
     #_plot(xfit, func(xfit, *args), **kwargs)
-    _function(func, xfit, **kwargs)
+    _function(wrap.get_lambda_argd(func,kwargs['xvar'],*args), xlin, **kwargs)
     if kwargs['ss']:
         save_plot(**kwargs)
 
@@ -301,7 +287,6 @@ def _fit(datax, datay, function, **kwargs):
     Returns a fit like :func:`fit` but does no plotting.
     """
     return ffit.fit(datax, datay, function, **kwargs)
-
 
 
 def plt_data(datax, datay, **kwargs):
@@ -419,7 +404,7 @@ def init_plot(**kwargs):
     return fig
 
 
-def save_plot(**kwargs):  
+def save_plot(**kwargs):
     """
         save plot
     """
