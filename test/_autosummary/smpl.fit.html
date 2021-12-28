@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.112
+                0.0.112-1-gba04944
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -131,13 +131,16 @@
 <td><p>Automatically loop over functions and fit the best one.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.fit.data_split" title="smpl.fit.data_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_split</span></code></a>(datax, datay, **kwargs)</p></td>
-<td><p>Splits datax and datay into (x,y,xerr,yerr).</p></td>
+<td><p>Split data + errors</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.fit.fit" title="smpl.fit.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(datax, datay, function, **kwargs)</p></td>
 <td><p>Returns a fit of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_kwargs</span></code></a>(kwargs)</p></td>
 <td><p>Set default fit_kwargs if not set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.fit.fit_split" title="smpl.fit.fit_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_split</span></code></a>(datax, datay, **kwargs)</p></td>
+<td><p>Splits datax and datay into (x,y,xerr,yerr).</p></td>
 </tr>
 </tbody>
 </table>
@@ -166,15 +169,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.fit.data_split">
 <span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">data_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#data_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.data_split" title="Permalink to this definition"></a></dt>
-<dd><p>Splits datax and datay into (x,y,xerr,yerr).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
-</dd>
-</dl>
-</dd>
-</dl>
+<dd><p>Split data + errors</p>
 </dd></dl>
 
 <dl class="py function">
@@ -222,7 +217,7 @@
 <td><p>None</p></td>
 <td><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p></td>
 </tr>
-<tr class="row-even"><td><p>selector</p></td>
+<tr class="row-even"><td><p>fselector</p></td>
 <td><p>None</p></td>
 <td><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.</p></td>
 </tr>
@@ -260,6 +255,20 @@
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.fit.fit_split">
+<span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">fit_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.fit_split" title="Permalink to this definition"></a></dt>
+<dd><p>Splits datax and datay into (x,y,xerr,yerr).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
