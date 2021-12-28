@@ -1,6 +1,13 @@
 {
  "cells": [
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Function Plot"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
@@ -14,14 +21,14 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Function Plot"
+    "## without uncertainties"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## $\\dot x = 1- \\exp(- x^2)$\n",
+    "### $\\dot x = 1- \\exp(- x^2)$\n",
     "\n",
     "Fixed point $x = 0$ and \n",
     "\n",
@@ -36,8 +43,6 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "\n",
-    "\n",
     "plot.function( lambda x : 1- np.exp(-x**2), xaxis=\"$x$\", yaxis=\"$\\\\dot x$\",xmin=-10, xmax=10 )"
    ]
   },
@@ -45,7 +50,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## $\\dot x = \\ln x$\n",
+    "### $\\dot x = \\ln x$\n",
     "\n",
     "Fixed point $x = 1$\n",
     "\n",
@@ -60,8 +65,6 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "\n",
-    "\n",
     "plot.function( lambda x : np.log(x), xaxis=\"$x$\", yaxis=\"$\\\\dot x$\",xmin=0.1, xmax=5 )"
    ]
   },
@@ -69,7 +72,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## $\\dot x = -\\tan x$\n",
+    "### $\\dot x = -\\tan x$\n",
     "Fixed points for $x=0$ or $x=\\pm n\\pi$ with $n\\in \\mathbb{N}$\n",
     "\n",
     "$$\\ddot x = -\\frac{1}{\\cos^2(x)}$$\n",
@@ -88,10 +91,41 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "\n",
-    "\n",
     "plot.function( lambda x : -np.tan(x), xaxis=\"$x$\", yaxis=\"$\\\\dot x$\",xmin=0.1, xmax=5,steps=100 )"
    ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## with uncertainties"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import uncertainties as unc\n",
+    "a = unc.ufloat(1,0.1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "plot.function(lambda x : 1- a*np.exp(-x**2), xaxis=\"$x$\", yaxis=\"$\\\\dot x$\",xmin=-1, xmax=1,sigmas=1 )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
@@ -110,7 +144,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.8"
+   "version": "3.8.7"
   }
  },
  "nbformat": 4,

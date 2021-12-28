@@ -41,7 +41,7 @@
     "\n",
     "def Malus(x,I_max,I_min,w,p):\n",
     "    ''' $(I_{max}-I_{min})*\\\\cos(w*x-p)^2+I_{min} $'''\n",
-    "    return (I_max-I_min)*np.cos(w*x-p)**2+I_min\n",
+    "    return (I_max-I_min)*unp.cos(w*x-p)**2+I_min\n",
     "\n",
     "plot.fit((xdata),ydata,Malus,xaxis=\"anlge in °\", yaxis=\"intensity in a.u.\", params=[4.6,0.11,0.0175,180+90-137], units=[\"a.u.\",\"a.u.\",\"rad$^{-1}$\",\"rad\"])"
    ]
