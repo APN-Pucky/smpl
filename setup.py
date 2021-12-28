@@ -10,8 +10,8 @@ requirements = [
     "scipy",
     "sympy",
     "tqdm",
+    "pandas",
     # "requests",
-    # "pandas",
 ]
 dev_requirements = [
     "build",

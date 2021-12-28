@@ -208,7 +208,22 @@ def _plot(x, y, **kwargs):
     if util.has('color', kwargs) and kwargs['color'] != "":
         kargs['color'] = kwargs['color']
     plt.plot(*args, **kargs)
-# @append_doc(default_kwargs)
+
+
+def _function(gfunc, xmin, xmax, steps, color, **kwargs):
+    func = wrap.get_lambda(gfunc, kwargs['xvar'])
+    xfit = np.linspace(xmin, xmax, steps)
+    l = get_fnc_legend(gfunc, fit, **kwargs)
+    if kwargs['sigmas'] > 0:
+        ll, = plt.plot(xfit, unv(func(xfit)),
+                       "-", color=color)
+        yfit = func(xfit)
+        plt.fill_between(xfit, unv(yfit)-kwargs['sigmas']*usd(yfit), unv(
+            yfit)+kwargs['sigmas']*usd(yfit), alpha=0.4, label=l, color=ll.get_color())
+    else:
+        ll, = plt.plot(xfit, function(xfit, *unv(fit)), "-",
+                       label=l, color=color)
+    return ll
 
 
 def function(func, *args, **kwargs):

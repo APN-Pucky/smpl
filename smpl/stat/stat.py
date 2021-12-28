@@ -5,6 +5,7 @@ from smpl import doc
 import scipy
 import math
 import statistics as stat
+import pandas as pd
 
 
 unv = unp.nominal_values
