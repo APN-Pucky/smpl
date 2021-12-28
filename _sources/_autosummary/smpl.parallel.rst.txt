@@ -15,6 +15,8 @@
    
       par
    
+      parallel
+   
       res
    
    

@@ -49,7 +49,7 @@
    "source": [
     "x= np.linspace(-5,5,10)\n",
     "y = stat.noisy(np.exp(2*x))+stat.noisy(x)\n",
-    "ff = plot.fit(x, y,lambda x,f_mu,c: np.exp(x*f_mu)*c , fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\")"
+    "ff = plot.fit(x, y,lambda x,f_mu,c: unp.exp(x*f_mu)*c , fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\")"
    ]
   },
   {
@@ -60,7 +60,7 @@
    "source": [
     "x= np.linspace(-5,5,10)\n",
     "y = stat.noisy(np.exp(2*x))+stat.noisy(x)\n",
-    "ff = plot.fit(x, y,lambda x,nu,rho: unp.exp(x*nu)*rho,xvar=\"nu\" , fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",sigmas=1)"
+    "ff = plot.fit(x, y,lambda x,nu,rho: unp.exp(x*nu)*rho,xvar=\"nu\" , fmt='.', label='data', xaxis=\"$\\\\nu$ in a.u.\",yaxis=\"y in a.u.\",sigmas=1)"
    ]
   },
   {
@@ -128,7 +128,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.9"
+   "version": "3.8.7"
   }
  },
  "nbformat": 4,

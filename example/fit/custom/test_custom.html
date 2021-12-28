@@ -34,7 +34,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.107
+                0.0.112
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -426,7 +426,7 @@ div.rendered_html tbody tr:hover {
 
 <span></span><span class="k">def</span> <span class="nf">Malus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I_max</span><span class="p">,</span><span class="n">I_min</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; $(I_{max}-I_{min})*\\cos(w*x-p)^2+I_{min} $&#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">I_max</span><span class="o">-</span><span class="n">I_min</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">I_min</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">I_max</span><span class="o">-</span><span class="n">I_min</span><span class="p">)</span><span class="o">*</span><span class="n">unp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">I_min</span>
 
 <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">((</span><span class="n">xdata</span><span class="p">),</span><span class="n">ydata</span><span class="p">,</span><span class="n">Malus</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;anlge in °&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;intensity in a.u.&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mf">4.6</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span><span class="mf">0.0175</span><span class="p">,</span><span class="mi">180</span><span class="o">+</span><span class="mi">90</span><span class="o">-</span><span class="mi">137</span><span class="p">],</span> <span class="n">units</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a.u.&quot;</span><span class="p">,</span><span class="s2">&quot;a.u.&quot;</span><span class="p">,</span><span class="s2">&quot;rad$^{-1}$&quot;</span><span class="p">,</span><span class="s2">&quot;rad&quot;</span><span class="p">])</span>
 </pre></div>
