@@ -116,18 +116,6 @@ def files(folder, ending):
             i = i+1
     return r
 
-    # print(globals())
-
-
-def iteri(a):
-    return zip(range(len(a)), a)
-
-
-def frange(x, y, jump):
-    while x < y:
-        yield x
-        x += jump
-
 
 def pn(a, nnl=False):
     gl = globals()

@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
+import uncertainties
 import uncertainties.unumpy as unp
 import sympy
 import matplotlib.pylab as pylab
@@ -198,17 +199,34 @@ def data(datax, datay, function=None, **kwargs):
     return fit(datax, datay, function, **kwargs)
 
 
-def _plot(x, y, **kwargs):
-    args = [x, y]
+def _function(func, xfit, **kwargs):
     kargs = {}
     if util.has('fmt', kwargs):
-        args += [kwargs["fmt"]]
+        kargs["fmt"] = kwargs["fmt"]
     if util.has('label', kwargs) and kwargs['label'] != "":
         kargs['label'] = kwargs['label']
     if util.has('color', kwargs) and kwargs['color'] != "":
         kargs['color'] = kwargs['color']
-    plt.plot(*args, **kargs)
-# @append_doc(default_kwargs)
+    if util.has('sigmas', kwargs) and kwargs['sigmas'] != "":
+        kargs['sigmas'] = kwargs['sigmas']
+    __function(func, xfit, **kargs)
+
+
+def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0.):
+    func = gfunc
+    x = xlinspace
+    l = label
+    if isinstance(func(x[0]), uncertainties.UFloat):
+        if sigmas > 0:
+            ll, = plt.plot(x, unv(func(x)), fmt, color=color)
+            y = func(x)
+            plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
+                y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
+        else:
+            ll, = plt.plot(x, unv(func(x)), fmt, label=l, color=color)
+    else:
+        ll, = plt.plot(x, func(x), fmt, label=l, color=color)
+    return ll
 
 
 def function(func, *args, **kwargs):
@@ -233,13 +251,14 @@ def function(func, *args, **kwargs):
         kwargs['fmt'] = "-"
 
     kwargs = plot_kwargs(kwargs)
-    xfit = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
+    xlin = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
     init_plot(**kwargs)
 
     if not util.has("label", kwargs) or kwargs['label'] is None:
         kwargs['label'] = get_fnc_legend(func, args, **kwargs)
-        #kwargs['lpos'] = 0
-    _plot(xfit, func(xfit, *args), **kwargs)
+        # kwargs['lpos'] = 0
+    #_plot(xfit, func(xfit, *args), **kwargs)
+    _function(wrap.get_lambda_argd(func,kwargs['xvar'],*args), xlin, **kwargs)
     if kwargs['ss']:
         save_plot(**kwargs)
 
@@ -269,10 +288,7 @@ def _fit(datax, datay, function, **kwargs):
     """
     return ffit.fit(datax, datay, function, **kwargs)
 
-# @append_doc(plot_kwargs)
 
-
-# xaxis="",yaxis="",label=None,fmt=None,data_color=None):
 def plt_data(datax, datay, **kwargs):
     """
         Plot datay vs datax
@@ -341,50 +357,34 @@ def get_fnc_legend(function, fit, **kwargs):
             l = l + " " + kwargs['units'][i-1]
     return l
 
-# @append_doc(default_kwargs)
 
-
-# p0=None,units=None,frange=None,prange=None,sigmas=1,residue=False, fig = None,fit_color=None):
 def plt_fit(datax, datay, gfunction, **kwargs):
     """
     Plot Fit
     """
-    function = wrap.get_lambda(gfunction, kwargs['xvar'])
+    func = wrap.get_lambda(gfunction, kwargs['xvar'])
     fit = _fit(datax, datay, gfunction, **kwargs)
+    def fitted(x): return func(x, *fit)
+    l = get_fnc_legend(gfunction, fit, **kwargs)
     if kwargs['prange'] is None:
         x, _, _, _ = data_split(datax, datay, **kwargs)
         xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), 1000)
     else:
         xfit = np.linspace(kwargs['prange'][0], kwargs['prange'][1], 1000)
-    l = get_fnc_legend(gfunction, fit, **kwargs)
-    ll = None
-    if kwargs['sigmas'] > 0:
-        ll, = plt.plot(xfit, function(xfit, *unv(fit)),
-                       "-", color=kwargs['fit_color'])
-        yfit = function(xfit, *fit)
-        plt.fill_between(xfit, unv(yfit)-kwargs['sigmas']*usd(yfit), unv(
-            yfit)+kwargs['sigmas']*usd(yfit), alpha=0.4, label=l, color=ll.get_color())
-    else:
-        ll, = plt.plot(xfit, function(xfit, *unv(fit)), "-",
-                       label=l, color=kwargs['fit_color'])
+    ll = __function(fitted, xfit, "-", label=l,
+                    color=kwargs['fit_color'], sigmas=kwargs['sigmas'])
+
     if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate', kwargs) or util.has("interpolate_max", kwargs) or util.has("interpolate_min", kwargs):
         xxfit = np.linspace(util.get("interpolate_min", kwargs, np.min(
             unv(datax))), util.get("interpolate_max", kwargs, np.max(unv(datax))))
-        plt.plot(xxfit, unv(function(xxfit, *fit)), "--", color=ll.get_color())
-        if kwargs['sigmas'] > 0:
-            xxxfit = np.linspace(np.min(xxfit), np.min(xfit))
-            yfit = function(xxxfit, *fit)
-            plt.fill_between(xxxfit, unv(yfit)-kwargs['sigmas']*usd(yfit), unv(yfit)+kwargs['sigmas']*usd(
-                yfit), alpha=0.4, color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"))
-            xxxfit = np.linspace(np.max(xfit), np.max(xxfit))
-            yfit = function(xxxfit, *fit)
-            plt.fill_between(xxxfit, unv(yfit)-kwargs['sigmas']*usd(yfit), unv(yfit)+kwargs['sigmas']*usd(
-                yfit), alpha=0.4, color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"))
+        __function(fitted, np.linspace(np.min(xxfit), np.min(xfit)), "--",
+                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
+        __function(fitted, np.linspace(np.max(xfit), np.max(xxfit)), "--",
+                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
     return fit, ll.get_color()
 
 
-def init_plot(**kwargs):  # size=None,residue=False): #init
-    # fig = plt.figure(figsize=fig_size)
+def init_plot(**kwargs):
     fig = None
     if kwargs['init'] or util.true("residue", kwargs):
         if kwargs['size'] is None:
@@ -404,7 +404,7 @@ def init_plot(**kwargs):  # size=None,residue=False): #init
     return fig
 
 
-def save_plot(**kwargs):  # save=None,lpos=0,logy=False,logx=False,show=True): #save
+def save_plot(**kwargs):
     """
         save plot
     """

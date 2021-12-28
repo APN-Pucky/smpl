@@ -11,6 +11,8 @@
    
       get_lambda
    
+      get_lambda_argd
+   
       get_latex
    
       get_varnames
