@@ -62,7 +62,7 @@ default = {
     # ,          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",],
     # ,          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",],
     # ,          'sortbyx'       :[ True     , "Enable sorting the x and y data so that x is sorted.",],
-    'interpolate': [True, "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.", ],
+    'interpolate': [True, "Enable interpolation of whole data if fit range is limited by ``frange`` or ``fselector``.", ],
     'interpolate_min': [None, "Lower interpolation bound", ],
     'interpolate_max': [None, "Higher interpolation bound", ],
     'interpolate_hatch': [r"||", "Interpolation shape/hatch for filled area in case of ``sigmas``>0. See https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html", ],
@@ -258,7 +258,8 @@ def function(func, *args, **kwargs):
         kwargs['label'] = get_fnc_legend(func, args, **kwargs)
         # kwargs['lpos'] = 0
     #_plot(xfit, func(xfit, *args), **kwargs)
-    _function(wrap.get_lambda_argd(func,kwargs['xvar'],*args), xlin, **kwargs)
+    _function(wrap.get_lambda_argd(
+        func, kwargs['xvar'], *args), xlin, **kwargs)
     if kwargs['ss']:
         save_plot(**kwargs)
 
@@ -367,14 +368,14 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     def fitted(x): return func(x, *fit)
     l = get_fnc_legend(gfunction, fit, **kwargs)
     if kwargs['prange'] is None:
-        x, _, _, _ = data_split(datax, datay, **kwargs)
+        x, _, _, _ = ffit.fit_split(datax, datay, **kwargs)
         xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), 1000)
     else:
         xfit = np.linspace(kwargs['prange'][0], kwargs['prange'][1], 1000)
     ll = __function(fitted, xfit, "-", label=l,
                     color=kwargs['fit_color'], sigmas=kwargs['sigmas'])
 
-    if (kwargs['frange'] is not None or kwargs['selector'] is not None) and util.true('interpolate', kwargs) or util.has("interpolate_max", kwargs) or util.has("interpolate_min", kwargs):
+    if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('interpolate', kwargs) or util.has("interpolate_max", kwargs) or util.has("interpolate_min", kwargs):
         xxfit = np.linspace(util.get("interpolate_min", kwargs, np.min(
             unv(datax))), util.get("interpolate_max", kwargs, np.max(unv(datax))))
         __function(fitted, np.linspace(np.min(xxfit), np.min(xfit)), "--",
