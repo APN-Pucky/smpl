@@ -76,6 +76,11 @@ def get_latex(function):
     return l
 
 
+def get_lambda_argd(expr, xvar, args):
+    function = get_lambda(expr, xvar)
+    return lambda x: function(x, *args)
+
+
 def get_lambda(expr, xvar):
     """
     Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.
