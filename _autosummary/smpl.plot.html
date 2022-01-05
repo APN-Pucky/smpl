@@ -32,7 +32,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.112
+                0.0.113
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -880,7 +880,7 @@
 </tr>
 <tr class="row-even"><td><p>interpolate</p></td>
 <td><p>True</p></td>
-<td><p>Enable interpolation of whole data if fit range is limited by <code class="docutils literal notranslate"><span class="pre">frange</span></code> or <code class="docutils literal notranslate"><span class="pre">selector</span></code>.</p></td>
+<td><p>Enable interpolation of whole data if fit range is limited by <code class="docutils literal notranslate"><span class="pre">frange</span></code> or <code class="docutils literal notranslate"><span class="pre">fselector</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>interpolate_min</p></td>
 <td><p>None</p></td>
@@ -922,6 +922,10 @@
 <td><p>False</p></td>
 <td><p>Enable stair plot</p></td>
 </tr>
+<tr class="row-odd"><td><p>capsize</p></td>
+<td><p>5</p></td>
+<td><p>size of cap on error bar plot</p></td>
+</tr>
 </tbody>
 </table>
 <p>Set default fit_kwargs if not set.</p>
@@ -946,7 +950,7 @@
 <td><p>None</p></td>
 <td><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p></td>
 </tr>
-<tr class="row-even"><td><p>selector</p></td>
+<tr class="row-even"><td><p>fselector</p></td>
 <td><p>None</p></td>
 <td><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.</p></td>
 </tr>
