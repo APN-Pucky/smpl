@@ -73,7 +73,7 @@ default = {
     'grid': [True,  "Enable grid for the plot", ],
     'hist': [False, "Enable histogram plot", ],
     'stairs': [False, "Enable stair plot", ],
-
+    'capsize': [5, "size of cap on error bar plot"],
 }
 
 
@@ -315,7 +315,7 @@ def plt_data(datax, datay, **kwargs):
                      color=kwargs['data_color'])
     else:
         if kwargs['fmt'] is None:
-            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=5,
+            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
                          label=kwargs['label'], color=kwargs['data_color'])
         elif kwargs['fmt'] == "step":
             ll, = plt.step(x, y, where='mid',
@@ -330,11 +330,11 @@ def plt_data(datax, datay, **kwargs):
                 plt.fill_between(x, y-yerr, y+yerr,
                                  label=kwargs['label'], alpha=0.2, step='mid', color=ll.get_color())
         elif kwargs['fmt'] == "hist":
-            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=5,
+            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
                          color="black")
             plt.fill_between(x, y, step="mid", label=kwargs['label'])
         else:
-            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=kwargs['fmt'], capsize=5,
+            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=kwargs['fmt'], capsize=kwargs["capsize"],
                          label=kwargs['label'], color=kwargs['data_color'])
 
 
