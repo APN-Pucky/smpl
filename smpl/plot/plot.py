@@ -74,6 +74,7 @@ default = {
     'hist': [False, "Enable histogram plot", ],
     'stairs': [False, "Enable stair plot", ],
     'capsize': [5, "size of cap on error bar plot"],
+    'axes': [None, "set current axis"]
 }
 
 
@@ -387,6 +388,9 @@ def plt_fit(datax, datay, gfunction, **kwargs):
 
 def init_plot(**kwargs):
     fig = None
+    if util.has("axes", kwargs) and kwargs["axes"] is not None:
+        plt.sca(kwargs["axes"])
+        return kwargs["axes"].get_figure()
     if kwargs['init'] or util.true("residue", kwargs):
         if kwargs['size'] is None:
             fig = plt.figure()
