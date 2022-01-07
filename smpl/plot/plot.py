@@ -390,7 +390,7 @@ def init_plot(**kwargs):
     fig = None
     if util.has("axes", kwargs) and kwargs["axes"] is not None:
         plt.sca(kwargs["axes"])
-        return kwargs["axes"].get_figure()
+        fig = kwargs["axes"].get_figure()
     if kwargs['init'] or util.true("residue", kwargs):
         if kwargs['size'] is None:
             fig = plt.figure()
