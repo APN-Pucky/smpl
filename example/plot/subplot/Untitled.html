@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Fit &mdash; smpl  documentation</title>
+  <title>Sub &mdash; smpl  documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
@@ -22,8 +22,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Fixed Fit" href="../fixed_fit/test_fixed.html" />
-    <link rel="prev" title="Auto Fit" href="../auto/test_auto.html" /> 
+    <link rel="next" title="Uncertainties" href="../uncertainties/plot_uncertainties.html" />
+    <link rel="prev" title="Residue Plot" href="../residue/residue.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,16 +55,17 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../plot/index.html">Plotting</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Fitting</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../auto/test_auto.html">Auto Fit</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Custom Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../fixed_fit/test_fixed.html">Fixed Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lambda/test_lambda.html">Lambda Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../linear/test_linear.html">Linear Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../selective_fit/test_selective_fit.html">Selective Fit</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Plotting</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../functions/funcs.html">Function Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../histogram/plot_histogram.html">Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../legend/legend.html">Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiplot/multi.html">Multi Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../residue/residue.html">Residue Plot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../uncertainties/plot_uncertainties.html">Uncertainties</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../fit/index.html">Fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../latex/latex.html">Latex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../parallel/parallel.html">Parallel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../uncertainties/demo_uncertainties.html">uncertainties</a></li>
@@ -103,10 +104,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../index.html">Examples</a> &raquo;</li>
-          <li><a href="../index.html">Fitting</a> &raquo;</li>
-      <li>Custom Fit</li>
+          <li><a href="../index.html">Plotting</a> &raquo;</li>
+      <li>Sub</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../_sources/example/fit/custom/test_custom.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/example/plot/subplot/Untitled.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -384,19 +385,27 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="Custom-Fit">
-<h1>Custom Fit<a class="headerlink" href="#Custom-Fit" title="Permalink to this headline"></a></h1>
-<div class="nbinput nblast docutils container">
+<section id="Sub">
+<h1>Sub<a class="headerlink" href="#Sub" title="Permalink to this headline"></a></h1>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
-<span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+<span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">logx</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_plot_subplot_Untitled_1_0.png" src="../../../_images/example_plot_subplot_Untitled_1_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -404,10 +413,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data_malus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">find_file</span><span class="p">(</span><span class="s2">&quot;test_custom_data.csv&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">skiprows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-<span class="n">ydata</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">xdata</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="n">data</span><span class="p">[:,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="n">ydata</span><span class="p">)</span>
+<span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">logx</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">1</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -415,40 +426,16 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_custom_test_custom_2_0.png" src="../../../_images/example_fit_custom_test_custom_2_0.png" />
+<img alt="../../../_images/example_plot_subplot_Untitled_2_0.png" src="../../../_images/example_plot_subplot_Untitled_2_0.png" />
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
-<span></span><span class="k">def</span> <span class="nf">Malus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">I_max</span><span class="p">,</span><span class="n">I_min</span><span class="p">,</span><span class="n">w</span><span class="p">,</span><span class="n">p</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39; $(I_{max}-I_{min})*\\cos(w*x-p)^2+I_{min} $&#39;&#39;&#39;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">I_max</span><span class="o">-</span><span class="n">I_min</span><span class="p">)</span><span class="o">*</span><span class="n">unp</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">I_min</span>
-
-<span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">((</span><span class="n">xdata</span><span class="p">),</span><span class="n">ydata</span><span class="p">,</span><span class="n">Malus</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;anlge in °&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;intensity in a.u.&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mf">4.6</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span><span class="mf">0.0175</span><span class="p">,</span><span class="mi">180</span><span class="o">+</span><span class="mi">90</span><span class="o">-</span><span class="mi">137</span><span class="p">],</span> <span class="n">units</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a.u.&quot;</span><span class="p">,</span><span class="s2">&quot;a.u.&quot;</span><span class="p">,</span><span class="s2">&quot;rad$^{-1}$&quot;</span><span class="p">,</span><span class="s2">&quot;rad&quot;</span><span class="p">])</span>
+<span></span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[0.0675892411663342+/-0.002521847676338688,
- 4.616937138968342+/-0.002800380217490259,
- 0.017517668882117022+/-1.1151509984952337e-05,
- 132.77077908815843+/-0.0023481770875747364]
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_fit_custom_test_custom_3_1.png" src="../../../_images/example_fit_custom_test_custom_3_1.png" />
 </div>
 </div>
 </section>
@@ -457,8 +444,8 @@ div.rendered_html tbody tr:hover {
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../auto/test_auto.html" class="btn btn-neutral float-left" title="Auto Fit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../fixed_fit/test_fixed.html" class="btn btn-neutral float-right" title="Fixed Fit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../residue/residue.html" class="btn btn-neutral float-left" title="Residue Plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../uncertainties/plot_uncertainties.html" class="btn btn-neutral float-right" title="Uncertainties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
