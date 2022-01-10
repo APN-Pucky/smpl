@@ -1,4 +1,5 @@
 __pycache__
+.spyproject
 .pypirc
 dist/
 build/
