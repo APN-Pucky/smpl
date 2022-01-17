@@ -18,6 +18,7 @@
     "fig.subplots_adjust(wspace=0)\n",
     "\n",
     "plot.function(lambda x: x**2,axes=axs[0],tight=False,xmin=0,xmax=1)\n",
+    "plot.function(lambda x: x**5,axes=axs[0],tight=False,xmin=0,xmax=1)\n",
     "plot.function(lambda x: x**3,axes=axs[1],logx=True,tight=False,xmin=0,xmax=1)\n",
     "plot.function(lambda x: x**1,axes=axs[2],tight=False,xmin=0,xmax=1)"
    ]
@@ -31,9 +32,9 @@
     "fig, axs = plot.subplots(3, 1, figsize=(12, 8), sharex=True)\n",
     "fig.subplots_adjust(hspace=0)\n",
     "\n",
-    "plot.function(lambda x: x**2,axes=axs[0],tight=False,xmin=0,xmax=1)\n",
+    "plot.function(lambda x: x**2,axes=axs[0],tight=False,xmin=0,xmax=1,ylabel=\"y\")\n",
     "plot.function(lambda x: x**3,axes=axs[1],logx=True,tight=False,xmin=0,xmax=1)\n",
-    "plot.function(lambda x: x**1,axes=axs[2],tight=False,xmin=0,xmax=1)"
+    "plot.function(lambda x: x**1,axes=axs[2],tight=False,xmin=0,xmax=1,xlabel=\"x\")"
    ]
   },
   {
