@@ -304,8 +304,12 @@ def plt_data(datax, datay, **kwargs):
 
     if xerr is None and yerr is None:
         if kwargs['fmt'] is None:
-            plt.plot(
-                x, y, label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
+            if kwargs['linestyle'] is None:
+                plt.plot(
+                    x, y, label=kwargs['label'], color=kwargs['data_color'])
+            else:
+                plt.plot(
+                    x, y, label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
         elif kwargs['fmt'] == "step":
             plt.step(x, y, where='mid',
                      label=kwargs['label'], color=kwargs['data_color'])
@@ -315,11 +319,15 @@ def plt_data(datax, datay, **kwargs):
             plt.fill_between(x, y, step="mid")
         else:
             plt.plot(x, y, kwargs['fmt'], label=kwargs['label'],
-                     color=kwargs['data_color'], linestyle=kwargs['linestyle'])
+                     color=kwargs['data_color'])
     else:
         if kwargs['fmt'] is None:
-            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
-                         label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
+            if kwargs['linestyle'] is None:
+                plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
+                             label=kwargs['label'], color=kwargs['data_color'])
+            else:
+                plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
+                             label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
         elif kwargs['fmt'] == "step":
             ll, = plt.step(x, y, where='mid',
                            color=kwargs['data_color'])
@@ -338,7 +346,7 @@ def plt_data(datax, datay, **kwargs):
             plt.fill_between(x, y, step="mid", label=kwargs['label'])
         else:
             plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=kwargs['fmt'], capsize=kwargs["capsize"],
-                         label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
+                         label=kwargs['label'], color=kwargs['data_color'])
 
 
 def get_fnc_legend(function, fit, **kwargs):
