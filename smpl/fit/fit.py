@@ -53,6 +53,8 @@ default = {'params': [None, "Initial fit parameters", ],
            'bins': [0, "Number of bins for histogram", ],
            'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
            'autotqdm': [True, "Auto fitting display tqdm", ],
+           'xerror': [True, "enable xerrors"],
+           'yerror': [True, "enable yerrors"],
            }
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
@@ -243,8 +245,11 @@ def data_split(datax, datay, **kwargs):
     yerr = usd(datay)[ind]
     xerr = xerr if np.any(np.abs(xerr) > 0) else None
     yerr = yerr if np.any(np.abs(yerr) > 0) else None
+    if util.has("xerror", kwargs) and not kwargs['xerror']:
+        xerr = None
+    if util.has("yerror", kwargs) and not kwargs['yerror']:
+        yerr = None
     return x, y, xerr, yerr
-
 
 
 def _data_split(datax, datay, **kwargs):
