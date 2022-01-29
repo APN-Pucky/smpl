@@ -15,6 +15,7 @@ from docutils.nodes import doctest_block, image, literal_block, math_block,  pen
 
 import re
 import os
+import datetime
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
 
@@ -24,7 +25,7 @@ version = re.sub('^', '', os.popen('git describe --tags').read().strip())
 # -- Project information -----------------------------------------------------
 
 project = 'smpl'
-copyright = '2021, APN-Pucky'
+copyright = datetime.datetime.now().year + ', APN-Pucky'
 author = 'APN-Pucky'
 
 

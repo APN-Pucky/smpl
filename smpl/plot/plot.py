@@ -75,7 +75,7 @@ default = {
     'stairs': [False, "Enable stair plot", ],
     'capsize': [5, "size of cap on error bar plot"],
     'axes': [None, "set current axis"],
-    'linestyle': [None, "linestyle"]
+    'linestyle': [None, "linestyle, only active if `fmt`=None"]
 }
 
 
