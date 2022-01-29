@@ -25,7 +25,7 @@ version = re.sub('^', '', os.popen('git describe --tags').read().strip())
 # -- Project information -----------------------------------------------------
 
 project = 'smpl'
-copyright = datetime.datetime.now().year + ', APN-Pucky'
+copyright = str(datetime.datetime.now().year) + ', APN-Pucky'
 author = 'APN-Pucky'
 
 
