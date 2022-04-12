@@ -17,12 +17,13 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="smpl.debug" href="../../_autosummary/smpl.debug.html" />
+    <link rel="next" title="Histogram" href="histogram.html" />
     <link rel="prev" title="pandas" href="../pandas/demo_pandas.html" /> 
 </head>
 
@@ -34,7 +35,7 @@
             <a href="../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.118-3-gc134966
+                0.0.118-7-gf8108bb
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -62,10 +63,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../uncertainties/demo_uncertainties.html">uncertainties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/demo_pandas.html">pandas</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Animation of a function</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Interactive">Interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Interactive">Interactive</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#live-render">live-render</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pre-render">pre-render</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Save">Save</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="histogram.html">Histogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactive.html">Interactive</a></li>
 </ul>
 </li>
 </ul>
@@ -319,7 +326,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -386,8 +393,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">animation</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">animation</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -397,13 +403,13 @@ div.rendered_html tbody tr:hover {
 </div>
 <section id="Interactive">
 <h2>Interactive<a class="headerlink" href="#Interactive" title="Permalink to this headline"></a></h2>
-<p>live-render:</p>
+<section id="live-render">
+<h3>live-render<a class="headerlink" href="#live-render" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
 <span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1381,15 +1387,16 @@ if (IPython.notebook.kernel !== null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<div id='d66dd373-4dfd-4512-b4fc-b30add0dfe5f'></div></div>
+<div id='f99d0c36-11f9-4ddf-b555-2831839f2479'></div></div>
 </div>
-<p>or pre-render:</p>
+</section>
+<section id="pre-render">
+<h3>pre-render<a class="headerlink" href="#pre-render" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> notebook
 <span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">200</span><span class="p">)):</span>
     <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1406,7 +1413,7 @@ if (IPython.notebook.kernel !== null) {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 200/200 [00:03&lt;00:00, 56.94it/s]
+100%|██████████| 200/200 [00:03&lt;00:00, 54.39it/s]
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -2377,8 +2384,9 @@ if (IPython.notebook.kernel !== null) {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<div id='6bfb2ff7-6510-4169-a690-09ecdb7dcad9'></div></div>
+<div id='6b8f5a38-3301-49ea-bba3-54db41485506'></div></div>
 </div>
+</section>
 </section>
 <section id="Save">
 <h2>Save<a class="headerlink" href="#Save" title="Permalink to this headline"></a></h2>
@@ -2386,8 +2394,7 @@ if (IPython.notebook.kernel !== null) {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;test.gif&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ani</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;test.gif&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2405,8 +2412,7 @@ MovieWriter ffmpeg unavailable; using Pillow instead.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -2414,8 +2420,7 @@ MovieWriter ffmpeg unavailable; using Pillow instead.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -2427,7 +2432,7 @@ MovieWriter ffmpeg unavailable; using Pillow instead.
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../pandas/demo_pandas.html" class="btn btn-neutral float-left" title="pandas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../_autosummary/smpl.debug.html" class="btn btn-neutral float-right" title="smpl.debug" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="histogram.html" class="btn btn-neutral float-right" title="Histogram" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
