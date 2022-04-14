@@ -22,7 +22,8 @@
     "import numpy as np\n",
     "import tqdm\n",
     "import uncertainties as unc\n",
-    "from uncertainties import unumpy"
+    "from uncertainties import unumpy\n",
+    "from smpl import stat"
    ]
   },
   {
@@ -33,7 +34,7 @@
    "outputs": [],
    "source": [
     "%matplotlib notebook \n",
-    "plt.ioff()\n",
+    "#plt.ioff()\n",
     "# Parameter\n",
     "n = 13\n",
     "bahnhs = 13\n",
@@ -56,7 +57,7 @@
     "        bahnh[np.random.randint(0,bahnhs)] += 1\n",
     "        if np.any(np.greater(bahnh,1)):\n",
     "            datay[i] += 1\n",
-    "    plot.data(datax,unumpy.uarray(datay/c,1./unumpy.sqrt(c)),init=True,tight=False,fmt=\"hist\",ylabel=\"P(>1 Gäste bei beliebigem Bahnhof)\",xlabel=\"$n$ Gäste\",capsize=0)\n",
+    "    plot.data(datax,stat.poisson_dist(datay)/c,init=True,tight=False,fmt=\"hist\",ylabel=\"P(>1 Gäste bei beliebigem Bahnhof)\",xlabel=\"$n$ Gäste\",capsize=0)\n",
     "    plot.function(lambda ni : 1.-fac(bahnhs)/(fac(bahnhs-ni)*bahnhs**ni),xmin=0,xmax=13,label=\"$\\\\frac{b!}{(b-n)!b^n}$\",color=\"orange\")\n",
     "    \n",
     "def init():\n",
@@ -81,7 +82,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3",
+   "display_name": "Python 3 (ipykernel)",
    "language": "python",
    "name": "python3"
   },
