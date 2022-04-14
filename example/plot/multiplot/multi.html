@@ -17,8 +17,9 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -34,7 +35,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.118
+                0.0.119
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -59,7 +60,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../functions/funcs.html">Function Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../histogram/plot_histogram.html">Histogram</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../legend/legend.html">Legend</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Multi Plot</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multi Plot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Different-color">Different color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Same-color">Same color</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../residue/residue.html">Residue Plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../subplot/subplot.html">Subplot panel support</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../uncertainties/plot_uncertainties.html">Uncertainties</a></li>
@@ -71,6 +76,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../../uncertainties/demo_uncertainties.html">uncertainties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../pandas/demo_pandas.html">pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../animation/Animation.html">Animation of a function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../animation/histogram.html">Histogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../animation/interactive.html">Interactive</a></li>
 </ul>
 </li>
 </ul>
@@ -325,7 +332,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -389,8 +396,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
 </pre></div>
 </div>
@@ -399,8 +405,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">gompertz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gompertz</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">a</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">solution_gompertz</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
@@ -410,6 +415,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <section id="Multi-Plot">
 <h1>Multi Plot<a class="headerlink" href="#Multi-Plot" title="Permalink to this headline"></a></h1>
+<section id="Different-color">
+<h2>Different color<a class="headerlink" href="#Different-color" title="Permalink to this headline"></a></h2>
 <p>Separation of Variables:</p>
 <div class="math notranslate nohighlight">
 \[\int \frac{1}{N \ln (bN)} dN = \ln(\ln(bN)) +c= -adt =-at\]</div>
@@ -419,12 +426,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]:</span>
         <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="n">gompertz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$N$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot N$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">3</span> <span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
-
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -438,9 +443,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-
-<span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="p">]:</span>
         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
             <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="n">solution_gompertz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$t$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$N$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -469,15 +472,35 @@ No artists with labels found to put in legend.  Note that artists whose label st
 <img alt="../../../_images/example_plot_multiplot_multi_4_1.png" src="../../../_images/example_plot_multiplot_multi_4_1.png" />
 </div>
 </div>
+</section>
+<section id="Same-color">
+<h2>Same color<a class="headerlink" href="#Same-color" title="Permalink to this headline"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]:</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="n">gompertz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$N$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot N$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">3</span> <span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">next_color</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_plot_multiplot_multi_9_0.png" src="../../../_images/example_plot_multiplot_multi_9_0.png" />
+</div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
+</section>
 </section>
 
 
@@ -491,7 +514,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, APN-Pucky.</p>
+    <p>&#169; Copyright 2022, APN-Pucky.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
