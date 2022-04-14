@@ -77,7 +77,8 @@ default = {
     'hist': [False, "Enable histogram plot", ],
     'stairs': [False, "Enable stair plot", ],
     'capsize': [5, "size of cap on error bar plot"],
-    'axes': [None, "set current axis"]
+    'axes': [None, "set current axis"],
+    'linestyle': [None, "linestyle, only active if `fmt`=None"]
 }
 
 
@@ -306,7 +307,12 @@ def plt_data(datax, datay, **kwargs):
 
     if xerr is None and yerr is None:
         if kwargs['fmt'] is None:
-            plt.plot(x, y, label=kwargs['label'], color=kwargs['data_color'])
+            if kwargs['linestyle'] is None:
+                plt.plot(
+                    x, y, label=kwargs['label'], color=kwargs['data_color'])
+            else:
+                plt.plot(
+                    x, y, label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
         elif kwargs['fmt'] == "step":
             plt.step(x, y, where='mid',
                      label=kwargs['label'], color=kwargs['data_color'])
@@ -319,8 +325,12 @@ def plt_data(datax, datay, **kwargs):
                      color=kwargs['data_color'])
     else:
         if kwargs['fmt'] is None:
-            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
-                         label=kwargs['label'], color=kwargs['data_color'])
+            if kwargs['linestyle'] is None:
+                plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
+                             label=kwargs['label'], color=kwargs['data_color'])
+            else:
+                plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
+                             label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
         elif kwargs['fmt'] == "step":
             ll, = plt.step(x, y, where='mid',
                            color=kwargs['data_color'])
@@ -373,18 +383,19 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     l = get_fnc_legend(gfunction, fit, **kwargs)
     if kwargs['prange'] is None:
         x, _, _, _ = ffit.fit_split(datax, datay, **kwargs)
-        xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), 1000)
+        xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), kwargs['steps'])
     else:
-        xfit = np.linspace(kwargs['prange'][0], kwargs['prange'][1], 1000)
+        xfit = np.linspace(kwargs['prange'][0],
+                           kwargs['prange'][1], kwargs['steps'])
     ll = __function(fitted, xfit, "-", label=l,
                     color=kwargs['fit_color'], sigmas=kwargs['sigmas'])
 
     if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('interpolate', kwargs) or util.has("interpolate_max", kwargs) or util.has("interpolate_min", kwargs):
         xxfit = np.linspace(util.get("interpolate_min", kwargs, np.min(
-            unv(datax))), util.get("interpolate_max", kwargs, np.max(unv(datax))))
-        __function(fitted, np.linspace(np.min(xxfit), np.min(xfit)), "--",
+            unv(datax))), util.get("interpolate_max", kwargs, np.max(unv(datax))), kwargs['steps'])
+        __function(fitted, np.linspace(np.min(xxfit), np.min(xfit), kwargs['steps']), "--",
                    color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
-        __function(fitted, np.linspace(np.max(xfit), np.max(xxfit)), "--",
+        __function(fitted, np.linspace(np.max(xfit), np.max(xxfit), kwargs['steps']), "--",
                    color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
     return fit, ll.get_color()
 

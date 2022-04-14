@@ -4,12 +4,13 @@ import matplotlib as mpl
 from PIL import Image
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import numpy as np
+import ipywidgets
 
 frames = []
 
 
 class FigAnimation(animation.FuncAnimation):
-    def __init__(self, figs=None, update=None, frames=None, *args, **kwargs):
+    def __init__(self, figs=None, frames=None, init=None, update=None,  *args, **kwargs):
         # Use the list of figures as the framedata, which will be iterated
         # over by the machinery.
         if update is None:
@@ -45,7 +46,7 @@ class FigAnimation(animation.FuncAnimation):
             return self.im,
 
         animation.FuncAnimation.__init__(
-            self, f, _update, frames=len(figs) if update is None else frames, *args, **kwargs)
+            self, f, _update, frames=len(figs) if update is None else frames, init_func=init, *args, **kwargs)
 
 
 def frame():
@@ -91,3 +92,7 @@ def animate(**kwargs):
     ani = FigAnimation(frames, **kwargs)
     # clear()
     return ani
+
+
+def interactive(func, *args, **kwargs):
+    ipywidgets.interactive(func, *args, **kwargs)
