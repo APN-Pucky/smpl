@@ -13,6 +13,7 @@ from smpl import util
 from smpl import wrap
 from smpl import doc
 from smpl import fit as ffit
+import copy
 
 
 def set_plot_style():
@@ -54,6 +55,7 @@ default = {
     'also_fit': [True, "also plot the fit", ],
     'logy': [False, "logarithmic x axis", ],
     'logx': [False, "logarithmic y axis", ],
+    'function_color': [None, "Color of the function plot", ],
     'data_color': [None, "Color of the data plot", ],
     'fit_color': [None, "Color of the fit plot", ],
     'residue': [False, "Display difference between fit and data in a second plot", ],
@@ -159,7 +161,7 @@ def fit(datax, datay, function, **kwargs):
     kwargs = plot_kwargs(kwargs)
     fit = None
     fig = None
-    fig = init_plot(**kwargs)
+    fig = init_plot(kwargs)
     if kwargs['also_data']:
         plt_data(datax, datay, **kwargs)
     if kwargs['also_fit']:
@@ -209,8 +211,8 @@ def _function(func, xfit, **kwargs):
         kargs["fmt"] = kwargs["fmt"]
     if util.has('label', kwargs) and kwargs['label'] != "":
         kargs['label'] = kwargs['label']
-    if util.has('color', kwargs) and kwargs['color'] != "":
-        kargs['color'] = kwargs['color']
+    if util.has('function_color', kwargs) and kwargs['function_color'] != "":
+        kargs['color'] = kwargs['function_color']
     if util.has('sigmas', kwargs) and kwargs['sigmas'] != "":
         kargs['sigmas'] = kwargs['sigmas']
     __function(func, xfit, **kargs)
@@ -261,7 +263,7 @@ def function(func, *args, **kwargs):
         kwargs = plot_kwargs(kwargs)
 
     xlin = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
-    init_plot(**kwargs)
+    init_plot(kwargs)
 
     # kwargs['lpos'] = 0
     #_plot(xfit, func(xfit, *args), **kwargs)
@@ -402,7 +404,7 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     return fit, ll.get_color()
 
 
-def init_plot(**kwargs):
+def init_plot(kwargs):
     fig = None
     if util.has("axes", kwargs) and kwargs["axes"] is not None:
         plt.sca(kwargs["axes"])
@@ -422,16 +424,16 @@ def init_plot(**kwargs):
         plt.xlabel(kwargs['xaxis'])
     if util.has("yaxis", kwargs) and kwargs['yaxis'] != "":
         plt.ylabel(kwargs['yaxis'])
-    if util.has("next_color",kwargs) and not kwargs['next_color']:
-        cy = plt.gca()._get_lines.prop_cycler
-        if isinstance(plt.gca()._get_lines.prop_cycler,itertools.cycle):
-            tmp_color = next(itertools.tee(cy)[1])['color']
-        else:
-            tmp_color = next(cycler(cy))['color']
+    if util.has("next_color", kwargs) and not kwargs['next_color']:
+        it1, it2 = itertools.tee(iter(plt.gca()._get_lines.prop_cycler))
+        plt.gca()._get_lines.prop_cycler = it2
+        tmp_color = next(it1)['color']
         if kwargs['data_color'] is None:
-            kwargs['data_color'] = tmp_color 
+            kwargs['data_color'] = tmp_color
         if kwargs['fit_color'] is None:
-            kwargs['fit_color'] = tmp_color 
+            kwargs['fit_color'] = tmp_color
+        if kwargs['function_color'] is None:
+            kwargs['function_color'] = tmp_color
     return fig
 
 
