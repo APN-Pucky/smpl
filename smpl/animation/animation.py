@@ -24,6 +24,9 @@ class FigAnimation(animation.FuncAnimation):
         self._figs = figs
         f = plt.figure()
         plt.axis('off')
+        plt.subplots_adjust(top=1, bottom=0, right=1,
+                            left=0, hspace=0, wspace=0)
+        plt.margins(0, 0)
 
         canvas = FigureCanvasAgg(f1)
         canvas.draw()
