@@ -1,5 +1,4 @@
 import numpy as np
-import copy
 import matplotlib.pyplot as plt
 import matplotlib
 import uncertainties
@@ -420,6 +419,16 @@ def init_plot(**kwargs):
         plt.xlabel(kwargs['xaxis'])
     if util.has("yaxis", kwargs) and kwargs['yaxis'] != "":
         plt.ylabel(kwargs['yaxis'])
+    if util.has("next_color",kwargs) and not kwargs['next_color']:
+        cy = plt.gca()._get_lines.prop_cycler
+        if isinstance(plt.gca()._get_lines.prop_cycler,itertools.cycle):
+            tmp_color = next(itertools.tee(cy)[1])['color']
+        else:
+            tmp_color = next(cycler(cy))['color']
+        if kwargs['data_color'] is None:
+            kwargs['data_color'] = tmp_color 
+        if kwargs['fit_color'] is None:
+            kwargs['fit_color'] = tmp_color 
     return fig
 
 
