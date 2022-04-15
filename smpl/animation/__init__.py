@@ -1,5 +1,5 @@
-from .animation import clear, frame, animate
+from .animation import clear, frame, animate, interactive
 
 __all__ = [
-    'clear', 'frame', 'animate'
+    'clear', 'frame', 'animate', 'interactive'
 ]

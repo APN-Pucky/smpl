@@ -39,6 +39,8 @@
    
       bar
    
+      bar_label
+   
       barbs
    
       barh
@@ -64,8 +66,6 @@
       cohere
    
       colorbar
-   
-      colormaps
    
       connect
    
@@ -276,6 +276,8 @@
       spy
    
       stackplot
+   
+      stairs
    
       stem
    

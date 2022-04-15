@@ -17,6 +17,8 @@
    
       fit_kwargs
    
+      fit_split
+   
    
    .. rubric:: Functions
 

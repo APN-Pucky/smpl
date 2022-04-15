@@ -13,8 +13,11 @@
 from docutils.nodes import literal, math
 from docutils.nodes import doctest_block, image, literal_block, math_block,  pending, raw, rubric, substitution_definition, target
 
+from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
+
 import re
 import os
+import datetime
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
 
@@ -24,7 +27,7 @@ version = re.sub('^', '', os.popen('git describe --tags').read().strip())
 # -- Project information -----------------------------------------------------
 
 project = 'smpl'
-copyright = '2021, APN-Pucky'
+copyright = str(datetime.datetime.now().year) + ', APN-Pucky'
 author = 'APN-Pucky'
 
 
@@ -36,7 +39,7 @@ author = 'APN-Pucky'
 extensions = ['sphinx.ext.autodoc', 'nbsphinx', 'sphinx.ext.githubpages',
               'sphinx.ext.viewcode', 'sphinx.ext.mathjax', 'sphinx.ext.todo', 'sphinx.ext.doctest',
               'matplotlib.sphinxext.plot_directive', 'numpydoc', 'sphinx_math_dollar', 'sphinx.ext.autosummary',
-              'sphinx.ext.coverage',
+              'sphinx.ext.coverage','jupyter_sphinx'
               ]
 #nbsphinx_execute = 'always'
 autosummary_generate = True
@@ -67,3 +70,7 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_js_files = [
+    DEFAULT_EMBED_REQUIREJS_URL,
+]

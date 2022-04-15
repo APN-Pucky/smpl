@@ -40,7 +40,7 @@ default = {'params': [None, "Initial fit parameters", ],
            #          'show'          :[False     ,"Call plt.show()",],
            #         'size'          :[None      ,"Size of the plot as a tuple (x,y)",],
            #          'number_format' :[ io.gf(4) ,"Format to display numbers.",],
-           'selector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
+           'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
            'fixed_params': [True, "Enable fixing parameters by choosing the same-named variables from ``kwargs``.", ],
            'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
            'maxfev': [10000, "Maximum function evaluations during fitting.", ],
@@ -53,6 +53,8 @@ default = {'params': [None, "Initial fit parameters", ],
            'bins': [0, "Number of bins for histogram", ],
            'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
            'autotqdm': [True, "Auto fitting display tqdm", ],
+           'xerror': [True, "enable xerrors"],
+           'yerror': [True, "enable yerrors"],
            }
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
@@ -130,7 +132,7 @@ def fit(datax, datay, function, **kwargs):
 
     """
     kwargs = fit_kwargs(kwargs)
-    x, y, xerr, yerr = data_split(datax, datay, **kwargs)
+    x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
     params = None
     if util.has('params', kwargs):
         params = kwargs['params']
@@ -186,28 +188,6 @@ def fit(datax, datay, function, **kwargs):
     return rfit
 
 
-def data_split(datax, datay, **kwargs):
-    """
-    Splits datax and datay into (x,y,xerr,yerr).
-
-    Parameters
-    ----------
-    **kwargs : optional
-        see :func:`fit_kwargs`.
-    """
-    kwargs = fit_kwargs(kwargs)
-    x, y, xerr, yerr = _data_split(datax, datay, **kwargs)
-    if util.has('frange', kwargs):
-        x = x[kwargs['frange'][0]:kwargs['frange'][1]]
-        y = y[kwargs['frange'][0]:kwargs['frange'][1]]
-        if not yerr is None:
-            yerr = yerr[kwargs['frange'][0]:kwargs['frange'][1]]
-        if not xerr is None:
-            xerr = xerr[kwargs['frange'][0]:kwargs['frange'][1]]
-
-    return x, y, xerr, yerr
-
-
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
 #
@@ -245,7 +225,7 @@ def _fit_odr(datax, datay, function, params=None, yerr=None, xerr=None):
     return unc.correlated_values(out.beta, out.cov_beta)
 
 
-def __data_split(datax, datay, **kwargs):
+def data_split(datax, datay, **kwargs):
     """
     Split data + errors
     """
@@ -265,17 +245,43 @@ def __data_split(datax, datay, **kwargs):
     yerr = usd(datay)[ind]
     xerr = xerr if np.any(np.abs(xerr) > 0) else None
     yerr = yerr if np.any(np.abs(yerr) > 0) else None
+    if util.has("xerror", kwargs) and not kwargs['xerror']:
+        xerr = None
+    if util.has("yerror", kwargs) and not kwargs['yerror']:
+        yerr = None
     return x, y, xerr, yerr
 
 
 def _data_split(datax, datay, **kwargs):
-    if util.has('selector', kwargs):
-        sel = kwargs['selector']
+    if util.has('fselector', kwargs):
+        sel = kwargs['fselector']
         if callable(sel):
-            return __data_split(datax[sel(datax, datay)], datay[sel(datax, datay)], **kwargs)
+            return data_split(datax[sel(datax, datay)], datay[sel(datax, datay)], **kwargs)
         else:
-            return __data_split(datax[sel], datay[sel], **kwargs)
-    return __data_split(datax, datay, **kwargs)
+            return data_split(datax[sel], datay[sel], **kwargs)
+    return data_split(datax, datay, **kwargs)
+
+
+def fit_split(datax, datay, **kwargs):
+    """
+    Splits datax and datay into (x,y,xerr,yerr).
+
+    Parameters
+    ----------
+    **kwargs : optional
+        see :func:`fit_kwargs`.
+    """
+    kwargs = fit_kwargs(kwargs)
+    x, y, xerr, yerr = _data_split(datax, datay, **kwargs)
+    if util.has('frange', kwargs):
+        x = x[kwargs['frange'][0]:kwargs['frange'][1]]
+        y = y[kwargs['frange'][0]:kwargs['frange'][1]]
+        if not yerr is None:
+            yerr = yerr[kwargs['frange'][0]:kwargs['frange'][1]]
+        if not xerr is None:
+            xerr = xerr[kwargs['frange'][0]:kwargs['frange'][1]]
+
+    return x, y, xerr, yerr
 
 
 if __name__ == "__main__":

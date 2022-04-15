@@ -24,7 +24,9 @@ dev_requirements = [
     "nbsphinx",
     "sphinx-rtd-theme",
     "pandas",
-    "ipython"
+    "ipython",
+    "pandoc",
+    "jupyter-sphinx"
 ]
 
 setuptools.setup(
