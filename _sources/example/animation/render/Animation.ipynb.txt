@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Animation of a function\n",
+    "# Render\n",
     "\n",
     "This is done through rendering the figure first and then reload it in a FuncAnimation with imshow.\n",
     "Therefore the zoom function is limited to the resolution of the figure."
@@ -27,9 +27,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Interactive\n",
-    "\n",
-    "### live-render"
+    "## live-render"
    ]
   },
   {
@@ -51,7 +49,8 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### pre-render"
+    "\n",
+    "## pre-render"
    ]
   },
   {
@@ -100,11 +99,18 @@
    "metadata": {},
    "outputs": [],
    "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
+   "display_name": "Python 3",
    "language": "python",
    "name": "python3"
   },
