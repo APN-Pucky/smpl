@@ -255,13 +255,16 @@ def function(func, *args, **kwargs):
     if not util.has('fmt', kwargs):
         kwargs['fmt'] = "-"
 
-    kwargs = plot_kwargs(kwargs)
+    if not "label" in kwargs:
+        kwargs = plot_kwargs(kwargs)
+        kwargs['label'] = get_fnc_legend(func, args, **kwargs)
+    else:
+        kwargs = plot_kwargs(kwargs)
+
     xlin = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
     init_plot(**kwargs)
 
-    if not util.has("label", kwargs) or kwargs['label'] is None:
-        kwargs['label'] = get_fnc_legend(func, args, **kwargs)
-        # kwargs['lpos'] = 0
+    # kwargs['lpos'] = 0
     #_plot(xfit, func(xfit, *args), **kwargs)
     _function(wrap.get_lambda_argd(
         func, kwargs['xvar'], *args), xlin, **kwargs)
