@@ -10,6 +10,8 @@ jobs:
       container:
         image: apnpucky/ubuntu-pip
       steps:
+        - name: work around permission issue
+          run: git config --global --add safe.directory /__w/smpl/smpl
         - uses: actions/checkout@v2
           with:
             fetch-depth: "0"

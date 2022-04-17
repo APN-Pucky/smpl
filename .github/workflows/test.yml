@@ -13,12 +13,12 @@ jobs:
       container:
         image: apnpucky/ubuntu-pip
       steps:
+        - name: work around permission issue
+          run: git config --global --add safe.directory /__w/smpl/smpl
         - uses: actions/checkout@v2
           with:
             fetch-depth: "0"
         - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-        #- name: Test install smpl+dependencies
-        #  run: python3 -m pip install --index-url https://test.pypi.org/simple/ -U smpl
         - name: Build smpl
           run: make build
         - name: Install smpl
