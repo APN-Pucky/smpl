@@ -38,12 +38,10 @@ test version::
    GitHub <https://github.com/APN-Pucky/smpl>
  
 
-Examples
-========
-
 .. toctree::
    :glob:
    :maxdepth: 3  
+   :caption: Examples:
 
    example/*
 
