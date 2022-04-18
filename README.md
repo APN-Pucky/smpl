@@ -7,8 +7,8 @@ Doc: <https://apn-pucky.github.io/smpl/index.html>
 | [![PyPI version][pypi image]][pypi link]      | - |
 | [![workflow][a s image]][a s link]      | [![test][a t image]][a t link]     |
 | ![downloads](https://img.shields.io/pypi/dm/smpl.svg) | -     |
-| [![Codacy Badge][codacy quality image]][codacy quality link] | -     |
-| [![Codacy Badge][codacy cover image]][codacy cover link] | -      |
+| -     |[![Codacy Badge][codacy quality image]][codacy quality link] | 
+| -      |[![Codacy Badge][codacy cover image]][codacy cover link] | 
 | [![Coverage Status][c s i]][c s l] | [![Coverage Status][c t i]][c t l] |
 
 ## Versions
