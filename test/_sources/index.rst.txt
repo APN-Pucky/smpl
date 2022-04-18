@@ -9,11 +9,11 @@ smpl |version| documentation
 Install
 =======
 
-Stable version::
+stable version::
 
    $ pip install smpl
 
-Dev version::
+test version::
 
    $ pip install --index-url https://test.pypi.org/simple/ smpl
 
