@@ -1,4 +1,5 @@
-# simple plotting + fitting
+# smpl
+Simplified plotting and fitting in python.
 
 Doc: <https://apn-pucky.github.io/smpl/index.html>
 
