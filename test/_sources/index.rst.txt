@@ -27,7 +27,7 @@ test version::
    :maxdepth: 3
 
    Stable <https://apn-pucky.github.io/smpl/>
-   Test <https://apn-pucky.github.io/smpl/test/>
+   Dev <https://apn-pucky.github.io/smpl/test/>
 
 .. toctree::
    :glob:
