@@ -13,7 +13,7 @@ Doc: <https://apn-pucky.github.io/smpl/index.html>
 
 ## Versions
 
-### stable
+### Stable
 
 ```sh
 pip install smpl
@@ -21,7 +21,7 @@ pip install smpl
 
 Optional: --user or --upgrade
 
-### test
+### Dev
 
 ```sh
 pip install --index-url https://test.pypi.org/simple/ smpl
