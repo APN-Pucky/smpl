@@ -43,7 +43,7 @@ pip install --index-url https://test.pypi.org/simple/ smpl
 [codacy cover image]: https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2
 [codacy cover link]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&utm_medium=referral&utm_content=APN-Pucky/smpl&utm_campaign=Badge_Coverage
 
-[c s i]: https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=master
+[c s i]: https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=stable
 [c s l]: https://coveralls.io/github/APN-Pucky/smpl?branch=stable
-[c t l]: https://coveralls.io/github/APN-Pucky/smpl?branch=test
-[c t i]: https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=test
+[c t l]: https://coveralls.io/github/APN-Pucky/smpl?branch=master
+[c t i]: https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=master
