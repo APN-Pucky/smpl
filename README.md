@@ -2,7 +2,7 @@
 
 Doc: <https://apn-pucky.github.io/smpl/index.html>
 
-| [Stable][doc stable]        | [Test][doc test]           |
+| [Stable][doc stable]        | [Dev][doc test]           |
 | ------------- |:-------------:|
 | [![PyPI version][pypi image]][pypi link]      | - |
 | [![workflow][a s image]][a s link]      | [![test][a t image]][a t link]     |
