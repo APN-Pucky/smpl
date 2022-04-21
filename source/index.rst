@@ -9,11 +9,11 @@ smpl |version| documentation
 Install
 =======
 
-stable version::
+Stable version::
 
    $ pip install smpl
 
-test version::
+Dev version::
 
    $ pip install --index-url https://test.pypi.org/simple/ smpl
 
@@ -27,7 +27,7 @@ test version::
    :maxdepth: 3
 
    Stable <https://apn-pucky.github.io/smpl/>
-   Test <https://apn-pucky.github.io/smpl/test/>
+   Dev <https://apn-pucky.github.io/smpl/test/>
 
 .. toctree::
    :glob:
