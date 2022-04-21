@@ -89,8 +89,8 @@ def si_tab(tab, skip=0, fmt="{}"):
 
     Returns
     -------
-    tabstr : str
-        table latex string
+    str
+        
 
     Examples
     --------
