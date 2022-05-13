@@ -1,7 +1,13 @@
 # smpl
 Simplified plotting and fitting in python.
 
-Doc: <https://apn-pucky.github.io/smpl/index.html>
+ReadTheDocs: 
+
+
+GitHub-Pages: 
+
+https://apn-pucky.github.io/smpl/index.html
+
 
 [![PyPI version][pypi image]][pypi link]    ![downloads](https://img.shields.io/pypi/dm/smpl.svg)
 
@@ -11,6 +17,7 @@ Doc: <https://apn-pucky.github.io/smpl/index.html>
 | [![Coverage Status][c s i]][c s l] | [![Coverage Status][c t i]][c t l] |
 | -      |[![Codacy Badge][codacy cover image]][codacy cover link] | 
 | -     |[![Codacy Badge][codacy quality image]][codacy quality link] | 
+| [![Documentation Status][rtd s i]][rtd s l] | [![Documentation Status][rtd t i]][rtd t l]  | 
 
 ## Versions
 
@@ -48,3 +55,10 @@ pip install --index-url https://test.pypi.org/simple/ smpl
 [c s l]: https://coveralls.io/github/APN-Pucky/smpl?branch=stable
 [c t l]: https://coveralls.io/github/APN-Pucky/smpl?branch=master
 [c t i]: https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=master
+
+[rtd s i]: https://readthedocs.org/projects/smpl/badge/?version=stable
+[rtd s l]: https://smpl.readthedocs.io/en/stable/?badge=stable
+[rtd t i]: https://readthedocs.org/projects/smpl/badge/?version=latest
+[rtd t l]: https://smpl.readthedocs.io/en/latest/?badge=latest
+
+
