@@ -11,6 +11,7 @@ requirements = [
     "sympy",
     "tqdm",
     "pandas",
+    "ipywidgets",
     # "requests",
 ]
 dev_requirements = [
@@ -26,7 +27,8 @@ dev_requirements = [
     "pandas",
     "ipython",
     "pandoc",
-    "jupyter-sphinx"
+    "jupyter-sphinx",
+    "ipywidgets",
 ]
 
 setuptools.setup(
