@@ -1,9 +1,6 @@
 # smpl
 Simplified plotting and fitting in python.
 
-Documentation: 
-- https://smpl.readthedocs.io/en/stable/
-- https://apn-pucky.github.io/smpl/index.html
 
 
 [![PyPI version][pypi image]][pypi link]    ![downloads](https://img.shields.io/pypi/dm/smpl.svg)
@@ -15,6 +12,11 @@ Documentation:
 | -      |[![Codacy Badge][codacy cover image]][codacy cover link] | 
 | -     |[![Codacy Badge][codacy quality image]][codacy quality link] | 
 | [![Documentation Status][rtd s i]][rtd s l] | [![Documentation Status][rtd t i]][rtd t l]  | 
+
+
+## Documentation
+- https://smpl.readthedocs.io/en/stable/
+- https://apn-pucky.github.io/smpl/index.html
 
 ## Versions
 
