@@ -36,7 +36,7 @@
             <a href="../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.121
+                0.0.122
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -205,7 +205,6 @@
 
 <span class="c1">## Global ##</span>
 
-
 <span class="n">_IP_REGISTERED</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="n">_INSTALL_FIG_OBSERVER</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -303,6 +302,28 @@
     <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span>
         <span class="n">backend_mod</span><span class="o">.</span><span class="n">FigureCanvas</span><span class="p">,</span> <span class="s2">&quot;required_interactive_framework&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
+<span class="n">_backend_mod</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">_get_backend_mod</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ensure that a backend is selected and return it.</span>
+
+<span class="sd">    This is currently private, but may be made public in the future.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_backend_mod</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Use __getitem__ here to avoid going through the fallback logic (which</span>
+        <span class="c1"># will (re)import pyplot and then call switch_backend if we need to</span>
+        <span class="c1"># resolve the auto sentinel)</span>
+        <span class="n">switch_backend</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">rcParams</span><span class="p">,</span> <span class="s2">&quot;backend&quot;</span><span class="p">))</span>
+        <span class="c1"># Just to be safe.  Interactive mode can be turned on without calling</span>
+        <span class="c1"># `plt.ion()` so register it again here.  This is safe because multiple</span>
+        <span class="c1"># calls to `install_repl_displayhook` are no-ops and the registered</span>
+        <span class="c1"># function respects `mpl.is_interactive()` to determine if it should</span>
+        <span class="c1"># trigger a draw.</span>
+        <span class="n">install_repl_displayhook</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">_backend_mod</span>
+
 
 <span class="k">def</span> <span class="nf">switch_backend</span><span class="p">(</span><span class="n">newbackend</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -393,7 +414,7 @@
 
 
 <span class="k">def</span> <span class="nf">_warn_if_gui_out_of_main_thread</span><span class="p">():</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">_get_required_interactive_framework</span><span class="p">(</span><span class="n">_backend_mod</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">_get_required_interactive_framework</span><span class="p">(</span><span class="n">_get_backend_mod</span><span class="p">())</span>
             <span class="ow">and</span> <span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">threading</span><span class="o">.</span><span class="n">main_thread</span><span class="p">()):</span>
         <span class="n">_api</span><span class="o">.</span><span class="n">warn_external</span><span class="p">(</span>
             <span class="s2">&quot;Starting a Matplotlib GUI outside of the main thread will likely &quot;</span>
@@ -404,7 +425,7 @@
 <span class="k">def</span> <span class="nf">new_figure_manager</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Create a new figure manager instance.&quot;&quot;&quot;</span>
     <span class="n">_warn_if_gui_out_of_main_thread</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">_backend_mod</span><span class="o">.</span><span class="n">new_figure_manager</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_get_backend_mod</span><span class="p">()</span><span class="o">.</span><span class="n">new_figure_manager</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
 <span class="c1"># This function&#39;s signature is rewritten upon backend-load by switch_backend.</span>
@@ -417,7 +438,7 @@
 <span class="sd">        End users will typically not have to call this function because the</span>
 <span class="sd">        the interactive mode takes care of this.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_backend_mod</span><span class="o">.</span><span class="n">draw_if_interactive</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_get_backend_mod</span><span class="p">()</span><span class="o">.</span><span class="n">draw_if_interactive</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
 <span class="c1"># This function&#39;s signature is rewritten upon backend-load by switch_backend.</span>
@@ -466,7 +487,7 @@
 <span class="sd">    explicitly there.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_warn_if_gui_out_of_main_thread</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">_backend_mod</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_get_backend_mod</span><span class="p">()</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">isinteractive</span><span class="p">():</span>
@@ -1035,7 +1056,7 @@
 
 <span class="k">def</span> <span class="nf">clf</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Clear the current figure.&quot;&quot;&quot;</span>
-    <span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">draw</span><span class="p">():</span>
@@ -2327,15 +2348,6 @@
             <span class="nb">set</span><span class="p">(</span><span class="n">_interactive_bk</span><span class="p">)</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;WebAgg&#39;</span><span class="p">,</span> <span class="s1">&#39;nbAgg&#39;</span><span class="p">})</span>
         <span class="ow">and</span> <span class="n">cbook</span><span class="o">.</span><span class="n">_get_running_interactive_framework</span><span class="p">()):</span>
     <span class="nb">dict</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">rcParams</span><span class="p">,</span> <span class="s2">&quot;backend&quot;</span><span class="p">,</span> <span class="n">rcsetup</span><span class="o">.</span><span class="n">_auto_backend_sentinel</span><span class="p">)</span>
-<span class="c1"># Set up the backend.</span>
-<span class="n">switch_backend</span><span class="p">(</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;backend&quot;</span><span class="p">])</span>
-
-<span class="c1"># Just to be safe.  Interactive mode can be turned on without</span>
-<span class="c1"># calling `plt.ion()` so register it again here.</span>
-<span class="c1"># This is safe because multiple calls to `install_repl_displayhook`</span>
-<span class="c1"># are no-ops and the registered function respect `mpl.is_interactive()`</span>
-<span class="c1"># to determine if they should trigger a draw.</span>
-<span class="n">install_repl_displayhook</span><span class="p">()</span>
 
 
 <span class="c1">################# REMAINING CONTENT GENERATED BY boilerplate.py ##############</span>

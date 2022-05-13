@@ -39,7 +39,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.121
+                0.0.122
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -202,8 +202,24 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.debug.msg">
-<span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#msg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.msg" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#msg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.msg" title="Permalink to this definition"></a></dt>
 <dd><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level and always returns the msg.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tag</strong><span class="classifier">str</span></dt><dd><p>Sets a tag to be printed for the debug message.</p>
+</dd>
+<dt><strong>level</strong><span class="classifier">int</span></dt><dd><p>Debug level.</p>
+</dd>
+<dt><strong>times</strong><span class="classifier">int</span></dt><dd><p>How often should the message be printed if the function gets called multiple times (e.g. in a loop).</p>
+</dd>
+<dt><strong>_line</strong><span class="classifier">bool</span></dt><dd><p>Print the current line in the python source.</p>
+</dd>
+<dt><strong>_back</strong><span class="classifier">int</span></dt><dd><p>Number of stack/frames to go back.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
 <span class="go">DBG::debug.py:...: hi</span>
