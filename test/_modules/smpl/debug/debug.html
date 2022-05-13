@@ -36,7 +36,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.121-2-g384b8b6c
+                0.0.121-5-gf3f2d681
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -188,13 +188,15 @@
     <span class="k">return</span> <span class="n">get_line_number_file</span><span class="p">(</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">msg</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">msg</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">times</span><span class="p">,</span>
+        <span class="n">line_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="c1"># only once</span>
 
 
-<span class="k">def</span> <span class="nf">line1</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="n">msg1</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">line1</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">msg1</span><span class="p">(</span><span class="n">msg_</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">times</span><span class="p">,</span>
+         <span class="n">line_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <span class="c1"># counting functions</span>
 
@@ -221,9 +223,22 @@
 
 <span class="c1"># _line enables printint src line</span>
 <span class="c1"># t stands for times</span>
-<div class="viewcode-block" id="msg"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.msg">[docs]</a><span class="k">def</span> <span class="nf">msg</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="msg"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.msg">[docs]</a><span class="k">def</span> <span class="nf">msg</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Prints the message ``msg`` if level &gt; debug_level and always returns the msg.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tag : str</span>
+<span class="sd">        Sets a tag to be printed for the debug message.</span>
+<span class="sd">    level : int</span>
+<span class="sd">        Debug level.</span>
+<span class="sd">    times : int</span>
+<span class="sd">        How often should the message be printed if the function gets called multiple times (e.g. in a loop).</span>
+<span class="sd">    _line : bool</span>
+<span class="sd">        Print the current line in the python source.</span>
+<span class="sd">    _back : int</span>
+<span class="sd">        Number of stack/frames to go back.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -247,6 +262,13 @@
     <span class="k">return</span> <span class="n">msg</span></div>
 
 
+<div class="viewcode-block" id="msg1"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.msg1">[docs]</a><span class="k">def</span> <span class="nf">msg1</span><span class="p">(</span><span class="n">_msg</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Just like :func:`msg` but ``times`` set to 1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">msg</span><span class="p">(</span><span class="n">_msg</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="n">line_</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="file"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.file">[docs]</a><span class="k">def</span> <span class="nf">file</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">seperator</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">_print</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;debug.csv&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Prints the message ``msg`` if level &gt; debug_level to file ``filename``</span>
@@ -263,6 +285,13 @@
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="n">seperator</span> <span class="o">+</span> <span class="n">value</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="file1"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.file1">[docs]</a><span class="k">def</span> <span class="nf">file1</span><span class="p">(</span><span class="n">_key</span><span class="p">,</span> <span class="n">_value</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Just like :func:`file` but ``times`` set to 1.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">file</span><span class="p">(</span><span class="n">_key</span><span class="p">,</span> <span class="n">_value</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="table_flush_header"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.table_flush_header">[docs]</a><span class="k">def</span> <span class="nf">table_flush_header</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;debug_table.csv&quot;</span><span class="p">,</span> <span class="n">seperator</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">):</span>
@@ -315,24 +344,10 @@
     <span class="k">return</span> <span class="n">value</span></div>
 
 
-<span class="c1"># only once</span>
-<div class="viewcode-block" id="msg1"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.msg1">[docs]</a><span class="k">def</span> <span class="nf">msg1</span><span class="p">(</span><span class="n">_msg</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Just like :func:`msg` but ``times`` set to 1.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">msg</span><span class="p">(</span><span class="n">_msg</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="n">tag</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="n">times</span><span class="p">,</span> <span class="n">line_</span><span class="o">=</span><span class="n">line</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="file1"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.file1">[docs]</a><span class="k">def</span> <span class="nf">file1</span><span class="p">(</span><span class="n">_key</span><span class="p">,</span> <span class="n">_value</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Just like :func:`file` but ``times`` set to 1.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">file</span><span class="p">(</span><span class="n">_key</span><span class="p">,</span> <span class="n">_value</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="n">_back</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
-
-<span class="c1"># resets counts</span>
-
-
 <span class="k">def</span> <span class="nf">reset_times</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resets global `count_times`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">count_times</span>
     <span class="n">count_times</span> <span class="o">=</span> <span class="p">{}</span>
 
