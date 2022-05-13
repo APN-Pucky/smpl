@@ -1,11 +1,6 @@
 # smpl
 Simplified plotting and fitting in python.
 
-ReadTheDocs: 
-
-
-GitHub-Pages: 
-
 https://apn-pucky.github.io/smpl/index.html
 
 
