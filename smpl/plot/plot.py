@@ -5,7 +5,6 @@ import uncertainties
 import uncertainties.unumpy as unp
 import sympy
 import matplotlib.pylab as pylab
-from cycler import cycler
 import itertools
 # local imports
 from smpl import io
@@ -13,7 +12,6 @@ from smpl import util
 from smpl import wrap
 from smpl import doc
 from smpl import fit as ffit
-import copy
 
 
 def set_plot_style():
