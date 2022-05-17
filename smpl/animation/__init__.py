@@ -1,3 +1,4 @@
+"""Simplified Animations."""
 from .animation import clear, frame, animate, interactive
 
 __all__ = [
