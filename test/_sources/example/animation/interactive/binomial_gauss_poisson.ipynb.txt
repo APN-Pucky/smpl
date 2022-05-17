@@ -45,7 +45,7 @@
     "    fig, axs = plot.subplots(2, 1,  sharex=True)\n",
     "    fig.subplots_adjust(hspace=0)\n",
     "    n_bar = N_tot*p\n",
-    "    bina = lambda n: fac(N_tot)/(fac(n)*fac(N_tot-n))*p**n*(1-p)**(N_tot-n)\n",
+    "    bina = lambda n: fac(N_tot)/(fac(n)*fac(N_tot-n))*p**n*(1.-p)**(N_tot-n)\n",
     "    gaus = lambda n: np.sqrt(N_tot/(2*np.pi*(n_bar)*(N_tot-n_bar)))*np.exp(-(n-n_bar)**2/2*N_tot/(n_bar*(N_tot-n_bar)))\n",
     "    poisson  =  lambda n : n_bar**n*np.exp(-n_bar)/fac(n)\n",
     "    plot.function(bina,label=\"binomial\",axes=axs[0],tight=False,xmin=0,xmax=N_tot)\n",
@@ -70,7 +70,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3",
+   "display_name": "Python 3 (ipykernel)",
    "language": "python",
    "name": "python3"
   },
