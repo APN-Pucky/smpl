@@ -33,6 +33,7 @@ setuptools.setup(
         'dev': [
             "build",
             "pytest",
+            "pytest-cov",
             "jupyterlab",
             "pandas",
             "ipython",
