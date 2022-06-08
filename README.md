@@ -3,7 +3,7 @@ Simplified plotting and fitting in python.
 
 [![PyPI version][pypi image]][pypi link]    ![downloads](https://img.shields.io/pypi/dm/smpl.svg)
 
-| [Stable][doc stable]        | [Dev][doc test]           |
+| [Stable][doc stable]        | [Unstable][doc test]           |
 | ------------- |:-------------:|
 | [![workflow][a s image]][a s link]      | [![test][a t image]][a t link]     |
 | [![Coverage Status][c s i]][c s l] | [![Coverage Status][c t i]][c t l] |
@@ -38,10 +38,10 @@ pip install --index-url https://test.pypi.org/simple/ smpl
 [pypi image]: https://badge.fury.io/py/smpl.svg
 [pypi link]: https://pypi.org/project/smpl/
 
-[a s image]: https://github.com/APN-Pucky/smpl/actions/workflows/release.yml/badge.svg
-[a s link]: https://github.com/APN-Pucky/smpl/actions/workflows/release.yml
-[a t link]: https://github.com/APN-Pucky/smpl/actions/workflows/test.yml
-[a t image]: https://github.com/APN-Pucky/smpl/actions/workflows/test.yml/badge.svg
+[a s image]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml/badge.svg
+[a s link]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml
+[a t link]: https://github.com/APN-Pucky/smpl/actions/workflows/unstable.yml
+[a t image]: https://github.com/APN-Pucky/smpl/actions/workflows/unstable.yml/badge.svg
 
 [codacy quality image]: https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2
 [codacy quality link]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade
