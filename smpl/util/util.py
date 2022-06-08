@@ -14,7 +14,7 @@ def times(s, n):
     return s.join(["" for i in range(0, n+1)])
 
 
-def get(key, ddict, default):
+def get(key, ddict, default=None):
     """
     Returns dict[key] if this exists else default.
 

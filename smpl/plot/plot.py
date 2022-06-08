@@ -64,10 +64,10 @@ default = {
     # ,          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",],
     # ,          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",],
     # ,          'sortbyx'       :[ True     , "Enable sorting the x and y data so that x is sorted.",],
-    'interpolate': [True, "Enable interpolation of whole data if fit range is limited by ``frange`` or ``fselector``.", ],
-    'interpolate_min': [None, "Lower interpolation bound", ],
-    'interpolate_max': [None, "Higher interpolation bound", ],
-    'interpolate_hatch': [r"||", "Interpolation shape/hatch for filled area in case of ``sigmas``>0. See https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html", ],
+    'extrapolate': [True, "Enable extrapolation of whole data if fit range is limited by ``frange`` or ``fselector``.", ],
+    'extrapolate_min': [None, "Lower extrapolation bound", ],
+    'extrapolate_max': [None, "Higher extrapolation bound", ],
+    'extrapolate_hatch': [r"||", "Extrapolation shape/hatch for filled area in case of ``sigmas``>0. See https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html", ],
     'bbox_to_anchor': [None, "Position in a tuple (x,y),Shift position of the legend out of the main pane. ", ],
     'ncol': [None, "Columns in the legend if used with ``bbox_to_anchor``.", ],
     'steps': [1000, "resolution of the plotted function", ],
@@ -392,13 +392,13 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     ll = __function(fitted, xfit, "-", label=l,
                     color=kwargs['fit_color'], sigmas=kwargs['sigmas'])
 
-    if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('interpolate', kwargs) or util.has("interpolate_max", kwargs) or util.has("interpolate_min", kwargs):
-        xxfit = np.linspace(util.get("interpolate_min", kwargs, np.min(
-            unv(datax))), util.get("interpolate_max", kwargs, np.max(unv(datax))), kwargs['steps'])
+    if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('extrapolate', kwargs) or util.has("extrapolate_max", kwargs) or util.has("extrapolate_min", kwargs):
+        xxfit = np.linspace(util.get("extrapolate_min", kwargs, np.min(
+            unv(datax))), util.get("extrapolate_max", kwargs, np.max(unv(datax))), kwargs['steps'])
         __function(fitted, np.linspace(np.min(xxfit), np.min(xfit), kwargs['steps']), "--",
-                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
+                   color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
         __function(fitted, np.linspace(np.max(xfit), np.max(xxfit), kwargs['steps']), "--",
-                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
+                   color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
     return fit, ll.get_color()
 
 

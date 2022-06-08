@@ -10,62 +10,42 @@ from smpl import stat
 from smpl import util
 from smpl import wrap
 from smpl import doc
+from smpl import data
 from numpy.linalg import LinAlgError
 from tqdm import tqdm
+
+from smpl.data.data import data_split_filtered
 
 unv = unp.nominal_values
 usd = unp.std_devs
 
-default = {'params': [None, "Initial fit parameters", ],
-           #            'xaxis'         :[""        ,"X axis label",],
-           #            'yaxis'         :[""        ,"Y axis label",],
-           #            'label'         :[None      ,"Legend name of plotted ``data``",],
-           #            'fmt'           :['.'       ,"Format for plotting fit function",],
-           #           'units'         :[None      ,"Units of the fit parameters as strings. Displayed in the Legend",],
-           #           'save'          :[None      ," File to save the plot",],
-           #         'lpos'          :[0         ,"Legend position",],
-           'frange': [None, "Limit the fit to given range. First integer is the lowest and second the highest index.", ],
-           #          'prange'        :[None      ,"Limit the plot of the fit to given range",],
-           #         'sigmas'        :[0         ,"Color the array of given ``sigma`` times uncertaint",],
-           #          'init'          :[True      ,"Initialize a new plot"],
-           #          'ss'            :[True      ,"save, add legends and grid to the plot",],
-           #          'also_data'     :[True      ," also plot the data"],
-           #          'also_fit'      :[True      ,"also plot the fit",],
-           #          'logy'          :[False     ,"logarithmic x axis",],
-           #          'logx'          :[False     ,"logarithmic y axis",],
-           #          'data_color'    :[None      , "Color of the data plot", ],
-           #          'fit_color'     :[None      ,"Color of the fit plot",],
-           #         'residue'       :[False     ,"Display difference between fit and data in a second plot",],
-           #          'residue_err'   :[True      ,"Differences between fit and data will have errorbars",],
-           #          'show'          :[False     ,"Call plt.show()",],
-           #         'size'          :[None      ,"Size of the plot as a tuple (x,y)",],
-           #          'number_format' :[ io.gf(4) ,"Format to display numbers.",],
-           'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
+default = {
+           'params': [None, "Initial fit parameters", ],
+           #'frange': [None, "Limit the fit to given range. First integer is the lowest and second the highest index.", ],
+           #'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
            'fixed_params': [True, "Enable fixing parameters by choosing the same-named variables from ``kwargs``.", ],
-           'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
+           #'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
            'maxfev': [10000, "Maximum function evaluations during fitting.", ],
            'epsfcn': [0.0001, "Suitable step length for jacobian approximation.", ],
            'xvar': [None, "Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.", ],
-           #          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",],
-           #          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",],
-           #          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",],
-           #          'steps'         :[ 1000     ,"resolution of the plotted function" ],
-           'bins': [0, "Number of bins for histogram", ],
-           'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
+           #'bins': [0, "Number of bins for histogram", ],
+           #'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
            'autotqdm': [True, "Auto fitting display tqdm", ],
-           'xerror': [True, "enable xerrors"],
-           'yerror': [True, "enable yerrors"],
+           #'xerror': [True, "enable xerrors"],
+           #'yerror': [True, "enable yerrors"],
            }
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
 
-
+@doc.append_doc(data.data_kwargs)
+@doc.append_str("\t")
 @doc.append_str(doc.table(default, init=False))
 @doc.append_str(doc.table({"fit_kwargs": ["default", "description"]}, bottom=False))
 def fit_kwargs(kwargs):
     """Set default fit_kwargs if not set.
 
     """
+    kwargs = data.data_kwargs(kwargs)
     for k, v in default.items():
         if not k in kwargs:
             kwargs[k] = v[0]
@@ -229,38 +209,7 @@ def data_split(datax, datay, **kwargs):
     """
     Split data + errors
     """
-    if kwargs['bins'] > 0:
-        N, bins = np.histogram(unv(datax), bins=kwargs['bins'])
-        y = kwargs['binunc'](N)
-        yerr = usd(y)
-        yerr = yerr if np.any(np.abs(yerr) > 0) else None
-        return bins[0:-1] - (bins[0]-bins[1])/2, unv(y), None, yerr
-    if util.has("sortbyx", kwargs) and kwargs['sortbyx']:
-        ind = np.argsort(unv(datax))
-    else:
-        ind = np.array(range(len(datax)))
-    x = unv(datax)[ind]
-    y = unv(datay)[ind]
-    xerr = usd(datax)[ind]
-    yerr = usd(datay)[ind]
-    xerr = xerr if np.any(np.abs(xerr) > 0) else None
-    yerr = yerr if np.any(np.abs(yerr) > 0) else None
-    if util.has("xerror", kwargs) and not kwargs['xerror']:
-        xerr = None
-    if util.has("yerror", kwargs) and not kwargs['yerror']:
-        yerr = None
-    return x, y, xerr, yerr
-
-
-def _data_split(datax, datay, **kwargs):
-    if util.has('fselector', kwargs):
-        sel = kwargs['fselector']
-        if callable(sel):
-            return data_split(datax[sel(datax, datay)], datay[sel(datax, datay)], **kwargs)
-        else:
-            return data_split(datax[sel], datay[sel], **kwargs)
-    return data_split(datax, datay, **kwargs)
-
+    return data.__data_split(datax,datay,**kwargs)
 
 def fit_split(datax, datay, **kwargs):
     """
@@ -272,17 +221,7 @@ def fit_split(datax, datay, **kwargs):
         see :func:`fit_kwargs`.
     """
     kwargs = fit_kwargs(kwargs)
-    x, y, xerr, yerr = _data_split(datax, datay, **kwargs)
-    if util.has('frange', kwargs):
-        x = x[kwargs['frange'][0]:kwargs['frange'][1]]
-        y = y[kwargs['frange'][0]:kwargs['frange'][1]]
-        if not yerr is None:
-            yerr = yerr[kwargs['frange'][0]:kwargs['frange'][1]]
-        if not xerr is None:
-            xerr = xerr[kwargs['frange'][0]:kwargs['frange'][1]]
-
-    return x, y, xerr, yerr
-
+    return data.filtered_data_split(datax,datay,**kwargs)
 
 if __name__ == "__main__":
     import doctest
