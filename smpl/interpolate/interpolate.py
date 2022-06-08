@@ -48,3 +48,7 @@ def interpolate(datax,datay,**kwargs):
         return lambda x : uncertainties.ufloat(spl_up(x)/2+ spl_down(x)/2,(spl_up(x)- spl_down(x))/2)
     else:
         return spl_center
+
+    # TODO add option to interpolate in plot
+    # TODO interpolation examples/tests
+    # TODO map examples/tests
