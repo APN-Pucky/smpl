@@ -29,7 +29,7 @@ def interpolate_split(datax, datay, **kwargs):
     Parameters
     ----------
     **kwargs : optional
-        see :func:`fit_kwargs`.
+        see :func:`interpolate_kwargs`.
     """
     kwargs = interpolate_kwargs(kwargs)
     return data.filtered_data_split(datax,datay,**kwargs)
