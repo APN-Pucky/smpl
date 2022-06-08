@@ -73,7 +73,7 @@ def _data_split(datax, datay, **kwargs):
             return __data_split(datax[sel(datax, datay)], datay[sel(datax, datay)], **kwargs)
         else:
             return __data_split(datax[sel], datay[sel], **kwargs)
-    return data_split(datax, datay, **kwargs)
+    return __data_split(datax, datay, **kwargs)
 
 
 def filtered_data_split(datax, datay, **kwargs):
