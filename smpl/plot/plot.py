@@ -77,7 +77,8 @@ default = {
     'stairs': [False, "Enable stair plot", ],
     'capsize': [5, "size of cap on error bar plot"],
     'axes': [None, "set current axis"],
-    'linestyle': [None, "linestyle, only active if `fmt`=None"]
+    'linestyle': [None, "linestyle, only active if `fmt`=None"],
+    'xspace' : [np.linspace, "xspace gets called with xspace(xmin,xmax,steps) in :func:`function` to get the points of the function that will be drawn."]
 }
 
 
@@ -260,7 +261,7 @@ def function(func, *args, **kwargs):
     else:
         kwargs = plot_kwargs(kwargs)
 
-    xlin = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
+    xlin = kwargs["xspace"](kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
     init_plot(kwargs)
 
     # kwargs['lpos'] = 0
@@ -385,19 +386,19 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     l = get_fnc_legend(gfunction, fit, **kwargs)
     if kwargs['prange'] is None:
         x, _, _, _ = ffit.fit_split(datax, datay, **kwargs)
-        xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), kwargs['steps'])
+        xfit = kwargs['xspace'](np.min(unv(x)), np.max(unv(x)), kwargs['steps'])
     else:
-        xfit = np.linspace(kwargs['prange'][0],
+        xfit = kwargs['xspace'](kwargs['prange'][0],
                            kwargs['prange'][1], kwargs['steps'])
     ll = __function(fitted, xfit, "-", label=l,
                     color=kwargs['fit_color'], sigmas=kwargs['sigmas'])
 
     if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('extrapolate', kwargs) or util.has("extrapolate_max", kwargs) or util.has("extrapolate_min", kwargs):
-        xxfit = np.linspace(util.get("extrapolate_min", kwargs, np.min(
+        xxfit = kwargs['xspace'](util.get("extrapolate_min", kwargs, np.min(
             unv(datax))), util.get("extrapolate_max", kwargs, np.max(unv(datax))), kwargs['steps'])
-        __function(fitted, np.linspace(np.min(xxfit), np.min(xfit), kwargs['steps']), "--",
+        __function(fitted, kwargs['xspace'](np.min(xxfit), np.min(xfit), kwargs['steps']), "--",
                    color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
-        __function(fitted, np.linspace(np.max(xfit), np.max(xxfit), kwargs['steps']), "--",
+        __function(fitted, kwargs['xspace'](np.max(xfit), np.max(xxfit), kwargs['steps']), "--",
                    color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
     return fit, ll.get_color()
 

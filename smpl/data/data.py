@@ -1,5 +1,6 @@
-from smpl import doc,stat
+from smpl import doc
 from smpl import util
+from smpl import stat
 import uncertainties.unumpy as unp
 import numpy as np
 
