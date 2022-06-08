@@ -48,7 +48,7 @@ def mean(n):
 
 
 def noisy(x, mean=0, std=1):
-    """Add noise to ``x``."""
+    """Add gaussian noise to ``x``."""
     return x+np.random.normal(mean, std, len(x))
 
 

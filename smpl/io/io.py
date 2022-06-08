@@ -5,6 +5,16 @@ import os
 import sys
 from pathlib import Path
 
+def write(destination,content):
+    """
+    Write to file by string or writable :obj:`destiantion`.
+    """
+    # TODO add http and other string based write methodes
+    if isinstance(destination,str):
+        with open(destination, 'w+') as f:
+            f.write(content)
+    else:
+        destination.write(content)
 
 def gf(i=3):
     """
@@ -61,7 +71,7 @@ def pwd():
 
 def import_path(path='../..'):
     """
-        Adds ``path`` to the ``sys.path``
+    Adds ``path`` to the ``sys.path``
     """
     sys.path.insert(0, os.path.abspath(path))
 
