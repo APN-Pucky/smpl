@@ -36,7 +36,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.125-4-gcd0ac495
+                0.0.125-5-g625d21f2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -99,10 +99,11 @@
            <div itemprop="articleBody">
              
   <h1>Source code for smpl.latex.latex</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
-<div class="viewcode-block" id="si"><a class="viewcode-back" href="../../../_autosummary/smpl.latex.html#smpl.latex.si">[docs]</a><span class="k">def</span> <span class="nf">si</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">u</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="si"><a class="viewcode-back" href="../../../_autosummary/smpl.latex.html#smpl.latex.si">[docs]</a><span class="k">def</span> <span class="nf">si</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">u</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get number with uncertainty and unit in ``si`` format for latex.</span>
 
@@ -135,7 +136,7 @@
     <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">SI{</span><span class="si">%s</span><span class="s2">}{</span><span class="si">%s</span><span class="s2">}&quot;</span> <span class="o">%</span> <span class="p">((</span><span class="n">fmt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">u</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="si_line"><a class="viewcode-back" href="../../../_autosummary/smpl.latex.html#smpl.latex.si_line">[docs]</a><span class="k">def</span> <span class="nf">si_line</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="si_line"><a class="viewcode-back" href="../../../_autosummary/smpl.latex.html#smpl.latex.si_line">[docs]</a><span class="k">def</span> <span class="nf">si_line</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmt</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get array ``a`` in the format of a line of a latex table.</span>
 
@@ -148,7 +149,7 @@
     <span class="k">return</span> <span class="n">si_tab</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">([[</span><span class="n">t</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]),</span> <span class="n">skip</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="si_ttab"><a class="viewcode-back" href="../../../_autosummary/smpl.latex.html#smpl.latex.si_ttab">[docs]</a><span class="k">def</span> <span class="nf">si_ttab</span><span class="p">(</span><span class="n">tab</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="si_ttab"><a class="viewcode-back" href="../../../_autosummary/smpl.latex.html#smpl.latex.si_ttab">[docs]</a><span class="k">def</span> <span class="nf">si_ttab</span><span class="p">(</span><span class="n">tab</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fmt</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Transposed :func:`si_tab`.</span>
 
