@@ -14,8 +14,6 @@ from smpl import data
 from numpy.linalg import LinAlgError
 from tqdm import tqdm
 
-from smpl.data.data import data_split_filtered
-
 unv = unp.nominal_values
 usd = unp.std_devs
 
