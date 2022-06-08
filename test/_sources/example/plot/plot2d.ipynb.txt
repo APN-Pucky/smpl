@@ -1,0 +1,87 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "6f96a4f8",
+   "metadata": {},
+   "source": [
+    "# Plot2d\n",
+    "\n",
+    "Plot2d takes 3 1-dim arrays (x, y and z), where each index is one point."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "22b1bd6c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from smpl import plot\n",
+    "import numpy as np"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bc2b746b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "xvalues = np.linspace(-10,10,20)\n",
+    "yvalues = np.linspace(-10,10,20)\n",
+    "xx, yy = np.meshgrid(xvalues, yvalues)\n",
+    "xx = xx.reshape(xx.size)\n",
+    "yy = yy.reshape(yy.size)\n",
+    "plot.plot2d(xx,yy,xx**2+yy**2+10*xx+10*yy,fill_missing=False,interpolation=\"bilinear\",logz=False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0dd39a3c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "xvalues = np.linspace(-10,10,20)\n",
+    "yvalues = xvalues*2\n",
+    "xx = xvalues\n",
+    "yy = yvalues\n",
+    "xx = np.append(xx,xx)\n",
+    "yy = np.append(yy,-yy)\n",
+    "zz = xx**2+yy**2\n",
+    "plot.plot2d(xx,yy,xx**2+yy**2,fill_missing=True)\n",
+    "plot.plot2d(xx,yy,xx**2+yy**2,style='scatter',fill_missing=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8ebd92b2",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.126-15-gc6149605
+                0.0.126-22-g9e73847b
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -458,217 +458,220 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.plot.html#smpl.plot.plot" title="smpl.plot.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(*args[, scalex, scaley, data])</p></td>
 <td><p>Plot y versus x as lines and/or markers.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_date</span></code>(x, y[, fmt, tz, xdate, ydate, data])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.plot2d" title="smpl.plot.plot2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot2d</span></code></a>(datax, datay, dataz, **kwargs)</p></td>
+<td><p>Creates a 2D-Plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_date</span></code>(x, y[, fmt, tz, xdate, ydate, data])</p></td>
 <td><p>Plot coercing the axis to treat floats as dates.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_kwargs</span></code></a>(kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_kwargs</span></code></a>(kwargs)</p></td>
 <td><p>Set default plot_kwargs if not set.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">polar</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">polar</span></code>(*args, **kwargs)</p></td>
 <td><p>Make a polar plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prism</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prism</span></code>()</p></td>
 <td><p>Set the colormap to 'prism'.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
 <td><p>Plot the power spectral density.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiver</span></code>(*args[, data])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiver</span></code>(*args[, data])</p></td>
 <td><p>Plot a 2D field of arrows.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiverkey</span></code>(Q, X, Y, U, label, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiverkey</span></code>(Q, X, Y, U, label, **kwargs)</p></td>
 <td><p>Add a key to a quiver plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc</span></code>(group, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc</span></code>(group, **kwargs)</p></td>
 <td><p>Set the current <cite>.rcParams</cite>. <em>group</em> is the grouping for the rc, e.g., for <code class="docutils literal notranslate"><span class="pre">lines.linewidth</span></code> the group is <code class="docutils literal notranslate"><span class="pre">lines</span></code>, for <code class="docutils literal notranslate"><span class="pre">axes.facecolor</span></code>, the group is <code class="docutils literal notranslate"><span class="pre">axes</span></code>, and so on. Group may also be a list or tuple of group names, e.g., (<em>xtick</em>, <em>ytick</em>). <em>kwargs</em> is a dictionary attribute name/value pairs, e.g.,::.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc_context</span></code>([rc, fname])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc_context</span></code>([rc, fname])</p></td>
 <td><p>Return a context manager for temporarily changing rcParams.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rcdefaults</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rcdefaults</span></code>()</p></td>
 <td><p>Restore the <cite>.rcParams</cite> from Matplotlib's internal default style.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_cmap</span></code>([name, cmap, override_builtin])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_cmap</span></code>([name, cmap, override_builtin])</p></td>
 <td><p>Add a colormap to the set recognized by <code class="xref py py-func docutils literal notranslate"><span class="pre">get_cmap()</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgrids</span></code>([radii, labels, angle, fmt])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgrids</span></code>([radii, labels, angle, fmt])</p></td>
 <td><p>Get or set the radial gridlines on the current polar plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code>(*args, **kwargs)</p></td>
 <td><p>Save the current figure.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sca</span></code>(ax)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sca</span></code>(ax)</p></td>
 <td><p>Set the current Axes to <em>ax</em> and the current Figure to the parent of <em>ax</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter</span></code>(x, y[, s, c, marker, cmap, norm, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter</span></code>(x, y[, s, c, marker, cmap, norm, ...])</p></td>
 <td><p>A scatter plot of <em>y</em> vs.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sci</span></code>(im)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sci</span></code>(im)</p></td>
 <td><p>Set the current image.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogx</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogx</span></code>(*args, **kwargs)</p></td>
 <td><p>Make a plot with log scaling on the x axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogy</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogy</span></code>(*args, **kwargs)</p></td>
 <td><p>Make a plot with log scaling on the y axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cmap</span></code>(cmap)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cmap</span></code>(cmap)</p></td>
 <td><p>Set the default colormap, and applies it to the current image if any.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_loglevel</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_loglevel</span></code>(*args, **kwargs)</p></td>
 <td><p>Set Matplotlib's root logger and root logger handler level, creating the handler if it does not exist yet.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setp</span></code>(obj, *args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setp</span></code>(obj, *args, **kwargs)</p></td>
 <td><p>Set one or more properties on an <cite>.Artist</cite>, or list allowed values.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(*[, block])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(*[, block])</p></td>
 <td><p>Display all open figures.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">specgram</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">specgram</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
 <td><p>Plot a spectrogram.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">spring</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">spring</span></code>()</p></td>
 <td><p>Set the colormap to 'spring'.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">spy</span></code>(Z[, precision, marker, markersize, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">spy</span></code>(Z[, precision, marker, markersize, ...])</p></td>
 <td><p>Plot the sparsity pattern of a 2D array.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stackplot</span></code>(x, *args[, labels, colors, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stackplot</span></code>(x, *args[, labels, colors, ...])</p></td>
 <td><p>Draw a stacked area plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stairs</span></code>(values[, edges, orientation, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stairs</span></code>(values[, edges, orientation, ...])</p></td>
 <td><p>A stepwise constant function as a line with bounding edges or a filled plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stem</span></code>(*args[, linefmt, markerfmt, basefmt, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stem</span></code>(*args[, linefmt, markerfmt, basefmt, ...])</p></td>
 <td><p>Create a stem plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code>(x, y, *args[, where, data])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code>(x, y, *args[, where, data])</p></td>
 <td><p>Make a step plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">streamplot</span></code>(x, y, u, v[, density, linewidth, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">streamplot</span></code>(x, y, u, v[, density, linewidth, ...])</p></td>
 <td><p>Draw streamlines of a vector flow.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot</span></code>(*args, **kwargs)</p></td>
 <td><p>Add an Axes to the current figure or retrieve an existing Axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot2grid</span></code>(shape, loc[, rowspan, colspan, fig])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot2grid</span></code>(shape, loc[, rowspan, colspan, fig])</p></td>
 <td><p>Create a subplot at a specific location inside a regular grid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_mosaic</span></code>(mosaic, *[, sharex, sharey, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_mosaic</span></code>(mosaic, *[, sharex, sharey, ...])</p></td>
 <td><p>Build a layout of Axes based on ASCII art or nested lists.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_tool</span></code>([targetfig])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_tool</span></code>([targetfig])</p></td>
 <td><p>Launch a subplot tool window for a figure.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots</span></code>([nrows, ncols, sharex, sharey, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots</span></code>([nrows, ncols, sharex, sharey, ...])</p></td>
 <td><p>Create a figure and a set of subplots.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots_adjust</span></code>([left, bottom, right, top, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots_adjust</span></code>([left, bottom, right, top, ...])</p></td>
 <td><p>Adjust the subplot layout parameters.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summer</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summer</span></code>()</p></td>
 <td><p>Set the colormap to 'summer'.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">suptitle</span></code>(t, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">suptitle</span></code>(t, **kwargs)</p></td>
 <td><p>Add a centered suptitle to the figure.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">switch_backend</span></code>(newbackend)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">switch_backend</span></code>(newbackend)</p></td>
 <td><p>Close all open figures and set the Matplotlib backend.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code>([cellText, cellColours, cellLoc, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code>([cellText, cellColours, cellLoc, ...])</p></td>
 <td><p>Add a table to an <cite>~.axes.Axes</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code>(x, y, s[, fontdict])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code>(x, y, s[, fontdict])</p></td>
 <td><p>Add text to the Axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">thetagrids</span></code>([angles, labels, fmt])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">thetagrids</span></code>([angles, labels, fmt])</p></td>
 <td><p>Get or set the theta gridlines on the current polar plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick_params</span></code>([axis])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick_params</span></code>([axis])</p></td>
 <td><p>Change the appearance of ticks, tick labels, and gridlines.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticklabel_format</span></code>(*[, axis, style, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticklabel_format</span></code>(*[, axis, style, ...])</p></td>
 <td><p>Configure the <cite>.ScalarFormatter</cite> used by default for linear axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code>(*[, pad, h_pad, w_pad, rect])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code>(*[, pad, h_pad, w_pad, rect])</p></td>
 <td><p>Adjust the padding between and around subplots.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">title</span></code>(label[, fontdict, loc, pad, y])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">title</span></code>(label[, fontdict, loc, pad, y])</p></td>
 <td><p>Set a title for the Axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontour</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontour</span></code>(*args, **kwargs)</p></td>
 <td><p>Draw contour lines on an unstructured triangular grid.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontourf</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontourf</span></code>(*args, **kwargs)</p></td>
 <td><p>Draw contour regions on an unstructured triangular grid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tripcolor</span></code>(*args[, alpha, norm, cmap, vmin, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tripcolor</span></code>(*args[, alpha, norm, cmap, vmin, ...])</p></td>
 <td><p>Create a pseudocolor plot of an unstructured triangular grid.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">triplot</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">triplot</span></code>(*args, **kwargs)</p></td>
 <td><p>Draw a unstructured triangular grid as lines and/or markers.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">twinx</span></code>([ax])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">twinx</span></code>([ax])</p></td>
 <td><p>Make and return a second axes that shares the <em>x</em>-axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">twiny</span></code>([ax])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">twiny</span></code>([ax])</p></td>
 <td><p>Make and return a second axes that shares the <em>y</em>-axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">uninstall_repl_displayhook</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">uninstall_repl_displayhook</span></code>()</p></td>
 <td><p>Uninstall the Matplotlib display hook.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
 <td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
 <td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">violinplot</span></code>(dataset[, positions, vert, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">violinplot</span></code>(dataset[, positions, vert, ...])</p></td>
 <td><p>Make a violin plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">viridis</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">viridis</span></code>()</p></td>
 <td><p>Set the colormap to 'viridis'.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vlines</span></code>(x, ymin, ymax[, colors, linestyles, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vlines</span></code>(x, ymin, ymax[, colors, linestyles, ...])</p></td>
 <td><p>Plot vertical lines at each <em>x</em> from <em>ymin</em> to <em>ymax</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitforbuttonpress</span></code>([timeout])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitforbuttonpress</span></code>([timeout])</p></td>
 <td><p>Blocking call to interact with the figure.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">winter</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">winter</span></code>()</p></td>
 <td><p>Set the colormap to 'winter'.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcorr</span></code>(x, y[, normed, detrend, usevlines, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcorr</span></code>(x, y[, normed, detrend, usevlines, ...])</p></td>
 <td><p>Plot the cross correlation between <em>x</em> and <em>y</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xkcd</span></code>([scale, length, randomness])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xkcd</span></code>([scale, length, randomness])</p></td>
 <td><p>Turn on <a class="reference external" href="https://xkcd.com/">xkcd</a> sketch-style drawing mode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlabel</span></code>(xlabel[, fontdict, labelpad, loc])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlabel</span></code>(xlabel[, fontdict, labelpad, loc])</p></td>
 <td><p>Set the label for the x-axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlim</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlim</span></code>(*args, **kwargs)</p></td>
 <td><p>Get or set the x limits of the current axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xscale</span></code>(value, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xscale</span></code>(value, **kwargs)</p></td>
 <td><p>Set the x-axis scale.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xticks</span></code>([ticks, labels])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xticks</span></code>([ticks, labels])</p></td>
 <td><p>Get or set the current tick locations and labels of the x-axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylabel</span></code>(ylabel[, fontdict, labelpad, loc])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylabel</span></code>(ylabel[, fontdict, labelpad, loc])</p></td>
 <td><p>Set the label for the y-axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylim</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylim</span></code>(*args, **kwargs)</p></td>
 <td><p>Get or set the y-limits of the current axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">yscale</span></code>(value, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">yscale</span></code>(value, **kwargs)</p></td>
 <td><p>Set the y-axis scale.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">yticks</span></code>([ticks, labels])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">yticks</span></code>([ticks, labels])</p></td>
 <td><p>Get or set the current tick locations and labels of the y-axis.</p></td>
 </tr>
 </tbody>
@@ -770,6 +773,20 @@
 <dt><strong>*args</strong><span class="classifier">optional</span></dt><dd><p>arguments for <code class="docutils literal notranslate"><span class="pre">func</span></code></p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.plot.plot2d">
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataz</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot2d.html#plot2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot2d" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a 2D-Plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <code class="xref py py-func docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code>.</p>
 </dd>
 </dl>
 </dd>
