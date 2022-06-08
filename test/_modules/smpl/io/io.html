@@ -36,7 +36,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.125-5-g625d21f2
+                0.0.125-6-gf8d4f547
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -106,16 +106,30 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
-<span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="n">content</span><span class="p">):</span>
+<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../_autosummary/smpl.io.html#smpl.io.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="n">content</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write to file by string or writable :obj:`destiantion`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    destination : str,writeable</span>
+<span class="sd">        destination to write to.</span>
+<span class="sd">    content : str</span>
+<span class="sd">        text to be written.</span>
+
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; write(sys.stdout,&quot;hi&quot;)</span>
+<span class="sd">    hi</span>
+<span class="sd">    &gt;&gt;&gt; write(&quot;test.out&quot;,&quot;hi&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO add http and other string based write methodes</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">destination</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">destination</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="gf"><a class="viewcode-back" href="../../../_autosummary/smpl.io.html#smpl.io.gf">[docs]</a><span class="k">def</span> <span class="nf">gf</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
