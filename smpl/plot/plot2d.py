@@ -12,8 +12,7 @@ default = {
            'yaxis' : [None,"."],
            'zaxis' : [None,"."],
            'logz' : [True,"Colorbar in logarithmic scale."],
-           'image' : [True,"Plot via an image."],
-           'scatter' : [False,"Plot via scatter."],
+           'style' : ['image',"Plot via an image ('image') or scatter ('scatter')."],
            #'zscale' : [None,"Rescale z values."],
            }
 
@@ -32,7 +31,7 @@ def plot2d_kwargs(kwargs):
     return kwargs
 
 
-def plot2d(datax,datay,dataz,image=True,scatter=False):
+def plot2d(datax,datay,dataz,**kwargs):
     """
     Creates a 2D-Plot.
     
@@ -42,9 +41,9 @@ def plot2d(datax,datay,dataz,image=True,scatter=False):
         see :func:`plot2d_kwargs`.
     """
     kwargs = plot2d_kwargs(kwargs)
-    if(kwargs["image"]):
+    if kwargs["style"] =="image":
         map_vplot(datax,datay,dataz,**kwargs)
-    elif (kwargs["scatter"]):
+    elif (kwargs["style"] =="scatter"):
         scatter_vplot(datax,datay,dataz,**kwargs)
 
 
@@ -57,17 +56,15 @@ def map_vplot(tvx,
               logz=True,
               sort=True,
               fill_missing=True,
-              zscale=1.):
+              zscale=1.,**kwargs):
     vx = np.copy(tvx)
     vy = np.copy(tvy)
     vz = np.copy(tvz)
     if fill_missing:
+        #TODO speed up
         for x in vx:
             for y in vy:
-                ex = False
-                for i in range(len(vx)):
-                    if vx[i] == x and vy[i] == y:
-                        ex = True
+                ex = np.any(np.logical_and((vx == x), (vy == y)))
                 if not ex:
                     vx = np.append(vx, x)
                     vy = np.append(vy, y)
@@ -131,7 +128,7 @@ def scatter_vplot(vx,
                   logz=True,
                   sort=True,
                   fill_missing=True,
-                  zscale=1.):
+                  zscale=1.,**kwargs):
     if sort:
         p1 = vx.argsort(kind='stable')
         vx = np.copy(vx[p1])
