@@ -13,6 +13,8 @@ default = {
            'zaxis' : [None,"."],
            'logz' : [True,"Colorbar in logarithmic scale."],
            'style' : ['image',"Plot via an image ('image') or scatter ('scatter')."],
+           'interpolation': [None, "Only 'nearest' or 'bilinear' for nonuniformimage. Check https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow"],
+           'cmap' : ['viridis', "Good default color map for missing datapoints since it does not include white."],
            #'zscale' : [None,"Rescale z values."],
            }
 
@@ -103,8 +105,8 @@ def map_vplot(tvx,
     im = NonUniformImage(
         ax,
         origin="lower",
-        cmap='viridis',
-        interpolation='nearest',
+        cmap=kwargs['cmap'],
+        interpolation=kwargs['interpolation'],
         extent=(xl, xm, yl, ym),
         norm=colors.LogNorm() if logz else None,
     )
@@ -158,7 +160,8 @@ def scatter_vplot(vx,
                               for i in range(len(vx))
                           ], [(plt.rcParams['lines.markersize'])**2
                               for i in range(len(vx))])),
-                    norm=colors.LogNorm() if logz else None)
+                    norm=colors.LogNorm() if logz else None,
+                    cmap=kwargs['cmap'],)
 
     ax.set_xlim(xl, xm)
     ax.set_ylim(yl, ym)
