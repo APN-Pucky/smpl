@@ -2,7 +2,8 @@ from scipy.interpolate import make_interp_spline, BSpline
 from smpl import doc
 from smpl import plot as splot
 from smpl import data
-import uncertainties
+import numpy as np
+import uncertainties as unc
 
 default = {
            'spline' : [True,"Use spline (No alternatives yet)."],
@@ -39,16 +40,12 @@ def interpolate_split(datax, datay, **kwargs):
 
 def interpolate(datax,datay,**kwargs):
     kwargs  = interpolate_kwargs(kwargs)
-    x,y,dx,dy = interpolate_split(datax,datay**kwargs)
-    spl_center = make_interp_spline(splot.unv(datax), splot.unv(datay), k=3)  # type: BSpline
-    spl_up = make_interp_spline(splot.unv(datax), splot.unv(datay) + splot.usd(datay), k=3)  # type: BSpline
-    spl_down = make_interp_spline(splot.unv(datax), splot.unv(datay) - splot.usd(datay), k=3)  # type: BSpline
+    x,y,dx,dy = interpolate_split(datax,datay,**kwargs)
 
-    if kwargs['yerror']:
-        return lambda x : uncertainties.ufloat(spl_up(x)/2+ spl_down(x)/2,(spl_up(x)- spl_down(x))/2)
+    if dy is not None:
+        spl_up = make_interp_spline(x, y+dy, k=3)  # type: BSpline
+        spl_down = make_interp_spline(x, y-dy, k=3)  # type: BSpline
+        return np.vectorize(lambda x : unc.ufloat(spl_up(x)/2+ spl_down(x)/2,(spl_up(x)- spl_down(x))/2),otypes=["object"])
     else:
-        return spl_center
-
-    # TODO add option to interpolate in plot
-    # TODO interpolation examples/tests
-    # TODO map examples/tests
+        spl_center = make_interp_spline(x, y, k=3)  # type: BSpline
+        return np.vectorize(lambda x : spl_center(x),otypes=["float"])
