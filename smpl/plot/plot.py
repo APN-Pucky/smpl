@@ -161,7 +161,7 @@ def fit(datax, datay, function, **kwargs):
 
     """
     kwargs = plot_kwargs(kwargs)
-    fit = None
+    rfit = None
     fig = None
     fig = init_plot(kwargs)
     ll = None
@@ -170,15 +170,15 @@ def fit(datax, datay, function, **kwargs):
     if kwargs['interpolate']:
         plt_interpolate(datax,datay,icolor=ll,**kwargs)
     if kwargs['also_fit']:
-        fit, kwargs['fit_color'] = plt_fit(datax, datay, function, **kwargs)
+        rfit, kwargs['fit_color'] = plt_fit(datax, datay, function, **kwargs)
     if kwargs['ss']:
         kwargs['oldshow'] = kwargs['show']
         kwargs['show'] = kwargs['show'] and not kwargs['residue']
         save_plot(**kwargs)
         kwargs['show'] = kwargs['oldshow']
     if kwargs['residue'] and fig is not None:
-        plt_residue(datax, datay, function, fit, fig, **kwargs)
-    return fit
+        plt_residue(datax, datay, function, rfit, fig, **kwargs)
+    return rfit
 
 # @append_doc(default_kwargs)
 
@@ -279,16 +279,16 @@ def function(func, *args, **kwargs):
 
 
 # xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
-def plt_residue(datax, datay, gfunction, fit, fig, **kwargs):
+def plt_residue(datax, datay, gfunction, rfit, fig, **kwargs):
     function = wrap.get_lambda(gfunction, kwargs['xvar'])
     fig.add_axes((.1, .1, .8, .2))
     kwargs['yaxis'] = "$\\Delta$" + kwargs['yaxis']
     kwargs['data_color'] = kwargs['fit_color']
 
     if kwargs['residue_err']:
-        plt_data(datax, datay-function(datax, *fit), **kwargs)
+        plt_data(datax, datay-function(datax, *rfit), **kwargs)
     else:
-        plt_data(unv(datax), unv(datay-function(datax, *fit)), **kwargs)
+        plt_data(unv(datax), unv(datay-function(datax, *rfit)), **kwargs)
     kwargs['lpos'] = -1
     save_plot(**kwargs)
 
@@ -365,21 +365,21 @@ def plt_data(datax, datay, **kwargs):
         
 
 
-def get_fnc_legend(function, fit, **kwargs):
+def get_fnc_legend(function, rfit, **kwargs):
     l = wrap.get_latex(function)
 
     vnames = wrap.get_varnames(function, kwargs['xvar'])
     for i in range(1, len(vnames)):
         l = l + ("\n" if not kwargs["fitinline"] or i == 1 else " ")
         l = l + "$" + sympy.latex(sympy.symbols(str(vnames[i]))) + "$="
-        if kwargs['units'] is not None and usd(fit[i-1]) > 0:
+        if kwargs['units'] is not None and usd(rfit[i-1]) > 0:
             l = l + "("
         if 'number_format' in kwargs:
-            l = l + kwargs['number_format'].format(fit[i-1])
+            l = l + kwargs['number_format'].format(rfit[i-1])
         else:
-            l = l + "%s" % (fit[i-1])
+            l = l + "%s" % (rfit[i-1])
 
-        if kwargs['units'] is not None and usd(fit[i-1]) > 0:
+        if kwargs['units'] is not None and usd(rfit[i-1]) > 0:
             l = l + ")"
         if kwargs['units'] is not None:
             l = l + " " + kwargs['units'][i-1]
@@ -416,9 +416,9 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     Fit and Plot that Fit.
     """
     func = wrap.get_lambda(gfunction, kwargs['xvar'])
-    fit = _fit(datax, datay, gfunction, **kwargs)
-    def fitted(x): return func(x, *fit)
-    l = get_fnc_legend(gfunction, fit, **kwargs)
+    rfit = _fit(datax, datay, gfunction, **kwargs)
+    def fitted(x): return func(x, *rfit)
+    l = get_fnc_legend(gfunction, rfit, **kwargs)
     return plt_fit_or_interpolate(datax,datay,fitted,l,**kwargs)
 
 
