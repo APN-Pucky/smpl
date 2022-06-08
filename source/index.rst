@@ -55,10 +55,12 @@ Dev version::
    :template: as_module.rst
    :caption: modules:
 
+   data
    debug
    doc
    fit
    functions
+   interpolate
    io
    latex
    parallel
