@@ -82,6 +82,11 @@ def filtered_data_split(datax, datay, **kwargs):
     Splits datax and datay into (x,y,xerr,yerr).
     Applies filters `fselector` and `frange`.
 
+    Returns
+    -------
+    (x,y,xerr,yerr) : tuple
+        four arrays with specified values.
+
     Parameters
     ----------
     **kwargs : optional

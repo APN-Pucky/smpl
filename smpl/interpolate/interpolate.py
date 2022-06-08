@@ -1,6 +1,8 @@
 from scipy.interpolate import make_interp_spline, BSpline
 from smpl import doc
+from smpl import plot as splot
 from smpl import data
+import uncertainties
 
 default = {
            'spline' : [True,"Use spline (No alternatives yet)."],
@@ -35,7 +37,14 @@ def interpolate_split(datax, datay, **kwargs):
     return data.filtered_data_split(datax,datay,**kwargs)
 
 
-def interpolate():
-    pass
-#    spl = make_interp_spline(vx, splot.unv(vy), k=3)  # type: BSpline
-#    power_smooth = spl(xnew)
+def interpolate(datax,datay,**kwargs):
+    kwargs  = interpolate_kwargs(kwargs)
+    x,y,dx,dy = interpolate_split(datax,datay**kwargs)
+    spl_center = make_interp_spline(splot.unv(datax), splot.unv(datay), k=3)  # type: BSpline
+    spl_up = make_interp_spline(splot.unv(datax), splot.unv(datay) + splot.usd(datay), k=3)  # type: BSpline
+    spl_down = make_interp_spline(splot.unv(datax), splot.unv(datay) - splot.usd(datay), k=3)  # type: BSpline
+
+    if kwargs['yerror']:
+        return lambda x : uncertainties.ufloat(spl_up(x)/2+ spl_down(x)/2,(spl_up(x)- spl_down(x))/2)
+    else:
+        return spl_center
