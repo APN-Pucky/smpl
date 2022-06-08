@@ -402,14 +402,14 @@ def plt_fit_or_interpolate(datax,datay,fitted,l=None,c=None,**kwargs):
                    color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
         __function(fitted, kwargs['xspace'](np.max(xfit), np.max(xxfit), kwargs['steps']), "--",
                    color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
-    return fit, ll.get_color()
+    return ll.get_color()
 
 def plt_interpolate(datax, datay, icolor=None,  **kwargs):
     """
     Interpolate and Plot that Interpolation.
     """
     inter = interpolate.interpolate(datax,datay,**kwargs)
-    return plt_fit_or_interpolate(datax,datay,inter,l=None,c=icolor,**kwargs) # l = None so that no label
+    return inter,plt_fit_or_interpolate(datax,datay,inter,l=None,c=icolor,**kwargs) # l = None so that no label
 
 def plt_fit(datax, datay, gfunction, **kwargs):
     """
@@ -419,7 +419,7 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     rfit = _fit(datax, datay, gfunction, **kwargs)
     def fitted(x): return func(x, *rfit)
     l = get_fnc_legend(gfunction, rfit, **kwargs)
-    return plt_fit_or_interpolate(datax,datay,fitted,l,**kwargs)
+    return rfit,plt_fit_or_interpolate(datax,datay,fitted,l,**kwargs)
 
 
 
