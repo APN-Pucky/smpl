@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.131-1-g35f25633
+                0.0.131-2-g315347ab
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -138,11 +138,11 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Chi2</span></code>(datax, datay, function, ff, **kwargs)</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.fit.Chi2" title="smpl.fit.Chi2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Chi2</span></code></a>(datax, datay, function, ff, **kwargs)</p></td>
+<td><p>Chi2 - Goodness of Fit</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">R2</span></code>(datax, datay, function, ff, **kwargs)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.fit.R2" title="smpl.fit.R2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R2</span></code></a>(datax, datay, function, ff, **kwargs)</p></td>
+<td><p>R2 - Coefficient of determination</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.fit.auto" title="smpl.fit.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>(datax, datay[, funcs])</p></td>
 <td><p>Automatically loop over functions and fit the best one.</p></td>
@@ -162,6 +162,33 @@
 </tbody>
 </table>
 <p class="rubric">Functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.fit.Chi2">
+<span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">Chi2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#Chi2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.Chi2" title="Permalink to this definition"></a></dt>
+<dd><p>Chi2 - Goodness of Fit</p>
+<p>In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good. 
+Coversely,  if Chi-squared/Nd &gt;&gt; 1.0, then the fit is a poor one.</p>
+<p class="rubric">References</p>
+<p><a class="reference external" href="https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html">https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="smpl.fit.Fitter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">Fitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#Fitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.Fitter" title="Permalink to this definition"></a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.fit.R2">
+<span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">R2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#R2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.R2" title="Permalink to this definition"></a></dt>
+<dd><p>R2 - Coefficient of determination</p>
+<p>In the best case, the modeled values exactly match the observed values, which results in R2 = 1. 
+A baseline model, which always predicts the mean of y, will have R2 = 0. 
+Models that have worse predictions than this baseline will have a negative R2.</p>
+<p class="rubric">References</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">https://en.wikipedia.org/wiki/Coefficient_of_determination</a></p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.fit.auto">
 <span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">auto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.auto" title="Permalink to this definition"></a></dt>
@@ -249,6 +276,10 @@
 <tr class="row-odd"><td><p>autotqdm</p></td>
 <td><p>True</p></td>
 <td><p>Auto fitting display tqdm</p></td>
+</tr>
+<tr class="row-even"><td><p>fitter</p></td>
+<td><p>Fitter.AUTO</p></td>
+<td><p>Choose from <a href="#id1"><span class="problematic" id="id2">`</span></a>Fitter`s.</p></td>
 </tr>
 </tbody>
 </table>

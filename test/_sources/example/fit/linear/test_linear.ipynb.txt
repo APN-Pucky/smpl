@@ -48,6 +48,13 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## SciPy"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
@@ -71,15 +78,6 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "ff = plot.fit(xdata, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
     "ff = plot.fit(x, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)"
    ]
   },
@@ -89,13 +87,15 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "from smpl import stat\n",
-    "\n",
-    "x = np.linspace(1,10,100)\n",
-    "y = unp.uarray(stat.noisy(x,std=0.001), np.random.normal(0.01, 0.001, len(x)))\n",
-    "ff = plot.fit(x, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)\n",
-    "print(fit.Chi2(x,y,f.line,ff))\n",
-    "print(fit.R2(x,y,f.line,ff))"
+    "ff = plot.fit(xdata, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)\n",
+    "print(\"Chi2 = \",fit.Chi2(xdata,y,f.line,ff))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Minuit"
    ]
   },
   {
@@ -104,13 +104,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "x = np.linspace(1,10,100)\n",
-    "y = stat.noisy(x,mean=1,std=0.01)**2\n",
-    "def f(x,a,b,c): \n",
-    "    return a*x**2+b*x+c\n",
-    "ff = plot.fit(x, y, fmt='.', function=f,  sigmas=1,lpos=2)\n",
-    "print(fit.Chi2(x,y,f,ff))\n",
-    "print(fit.R2(x,y,f,ff))"
+    "ff = plot.fit(xdata, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2,fitter=fit.Fitter.MINUIT_LEASTSQUARES)\n",
+    "print(\"Chi2 = \",fit.Chi2(xdata,y,f.line,ff))"
    ]
   },
   {
