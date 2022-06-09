@@ -230,29 +230,28 @@ def _function(func, xfit, **kwargs):
         kargs['sigmas'] = kwargs['sigmas']
     __function(func, xfit, **kargs)
 
+def plt_plt(x,y,fmt,color,label,linestyle):
+    if linestyle is None:
+        return plt.plot(x, y,fmt, label=label,color=color)
+    else:
+        return plt.plot(x, y, label=label,color=color,linestyle=linestyle)
+
 
 def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0.,linestyle=None):
     func = gfunc
     x = xlinspace
     l = label
-    xarg = []
-    xkwarg = {}
-    if linestyle is None:
-        xarg = [fmt]
-    else:
-        xarg = []
-        xkwarg["linestyle"] = linestyle
 
     if isinstance(func(x)[0], uncertainties.UFloat):
         if sigmas > 0:
-            ll, = plt.plot(x, unv(func(x)), *xarg, color=color,**xkwarg)
+            ll, = plt_plt(x, unv(func(x)), fmt, label=None,color=color,linstyle=linestyle)
             y = func(x)
             plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
                 y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
         else:
-            ll, = plt.plot(x, unv(func(x)), *xarg,  label=l, color=color,**xkwarg)
+            ll, = plt_plt(x, unv(func(x)), fmt,  label=l, color=color,linstyle=linestyle)
     else:
-        ll, = plt.plot(x, func(x), *xarg,  label=l, color=color,**xkwarg)
+        ll, = plt_plt(x, func(x), fmt,  label=l, color=color,linstyle=linestyle)
     return ll
 
 
