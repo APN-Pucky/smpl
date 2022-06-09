@@ -16,8 +16,10 @@
     "import numpy as np\n",
     "from smpl import plot\n",
     "from smpl import io\n",
+    "from smpl import fit\n",
     "from smpl import functions as f\n",
-    "import uncertainties.unumpy as unp\n"
+    "import uncertainties.unumpy as unp\n",
+    "import uncertainties as unc"
    ]
   },
   {
@@ -46,13 +48,18 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## SciPy"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
-    "\n",
-    "\n",
     "ff = plot.fit(xdata, ydata, fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",function=f.linear, params=[1])"
    ]
   },
@@ -62,23 +69,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "ff = plot.fit(xdata, ydata, fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",function=f.line, params=[1,2])\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "ff = plot.fit(xdata, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)"
+    "ff = plot.fit(xdata, ydata, fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",function=f.line, params=[1,2])"
    ]
   },
   {
@@ -88,6 +79,33 @@
    "outputs": [],
    "source": [
     "ff = plot.fit(x, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ff = plot.fit(xdata, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)\n",
+    "print(\"Chi2 = \",fit.Chi2(xdata,y,f.line,ff))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Minuit"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "ff = plot.fit(xdata, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2,fitter=fit.Fitter.MINUIT_LEASTSQUARES)\n",
+    "print(\"Chi2 = \",fit.Chi2(xdata,y,f.line,ff))"
    ]
   },
   {
@@ -114,7 +132,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.9"
+   "version": "3.8.13"
   }
  },
  "nbformat": 4,
