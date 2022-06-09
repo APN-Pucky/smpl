@@ -8,15 +8,15 @@ from matplotlib.image import NonUniformImage
 import matplotlib.pyplot as plt
 
 default = {
-           'xaxis' : [None,"."],
-           'yaxis' : [None,"."],
-           'zaxis' : [None,"."],
-           'logz' : [True,"Colorbar in logarithmic scale."],
-           'style' : ['image',"Plot via an image ('image') or scatter ('scatter')."],
-           'interpolation': [None, "Only 'nearest' or 'bilinear' for nonuniformimage. Check https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow"],
-           'cmap' : ['viridis', "Good default color map for missing datapoints since it does not include white."],
-           #'zscale' : [None,"Rescale z values."],
-           }
+    'xaxis': [None, "."],
+    'yaxis': [None, "."],
+    'zaxis': [None, "."],
+    'logz': [True, "Colorbar in logarithmic scale."],
+    'style': ['image', "Plot via an image ('image') or scatter ('scatter')."],
+    'interpolation': ['nearest', "Only 'nearest' or 'bilinear' for nonuniformimage. Check https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow"],
+    'cmap': ['viridis', "Good default color map for missing datapoints since it does not include white."],
+    # 'zscale' : [None,"Rescale z values."],
+}
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
 
@@ -33,20 +33,20 @@ def plot2d_kwargs(kwargs):
     return kwargs
 
 
-def plot2d(datax,datay,dataz,**kwargs):
+def plot2d(datax, datay, dataz, **kwargs):
     """
     Creates a 2D-Plot.
-    
+
     Parameters
     ----------
     **kwargs : optional
         see :func:`plot2d_kwargs`.
     """
     kwargs = plot2d_kwargs(kwargs)
-    if kwargs["style"] =="image":
-        map_vplot(datax,datay,dataz,**kwargs)
-    elif (kwargs["style"] =="scatter"):
-        scatter_vplot(datax,datay,dataz,**kwargs)
+    if kwargs["style"] == "image":
+        map_vplot(datax, datay, dataz, **kwargs)
+    elif (kwargs["style"] == "scatter"):
+        scatter_vplot(datax, datay, dataz, **kwargs)
 
 
 def map_vplot(tvx,
@@ -58,12 +58,12 @@ def map_vplot(tvx,
               logz=True,
               sort=True,
               fill_missing=True,
-              zscale=1.,**kwargs):
+              zscale=1., **kwargs):
     vx = np.copy(tvx)
     vy = np.copy(tvy)
     vz = np.copy(tvz)
     if fill_missing:
-        #TODO speed up
+        # TODO speed up
         for x in vx:
             for y in vy:
                 ex = np.any(np.logical_and((vx == x), (vy == y)))
@@ -121,6 +121,7 @@ def map_vplot(tvx,
     plt.xlabel(xaxis)
     plt.ylabel(yaxis)
 
+
 def scatter_vplot(vx,
                   vy,
                   vz,
@@ -130,7 +131,7 @@ def scatter_vplot(vx,
                   logz=True,
                   sort=True,
                   fill_missing=True,
-                  zscale=1.,**kwargs):
+                  zscale=1., **kwargs):
     if sort:
         p1 = vx.argsort(kind='stable')
         vx = np.copy(vx[p1])
@@ -158,8 +159,8 @@ def scatter_vplot(vx,
                           for i in range(len(vx))], [
                               (2 * plt.rcParams['lines.markersize'])**2
                               for i in range(len(vx))
-                          ], [(plt.rcParams['lines.markersize'])**2
-                              for i in range(len(vx))])),
+                        ], [(plt.rcParams['lines.markersize'])**2
+                            for i in range(len(vx))])),
                     norm=colors.LogNorm() if logz else None,
                     cmap=kwargs['cmap'],)
 
