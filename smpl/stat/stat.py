@@ -12,6 +12,48 @@ unv = unp.nominal_values
 usd = unp.std_devs
 
 
+def R2(y, f):
+    """
+    R2 - Coefficient of determination
+
+    In the best case, the modeled values exactly match the observed values, which results in R2 = 1. 
+    A baseline model, which always predicts the mean of y, will have R2 = 0. 
+    Models that have worse predictions than this baseline will have a negative R2. 
+
+    References
+    ----------
+
+    https://en.wikipedia.org/wiki/Coefficient_of_determination
+    """
+    r = y - f
+    mean = np.sum(r)/len(r)
+    SSres = np.sum((r)**2)
+    SStot = np.sum((r-mean)**2)
+    Rsq = 1 - SSres/SStot
+    return Rsq
+
+
+def Chi2(y, f, sigmas=None):
+    """
+    Chi2 - Goodness of Fit
+
+    In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good. 
+    Coversely,  if Chi-squared/Nd >> 1.0, then the fit is a poor one.
+
+    References
+    ----------
+
+    https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html
+    """
+    r = y - f
+    if sigmas is not None:
+        chisq = np.sum((r/sigmas)**2)
+    else:
+        chisq = np.sum((r)**2)
+
+    return chisq
+
+
 def unv_lambda(f):
     """Returns a function which applies :func:`unv` on the result of ``f``."""
     return lambda *a: unv(f(*a))
@@ -50,6 +92,10 @@ def mean(n):
 def noisy(x, mean=0, std=1):
     """Add gaussian noise to ``x``."""
     return x+np.random.normal(mean, std, len(x))
+
+
+def normal(x, mean=0, std=1):
+    return np.random.normal(mean, std, len(x))
 
 
 @doc.insert_eq()

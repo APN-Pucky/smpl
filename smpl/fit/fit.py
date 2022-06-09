@@ -11,29 +11,30 @@ from smpl import util
 from smpl import wrap
 from smpl import doc
 from smpl import data
-from numpy.linalg import LinAlgError
+from numpy.linalg import LinAlgError, inv
 from tqdm import tqdm
 
 unv = unp.nominal_values
 usd = unp.std_devs
 
 default = {
-           'params': [None, "Initial fit parameters", ],
-           #'frange': [None, "Limit the fit to given range. First integer is the lowest and second the highest index.", ],
-           #'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
-           'fixed_params': [True, "Enable fixing parameters by choosing the same-named variables from ``kwargs``.", ],
-           #'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
-           'maxfev': [10000, "Maximum function evaluations during fitting.", ],
-           'epsfcn': [0.0001, "Suitable step length for jacobian approximation.", ],
-           'xvar': [None, "Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.", ],
-           #'bins': [0, "Number of bins for histogram", ],
-           #'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
-           'autotqdm': [True, "Auto fitting display tqdm", ],
-           #'xerror': [True, "enable xerrors"],
-           #'yerror': [True, "enable yerrors"],
-           }
+    'params': [None, "Initial fit parameters", ],
+    # 'frange': [None, "Limit the fit to given range. First integer is the lowest and second the highest index.", ],
+    # 'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
+    'fixed_params': [True, "Enable fixing parameters by choosing the same-named variables from ``kwargs``.", ],
+    # 'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
+    'maxfev': [10000, "Maximum function evaluations during fitting.", ],
+    'epsfcn': [0.0001, "Suitable step length for jacobian approximation.", ],
+    'xvar': [None, "Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.", ],
+    # 'bins': [0, "Number of bins for histogram", ],
+    # 'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
+    'autotqdm': [True, "Auto fitting display tqdm", ],
+    # 'xerror': [True, "enable xerrors"],
+    # 'yerror': [True, "enable yerrors"],
+}
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
+
 
 @doc.append_doc(data.data_kwargs)
 @doc.append_str("\t")
@@ -187,7 +188,24 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
         except Exception as e:
             warnings.warn(str(e))
             error.append(0.00)
+    # print(pcov)
+    # restore cov: unc.covariance_matrix([*ff])
     return unc.correlated_values(pfit, pcov)
+
+# https://stackoverflow.com/a/52592811
+
+
+def Chi2(datax, datay, function, ff, **kwargs):
+    kwargs = fit_kwargs(kwargs)
+    x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
+    sigmas = yerr
+    return stat.Chi2(y, function(x, *ff), sigmas)
+
+
+def R2(datax, datay, function, ff, **kwargs):
+    kwargs = fit_kwargs(kwargs)
+    x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
+    return stat.R2(y, function(x, *ff))
 
 
 def _fit_odr(datax, datay, function, params=None, yerr=None, xerr=None):
@@ -207,7 +225,8 @@ def data_split(datax, datay, **kwargs):
     """
     Split data + errors
     """
-    return data.__data_split(datax,datay,**kwargs)
+    return data.__data_split(datax, datay, **kwargs)
+
 
 def fit_split(datax, datay, **kwargs):
     """
@@ -219,7 +238,8 @@ def fit_split(datax, datay, **kwargs):
         see :func:`fit_kwargs`.
     """
     kwargs = fit_kwargs(kwargs)
-    return data.filtered_data_split(datax,datay,**kwargs)
+    return data.filtered_data_split(datax, datay, **kwargs)
+
 
 if __name__ == "__main__":
     import doctest
