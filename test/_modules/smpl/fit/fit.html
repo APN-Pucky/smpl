@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                1.3.2-2-g1a088de2
+                0.0.132-3-gf9bcfe3d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -128,6 +128,9 @@
 
 
 <div class="viewcode-block" id="Fitter"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.Fitter">[docs]</a><span class="k">class</span> <span class="nc">Fitter</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Different implementations to perform a fit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">AUTO</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">SCIPY_CURVEFIT</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">SCIPY_ODR</span> <span class="o">=</span> <span class="mi">2</span>
@@ -148,7 +151,7 @@
     <span class="s1">&#39;autotqdm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Auto fitting display tqdm&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="c1"># &#39;xerror&#39;: [True, &quot;enable xerrors&quot;],</span>
     <span class="c1"># &#39;yerror&#39;: [True, &quot;enable yerrors&quot;],</span>
-    <span class="s1">&#39;fitter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Fitter</span><span class="o">.</span><span class="n">AUTO</span><span class="p">,</span> <span class="s2">&quot;Choose from `Fitter`s.&quot;</span><span class="p">]</span>
+    <span class="s1">&#39;fitter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Fitter</span><span class="o">.</span><span class="n">AUTO</span><span class="p">,</span> <span class="s2">&quot;Choose from :class:`Fitter`s.&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
