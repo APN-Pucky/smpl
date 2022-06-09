@@ -104,15 +104,8 @@
    "source": [
     "x= np.linspace(-5,5,200)\n",
     "y = stat.noisy(np.sin(3.5*x +4)*4,std=0.1)-2\n",
-    "ff = plot.fit(x, y,sinus, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",sigmas=1,fselector= x>0,interpolate=False)"
+    "ff = plot.fit(x, y,sinus, fmt='.', label='data', xlabel=\"x in a.u.\",ylabel=\"y in a.u.\",sigmas=1,fselector= x>0,extrapolate=False)"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   }
  ],
  "metadata": {

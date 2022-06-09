@@ -17,6 +17,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +42,7 @@
             <a href="../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.126
+                0.0.127
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -64,7 +65,9 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../plot/index.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot/plot2d.html">Plot2d</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fit/index.html">Fitting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../interpolate/Interpolate.html">Interpolate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../latex/latex.html">Latex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../parallel/parallel.html">Parallel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../uncertainties/demo_uncertainties.html">uncertainties</a></li>
@@ -81,10 +84,12 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.interpolate.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.interpolate</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
@@ -334,6 +339,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -342,10 +348,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -357,12 +367,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -390,7 +403,7 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="pandas">
-<h1>pandas<a class="headerlink" href="#pandas" title="Permalink to this headline"></a></h1>
+<h1>pandas<a class="headerlink" href="#pandas" title="Permalink to this heading"></a></h1>
 <p>see: <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/">https://pandas.pydata.org/pandas-docs/stable/</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -402,7 +415,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <section id="Read">
-<h2>Read<a class="headerlink" href="#Read" title="Permalink to this headline"></a></h2>
+<h2>Read<a class="headerlink" href="#Read" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -713,7 +726,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="To-Latex">
-<h2>To Latex<a class="headerlink" href="#To-Latex" title="Permalink to this headline"></a></h2>
+<h2>To Latex<a class="headerlink" href="#To-Latex" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -748,7 +761,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_1372/2409192922.py:6: FutureWarning: In future versions `DataFrame.to_latex` is expected to utilise the base implementation of `Styler.to_latex` for formatting and rendering. The arguments signature may therefore change. It is recommended instead to use `DataFrame.style.to_latex` which also contains additional functionality.
+/tmp/ipykernel_1408/2409192922.py:6: FutureWarning: In future versions `DataFrame.to_latex` is expected to utilise the base implementation of `Styler.to_latex` for formatting and rendering. The arguments signature may therefore change. It is recommended instead to use `DataFrame.style.to_latex` which also contains additional functionality.
   print(df.to_latex())
 </pre></div></div>
 </div>
@@ -763,7 +776,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="pandas-+-uncertainties">
-<h2>pandas + uncertainties<a class="headerlink" href="#pandas-+-uncertainties" title="Permalink to this headline"></a></h2>
+<h2>pandas + uncertainties<a class="headerlink" href="#pandas-+-uncertainties" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -972,7 +985,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_1372/464907517.py:1: FutureWarning: In future versions `DataFrame.to_latex` is expected to utilise the base implementation of `Styler.to_latex` for formatting and rendering. The arguments signature may therefore change. It is recommended instead to use `DataFrame.style.to_latex` which also contains additional functionality.
+/tmp/ipykernel_1408/464907517.py:1: FutureWarning: In future versions `DataFrame.to_latex` is expected to utilise the base implementation of `Styler.to_latex` for formatting and rendering. The arguments signature may therefore change. It is recommended instead to use `DataFrame.style.to_latex` which also contains additional functionality.
   print(data.to_latex())
 </pre></div></div>
 </div>
@@ -986,7 +999,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="pandas-+-plot">
-<h2>pandas + plot<a class="headerlink" href="#pandas-+-plot" title="Permalink to this headline"></a></h2>
+<h2>pandas + plot<a class="headerlink" href="#pandas-+-plot" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
