@@ -27,6 +27,7 @@ setuptools.setup(
         "tqdm",
         "pandas",
         "ipywidgets",
+        "iminuit",
         # "requests",
     ],
     extras_require={
@@ -38,7 +39,7 @@ setuptools.setup(
             "pandas",
             "ipython",
         ],
-        'docs' : [
+        'docs': [
             "jupyter-sphinx",
             "sphinx-math-dollar",
             "pandoc",
