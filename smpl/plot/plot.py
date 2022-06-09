@@ -245,7 +245,7 @@ def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, si
 
     if isinstance(func(x)[0], uncertainties.UFloat):
         if sigmas > 0:
-            ll, = plt.plot(*x, unv(func(x)), *xarg, color=color,**xkwarg)
+            ll, = plt.plot(x, unv(func(x)), *xarg, color=color,**xkwarg)
             y = func(x)
             plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
                 y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
