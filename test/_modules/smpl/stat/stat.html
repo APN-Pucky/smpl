@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.131
+                0.0.131-1-g35f25633
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -116,6 +116,48 @@
 <span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
 
 
+<div class="viewcode-block" id="R2"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.R2">[docs]</a><span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    R2 - Coefficient of determination</span>
+
+<span class="sd">    In the best case, the modeled values exactly match the observed values, which results in R2 = 1. </span>
+<span class="sd">    A baseline model, which always predicts the mean of y, will have R2 = 0. </span>
+<span class="sd">    Models that have worse predictions than this baseline will have a negative R2. </span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    https://en.wikipedia.org/wiki/Coefficient_of_determination</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">f</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">SSres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">SStot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">r</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">Rsq</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSres</span><span class="o">/</span><span class="n">SStot</span>
+    <span class="k">return</span> <span class="n">Rsq</span></div>
+
+
+<div class="viewcode-block" id="Chi2"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.Chi2">[docs]</a><span class="k">def</span> <span class="nf">Chi2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Chi2 - Goodness of Fit</span>
+
+<span class="sd">    In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good. </span>
+<span class="sd">    Coversely,  if Chi-squared/Nd &gt;&gt; 1.0, then the fit is a poor one.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">f</span>
+    <span class="k">if</span> <span class="n">sigmas</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">chisq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">r</span><span class="o">/</span><span class="n">sigmas</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">chisq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">r</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">chisq</span></div>
+
+
 <div class="viewcode-block" id="unv_lambda"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.unv_lambda">[docs]</a><span class="k">def</span> <span class="nf">unv_lambda</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns a function which applies :func:`unv` on the result of ``f``.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">unv</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span></div>
@@ -154,6 +196,10 @@
 <div class="viewcode-block" id="noisy"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.noisy">[docs]</a><span class="k">def</span> <span class="nf">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Add gaussian noise to ``x``.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
+
+
+<span class="k">def</span> <span class="nf">normal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 
 <span class="nd">@doc</span><span class="o">.</span><span class="n">insert_eq</span><span class="p">()</span>

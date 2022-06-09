@@ -42,7 +42,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.131
+                0.0.131-1-g35f25633
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -414,9 +414,11 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">fit</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
 <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
-<br/></pre></div>
+<span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
+</pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -459,7 +461,7 @@ array([[0. , 1. , 0.1, 0.2],
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><br/><span></span><span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">linear</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">linear</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -475,7 +477,7 @@ array([[0. , 1. , 0.1, 0.2],
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<br/></pre></div>
+</pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -483,14 +485,6 @@ array([[0. , 1. , 0.1, 0.2],
 </div>
 <div class="output_area docutils container">
 <img alt="../../../_images/example_fit_linear_test_linear_5_0.png" src="../../../_images/example_fit_linear_test_linear_5_0.png" />
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -505,7 +499,7 @@ array([[0. , 1. , 0.1, 0.2],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_linear_test_linear_7_0.png" src="../../../_images/example_fit_linear_test_linear_7_0.png" />
+<img alt="../../../_images/example_fit_linear_test_linear_6_0.png" src="../../../_images/example_fit_linear_test_linear_6_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -520,7 +514,67 @@ array([[0. , 1. , 0.1, 0.2],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_linear_test_linear_8_0.png" src="../../../_images/example_fit_linear_test_linear_8_0.png" />
+<img alt="../../../_images/example_fit_linear_test_linear_7_0.png" src="../../../_images/example_fit_linear_test_linear_7_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">stat</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span><span class="n">ff</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">R2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span><span class="n">ff</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0102759735617+/-0.0000000000024
+-0.001+/-0.006
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_linear_test_linear_8_1.png" src="../../../_images/example_fit_linear_test_linear_8_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mean</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="p">,</span>  <span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">ff</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">R2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">ff</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2.46249487795850+/-0.00000000000012
+(0+/-7)e-15
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_linear_test_linear_9_1.png" src="../../../_images/example_fit_linear_test_linear_9_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

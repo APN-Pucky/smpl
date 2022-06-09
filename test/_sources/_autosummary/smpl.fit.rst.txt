@@ -9,6 +9,10 @@
    
    .. autosummary:: 
    
+      Chi2
+   
+      R2
+   
       auto
    
       data_split

@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.131
+                0.0.131-1-g35f25633
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -115,29 +115,30 @@
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">data</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">LinAlgError</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">LinAlgError</span><span class="p">,</span> <span class="n">inv</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
 <span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
 
 <span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
-           <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Initial fit parameters&quot;</span><span class="p">,</span> <span class="p">],</span>
-           <span class="c1">#&#39;frange&#39;: [None, &quot;Limit the fit to given range. First integer is the lowest and second the highest index.&quot;, ],</span>
-           <span class="c1">#&#39;fselector&#39;: [None, &quot;Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.&quot;, ],</span>
-           <span class="s1">&#39;fixed_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Enable fixing parameters by choosing the same-named variables from ``kwargs``.&quot;</span><span class="p">,</span> <span class="p">],</span>
-           <span class="c1">#&#39;sortbyx&#39;: [True, &quot;Enable sorting the x and y data so that x is sorted.&quot;, ],</span>
-           <span class="s1">&#39;maxfev&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Maximum function evaluations during fitting.&quot;</span><span class="p">,</span> <span class="p">],</span>
-           <span class="s1">&#39;epsfcn&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0001</span><span class="p">,</span> <span class="s2">&quot;Suitable step length for jacobian approximation.&quot;</span><span class="p">,</span> <span class="p">],</span>
-           <span class="s1">&#39;xvar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.&quot;</span><span class="p">,</span> <span class="p">],</span>
-           <span class="c1">#&#39;bins&#39;: [0, &quot;Number of bins for histogram&quot;, ],</span>
-           <span class="c1">#&#39;binunc&#39;: [stat.poisson_dist, &quot;Number of bins for histogram&quot;, ],</span>
-           <span class="s1">&#39;autotqdm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Auto fitting display tqdm&quot;</span><span class="p">,</span> <span class="p">],</span>
-           <span class="c1">#&#39;xerror&#39;: [True, &quot;enable xerrors&quot;],</span>
-           <span class="c1">#&#39;yerror&#39;: [True, &quot;enable yerrors&quot;],</span>
-           <span class="p">}</span>
+    <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Initial fit parameters&quot;</span><span class="p">,</span> <span class="p">],</span>
+    <span class="c1"># &#39;frange&#39;: [None, &quot;Limit the fit to given range. First integer is the lowest and second the highest index.&quot;, ],</span>
+    <span class="c1"># &#39;fselector&#39;: [None, &quot;Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.&quot;, ],</span>
+    <span class="s1">&#39;fixed_params&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Enable fixing parameters by choosing the same-named variables from ``kwargs``.&quot;</span><span class="p">,</span> <span class="p">],</span>
+    <span class="c1"># &#39;sortbyx&#39;: [True, &quot;Enable sorting the x and y data so that x is sorted.&quot;, ],</span>
+    <span class="s1">&#39;maxfev&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="s2">&quot;Maximum function evaluations during fitting.&quot;</span><span class="p">,</span> <span class="p">],</span>
+    <span class="s1">&#39;epsfcn&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0001</span><span class="p">,</span> <span class="s2">&quot;Suitable step length for jacobian approximation.&quot;</span><span class="p">,</span> <span class="p">],</span>
+    <span class="s1">&#39;xvar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.&quot;</span><span class="p">,</span> <span class="p">],</span>
+    <span class="c1"># &#39;bins&#39;: [0, &quot;Number of bins for histogram&quot;, ],</span>
+    <span class="c1"># &#39;binunc&#39;: [stat.poisson_dist, &quot;Number of bins for histogram&quot;, ],</span>
+    <span class="s1">&#39;autotqdm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Auto fitting display tqdm&quot;</span><span class="p">,</span> <span class="p">],</span>
+    <span class="c1"># &#39;xerror&#39;: [True, &quot;enable xerrors&quot;],</span>
+    <span class="c1"># &#39;yerror&#39;: [True, &quot;enable yerrors&quot;],</span>
+<span class="p">}</span>
 
 <span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
+
 
 <div class="viewcode-block" id="fit_kwargs"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_doc</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">)</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -291,7 +292,24 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
             <span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.00</span><span class="p">)</span>
+    <span class="c1"># print(pcov)</span>
+    <span class="c1"># restore cov: unc.covariance_matrix([*ff])</span>
     <span class="k">return</span> <span class="n">unc</span><span class="o">.</span><span class="n">correlated_values</span><span class="p">(</span><span class="n">pfit</span><span class="p">,</span> <span class="n">pcov</span><span class="p">)</span>
+
+<span class="c1"># https://stackoverflow.com/a/52592811</span>
+
+
+<span class="k">def</span> <span class="nf">Chi2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">sigmas</span> <span class="o">=</span> <span class="n">yerr</span>
+    <span class="k">return</span> <span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">ff</span><span class="p">),</span> <span class="n">sigmas</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">ff</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">_fit_odr</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -311,7 +329,8 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Split data + errors</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
 
 <div class="viewcode-block" id="fit_split"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit_split">[docs]</a><span class="k">def</span> <span class="nf">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -323,7 +342,8 @@
 <span class="sd">        see :func:`fit_kwargs`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">filtered_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">filtered_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>

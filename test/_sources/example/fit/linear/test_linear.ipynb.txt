@@ -16,8 +16,10 @@
     "import numpy as np\n",
     "from smpl import plot\n",
     "from smpl import io\n",
+    "from smpl import fit\n",
     "from smpl import functions as f\n",
-    "import uncertainties.unumpy as unp\n"
+    "import uncertainties.unumpy as unp\n",
+    "import uncertainties as unc"
    ]
   },
   {
@@ -51,8 +53,6 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "\n",
-    "\n",
     "ff = plot.fit(xdata, ydata, fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",function=f.linear, params=[1])"
    ]
   },
@@ -62,15 +62,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "ff = plot.fit(xdata, ydata, fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",function=f.line, params=[1,2])\n"
+    "ff = plot.fit(xdata, ydata, fmt='.', label='data', xaxis=\"x in a.u.\",yaxis=\"y in a.u.\",function=f.line, params=[1,2])"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": []
   },
   {
    "cell_type": "code",
@@ -88,6 +81,36 @@
    "outputs": [],
    "source": [
     "ff = plot.fit(x, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from smpl import stat\n",
+    "\n",
+    "x = np.linspace(1,10,100)\n",
+    "y = unp.uarray(stat.noisy(x,std=0.001), np.random.normal(0.01, 0.001, len(x)))\n",
+    "ff = plot.fit(x, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2)\n",
+    "print(fit.Chi2(x,y,f.line,ff))\n",
+    "print(fit.R2(x,y,f.line,ff))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = np.linspace(1,10,100)\n",
+    "y = stat.noisy(x,mean=1,std=0.01)**2\n",
+    "def f(x,a,b,c): \n",
+    "    return a*x**2+b*x+c\n",
+    "ff = plot.fit(x, y, fmt='.', function=f,  sigmas=1,lpos=2)\n",
+    "print(fit.Chi2(x,y,f,ff))\n",
+    "print(fit.R2(x,y,f,ff))"
    ]
   },
   {
@@ -114,7 +137,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.7.9"
+   "version": "3.8.13"
   }
  },
  "nbformat": 4,
