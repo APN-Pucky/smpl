@@ -24,6 +24,9 @@ usd = unp.std_devs
 
 
 class Fitter(enum.Enum):
+    """
+    Different implementations to perform a fit.
+    """
     AUTO = 0
     SCIPY_CURVEFIT = 1
     SCIPY_ODR = 2
@@ -44,7 +47,7 @@ default = {
     'autotqdm': [True, "Auto fitting display tqdm", ],
     # 'xerror': [True, "enable xerrors"],
     # 'yerror': [True, "enable yerrors"],
-    'fitter': [Fitter.AUTO, "Choose from `Fitter`s."]
+    'fitter': [Fitter.AUTO, "Choose from :class:`Fitter`s."]
 }
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
