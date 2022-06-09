@@ -189,7 +189,7 @@ def fit(datax, datay, function, **kwargs):
     return rfit
 
 
-@doc.append_doc(stat.Chi2)
+@doc.insert_doc(stat.Chi2)
 def Chi2(datax, datay, function, ff, **kwargs):
     kwargs = fit_kwargs(kwargs)
     x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
@@ -197,7 +197,7 @@ def Chi2(datax, datay, function, ff, **kwargs):
     return stat.Chi2(y, unv(function(x, *ff)), sigmas)
 
 
-@doc.append_doc(stat.R2)
+@doc.insert_doc(stat.R2)
 def R2(datax, datay, function, ff, **kwargs):
     kwargs = fit_kwargs(kwargs)
     x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
