@@ -244,14 +244,14 @@ def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, si
 
     if isinstance(func(x)[0], uncertainties.UFloat):
         if sigmas > 0:
-            ll, = plt_plt(x, unv(func(x)), fmt, label=None,color=color,linstyle=linestyle)
+            ll, = plt_plt(x, unv(func(x)), fmt, label=None,color=color,linestyle=linestyle)
             y = func(x)
             plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
                 y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
         else:
-            ll, = plt_plt(x, unv(func(x)), fmt,  label=l, color=color,linstyle=linestyle)
+            ll, = plt_plt(x, unv(func(x)), fmt,  label=l, color=color,linestyle=linestyle)
     else:
-        ll, = plt_plt(x, func(x), fmt,  label=l, color=color,linstyle=linestyle)
+        ll, = plt_plt(x, func(x), fmt,  label=l, color=color,linestyle=linestyle)
     return ll
 
 
