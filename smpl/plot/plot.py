@@ -231,7 +231,6 @@ def _function(func, xfit, **kwargs):
     __function(func, xfit, **kargs)
 
 def plt_plt(x,y,fmt,color,label,linestyle):
-    print(x,y,fmt)
     if linestyle is None and fmt is not None:
         return plt.plot(x, y,fmt, label=label,color=color)
     elif linestyle is not None and fmt is None:
