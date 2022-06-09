@@ -45,7 +45,8 @@ def interpolate(datax,datay,**kwargs):
     if dy is not None:
         spl_up = make_interp_spline(x, y+dy, k=3)  # type: BSpline
         spl_down = make_interp_spline(x, y-dy, k=3)  # type: BSpline
-        return np.vectorize(lambda x : unc.ufloat(spl_up(x)/2+ spl_down(x)/2,(spl_up(x)- spl_down(x))/2),otypes=["object"])
+        # np.abs for uncertainty just in case the numerics are really bad
+        return np.vectorize(lambda x : unc.ufloat(spl_up(x)/2+ spl_down(x)/2,np.abs(spl_up(x)- spl_down(x))/2),otypes=["object"])
     else:
         spl_center = make_interp_spline(x, y, k=3)  # type: BSpline
         return np.vectorize(lambda x : spl_center(x),otypes=["float"])
