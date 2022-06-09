@@ -176,7 +176,7 @@ def fit(datax, datay, function, **kwargs):
     if kwargs['interpolate']:
         ifit,_,x,y = plt_interpolate(datax,datay,icolor=ll,**kwargs)
     if kwargs['also_fit']:
-        rfit, kwargs['fit_color'] = plt_fit(datax, datay, function, **kwargs)
+        rfit, kwargs['fit_color'],_,_ = plt_fit(datax, datay, function, **kwargs)
     if kwargs['ss']:
         kwargs['oldshow'] = kwargs['show']
         kwargs['show'] = kwargs['show'] and not kwargs['residue']
@@ -231,10 +231,13 @@ def _function(func, xfit, **kwargs):
     __function(func, xfit, **kargs)
 
 def plt_plt(x,y,fmt,color,label,linestyle):
-    if linestyle is None:
+    print(x,y,fmt)
+    if linestyle is None and fmt is not None:
         return plt.plot(x, y,fmt, label=label,color=color)
-    else:
+    elif linestyle is not None and fmt is None:
         return plt.plot(x, y, label=label,color=color,linestyle=linestyle)
+    elif linestyle is None and fmt is None:
+        return plt.plot(x, y, label=label,color=color)
 
 
 def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0.,linestyle=None):
