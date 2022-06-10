@@ -439,7 +439,7 @@ def plt_interpolate(datax, datay, icolor=None,  **kwargs):
     else:
         kargs["f"] = kwargs["interpolate_fmt"]
     # l = None so that no label
-    return inter, *plt_fit_or_interpolate(datax, datay, inter, l=None, c=icolor, **kargs, **kwargs)
+    return (inter, *plt_fit_or_interpolate(datax, datay, inter, l=None, c=icolor, **kargs, **kwargs))
 
 
 def plt_fit(datax, datay, gfunction, **kwargs):
@@ -450,7 +450,7 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     rfit = _fit(datax, datay, gfunction, **kwargs)
     def fitted(x): return func(x, *rfit)
     l = get_fnc_legend(gfunction, rfit, **kwargs)
-    return rfit, *plt_fit_or_interpolate(datax, datay, fitted, l, **kwargs)
+    return (rfit, *plt_fit_or_interpolate(datax, datay, fitted, l, **kwargs))
 
 
 def init_plot(kwargs):
