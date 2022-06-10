@@ -18,7 +18,9 @@
    "outputs": [],
    "source": [
     "from smpl import plot\n",
-    "import numpy as np"
+    "import numpy as np\n",
+    "import smpl\n",
+    "print(smpl.__version__)"
    ]
   },
   {
