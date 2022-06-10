@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.132
+                0.0.133
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -180,7 +180,26 @@
 
 
 <div class="viewcode-block" id="insert_doc"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_doc">[docs]</a><span class="k">def</span> <span class="nf">insert_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Inserts the docstring from passed function ``original`` in the ``target`` function docstring.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inserts the docstring from passed function ``original`` in the ``target`` function docstring.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    original : ``class`` or ``function``</span>
+<span class="sd">        ``orignal.__doc__`` is inserted to the ``__doc__`` of the ``target``</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; def ho():</span>
+<span class="sd">    ...     &#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
+<span class="sd">    ...     print(ho.__doc__)</span>
+<span class="sd">    &gt;&gt;&gt; @insert_doc(ho)</span>
+<span class="sd">    ... def hi():</span>
+<span class="sd">    ...     &#39;&#39;&#39;Hi&#39;&#39;&#39;</span>
+<span class="sd">    ...     print(hi.__doc__)</span>
+<span class="sd">    &gt;&gt;&gt; hi()</span>
+<span class="sd">    HoHi</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
 
 

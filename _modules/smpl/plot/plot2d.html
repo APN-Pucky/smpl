@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.132
+                0.0.133
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -112,15 +112,15 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
-           <span class="s1">&#39;xaxis&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">],</span>
-           <span class="s1">&#39;yaxis&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">],</span>
-           <span class="s1">&#39;zaxis&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">],</span>
-           <span class="s1">&#39;logz&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="s2">&quot;Colorbar in logarithmic scale.&quot;</span><span class="p">],</span>
-           <span class="s1">&#39;style&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="s2">&quot;Plot via an image (&#39;image&#39;) or scatter (&#39;scatter&#39;).&quot;</span><span class="p">],</span>
-           <span class="s1">&#39;interpolation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Only &#39;nearest&#39; or &#39;bilinear&#39; for nonuniformimage. Check https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow&quot;</span><span class="p">],</span>
-           <span class="s1">&#39;cmap&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="s2">&quot;Good default color map for missing datapoints since it does not include white.&quot;</span><span class="p">],</span>
-           <span class="c1">#&#39;zscale&#39; : [None,&quot;Rescale z values.&quot;],</span>
-           <span class="p">}</span>
+    <span class="s1">&#39;xaxis&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;yaxis&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;zaxis&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;logz&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Colorbar in logarithmic scale.&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;style&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="s2">&quot;Plot via an image (&#39;image&#39;) or scatter (&#39;scatter&#39;).&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;interpolation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="s2">&quot;Only &#39;nearest&#39; or &#39;bilinear&#39; for nonuniformimage. Check https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;cmap&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="s2">&quot;Good default color map for missing datapoints since it does not include white.&quot;</span><span class="p">],</span>
+    <span class="c1"># &#39;zscale&#39; : [None,&quot;Rescale z values.&quot;],</span>
+<span class="p">}</span>
 
 <span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
 
@@ -137,20 +137,20 @@
     <span class="k">return</span> <span class="n">kwargs</span></div>
 
 
-<div class="viewcode-block" id="plot2d"><a class="viewcode-back" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot2d">[docs]</a><span class="k">def</span> <span class="nf">plot2d</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">dataz</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="plot2d"><a class="viewcode-back" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot2d">[docs]</a><span class="k">def</span> <span class="nf">plot2d</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">dataz</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates a 2D-Plot.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    **kwargs : optional</span>
 <span class="sd">        see :func:`plot2d_kwargs`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot2d_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">==</span><span class="s2">&quot;image&quot;</span><span class="p">:</span>
-        <span class="n">map_vplot</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">dataz</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">==</span><span class="s2">&quot;scatter&quot;</span><span class="p">):</span>
-        <span class="n">scatter_vplot</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span><span class="n">datay</span><span class="p">,</span><span class="n">dataz</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;image&quot;</span><span class="p">:</span>
+        <span class="n">map_vplot</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">dataz</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;scatter&quot;</span><span class="p">):</span>
+        <span class="n">scatter_vplot</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">dataz</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">map_vplot</span><span class="p">(</span><span class="n">tvx</span><span class="p">,</span>
@@ -162,12 +162,12 @@
               <span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
               <span class="n">fill_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">zscale</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+              <span class="n">zscale</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">tvx</span><span class="p">)</span>
     <span class="n">vy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">tvy</span><span class="p">)</span>
     <span class="n">vz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">tvz</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">fill_missing</span><span class="p">:</span>
-        <span class="c1">#TODO speed up</span>
+        <span class="c1"># TODO speed up</span>
         <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vx</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">vy</span><span class="p">:</span>
                 <span class="n">ex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">((</span><span class="n">vx</span> <span class="o">==</span> <span class="n">x</span><span class="p">),</span> <span class="p">(</span><span class="n">vy</span> <span class="o">==</span> <span class="n">y</span><span class="p">)))</span>
@@ -225,6 +225,7 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xaxis</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span>
 
+
 <span class="k">def</span> <span class="nf">scatter_vplot</span><span class="p">(</span><span class="n">vx</span><span class="p">,</span>
                   <span class="n">vy</span><span class="p">,</span>
                   <span class="n">vz</span><span class="p">,</span>
@@ -234,7 +235,7 @@
                   <span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                   <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                   <span class="n">fill_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                  <span class="n">zscale</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                  <span class="n">zscale</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">sort</span><span class="p">:</span>
         <span class="n">p1</span> <span class="o">=</span> <span class="n">vx</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;stable&#39;</span><span class="p">)</span>
         <span class="n">vx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="n">p1</span><span class="p">])</span>
@@ -262,8 +263,8 @@
                           <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vx</span><span class="p">))],</span> <span class="p">[</span>
                               <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.markersize&#39;</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
                               <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vx</span><span class="p">))</span>
-                          <span class="p">],</span> <span class="p">[(</span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.markersize&#39;</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
-                              <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vx</span><span class="p">))])),</span>
+                        <span class="p">],</span> <span class="p">[(</span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.markersize&#39;</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span>
+                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vx</span><span class="p">))])),</span>
                     <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">()</span> <span class="k">if</span> <span class="n">logz</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
                     <span class="n">cmap</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;cmap&#39;</span><span class="p">],)</span>
 

@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.132
+                0.0.133
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -128,6 +128,9 @@
 
 
 <div class="viewcode-block" id="Fitter"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.Fitter">[docs]</a><span class="k">class</span> <span class="nc">Fitter</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Different implementations to perform a fit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">AUTO</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">SCIPY_CURVEFIT</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">SCIPY_ODR</span> <span class="o">=</span> <span class="mi">2</span>
@@ -148,7 +151,7 @@
     <span class="s1">&#39;autotqdm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Auto fitting display tqdm&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="c1"># &#39;xerror&#39;: [True, &quot;enable xerrors&quot;],</span>
     <span class="c1"># &#39;yerror&#39;: [True, &quot;enable yerrors&quot;],</span>
-    <span class="s1">&#39;fitter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Fitter</span><span class="o">.</span><span class="n">AUTO</span><span class="p">,</span> <span class="s2">&quot;Choose from `Fitter`s.&quot;</span><span class="p">]</span>
+    <span class="s1">&#39;fitter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Fitter</span><span class="o">.</span><span class="n">AUTO</span><span class="p">,</span> <span class="s2">&quot;Choose from :class:`Fitter`s.&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
@@ -293,7 +296,7 @@
     <span class="k">return</span> <span class="n">rfit</span></div>
 
 
-<div class="viewcode-block" id="Chi2"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.Chi2">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">)</span>
+<div class="viewcode-block" id="Chi2"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.Chi2">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">insert_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">Chi2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -301,7 +304,7 @@
     <span class="k">return</span> <span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">unv</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">ff</span><span class="p">)),</span> <span class="n">sigmas</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="R2"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.R2">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">)</span>
+<div class="viewcode-block" id="R2"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.R2">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">insert_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

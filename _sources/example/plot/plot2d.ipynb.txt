@@ -5,7 +5,7 @@
    "id": "6f96a4f8",
    "metadata": {},
    "source": [
-    "# Plot2d\n",
+    "## Plot2d\n",
     "\n",
     "Plot2d takes 3 1-dim arrays (x, y and z), where each index is one point."
    ]
@@ -18,7 +18,9 @@
    "outputs": [],
    "source": [
     "from smpl import plot\n",
-    "import numpy as np"
+    "import numpy as np\n",
+    "import smpl\n",
+    "print(smpl.__version__)"
    ]
   },
   {
@@ -65,7 +67,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
+   "display_name": "Python 3",
    "language": "python",
    "name": "python3"
   },
