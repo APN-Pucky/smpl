@@ -186,8 +186,8 @@ def fit(datax, datay, function, **kwargs):
     if kwargs['residue'] and fig is not None:
         plt_residue(datax, datay, function, rfit, fig, **kwargs)
     if not kwargs["also_fit"] and kwargs["interpolate"]:
-        #return (ifit, x, y)
-        return ifit
+        return (ifit, x, y)
+        # return ifit
     return rfit
 
 # @append_doc(default_kwargs)
