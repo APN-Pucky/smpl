@@ -5,20 +5,22 @@ import uncertainties.unumpy as unp
 import numpy as np
 
 default = {
-           'frange': [None, "Limit the fit to given range. First integer is the lowest and second the highest index.", ],
-           'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
-           'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
-           'bins': [0, "Number of bins for histogram", ],
-           'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
-           'xerror': [True, "enable xerrors"],
-           'yerror': [True, "enable yerrors"],
-           }
+    'frange': [None, "Limit the fit to given range. First integer is the lowest and second the highest index.", ],
+    'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
+    'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
+    'bins': [0, "Number of bins for histogram", ],
+    'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
+    'xerror': [True, "enable xerrors"],
+    'yerror': [True, "enable yerrors"],
+}
 
 
 unv = unp.nominal_values
 usd = unp.std_devs
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
+
+
 @doc.append_str(doc.table(default, init=False))
 @doc.append_str(doc.table({"data_kwargs": ["default", "description"]}, bottom=False))
 def data_kwargs(kwargs):
@@ -103,3 +105,14 @@ def filtered_data_split(datax, datay, **kwargs):
             xerr = xerr[kwargs['frange'][0]:kwargs['frange'][1]]
 
     return x, y, xerr, yerr
+
+
+def flatmesh(*args):
+    """
+    Similar to `numpy.meshgrid` but the result will be of one dimensio instead of stacked arrays.
+    """
+    r = np.meshgrid(*args)
+    rr = []
+    for ri in r:
+        rr += [ri.reshape(ri.size)]
+    return rr
