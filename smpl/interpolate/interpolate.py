@@ -9,7 +9,9 @@ import uncertainties as unc
 
 default = {
     'interpolator': ['cubic', "Use 'cubic' (spline) or 'linear' (cf. <https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html#scipy.interpolate.interp1d>)."],
-    'order': [3, "Spline order."]
+    'order': [3, "Spline order."],
+    'pre': [lambda x:x, "pre interpolation"],
+    'post': [lambda x:x, "post interpolation"],
 }
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
@@ -51,11 +53,11 @@ def interpolate(*data, **kwargs):
     x, y, dx, dy = interpolate_split(data[0], data[-1], **kwargs)
     ret = None
     if dy is None:
-        spl_center = _interpolate(*data[:-1], y, **kwargs)
+        spl_center = _interpolate(*data[:-1], kwargs['pre'](y), **kwargs)
         ret = np.vectorize(lambda *a: spl_center(*a), otypes=["float"])
     else:
-        spl_up = _interpolate(*data[:-1], y+dy, **kwargs)
-        spl_down = _interpolate(*data[:-1], y-dy, **kwargs)
+        spl_up = _interpolate(*data[:-1], kwargs['pre'](y+dy), **kwargs)
+        spl_down = _interpolate(*data[:-1], kwargs['pre'](y-dy), **kwargs)
         ret = np.vectorize(lambda *a: unc.ufloat(spl_up(*a)/2 + spl_down(*a)/2,
                                                  np.abs(spl_up(*a) - spl_down(*a))/2), otypes=["object"])  # symmetrized error...
     if not check(ret, *data):
@@ -68,21 +70,25 @@ def check(f, *args):
 
 
 def _interpolate(*data, **kwargs):
+    ret = None
     if len(data) == 2:
         if kwargs['interpolator'] == 'exp':
-            return _interpolate_exp(*data)
+            ret = _interpolate_exp(*data)
         else:
-            return interp.interp1d(*data, kind=kwargs['interpolator'])
+            ret = interp.interp1d(*data, kind=kwargs['interpolator'])
     elif len(data) == 3:
         if kwargs['interpolator'] == 'bivariatespline':
-            return interp.SmoothBivariateSpline(*data, kx=kwargs['order'], ky=kwargs['order'])
-        if kwargs['interpolator'] == 'linearnd':
-            return interp.LinearNDInterpolator(list(zip(*data[:-1])), data[-1])
-        return interp.interp2d(*data, kind=kwargs['interpolator'])
+            ret = interp.SmoothBivariateSpline(
+                *data, kx=kwargs['order'], ky=kwargs['order'])
+        elif kwargs['interpolator'] == 'linearnd':
+            ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), data[-1])
+        else:
+            ret = interp.interp2d(*data, kind=kwargs['interpolator'])
     else:
         if kwargs['interpolator'] == 'linear':
-            return interp.LinearNDInterpolator(list(zip(*data[:-1])), data[-1])
-    return None
+            ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), data[-1])
+
+    return lambda *a: kwargs['post'](ret(*a))
 
 
 def _interpolate_exp(x, y, **kwargs):
