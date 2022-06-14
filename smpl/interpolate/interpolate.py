@@ -23,6 +23,7 @@ def interpolate_kwargs(kwargs):
     """Set default interpolate_kwargs if not set.
 
     """
+    kwargs = data.data_kwargs(kwargs)
     for k, v in default.items():
         if not k in kwargs:
             kwargs[k] = v[0]
@@ -46,6 +47,7 @@ def interpolate(*data, **kwargs):
     # TODO save spl_upd spl_down values instead of recalculate
     # TODO set eps
     kwargs = interpolate_kwargs(kwargs)
+    kwargs['sortbyx'] = False
     x, y, dx, dy = interpolate_split(data[0], data[-1], **kwargs)
     ret = None
     if dy is None:
@@ -84,4 +86,5 @@ def _interpolate(*data, **kwargs):
 
 
 def _interpolate_exp(x, y, **kwargs):
-    return lambda x_new: np.exp(interpolate.interp1d(x, np.log(y), kind="linear")(x_new))
+    ip = interp.interp1d(x, np.log(y), kind="linear")
+    return lambda x_new: np.exp(ip(x_new))
