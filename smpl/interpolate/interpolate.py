@@ -49,7 +49,7 @@ def interpolate(*data, **kwargs):
     x, y, dx, dy = interpolate_split(data[0], data[-1], **kwargs)
     ret = None
     if dy is None:
-        spl_center = _interpolate(*data, **kwargs)
+        spl_center = _interpolate(*data[:-1], y, **kwargs)
         ret = np.vectorize(lambda *a: spl_center(*a), otypes=["float"])
     else:
         spl_up = _interpolate(*data[:-1], y+dy, **kwargs)
@@ -67,7 +67,10 @@ def check(f, *args):
 
 def _interpolate(*data, **kwargs):
     if len(data) == 2:
-        return interp.interp1d(*data, kind=kwargs['interpolator'])
+        if kwargs['interpolator'] == 'exp':
+            return _interpolate_exp(*data)
+        else:
+            return interp.interp1d(*data, kind=kwargs['interpolator'])
     elif len(data) == 3:
         if kwargs['interpolator'] == 'bivariatespline':
             return interp.SmoothBivariateSpline(*data, kx=kwargs['order'], ky=kwargs['order'])
@@ -78,3 +81,7 @@ def _interpolate(*data, **kwargs):
         if kwargs['interpolator'] == 'linear':
             return interp.LinearNDInterpolator(list(zip(*data[:-1])), data[-1])
     return None
+
+
+def _interpolate_exp(x, y, **kwargs):
+    return lambda x_new: np.exp(interpolate.interp1d(x, np.log(y), kind="linear")(x_new))
