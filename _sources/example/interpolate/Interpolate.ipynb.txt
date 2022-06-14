@@ -27,7 +27,10 @@
     "from smpl import stat\n",
     "from smpl import data\n",
     "from smpl import interpolate\n",
-    "import numpy as np"
+    "import numpy as np\n",
+    "\n",
+    "from smpl import interpolate as interp\n",
+    "from uncertainties import unumpy as unp"
    ]
   },
   {
@@ -61,6 +64,27 @@
    ]
   },
   {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "da393da0",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "x = np.linspace(2,100,10)\n",
+    "y = np.exp(-stat.noisy(x,std=2))\n",
+    "plot.data(x,y,interpolate=True,also_data=False,interpolator='linear',logy=True)\n",
+    "plot.data(x,y,interpolate=True,also_data=False,interpolator='exp',logy=True,init=False)\n",
+    "\n",
+    "\n",
+    "f1 = interp.interpolate(x,y,interpolator=\"exp\")\n",
+    "\n",
+    "f2 = lambda x_ : np.exp(interp.interpolate(x,unp.log(y),interpolator=\"linear\")(x_))\n",
+    "x2 = np.linspace(2,100,100)\n",
+    "plot.data(x2,f2(x2),logy=True,init=False)\n",
+    "plot.show()"
+   ]
+  },
+  {
    "cell_type": "markdown",
    "id": "261f739e",
    "metadata": {},
@@ -81,7 +105,7 @@
     "zz=xx**2+yy**2+10*xx+10*yy\n",
     "print(zz)\n",
     "plot.plot2d(xx,yy,zz,fill_missing=False,style='scatter',logz=False)\n",
-    "f=interpolate.interpolate(xx,yy,zz)\n",
+    "f=interp.interpolate(xx,yy,zz)\n",
     "print(f(xx,yy))\n",
     "xvalues = np.linspace(-10,10,11)\n",
     "yvalues = np.linspace(-10,10,11)\n",
@@ -103,10 +127,10 @@
     "xx = np.append(xx,xx)\n",
     "yy = np.append(yy,-yy)\n",
     "zz = xx**2+yy**2\n",
-    "f_cub=interpolate.interpolate(xx,yy,zz)\n",
-    "f_lin=interpolate.interpolate(xx,yy,zz,interpolator='linear')\n",
-    "f_lind=interpolate.interpolate(xx,yy,zz,interpolator='linearnd')\n",
-    "f_bi=interpolate.interpolate(xx,yy,zz,interpolator='bivariatespline')\n",
+    "f_cub=interp.interpolate(xx,yy,zz)\n",
+    "f_lin=interp.interpolate(xx,yy,zz,interpolator='linear')\n",
+    "f_lind=interp.interpolate(xx,yy,zz,interpolator='linearnd')\n",
+    "f_bi=interp.interpolate(xx,yy,zz,interpolator='bivariatespline')\n",
     "plot.plot2d(xx,yy,xx**2+yy**2,style='scatter',fill_missing=True,logz=False)\n",
     "\n",
     "xvalues = np.linspace(-10,10,11)\n",
