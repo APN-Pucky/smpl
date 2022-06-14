@@ -10,7 +10,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "75c4bab3",
+   "id": "a0ae32dc",
    "metadata": {},
    "source": [
     "## Interpolate 1d"
@@ -55,13 +55,14 @@
     "x = np.linspace(2,100,20)\n",
     "y = stat.poisson_dist(stat.noisy(x))\n",
     "plot.data(x,y,interpolate=True,sigmas=1,show=True)\n",
-    "f=plot.data(x,y,interpolate=True,sigmas=1,also_data=False)\n",
-    "f(50)"
+    "plot.data(x,y,interpolate=True,sigmas=1,also_data=False)\n",
+    "plot.data(x,y,interpolate=True,sigmas=1,also_data=False,init=False,interpolator='linear')\n",
+    "\"\""
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "bf65d66e",
+   "id": "261f739e",
    "metadata": {},
    "source": [
     "## Interpolate 2d"
@@ -70,7 +71,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "85d46dea",
+   "id": "860cf72a",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -78,8 +79,10 @@
     "yvalues = np.linspace(-10,10,5)\n",
     "xx, yy = data.flatmesh(xvalues, yvalues)\n",
     "zz=xx**2+yy**2+10*xx+10*yy\n",
+    "print(zz)\n",
     "plot.plot2d(xx,yy,zz,fill_missing=False,style='scatter',logz=False)\n",
     "f=interpolate.interpolate(xx,yy,zz)\n",
+    "print(f(xx,yy))\n",
     "xvalues = np.linspace(-10,10,11)\n",
     "yvalues = np.linspace(-10,10,11)\n",
     "xx, yy = data.flatmesh(xvalues, yvalues)\n",
@@ -89,26 +92,36 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "ef77afd5",
+   "id": "c041d3bb",
    "metadata": {},
    "outputs": [],
    "source": [
-    "xvalues = np.linspace(-10,10,20)\n",
+    "xvalues = np.linspace(-10,10,10)\n",
     "yvalues = xvalues*2\n",
     "xx = xvalues\n",
     "yy = yvalues\n",
     "xx = np.append(xx,xx)\n",
     "yy = np.append(yy,-yy)\n",
     "zz = xx**2+yy**2\n",
-    "f=interpolate.interpolate(xx,yy,zz)\n",
-    "plot.plot2d(xx,yy,xx**2+yy**2,fill_missing=True)\n",
-    "plot.plot2d(xx,yy,xx**2+yy**2,style='scatter',fill_missing=True)\n"
+    "f_cub=interpolate.interpolate(xx,yy,zz)\n",
+    "f_lin=interpolate.interpolate(xx,yy,zz,interpolator='linear')\n",
+    "f_lind=interpolate.interpolate(xx,yy,zz,interpolator='linearnd')\n",
+    "f_bi=interpolate.interpolate(xx,yy,zz,interpolator='bivariatespline')\n",
+    "plot.plot2d(xx,yy,xx**2+yy**2,style='scatter',fill_missing=True,logz=False)\n",
+    "\n",
+    "xvalues = np.linspace(-10,10,11)\n",
+    "yvalues = np.linspace(-20,20,11)\n",
+    "xx, yy = data.flatmesh(xvalues, yvalues)\n",
+    "plot.plot2d(xx,yy,f_cub(xx,yy),fill_missing=False,style='scatter',logz=False)\n",
+    "plot.plot2d(xx,yy,f_lin(xx,yy),fill_missing=False,style='scatter',logz=False)\n",
+    "plot.plot2d(xx,yy,f_lind(xx,yy),fill_missing=False,style='scatter',logz=False)\n",
+    "plot.plot2d(xx,yy,f_bi(xx,yy),fill_missing=False,style='scatter',logz=False)"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "d49ed312",
+   "id": "148efafc",
    "metadata": {},
    "outputs": [],
    "source": []

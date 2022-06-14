@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.134
+                0.0.135
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -290,8 +290,8 @@
     <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;residue&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">fig</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">plt_residue</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">rfit</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;also_fit&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolate&quot;</span><span class="p">]:</span>
-        <span class="c1">#return (ifit, x, y)</span>
-        <span class="k">return</span> <span class="n">ifit</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">ifit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="c1"># return ifit</span>
     <span class="k">return</span> <span class="n">rfit</span></div>
 
 <span class="c1"># @append_doc(default_kwargs)</span>
