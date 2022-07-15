@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>smpl.latex.latex &mdash; smpl  documentation</title>
+  <title>smpl.animation &mdash; smpl  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -27,7 +27,9 @@
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.data" href="smpl.data.html" />
+    <link rel="prev" title="SubplotAnimation" href="../example/animation/subplots/SubplotAnimation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,8 +64,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
@@ -93,9 +95,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>smpl.latex.latex</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/smpl.latex.latex.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/smpl.animation.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -127,35 +129,69 @@
     text-align: unset;
 }
 </style>
-<section id="module-smpl.latex.latex">
-<span id="smpl-latex-latex"></span><h1>smpl.latex.latex<a class="headerlink" href="#module-smpl.latex.latex" title="Permalink to this heading"></a></h1>
-<p class="rubric">Functions</p>
+<section id="module-smpl.animation">
+<span id="smpl-animation"></span><h1><a class="reference internal" href="#module-smpl.animation" title="smpl.animation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a><a class="headerlink" href="#module-smpl.animation" title="Permalink to this heading"></a></h1>
+<p>Simplified Animations.</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">si</span></code>(s[, u, fmt])</p></td>
-<td><p>Get number with uncertainty and unit in <code class="docutils literal notranslate"><span class="pre">si</span></code> format for latex.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.animation.animate" title="smpl.animation.animate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate</span></code></a>(**kwargs)</p></td>
+<td><p>Make frames to Animation</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_line</span></code>(a[, skip, fmt])</p></td>
-<td><p>Get array <code class="docutils literal notranslate"><span class="pre">a</span></code> in the format of a line of a latex table.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.animation.clear" title="smpl.animation.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p>Empties stored frames.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_tab</span></code>(tab[, skip, fmt])</p></td>
-<td><p>Get arrays of (uncertainty) numbers in  a latex table compatible form.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.animation.frame" title="smpl.animation.frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frame</span></code></a>()</p></td>
+<td><p>Saves current Matplotlib figure.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_ttab</span></code>(tab[, skip, fmt])</p></td>
-<td><p>Transposed <code class="xref py py-func docutils literal notranslate"><span class="pre">si_tab()</span></code>.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interactive</span></code>(func, *args, **kwargs)</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.animation.animate">
+<span class="sig-prename descclassname"><span class="pre">smpl.animation.</span></span><span class="sig-name descname"><span class="pre">animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/animation/animation.html#animate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.animation.animate" title="Permalink to this definition"></a></dt>
+<dd><p>Make frames to Animation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>They are passed directly to ArtistAnimation.</strong></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>ArtistAnimation</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.animation.clear">
+<span class="sig-prename descclassname"><span class="pre">smpl.animation.</span></span><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/animation/animation.html#clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.animation.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Empties stored frames.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.animation.frame">
+<span class="sig-prename descclassname"><span class="pre">smpl.animation.</span></span><span class="sig-name descname"><span class="pre">frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/animation/animation.html#frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.animation.frame" title="Permalink to this definition"></a></dt>
+<dd><p>Saves current Matplotlib figure.</p>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../example/animation/subplots/SubplotAnimation.html" class="btn btn-neutral float-left" title="SubplotAnimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smpl.data.html" class="btn btn-neutral float-right" title="smpl.data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
