@@ -1,9 +1,10 @@
 name: all
 
 defaults:
-  runs-on: ubuntu-latest
-  container:
-    image: apnpucky/ubuntu-pip
+  run:
+    runs-on: ubuntu-latest
+    container:
+      image: apnpucky/ubuntu-pip
 
 on: 
   push:
