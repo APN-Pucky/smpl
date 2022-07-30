@@ -34,13 +34,13 @@ jobs:
             project-token: ${{ secrets.CODACY_API_TOKEN }}
             coverage-reports: coverage.xml
         - name: Deploy Test PyPI
-          if: ${{ startsWith(github.ref, 'refs/tags') != true && github.event_name != 'pull_request' }}
+          if: ${{  github.ref == 'refs/heads/master' && github.event_name != 'pull_request' }}
           uses: pypa/gh-action-pypi-publish@master
           with:
             password: ${{ secrets.test_pypi_token }}
             repository_url: https://test.pypi.org/legacy/
         - name: Deploy Test Github Pages
-          if: ${{ startsWith(github.ref, 'refs/tags') != true && github.event_name != 'pull_request' }}
+          if: ${{ github.ref == 'refs/heads/master' && github.event_name != 'pull_request' }}
           uses: JamesIves/github-pages-deploy-action@4.1.5
           with:
             BRANCH: gh-pages # The branch the action should deploy to.
