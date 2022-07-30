@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>smpl.plot.plot &mdash; smpl  documentation</title>
@@ -38,7 +38,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.136-2-g497555a3
+                0.0.136-3-gd2d0be99
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -209,7 +209,7 @@ necessary if you want explicit deviations from these defaults.
 Alternatively, you can also change the style cycle using
 <a href="#id1"><span class="problematic" id="id2">:rc:`axes.prop_cycle`</span></a>.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>x, y</strong><span class="classifier">array-like or scalar</span></dt><dd><p>The horizontal / vertical coordinates of the data points.
 <em>x</em> values are optional and default to <code class="docutils literal notranslate"><span class="pre">range(len(y))</span></code>.</p>
@@ -239,13 +239,13 @@ You may suppress the warning by adding an empty format string
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt>list of <cite>.Line2D</cite></dt><dd><p>A list of lines representing the plotted data.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">Other Parameters</dt>
+<dt class="field-odd">Other Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>scalex, scaley</strong><span class="classifier">bool, default: True</span></dt><dd><p>These parameters determine if the view limits are adapted to the
 data limits. The values are passed on to <cite>autoscale_view</cite>.</p>
@@ -327,10 +327,6 @@ the data will be a line without markers.</p>
 supported, but note that their parsing may be ambiguous.</p>
 <p><strong>Markers</strong></p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>character</p></th>
 <th class="head"><p>description</p></th>
@@ -416,10 +412,6 @@ supported, but note that their parsing may be ambiguous.</p>
 </table>
 <p><strong>Line Styles</strong></p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>character</p></th>
 <th class="head"><p>description</p></th>
@@ -451,10 +443,6 @@ supported, but note that their parsing may be ambiguous.</p>
 <p><strong>Colors</strong></p>
 <p>The supported color abbreviations are the single letter codes</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 70%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>character</p></th>
 <th class="head"><p>color</p></th>
