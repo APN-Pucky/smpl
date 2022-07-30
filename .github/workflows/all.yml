@@ -35,7 +35,7 @@ jobs:
             coverage-reports: coverage.xml
         - name: Deploy Test PyPI
           if: ${{ startsWith(github.ref, 'refs/tags') != true && github.event_name != 'pull_request' }}
-          uses: pypa/gh-action-pypi-publish@master
+          uses: pypa/gh-action-pypi-publish@release/v1
           with:
             password: ${{ secrets.test_pypi_token }}
             repository_url: https://test.pypi.org/legacy/
@@ -48,7 +48,7 @@ jobs:
             target-folder: test
         - name: Deploy PyPI
           if: startsWith(github.ref, 'refs/tags')
-          uses: pypa/gh-action-pypi-publish@master
+          uses: pypa/gh-action-pypi-publish@release/v1
           with:
             password: ${{ secrets.pypi_token }}
         - name: Deploy Github Pages
