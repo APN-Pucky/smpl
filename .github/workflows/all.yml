@@ -40,6 +40,7 @@ jobs:
       name: Report coverage
       if: github.event_name != 'pull_request'
       needs: build
+      steps:
         - uses: actions/download-artifact@v3
           with:
             name: coverage  
@@ -56,6 +57,7 @@ jobs:
       name: Deploy PyPi
       if: github.event_name != 'pull_request'
       needs: build
+      steps:
         - uses: actions/download-artifact@v3
           with:
             name: dist
@@ -75,6 +77,7 @@ jobs:
       name: Deploy Github Pages
       if: github.event_name != 'pull_request'
       needs: build
+      steps:
         - uses: actions/download-artifact@v3
           with:
             name: build
