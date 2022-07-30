@@ -85,6 +85,12 @@ jobs:
       if: github.event_name != 'pull_request'
       needs: build
       steps:
+        - name: work around permission issue
+          run: git config --global --add safe.directory /__w/smpl/smpl
+        - uses: actions/checkout@v2
+          with:
+            fetch-depth: "0"
+        - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
         - uses: actions/download-artifact@v3
           with:
             name: build
