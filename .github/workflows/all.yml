@@ -33,7 +33,7 @@ jobs:
             path: dist
         - uses: actions/upload-artifact@v3
           with:
-            name: doc
+            name: build
             path: build
 
     report:
