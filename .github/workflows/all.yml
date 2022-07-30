@@ -2,9 +2,7 @@ name: all
 
 defaults:
   run:
-    runs-on: ubuntu-latest
-    container:
-      image: apnpucky/ubuntu-pip
+
 
 on: 
   push:
@@ -12,6 +10,9 @@ on:
 
 jobs:
     build:
+      runs-on: ubuntu-latest
+      container:
+        image: apnpucky/ubuntu-pip
       steps:
         - name: work around permission issue
           run: git config --global --add safe.directory /__w/smpl/smpl
@@ -38,6 +39,9 @@ jobs:
             path: build
 
     report:
+      runs-on: ubuntu-latest
+      container:
+        image: apnpucky/ubuntu-pip
       name: Report coverage
       if: github.event_name != 'pull_request'
       needs: build
@@ -55,6 +59,9 @@ jobs:
             coverage-reports: coverage.xml
         
     pypi:
+      runs-on: ubuntu-latest
+      container:
+        image: apnpucky/ubuntu-pip
       name: Deploy PyPi
       if: github.event_name != 'pull_request'
       needs: build
@@ -75,6 +82,9 @@ jobs:
             password: ${{ secrets.pypi_token }}
 
     ghpages:
+      runs-on: ubuntu-latest
+      container:
+        image: apnpucky/ubuntu-pip
       name: Deploy Github Pages
       if: github.event_name != 'pull_request'
       needs: build
