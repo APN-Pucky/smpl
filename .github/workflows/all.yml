@@ -64,6 +64,7 @@ jobs:
         - uses: actions/download-artifact@v3
           with:
             name: dist
+            path: dist
         - name: Deploy Test PyPI
           if: github.ref == 'refs/heads/master'
           uses: pypa/gh-action-pypi-publish@release/v1
@@ -87,6 +88,7 @@ jobs:
         - uses: actions/download-artifact@v3
           with:
             name: build
+            path: build
         - name: Deploy Test Github Pages
           if: github.ref == 'refs/heads/master'
           uses: JamesIves/github-pages-deploy-action@4.1.5
