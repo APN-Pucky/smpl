@@ -1,9 +1,5 @@
 name: all
 
-defaults:
-  run:
-
-
 on: 
   push:
   pull_request:
