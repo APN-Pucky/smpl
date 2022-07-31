@@ -3,32 +3,6 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-requirements = [
-    "uncertainties",
-    "numpy",
-    "matplotlib",
-    "scipy",
-    "sympy",
-    "tqdm",
-    "pandas",
-    # "requests",
-]
-dev_requirements = [
-    "build",
-    "pytest",
-    "sphinx",
-    "sphinx-math-dollar",
-    "jupyterlab",
-    "numpydoc",
-    "sphinx",
-    "nbsphinx",
-    "sphinx-rtd-theme",
-    "pandas",
-    "ipython",
-    "pandoc",
-    "jupyter-sphinx"
-]
-
 setuptools.setup(
     name="smpl",
     setup_requires=['setuptools-git-versioning'],
@@ -44,9 +18,36 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
-    install_requires=requirements,
-    extra_require={
-        'dev': dev_requirements
+    install_requires=[
+        "uncertainties",
+        "numpy",
+        "matplotlib",
+        "scipy",
+        "sympy",
+        "tqdm",
+        "pandas",
+        "ipywidgets",
+        "iminuit",
+        # "requests",
+    ],
+    extras_require={
+        'dev': [
+            "build",
+            "pytest",
+            "pytest-cov",
+            "jupyterlab",
+            "pandas",
+            "ipython",
+        ],
+        'docs': [
+            "jupyter-sphinx",
+            "sphinx-math-dollar",
+            "pandoc",
+            "sphinx",
+            "nbsphinx",
+            "sphinx-rtd-theme",
+            "numpydoc",
+        ]
     },
     version_config={
         "template": "{tag}",

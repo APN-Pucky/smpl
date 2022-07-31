@@ -1,7 +1,8 @@
+from typing import List
 import numpy as np
 
 
-def si(s, u="", fmt="{}"):
+def si(s, u:str="", fmt:str="{}"):
     """
     Get number with uncertainty and unit in ``si`` format for latex.
 
@@ -34,7 +35,7 @@ def si(s, u="", fmt="{}"):
     return "\\SI{%s}{%s}" % ((fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""), u)
 
 
-def si_line(a, skip=0, fmt="{}"):
+def si_line(a, skip:int=0, fmt:str="{}"):
     """
     Get array ``a`` in the format of a line of a latex table.
 
@@ -47,7 +48,7 @@ def si_line(a, skip=0, fmt="{}"):
     return si_tab(np.transpose([[t] for t in a]), skip, fmt)
 
 
-def si_ttab(tab, skip=0, fmt="{}"):
+def si_ttab(tab, skip:int=0, fmt:str="{}"):
     """
     Transposed :func:`si_tab`.
 
@@ -89,8 +90,8 @@ def si_tab(tab, skip=0, fmt="{}"):
 
     Returns
     -------
-    tabstr : str
-        table latex string
+    str
+        
 
     Examples
     --------

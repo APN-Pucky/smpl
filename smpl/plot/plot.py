@@ -1,3 +1,4 @@
+from turtle import color
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
@@ -5,15 +6,14 @@ import uncertainties
 import uncertainties.unumpy as unp
 import sympy
 import matplotlib.pylab as pylab
-from cycler import cycler
 import itertools
 # local imports
+from smpl import interpolate
 from smpl import io
 from smpl import util
 from smpl import wrap
 from smpl import doc
 from smpl import fit as ffit
-import copy
 
 
 def set_plot_style():
@@ -58,6 +58,7 @@ default = {
     'function_color': [None, "Color of the function plot", ],
     'data_color': [None, "Color of the data plot", ],
     'fit_color': [None, "Color of the fit plot", ],
+    'fit_fmt': ["-", "Format of the fit plot", ],
     'residue': [False, "Display difference between fit and data in a second plot", ],
     'residue_err': [True, "Differences between fit and data will have errorbars", ],
     'show': [False, "Call plt.show()", ],
@@ -66,10 +67,13 @@ default = {
     # ,          'selector'      :[ None     ,"Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.",],
     # ,          'fixed_params'  :[ True     ,"Enable fixing parameters by choosing the same-named variables from ``kwargs``.",],
     # ,          'sortbyx'       :[ True     , "Enable sorting the x and y data so that x is sorted.",],
-    'interpolate': [True, "Enable interpolation of whole data if fit range is limited by ``frange`` or ``fselector``.", ],
-    'interpolate_min': [None, "Lower interpolation bound", ],
-    'interpolate_max': [None, "Higher interpolation bound", ],
-    'interpolate_hatch': [r"||", "Interpolation shape/hatch for filled area in case of ``sigmas``>0. See https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html", ],
+    'interpolate': [False, "Enable interpolation of the data."],
+    'interpolate_fmt': ["-", "Either format string or linestyle tuple.", ],
+    'extrapolate': [True, "Enable extrapolation of whole data if fit range is limited by ``frange`` or ``fselector``.", ],
+    'extrapolate_min': [None, "Lower extrapolation bound", ],
+    'extrapolate_max': [None, "Higher extrapolation bound", ],
+    'extrapolate_fmt': ["--", "Format of the extrapolation line", ],
+    'extrapolate_hatch': [r"||", "Extrapolation shape/hatch for filled area in case of ``sigmas``>0. See https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html", ],
     'bbox_to_anchor': [None, "Position in a tuple (x,y),Shift position of the legend out of the main pane. ", ],
     'ncol': [None, "Columns in the legend if used with ``bbox_to_anchor``.", ],
     'steps': [1000, "resolution of the plotted function", ],
@@ -79,7 +83,8 @@ default = {
     'stairs': [False, "Enable stair plot", ],
     'capsize': [5, "size of cap on error bar plot"],
     'axes': [None, "set current axis"],
-    'linestyle': [None, "linestyle, only active if `fmt`=None"]
+    'linestyle': [None, "linestyle, only active if `fmt`=None"],
+    'xspace': [np.linspace, "xspace gets called with xspace(xmin,xmax,steps) in :func:`function` to get the points of the function that will be drawn."]
 }
 
 
@@ -159,21 +164,31 @@ def fit(datax, datay, function, **kwargs):
 
     """
     kwargs = plot_kwargs(kwargs)
-    fit = None
+    x = None
+    y = None
+    rfit = None
+    ifit = None
     fig = None
     fig = init_plot(kwargs)
+    ll = None
     if kwargs['also_data']:
-        plt_data(datax, datay, **kwargs)
+        ll = plt_data(datax, datay, **kwargs).get_color()
+    if kwargs['interpolate']:
+        ifit, _, x, y = plt_interpolate(datax, datay, icolor=ll, **kwargs)
     if kwargs['also_fit']:
-        fit, kwargs['fit_color'] = plt_fit(datax, datay, function, **kwargs)
+        rfit, kwargs['fit_color'], _, _ = plt_fit(
+            datax, datay, function, **kwargs)
     if kwargs['ss']:
         kwargs['oldshow'] = kwargs['show']
         kwargs['show'] = kwargs['show'] and not kwargs['residue']
         save_plot(**kwargs)
         kwargs['show'] = kwargs['oldshow']
     if kwargs['residue'] and fig is not None:
-        plt_residue(datax, datay, function, fit, fig, **kwargs)
-    return fit
+        plt_residue(datax, datay, function, rfit, fig, **kwargs)
+    if not kwargs["also_fit"] and kwargs["interpolate"]:
+        return (ifit, x, y)
+        # return ifit
+    return rfit
 
 # @append_doc(default_kwargs)
 
@@ -218,20 +233,33 @@ def _function(func, xfit, **kwargs):
     __function(func, xfit, **kargs)
 
 
-def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0.):
+def plt_plt(x, y, fmt, color, label, linestyle):
+    if linestyle is None and fmt is not None:
+        return plt.plot(x, y, fmt, label=label, color=color)
+    elif linestyle is not None and fmt is None:
+        return plt.plot(x, y, label=label, color=color, linestyle=linestyle)
+    elif linestyle is None and fmt is None:
+        return plt.plot(x, y, label=label, color=color)
+
+
+def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0., linestyle=None):
     func = gfunc
     x = xlinspace
     l = label
-    if isinstance(func(x[0]), uncertainties.UFloat):
+
+    if isinstance(func(x)[0], uncertainties.UFloat):
         if sigmas > 0:
-            ll, = plt.plot(x, unv(func(x)), fmt, color=color)
+            ll, = plt_plt(x, unv(func(x)), fmt, label=None,
+                          color=color, linestyle=linestyle)
             y = func(x)
             plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
                 y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
         else:
-            ll, = plt.plot(x, unv(func(x)), fmt, label=l, color=color)
+            ll, = plt_plt(x, unv(func(x)), fmt,  label=l,
+                          color=color, linestyle=linestyle)
     else:
-        ll, = plt.plot(x, func(x), fmt, label=l, color=color)
+        ll, = plt_plt(x, func(x), fmt,  label=l,
+                      color=color, linestyle=linestyle)
     return ll
 
 
@@ -262,7 +290,7 @@ def function(func, *args, **kwargs):
     else:
         kwargs = plot_kwargs(kwargs)
 
-    xlin = np.linspace(kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
+    xlin = kwargs["xspace"](kwargs['xmin'], kwargs['xmax'], kwargs['steps'])
     init_plot(kwargs)
 
     # kwargs['lpos'] = 0
@@ -274,16 +302,16 @@ def function(func, *args, **kwargs):
 
 
 # xaxis="",yaxis="",fit_color=None,save = None,residue_err=True,show=False):
-def plt_residue(datax, datay, gfunction, fit, fig, **kwargs):
+def plt_residue(datax, datay, gfunction, rfit, fig, **kwargs):
     function = wrap.get_lambda(gfunction, kwargs['xvar'])
     fig.add_axes((.1, .1, .8, .2))
     kwargs['yaxis'] = "$\\Delta$" + kwargs['yaxis']
     kwargs['data_color'] = kwargs['fit_color']
 
     if kwargs['residue_err']:
-        plt_data(datax, datay-function(datax, *fit), **kwargs)
+        plt_data(datax, datay-function(datax, *rfit), **kwargs)
     else:
-        plt_data(unv(datax), unv(datay-function(datax, *fit)), **kwargs)
+        plt_data(unv(datax), unv(datay-function(datax, *rfit)), **kwargs)
     kwargs['lpos'] = -1
     save_plot(**kwargs)
 
@@ -309,32 +337,33 @@ def plt_data(datax, datay, **kwargs):
     if yerr is not None:
         yerr = yerr * kwargs['data_sigmas']
 
+    ll = None
     if xerr is None and yerr is None:
         if kwargs['fmt'] is None:
             if kwargs['linestyle'] is None:
-                plt.plot(
+                ll, = plt.plot(
                     x, y, label=kwargs['label'], color=kwargs['data_color'])
             else:
-                plt.plot(
+                ll, = plt.plot(
                     x, y, label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
         elif kwargs['fmt'] == "step":
-            plt.step(x, y, where='mid',
-                     label=kwargs['label'], color=kwargs['data_color'])
+            ll, = plt.step(x, y, where='mid',
+                           label=kwargs['label'], color=kwargs['data_color'])
         elif kwargs['fmt'] == "hist":
-            plt.step(x, y, where='mid',
-                     label=kwargs['label'], color=kwargs['data_color'])
-            plt.fill_between(x, y, step="mid")
+            ll, = plt.step(x, y, where='mid',
+                           label=kwargs['label'], color=kwargs['data_color'])
+            plt.fill_between(x, y, step="mid", color=ll.get_color())
         else:
-            plt.plot(x, y, kwargs['fmt'], label=kwargs['label'],
-                     color=kwargs['data_color'])
+            ll, = plt.plot(x, y, kwargs['fmt'], label=kwargs['label'],
+                           color=kwargs['data_color'])
     else:
         if kwargs['fmt'] is None:
             if kwargs['linestyle'] is None:
-                plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
-                             label=kwargs['label'], color=kwargs['data_color'])
+                ll, _, _, = plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
+                                         label=kwargs['label'], color=kwargs['data_color'])
             else:
-                plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
-                             label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
+                ll, _, _, = plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
+                                         label=kwargs['label'], color=kwargs['data_color'], linestyle=kwargs['linestyle'])
         elif kwargs['fmt'] == "step":
             ll, = plt.step(x, y, where='mid',
                            color=kwargs['data_color'])
@@ -348,60 +377,81 @@ def plt_data(datax, datay, **kwargs):
                 plt.fill_between(x, y-yerr, y+yerr,
                                  label=kwargs['label'], alpha=0.2, step='mid', color=ll.get_color())
         elif kwargs['fmt'] == "hist":
-            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
-                         color="black")
-            plt.fill_between(x, y, step="mid", label=kwargs['label'])
+            ll, _, _, = plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
+                                     color="black")
+            plt.fill_between(x, y, step="mid",
+                             label=kwargs['label'], color=ll.get_color())
         else:
-            plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=kwargs['fmt'], capsize=kwargs["capsize"],
-                         label=kwargs['label'], color=kwargs['data_color'])
+            ll, _, _, = plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=kwargs['fmt'], capsize=kwargs["capsize"],
+                                     label=kwargs['label'], color=kwargs['data_color'])
+    return ll
 
 
-def get_fnc_legend(function, fit, **kwargs):
+def get_fnc_legend(function, rfit, **kwargs):
     l = wrap.get_latex(function)
 
     vnames = wrap.get_varnames(function, kwargs['xvar'])
     for i in range(1, len(vnames)):
         l = l + ("\n" if not kwargs["fitinline"] or i == 1 else " ")
         l = l + "$" + sympy.latex(sympy.symbols(str(vnames[i]))) + "$="
-        if kwargs['units'] is not None and usd(fit[i-1]) > 0:
+        if kwargs['units'] is not None and usd(rfit[i-1]) > 0:
             l = l + "("
         if 'number_format' in kwargs:
-            l = l + kwargs['number_format'].format(fit[i-1])
+            l = l + kwargs['number_format'].format(rfit[i-1])
         else:
-            l = l + "%s" % (fit[i-1])
+            l = l + "%s" % (rfit[i-1])
 
-        if kwargs['units'] is not None and usd(fit[i-1]) > 0:
+        if kwargs['units'] is not None and usd(rfit[i-1]) > 0:
             l = l + ")"
         if kwargs['units'] is not None:
             l = l + " " + kwargs['units'][i-1]
     return l
 
 
-def plt_fit(datax, datay, gfunction, **kwargs):
-    """
-    Plot Fit
-    """
-    func = wrap.get_lambda(gfunction, kwargs['xvar'])
-    fit = _fit(datax, datay, gfunction, **kwargs)
-    def fitted(x): return func(x, *fit)
-    l = get_fnc_legend(gfunction, fit, **kwargs)
+def plt_fit_or_interpolate(datax, datay, fitted, l=None, c=None, f=None, ls=None, **kwargs):
     if kwargs['prange'] is None:
         x, _, _, _ = ffit.fit_split(datax, datay, **kwargs)
-        xfit = np.linspace(np.min(unv(x)), np.max(unv(x)), kwargs['steps'])
+        xfit = kwargs['xspace'](
+            np.min(unv(x)), np.max(unv(x)), kwargs['steps'])
     else:
-        xfit = np.linspace(kwargs['prange'][0],
-                           kwargs['prange'][1], kwargs['steps'])
-    ll = __function(fitted, xfit, "-", label=l,
-                    color=kwargs['fit_color'], sigmas=kwargs['sigmas'])
+        xfit = kwargs['xspace'](kwargs['prange'][0],
+                                kwargs['prange'][1], kwargs['steps'])
+    ll = __function(fitted, xfit, kwargs['fit_fmt'] if f is not None and ls is None else f, label=l,
+                    color=kwargs['fit_color'] if c is None else c, sigmas=kwargs['sigmas'], linestyle=ls)
 
-    if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('interpolate', kwargs) or util.has("interpolate_max", kwargs) or util.has("interpolate_min", kwargs):
-        xxfit = np.linspace(util.get("interpolate_min", kwargs, np.min(
-            unv(datax))), util.get("interpolate_max", kwargs, np.max(unv(datax))), kwargs['steps'])
-        __function(fitted, np.linspace(np.min(xxfit), np.min(xfit), kwargs['steps']), "--",
-                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
-        __function(fitted, np.linspace(np.max(xfit), np.max(xxfit), kwargs['steps']), "--",
-                   color=ll.get_color(), hatch=util.get("interpolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
-    return fit, ll.get_color()
+    if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('extrapolate', kwargs) or util.has("extrapolate_max", kwargs) or util.has("extrapolate_min", kwargs):
+        xxfit = kwargs['xspace'](util.get("extrapolate_min", kwargs, np.min(
+            unv(datax))), util.get("extrapolate_max", kwargs, np.max(unv(datax))), kwargs['steps'])
+        __function(fitted, kwargs['xspace'](np.min(xxfit), np.min(xfit), kwargs['steps']), util.get("extrapolate_fmt", kwargs, "--"),
+                   color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
+        __function(fitted, kwargs['xspace'](np.max(xfit), np.max(xxfit), kwargs['steps']), util.get("extrapolate_fmt", kwargs, "--"),
+                   color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
+    return ll.get_color(), xfit, fitted(xfit)
+
+
+def plt_interpolate(datax, datay, icolor=None,  **kwargs):
+    """
+    Interpolate and Plot that Interpolation.
+    """
+    inter = interpolate.interpolate(datax, datay, **kwargs)
+    kargs = {}
+    if isinstance(kwargs["interpolate_fmt"], tuple):
+        kargs["ls"] = kwargs["interpolate_fmt"]
+    else:
+        kargs["f"] = kwargs["interpolate_fmt"]
+    # l = None so that no label
+    return (inter, *plt_fit_or_interpolate(datax, datay, inter, l=None, c=icolor, **kargs, **kwargs))
+
+
+def plt_fit(datax, datay, gfunction, **kwargs):
+    """
+    Fit and Plot that Fit.
+    """
+    func = wrap.get_lambda(gfunction, kwargs['xvar'])
+    rfit = _fit(datax, datay, gfunction, **kwargs)
+    def fitted(x): return func(x, *rfit)
+    l = get_fnc_legend(gfunction, rfit, **kwargs)
+    return (rfit, *plt_fit_or_interpolate(datax, datay, fitted, l, **kwargs))
 
 
 def init_plot(kwargs):

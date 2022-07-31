@@ -76,7 +76,26 @@ def insert_str(txt):
 
 
 def insert_doc(original):
-    """Inserts the docstring from passed function ``original`` in the ``target`` function docstring."""
+    """
+    Inserts the docstring from passed function ``original`` in the ``target`` function docstring.
+
+    Parameters
+    ----------
+    original : ``class`` or ``function``
+        ``orignal.__doc__`` is inserted to the ``__doc__`` of the ``target``
+
+    Examples
+    --------
+    >>> def ho():
+    ...     '''Ho'''
+    ...     print(ho.__doc__)
+    >>> @insert_doc(ho)
+    ... def hi():
+    ...     '''Hi'''
+    ...     print(hi.__doc__)
+    >>> hi()
+    HoHi
+    """
     return _insert(original.__doc__)
 
 

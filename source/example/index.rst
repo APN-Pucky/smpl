@@ -7,6 +7,7 @@ Examples
 
     plot/*
     fit/*
+    interpolate/*
     latex/*
     parallel/*
     uncertainties/*

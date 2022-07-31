@@ -1,7 +1,7 @@
+import enum
 import numpy as np
 import warnings
-from scipy import optimize
-from scipy.odr.odrpack import ODR, Model, RealData
+
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from smpl import debug
@@ -10,62 +10,58 @@ from smpl import stat
 from smpl import util
 from smpl import wrap
 from smpl import doc
-from numpy.linalg import LinAlgError
+from smpl import data
+from numpy.linalg import LinAlgError, inv
 from tqdm import tqdm
+import enum
+
+from .minuit import _fit_minuit_leastsquares
+from .scipy import _fit_curvefit, _fit_odr
+
 
 unv = unp.nominal_values
 usd = unp.std_devs
 
-default = {'params': [None, "Initial fit parameters", ],
-           #            'xaxis'         :[""        ,"X axis label",],
-           #            'yaxis'         :[""        ,"Y axis label",],
-           #            'label'         :[None      ,"Legend name of plotted ``data``",],
-           #            'fmt'           :['.'       ,"Format for plotting fit function",],
-           #           'units'         :[None      ,"Units of the fit parameters as strings. Displayed in the Legend",],
-           #           'save'          :[None      ," File to save the plot",],
-           #         'lpos'          :[0         ,"Legend position",],
-           'frange': [None, "Limit the fit to given range. First integer is the lowest and second the highest index.", ],
-           #          'prange'        :[None      ,"Limit the plot of the fit to given range",],
-           #         'sigmas'        :[0         ,"Color the array of given ``sigma`` times uncertaint",],
-           #          'init'          :[True      ,"Initialize a new plot"],
-           #          'ss'            :[True      ,"save, add legends and grid to the plot",],
-           #          'also_data'     :[True      ," also plot the data"],
-           #          'also_fit'      :[True      ,"also plot the fit",],
-           #          'logy'          :[False     ,"logarithmic x axis",],
-           #          'logx'          :[False     ,"logarithmic y axis",],
-           #          'data_color'    :[None      , "Color of the data plot", ],
-           #          'fit_color'     :[None      ,"Color of the fit plot",],
-           #         'residue'       :[False     ,"Display difference between fit and data in a second plot",],
-           #          'residue_err'   :[True      ,"Differences between fit and data will have errorbars",],
-           #          'show'          :[False     ,"Call plt.show()",],
-           #         'size'          :[None      ,"Size of the plot as a tuple (x,y)",],
-           #          'number_format' :[ io.gf(4) ,"Format to display numbers.",],
-           'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
-           'fixed_params': [True, "Enable fixing parameters by choosing the same-named variables from ``kwargs``.", ],
-           'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
-           'maxfev': [10000, "Maximum function evaluations during fitting.", ],
-           'epsfcn': [0.0001, "Suitable step length for jacobian approximation.", ],
-           'xvar': [None, "Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.", ],
-           #          'interpolate'   :[ True     , "Enable interpolation of whole data if fit range is limited by ``frange`` or ``selector``.",],
-           #          'bbox_to_anchor':[ None     , "Position in a tuple (x,y),Shift position of the legend out of the main pane. ",],
-           #          'ncol'          :[ None     , "Columns in the legend if used with ``bbox_to_anchor``.",],
-           #          'steps'         :[ 1000     ,"resolution of the plotted function" ],
-           'bins': [0, "Number of bins for histogram", ],
-           'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
-           'autotqdm': [True, "Auto fitting display tqdm", ],
-           'xerror': [True, "enable xerrors"],
-           'yerror': [True, "enable yerrors"],
-           }
+
+class Fitter(enum.Enum):
+    """
+    Different implementations to perform a fit.
+    """
+    AUTO = 0
+    SCIPY_CURVEFIT = 1
+    SCIPY_ODR = 2
+    MINUIT_LEASTSQUARES = 3
+
+
+default = {
+    'params': [None, "Initial fit parameters", ],
+    # 'frange': [None, "Limit the fit to given range. First integer is the lowest and second the highest index.", ],
+    # 'fselector': [None, "Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.", ],
+    'fixed_params': [True, "Enable fixing parameters by choosing the same-named variables from ``kwargs``.", ],
+    # 'sortbyx': [True, "Enable sorting the x and y data so that x is sorted.", ],
+    'maxfev': [10000, "Maximum function evaluations during fitting.", ],
+    'epsfcn': [0.0001, "Suitable step length for jacobian approximation.", ],
+    'xvar': [None, "Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.", ],
+    # 'bins': [0, "Number of bins for histogram", ],
+    # 'binunc': [stat.poisson_dist, "Number of bins for histogram", ],
+    'autotqdm': [True, "Auto fitting display tqdm", ],
+    # 'xerror': [True, "enable xerrors"],
+    # 'yerror': [True, "enable yerrors"],
+    'fitter': [Fitter.AUTO, "Choose from :class:`Fitter`s."]
+}
 
 # @doc.insert_str("\tDefault kwargs\n\n\t")
 
 
+@doc.append_doc(data.data_kwargs)
+@doc.append_str("\t")
 @doc.append_str(doc.table(default, init=False))
 @doc.append_str(doc.table({"fit_kwargs": ["default", "description"]}, bottom=False))
 def fit_kwargs(kwargs):
     """Set default fit_kwargs if not set.
 
     """
+    kwargs = data.data_kwargs(kwargs)
     for k, v in default.items():
         if not k in kwargs:
             kwargs[k] = v[0]
@@ -171,10 +167,18 @@ def fit(datax, datay, function, **kwargs):
         # print(Ntot)
         # print(tmp_x)
         return unv(wrap.get_lambda(function, kwargs['xvar'])(x[0], *tmp_x))
-    if xerr is not None:
-        fit = _fit_odr(x, y, tmp, params=params, xerr=xerr, yerr=yerr)
-    else:
+    fitter = kwargs["fitter"]
+    if fitter is Fitter.AUTO:
+        if xerr is not None:
+            fitter = Fitter.SCIPY_ODR
+        else:
+            fitter = Fitter.SCIPY_CURVEFIT
+    if fitter is Fitter.MINUIT_LEASTSQUARES:
+        fit = _fit_minuit_leastsquares(x, y, tmp, params=params, yerr=yerr)
+    elif fitter is Fitter.SCIPY_CURVEFIT:
         fit = _fit_curvefit(x, y, tmp, params=params, yerr=yerr)
+    elif fitter is Fitter.SCIPY_ODR:
+        fit = _fit_odr(x, y, tmp, params=params, xerr=xerr, yerr=yerr)
 
     rfit = []
     j = 0
@@ -188,78 +192,26 @@ def fit(datax, datay, function, **kwargs):
     return rfit
 
 
-# fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
-# gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
-#
-# https://stackoverflow.com/questionsquestions/14581358/getting-standard-errors-on-fitted-parameters-using-the-optimize-leastsq-method-i#
-# Updated on 4/6/2016
-# User: https://stackoverflow.com/users/1476240/pedro-m-duarte
-def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
-    try:
-        pfit, pcov = \
-            optimize.curve_fit(function, datax, datay, p0=params,
-                               sigma=yerr, epsfcn=util.get("epsfcn", kwargs, 0.0001), **kwargs, maxfev=util.get("maxfev", kwargs, 10000))
-    except RuntimeError as e:
-        debug.msg(str(e))
-        return params
-    error = []
-    for i in range(len(pfit)):
-        try:
-            error.append(np.absolute(pcov[i][i])**0.5)
-        except Exception as e:
-            warnings.warn(str(e))
-            error.append(0.00)
-    return unc.correlated_values(pfit, pcov)
+@doc.insert_doc(stat.Chi2)
+def Chi2(datax, datay, function, ff, **kwargs):
+    kwargs = fit_kwargs(kwargs)
+    x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
+    sigmas = yerr
+    return stat.Chi2(y, unv(function(x, *ff)), sigmas)
 
 
-def _fit_odr(datax, datay, function, params=None, yerr=None, xerr=None):
-    model = Model(lambda p, x: function(x, *p))
-    realdata = RealData(datax, datay, sy=yerr, sx=xerr)
-    odr = ODR(realdata, model, beta0=params)
-    out = odr.run()
-    # This was the old wrong way! Now use correct co. matrix through unc-package!
-    # Note Issues on scipy odr and curve_fit, regarding different definitions/namings of standard deviation or error and covaraince matrix
-    # https://github.com/scipy/scipy/issues/6842
-    # https://github.com/scipy/scipy/pull/12207
-    # https://stackoverflow.com/questions/62460399/comparison-of-curve-fit-and-scipy-odr-absolute-sigma
-    return unc.correlated_values(out.beta, out.cov_beta)
+@doc.insert_doc(stat.R2)
+def R2(datax, datay, function, ff, **kwargs):
+    kwargs = fit_kwargs(kwargs)
+    x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
+    return stat.R2(y, unv(function(x, *ff)))
 
 
 def data_split(datax, datay, **kwargs):
     """
     Split data + errors
     """
-    if kwargs['bins'] > 0:
-        N, bins = np.histogram(unv(datax), bins=kwargs['bins'])
-        y = kwargs['binunc'](N)
-        yerr = usd(y)
-        yerr = yerr if np.any(np.abs(yerr) > 0) else None
-        return bins[0:-1] - (bins[0]-bins[1])/2, unv(y), None, yerr
-    if util.has("sortbyx", kwargs) and kwargs['sortbyx']:
-        ind = np.argsort(unv(datax))
-    else:
-        ind = np.array(range(len(datax)))
-    x = unv(datax)[ind]
-    y = unv(datay)[ind]
-    xerr = usd(datax)[ind]
-    yerr = usd(datay)[ind]
-    xerr = xerr if np.any(np.abs(xerr) > 0) else None
-    yerr = yerr if np.any(np.abs(yerr) > 0) else None
-    if util.has("xerror", kwargs) and not kwargs['xerror']:
-        xerr = None
-    if util.has("yerror", kwargs) and not kwargs['yerror']:
-        yerr = None
-    return x, y, xerr, yerr
-
-
-def _data_split(datax, datay, **kwargs):
-    if util.has('fselector', kwargs):
-        sel = kwargs['fselector']
-        if callable(sel):
-            return data_split(datax[sel(datax, datay)], datay[sel(datax, datay)], **kwargs)
-        else:
-            return data_split(datax[sel], datay[sel], **kwargs)
-    return data_split(datax, datay, **kwargs)
+    return data.__data_split(datax, datay, **kwargs)
 
 
 def fit_split(datax, datay, **kwargs):
@@ -272,16 +224,7 @@ def fit_split(datax, datay, **kwargs):
         see :func:`fit_kwargs`.
     """
     kwargs = fit_kwargs(kwargs)
-    x, y, xerr, yerr = _data_split(datax, datay, **kwargs)
-    if util.has('frange', kwargs):
-        x = x[kwargs['frange'][0]:kwargs['frange'][1]]
-        y = y[kwargs['frange'][0]:kwargs['frange'][1]]
-        if not yerr is None:
-            yerr = yerr[kwargs['frange'][0]:kwargs['frange'][1]]
-        if not xerr is None:
-            xerr = xerr[kwargs['frange'][0]:kwargs['frange'][1]]
-
-    return x, y, xerr, yerr
+    return data.filtered_data_split(datax, datay, **kwargs)
 
 
 if __name__ == "__main__":

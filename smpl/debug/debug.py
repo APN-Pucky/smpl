@@ -87,13 +87,15 @@ def get_line_number(_back=0):
     return get_line_number_file(_back+1)[0]
 
 
-def line(msg_, tag="", level=0, times=-1, _back=0):
-    msg(msg_, tag=tag, level=level, times=times, line_=True, _back=_back+1)
+def line(msg_, tag="", level=0, times=-1, _back=0, **kwargs):
+    msg(msg_, tag=tag, level=level, times=times,
+        line_=True, _back=_back+1, **kwargs)
 # only once
 
 
-def line1(msg_, tag="", level=0, times=-1, _back=0):
-    msg1(msg_, tag=tag, level=level, times=times, line_=True, _back=_back+1)
+def line1(msg_, tag="", level=0, times=-1, _back=0, **kwargs):
+    msg1(msg_, tag=tag, level=level, times=times,
+         line_=True, _back=_back+1, **kwargs)
 
 # counting functions
 
@@ -120,9 +122,22 @@ def check_count(line, fname, t):
 
 # _line enables printint src line
 # t stands for times
-def msg(msg, tag="", level=0, times=-1, line_=False, _back=0):
+def msg(msg, tag="", level=0, times=-1, line_=False, _back=0, **kwargs):
     """
     Prints the message ``msg`` if level > debug_level and always returns the msg.
+
+    Parameters
+    ----------
+    tag : str
+        Sets a tag to be printed for the debug message.
+    level : int
+        Debug level.
+    times : int
+        How often should the message be printed if the function gets called multiple times (e.g. in a loop).
+    _line : bool
+        Print the current line in the python source.
+    _back : int
+        Number of stack/frames to go back.
 
     Examples
     --------
@@ -146,6 +161,13 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0):
     return msg
 
 
+def msg1(_msg, tag="", level=0, times=1, line_=False, _back=0, **kwargs):
+    """
+    Just like :func:`msg` but ``times`` set to 1.
+    """
+    return msg(_msg, level=level, tag=tag, times=times, line_=line_, _back=_back+1, **kwargs)
+
+
 def file(key, value, level=0, times=-1, seperator=";", _print=True, _back=0, filename="debug.csv"):
     """
     Prints the message ``msg`` if level > debug_level to file ``filename``
@@ -162,6 +184,13 @@ def file(key, value, level=0, times=-1, seperator=";", _print=True, _back=0, fil
             f.write(key + seperator + value + "\n")
             f.close()
     return value
+
+
+def file1(_key, _value, level=0, times=1, _back=0, **kwargs):
+    """
+    Just like :func:`file` but ``times`` set to 1.
+    """
+    return file(_key, _value, level=level, times=times, _back=_back+1, **kwargs)
 
 
 def table_flush_header(filename="debug_table.csv", seperator=";"):
@@ -214,24 +243,10 @@ def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, f
     return value
 
 
-# only once
-def msg1(_msg, tag="", level=0, times=1, line_=False, _back=0, **kwargs):
-    """
-    Just like :func:`msg` but ``times`` set to 1.
-    """
-    return msg(_msg, level=level, tag=tag, times=times, line_=line, _back=_back+1, **kwargs)
-
-
-def file1(_key, _value, level=0, times=1, _back=0, **kwargs):
-    """
-    Just like :func:`file` but ``times`` set to 1.
-    """
-    return file(_key, _value, level=level, times=1, _back=_back+1, **kwargs)
-
-# resets counts
-
-
 def reset_times():
+    """
+    Resets global `count_times`.
+    """
     global count_times
     count_times = {}
 
