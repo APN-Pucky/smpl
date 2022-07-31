@@ -7,8 +7,8 @@ Simplified plotting and fitting in python.
 | ------------- |:-------------:|
 | [![workflow][a s image]][a s link]      | [![test][a t image]][a t link]     |
 | [![Coverage Status][c s i]][c s l] | [![Coverage Status][c t i]][c t l] |
-| -      |[![Codacy Badge][codacy cover image]][codacy cover link] | 
-| -     |[![Codacy Badge][codacy quality image]][codacy quality link] | 
+| [![Codacy Badge][codacy s cover image]][codacy s cover link]      |[![Codacy Badge][codacy cover image]][codacy cover link] | 
+| [![Codacy Badge][codacy s quality image]][codacy s quality link]    |[![Codacy Badge][codacy quality image]][codacy quality link] | 
 | [![Documentation][rtd s i]][rtd s l] | [![Documentation][rtd t i]][rtd t l]  | 
 
 ## Documentation
@@ -42,6 +42,11 @@ pip install --index-url https://test.pypi.org/simple/ smpl
 [a s link]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml
 [a t link]: https://github.com/APN-Pucky/smpl/actions/workflows/unstable.yml
 [a t image]: https://github.com/APN-Pucky/smpl/actions/workflows/unstable.yml/badge.svg
+
+[codacy s quality image]: https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2?branch=stable
+[codacy s quality link]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade?branch=stable
+[codacy s cover image]: https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2?branch=stable
+[codacy s cover link]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&utm_medium=referral&utm_content=APN-Pucky/smpl&utm_campaign=Badge_Coverage?branch=stable
 
 [codacy quality image]: https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2
 [codacy quality link]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade
