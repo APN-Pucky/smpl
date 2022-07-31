@@ -8,7 +8,7 @@ on:
       - '*'
 
 jobs:
-    default:
+    unstable:
       runs-on: ubuntu-latest
       container:
         image: apnpucky/ubuntu-pip
