@@ -9,7 +9,7 @@ on:
       - '*'
 
 jobs:
-    default:
+    devel:
       runs-on: ubuntu-latest
       container:
         image: apnpucky/ubuntu-pip
