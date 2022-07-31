@@ -49,7 +49,7 @@ pip install --index-url https://test.pypi.org/simple/ smpl
 [cc s cover l]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&utm_medium=referral&utm_content=APN-Pucky/smpl&utm_campaign=Badge_Coverage?branch=stable
 
 [cc quality i]: https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2
-[ccquality l]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade
+[cc quality l]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade
 [cc cover i]: https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2
 [cc cover l]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&utm_medium=referral&utm_content=APN-Pucky/smpl&utm_campaign=Badge_Coverage
 
