@@ -43,7 +43,7 @@ jobs:
             password: ${{ secrets.test_pypi_token }}
             repository_url: https://test.pypi.org/legacy/
         - name: Upload Github Pages
-          uses: JamesIves/github-pages-deploy-action@4.1.5
+          uses: JamesIves/github-pages-deploy-action@v4.4.0
           with:
             #ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
             #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
