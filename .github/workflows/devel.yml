@@ -29,8 +29,10 @@ jobs:
         - name: Build Sphinx
           run: rm -rf build && make clean-all && make html
         - name: Report Coveralls
+          if: github.event_name != 'pull_request'
           uses: AndreMiras/coveralls-python-action@develop
         - name: Report Codacy
+          if: github.event_name != 'pull_request'
           uses: codacy/codacy-coverage-reporter-action@v1
           with:
             project-token: ${{ secrets.CODACY_API_TOKEN }}
