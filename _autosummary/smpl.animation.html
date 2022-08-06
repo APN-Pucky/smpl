@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>smpl.fit.fit &mdash; smpl  documentation</title>
+  <title>smpl.animation &mdash; smpl  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -27,7 +27,9 @@
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.data" href="smpl.data.html" />
+    <link rel="prev" title="SubplotAnimation" href="../example/animation/subplots/SubplotAnimation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,8 +64,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
@@ -93,9 +95,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>smpl.fit.fit</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/_autosummary/smpl.fit.fit.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/_autosummary/smpl.animation.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -127,26 +129,54 @@
     text-align: unset;
 }
 </style>
-<section id="smpl-fit-fit">
-<h1>smpl.fit.fit<a class="headerlink" href="#smpl-fit-fit" title="Permalink to this heading"></a></h1>
+<section id="module-smpl.animation">
+<span id="smpl-animation"></span><h1><a class="reference internal" href="#module-smpl.animation" title="smpl.animation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a><a class="headerlink" href="#module-smpl.animation" title="Permalink to this heading"></a></h1>
+<p>Simplified Animations.</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.animation.animate" title="smpl.animation.animate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate</span></code></a>(**kwargs)</p></td>
+<td><p>Make frames to Animation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.animation.clear" title="smpl.animation.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear</span></code></a>()</p></td>
+<td><p>Empties stored frames.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.animation.frame" title="smpl.animation.frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frame</span></code></a>()</p></td>
+<td><p>Saves current Matplotlib figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interactive</span></code>(func, *args, **kwargs)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Functions</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="smpl.fit.fit">
-<span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.fit" title="Permalink to this definition"></a></dt>
-<dd><p>Returns a fit of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code>.</p>
+<dt class="sig sig-object py" id="smpl.animation.animate">
+<span class="sig-prename descclassname"><span class="pre">smpl.animation.</span></span><span class="sig-name descname"><span class="pre">animate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/animation/animation.html#animate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.animation.animate" title="Permalink to this definition"></a></dt>
+<dd><p>Make frames to Animation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dt><strong>They are passed directly to ArtistAnimation.</strong></dt><dd></dd>
+</dl>
 </dd>
-<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
-</dd>
-<dt><strong>function</strong><span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="smpl.fit.html#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
-</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>ArtistAnimation</dt><dd></dd>
 </dl>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.animation.clear">
+<span class="sig-prename descclassname"><span class="pre">smpl.animation.</span></span><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/animation/animation.html#clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.animation.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Empties stored frames.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.animation.frame">
+<span class="sig-prename descclassname"><span class="pre">smpl.animation.</span></span><span class="sig-name descname"><span class="pre">frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/animation/animation.html#frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.animation.frame" title="Permalink to this definition"></a></dt>
+<dd><p>Saves current Matplotlib figure.</p>
 </dd></dl>
 
 </section>
@@ -154,7 +184,10 @@
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../example/animation/subplots/SubplotAnimation.html" class="btn btn-neutral float-left" title="SubplotAnimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smpl.data.html" class="btn btn-neutral float-right" title="smpl.data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

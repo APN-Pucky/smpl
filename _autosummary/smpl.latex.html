@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>smpl.latex &mdash; smpl  documentation</title>
@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.136
+                0.0.137
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -65,6 +65,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
@@ -132,10 +133,6 @@
 <span id="smpl-latex"></span><h1><a class="reference internal" href="#module-smpl.latex" title="smpl.latex"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a><a class="headerlink" href="#module-smpl.latex" title="Permalink to this heading"></a></h1>
 <p>Simplified latex.</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.latex.si" title="smpl.latex.si"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si</span></code></a>(s[, u, fmt])</p></td>
 <td><p>Get number with uncertainty and unit in <code class="docutils literal notranslate"><span class="pre">si</span></code> format for latex.</p></td>
@@ -157,7 +154,7 @@
 <span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si" title="Permalink to this definition"></a></dt>
 <dd><p>Get number with uncertainty and unit in <code class="docutils literal notranslate"><span class="pre">si</span></code> format for latex.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>s</strong><span class="classifier">ufloat</span></dt><dd><p>number to be returned in a latex compatible format.</p>
 </dd>
@@ -167,7 +164,7 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt>str</dt><dd><p>latex SI string of the number with it’s uncertainty and unit.</p>
 </dd>
@@ -203,7 +200,7 @@
 <span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si_tab" title="Permalink to this definition"></a></dt>
 <dd><p>Get arrays of (uncertainty) numbers in  a latex table compatible form.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>tab</strong><span class="classifier">array_like</span></dt><dd><p>Array containing the values of the table</p>
 </dd>
@@ -213,7 +210,7 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt>str</dt><dd></dd>
 </dl>
@@ -231,7 +228,7 @@
 <span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si_ttab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si_ttab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si_ttab" title="Permalink to this definition"></a></dt>
 <dd><p>Transposed <a class="reference internal" href="#smpl.latex.si_tab" title="smpl.latex.si_tab"><code class="xref py py-func docutils literal notranslate"><span class="pre">si_tab()</span></code></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>tab</strong><span class="classifier">array_like</span></dt><dd><p>Array containing the values of the table</p>
 </dd>
@@ -241,7 +238,7 @@
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>tabstr</strong><span class="classifier">str</span></dt><dd><p>table latex string</p>
 </dd>

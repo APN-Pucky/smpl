@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>smpl.data &mdash; smpl  documentation</title>
@@ -29,7 +29,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="smpl.debug" href="smpl.debug.html" />
-    <link rel="prev" title="SubplotAnimation" href="../example/animation/subplots/SubplotAnimation.html" /> 
+    <link rel="prev" title="smpl.animation" href="smpl.animation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.136
+                0.0.137
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -65,6 +65,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
@@ -130,11 +131,8 @@
 </style>
 <section id="module-smpl.data">
 <span id="smpl-data"></span><h1><a class="reference internal" href="#module-smpl.data" title="smpl.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a><a class="headerlink" href="#module-smpl.data" title="Permalink to this heading"></a></h1>
+<p>Simplified internal data parsing and transforming</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.data.data_kwargs" title="smpl.data.data_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_kwargs</span></code></a>(kwargs)</p></td>
 <td><p>Set default data_kwargs if not set.</p></td>
@@ -153,11 +151,6 @@
 <span class="sig-prename descclassname"><span class="pre">smpl.data.</span></span><span class="sig-name descname"><span class="pre">data_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/data/data.html#data_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.data.data_kwargs" title="Permalink to this definition"></a></dt>
 <dd><p>Set default data_kwargs if not set.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 8%" />
-<col style="width: 8%" />
-<col style="width: 84%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>data_kwargs</p></th>
 <th class="head"><p>default</p></th>
@@ -203,13 +196,13 @@
 <dd><p>Splits datax and datay into (x,y,xerr,yerr).
 Applies filters <cite>fselector</cite> and <cite>frange</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.data.data_kwargs" title="smpl.data.data_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">data_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>(x,y,xerr,yerr)</strong><span class="classifier">tuple</span></dt><dd><p>four arrays with specified values.</p>
 </dd>
@@ -230,7 +223,7 @@ Applies filters <cite>fselector</cite> and <cite>frange</cite>.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../example/animation/subplots/SubplotAnimation.html" class="btn btn-neutral float-left" title="SubplotAnimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smpl.animation.html" class="btn btn-neutral float-left" title="smpl.animation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="smpl.debug.html" class="btn btn-neutral float-right" title="smpl.debug" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

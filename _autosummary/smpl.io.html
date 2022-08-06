@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>smpl.io &mdash; smpl  documentation</title>
@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.136
+                0.0.137
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -65,6 +65,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
@@ -132,10 +133,6 @@
 <span id="smpl-io"></span><h1><a class="reference internal" href="#module-smpl.io" title="smpl.io"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a><a class="headerlink" href="#module-smpl.io" title="Permalink to this heading"></a></h1>
 <p>Simplified input and output.</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.files" title="smpl.io.files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">files</span></code></a>(folder, ending)</p></td>
 <td><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p></td>
@@ -178,13 +175,13 @@
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">gf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#gf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.gf" title="Permalink to this definition"></a></dt>
 <dd><p>Scientific number format.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>i</strong><span class="classifier">int</span></dt><dd><p>Number of digits.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt>str</dt><dd><p>Scientific number format string.</p>
 </dd>
@@ -213,13 +210,13 @@
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">pr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#pr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.pr" title="Permalink to this definition"></a></dt>
 <dd><p>Prints the passed <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>nnl</strong><span class="classifier">bool</span></dt><dd><p>no-new-line</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>a</strong><span class="classifier">any</span></dt><dd><p>unchanged <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p>
 </dd>
@@ -247,7 +244,7 @@
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition"></a></dt>
 <dd><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>destination</strong><span class="classifier">str,writeable</span></dt><dd><p>destination to write to.</p>
 </dd>

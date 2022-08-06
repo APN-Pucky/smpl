@@ -55,6 +55,7 @@ Dev version::
    :template: as_module.rst
    :caption: modules:
 
+   animation
    data
    debug
    doc
