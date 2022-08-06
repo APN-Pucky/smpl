@@ -11,3 +11,4 @@ smpl.egg-info/
 .coverage
 coverage.xml
 source/example/**/*.py
+test.out

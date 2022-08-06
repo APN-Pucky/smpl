@@ -200,10 +200,8 @@ def files(folder, ending):
 
     Examples
     --------
-    >>> files(pwd(),".py")
-    ['__init__.py', 'io.py']
     >>> files(".",".py")
-    ['__init__.py', 'io.py']
+    [(0, 'setup', './setup.py')]
     """
     r = []
     i = 0
