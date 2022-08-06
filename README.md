@@ -5,16 +5,16 @@ Simplified plotting and fitting in python.
 
 | [Stable][doc stable]        | [Unstable][doc test]           |
 | ------------- |:-------------:|
-| [![workflow][a s image]][a s link]   |[![test][a t image]][a t link]     |
-| [![Coverage Status][c s i]][c s l]   |[![Coverage Status][c t i]][c t l] |
-| [![Codacy Badge][cc s c i]][cc s c l]|[![Codacy Badge][cc c i]][cc c l]  | 
-| [![Codacy Badge][cc s q i]][cc s q l]|[![Codacy Badge][cc q i]][cc q l]  | 
-| [![Documentation][rtd s i]][rtd s l]|[![Documentation][rtd t i]][rtd t l]| 
+| [![workflow][a s image]][a s link]   | [![test][a t image]][a t link]     |
+| [![Coverage Status][c s i]][c s l]   | [![Coverage Status][c t i]][c t l] |
+| [![Codacy Badge][cc s c i]][cc s c l] | [![Codacy Badge][cc c i]][cc c l]  | 
+| [![Codacy Badge][cc s q i]][cc s q l] | [![Codacy Badge][cc q i]][cc q l]  | 
+| [![Documentation][rtd s i]][rtd s l] | [![Documentation][rtd t i]][rtd t l]| 
 
 ## Documentation
 
-- <https://smpl.readthedocs.io/en/stable/>
-- <https://apn-pucky.github.io/smpl/index.html>
+  - <https://smpl.readthedocs.io/en/stable/>
+  - <https://apn-pucky.github.io/smpl/index.html>
 
 ## Versions
 
