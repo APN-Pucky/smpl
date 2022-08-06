@@ -69,6 +69,7 @@ default = {
     # ,          'sortbyx'       :[ True     , "Enable sorting the x and y data so that x is sorted.",],
     'interpolate': [False, "Enable interpolation of the data."],
     'interpolate_fmt': ["-", "Either format string or linestyle tuple.", ],
+    'interpolate_label': [None, "Label for the interpolation.", ],
     'extrapolate': [True, "Enable extrapolation of whole data if fit range is limited by ``frange`` or ``fselector``.", ],
     'extrapolate_min': [None, "Lower extrapolation bound", ],
     'extrapolate_max': [None, "Higher extrapolation bound", ],
@@ -439,8 +440,10 @@ def plt_interpolate(datax, datay, icolor=None,  **kwargs):
         kargs["ls"] = kwargs["interpolate_fmt"]
     else:
         kargs["f"] = kwargs["interpolate_fmt"]
+    if kwargs['interpolate_label'] is not None:
+        kargs["l"] = kwargs['interpolate_label']
     # l = None so that no label
-    return (inter, *plt_fit_or_interpolate(datax, datay, inter, l=None, c=icolor, **kargs, **kwargs))
+    return (inter, *plt_fit_or_interpolate(datax, datay, inter, c=icolor, **kargs, **kwargs))
 
 
 def plt_fit(datax, datay, gfunction, **kwargs):
