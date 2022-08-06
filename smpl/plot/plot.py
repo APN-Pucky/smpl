@@ -84,7 +84,8 @@ default = {
     'capsize': [5, "size of cap on error bar plot"],
     'axes': [None, "set current axis"],
     'linestyle': [None, "linestyle, only active if `fmt`=None"],
-    'xspace': [np.linspace, "xspace gets called with xspace(xmin,xmax,steps) in :func:`function` to get the points of the function that will be drawn."]
+    'xspace': [np.linspace, "xspace gets called with xspace(xmin,xmax,steps) in :func:`function` to get the points of the function that will be drawn."],
+    'only_uncertainties': [False, "Only plot uncertainties for interpolation or fit", ],
 }
 
 
@@ -242,23 +243,30 @@ def plt_plt(x, y, fmt, color, label, linestyle):
         return plt.plot(x, y, label=label, color=color)
 
 
-def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0., linestyle=None):
+# TODO needs axis specification?
+def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0., linestyle=None,only_uncertainties=False):
     func = gfunc
     x = xlinspace
     l = label
 
-    if isinstance(func(x)[0], uncertainties.UFloat):
+    y = func(x)
+    if isinstance(y[0], uncertainties.UFloat):
         if sigmas > 0:
-            ll, = plt_plt(x, unv(func(x)), fmt, label=None,
+            if not only_uncertainties:
+                ll, = plt_plt(x, unv(y), fmt, label=None,
                           color=color, linestyle=linestyle)
-            y = func(x)
-            plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
-                y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
+                plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
+                    y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
+            else:
+                ll, = plt_plt([], [], fmt, label=None,
+                          color=color, linestyle=linestyle)
+                plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
+                    y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
         else:
-            ll, = plt_plt(x, unv(func(x)), fmt,  label=l,
+            ll, = plt_plt(x, unv(y), fmt,  label=l,
                           color=color, linestyle=linestyle)
     else:
-        ll, = plt_plt(x, func(x), fmt,  label=l,
+        ll, = plt_plt(x, y, fmt,  label=l,
                       color=color, linestyle=linestyle)
     return ll
 
@@ -417,7 +425,7 @@ def plt_fit_or_interpolate(datax, datay, fitted, l=None, c=None, f=None, ls=None
         xfit = kwargs['xspace'](kwargs['prange'][0],
                                 kwargs['prange'][1], kwargs['steps'])
     ll = __function(fitted, xfit, kwargs['fit_fmt'] if f is not None and ls is None else f, label=l,
-                    color=kwargs['fit_color'] if c is None else c, sigmas=kwargs['sigmas'], linestyle=ls)
+                    color=kwargs['fit_color'] if c is None else c, sigmas=kwargs['sigmas'], linestyle=ls,only_uncertainties=kwargs['only_uncertainties'])
 
     if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('extrapolate', kwargs) or util.has("extrapolate_max", kwargs) or util.has("extrapolate_min", kwargs):
         xxfit = kwargs['xspace'](util.get("extrapolate_min", kwargs, np.min(
