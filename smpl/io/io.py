@@ -44,9 +44,9 @@ def write(destination,content,mode='w+'):
 
     Examples
     --------
-    >>> append(sys.stdout,"hi")
+    >>> write(sys.stdout,"hi")
     hi
-    >>> append("test.out","hi")
+    >>> write("test.out","hi")
     >>> read("test.out")
     'hi'
     """
@@ -70,6 +70,11 @@ def append(destination,content,mode='a+'):
     mode : str
         mode to open the file. 
         Default is 'a+' (append and read).
+
+    Examples
+    --------
+    >>> append(sys.stdout,"hi")
+    hi
     """
     write(destination,content,mode)
 
