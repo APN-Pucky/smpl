@@ -31,7 +31,7 @@ def read(fname):
     with open(fname, 'r') as f:
         return f.read()
 
-def append(destination,content):
+def write(destination,content,mode='w+'):
     """
     Write to file by string or writable :obj:`destiantion`.
 
@@ -52,11 +52,26 @@ def append(destination,content):
     """
     # TODO add http and other string based write methodes
     if isinstance(destination,str):
-        with open(destination, 'w+') as f:
+        with open(destination, mode) as f:
             f.write(content)
     else:
         destination.write(content)
-write = append
+
+def append(destination,content,mode='a+'):
+    """
+    Appends to file by string or writable :obj:`destiantion`.
+
+    Parameters
+    ----------
+    destination : str, writeable
+        destination to write to.
+    content : str
+        text to be written.
+    mode : str
+        mode to open the file. 
+        Default is 'a+' (append and read).
+    """
+    write(destination,content,mode)
 
 def gf(i=3):
     """
