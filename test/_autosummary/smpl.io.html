@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.140-1-gdc131324
+                0.0.141
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -150,7 +150,7 @@
 <td><p>Prints the passed <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.pwd" title="smpl.io.pwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a>()</p></td>
-<td><p>Returns the path to the path of current file</p></td>
+<td><p>Returns the path to the path of current file (in linux format).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.write" title="smpl.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content)</p></td>
 <td><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p></td>
@@ -162,6 +162,27 @@
 <dt class="sig sig-object py" id="smpl.io.files">
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ending</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.files" title="Permalink to this definition"></a></dt>
 <dd><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>folder</strong><span class="classifier">str</span></dt><dd><p>folder name.</p>
+</dd>
+<dt><strong>ending</strong><span class="classifier">str</span></dt><dd><p>ending of the files.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>list</dt><dd><p>list of files.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="s2">&quot;.py&quot;</span><span class="p">)</span>
+<span class="go">[(0, &#39;setup&#39;, &#39;./setup.py&#39;)]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -203,6 +224,18 @@
 <dt class="sig sig-object py" id="smpl.io.mkdirs">
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">mkdirs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#mkdirs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.mkdirs" title="Permalink to this definition"></a></dt>
 <dd><p>Creates the neccessary directories above <code class="docutils literal notranslate"><span class="pre">fn</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fn</strong><span class="classifier">str</span></dt><dd><p>file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mkdirs</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
@@ -236,12 +269,20 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.pwd">
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">pwd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#pwd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.pwd" title="Permalink to this definition"></a></dt>
-<dd><p>Returns the path to the path of current file</p>
+<dd><p>Returns the path to the path of current file (in linux format).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>str</dt><dd><p>path to the path of current file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.write">
-<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition"></a></dt>
 <dd><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -254,9 +295,9 @@
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">append</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 <span class="go">hi</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">)</span>
 <span class="go">&#39;hi&#39;</span>
 </pre></div>
