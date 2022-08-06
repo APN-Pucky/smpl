@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.141
+                0.0.142
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -152,7 +152,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.pwd" title="smpl.io.pwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a>()</p></td>
 <td><p>Returns the path to the path of current file (in linux format).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.write" title="smpl.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.read" title="smpl.io.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(fname)</p></td>
+<td><p>Reads the file <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.write" title="smpl.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content)</p></td>
 <td><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p></td>
 </tr>
 </tbody>
@@ -278,6 +281,34 @@
 </dl>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.io.read">
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.read" title="Permalink to this definition"></a></dt>
+<dd><p>Reads the file <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fname</strong><span class="classifier">str</span></dt><dd><p>file name.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>str</dt><dd><p>content of the file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;nonexistent.txt&quot;</span><span class="p">)</span>
+<span class="go">&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">)</span>
+<span class="go">&#39;hi&#39;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">

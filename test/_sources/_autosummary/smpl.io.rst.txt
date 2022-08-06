@@ -21,6 +21,8 @@
    
       pwd
    
+      read
+   
       write
    
    
