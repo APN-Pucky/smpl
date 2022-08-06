@@ -1,5 +1,5 @@
 import warnings
-from scipy.interpolate import make_interp_spline, BSpline
+from scipy.interpolate import make_interp_spline
 from scipy import interpolate as interp
 from smpl import doc
 from smpl import plot as splot
@@ -52,11 +52,11 @@ def interpolate(*data, **kwargs):
     # TODO set eps
     kwargs = interpolate_kwargs(kwargs)
     kwargs['sortbyx'] = False
-    x, y, dx, dy = interpolate_split(data[0], data[-1], **kwargs)
+    _, y, _, dy = interpolate_split(data[0], data[-1], **kwargs)
     ret = None
     if dy is None:
         spl_center = _interpolate(*data[:-1], kwargs['pre'](y), **kwargs)
-        ret = np.vectorize(lambda *a: spl_center(*a), otypes=["float"])
+        ret = np.vectorize(spl_center, otypes=["float"])
     else:
         if kwargs['interpolate_upper_uncertainty'] and kwargs['interpolate_lower_uncertainty']:
             spl_up = _interpolate(*data[:-1], kwargs['pre'](y+dy), **kwargs)
@@ -75,8 +75,6 @@ def interpolate(*data, **kwargs):
                                                  np.abs(spl_down(*a) - spl_center(*a))), otypes=["object"])  # symmetrized error...
         else:
             raise ValueError("interpolate_upper_uncertainty and interpolate_lower_uncertainty can't be both False")
-            spl_center = _interpolate(*data[:-1], kwargs['pre'](y), **kwargs)
-            ret = np.vectorize(lambda *a: spl_center(*a), otypes=["float"])
 
     if not check(ret, *data):
         warnings.warn("Bad interpolation. Increase Order.")

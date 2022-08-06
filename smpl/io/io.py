@@ -1,11 +1,8 @@
 import pathlib
-#from io import StringIO
 from smpl import debug
 import os
 import sys
 from pathlib import Path
-
-from smpl.doc.doc import append
 
 def read(fname):
     """

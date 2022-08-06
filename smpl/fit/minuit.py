@@ -7,8 +7,10 @@ from iminuit.cost import LeastSquares
 from iminuit.util import Matrix
 
 
-def _fit_minuit_leastsquares(datax, datay, function, yerr, params=[], **kwargs):
+def _fit_minuit_leastsquares(datax, datay, function, yerr, params=None, **kwargs):
     # TODO check/add params
+    if params is None:
+        params = []
     least_squares = LeastSquares(datax, datay, yerr, function)
     m = Minuit(least_squares, *params)
     m.migrad()

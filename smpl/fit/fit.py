@@ -1,8 +1,6 @@
 import enum
 import numpy as np
-import warnings
 
-import uncertainties as unc
 import uncertainties.unumpy as unp
 from smpl import debug
 from smpl import functions
@@ -11,9 +9,8 @@ from smpl import util
 from smpl import wrap
 from smpl import doc
 from smpl import data
-from numpy.linalg import LinAlgError, inv
+from numpy.linalg import LinAlgError
 from tqdm import tqdm
-import enum
 
 from .minuit import _fit_minuit_leastsquares
 from .scipy import _fit_curvefit, _fit_odr
@@ -195,7 +192,7 @@ def fit(datax, datay, function, **kwargs):
 @doc.insert_doc(stat.Chi2)
 def Chi2(datax, datay, function, ff, **kwargs):
     kwargs = fit_kwargs(kwargs)
-    x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
+    x, y, _, yerr = fit_split(datax, datay, **kwargs)
     sigmas = yerr
     return stat.Chi2(y, unv(function(x, *ff)), sigmas)
 
