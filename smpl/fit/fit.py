@@ -1,6 +1,5 @@
 import enum
 import numpy as np
-
 import uncertainties.unumpy as unp
 from smpl import debug
 from smpl import functions

@@ -16,9 +16,9 @@ def R2(y, f):
     """
     R2 - Coefficient of determination
 
-    In the best case, the modeled values exactly match the observed values, which results in R2 = 1. 
-    A baseline model, which always predicts the mean of y, will have R2 = 0. 
-    Models that have worse predictions than this baseline will have a negative R2. 
+    In the best case, the modeled values exactly match the observed values, which results in R2 = 1.
+    A baseline model, which always predicts the mean of y, will have R2 = 0.
+    Models that have worse predictions than this baseline will have a negative R2.
 
     References
     ----------
@@ -37,7 +37,7 @@ def Chi2(y, f, sigmas=None):
     """
     Chi2 - Goodness of Fit
 
-    In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good. 
+    In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good.
     Coversely,  if Chi-squared/Nd >> 1.0, then the fit is a poor one.
 
     References

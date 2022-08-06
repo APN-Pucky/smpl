@@ -123,7 +123,7 @@ def auto(datax, datay, funcs=None, **kwargs):
 
     """
     best_f, best_ff, lambda_f = ffit.auto(datax, datay, funcs, **kwargs)
-    if not best_f is None:
+    if best_f is not None:
         fit(datax, datay, best_f, **kwargs)
     return best_f, best_ff, lambda_f
 
@@ -212,7 +212,7 @@ def data(datax, datay, function=None, **kwargs):
     array_like
         Optimized fit parameters of ``function`` to ``datax`` and ``datay``
     """
-    if not 'also_fit' in kwargs:
+    if 'also_fit' not in kwargs:
         kwargs['also_fit'] = False
     kwargs = plot_kwargs(kwargs)
     if kwargs['label'] == None and kwargs['lpos'] == 0:
@@ -284,7 +284,7 @@ def function(func, *args, **kwargs):
     if not util.has('fmt', kwargs):
         kwargs['fmt'] = "-"
 
-    if not "label" in kwargs:
+    if "label" not in kwargs:
         kwargs = plot_kwargs(kwargs)
         kwargs['label'] = get_fnc_legend(func, args, **kwargs)
     else:
