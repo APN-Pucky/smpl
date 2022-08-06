@@ -5,13 +5,22 @@ import os
 import sys
 from pathlib import Path
 
+def read(fname):
+    """
+    Reads the file ``fname``.
+    """
+    if(not os.path.exists(fname)):
+        return ""
+    with open(fname, 'r') as f:
+        return f.read()
+
 def write(destination,content):
     """
     Write to file by string or writable :obj:`destiantion`.
 
     Parameters
     ----------
-    destination : str,writeable
+    destination : str, writeable
         destination to write to.
     content : str
         text to be written.
