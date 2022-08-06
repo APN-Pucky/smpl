@@ -1,5 +1,4 @@
 import warnings
-from scipy.interpolate import make_interp_spline
 from scipy import interpolate as interp
 from smpl import doc
 from smpl import plot as splot

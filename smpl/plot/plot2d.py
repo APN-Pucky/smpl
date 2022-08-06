@@ -94,7 +94,7 @@ def map_vplot(tvx,
 
     grid = splot.unv(vz).reshape((int(np.rint(np.size(vx) / s)), s)) * zscale
 
-    fig, ax = plt.subplots(nrows=1, ncols=1, constrained_layout=True)
+    _, ax = plt.subplots(nrows=1, ncols=1, constrained_layout=True)
     im = None
     xl = vx.min() + (vx.min() / 2) - vx[vx != vx.min()].min() / 2
     xm = vx.max() + (vx.max() / 2) - vx[vx != vx.max()].max() / 2
