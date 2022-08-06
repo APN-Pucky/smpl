@@ -5,6 +5,8 @@ import os
 import sys
 from pathlib import Path
 
+from smpl.doc.doc import append
+
 def read(fname):
     """
     Reads the file ``fname``.
@@ -32,7 +34,7 @@ def read(fname):
     with open(fname, 'r') as f:
         return f.read()
 
-def write(destination,content):
+def append(destination,content):
     """
     Write to file by string or writable :obj:`destiantion`.
 
@@ -43,12 +45,11 @@ def write(destination,content):
     content : str
         text to be written.
 
-
     Examples
     --------
-    >>> write(sys.stdout,"hi")
+    >>> append(sys.stdout,"hi")
     hi
-    >>> write("test.out","hi")
+    >>> append("test.out","hi")
     >>> read("test.out")
     'hi'
     """
@@ -58,6 +59,7 @@ def write(destination,content):
             f.write(content)
     else:
         destination.write(content)
+write = append
 
 def gf(i=3):
     """
@@ -105,8 +107,14 @@ def find_file(fname, up=0):
 
 def pwd():
     """
-    Returns the path to the path of current file
+    Returns the path to the path of current file (in linux format).
+
+    Returns
+    -------
+    str
+        path to the path of current file.
     """
+    #TODO better use pathlib.Path.cwd()
     pwd_ = "/".join(debug.get_line_number_file(split=False,
                     _back=1)[1].split("/")[:-1])
     return pwd_
@@ -114,7 +122,16 @@ def pwd():
 
 def import_path(path='../..'):
     """
-    Adds ``path`` to the ``sys.path``
+    Adds ``path`` to the ``sys.path``.
+
+    Parameters
+    ----------
+    path : str
+        path to add.
+
+    Examples
+    --------
+    >>> import_path('../../smpl')
     """
     sys.path.insert(0, os.path.abspath(path))
 
@@ -122,6 +139,15 @@ def import_path(path='../..'):
 def mkdirs(fn):
     """
     Creates the neccessary directories above ``fn``.
+
+    Parameters
+    ----------
+    fn : str    
+        file name.
+
+    Examples
+    --------
+    >>> mkdirs("test.out")
     """
     pathlib.Path(fn).parent.mkdir(parents=True, exist_ok=True)
 
@@ -159,6 +185,25 @@ def pr(a, nnl=False):
 def files(folder, ending):
     """
     Get all the files in ``folder`` ending with ``ending``.
+
+    Parameters
+    ----------
+    folder : str
+        folder name.    
+    ending : str
+        ending of the files.
+
+    Returns
+    -------
+    list
+        list of files.
+
+    Examples
+    --------
+    >>> files(pwd(),".py")
+    ['__init__.py', 'io.py']
+    >>> files(".",".py")
+    ['__init__.py', 'io.py']
     """
     r = []
     i = 0
