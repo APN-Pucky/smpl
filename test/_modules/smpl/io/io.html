@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.142-5-gaf621379
+                0.0.143-1-g4fcc294b
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -136,7 +136,7 @@
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
 
-<span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="n">content</span><span class="p">):</span>
+<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../_autosummary/smpl.io.html#smpl.io.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="n">content</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w+&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write to file by string or writable :obj:`destiantion`.</span>
 
@@ -149,19 +149,39 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; append(sys.stdout,&quot;hi&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; write(sys.stdout,&quot;hi&quot;)</span>
 <span class="sd">    hi</span>
-<span class="sd">    &gt;&gt;&gt; append(&quot;test.out&quot;,&quot;hi&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; write(&quot;test.out&quot;,&quot;hi&quot;)</span>
 <span class="sd">    &gt;&gt;&gt; read(&quot;test.out&quot;)</span>
 <span class="sd">    &#39;hi&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO add http and other string based write methodes</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">destination</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-<span class="n">write</span> <span class="o">=</span> <span class="n">append</span>
+        <span class="n">destination</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="append"><a class="viewcode-back" href="../../../_autosummary/smpl.io.html#smpl.io.append">[docs]</a><span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="n">content</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a+&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Appends to file by string or writable :obj:`destiantion`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    destination : str, writeable</span>
+<span class="sd">        destination to write to.</span>
+<span class="sd">    content : str</span>
+<span class="sd">        text to be written.</span>
+<span class="sd">    mode : str</span>
+<span class="sd">        mode to open the file. </span>
+<span class="sd">        Default is &#39;a+&#39; (append and read).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; append(sys.stdout,&quot;hi&quot;)</span>
+<span class="sd">    hi</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">write</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="n">content</span><span class="p">,</span><span class="n">mode</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="gf"><a class="viewcode-back" href="../../../_autosummary/smpl.io.html#smpl.io.gf">[docs]</a><span class="k">def</span> <span class="nf">gf</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -244,7 +264,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    fn : str    </span>
+<span class="sd">    fn : str</span>
 <span class="sd">        file name.</span>
 
 <span class="sd">    Examples</span>
@@ -291,7 +311,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    folder : str</span>
-<span class="sd">        folder name.    </span>
+<span class="sd">        folder name.</span>
 <span class="sd">    ending : str</span>
 <span class="sd">        ending of the files.</span>
 

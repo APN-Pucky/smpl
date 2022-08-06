@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.142-5-gaf621379
+                0.0.143-1-g4fcc294b
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -134,33 +134,60 @@
 <p>Simplified input and output.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.files" title="smpl.io.files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">files</span></code></a>(folder, ending)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.append" title="smpl.io.append"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append</span></code></a>(destination, content[, mode])</p></td>
+<td><p>Appends to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.files" title="smpl.io.files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">files</span></code></a>(folder, ending)</p></td>
 <td><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.find_file" title="smpl.io.find_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_file</span></code></a>(fname[, up])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.find_file" title="smpl.io.find_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_file</span></code></a>(fname[, up])</p></td>
 <td><p>Searches for <code class="docutils literal notranslate"><span class="pre">fname</span></code> in all down folders or up folder to given order respectively.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>([i])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.gf" title="smpl.io.gf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gf</span></code></a>([i])</p></td>
 <td><p>Scientific number format.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.mkdirs" title="smpl.io.mkdirs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdirs</span></code></a>(fn)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.mkdirs" title="smpl.io.mkdirs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mkdirs</span></code></a>(fn)</p></td>
 <td><p>Creates the neccessary directories above <code class="docutils literal notranslate"><span class="pre">fn</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.pr" title="smpl.io.pr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pr</span></code></a>(a[, nnl])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.pr" title="smpl.io.pr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pr</span></code></a>(a[, nnl])</p></td>
 <td><p>Prints the passed <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.pwd" title="smpl.io.pwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.pwd" title="smpl.io.pwd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pwd</span></code></a>()</p></td>
 <td><p>Returns the path to the path of current file (in linux format).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.read" title="smpl.io.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(fname)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.read" title="smpl.io.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(fname)</p></td>
 <td><p>Reads the file <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.write" title="smpl.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.write" title="smpl.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content[, mode])</p></td>
 <td><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.io.append">
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'a+'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.append" title="Permalink to this definition"></a></dt>
+<dd><p>Appends to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>destination</strong><span class="classifier">str, writeable</span></dt><dd><p>destination to write to.</p>
+</dd>
+<dt><strong>content</strong><span class="classifier">str</span></dt><dd><p>text to be written.</p>
+</dd>
+<dt><strong>mode</strong><span class="classifier">str</span></dt><dd><p>mode to open the file. 
+Default is ‘a+’ (append and read).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">append</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<span class="go">hi</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.files">
 <span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ending</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.files" title="Permalink to this definition"></a></dt>
@@ -313,7 +340,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.write">
-<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w+'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition"></a></dt>
 <dd><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -326,9 +353,9 @@
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">append</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 <span class="go">hi</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">)</span>
 <span class="go">&#39;hi&#39;</span>
 </pre></div>
