@@ -46,6 +46,16 @@ def plot2d(datax, datay, dataz, **kwargs):
     elif (kwargs["style"] == "scatter"):
         scatter_vplot(datax, datay, dataz, **kwargs)
 
+def sort_xyz(x, y, z):
+    p1 = x.argsort(kind='stable')
+    x = np.copy(x[p1])
+    y = np.copy(y[p1])
+    z = np.copy(z[p1])
+    p2 = y.argsort(kind='stable')
+    x = x[p2]
+    y = y[p2]
+    z = z[p2]
+    return x, y, z
 
 def map_vplot(tvx,
               tvy,
@@ -70,14 +80,8 @@ def map_vplot(tvx,
                     vy = np.append(vy, y)
                     vz = np.append(vz, 0)
     if sort:
-        p1 = vx.argsort(kind='stable')
-        vx = np.copy(vx[p1])
-        vy = np.copy(vy[p1])
-        vz = np.copy(vz[p1])
-        p2 = vy.argsort(kind='stable')
-        vx = vx[p2]
-        vy = vy[p2]
-        vz = vz[p2]
+        vx, vy, vz = sort_xyz(vx, vy, vz)
+
     s = 1
     while vy[s] == vy[s - 1]:
         s = s + 1
@@ -131,14 +135,7 @@ def scatter_vplot(vx,
                   fill_missing=True,
                   zscale=1., **kwargs):
     if sort:
-        p1 = vx.argsort(kind='stable')
-        vx = np.copy(vx[p1])
-        vy = np.copy(vy[p1])
-        vz = np.copy(vz[p1])
-        p2 = vy.argsort(kind='stable')
-        vx = vx[p2]
-        vy = vy[p2]
-        vz = vz[p2]
+        vx, vy, vz = sort_xyz(vx, vy, vz)
 
     _, ax = plt.subplots(nrows=1, ncols=1, constrained_layout=True)
     xl = vx.min() + (vx.min() / 2) - vx[vx != vx.min()].min() / 2

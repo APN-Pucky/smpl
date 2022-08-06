@@ -7,9 +7,9 @@ Simplified plotting and fitting in python.
 | ------------- |:-------------:|
 | [![workflow][a s image]][a s link]   | [![test][a t image]][a t link]     |
 | [![Coverage Status][c s i]][c s l]   | [![Coverage Status][c t i]][c t l] |
-| [![Codacy Badge][cc s c i]][cc s c l] | [![Codacy Badge][cc c i]][cc c l]  | 
-| [![Codacy Badge][cc s q i]][cc s q l] | [![Codacy Badge][cc q i]][cc q l]  | 
-| [![Documentation][rtd s i]][rtd s l] | [![Documentation][rtd t i]][rtd t l]| 
+| [![Codacy Badge][cc s c i]][cc s c l] | [![Codacy Badge][cc c i]][cc c l]  |
+| [![Codacy Badge][cc s q i]][cc s q l] | [![Codacy Badge][cc q i]][cc q l]  |
+| [![Documentation][rtd s i]][rtd s l] | [![Documentation][rtd t i]][rtd t l]|
 
 ## Documentation
 
