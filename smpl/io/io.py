@@ -8,6 +8,24 @@ from pathlib import Path
 def read(fname):
     """
     Reads the file ``fname``.
+
+    Parameters
+    ----------
+    fname : str
+        file name.
+
+    Returns
+    -------
+    str
+        content of the file.
+
+    Examples
+    --------
+    >>> read("nonexistent.txt")
+    ''
+    >>> write("test.out","hi")
+    >>> read("test.out")
+    'hi'
     """
     if(not os.path.exists(fname)):
         return ""
@@ -31,6 +49,8 @@ def write(destination,content):
     >>> write(sys.stdout,"hi")
     hi
     >>> write("test.out","hi")
+    >>> read("test.out")
+    'hi'
     """
     # TODO add http and other string based write methodes
     if isinstance(destination,str):
