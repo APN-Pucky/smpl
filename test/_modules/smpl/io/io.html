@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.140
+                0.0.140-1-gdc131324
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -113,6 +113,24 @@
 <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reads the file ``fname``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname : str</span>
+<span class="sd">        file name.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        content of the file.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; read(&quot;nonexistent.txt&quot;)</span>
+<span class="sd">    &#39;&#39;</span>
+<span class="sd">    &gt;&gt;&gt; write(&quot;test.out&quot;,&quot;hi&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; read(&quot;test.out&quot;)</span>
+<span class="sd">    &#39;hi&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span><span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fname</span><span class="p">)):</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
@@ -136,6 +154,8 @@
 <span class="sd">    &gt;&gt;&gt; write(sys.stdout,&quot;hi&quot;)</span>
 <span class="sd">    hi</span>
 <span class="sd">    &gt;&gt;&gt; write(&quot;test.out&quot;,&quot;hi&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; read(&quot;test.out&quot;)</span>
+<span class="sd">    &#39;hi&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO add http and other string based write methodes</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
