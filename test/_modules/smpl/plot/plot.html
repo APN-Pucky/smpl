@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.137-1-g08cef2ae
+                0.0.138
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -174,6 +174,7 @@
     <span class="c1"># ,          &#39;sortbyx&#39;       :[ True     , &quot;Enable sorting the x and y data so that x is sorted.&quot;,],</span>
     <span class="s1">&#39;interpolate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Enable interpolation of the data.&quot;</span><span class="p">],</span>
     <span class="s1">&#39;interpolate_fmt&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;Either format string or linestyle tuple.&quot;</span><span class="p">,</span> <span class="p">],</span>
+    <span class="s1">&#39;interpolate_label&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Label for the interpolation.&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="s1">&#39;extrapolate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Enable extrapolation of whole data if fit range is limited by ``frange`` or ``fselector``.&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="s1">&#39;extrapolate_min&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Lower extrapolation bound&quot;</span><span class="p">,</span> <span class="p">],</span>
     <span class="s1">&#39;extrapolate_max&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Higher extrapolation bound&quot;</span><span class="p">,</span> <span class="p">],</span>
@@ -544,8 +545,10 @@
         <span class="n">kargs</span><span class="p">[</span><span class="s2">&quot;ls&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolate_fmt&quot;</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">kargs</span><span class="p">[</span><span class="s2">&quot;f&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolate_fmt&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;interpolate_label&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">kargs</span><span class="p">[</span><span class="s2">&quot;l&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;interpolate_label&#39;</span><span class="p">]</span>
     <span class="c1"># l = None so that no label</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">inter</span><span class="p">,</span> <span class="o">*</span><span class="n">plt_fit_or_interpolate</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">inter</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">icolor</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">inter</span><span class="p">,</span> <span class="o">*</span><span class="n">plt_fit_or_interpolate</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">inter</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">icolor</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">plt_fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">gfunction</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
