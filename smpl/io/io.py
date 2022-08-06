@@ -139,7 +139,7 @@ def mkdirs(fn):
 
     Parameters
     ----------
-    fn : str    
+    fn : str
         file name.
 
     Examples
@@ -186,7 +186,7 @@ def files(folder, ending):
     Parameters
     ----------
     folder : str
-        folder name.    
+        folder name.
     ending : str
         ending of the files.
 

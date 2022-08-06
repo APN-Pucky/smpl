@@ -140,7 +140,7 @@ def scatter_vplot(vx,
         vy = vy[p2]
         vz = vz[p2]
 
-    fig, ax = plt.subplots(nrows=1, ncols=1, constrained_layout=True)
+    _, ax = plt.subplots(nrows=1, ncols=1, constrained_layout=True)
     xl = vx.min() + (vx.min() / 2) - vx[vx != vx.min()].min() / 2
     xm = vx.max() + (vx.max() / 2) - vx[vx != vx.max()].max() / 2
     yl = vy.min() + (vy.min() / 2) - vy[vy != vy.min()].min() / 2
