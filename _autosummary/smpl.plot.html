@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.137
+                0.0.138
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -967,73 +967,73 @@
 </td>
 <td><p>Either format string or linestyle tuple.</p></td>
 </tr>
-<tr class="row-even"><td><p>extrapolate</p></td>
+<tr class="row-even"><td><p>interpolate_label</p></td>
+<td><p>None</p></td>
+<td><p>Label for the interpolation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>extrapolate</p></td>
 <td><p>True</p></td>
 <td><p>Enable extrapolation of whole data if fit range is limited by <code class="docutils literal notranslate"><span class="pre">frange</span></code> or <code class="docutils literal notranslate"><span class="pre">fselector</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>extrapolate_min</p></td>
+<tr class="row-even"><td><p>extrapolate_min</p></td>
 <td><p>None</p></td>
 <td><p>Lower extrapolation bound</p></td>
 </tr>
-<tr class="row-even"><td><p>extrapolate_max</p></td>
+<tr class="row-odd"><td><p>extrapolate_max</p></td>
 <td><p>None</p></td>
 <td><p>Higher extrapolation bound</p></td>
 </tr>
-<tr class="row-odd"><td><p>extrapolate_fmt</p></td>
+<tr class="row-even"><td><p>extrapolate_fmt</p></td>
 <td><p>–</p></td>
 <td><p>Format of the extrapolation line</p></td>
 </tr>
-<tr class="row-even"><td><p>extrapolate_hatch</p></td>
+<tr class="row-odd"><td><p>extrapolate_hatch</p></td>
 <td><p>||</p></td>
 <td><p>Extrapolation shape/hatch for filled area in case of <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>&gt;0. See <a class="reference external" href="https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html">https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>bbox_to_anchor</p></td>
+<tr class="row-even"><td><p>bbox_to_anchor</p></td>
 <td><p>None</p></td>
 <td><p>Position in a tuple (x,y),Shift position of the legend out of the main pane.</p></td>
 </tr>
-<tr class="row-even"><td><p>ncol</p></td>
+<tr class="row-odd"><td><p>ncol</p></td>
 <td><p>None</p></td>
 <td><p>Columns in the legend if used with <code class="docutils literal notranslate"><span class="pre">bbox_to_anchor</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p>steps</p></td>
+<tr class="row-even"><td><p>steps</p></td>
 <td><p>1000</p></td>
 <td><p>resolution of the plotted function</p></td>
 </tr>
-<tr class="row-even"><td><p>fitinline</p></td>
+<tr class="row-odd"><td><p>fitinline</p></td>
 <td><p>False</p></td>
 <td><p>No newlines for each fit parameter</p></td>
 </tr>
-<tr class="row-odd"><td><p>grid</p></td>
+<tr class="row-even"><td><p>grid</p></td>
 <td><p>True</p></td>
 <td><p>Enable grid for the plot</p></td>
 </tr>
-<tr class="row-even"><td><p>hist</p></td>
+<tr class="row-odd"><td><p>hist</p></td>
 <td><p>False</p></td>
 <td><p>Enable histogram plot</p></td>
 </tr>
-<tr class="row-odd"><td><p>stairs</p></td>
+<tr class="row-even"><td><p>stairs</p></td>
 <td><p>False</p></td>
 <td><p>Enable stair plot</p></td>
 </tr>
-<tr class="row-even"><td><p>capsize</p></td>
+<tr class="row-odd"><td><p>capsize</p></td>
 <td><p>5</p></td>
 <td><p>size of cap on error bar plot</p></td>
 </tr>
-<tr class="row-odd"><td><p>axes</p></td>
+<tr class="row-even"><td><p>axes</p></td>
 <td><p>None</p></td>
 <td><p>set current axis</p></td>
 </tr>
-<tr class="row-even"><td><p>linestyle</p></td>
+<tr class="row-odd"><td><p>linestyle</p></td>
 <td><p>None</p></td>
 <td><p>linestyle, only active if <a href="#id1"><span class="problematic" id="id2">`</span></a>fmt`=None</p></td>
 </tr>
-<tr class="row-odd"><td><p>xspace</p></td>
+<tr class="row-even"><td><p>xspace</p></td>
 <td><p>linspace</p></td>
 <td><p>xspace gets called with xspace(xmin,xmax,steps) in <a class="reference internal" href="#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-func docutils literal notranslate"><span class="pre">function()</span></code></a> to get the points of the function that will be drawn.</p></td>
-</tr>
-<tr class="row-even"><td><p>only_uncertainties</p></td>
-<td><p>False</p></td>
-<td><p>Only plot uncertainties for interpolation or fit</p></td>
 </tr>
 </tbody>
 </table>
