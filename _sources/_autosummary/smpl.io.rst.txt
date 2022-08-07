@@ -9,6 +9,8 @@
    
    .. autosummary:: 
    
+      append
+   
       files
    
       find_file

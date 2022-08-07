@@ -37,7 +37,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.142
+                0.0.144
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -111,19 +111,45 @@
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">stat</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log10</span><span class="p">,</span> <span class="n">floor</span>
 
 
 <span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
 <span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
+
+<span class="k">def</span> <span class="nf">round_sig</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Round to ``sig`` significant digits.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : float</span>
+<span class="sd">        Value to round.</span>
+<span class="sd">    sig : int</span>
+<span class="sd">        Number of significant digits.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        Rounded value.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; round_sig(1.23456789, sig=2)</span>
+<span class="sd">    1.2</span>
+<span class="sd">    &gt;&gt;&gt; round_sig(1.23456789, sig=4)</span>
+<span class="sd">    1.235</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sig</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="R2"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.R2">[docs]</a><span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    R2 - Coefficient of determination</span>
 
-<span class="sd">    In the best case, the modeled values exactly match the observed values, which results in R2 = 1. </span>
-<span class="sd">    A baseline model, which always predicts the mean of y, will have R2 = 0. </span>
-<span class="sd">    Models that have worse predictions than this baseline will have a negative R2. </span>
+<span class="sd">    In the best case, the modeled values exactly match the observed values, which results in R2 = 1.</span>
+<span class="sd">    A baseline model, which always predicts the mean of y, will have R2 = 0.</span>
+<span class="sd">    Models that have worse predictions than this baseline will have a negative R2.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -142,7 +168,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Chi2 - Goodness of Fit</span>
 
-<span class="sd">    In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good. </span>
+<span class="sd">    In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good.</span>
 <span class="sd">    Coversely,  if Chi-squared/Nd &gt;&gt; 1.0, then the fit is a poor one.</span>
 
 <span class="sd">    References</span>
