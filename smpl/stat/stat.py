@@ -6,10 +6,36 @@ import scipy
 import math
 import statistics as stat
 import pandas as pd
+from math import log10, floor
 
 
 unv = unp.nominal_values
 usd = unp.std_devs
+
+def round_sig(x, sig=2):
+    """
+    Round to ``sig`` significant digits.
+
+    Parameters
+    ----------
+    x : float
+        Value to round.
+    sig : int
+        Number of significant digits.
+
+    Returns
+    -------
+    float
+        Rounded value.
+
+    Examples
+    --------
+    >>> round_sig(1.23456789, sig=2)
+    1.2
+    >>> round_sig(1.23456789, sig=4)
+    1.235
+    """
+    return round(x, sig-int(floor(log10(abs(x))))-1)
 
 
 def R2(y, f):
