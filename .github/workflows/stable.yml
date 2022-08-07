@@ -95,6 +95,10 @@ jobs:
           with:
             name: build
             path: build
+        - uses: actions/download-artifact@v3
+          with:
+            name: prof
+            path: prof
         - name: Deploy Github Pages
           uses: JamesIves/github-pages-deploy-action@v4.4.0
           with:

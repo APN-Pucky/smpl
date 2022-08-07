@@ -9,6 +9,10 @@
    
    .. autosummary:: 
    
+      Chi2
+   
+      R2
+   
       mean
    
       no_dist

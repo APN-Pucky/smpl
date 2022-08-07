@@ -40,13 +40,14 @@ setuptools.setup(
             "ipython",
         ],
         'docs': [
-            "jupyter-sphinx",
-            "sphinx-math-dollar",
+            "jupyter_sphinx",
+            "sphinx_math_dollar",
             "pandoc",
             "sphinx",
             "nbsphinx",
-            "sphinx-rtd-theme",
+            "sphinx_rtd_theme",
             "numpydoc",
+            "sphinx-autobuild",
         ]
     },
     version_config={

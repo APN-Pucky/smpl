@@ -1,0 +1,21 @@
+﻿:mod:`smpl.data` 
+======================
+
+.. currentmodule:: smpl.data
+
+
+.. automodule:: smpl.data
+   :members:
+   
+   .. autosummary:: 
+   
+      data_kwargs
+   
+      filtered_data_split
+   
+      flatmesh
+   
+   
+   .. rubric:: Functions
+
+   

@@ -74,3 +74,7 @@ html_static_path = ['_static']
 html_js_files = [
     DEFAULT_EMBED_REQUIREJS_URL,
 ]
+html_css_files = [
+    "style.css",
+]
+html_extra_path = ['../prof/combined.svg']

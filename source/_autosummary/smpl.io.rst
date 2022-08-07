@@ -9,6 +9,8 @@
    
    .. autosummary:: 
    
+      append
+   
       files
    
       find_file
@@ -20,6 +22,10 @@
       pr
    
       pwd
+   
+      read
+   
+      write
    
    
    .. rubric:: Functions

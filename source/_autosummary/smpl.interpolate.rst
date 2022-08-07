@@ -1,0 +1,17 @@
+﻿:mod:`smpl.interpolate` 
+======================
+
+.. currentmodule:: smpl.interpolate
+
+
+.. automodule:: smpl.interpolate
+   :members:
+   
+   .. autosummary:: 
+   
+      interpolate
+   
+   
+   .. rubric:: Functions
+
+   

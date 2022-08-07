@@ -223,6 +223,10 @@
    
       plot
    
+      plot2d
+   
+      plot2d_kwargs
+   
       plot_date
    
       plot_kwargs
