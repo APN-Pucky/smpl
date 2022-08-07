@@ -40,7 +40,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.143-5-g4c0507b7
+                0.0.143-6-g64f724dd
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -137,7 +137,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.append" title="smpl.io.append"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append</span></code></a>(destination, content[, mode])</p></td>
 <td><p>Appends to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.files" title="smpl.io.files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">files</span></code></a>(folder, ending)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.files" title="smpl.io.files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">files</span></code></a>(ending[, folder])</p></td>
 <td><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.find_file" title="smpl.io.find_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_file</span></code></a>(fname[, up])</p></td>
@@ -190,7 +190,7 @@ Default is ‘a+’ (append and read).</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.files">
-<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ending</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.files" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ending</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io/io.html#files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.files" title="Permalink to this definition"></a></dt>
 <dd><p>Get all the files in <code class="docutils literal notranslate"><span class="pre">folder</span></code> ending with <code class="docutils literal notranslate"><span class="pre">ending</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -209,7 +209,7 @@ Default is ‘a+’ (append and read).</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="s2">&quot;.py&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">)</span>
 <span class="go">[(0, &#39;setup&#39;, &#39;./setup.py&#39;)]</span>
 </pre></div>
 </div>

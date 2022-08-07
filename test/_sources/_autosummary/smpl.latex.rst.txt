@@ -17,6 +17,8 @@
    
       si_ttab
    
+      transpose_table
+   
    
    .. rubric:: Functions
 
