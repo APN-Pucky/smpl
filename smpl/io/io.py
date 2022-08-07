@@ -199,7 +199,7 @@ def pr(a, nnl=False):
     return a
 
 
-def files(folder, ending):
+def files( ending,folder="."):
     """
     Get all the files in ``folder`` ending with ``ending``.
 
@@ -217,7 +217,7 @@ def files(folder, ending):
 
     Examples
     --------
-    >>> files(".",".py")
+    >>> files(".py")
     [(0, 'setup', './setup.py')]
     """
     r = []

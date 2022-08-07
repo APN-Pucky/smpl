@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 
 def si(s, u:str="", fmt:str="{}"):
@@ -110,3 +111,13 @@ def si_tab(tab, skip=0, fmt="{}"):
                 s += "%s" % (tij)
         s += "\\\\\n"
     return s
+
+from io import StringIO
+
+def transpose_table(strtab):
+    """
+    Transpose a table and return it in latex format.
+    """
+    s = StringIO(strtab.replace("\\\\", ""))
+    df = pd.read_csv(s, sep="&", engine="python",header=None)
+    return (si_ttab(df.values,skip=9999))
