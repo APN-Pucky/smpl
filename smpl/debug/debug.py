@@ -1,5 +1,6 @@
 from inspect import currentframe, getsource
 import os
+from turtle import reset
 import numpy as np
 
 DEBUG_LEVEL = -1
@@ -41,17 +42,62 @@ def once(_back=0):
     0
 
     """
-    return times(1, _back+1)
+    return times(1, _back=_back+1)
 
 
 def times(t=1, _back=0):
-    line, fname = get_line_number_file(_back+1)
+    """
+    Returns true if the count of the current line is greater than or equal to ``t``.
+    
+    Parameters
+    ----------
+    t : int
+        The count to check against.
+    _back : int
+        Number of stack/frames to go back.
+
+    Returns
+    -------
+    bool
+        True if the count of the current line is greater than or equal to ``t``.
+
+    Examples
+    --------
+    >>> reset_times()
+    >>> for i in range(10):
+    ...     if times(3):
+    ...         print(i)
+    0
+    1
+    2
+    """
+    line, fname = get_line_number_file(_back=_back+1)
     inc_count(line, fname)
     return check_count(line, fname, t)
 
 
 def get_line_src(_back=0):
-    cf = get_frame(_back+1)
+    """
+    Gets the current line in the python source.
+
+    Parameters
+    ----------
+    _back : int
+        Number of stack/frames to go back.
+
+    Returns
+    -------
+    src : str
+        The current line in the python source.
+
+    Examples
+    --------
+    >>> get_line_src()
+    'get_line_src()'
+    >>> "funky"+get_line_src()
+    'funky"funky"+get_line_src()'
+    """
+    cf = get_frame(_back=_back+1)
     srcline = getsource(cf).split(
         "\n")[cf.f_lineno-cf.f_code.co_firstlineno].strip()
     return srcline
@@ -75,8 +121,16 @@ def get_line_number_file(split=True, _back=0):
     filename : str
         Second element in the return array
 
+    Examples
+    --------
+    >>> get_line_number_file()
+    (1, '<doctest smpl.debug.debug.get_line_number_file[0]>')
+    >>> for i in range(2):
+    ...     get_line_number_file() 
+    (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
+    (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
     """
-    cf = get_frame(_back+1)
+    cf = get_frame(_back=_back+1)
     fname = cf.f_code.co_filename
     if split:
         fname = cf.f_code.co_filename.split("/")[-1]
@@ -84,15 +138,13 @@ def get_line_number_file(split=True, _back=0):
 
 
 def get_line_number(_back=0):
-    return get_line_number_file(_back+1)[0]
+    return get_line_number_file(_back=_back+1)[0]
 
 
 def line(msg_, tag="", level=0, times=-1, _back=0, **kwargs):
     msg(msg_, tag=tag, level=level, times=times,
         line_=True, _back=_back+1, **kwargs)
 # only once
-
-
 def line1(msg_, tag="", level=0, times=-1, _back=0, **kwargs):
     msg1(msg_, tag=tag, level=level, times=times,
          line_=True, _back=_back+1, **kwargs)
@@ -101,19 +153,81 @@ def line1(msg_, tag="", level=0, times=-1, _back=0, **kwargs):
 
 
 def get_count(line, fname):
+    """
+    Returns the counts of the line.
+
+    Parameters
+    ----------
+    line : int
+        The line in the python source of ``fname``.
+    fname : str
+        The filename.
+
+    Returns
+    -------
+    count : int
+        The count of the current line.
+
+    Examples
+    --------
+    >>> get_count(1, "debug.py")
+    0
+    """
     global count_times
-    return count_times[fname+str(line)]
+    if fname+":"+str(line) in count_times:
+        return count_times[fname+":"+str(line)]
+    return 0 
 
 
 def inc_count(line, fname):
+    """
+    Increments the count of the line.
+
+    Parameters
+    ----------
+    line : int
+        The line in the python source of ``fname``.
+    fname : str
+        The filename.
+
+    Examples
+    --------
+    >>> inc_count(1, "debug.py")
+    """
     global count_times
-    if fname+str(line) in count_times:
-        count_times[fname+str(line)] += 1
+    if fname+":"+str(line) in count_times:
+        count_times[fname+":"+str(line)] += 1
     else:
-        count_times[fname+str(line)] = 1
+        count_times[fname+":"+str(line)] = 1
 
 
 def check_count(line, fname, t):
+    """
+    Returns true if the count of the line is greater than or equal to ``t``.
+
+    Parameters
+    ----------
+    line : int
+        The line in the python source of ``fname``.
+    fname : str
+        The filename.
+    t : int
+        The count to check against.
+
+    Returns
+    ------- 
+    bool
+        True if the count of the line is greater than or equal to ``t``.
+
+    Examples
+    --------
+    >>> check_count(2, "debug.py", 0)
+    True
+    >>> inc_count(2, "debug.py")
+    >>> check_count(2, "debug.py", 0)
+    False
+
+    """
     if t >= get_count(line, fname) or t == -1:
         if(not fname in BLACK_LIST_FILES and (len(WHITE_LIST_FILES) == 0 or fname in WHITE_LIST_FILES)):
             return True
@@ -142,17 +256,17 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0, **kwargs):
     Examples
     --------
     >>> msg("hi", level = -9999)
-    DBG::debug.py:...: hi
+    DBG::<doctest smpl.debug.debug.msg[0]>:1: hi
     'hi'
     >>> msg("hi")
     'hi'
 
     """
     if(level <= DEBUG_LEVEL):
-        line, fname = get_line_number_file(_back+1)
+        line, fname = get_line_number_file(_back=_back+1)
         src = ""
         if line_ == True:
-            src = get_line_src(_back+1)
+            src = get_line_src(_back=_back+1)
             src = "(" + '('.join(src.split("(")[1:]) + " = "
         inc_count(line, fname)
         if(check_count(line, fname, times)):
@@ -164,6 +278,29 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0, **kwargs):
 def msg1(_msg, tag="", level=0, times=1, line_=False, _back=0, **kwargs):
     """
     Just like :func:`msg` but ``times`` set to 1.
+
+    Parameters
+    ----------
+    tag : str
+        Sets a tag to be printed for the debug message.
+    level : int
+        Debug level.
+    times : int
+        How often should the message be printed if the function gets called multiple times (e.g. in a loop).
+    _line : bool
+        Print the current line in the python source.
+    _back : int
+        Number of stack/frames to go back.
+
+    Examples
+    --------
+    >>> for i in range(-2,2):
+    ...     msg1(i, level = i)
+    DBG::<doctest smpl.debug.debug.msg1[0]>:2: -2
+    -2
+    -1
+    0
+    1
     """
     return msg(_msg, level=level, tag=tag, times=times, line_=line_, _back=_back+1, **kwargs)
 
@@ -173,7 +310,7 @@ def file(key, value, level=0, times=-1, seperator=";", _print=True, _back=0, fil
     Prints the message ``msg`` if level > debug_level to file ``filename``
     """
     if(level <= DEBUG_LEVEL):
-        line, fname = get_line_number_file(_back+1)
+        line, fname = get_line_number_file(_back=_back+1)
         inc_count(line, fname)
         if(check_count(line, fname, times)):
             f = open(filename, "a+")
@@ -233,7 +370,7 @@ def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, f
     """
     global cur_table_line
     if(level <= DEBUG_LEVEL):
-        line, fname = get_line_number_file(_back+1)
+        line, fname = get_line_number_file(_back=_back+1)
         inc_count(line, fname)
         if(check_count(line, fname, times)):
             if isinstance(value, np.ndarray):
@@ -249,7 +386,7 @@ def reset_times():
     """
     global count_times
     count_times = {}
-
+reset_count=reset_times
 
 if os.path.exists("debug.csv"):
     os.remove("debug.csv")

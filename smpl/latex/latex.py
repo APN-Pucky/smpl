@@ -90,7 +90,6 @@ def si_tab(tab, skip=0, fmt="{}"):
     Returns
     -------
     str
-        
 
     Examples
     --------
