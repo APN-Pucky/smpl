@@ -1,14 +1,18 @@
 from inspect import currentframe, getsource
 import os
-from turtle import reset
 import numpy as np
 
-DEBUG_LEVEL = -1
-# DEBUG_LEVEL=-1 no debug
-# DEBUG_LEVEL= 0 default level
-# DEBUG_LEVEL= 1,2,3 higher levels, more debug
+# TODO instead of hard coded global variables, use function arguments
 
-# print prefix
+"""
+DEBUG_LEVEL=-1 no debug
+DEBUG_LEVEL= 0 default level
+DEBUG_LEVEL= 1,2,3 higher levels, more debug
+"""
+DEBUG_LEVEL = -1
+
+
+#print prefix
 DEBUG_PRE = "DBG"
 
 # remove folders of files for print
@@ -43,7 +47,6 @@ def once(_back=0):
 
     """
     return times(1, _back=_back+1)
-
 
 def times(t=1, _back=0):
     """
@@ -126,7 +129,7 @@ def get_line_number_file(split=True, _back=0):
     >>> get_line_number_file()
     (1, '<doctest smpl.debug.debug.get_line_number_file[0]>')
     >>> for i in range(2):
-    ...     get_line_number_file() 
+    ...     get_line_number_file()
     (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
     (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
     """
@@ -176,7 +179,7 @@ def get_count(line, fname):
     global count_times
     if fname+":"+str(line) in count_times:
         return count_times[fname+":"+str(line)]
-    return 0 
+    return 0
 
 
 def inc_count(line, fname):
@@ -215,7 +218,7 @@ def check_count(line, fname, t):
         The count to check against.
 
     Returns
-    ------- 
+    -------
     bool
         True if the count of the line is greater than or equal to ``t``.
 
@@ -386,6 +389,8 @@ def reset_times():
     """
     global count_times
     count_times = {}
+
+
 reset_count=reset_times
 
 if os.path.exists("debug.csv"):
