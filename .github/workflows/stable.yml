@@ -36,6 +36,10 @@ jobs:
           with:
             name: build
             path: build
+        - uses: actions/upload-artifact@v3
+          with:
+            name: prof
+            path: prof
 
     report:
       runs-on: ubuntu-latest
