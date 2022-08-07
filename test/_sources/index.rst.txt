@@ -45,6 +45,13 @@ Dev version::
 
    example/*
 
+.. toctree::
+   :glob:
+   :maxdepth: 3  
+   :caption: Performance:
+
+   performance/*
+
 
 :mod:`smpl` package
 ===================
