@@ -2,6 +2,8 @@ from inspect import currentframe, getsource
 import os
 import numpy as np
 
+# TODO comapare against logging module https://docs.python.org/3.5/library/logging.html
+
 # TODO instead of hard coded global variables, use function arguments
 
 """
@@ -148,7 +150,16 @@ def line(msg_, tag="", level=0, times=-1, _back=0, **kwargs):
     msg(msg_, tag=tag, level=level, times=times,
         line_=True, _back=_back+1, **kwargs)
 # only once
-def line1(msg_, tag="", level=0, times=-1, _back=0, **kwargs):
+def line1(msg_, tag="", level=0, times=1, _back=0, **kwargs):
+    """
+    Just like :func:`line` but ``times`` set to 1.
+
+    Examples
+    --------
+    >>> for i in range(-2,2):
+    ...     line1(i,level=-1)
+    DBG::<doctest smpl.debug.debug.line1[0]>:2: line1(i,level=-1) = -2
+    """
     msg1(msg_, tag=tag, level=level, times=times,
          line_=True, _back=_back+1, **kwargs)
 
@@ -239,7 +250,7 @@ def check_count(line, fname, t):
 
 # _line enables printint src line
 # t stands for times
-def msg(msg, tag="", level=0, times=-1, line_=False, _back=0, **kwargs):
+def msg(msg, tag="", level=0, times=-1, line_=False, _back=0,**kwargs):
     """
     Prints the message ``msg`` if level > debug_level and always returns the msg.
 
@@ -270,7 +281,7 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0, **kwargs):
         src = ""
         if line_ == True:
             src = get_line_src(_back=_back+1)
-            src = "(" + '('.join(src.split("(")[1:]) + " = "
+            src = src+ " = "
         inc_count(line, fname)
         if(check_count(line, fname, times)):
             print(DEBUG_PRE + ":" + tag + ":" + fname +
@@ -310,7 +321,7 @@ def msg1(_msg, tag="", level=0, times=1, line_=False, _back=0, **kwargs):
 
 def file(key, value, level=0, times=-1, seperator=";", _print=True, _back=0, filename="debug.csv"):
     """
-    Prints the message ``msg`` if level > debug_level to file ``filename``
+    Prints the message ``msg`` if level > debug_level to file ``filename``.
     """
     if(level <= DEBUG_LEVEL):
         line, fname = get_line_number_file(_back=_back+1)
@@ -335,7 +346,7 @@ def file1(_key, _value, level=0, times=1, _back=0, **kwargs):
 
 def table_flush_header(filename="debug_table.csv", seperator=";"):
     """
-    Saves the current keys from :func:`table` to ``filename``
+    Saves the current keys from :func:`table` to ``filename``.
     """
     global cur_table_line
     f = open(filename, "a+")
