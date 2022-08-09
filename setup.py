@@ -35,6 +35,8 @@ setuptools.setup(
             "build",
             "pytest",
             "pytest-cov",
+            "pytest-profiling",
+            "pytest-line-profiler",
             "jupyterlab",
             "pandas",
             "ipython",
