@@ -20,7 +20,7 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 install:
-	python3 -m pip install --user .
+	python3 -m pip install --user .[docs,dev]
 
 build:
 	python3 -m build
