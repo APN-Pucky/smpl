@@ -7,6 +7,7 @@ import numpy as np
 # TODO instead of hard coded global variables, use function arguments
 
 """
+TODO Enum maybe?
 DEBUG_LEVEL=-1 no debug
 DEBUG_LEVEL= 0 default level
 DEBUG_LEVEL= 1,2,3 higher levels, more debug
