@@ -36,7 +36,7 @@ setuptools.setup(
             "pytest",
             "pytest-cov",
             "pytest-profiling",
-            "git+https://github.com/APN-Pucky/pytest-line-profiler.git@b3c37f7d64cc47c1b2a69fe15be3123cac2693ae",
+            "pytest-line-profiler@git+https://github.com/APN-Pucky/pytest-line-profiler.git@b3c37f7d64cc47c1b2a69fe15be3123cac2693ae",
             "jupyterlab",
             "pandas",
             "ipython",
