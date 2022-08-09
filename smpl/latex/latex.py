@@ -26,9 +26,9 @@ def si(s, u:str="", fmt:str="{}"):
     >>> from smpl import io
     >>> si(unc.ufloat(2000,0.1))
     '\\\\SI{2000.00+-0.10}{}'
-    >>> si(unc.ufloat(2000,0.1),"\\meter")
+    >>> si(unc.ufloat(2000,0.1),"\\\\meter")
     '\\\\SI{2000.00+-0.10}{\\\\meter}'
-    >>> si(unc.ufloat(2000,0.1),"\\meter", io.gf(2))
+    >>> si(unc.ufloat(2000,0.1),"\\\\meter", io.gf(2))
     '\\\\SI{2.0+-0.0e+03}{\\\\meter}'
 
     """
