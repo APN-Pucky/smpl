@@ -5,6 +5,22 @@ import os
 import sys
 from pathlib import Path
 
+def grep(pattern,inp):
+    """
+    Searches for ``pattern`` in ``inp``.
+
+    >>> from smpl import io
+    >>> write("test.txt","hi\\nho1\\n2\\n3\\n4\\n")
+    >>> grep("h","test.txt").read()
+    'hi\nho1\n'
+    """
+    r=""
+    with open(inp, 'r') as f:
+        for line in f:
+            if pattern in line:
+                r += line
+    return StringIO(r)
+
 
 def tail(inp,n=1):
     """
