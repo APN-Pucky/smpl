@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import tqdm
 
-import scipy
 from smpl import stat
 from smpl.functions import fac
 
