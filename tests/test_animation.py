@@ -31,8 +31,15 @@ def test_animation():
     plt.close()
     ani.save("test.gif")
 
+c=0
+datax=0
+datay=0
+bahnh=0
+bahnhs=0
+
 @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
 def test_histogram():
+    global c,datax,datay,bahnh,bahnhs
     n = 13
     bahnhs = 13
     bahnh = np.array(range(bahnhs))*0
@@ -41,6 +48,7 @@ def test_histogram():
     c = 0
 
     def update(a):
+       global c,datax,datay,bahnh,bahnhs
        c+=1
        bahnh = bahnh*0
        for i in range(n):
