@@ -44,7 +44,7 @@ def update(a):
             datay[i] += 1
     plot.data(datax,stat.poisson_dist(datay)/c,init=True,tight=False,fmt="hist",ylabel="P(>1 Gäste bei beliebigem Bahnhof)",xlabel="$n$ Gäste",capsize=0)
     plot.function(lambda ni : 1.-fac(bahnhs)/(fac(bahnhs-ni)*bahnhs**ni),xmin=0,xmax=13,label="$\\frac{b!}{(b-n)!b^n}$",function_color="orange")
- 
+
 def init():
     global datay,bahnh,c
     datay = datay*0
