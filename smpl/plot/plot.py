@@ -52,6 +52,7 @@ default = {
     'ss': [True, "save, add legends and grid to the plot", ],
     'also_data': [True, " also plot the data"],
     'also_fit': [True, "also plot the fit", ],
+    'auto_fit': [False, "automatically fit", ],
     'logy': [False, "logarithmic x axis", ],
     'logx': [False, "logarithmic y axis", ],
     'function_color': [None, "Color of the function plot", ],
@@ -104,32 +105,7 @@ def plot_kwargs(kwargs):
 
 
 # @append_doc(default_kwargs)
-def auto(datax, datay, funcs=None, **kwargs):
-    """
-    Automatically loop over functions and fit the best one.
-
-    Parameters
-    ----------
-    funcs : function array
-        functions to consider as fit. Default all ``smpl.functions``.
-    **kwargs : optional
-        see :func:`plot_kwargs`.
-
-    Returns
-    -------
-    The best fit function and it's parameters. Also a lambda function where the parameters are already applied.
-
-
-
-    """
-    best_f, best_ff, lambda_f = ffit.auto(datax, datay, funcs, **kwargs)
-    if best_f is not None:
-        fit(datax, datay, best_f, **kwargs)
-    return best_f, best_ff, lambda_f
-
-
-# @append_doc(default_kwargs)
-def fit(datax, datay, function, **kwargs):
+def fit(function,*adata, **kwargs):
     """
     Fit and plot function to datax and datay.
 
@@ -164,6 +140,32 @@ def fit(datax, datay, function, **kwargs):
         1.0
 
     """
+    # Fix parameter order if necessary
+    if isinstance(function, (list, tuple, np.ndarray)):
+        adata=np.roll([function,*adata], 1)
+        function = adata[0]
+        adata = adata[1:]
+    if util.true("bins",kwargs):
+        # yvalue will be overwritten
+        ndata = [*adata,*adata]
+        for i in range(0, len(adata), 1):
+            ndata[2*i] =adata[i]
+            ndata[2*i+1] =adata[i]*0
+        adata= ndata
+
+    assert len(adata)%2==0, "data must be pairs of x and y data" 
+    if len(adata) ==2:
+        datax, datay = adata
+    else:
+        rs = []
+        for i in range(0, len(adata), 2):
+            datax, datay = adata[i], adata[i+1]
+            if util.true("bins",kwargs):
+                rs.append(fit(function,datax,  **kwargs))
+            else:
+                rs.append(fit(function,datax, datay,  **kwargs))
+        return rs
+
     kwargs = plot_kwargs(kwargs)
     if np.any(np.iscomplex(datay)):
         label = util.get("label",kwargs, "")
@@ -172,6 +174,11 @@ def fit(datax, datay, function, **kwargs):
         kwargs['label'] = label + "(imag)"
         i= data(datax, datay.imag, function=function,**kwargs)
         return r,i
+    if kwargs['auto_fit']:
+        best_f, best_ff, lambda_f = ffit.auto(datax, datay, function, **kwargs)
+        if best_f is not None:
+            fit(datax, datay, best_f, **kwargs)
+        return best_f, best_ff, lambda_f
     if kwargs['also_fit'] == False and kwargs['label'] == None and kwargs['lpos'] == 0:
         kwargs['lpos'] = -1
     x = None
@@ -186,6 +193,7 @@ def fit(datax, datay, function, **kwargs):
     if kwargs['interpolate']:
         ifit, _, x, y = plt_interpolate(datax, datay, icolor=ll, **kwargs)
     if kwargs['also_fit']:
+        assert function is not None, "function must be given"
         rfit, kwargs['fit_color'], _, _ = plt_fit(
             datax, datay, function, **kwargs)
     if kwargs['ss']:
@@ -199,11 +207,10 @@ def fit(datax, datay, function, **kwargs):
         return (ifit, x, y)
         # return ifit
     return rfit
-
 # @append_doc(default_kwargs)
 
 
-def data(datax, datay, function=None, **kwargs):
+def data(*data, function=None, **kwargs):
     """
     Plot datay against datax via :func:`fit`
 
@@ -225,7 +232,33 @@ def data(datax, datay, function=None, **kwargs):
     if 'also_fit' not in kwargs:
         kwargs['also_fit'] = False
     kwargs = plot_kwargs(kwargs)
-    return fit(datax, datay, function, **kwargs)
+    return fit(function,*data, **kwargs)
+
+# @append_doc(default_kwargs)
+def auto(*adata, funcs=None, **kwargs):
+    """
+    Automatically loop over functions and fit the best one.
+
+    Parameters
+    ----------
+    funcs : function array
+        functions to consider as fit. Default all ``smpl.functions``.
+    **kwargs : optional
+        see :func:`plot_kwargs`.
+
+    Returns
+    -------
+    The best fit function and it's parameters. Also a lambda function where the parameters are already applied.
+
+
+
+    """
+    if 'auto_fit' not in kwargs:
+        kwargs['auto_fit'] = True
+    kwargs = plot_kwargs(kwargs)
+    return fit(funcs,*adata, **kwargs)
+
+
 
 
 def _function(func, xfit, **kwargs):
