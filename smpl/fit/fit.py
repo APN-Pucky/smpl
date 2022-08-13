@@ -126,7 +126,7 @@ def fit(datax, datay, function, **kwargs):
     kwargs = fit_kwargs(kwargs)
     x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
 
-    tmp,params,fixed,Ntot=_wrap_func_and_param(**kwargs)
+    tmp,params,fixed,Ntot=_wrap_func_and_param(function,**kwargs)
 
     
     fitter = kwargs["fitter"]
@@ -146,7 +146,7 @@ def fit(datax, datay, function, **kwargs):
     return _unwrap_param(fitt,fixed,Ntot)
 
 
-def _wrap_func_and_param(**kwargs):
+def _wrap_func_and_param(function,**kwargs):
     """
     Wraps a function with a lambda function.
     """
