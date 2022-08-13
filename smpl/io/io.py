@@ -134,7 +134,7 @@ def write(destination,content,mode='w+'):
     """
     # TODO add http and other string based write methodes
     if isinstance(destination,str):
-        os.makedirs(os.path.dirname(destination), exist_ok=True)
+        #os.makedirs(os.path.dirname(destination), exist_ok=True)
         with open(destination, mode) as f:
             f.write(content)
     else:
