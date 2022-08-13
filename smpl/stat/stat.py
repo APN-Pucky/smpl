@@ -256,7 +256,7 @@ def trim_domain(f,
     fmin = np.finfo(np.float32).min/2,
     fmax = np.finfo(np.float32).max/2,
     steps=10000,
-    min_ch=0.001
+    min_ch=0.0001
                ):
     """
     Get the domain of the function ``f`` with the ranges removed where the derivative of ``f`` is below ``min_ch``.
@@ -291,11 +291,14 @@ def trim_domain(f,
 def get_domain(f,
     fmin = np.finfo(np.float32).min/2,
     fmax = np.finfo(np.float32).max/2,
-    steps=10000,
+    steps=1000,
+    trisec=True,
 ):
     """
-    Return the domain of the function ``f``.
+    Return the statistically probed domain of the function ``f``.
     """
+    if np.isclose(fmin,fmax,rtol=0.0001,atol=0.00001):
+        return 0.,0.
     
     test = np.linspace(fmin,fmax,steps)
     
@@ -326,7 +329,7 @@ def get_domain(f,
     else:
         return t1a,t1b
 
-def is_monotone(f,tmin=None,tmax=None,):
+def is_monotone(f,tmin=None,tmax=None,steps=1000):
     """
     Test if function ``f`` is monotone.
 
@@ -353,10 +356,10 @@ def is_monotone(f,tmin=None,tmax=None,):
     """
     if tmax is None and tmin is None:
         tmin,tmax = get_domain(f)
-    test = np.linspace(tmin,tmax,1000)
+    test = np.linspace(tmin,tmax,steps)
     return np.all(f(test[1:])>=f(test[:-1]))
 
-def get_interesting_domain(f,min_ch = 1e-4):
+def get_interesting_domain(f,min_ch = 1e-6):
     """
     Return interesting xmin and xmax of function ``f``.
 
@@ -364,7 +367,7 @@ def get_interesting_domain(f,min_ch = 1e-4):
     --------
     >>> def f(x):
     ...     return np.sin(x)
-    >>> get_interesting_region(f)
+    >>> get_interesting_domain(f)
     (-3.141625000000003, 3.141625000000003)
     """
     omin_x,omax_x = get_domain(f)
