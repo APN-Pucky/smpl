@@ -148,7 +148,8 @@ def fit(datax, datay, function, **kwargs):
     Returns
     -------
     array_like
-        Optimized fit parameters of ``function`` to ``datax`` and ``datay``
+        Optimized fit parameters of ``function`` to ``datax`` and ``datay``.
+        If ``datay`` is complex, both the real and imaginary part are returned.
 
     Examples
     --------
@@ -164,6 +165,15 @@ def fit(datax, datay, function, **kwargs):
 
     """
     kwargs = plot_kwargs(kwargs)
+    if np.any(np.iscomplex(datay)):
+        label = util.get("label",kwargs, "")
+        kwargs['label'] =  label+ "(real)"
+        r= data(datax, datay.real, function=function,**kwargs)
+        kwargs['label'] = label + "(imag)"
+        i= data(datax, datay.imag, function=function,**kwargs)
+        return r,i
+    if kwargs['also_fit'] == False and kwargs['label'] == None and kwargs['lpos'] == 0:
+        kwargs['lpos'] = -1
     x = None
     y = None
     rfit = None
@@ -215,8 +225,6 @@ def data(datax, datay, function=None, **kwargs):
     if 'also_fit' not in kwargs:
         kwargs['also_fit'] = False
     kwargs = plot_kwargs(kwargs)
-    if kwargs['label'] == None and kwargs['lpos'] == 0:
-        kwargs['lpos'] = -1
     return fit(datax, datay, function, **kwargs)
 
 
