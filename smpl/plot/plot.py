@@ -153,9 +153,9 @@ def fit(func,*adata, **kwargs):
     if util.true("bins",kwargs):
         # yvalue will be overwritten
         ndata = [*adata,*adata]
-        for i in range(len(adata)):
-            ndata[2*i] =adata[i]
-            ndata[2*i+1] =adata[i]*0
+        for i,o in enumerate(adata):
+            ndata[2*i] =o
+            ndata[2*i+1] =o*0
         adata= ndata
 
     assert len(adata)%2==0, "data must be pairs of x and y data"
