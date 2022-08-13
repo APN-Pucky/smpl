@@ -31,6 +31,7 @@ def test_animation():
     plt.close()
     ani.save("test.gif")
 
+
 c=0
 datax=0
 datay=0
@@ -48,7 +49,7 @@ def test_histogram():
     c = 0
 
     def update(a):
-       global c,datax,datay,bahnh,bahnhs
+       global c,datay,bahnh
        c+=1
        bahnh = bahnh*0
        for i in range(n):
