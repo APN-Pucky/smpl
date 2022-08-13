@@ -419,6 +419,7 @@ def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, f
     2  0.000000000000000000000000000000e+00;0.0000000...
     3  1.000000000000000000000000000000e+00;1.0000000...
     >>> reset_table()
+    >>> io.write("debug_table.csv","")
     >>> for i in range(1,3):
     ...     table("a", np.array([i*k for k in range(5)]),level=-1)
     ...     table("b", np.array([i*i*k for k in range(5)]),level=-1)
