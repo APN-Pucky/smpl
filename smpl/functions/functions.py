@@ -1,13 +1,19 @@
 import numpy as np
 import uncertainties.unumpy as unp
+import scipy
 
 from smpl import doc
 
+@doc.append_plot()
+@doc.insert_str("Fac(x)")
+def fac(n):
+    return scipy.special.gamma(n+1)
 
-# allgemeine Fitfunktionen
+# general fit functions
 @doc.append_plot(4)
 @doc.insert_str("const(x) = $m$")
 def const(x, m):
+    # To get the right dimension
     return x-x + m
 
 
