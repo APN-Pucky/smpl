@@ -147,13 +147,13 @@ def fit(func,*adata, **kwargs):
         adata = [func,*adata]
     # Fix parameter order if necessary
     elif isinstance(function, (list, tuple, np.ndarray)):
-        adata=np.roll([function,*adata], 1)
+        adata=[adata[-1],function,*adata[:-1]]
         function = adata[0]
         adata = adata[1:]
     if util.true("bins",kwargs):
         # yvalue will be overwritten
         ndata = [*adata,*adata]
-        for i in range(0, len(adata), 1):
+        for i in range(len(adata)):
             ndata[2*i] =adata[i]
             ndata[2*i+1] =adata[i]*0
         adata= ndata
@@ -180,8 +180,10 @@ def fit(func,*adata, **kwargs):
         i= data(datax, datay.imag, function=function,**kwargs)
         return r,i
     if kwargs['auto_fit']:
+        print("function:",function)
         best_f, best_ff, lambda_f = ffit.auto(datax, datay, function, **kwargs)
         if best_f is not None:
+            del kwargs['auto_fit']
             fit(datax, datay, best_f, **kwargs)
         return best_f, best_ff, lambda_f
     if kwargs['also_fit'] == False and kwargs['label'] == None and kwargs['lpos'] == 0:
@@ -237,7 +239,7 @@ def data(*data, function=None, **kwargs):
     if 'also_fit' not in kwargs:
         kwargs['also_fit'] = False
     kwargs = plot_kwargs(kwargs)
-    return fit(function,*data, **kwargs)
+    return fit(function=function,*data, **kwargs)
 
 # @append_doc(default_kwargs)
 def auto(*adata, funcs=None, **kwargs):
@@ -261,7 +263,7 @@ def auto(*adata, funcs=None, **kwargs):
     if 'auto_fit' not in kwargs:
         kwargs['auto_fit'] = True
     kwargs = plot_kwargs(kwargs)
-    return fit(funcs,*adata, **kwargs)
+    return fit(function=funcs,*adata, **kwargs)
 
 
 
