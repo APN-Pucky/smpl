@@ -33,7 +33,7 @@ def test_animation():
 
 @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
 def test_histogram():
-     global c
+     global c,bahnh,datax,datay,bahnhs
      n = 13
      bahnhs = 13
      p = 1./bahnhs
@@ -42,7 +42,7 @@ def test_histogram():
      datay = datax*0
      c = 0
      def update(a):
-        global c
+        global c,bahnh,datax,datay,bahnhs
         c+=1
         bahnh = bahnh*0
         for i in range(n):
