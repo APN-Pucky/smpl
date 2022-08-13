@@ -38,7 +38,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-27-g8929c8ac
+                0.0.145-28-gd19a6118
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -263,9 +263,9 @@
     <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="s2">&quot;bins&quot;</span><span class="p">,</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># yvalue will be overwritten</span>
         <span class="n">ndata</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">adata</span><span class="p">,</span><span class="o">*</span><span class="n">adata</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">)):</span>
-            <span class="n">ndata</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span><span class="n">adata</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-            <span class="n">ndata</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span><span class="n">adata</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">o</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">adata</span><span class="p">):</span>
+            <span class="n">ndata</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span><span class="n">o</span>
+            <span class="n">ndata</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span><span class="n">o</span><span class="o">*</span><span class="mi">0</span>
         <span class="n">adata</span><span class="o">=</span> <span class="n">ndata</span>
 
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;data must be pairs of x and y data&quot;</span>
