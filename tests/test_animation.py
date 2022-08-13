@@ -82,7 +82,6 @@ def test_subplots():
     for a in tqdm.tqdm(np.linspace(0,10,100)):
         fig, axs = plot.subplots(1, 3, figsize=(12, 8), sharey=True)
         fig.subplots_adjust(wspace=0)
-    
         plot.function(lambda x: a*x**3,axes=axs[1],logx=True,xmin=0,xmax=1)
         plot.function(lambda x: a*x**2,axes=axs[0],xmin=0,xmax=1)
         plot.function(lambda x: a*x**5,axes=axs[0],xmin=0,xmax=1)
