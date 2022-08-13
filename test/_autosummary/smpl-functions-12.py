@@ -1,3 +1,3 @@
-from smpl.functions.functions import sqrt
+from smpl.functions.functions import sin
 from smpl import plot
-plot.function(sqrt,1,3.3,0,xmin=0,xmax=5)
+plot.function(sin,3,0.02,3,xmin=-5,xmax=5)

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>smpl 0.0.145-30-gbf962104 documentation &mdash; smpl  documentation</title>
+  <title>smpl 0.0.145-44-gaf96194a documentation &mdash; smpl  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
@@ -40,7 +40,7 @@
             <a href="#" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-30-gbf962104
+                0.0.145-44-gaf96194a
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -63,10 +63,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="example/index.html">Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="performance/index.html">Performance</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -84,6 +80,11 @@
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance/line.html">Line Profiling</a></li>
+</ul>
 
         </div>
       </div>
@@ -99,7 +100,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>smpl 0.0.145-30-gbf962104 documentation</li>
+      <li>smpl 0.0.145-44-gaf96194a documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -134,7 +135,7 @@
 }
 </style>
 <section id="smpl-version-documentation">
-<h1>smpl 0.0.145-30-gbf962104 documentation<a class="headerlink" href="#smpl-version-documentation" title="Permalink to this heading"></a></h1>
+<h1>smpl 0.0.145-44-gaf96194a documentation<a class="headerlink" href="#smpl-version-documentation" title="Permalink to this heading"></a></h1>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
 <p>Stable version:</p>
@@ -212,12 +213,6 @@
 </li>
 </ul>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="performance/index.html">Performance</a></li>
-</ul>
-</div>
 </section>
 <section id="module-smpl">
 <span id="smpl-package"></span><h2><a class="reference internal" href="#module-smpl" title="smpl"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl</span></code></a> package<a class="headerlink" href="#module-smpl" title="Permalink to this heading"></a></h2>
@@ -268,6 +263,47 @@
 </tr>
 </tbody>
 </table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance/line.html">Line Profiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-animation-py">tests/test_animation.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-animation">test_animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#id1">tests/test_animation.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-histogram">test_histogram</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#id2">tests/test_animation.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-subplots">test_subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-fit-py">tests/test_fit.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-fit">test_fit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-line-profiling-py">tests/test_line_profiling.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-as-mark">test_as_mark</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-line-profiling-doctests-py">tests/test_line_profiling_doctests.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#id3">test_as_mark</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-plot-py">tests/test_plot.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-em">test_em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-wrap-py">tests/test_wrap.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-wrap">test_wrap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 <section id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h2>

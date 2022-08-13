@@ -1,3 +1,3 @@
-from smpl.functions.functions import log
+from smpl.functions.functions import linear
 from smpl import plot
-plot.function(log,0.5,4,xmin=0.1,xmax=5)
+plot.function(linear,2,xmin=-5,xmax=5)

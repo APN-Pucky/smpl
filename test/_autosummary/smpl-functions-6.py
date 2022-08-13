@@ -1,3 +1,3 @@
-from smpl.functions.functions import gauss
+from smpl.functions.functions import fac
 from smpl import plot
-plot.function(gauss,0,5,3,0,xmin=-5,xmax=5)
+plot.function(fac,xmin=-5,xmax=5)

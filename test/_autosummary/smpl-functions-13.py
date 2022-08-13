@@ -1,3 +1,3 @@
-from smpl.functions.functions import square
+from smpl.functions.functions import sqrt
 from smpl import plot
-plot.function(square,1,5,0,xmin=-5,xmax=5)
+plot.function(sqrt,1,3.3,0,xmin=0,xmax=5)
