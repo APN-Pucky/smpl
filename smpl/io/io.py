@@ -1,8 +1,73 @@
+from io import StringIO
 import pathlib
 from smpl import debug
 import os
 import sys
 from pathlib import Path
+
+
+def tail(inp,n=1):
+    """
+    Returns the last ``n`` lines of ``fname``.
+
+    Parameters
+    ----------
+    inp : str
+        file name.
+
+    Returns
+    ------- 
+    str
+        last ``n`` lines of ``fname``.
+
+    Examples
+    --------
+    >>> import pandas as pd
+    >>> write("test.txt","hi\\n1\\n2\\n3\\n4\\n")
+    >>> pd.read_csv(tail("test.txt",n=2))
+       3
+    0  4
+    >>> pd.read_csv(tail("test.txt",n=3))
+       2
+    0  3
+    1  4
+
+    """
+    with open(inp, 'r') as f:
+        return StringIO('\n'.join(f.readlines()[-n:]))
+
+def head(inp,n=1):
+    """
+    Returns the first ``n`` lines of ``fname``.
+
+    Parameters
+    ----------
+    inp : str
+        file name.
+
+    Returns
+    ------- 
+    str
+        first ``n`` lines of ``fname``.
+
+    Examples
+    --------
+    >>> import pandas as pd
+    >>> write("test.txt","hi\\n1\\n2\\n3\\n4\\n")
+    >>> pd.read_csv(head("test.txt",n=2))
+       hi
+    0   1
+    >>> pd.read_csv(head("test.txt",n=3))
+       hi
+    0   1
+    1   2
+
+    """
+    r=""
+    with open(inp, 'r') as f:
+        for i in range(n):
+            r +=f.readline()
+    return StringIO(r)
 
 def read(fname):
     """
