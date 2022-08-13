@@ -1,6 +1,6 @@
 """Simplified statistics."""
 
-from .stat import unv, usd, unv_lambda, poisson_dist, normalize, novar_mean, mean, noisy, no_dist,R2,Chi2
+from .stat import unv, usd, unv_lambda, poisson_dist, normalize, novar_mean, mean, noisy, no_dist,R2,Chi2,fft
 
 __all__ = ['unv',
            'usd',
@@ -8,6 +8,6 @@ __all__ = ['unv',
            'no_dist',
            'normalize', 'novar_mean',
            'mean', 'noisy',
-           'R2','Chi2'
+           'R2','Chi2','fft'
 
            ]

@@ -2,7 +2,7 @@ import numpy as np
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from smpl import doc
-import scipy
+from scipy.fft import fft as sfft,fftfreq,fftshift
 import math
 import statistics as stat
 import pandas as pd
@@ -50,6 +50,8 @@ def R2(y, f):
     ----------
 
     https://en.wikipedia.org/wiki/Coefficient_of_determination
+
+
     """
     r = y - f
     mean = np.sum(r)/len(r)
@@ -70,6 +72,7 @@ def Chi2(y, f, sigmas=None):
     ----------
 
     https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html
+
     """
     r = y - f
     if sigmas is not None:
@@ -86,7 +89,24 @@ def unv_lambda(f):
 
 
 def poisson_dist(N):
-    """Return ``N`` with added poissonian uncertainties."""
+    """
+    Return ``N`` with added poissonian uncertainties.
+
+    Parameters
+    ----------
+    N : float or array_like of floats
+        Number of events.
+
+    Returns
+    -------
+    uncertainties.unumpy.uarray
+        Number of events with uncertainties.
+
+    Examples
+    --------
+    >>> poisson_dist(100)
+    array(100.0+/-10.0, dtype=object)
+    """
     return unp.uarray(N, np.sqrt(N))
 
 
@@ -96,7 +116,25 @@ def no_dist(N):
 
 
 def normalize(ydata):
-    """Return normalized ``ydata``."""
+    """
+    Return normalized ``ydata``.
+
+    Parameters
+    ----------
+    ydata : array_like
+        Data to be normalized.
+
+    Returns
+    -------
+    array_like
+        Normalized data.
+
+    Examples
+    --------
+    >>> ydata = np.array([1, 2, 3, 4, 5])
+    >>> normalize(ydata)
+    array([0.  , 0.25, 0.5 , 0.75, 1.  ])
+    """
     return (ydata-np.amin(ydata))/(np.amax(ydata)-np.amin(ydata))
 
 
@@ -106,7 +144,25 @@ def novar_mean(n):
 
 
 def mean(n):
-    """Return mean of ``n`` with combined error of variance and unvertainties of ``n``."""
+    """
+    Return mean of ``n`` with combined error of variance and unvertainties of ``n``.
+
+    Parameters
+    ----------
+    n : array_like
+        Data to be averaged.
+
+    Returns
+    -------
+    uncertainties.unumpy.uarray
+        Mean of ``n``.
+
+    Examples
+    --------    
+    >>> n = np.array([1, 2, 3, 4, 5])
+    >>> mean(n)
+    3.0+/-1.5811388300841898
+    """
     # find the mean value and add uncertainties
     if isinstance(n, pd.core.series.Series):
         n = n.to_numpy()
@@ -115,9 +171,31 @@ def mean(n):
     return unc.ufloat(unv(k), math.sqrt(usd(k)**2 + err))
 
 
-def noisy(x, mean=0, std=1):
-    """Add gaussian noise to ``x``."""
-    return x+np.random.normal(mean, std, len(x))
+def noisy(x, mean=1, std=0.1):
+    """
+    Add gaussian noise to ``x``.
+    
+    Parameters
+    ----------
+    x : array_like
+        Data to be smeared.
+    mean : float
+        Mean of gaussian noise.
+    std : float
+        Standard deviation of gaussian noise.
+
+    Returns
+    -------
+    array_like
+        Smeared data.
+
+    Examples
+    --------
+    >>> x = np.array([1, 2, 3, 4, 5])
+    >>> noisy(x,std=0)
+    array([1., 2., 3., 4., 5.])
+    """
+    return x*np.random.normal(mean, std, len(x))
 
 
 def normal(x, mean=0, std=1):
@@ -127,8 +205,19 @@ def normal(x, mean=0, std=1):
 @doc.insert_eq()
 def fft(y):
     """
-    $F(y)$
+    Compute the FFT of ``y``.
+
+    Parameters
+    ----------
+    y : array_like  
+        Data to be transformed.
+
+    Returns
+    -------
+    array_like
+
     """
-    N = len(y)
-    fft = scipy.fftpack.fft(y)
-    return 2 * abs(fft[:N//2]) / N
+    t=y
+    sp = fftshift(sfft(np.sin(t)))
+    freq =fftshift(fftfreq(t.shape[-1]))
+    return freq,sp
