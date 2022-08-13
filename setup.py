@@ -36,7 +36,7 @@ setuptools.setup(
             "pytest",
             "pytest-cov",
             "pytest-profiling",
-            "pytest-line-profiler-apn>=0.1.1",
+            "pytest-line-profiler-apn>=0.1.3",
             "jupyterlab",
             "pandas",
             "ipython",
