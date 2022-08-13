@@ -68,7 +68,7 @@ def append(destination,content,mode='a+'):
     content : str
         text to be written.
     mode : str
-        mode to open the file. 
+        mode to open the file.
         Default is 'a+' (append and read).
 
     Examples

@@ -6,13 +6,13 @@ import numpy as np
 
 # TODO instead of hard coded global variables, use function arguments
 
-"""
-TODO Enum maybe?
-DEBUG_LEVEL=-1 no debug
-DEBUG_LEVEL= 0 default level
-DEBUG_LEVEL= 1,2,3 higher levels, more debug
-"""
+
+#TODO Enum maybe?
+#DEBUG_LEVEL=-1 no debug
+#DEBUG_LEVEL= 0 default level
+#DEBUG_LEVEL= 1,2,3 higher levels, more debug
 DEBUG_LEVEL = -1
+
 
 
 #print prefix
@@ -54,7 +54,7 @@ def once(_back=0):
 def times(t=1, _back=0):
     """
     Returns true if the count of the current line is greater than or equal to ``t``.
-    
+
     Parameters
     ----------
     t : int
@@ -244,7 +244,7 @@ def check_count(line, fname, t):
 
     """
     if t >= get_count(line, fname) or t == -1:
-        if(not fname in BLACK_LIST_FILES and (len(WHITE_LIST_FILES) == 0 or fname in WHITE_LIST_FILES)):
+        if(fname not in BLACK_LIST_FILES and (len(WHITE_LIST_FILES) == 0 or fname in WHITE_LIST_FILES)):
             return True
     return False
 
@@ -280,7 +280,7 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0,**kwargs):
     if(level <= DEBUG_LEVEL):
         line, fname = get_line_number_file(_back=_back+1)
         src = ""
-        if line_ == True:
+        if line_:
             src = get_line_src(_back=_back+1)
             src = src+ " = "
         inc_count(line, fname)
@@ -390,7 +390,7 @@ def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, f
     ...     table("a", i,level=-1)
     ...     table("b", i**2,level=-1)
     ...     table("c", i**i,level=-1)
-    ...     if once(): table_flush_header(); 
+    ...     if once(): table_flush_header();
     ...     table_flush_line()
     -2
     4

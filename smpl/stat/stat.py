@@ -50,8 +50,6 @@ def R2(y, f):
     ----------
 
     https://en.wikipedia.org/wiki/Coefficient_of_determination
-
-
     """
     r = y - f
     mean = np.sum(r)/len(r)
@@ -72,7 +70,6 @@ def Chi2(y, f, sigmas=None):
     ----------
 
     https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html
-
     """
     r = y - f
     if sigmas is not None:
@@ -158,7 +155,7 @@ def mean(n):
         Mean of ``n``.
 
     Examples
-    --------    
+    --------
     >>> n = np.array([1, 2, 3, 4, 5])
     >>> mean(n)
     3.0+/-1.5811388300841898
@@ -209,7 +206,7 @@ def fft(y):
 
     Parameters
     ----------
-    y : array_like  
+    y : array_like
         Data to be transformed.
 
     Returns

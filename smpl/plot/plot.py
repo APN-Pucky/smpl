@@ -158,7 +158,7 @@ def fit(func,*adata, **kwargs):
             ndata[2*i+1] =adata[i]*0
         adata= ndata
 
-    assert len(adata)%2==0, "data must be pairs of x and y data" 
+    assert len(adata)%2==0, "data must be pairs of x and y data"
     if len(adata) ==2:
         datax, datay = adata
     else:

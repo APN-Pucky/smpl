@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 from smpl import plot
 from smpl import functions as f
 
-from smpl.parallel import res, par, calc
-import smpl
 from smpl.plot.plot import init_plot
 
 @pytest.mark.line_profile.with_args(plot.fit,plot.function,init_plot)
@@ -18,9 +16,9 @@ def test_fit():
 
 
     data = np.loadtxt('tests/test_linear.txt')
-    ff = plot.fit(data[:, 0], data[:, 1], fmt='.', function=f.linear, units=[
+    plot.fit(data[:, 0], data[:, 1], fmt='.', function=f.linear, units=[
                   "l", "b"], sigmas=1, lpos=2, residue=True, residue_err=False, xaxis="t", yaxis="s")
-    ff = plot.fit(data[:, 0], data[:, 1], fmt='.', function=f.line, units=[
+    plot.fit(data[:, 0], data[:, 1], fmt='.', function=f.line, units=[
                   "l", "b"], sigmas=1, lpos=2, residue=True, residue_err=False, xaxis="t", yaxis="s", b=0)
 
     plt.show(block=False)
