@@ -32,7 +32,7 @@ plt.pause(10)
 plt.close()
 
 
-# 
+#
 # ## pre-render
 
 # In[3]:

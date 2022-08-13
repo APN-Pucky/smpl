@@ -63,7 +63,7 @@ def head(inp,n=1):
         file name.
 
     Returns
-    ------- 
+    -------
     str
         first ``n`` lines of ``fname``.
 
