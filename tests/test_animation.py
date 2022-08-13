@@ -42,19 +42,15 @@ def test_histogram():
      datay = datax*0
      c = 0
      def update(a):
-         c+=1
-         bahnh = bahnh*0
-         for i in range(n):
-             bahnh[np.random.randint(0,bahnhs)] += 1
-             if np.any(np.greater(bahnh,1)):
-                 datay[i] += 1
-         plot.data(datax,stat.poisson_dist(datay)/c,init=True,tight=False,fmt="hist",ylabel="P(>1 Gäste bei beliebigem Bahnhof)",xlabel="$n$ Gäste",capsize=0)
-         plot.function(lambda ni : 1.-fac(bahnhs)/(fac(bahnhs-ni)*bahnhs**ni),xmin=0,xmax=13,label="$\\frac{b!}{(b-n)!b^n}$",function_color="orange")
-     def init():
-         datay = datay*0
-         bahnh = bahnh*0
-         c=0
-     ani = animation.animate(update = update,frames=np.linspace(0,20,2000), interval=10,blit=False)
+        c+=1
+        bahnh = bahnh*0
+        for i in range(n):
+            bahnh[np.random.randint(0,bahnhs)] += 1
+            if np.any(np.greater(bahnh,1)):
+                datay[i] += 1
+        plot.data(datax,stat.poisson_dist(datay)/c,init=True,tight=False,fmt="hist",ylabel="P(>1 Gäste bei beliebigem Bahnhof)",xlabel="$n$ Gäste",capsize=0)
+        plot.function(lambda ni : 1.-fac(bahnhs)/(fac(bahnhs-ni)*bahnhs**ni),xmin=0,xmax=13,label="$\\frac{b!}{(b-n)!b^n}$",function_color="orange")
+     animation.animate(update = update,frames=np.linspace(0,20,2000), interval=10,blit=False)
      plt.show(block=False)
      plt.pause(10)
      plt.close()
@@ -71,7 +67,7 @@ def test_subplots():
          plot.function(lambda x: a*x**3,axes=axs[1],logx=True,tight=False,xmin=0,xmax=1)
          plot.function(lambda x: a*x**1,axes=axs[2],tight=False,xmin=0,xmax=1)
          animation.frame()
-     ani = animation.animate(interval=10,blit=True)
+     animation.animate(interval=10,blit=True)
      plt.show(block=False)
      plt.pause(10)
      plt.close()
@@ -85,7 +81,7 @@ def test_subplots():
          plot.function(lambda x: a*x**5,axes=axs[0],xmin=0,xmax=1)
          plot.function(lambda x: a*x**1,axes=axs[2],xmin=0,xmax=1)
          animation.frame()
-     ani = animation.animate(interval=10,blit=True)
+     animation.animate(interval=10,blit=True)
      plt.show(block=False)
      plt.pause(10)
      plt.close()
