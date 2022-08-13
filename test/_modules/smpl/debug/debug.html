@@ -38,7 +38,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-7-gaed5dacb
+                0.0.145-15-g34b0d9cc
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -473,12 +473,13 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">cur_table_line</span>
     <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;a+&quot;</span><span class="p">)</span>
-    <span class="n">itt</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cur_table_line</span><span class="p">)</span>
     <span class="n">ok</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
-        <span class="n">cur</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">itt</span><span class="p">)</span>
+    <span class="n">dim</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">cur</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cur_table_line</span><span class="p">):</span>
         <span class="n">ok</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cur_table_line</span><span class="p">[</span><span class="n">cur</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
-    <span class="n">dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cur_table_line</span><span class="p">[</span><span class="n">cur</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">ok</span><span class="p">:</span>
+            <span class="n">dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cur_table_line</span><span class="p">[</span><span class="n">cur</span><span class="p">])</span>
+            <span class="k">break</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cur_table_line</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cur_table_line</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -492,6 +493,64 @@
 <div class="viewcode-block" id="table"><a class="viewcode-back" href="../../../_autosummary/smpl.debug.html#smpl.debug.table">[docs]</a><span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">seperator</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">_print</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">_back</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;debug_table.csv&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Saves ``key``:``value`` in ``filename``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; for i in range(-2,2):</span>
+<span class="sd">    ...     table(&quot;a&quot;, i,level=-1)</span>
+<span class="sd">    ...     table(&quot;b&quot;, i**2,level=-1)</span>
+<span class="sd">    ...     table(&quot;c&quot;, i**i,level=-1)</span>
+<span class="sd">    ...     if once(): table_flush_header(); </span>
+<span class="sd">    ...     table_flush_line()</span>
+<span class="sd">    -2</span>
+<span class="sd">    4</span>
+<span class="sd">    0.25</span>
+<span class="sd">    -1</span>
+<span class="sd">    1</span>
+<span class="sd">    -1.0</span>
+<span class="sd">    0</span>
+<span class="sd">    0</span>
+<span class="sd">    1</span>
+<span class="sd">    1</span>
+<span class="sd">    1</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; from smpl import io</span>
+<span class="sd">    &gt;&gt;&gt; print(io.read(&quot;debug_table.csv&quot;).strip())</span>
+<span class="sd">    a;b;c;</span>
+<span class="sd">    -2.000000000000000000000000000000e+00;4.000000000000000000000000000000e+00;2.500000000000000000000000000000e-01;</span>
+<span class="sd">    -1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;-1.000000000000000000000000000000e+00;</span>
+<span class="sd">    0.000000000000000000000000000000e+00;0.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;</span>
+<span class="sd">    1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; pd.read_csv(&quot;debug_table.csv&quot;)</span>
+<span class="sd">                                                  a;b;c;</span>
+<span class="sd">    0  -2.000000000000000000000000000000e+00;4.000000...</span>
+<span class="sd">    1  -1.000000000000000000000000000000e+00;1.000000...</span>
+<span class="sd">    2  0.000000000000000000000000000000e+00;0.0000000...</span>
+<span class="sd">    3  1.000000000000000000000000000000e+00;1.0000000...</span>
+<span class="sd">    &gt;&gt;&gt; reset_table()</span>
+<span class="sd">    &gt;&gt;&gt; io.write(&quot;debug_table.csv&quot;,&quot;&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; for i in range(1,3):</span>
+<span class="sd">    ...     table(&quot;a&quot;, np.array([i*k for k in range(5)]),level=-1)</span>
+<span class="sd">    ...     table(&quot;b&quot;, np.array([i*i*k for k in range(5)]),level=-1)</span>
+<span class="sd">    ...     if once(): table_flush_header(); </span>
+<span class="sd">    ...     table_flush_line()</span>
+<span class="sd">    array([0, 1, 2, 3, 4])</span>
+<span class="sd">    array([0, 1, 2, 3, 4])</span>
+<span class="sd">    array([0, 2, 4, 6, 8])</span>
+<span class="sd">    array([ 0,  4,  8, 12, 16])</span>
+<span class="sd">    &gt;&gt;&gt; print(io.read(&quot;debug_table.csv&quot;).strip())</span>
+<span class="sd">    a;b;</span>
+<span class="sd">    0.000000000000000000000000000000e+00;0.000000000000000000000000000000e+00;</span>
+<span class="sd">    1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;</span>
+<span class="sd">    2.000000000000000000000000000000e+00;2.000000000000000000000000000000e+00;</span>
+<span class="sd">    3.000000000000000000000000000000e+00;3.000000000000000000000000000000e+00;</span>
+<span class="sd">    4.000000000000000000000000000000e+00;4.000000000000000000000000000000e+00;</span>
+<span class="sd">    0.000000000000000000000000000000e+00;0.000000000000000000000000000000e+00;</span>
+<span class="sd">    2.000000000000000000000000000000e+00;4.000000000000000000000000000000e+00;</span>
+<span class="sd">    4.000000000000000000000000000000e+00;8.000000000000000000000000000000e+00;</span>
+<span class="sd">    6.000000000000000000000000000000e+00;1.200000000000000000000000000000e+01;</span>
+<span class="sd">    8.000000000000000000000000000000e+00;1.600000000000000000000000000000e+01;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">cur_table_line</span>
     <span class="k">if</span><span class="p">(</span><span class="n">level</span> <span class="o">&lt;=</span> <span class="n">DEBUG_LEVEL</span><span class="p">):</span>
@@ -511,6 +570,13 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">count_times</span>
     <span class="n">count_times</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">def</span> <span class="nf">reset_table</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resets global `cur_table_line`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">cur_table_line</span>
+    <span class="n">cur_table_line</span> <span class="o">=</span> <span class="p">{}</span>
 
 
 <span class="n">reset_count</span><span class="o">=</span><span class="n">reset_times</span>

@@ -38,7 +38,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-7-gaed5dacb
+                0.0.145-15-g34b0d9cc
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -112,7 +112,7 @@
 <span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
 <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
-<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span> <span class="k">as</span> <span class="n">sfft</span><span class="p">,</span><span class="n">fftfreq</span><span class="p">,</span><span class="n">fftshift</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">stat</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -160,6 +160,8 @@
 <span class="sd">    ----------</span>
 
 <span class="sd">    https://en.wikipedia.org/wiki/Coefficient_of_determination</span>
+
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">f</span>
     <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
@@ -180,6 +182,7 @@
 <span class="sd">    ----------</span>
 
 <span class="sd">    https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">f</span>
     <span class="k">if</span> <span class="n">sigmas</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -196,7 +199,24 @@
 
 
 <div class="viewcode-block" id="poisson_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.poisson_dist">[docs]</a><span class="k">def</span> <span class="nf">poisson_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return ``N`` with added poissonian uncertainties.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return ``N`` with added poissonian uncertainties.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    N : float or array_like of floats</span>
+<span class="sd">        Number of events.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    uncertainties.unumpy.uarray</span>
+<span class="sd">        Number of events with uncertainties.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; poisson_dist(100)</span>
+<span class="sd">    array(100.0+/-10.0, dtype=object)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span></div>
 
 
@@ -206,7 +226,25 @@
 
 
 <div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">ydata</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return normalized ``ydata``.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return normalized ``ydata``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ydata : array_like</span>
+<span class="sd">        Data to be normalized.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array_like</span>
+<span class="sd">        Normalized data.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; ydata = np.array([1, 2, 3, 4, 5])</span>
+<span class="sd">    &gt;&gt;&gt; normalize(ydata)</span>
+<span class="sd">    array([0.  , 0.25, 0.5 , 0.75, 1.  ])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">ydata</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span></div>
 
 
@@ -216,7 +254,25 @@
 
 
 <div class="viewcode-block" id="mean"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.mean">[docs]</a><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Return mean of ``n`` with combined error of variance and unvertainties of ``n``.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return mean of ``n`` with combined error of variance and unvertainties of ``n``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : array_like</span>
+<span class="sd">        Data to be averaged.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    uncertainties.unumpy.uarray</span>
+<span class="sd">        Mean of ``n``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------    </span>
+<span class="sd">    &gt;&gt;&gt; n = np.array([1, 2, 3, 4, 5])</span>
+<span class="sd">    &gt;&gt;&gt; mean(n)</span>
+<span class="sd">    3.0+/-1.5811388300841898</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># find the mean value and add uncertainties</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
@@ -225,23 +281,56 @@
     <span class="k">return</span> <span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">usd</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">err</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="noisy"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.noisy">[docs]</a><span class="k">def</span> <span class="nf">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Add gaussian noise to ``x``.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
+<div class="viewcode-block" id="noisy"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.noisy">[docs]</a><span class="k">def</span> <span class="nf">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add gaussian noise to ``x``.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : array_like</span>
+<span class="sd">        Data to be smeared.</span>
+<span class="sd">    mean : float</span>
+<span class="sd">        Mean of gaussian noise.</span>
+<span class="sd">    std : float</span>
+<span class="sd">        Standard deviation of gaussian noise.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array_like</span>
+<span class="sd">        Smeared data.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; x = np.array([1, 2, 3, 4, 5])</span>
+<span class="sd">    &gt;&gt;&gt; noisy(x,std=0)</span>
+<span class="sd">    array([1., 2., 3., 4., 5.])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
 
 
 <span class="k">def</span> <span class="nf">normal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 
 
-<span class="nd">@doc</span><span class="o">.</span><span class="n">insert_eq</span><span class="p">()</span>
+<div class="viewcode-block" id="fft"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.fft">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">insert_eq</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    $F(y)$</span>
+<span class="sd">    Compute the FFT of ``y``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : array_like  </span>
+<span class="sd">        Data to be transformed.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array_like</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">fft</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fftpack</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fft</span><span class="p">[:</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">y</span>
+    <span class="n">sp</span> <span class="o">=</span> <span class="n">fftshift</span><span class="p">(</span><span class="n">sfft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
+    <span class="n">freq</span> <span class="o">=</span><span class="n">fftshift</span><span class="p">(</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">freq</span><span class="p">,</span><span class="n">sp</span></div>
 </pre></div>
 
            </div>

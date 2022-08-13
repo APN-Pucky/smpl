@@ -121,6 +121,35 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Complex"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from smpl.stat import fft\n",
+    "y = np.sin(np.arange(256))\n",
+    "print(len(fft(y)))\n",
+    "plot.data(*fft(y),label=\"FFT\",fmt=\"-\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from smpl.stat import fft\n",
+    "plot.data(*fft(np.sin(np.arange(256))),*fft(np.sin(1/np.pi*np.arange(100))),label=\"FFT\",fmt=\"-\")"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
@@ -144,7 +173,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.13"
+   "version": "3.9.13"
   }
  },
  "nbformat": 4,

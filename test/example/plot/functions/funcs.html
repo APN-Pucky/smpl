@@ -43,7 +43,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-7-gaed5dacb
+                0.0.145-15-g34b0d9cc
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -69,6 +69,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Function Plot</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#without-uncertainties">without uncertainties</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#with-uncertainties">with uncertainties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Complex">Complex</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../histogram/plot_histogram.html">Histogram</a></li>
@@ -524,6 +525,69 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <img alt="../../../_images/example_plot_functions_funcs_11_0.png" src="../../../_images/example_plot_functions_funcs_11_0.png" />
+</div>
+</div>
+</section>
+<section id="Complex">
+<h2>Complex<a class="headerlink" href="#Complex" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl.stat</span> <span class="kn">import</span> <span class="n">fft</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="o">*</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;FFT&quot;</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(None, None)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_plot_functions_funcs_13_2.png" src="../../../_images/example_plot_functions_funcs_13_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl.stat</span> <span class="kn">import</span> <span class="n">fft</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="o">*</span><span class="n">fft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">256</span><span class="p">))),</span><span class="o">*</span><span class="n">fft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">))),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;FFT&quot;</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(None, None), (None, None)]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_plot_functions_funcs_14_1.png" src="../../../_images/example_plot_functions_funcs_14_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

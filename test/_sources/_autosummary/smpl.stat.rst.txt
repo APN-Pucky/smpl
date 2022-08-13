@@ -13,6 +13,8 @@
    
       R2
    
+      fft
+   
       mean
    
       no_dist
