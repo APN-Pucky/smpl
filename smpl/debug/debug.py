@@ -423,7 +423,7 @@ def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, f
     >>> for i in range(1,3):
     ...     table("a", np.array([i*k for k in range(5)]),level=-1)
     ...     table("b", np.array([i*i*k for k in range(5)]),level=-1)
-    ...     if once(): table_flush_header(); 
+    ...     if once(): table_flush_header();
     ...     table_flush_line()
     array([0, 1, 2, 3, 4])
     array([0, 1, 2, 3, 4])

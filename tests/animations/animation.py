@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # # Render
-# 
+#
 # This is done through rendering the figure first and then reload it in a FuncAnimation with imshow.
 # Therefore the zoom function is limited to the resolution of the figure.
 

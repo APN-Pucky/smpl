@@ -33,7 +33,7 @@ def tail(inp,n=1):
         file name.
 
     Returns
-    ------- 
+    -------
     str
         last ``n`` lines of ``fname``.
 
@@ -82,7 +82,7 @@ def head(inp,n=1):
     """
     r=""
     with open(inp, 'r') as f:
-        for i in range(n):
+        for _ in range(n):
             r +=f.readline()
     return StringIO(r)
 

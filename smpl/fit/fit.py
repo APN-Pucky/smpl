@@ -128,7 +128,6 @@ def fit(datax, datay, function, **kwargs):
 
     tmp,params,fixed,Ntot=_wrap_func_and_param(function,**kwargs)
 
-    
     fitter = kwargs["fitter"]
     if fitter is Fitter.AUTO:
         if xerr is not None:

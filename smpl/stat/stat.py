@@ -171,7 +171,7 @@ def mean(n):
 def noisy(x, mean=1, std=0.1):
     """
     Add gaussian noise to ``x``.
-    
+
     Parameters
     ----------
     x : array_like
