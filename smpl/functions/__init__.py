@@ -1,5 +1,5 @@
 """A list of various functions."""
-from .functions import const, lorentz, linear, line, cos_abs, gauss, square, cube, exp, log, sqrt, tan, cos, sin
+from .functions import const, lorentz, linear, line, cos_abs, gauss, square, cube, exp, log, sqrt, tan, cos, sin, fac
 
 __all__ = [
     'const',
@@ -15,5 +15,6 @@ __all__ = [
     'cube',
     'sqrt',
     'exp',
-    'log'
+    'log',
+    'fac'
 ]
