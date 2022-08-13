@@ -103,7 +103,7 @@ def plot_kwargs(kwargs):
             kwargs[k] = v[0]
     return kwargs
 
-
+# TODO optimize to minimize number of calls to function
 # @append_doc(default_kwargs)
 def fit(func,*adata, **kwargs):
     """
@@ -172,12 +172,13 @@ def fit(func,*adata, **kwargs):
         return rs
 
     kwargs = plot_kwargs(kwargs)
+
     if np.any(np.iscomplex(datay)):
         label = util.get("label",kwargs, "")
         kwargs['label'] =  label+ "(real)"
-        r= data(datax, datay.real, function=function,**kwargs)
+        r= fit(datax, datay.real, function=function,**kwargs)
         kwargs['label'] = label + "(imag)"
-        i= data(datax, datay.imag, function=function,**kwargs)
+        i= fit(datax, datay.imag, function=function,**kwargs)
         return r,i
     if kwargs['auto_fit']:
         print("function:",function)
@@ -188,6 +189,9 @@ def fit(func,*adata, **kwargs):
         return best_f, best_ff, lambda_f
     if kwargs['also_fit'] == False and kwargs['label'] == None and kwargs['lpos'] == 0:
         kwargs['lpos'] = -1
+    return _fit_impl(datax, datay, function, **kwargs)
+
+def _fit_impl(datax,datay,function, **kwargs):
     x = None
     y = None
     rfit = None

@@ -125,10 +125,34 @@ def fit(datax, datay, function, **kwargs):
     """
     kwargs = fit_kwargs(kwargs)
     x, y, xerr, yerr = fit_split(datax, datay, **kwargs)
+
+    tmp,params,fixed,Ntot=_wrap_func_and_param(**kwargs)
+
+    
+    fitter = kwargs["fitter"]
+    if fitter is Fitter.AUTO:
+        if xerr is not None:
+            fitter = Fitter.SCIPY_ODR
+        else:
+            fitter = Fitter.SCIPY_CURVEFIT
+    if fitter is Fitter.MINUIT_LEASTSQUARES:
+        fitt = _fit_minuit_leastsquares(x, y, tmp, params=params, yerr=yerr)
+    elif fitter is Fitter.SCIPY_CURVEFIT:
+        fitt = _fit_curvefit(x, y, tmp, params=params, yerr=yerr)
+    elif fitter is Fitter.SCIPY_ODR:
+        fitt = _fit_odr(x, y, tmp, params=params, xerr=xerr, yerr=yerr)
+
+
+    return _unwrap_param(fitt,fixed,Ntot)
+
+
+def _wrap_func_and_param(**kwargs):
+    """
+    Wraps a function with a lambda function.
+    """
     params = None
     if util.has('params', kwargs):
         params = kwargs['params']
-
     fixed = {}
     vnames = wrap.get_varnames(function, kwargs['xvar'])
     Ntot = len(vnames)-1
@@ -147,7 +171,11 @@ def fit(datax, datay, function, **kwargs):
     params = tmp_params
     N = len(params)
 
-    def tmp(*x):
+
+    def _wrapped_func(*x):
+        """
+        wrapper for function with fixed parameters applied.
+        """
         tmp_x = []
         j = 1
         # print(x)
@@ -163,30 +191,19 @@ def fit(datax, datay, function, **kwargs):
         # print(Ntot)
         # print(tmp_x)
         return unv(wrap.get_lambda(function, kwargs['xvar'])(x[0], *tmp_x))
-    fitter = kwargs["fitter"]
-    if fitter is Fitter.AUTO:
-        if xerr is not None:
-            fitter = Fitter.SCIPY_ODR
-        else:
-            fitter = Fitter.SCIPY_CURVEFIT
-    if fitter is Fitter.MINUIT_LEASTSQUARES:
-        fit = _fit_minuit_leastsquares(x, y, tmp, params=params, yerr=yerr)
-    elif fitter is Fitter.SCIPY_CURVEFIT:
-        fit = _fit_curvefit(x, y, tmp, params=params, yerr=yerr)
-    elif fitter is Fitter.SCIPY_ODR:
-        fit = _fit_odr(x, y, tmp, params=params, xerr=xerr, yerr=yerr)
 
+    return _wrapped_func,params,fixed,Ntot
+
+def _unwrap_param(fitt,fixed,Ntot):
     rfit = []
     j = 0
     for i in range(1, Ntot+1):
         if not util.has(i, fixed):
-            rfit += [fit[j]]
+            rfit += [fitt[j]]
             j = j+1
         else:
             rfit += [fixed[i]]
-
     return rfit
-
 
 @doc.insert_doc(stat.Chi2)
 def Chi2(datax, datay, function, ff, **kwargs):
