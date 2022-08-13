@@ -11,6 +11,7 @@ from smpl import interpolate
 from smpl import io
 from smpl import util
 from smpl import wrap
+from smpl import stat
 from smpl import doc
 from smpl import fit as ffit
 
@@ -328,8 +329,9 @@ def function(func, *args, **kwargs):
     **kwargs : optional
         see :func:`plot_kwargs`.
     """
-    if not util.has("xmin", kwargs) or not util.has("xmin", kwargs):
-        raise Exception("xmin or xmax missing.")
+    if not util.has("xmin", kwargs) or not util.has("xmax", kwargs):
+        kwargs["xmin"],kwargs["xmax"]=stat.get_interesting_domain(func)
+        #raise Exception("xmin or xmax missing.")
 
     # if not util.has('lpos', kwargs) and not util.has('label', kwargs):
     #    kwargs['lpos'] = -1

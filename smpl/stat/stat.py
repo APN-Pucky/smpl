@@ -1,13 +1,15 @@
+from cmath import isclose
 import numpy as np
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from smpl import doc
+import scipy
 from scipy.fft import fft as sfft,fftfreq,fftshift
 import math
 import statistics as stat
 import pandas as pd
 from math import log10, floor
-
+from scipy.misc import derivative
 
 unv = unp.nominal_values
 usd = unp.std_devs
@@ -218,3 +220,176 @@ def fft(y):
     sp = fftshift(sfft(np.sin(t)))
     freq =fftshift(fftfreq(t.shape[-1]))
     return freq,sp
+
+def get_domain(f,
+    fmin = np.finfo(np.float64).min,
+    fmax = np.finfo(np.float64).max,
+    steps=10000,
+):
+    """
+    Return the domain of the function ``f``.
+    """
+    step = (fmax/2.-fmin/2.)/steps
+    test=np.arange(fmin/2.,fmax/2.,step)
+
+    r = f(test)
+    tr = test[np.isfinite(r)]
+    tmin = np.amin(tr)
+    tmax = np.amax(tr)
+    test_r = np.arange(tmin,tmax,step)
+    if np.equal(tr.shape , test_r.shape) and np.allclose(test_r,tr):
+        return tmin,tmax
+    else:
+        # bisect
+        t1a,t1b = get_domain(f,tmin,tmax -(tmax-tmin)/2)
+        if np.isclose(t1a,t1b):
+            t2a,t2b = get_domain(f,tmin + (tmax-tmin)/2,tmax)
+            if np.isclose(t2a,t2b):
+                return 0.,0. 
+            else:
+                return t2a,t2b
+        else:
+            return t1a,t1b
+
+
+def trim_domain(f,    
+    fmin = np.finfo(np.float32).min/2,
+    fmax = np.finfo(np.float32).max/2,
+    steps=10000,
+    min_ch=0.001
+               ):
+    test = np.linspace(fmin,fmax,steps)
+    dr = derivative(f,test,dx=1e-06)
+    m1 = np.abs(dr)>min_ch
+    bmin=np.argmax(m1)
+    m2=(np.abs(dr)>min_ch)[::-1]
+    tbmax=np.argmax(m2)
+    xmin = test[bmin]
+    xmax=test[::-1][tbmax]
+    if bmin == 0 and tbmax ==0 and not m1[0] and not m2[0]:
+        # trisect
+        tmin = xmin
+        tmax = xmax
+        t1a,t1b = trim_domain(f,tmin+ (tmax-tmin)/3,tmax -(tmax-tmin)/3,min_ch=min_ch)
+        if np.isclose(t1a,t1b):
+            t2a,t2b = trim_domain(f,tmin + (tmax-tmin)/3,tmax,min_ch=min_ch)
+            if np.isclose(t2a,t2b):
+                t3a,t3b = trim_domain(f,tmin ,tmax- (tmax-tmin)/3,min_ch=min_ch)
+                if np.isclose(t3a,t3b):
+                    return 0.,0. 
+                else:
+                    return t3a,t3b    
+            else:
+                return t2a,t2b
+        else:
+            return t1a,t1b
+    return xmin,xmax
+
+def get_domain(f,
+    fmin = np.finfo(np.float32).min/2,
+    fmax = np.finfo(np.float32).max/2,
+    steps=10000,
+):
+    """
+    Return the domain of the function ``f``.
+    """
+    
+    test = np.linspace(fmin,fmax,steps)
+    
+    r = unv(f(test))
+    mask = np.isfinite(r)        
+    tr = test[mask]
+    if len(tr)>0:
+        tmin = np.amin(tr)
+        tmax = np.amax(tr)
+        test_r = np.linspace(tmin,tmax,steps)
+        if np.equal(tr.shape , test_r.shape) and np.allclose(test_r,tr):
+            return tmin,tmax
+    
+    # trisect
+    tmin = fmin
+    tmax = fmax
+    t1a,t1b = get_domain(f,tmin+ (tmax-tmin)/3,tmax -(tmax-tmin)/3)
+    if np.isclose(t1a,t1b):
+        t2a,t2b = get_domain(f,tmin + (tmax-tmin)/3,tmax)
+        if np.isclose(t2a,t2b):
+            t3a,t3b = get_domain(f,tmin ,tmax- (tmax-tmin)/3)
+            if np.isclose(t3a,t3b):
+                return 0.,0. 
+            else:
+                return t3a,t3b    
+        else:
+            return t2a,t2b
+    else:
+        return t1a,t1b
+
+def is_monotone(f,tmin=None,tmax=None,):
+    """
+    Test if function ``f`` is monotone.
+
+    Parameters
+    ----------
+    f : function
+        Function to be tested.
+    test : array_like
+        Test points.
+
+    Returns
+    -------
+    bool
+        True if function is monotone.
+
+    Examples
+    --------
+    >>> def f(x):
+    ...     return x**2
+    >>> is_monotone(f)
+    False
+    >>> is_monotone(np.exp)
+    True
+    """
+    if tmax is None and tmin is None:
+        tmin,tmax = get_domain(f)
+    test = np.linspace(tmin,tmax,1000)
+    return np.all(f(test[1:])>=f(test[:-1]))
+
+def get_interesting_domain(f,min_ch = 1e-4):
+    """
+    Return interesting xmin and xmax of function ``f``.
+
+    Examples
+    --------
+    >>> def f(x):
+    ...     return np.sin(x)
+    >>> get_interesting_region(f)
+    (-3.141625000000003, 3.141625000000003)
+    """
+    omin_x,omax_x = get_domain(f)
+    if is_monotone(f,omin_x,omax_x):
+        min_x,max_x=trim_domain(f,omin_x,omax_x,min_ch = min_ch)
+        #min_x,max_x=omin_x,omax_x
+    else:
+        tmax_x= scipy.optimize.minimize(lambda x: -f(x),0.,method='Nelder-Mead',bounds=[(omin_x,omax_x)])
+        tmin_x= scipy.optimize.minimize(f,0.,method='Nelder-Mead',bounds=[(omin_x,omax_x)])
+        if tmax_x.success:
+            tmax_x = tmax_x.x[0]
+        else:
+            tmax_x =0.
+        if tmin_x.success:
+            tmin_x = tmin_x.x[0]
+        else:
+            tmin_x =0.
+        
+        if abs(tmax_x) > np.finfo(np.float32).max/10:
+            tmax_x = 0.
+        if abs(tmin_x) > np.finfo(np.float32).max/10:
+            tmin_x = 0.
+        x_min = min(tmax_x,tmin_x)
+        x_max = max(tmax_x,tmin_x)
+        min_x = ((x_max+x_min)/2-(x_max-x_min))
+        max_x = ((x_max+x_min)/2+(x_max-x_min))
+        if np.isclose(min_x,max_x):
+            min_x,max_x=trim_domain(f,omin_x,omax_x,min_ch = min_ch)
+            
+            
+    return min_x,max_x
