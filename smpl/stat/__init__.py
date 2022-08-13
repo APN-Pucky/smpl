@@ -9,5 +9,4 @@ __all__ = ['unv',
            'normalize', 'novar_mean',
            'mean', 'noisy',
            'R2','Chi2','fft'
-
            ]
