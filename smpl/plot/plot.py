@@ -105,7 +105,7 @@ def plot_kwargs(kwargs):
 
 
 # @append_doc(default_kwargs)
-def fit(function,*adata, **kwargs):
+def fit(func,*adata, **kwargs):
     """
     Fit and plot function to datax and datay.
 
@@ -140,8 +140,13 @@ def fit(function,*adata, **kwargs):
         1.0
 
     """
+    function = func
+    if 'function' in kwargs:
+        function = kwargs['function']
+        del kwargs['function']
+        adata = [func,*adata]
     # Fix parameter order if necessary
-    if isinstance(function, (list, tuple, np.ndarray)):
+    elif isinstance(function, (list, tuple, np.ndarray)):
         adata=np.roll([function,*adata], 1)
         function = adata[0]
         adata = adata[1:]
