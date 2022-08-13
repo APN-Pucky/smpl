@@ -258,6 +258,9 @@ def trim_domain(f,
     steps=10000,
     min_ch=0.001
                ):
+    """
+    Get the domain of the function ``f`` with the ranges removed where the derivative of ``f`` is below ``min_ch``.
+    """
     test = np.linspace(fmin,fmax,steps)
     dr = derivative(f,test,dx=1e-06)
     m1 = np.abs(dr)>min_ch
@@ -267,7 +270,7 @@ def trim_domain(f,
     xmin = test[bmin]
     xmax=test[::-1][tbmax]
     if bmin == 0 and tbmax ==0 and not m1[0] and not m2[0]:
-        # trisect
+        # trisect the full domain
         tmin = xmin
         tmax = xmax
         t1a,t1b = trim_domain(f,tmin+ (tmax-tmin)/3,tmax -(tmax-tmin)/3,min_ch=min_ch)
