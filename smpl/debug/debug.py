@@ -363,12 +363,13 @@ def table_flush_line(filename="debug_table.csv", seperator=";"):
     """
     global cur_table_line
     f = open(filename, "a+")
-    itt = iter(cur_table_line)
     ok = False
-    while not ok:
-        cur = next(itt)
+    dim = 1
+    for cur in iter(cur_table_line):
         ok = isinstance(cur_table_line[cur], np.ndarray)
-    dim = len(cur_table_line[cur])
+        if ok:
+            dim = len(cur_table_line[cur])
+            break
     for i in range(dim):
         for key in sorted(cur_table_line):
             if isinstance(cur_table_line[key], np.ndarray):
@@ -382,6 +383,41 @@ def table_flush_line(filename="debug_table.csv", seperator=";"):
 def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, filename="debug_table.csv"):
     """
     Saves ``key``:``value`` in ``filename``.
+
+    Examples
+    --------
+    >>> for i in range(-2,2):
+    ...     table("a", i,level=-1)
+    ...     table("b", i**2,level=-1)
+    ...     table("c", i**i,level=-1)
+    ...     if once(): table_flush_header(); 
+    ...     table_flush_line()
+    -2
+    4
+    0.25
+    -1
+    1
+    -1.0
+    0
+    0
+    1
+    1
+    1
+    1
+    >>> from smpl import io
+    >>> print(io.read("debug_table.csv").strip())
+    a;b;c;
+    -2.000000000000000000000000000000e+00;4.000000000000000000000000000000e+00;2.500000000000000000000000000000e-01;
+    -1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;-1.000000000000000000000000000000e+00;
+    0.000000000000000000000000000000e+00;0.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;
+    1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;
+    >>> import pandas as pd
+    >>> pd.read_csv("debug_table.csv")
+                                                  a;b;c;
+    0  -2.000000000000000000000000000000e+00;4.000000...
+    1  -1.000000000000000000000000000000e+00;1.000000...
+    2  0.000000000000000000000000000000e+00;0.0000000...
+    3  1.000000000000000000000000000000e+00;1.0000000...
     """
     global cur_table_line
     if(level <= DEBUG_LEVEL):
