@@ -38,7 +38,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-47-g93d0aa0a
+                0.0.145-50-g6aaeb010
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -109,16 +109,18 @@
            <div itemprop="articleBody">
              
   <h1>Source code for smpl.stat.stat</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span></span><span class="kn">from</span> <span class="nn">cmath</span> <span class="kn">import</span> <span class="n">isclose</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
 <span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">fft</span> <span class="k">as</span> <span class="n">sfft</span><span class="p">,</span><span class="n">fftfreq</span><span class="p">,</span><span class="n">fftshift</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">stat</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log10</span><span class="p">,</span> <span class="n">floor</span>
-
+<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">derivative</span>
 
 <span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
 <span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
@@ -329,6 +331,185 @@
     <span class="n">sp</span> <span class="o">=</span> <span class="n">fftshift</span><span class="p">(</span><span class="n">sfft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
     <span class="n">freq</span> <span class="o">=</span><span class="n">fftshift</span><span class="p">(</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
     <span class="k">return</span> <span class="n">freq</span><span class="p">,</span><span class="n">sp</span></div>
+
+<span class="k">def</span> <span class="nf">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>
+    <span class="n">fmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">,</span>
+    <span class="n">fmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span>
+    <span class="n">steps</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the domain of the function ``f``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="n">fmax</span><span class="o">/</span><span class="mf">2.</span><span class="o">-</span><span class="n">fmin</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">/</span><span class="n">steps</span>
+    <span class="n">test</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">fmin</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="n">fmax</span><span class="o">/</span><span class="mf">2.</span><span class="p">,</span><span class="n">step</span><span class="p">)</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">r</span><span class="p">)]</span>
+    <span class="n">tmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span>
+    <span class="n">tmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span>
+    <span class="n">test_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">step</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">shape</span> <span class="p">,</span> <span class="n">test_r</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">test_r</span><span class="p">,</span><span class="n">tr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tmin</span><span class="p">,</span><span class="n">tmax</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># bisect</span>
+        <span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span> <span class="o">=</span> <span class="n">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span><span class="p">,</span><span class="n">tmax</span> <span class="o">-</span><span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span><span class="p">):</span>
+            <span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span> <span class="o">=</span> <span class="n">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span> <span class="o">+</span> <span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">tmax</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span><span class="p">):</span>
+                <span class="k">return</span> <span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span> 
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span>
+
+
+<span class="k">def</span> <span class="nf">trim_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>    
+    <span class="n">fmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">fmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">steps</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+    <span class="n">min_ch</span><span class="o">=</span><span class="mf">0.0001</span>
+               <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the domain of the function ``f`` with the ranges removed where the derivative of ``f`` is below ``min_ch``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">fmin</span><span class="p">,</span><span class="n">fmax</span><span class="p">,</span><span class="n">steps</span><span class="p">)</span>
+    <span class="n">dr</span> <span class="o">=</span> <span class="n">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">test</span><span class="p">,</span><span class="n">dx</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">)</span>
+    <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dr</span><span class="p">)</span><span class="o">&gt;</span><span class="n">min_ch</span>
+    <span class="n">bmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span>
+    <span class="n">m2</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">dr</span><span class="p">)</span><span class="o">&gt;</span><span class="n">min_ch</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">tbmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span>
+    <span class="n">xmin</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">bmin</span><span class="p">]</span>
+    <span class="n">xmax</span><span class="o">=</span><span class="n">test</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">tbmax</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">bmin</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">tbmax</span> <span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">m1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">m2</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="c1"># trisect the full domain</span>
+        <span class="n">tmin</span> <span class="o">=</span> <span class="n">xmin</span>
+        <span class="n">tmax</span> <span class="o">=</span> <span class="n">xmax</span>
+        <span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span> <span class="o">=</span> <span class="n">trim_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span><span class="o">+</span> <span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">tmax</span> <span class="o">-</span><span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">min_ch</span><span class="o">=</span><span class="n">min_ch</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span><span class="p">):</span>
+            <span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span> <span class="o">=</span> <span class="n">trim_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span> <span class="o">+</span> <span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">min_ch</span><span class="o">=</span><span class="n">min_ch</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span><span class="p">):</span>
+                <span class="n">t3a</span><span class="p">,</span><span class="n">t3b</span> <span class="o">=</span> <span class="n">trim_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span> <span class="p">,</span><span class="n">tmax</span><span class="o">-</span> <span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">min_ch</span><span class="o">=</span><span class="n">min_ch</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">t3a</span><span class="p">,</span><span class="n">t3b</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span> 
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">t3a</span><span class="p">,</span><span class="n">t3b</span>    
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span>
+    <span class="k">return</span> <span class="n">xmin</span><span class="p">,</span><span class="n">xmax</span>
+
+<span class="k">def</span> <span class="nf">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>
+    <span class="n">fmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">fmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">trisec</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the statistically probed domain of the function ``f``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">fmin</span><span class="p">,</span><span class="n">fmax</span><span class="p">,</span><span class="n">rtol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span><span class="n">atol</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span>
+    
+    <span class="n">test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">fmin</span><span class="p">,</span><span class="n">fmax</span><span class="p">,</span><span class="n">steps</span><span class="p">)</span>
+    
+    <span class="n">r</span> <span class="o">=</span> <span class="n">unv</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>        
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">tmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span>
+        <span class="n">tmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span>
+        <span class="n">test_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">steps</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">shape</span> <span class="p">,</span> <span class="n">test_r</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">test_r</span><span class="p">,</span><span class="n">tr</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">tmin</span><span class="p">,</span><span class="n">tmax</span>
+    
+    <span class="c1"># trisect</span>
+    <span class="n">tmin</span> <span class="o">=</span> <span class="n">fmin</span>
+    <span class="n">tmax</span> <span class="o">=</span> <span class="n">fmax</span>
+    <span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span> <span class="o">=</span> <span class="n">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span><span class="o">+</span> <span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">tmax</span> <span class="o">-</span><span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span><span class="p">):</span>
+        <span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span> <span class="o">=</span> <span class="n">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span> <span class="o">+</span> <span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">tmax</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span><span class="p">):</span>
+            <span class="n">t3a</span><span class="p">,</span><span class="n">t3b</span> <span class="o">=</span> <span class="n">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span> <span class="p">,</span><span class="n">tmax</span><span class="o">-</span> <span class="p">(</span><span class="n">tmax</span><span class="o">-</span><span class="n">tmin</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">t3a</span><span class="p">,</span><span class="n">t3b</span><span class="p">):</span>
+                <span class="k">return</span> <span class="mf">0.</span><span class="p">,</span><span class="mf">0.</span> 
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">t3a</span><span class="p">,</span><span class="n">t3b</span>    
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">t2a</span><span class="p">,</span><span class="n">t2b</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">t1a</span><span class="p">,</span><span class="n">t1b</span>
+
+<span class="k">def</span> <span class="nf">is_monotone</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">tmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">tmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test if function ``f`` is monotone.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    f : function</span>
+<span class="sd">        Function to be tested.</span>
+<span class="sd">    test : array_like</span>
+<span class="sd">        Test points.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        True if function is monotone.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; def f(x):</span>
+<span class="sd">    ...     return x**2</span>
+<span class="sd">    &gt;&gt;&gt; is_monotone(f)</span>
+<span class="sd">    False</span>
+<span class="sd">    &gt;&gt;&gt; is_monotone(np.exp)</span>
+<span class="sd">    True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">tmax</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tmin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tmin</span><span class="p">,</span><span class="n">tmax</span> <span class="o">=</span> <span class="n">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">steps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span><span class="o">&gt;=</span><span class="n">f</span><span class="p">(</span><span class="n">test</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+<div class="viewcode-block" id="get_interesting_domain"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.get_interesting_domain">[docs]</a><span class="k">def</span> <span class="nf">get_interesting_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">min_ch</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return interesting xmin and xmax of function ``f``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; def f(x):</span>
+<span class="sd">    ...     return np.sin(x)</span>
+<span class="sd">    &gt;&gt;&gt; get_interesting_domain(f)</span>
+<span class="sd">    (-3.141625000000003, 3.141625000000003)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">omin_x</span><span class="p">,</span><span class="n">omax_x</span> <span class="o">=</span> <span class="n">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_monotone</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">omin_x</span><span class="p">,</span><span class="n">omax_x</span><span class="p">):</span>
+        <span class="n">min_x</span><span class="p">,</span><span class="n">max_x</span><span class="o">=</span><span class="n">trim_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">omin_x</span><span class="p">,</span><span class="n">omax_x</span><span class="p">,</span><span class="n">min_ch</span> <span class="o">=</span> <span class="n">min_ch</span><span class="p">)</span>
+        <span class="c1">#min_x,max_x=omin_x,omax_x</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tmax_x</span><span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mf">0.</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;Nelder-Mead&#39;</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">[(</span><span class="n">omin_x</span><span class="p">,</span><span class="n">omax_x</span><span class="p">)])</span>
+        <span class="n">tmin_x</span><span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;Nelder-Mead&#39;</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">[(</span><span class="n">omin_x</span><span class="p">,</span><span class="n">omax_x</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="n">tmax_x</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="n">tmax_x</span> <span class="o">=</span> <span class="n">tmax_x</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmax_x</span> <span class="o">=</span><span class="mf">0.</span>
+        <span class="k">if</span> <span class="n">tmin_x</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+            <span class="n">tmin_x</span> <span class="o">=</span> <span class="n">tmin_x</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tmin_x</span> <span class="o">=</span><span class="mf">0.</span>
+        
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">tmax_x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="o">/</span><span class="mi">10</span><span class="p">:</span>
+            <span class="n">tmax_x</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">tmin_x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="o">/</span><span class="mi">10</span><span class="p">:</span>
+            <span class="n">tmin_x</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">x_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">tmax_x</span><span class="p">,</span><span class="n">tmin_x</span><span class="p">)</span>
+        <span class="n">x_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">tmax_x</span><span class="p">,</span><span class="n">tmin_x</span><span class="p">)</span>
+        <span class="n">min_x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x_max</span><span class="o">+</span><span class="n">x_min</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="p">(</span><span class="n">x_max</span><span class="o">-</span><span class="n">x_min</span><span class="p">))</span>
+        <span class="n">max_x</span> <span class="o">=</span> <span class="p">((</span><span class="n">x_max</span><span class="o">+</span><span class="n">x_min</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">x_max</span><span class="o">-</span><span class="n">x_min</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span><span class="n">max_x</span><span class="p">):</span>
+            <span class="n">min_x</span><span class="p">,</span><span class="n">max_x</span><span class="o">=</span><span class="n">trim_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">omin_x</span><span class="p">,</span><span class="n">omax_x</span><span class="p">,</span><span class="n">min_ch</span> <span class="o">=</span> <span class="n">min_ch</span><span class="p">)</span>
+            
+            
+    <span class="k">return</span> <span class="n">min_x</span><span class="p">,</span><span class="n">max_x</span></div>
 </pre></div>
 
            </div>

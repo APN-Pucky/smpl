@@ -150,6 +150,106 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## without xmin and xmax\n",
+    "xmin and xmax will have to be guessed"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from smpl import plot\n",
+    "plot.function(lambda x: x**2,)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from smpl import plot\n",
+    "import numpy as np\n",
+    "def f(x):\n",
+    "    return np.exp(x)\n",
+    "plot.function(f,label=\"exp\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from smpl import plot\n",
+    "from smpl import functions as f\n",
+    "def gauss(x):\n",
+    "    \"\"\"Gauss\"\"\"\n",
+    "    return f.gauss(x,0,1,3,0)\n",
+    "plot.function(gauss)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def gauss(x):\n",
+    "    return np.arctan(x)\n",
+    "plot.function(gauss)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def gauss(x):\n",
+    "    return np.tan(x)\n",
+    "plot.function(gauss)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def gauss(x):\n",
+    "    return np.log(x)\n",
+    "plot.function(gauss)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def gauss(x):\n",
+    "    return x**3+5*x**2-2\n",
+    "plot.function(gauss)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def gauss(x):\n",
+    "    return x**0.5\n",
+    "plot.function(gauss)"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": null,
    "metadata": {},
