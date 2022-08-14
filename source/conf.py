@@ -13,8 +13,6 @@
 from docutils.nodes import literal, math
 from docutils.nodes import doctest_block, image, literal_block, math_block,  pending, raw, rubric, substitution_definition, target
 
-from ipywidgets.embed import DEFAULT_EMBED_REQUIREJS_URL
-
 import re
 import os
 import datetime
@@ -79,9 +77,7 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-html_js_files = [
-    DEFAULT_EMBED_REQUIREJS_URL,
-]
+
 html_css_files = [
     "style.css",
 ]
