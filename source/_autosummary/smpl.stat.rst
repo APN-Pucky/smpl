@@ -15,6 +15,8 @@
    
       fft
    
+      get_interesting_domain
+   
       mean
    
       no_dist
