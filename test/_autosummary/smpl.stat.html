@@ -20,6 +20,7 @@
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -35,7 +36,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-60-gc5f6b888
+                0.0.145-61-g99b58ed3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -182,7 +183,6 @@
 <dd><p>Chi2 - Goodness of Fit</p>
 <p>In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good.
 Coversely,  if Chi-squared/Nd &gt;&gt; 1.0, then the fit is a poor one.</p>
-<p class="rubric">References</p>
 <p><a class="reference external" href="https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html">https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html</a></p>
 </dd></dl>
 
@@ -193,7 +193,6 @@ Coversely,  if Chi-squared/Nd &gt;&gt; 1.0, then the fit is a poor one.</p>
 <p>In the best case, the modeled values exactly match the observed values, which results in R2 = 1.
 A baseline model, which always predicts the mean of y, will have R2 = 0.
 Models that have worse predictions than this baseline will have a negative R2.</p>
-<p class="rubric">References</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">https://en.wikipedia.org/wiki/Coefficient_of_determination</a></p>
 </dd></dl>
 
@@ -202,26 +201,17 @@ Models that have worse predictions than this baseline will have a negative R2.</
 <span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">fft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#fft"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.fft" title="Permalink to this definition"></a></dt>
 <dd><p>fft(y,t,sp,freq) = 
 Compute the FFT of <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">array_like</span></dt><dd><p>Data to be transformed.</p>
+<dl class="simple">
+<dt>y<span class="classifier">array_like</span></dt><dd><p>Data to be transformed.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt>array_like</dt><dd></dd>
-</dl>
-</dd>
-</dl>
+<p>array_like</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.stat.get_interesting_domain">
 <span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">get_interesting_domain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_ch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#get_interesting_domain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.get_interesting_domain" title="Permalink to this definition"></a></dt>
 <dd><p>Return interesting xmin and xmax of function <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get_interesting_domain</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -234,21 +224,14 @@ Compute the FFT of <code class="docutils literal notranslate"><span class="pre">
 <dt class="sig sig-object py" id="smpl.stat.mean">
 <span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.mean" title="Permalink to this definition"></a></dt>
 <dd><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with combined error of variance and unvertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>n</strong><span class="classifier">array_like</span></dt><dd><p>Data to be averaged.</p>
+<dl class="simple">
+<dt>n<span class="classifier">array_like</span></dt><dd><p>Data to be averaged.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
+<dl class="simple">
 <dt>uncertainties.unumpy.uarray</dt><dd><p>Mean of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 <span class="go">3.0+/-1.5811388300841898</span>
@@ -266,25 +249,18 @@ Compute the FFT of <code class="docutils literal notranslate"><span class="pre">
 <dt class="sig sig-object py" id="smpl.stat.noisy">
 <span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">noisy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#noisy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.noisy" title="Permalink to this definition"></a></dt>
 <dd><p>Add gaussian noise to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">array_like</span></dt><dd><p>Data to be smeared.</p>
+<dl class="simple">
+<dt>x<span class="classifier">array_like</span></dt><dd><p>Data to be smeared.</p>
 </dd>
-<dt><strong>mean</strong><span class="classifier">float</span></dt><dd><p>Mean of gaussian noise.</p>
+<dt>mean<span class="classifier">float</span></dt><dd><p>Mean of gaussian noise.</p>
 </dd>
-<dt><strong>std</strong><span class="classifier">float</span></dt><dd><p>Standard deviation of gaussian noise.</p>
+<dt>std<span class="classifier">float</span></dt><dd><p>Standard deviation of gaussian noise.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
+<dl class="simple">
 <dt>array_like</dt><dd><p>Smeared data.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">array([1., 2., 3., 4., 5.])</span>
@@ -296,21 +272,14 @@ Compute the FFT of <code class="docutils literal notranslate"><span class="pre">
 <dt class="sig sig-object py" id="smpl.stat.normalize">
 <span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ydata</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.normalize" title="Permalink to this definition"></a></dt>
 <dd><p>Return normalized <code class="docutils literal notranslate"><span class="pre">ydata</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>ydata</strong><span class="classifier">array_like</span></dt><dd><p>Data to be normalized.</p>
+<dl class="simple">
+<dt>ydata<span class="classifier">array_like</span></dt><dd><p>Data to be normalized.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
+<dl class="simple">
 <dt>array_like</dt><dd><p>Normalized data.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">normalize</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>
 <span class="go">array([0.  , 0.25, 0.5 , 0.75, 1.  ])</span>
@@ -328,21 +297,14 @@ Compute the FFT of <code class="docutils literal notranslate"><span class="pre">
 <dt class="sig sig-object py" id="smpl.stat.poisson_dist">
 <span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">poisson_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#poisson_dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.poisson_dist" title="Permalink to this definition"></a></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">N</span></code> with added poissonian uncertainties.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>N</strong><span class="classifier">float or array_like of floats</span></dt><dd><p>Number of events.</p>
+<dl class="simple">
+<dt>N<span class="classifier">float or array_like of floats</span></dt><dd><p>Number of events.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
+<dl class="simple">
 <dt>uncertainties.unumpy.uarray</dt><dd><p>Number of events with uncertainties.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">poisson_dist</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="go">array(100.0+/-10.0, dtype=object)</span>
 </pre></div>

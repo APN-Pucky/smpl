@@ -19,6 +19,7 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
@@ -37,7 +38,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-60-gc5f6b888
+                0.0.145-61-g99b58ed3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -151,8 +152,8 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.exp" title="smpl.functions.exp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exp</span></code></a>(x, c, y_0)</p></td>
 <td><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(y_{0} e^{c x}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.fac" title="smpl.functions.fac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fac</span></code></a>(x)</p></td>
-<td><p></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.fac" title="smpl.functions.fac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fac</span></code></a>(n)</p></td>
+<td><p>Fac(x)</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.gauss" title="smpl.functions.gauss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss</span></code></a>(x, x_0, a, d, y)</p></td>
 <td><p>gauss(x,x_0,a,d,y) = <span class="math notranslate nohighlight">\(a e^{\frac{\left(-1\right) \left(x - x_{0}\right)^{2}}{2 d^{2}}} + y\)</span></p></td>
@@ -261,8 +262,9 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.functions.fac">
-<span class="sig-prename descclassname"><span class="pre">smpl.functions.</span></span><span class="sig-name descname"><span class="pre">fac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#fac"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.fac" title="Permalink to this definition"></a></dt>
-<dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">fac</span>
+<span class="sig-prename descclassname"><span class="pre">smpl.functions.</span></span><span class="sig-name descname"><span class="pre">fac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#fac"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.fac" title="Permalink to this definition"></a></dt>
+<dd><p>Fac(x)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">fac</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">fac</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>

@@ -20,6 +20,7 @@
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -35,7 +36,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-60-gc5f6b888
+                0.0.145-61-g99b58ed3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -168,15 +169,10 @@
 <dt class="sig sig-object py" id="smpl.doc.append_doc">
 <span class="sig-prename descclassname"><span class="pre">smpl.doc.</span></span><span class="sig-name descname"><span class="pre">append_doc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/doc/doc.html#append_doc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.doc.append_doc" title="Permalink to this definition"></a></dt>
 <dd><p>Append doc string of <code class="docutils literal notranslate"><span class="pre">original</span></code> to <code class="docutils literal notranslate"><span class="pre">target</span></code> object.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
-<dt><strong>original</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">function</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">orignal.__doc__</span></code> is appended to the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> of the <code class="docutils literal notranslate"><span class="pre">target</span></code></p>
+<dl>
+<dt>original<span class="classifier"><code class="docutils literal notranslate"><span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">function</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">orignal.__doc__</span></code> is appended to the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> of the <code class="docutils literal notranslate"><span class="pre">target</span></code></p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
@@ -200,15 +196,10 @@
 <dt class="sig sig-object py" id="smpl.doc.insert_doc">
 <span class="sig-prename descclassname"><span class="pre">smpl.doc.</span></span><span class="sig-name descname"><span class="pre">insert_doc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/doc/doc.html#insert_doc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.doc.insert_doc" title="Permalink to this definition"></a></dt>
 <dd><p>Inserts the docstring from passed function <code class="docutils literal notranslate"><span class="pre">original</span></code> in the <code class="docutils literal notranslate"><span class="pre">target</span></code> function docstring.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
-<dt><strong>original</strong><span class="classifier"><code class="docutils literal notranslate"><span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">function</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">orignal.__doc__</span></code> is inserted to the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> of the <code class="docutils literal notranslate"><span class="pre">target</span></code></p>
+<dl>
+<dt>original<span class="classifier"><code class="docutils literal notranslate"><span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">function</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">orignal.__doc__</span></code> is inserted to the <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> of the <code class="docutils literal notranslate"><span class="pre">target</span></code></p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="sd">&#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>

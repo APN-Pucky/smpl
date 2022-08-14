@@ -20,6 +20,7 @@
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -35,7 +36,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-60-gc5f6b888
+                0.0.145-61-g99b58ed3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -681,43 +682,31 @@
 <dt class="sig sig-object py" id="smpl.plot.auto">
 <span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">auto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition"></a></dt>
 <dd><p>Automatically loop over functions and fit the best one.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>funcs</strong><span class="classifier">function array</span></dt><dd><p>functions to consider as fit. Default all <code class="docutils literal notranslate"><span class="pre">smpl.functions</span></code>.</p>
+<dl class="simple">
+<dt>funcs<span class="classifier">function array</span></dt><dd><p>functions to consider as fit. Default all <code class="docutils literal notranslate"><span class="pre">smpl.functions</span></code>.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt>The best fit function and it’s parameters. Also a lambda function where the parameters are already applied.</dt><dd></dd>
-</dl>
-</dd>
-</dl>
+<p>The best fit function and it’s parameters. Also a lambda function where the parameters are already applied.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.data">
 <span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition"></a></dt>
 <dd><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="simple">
+<dt>datax<span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </dd>
-<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dt>datay<span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </dd>
-<dt><strong>function</strong><span class="classifier">func,optional</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
+<dt>function<span class="classifier">func,optional</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
-</dd>
-<dt><strong>Returns</strong></dt><dd></dd>
-<dt><strong>——-</strong></dt><dd></dd>
-<dt><strong>array_like</strong></dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
+<dt><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
+<dl class="simple">
+<dt>array_like</dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -726,29 +715,22 @@
 <dt class="sig sig-object py" id="smpl.plot.fit">
 <span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition"></a></dt>
 <dd><p>Fit and plot function to datax and datay.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="simple">
+<dt>datax<span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </dd>
-<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dt>datay<span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </dd>
-<dt><strong>function</strong><span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
+<dt>function<span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+<dt><a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
-<dt><strong>Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.</strong></dt><dd></dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
+<p>Fit parameters can be fixed via <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> eg. <code class="docutils literal notranslate"><span class="pre">a=5</span></code>.</p>
+<dl class="simple">
 <dt>array_like</dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code>.
 If <code class="docutils literal notranslate"><span class="pre">datay</span></code> is complex, both the real and imaginary part are returned.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">)</span>
@@ -766,16 +748,12 @@ If <code class="docutils literal notranslate"><span class="pre">datay</span></co
 <dt class="sig sig-object py" id="smpl.plot.function">
 <span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition"></a></dt>
 <dd><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>func</strong><span class="classifier">function</span></dt><dd><p>Function to be plotted between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, only taking <cite>array_like</cite> <code class="docutils literal notranslate"><span class="pre">x</span></code> as parameter</p>
+<dl class="simple">
+<dt>func<span class="classifier">function</span></dt><dd><p>Function to be plotted between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, only taking <cite>array_like</cite> <code class="docutils literal notranslate"><span class="pre">x</span></code> as parameter</p>
 </dd>
-<dt><strong>*args</strong><span class="classifier">optional</span></dt><dd><p>arguments for <code class="docutils literal notranslate"><span class="pre">func</span></code></p>
+<dt><a href="#id7"><span class="problematic" id="id8">*</span></a>args<span class="classifier">optional</span></dt><dd><p>arguments for <code class="docutils literal notranslate"><span class="pre">func</span></code></p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
-</dd>
-</dl>
+<dt><a href="#id9"><span class="problematic" id="id10">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -784,12 +762,8 @@ If <code class="docutils literal notranslate"><span class="pre">datay</span></co
 <dt class="sig sig-object py" id="smpl.plot.plot2d">
 <span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataz</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot2d.html#plot2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot2d" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a 2D-Plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot2d_kwargs" title="smpl.plot.plot2d_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code></a>.</p>
-</dd>
-</dl>
+<dl class="simple">
+<dt><a href="#id11"><span class="problematic" id="id12">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot2d_kwargs" title="smpl.plot.plot2d_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1034,7 +1008,7 @@ If <code class="docutils literal notranslate"><span class="pre">datay</span></co
 </tr>
 <tr class="row-even"><td><p>linestyle</p></td>
 <td><p>None</p></td>
-<td><p>linestyle, only active if <a href="#id1"><span class="problematic" id="id2">`</span></a>fmt`=None</p></td>
+<td><p>linestyle, only active if <a href="#id13"><span class="problematic" id="id14">`</span></a>fmt`=None</p></td>
 </tr>
 <tr class="row-odd"><td><p>xspace</p></td>
 <td><p>linspace</p></td>
@@ -1077,7 +1051,7 @@ If <code class="docutils literal notranslate"><span class="pre">datay</span></co
 </tr>
 <tr class="row-even"><td><p>fitter</p></td>
 <td><p>Fitter.AUTO</p></td>
-<td><p>Choose from :class:<a href="#id3"><span class="problematic" id="id4">`</span></a>Fitter`s.</p></td>
+<td><p>Choose from :class:<a href="#id15"><span class="problematic" id="id16">`</span></a>Fitter`s.</p></td>
 </tr>
 </tbody>
 </table>
