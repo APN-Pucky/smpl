@@ -47,7 +47,7 @@ extensions = ['sphinx.ext.autodoc',  'sphinx.ext.githubpages',
               #'jupyter_sphinx.execute'
               ]
 #nbsphinx_execute = 'always'
-#nbsphinx_widgets_path=""
+nbsphinx_widgets_path=""
 autosummary_generate = True
 autosummary_imported_members = True
 
