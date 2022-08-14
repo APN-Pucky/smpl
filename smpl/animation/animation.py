@@ -61,7 +61,7 @@ class FigAnimation(animation.FuncAnimation):
             disabled=False
         )
     def widget_gif(self):
-        #convert to gif through save
+        # convert to gif through save as anim.save wants a filename
         uf = str(uuid.uuid4())
         self.save(uf + ".gif")
         with open(uf + ".gif", "rb") as file:
