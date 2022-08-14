@@ -42,7 +42,7 @@ setuptools.setup(
             "ipython",
         ],
         'docs': [
-            "jupyter_sphinx",
+            "jupyter-sphinx",
             "sphinx_math_dollar",
             "pandoc",
             "sphinx",
