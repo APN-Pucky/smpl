@@ -9,9 +9,10 @@ from smpl import stat
 from smpl.functions import fac
 
 from smpl.plot.plot import init_plot
-from smpl.animation.animation import FigAnimation
+#from smpl.animation.animation import FigAnimation
 
-@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
+#@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
+#@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot)
 def test_animation():
     plt.ioff()
     def update(a):
@@ -19,7 +20,7 @@ def test_animation():
     ani = animation.animate(update = update,frames=np.linspace(0,10,200), interval=10,blit=True)
     plt.show(block=False)
     plt.pause(10)
-    plt.close()
+    plt.close('all')
     plt.ioff()
     for a in tqdm.tqdm(np.linspace(0,10,200)):
         plot.function(lambda x : a*x**2,xmin=0,xmax=5,init=True,tight=False)
@@ -28,7 +29,7 @@ def test_animation():
     ani = animation.animate(interval=10,blit=True)
     plt.show(block=False)
     plt.pause(10)
-    plt.close()
+    plt.close('all')
     ani.save("test.gif")
 
 
@@ -38,7 +39,8 @@ datay=0
 bahnh=0
 bahnhs=0
 
-@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
+#@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
+#@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot)
 def test_histogram():
     global c,datax,datay,bahnh,bahnhs
     n = 13
@@ -61,9 +63,10 @@ def test_histogram():
     animation.animate(update = update,frames=np.linspace(0,20,2000), interval=10,blit=False)
     plt.show(block=False)
     plt.pause(10)
-    plt.close()
+    plt.close('all')
 
-@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
+#@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
+#@pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot)
 def test_subplots():
     plt.ioff()
     for a in tqdm.tqdm(np.linspace(0,10,200)):
@@ -77,7 +80,7 @@ def test_subplots():
     animation.animate(interval=10,blit=True)
     plt.show(block=False)
     plt.pause(10)
-    plt.close()
+    plt.close('all')
     animation.clear()
     for a in tqdm.tqdm(np.linspace(0,10,100)):
         fig, axs = plot.subplots(1, 3, figsize=(12, 8), sharey=True)
@@ -90,4 +93,4 @@ def test_subplots():
     animation.animate(interval=10,blit=True)
     plt.show(block=False)
     plt.pause(10)
-    plt.close()
+    plt.close('all')

@@ -5,11 +5,74 @@ from PIL import Image
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import numpy as np
 import ipywidgets
+import ipywidgets as widgets
+import uuid
+import os
+import io
 
 frames = []
 
+def interactive(func, *args, prerender=True,**kwargs):
+    if not prerender:
+        ipywidgets.interactive(func, *args, **kwargs)
+    else:
+        # TODO generalize for many sliders and kwargs
+        arg = args[0]
+        imgs=[]
+        r = np.arange(arg.min,arg.max,arg.step)
+        for a in r:
+            func(a)
+            output = io.BytesIO()
+            plt.savefig(output, format='png')
+            plt.clf()
+
+            imgs += [ipywidgets.Image(
+                value=output.getvalue(),
+                format='png',
+            )]
+        
+        out = widgets.Output(layout={'border': '1px solid black'})
+        isl = widgets.SelectionSlider(
+                options=r,
+                value=arg.value,
+                continuous_update=True,
+                description=arg.description,# TODO copy more
+                )
+        tab = widgets.Tab(children=imgs)
+        widgets.jslink((isl,'index'),(tab,'selected_index'))
+        out.append_display_data(isl)
+        out.append_display_data(tab)
+        return out
+
+
+#class WigAnimation(widget.Image):
+
 
 class FigAnimation(animation.FuncAnimation):
+    def widget_play(self,):
+        # TODO add pre rendereed list of images linked via jslink of values
+        play = widgets.Play(
+        #     interval=10,
+            value=50,
+            min=0,
+            max=100,
+            step=1,
+            description="Press play",
+            disabled=False
+        )
+    def widget_gif(self):
+        #convert to gif through save
+        uf = str(uuid.uuid4())
+        self.save(uf + ".gif")
+        with open(uf + ".gif", "rb") as file:
+            image = file.read()
+        os.remove(uf + ".gif")
+
+        return ipywidgets.Image(
+            value=image,
+            format='gif',
+        )
+
     def __init__(self, figs=None, frames=None, init=None, update=None,  *args, **kwargs):
         # Use the list of figures as the framedata, which will be iterated
         # over by the machinery.
@@ -97,5 +160,3 @@ def animate(**kwargs):
     return ani
 
 
-def interactive(func, *args, **kwargs):
-    ipywidgets.interactive(func, *args, **kwargs)

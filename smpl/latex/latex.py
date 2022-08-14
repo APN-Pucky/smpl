@@ -117,7 +117,7 @@ from io import StringIO
 
 def transpose_table(strtab):
     """
-    Transpose a table and return it in latex format.
+    Transpose a latex table and return it in latex format.
 
     Examples
     --------
