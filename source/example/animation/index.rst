@@ -8,6 +8,7 @@ Animations
     from smpl import animation
     from smpl import plot
     from ipywidgets import widgets
+    import numpy as np
 
     def fta(n = 1.0):
         plot.function(lambda x : np.exp(n*np.log(x)-x),xmin = 0.1,xmax=100,tight=False,init=False)
