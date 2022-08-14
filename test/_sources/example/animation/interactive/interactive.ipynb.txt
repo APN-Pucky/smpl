@@ -29,6 +29,19 @@
   {
    "cell_type": "code",
    "execution_count": null,
+   "id": "5d244201",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def fta(n = 1.0):\n",
+    "    plot.function(lambda x : np.exp(n*np.log(x)-x),xmin = 0.1,xmax=100,tight=False,init=False)\n",
+    "    \n",
+    "animation.interactive(fta,widgets.IntSlider(value=0,min=0,max=100),prerender=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
    "id": "59c122db",
    "metadata": {},
    "outputs": [],
@@ -88,7 +101,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.13"
+   "version": "3.9.13"
   },
   "widgets": {
    "application/vnd.jupyter.widget-state+json": {

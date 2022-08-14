@@ -7,3 +7,10 @@ svg {
   max-width: none;
 }
 
+.jupyter-widgets.widget-tab>.p-TabBar>.p-TabBar-content {
+  visibility: hidden;
+}
+
+.widget-tab-bar {
+  display: none;
+}

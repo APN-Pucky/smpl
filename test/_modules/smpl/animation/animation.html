@@ -38,7 +38,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-53-g00d171ea
+                0.0.145-57-gd0280b12
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -116,11 +116,74 @@
 <span class="kn">from</span> <span class="nn">matplotlib.backends.backend_agg</span> <span class="kn">import</span> <span class="n">FigureCanvasAgg</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">ipywidgets</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">io</span>
 
 <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
 
+<span class="k">def</span> <span class="nf">interactive</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">prerender</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">prerender</span><span class="p">:</span>
+        <span class="n">ipywidgets</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># TODO generalize for many sliders and kwargs</span>
+        <span class="n">arg</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">imgs</span><span class="o">=</span><span class="p">[]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">arg</span><span class="o">.</span><span class="n">min</span><span class="p">,</span><span class="n">arg</span><span class="o">.</span><span class="n">max</span><span class="p">,</span><span class="n">arg</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+            <span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+
+            <span class="n">imgs</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ipywidgets</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span>
+                <span class="n">value</span><span class="o">=</span><span class="n">output</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(),</span>
+                <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">,</span>
+            <span class="p">)]</span>
+        
+        <span class="n">out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;border&#39;</span><span class="p">:</span> <span class="s1">&#39;1px solid black&#39;</span><span class="p">})</span>
+        <span class="n">isl</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">SelectionSlider</span><span class="p">(</span>
+                <span class="n">options</span><span class="o">=</span><span class="n">r</span><span class="p">,</span>
+                <span class="n">value</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                <span class="n">continuous_update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">description</span><span class="p">,</span><span class="c1"># TODO copy more</span>
+                <span class="p">)</span>
+        <span class="n">tab</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Tab</span><span class="p">(</span><span class="n">children</span><span class="o">=</span><span class="n">imgs</span><span class="p">)</span>
+        <span class="n">widgets</span><span class="o">.</span><span class="n">jslink</span><span class="p">((</span><span class="n">isl</span><span class="p">,</span><span class="s1">&#39;index&#39;</span><span class="p">),(</span><span class="n">tab</span><span class="p">,</span><span class="s1">&#39;selected_index&#39;</span><span class="p">))</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append_display_data</span><span class="p">(</span><span class="n">isl</span><span class="p">)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append_display_data</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+
+<span class="c1">#class WigAnimation(widget.Image):</span>
+
 
 <span class="k">class</span> <span class="nc">FigAnimation</span><span class="p">(</span><span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">widget_play</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="c1"># TODO add pre rendereed list of images linked via jslink of values</span>
+        <span class="n">play</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span>
+        <span class="c1">#     interval=10,</span>
+            <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+            <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+            <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Press play&quot;</span><span class="p">,</span>
+            <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">widget_gif</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#convert to gif through save</span>
+        <span class="n">uf</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">uf</span> <span class="o">+</span> <span class="s2">&quot;.gif&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">uf</span> <span class="o">+</span> <span class="s2">&quot;.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">uf</span> <span class="o">+</span> <span class="s2">&quot;.gif&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ipywidgets</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span>
+            <span class="n">value</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+            <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;gif&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">update</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="c1"># Use the list of figures as the framedata, which will be iterated</span>
         <span class="c1"># over by the machinery.</span>
@@ -208,8 +271,6 @@
     <span class="k">return</span> <span class="n">ani</span></div>
 
 
-<span class="k">def</span> <span class="nf">interactive</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">ipywidgets</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 
            </div>
