@@ -1,4 +1,3 @@
-from cmath import isclose
 import numpy as np
 import uncertainties as unc
 import uncertainties.unumpy as unp
@@ -220,37 +219,6 @@ def fft(y):
     sp = fftshift(sfft(np.sin(t)))
     freq =fftshift(fftfreq(t.shape[-1]))
     return freq,sp
-
-def get_domain(f,
-    fmin = np.finfo(np.float64).min,
-    fmax = np.finfo(np.float64).max,
-    steps=10000,
-):
-    """
-    Return the domain of the function ``f``.
-    """
-    step = (fmax/2.-fmin/2.)/steps
-    test=np.arange(fmin/2.,fmax/2.,step)
-
-    r = f(test)
-    tr = test[np.isfinite(r)]
-    tmin = np.amin(tr)
-    tmax = np.amax(tr)
-    test_r = np.arange(tmin,tmax,step)
-    if np.equal(tr.shape , test_r.shape) and np.allclose(test_r,tr):
-        return tmin,tmax
-    else:
-        # bisect
-        t1a,t1b = get_domain(f,tmin,tmax -(tmax-tmin)/2)
-        if np.isclose(t1a,t1b):
-            t2a,t2b = get_domain(f,tmin + (tmax-tmin)/2,tmax)
-            if np.isclose(t2a,t2b):
-                return 0.,0. 
-            else:
-                return t2a,t2b
-        else:
-            return t1a,t1b
-
 
 def trim_domain(f,    
     fmin = np.finfo(np.float32).min/2,

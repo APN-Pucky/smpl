@@ -49,7 +49,7 @@ def test_histogram():
     c = 0
 
     def update(a):
-       global c,datay,bahnh
+       global c,bahnh
        c+=1
        bahnh = bahnh*0
        for i in range(n):
