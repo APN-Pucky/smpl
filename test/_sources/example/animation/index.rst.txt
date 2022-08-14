@@ -2,6 +2,11 @@
 Animations
 ================================
 
+.. jupyter-execute::
+
+    print('hi')
+    from ipywidgets import widgets
+    widgets.IntSlider(value=0,min=0,max=100)
 
 .. jupyter-execute::
 
