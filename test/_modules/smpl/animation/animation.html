@@ -38,7 +38,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-57-gd0280b12
+                0.0.145-58-gb45b695d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -172,7 +172,7 @@
             <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span>
     <span class="k">def</span> <span class="nf">widget_gif</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1">#convert to gif through save</span>
+        <span class="c1"># convert to gif through save as anim.save wants a filename</span>
         <span class="n">uf</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">uf</span> <span class="o">+</span> <span class="s2">&quot;.gif&quot;</span><span class="p">)</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">uf</span> <span class="o">+</span> <span class="s2">&quot;.gif&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>

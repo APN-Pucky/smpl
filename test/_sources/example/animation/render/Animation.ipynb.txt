@@ -91,7 +91,18 @@
    "execution_count": null,
    "metadata": {},
    "outputs": [],
-   "source": []
+   "source": [
+    "from smpl import animation\n",
+    "from smpl import plot\n",
+    "import numpy as np\n",
+    "\n",
+    "for a in np.linspace(0,10,200):\n",
+    "    plot.function(lambda x : a*x**2,xmin=0,xmax=5,init=True,tight=False)\n",
+    "    animation.frame()\n",
+    "\n",
+    "ani = animation.animate(interval=10,blit=True)\n",
+    "ani.widget_gif()"
+   ]
   },
   {
    "cell_type": "code",
@@ -124,7 +135,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.13"
+   "version": "3.9.13"
   },
   "widgets": {
    "application/vnd.jupyter.widget-state+json": {
