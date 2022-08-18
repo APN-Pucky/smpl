@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from smpl import util
 import matplotlib.animation as animation
 import matplotlib as mpl
 from PIL import Image
@@ -9,6 +10,7 @@ import ipywidgets as widgets
 import uuid
 import os
 import io
+from IPython.core.interactiveshell import InteractiveShell
 
 frames = []
 
@@ -32,27 +34,44 @@ def list_product(lists):
 
 
 #TODO mirror ipywidgets.interactive options
-def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwargs):
+def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,plays=None,**kwargs):
+    InteractiveShell.ast_node_interactivity = "all"
     # first deiter all of them
+    if plays is None:
+        plays = []
+    if isls is None:
+        isls = []
     if rec==0:
         isls=[]
         for arg in args:
             r = np.arange(arg.min,arg.max+arg.step,arg.step)
-            isl = widgets.SelectionSlider(
+            if isinstance(arg,widgets.Play):
+                isl = widgets.IntSlider()
+                widgets.jslink((arg, 'value'), (isl, 'value'))
+                plays += [arg]
+            else:
+                isl = widgets.SelectionSlider(
                     options=r,
                     value=arg.value,
                     continuous_update=True,
                     description=arg.description,# TODO copy more
                     )
+                plays += [None]
             isls+=[isl]
         for k,arg in kwargs.items():
             r = np.arange(arg.min,arg.max+arg.step,arg.step)
-            isl = widgets.SelectionSlider(
+            if isinstance(arg,widgets.Play):
+                isl = widgets.IntSlider()
+                widgets.jslink((arg, 'value'), (isl, 'value'))
+                plays += [arg]
+            else:
+                isl = widgets.SelectionSlider(
                     options=r,
                     value=arg.value,
                     continuous_update=True,
                     description=arg.description,# TODO copy more
                     )
+                plays += [None]
             isls+=[isl]
     if not prerender:
         ipywidgets.interactive(func, *args, **kwargs)
@@ -76,7 +95,8 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwar
                     if auto_png:
                         output = io.BytesIO()
                         plt.savefig(output, format='png')
-                        plt.clf()
+                        plt.close()
+                        #plt.clf()
 
                         tout = ipywidgets.Image(
                             value=output.getvalue(),
@@ -84,22 +104,30 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwar
                         )
                 else:
                     if len(args)!=0:
-                        tout = interactive(lambda *ar,**kw :func(a,*ar,**kw),*args[1:],prerender=prerender,auto_png=auto_png,rec=rec+1,isls=isls,**kwargs)
+                        tout = interactive(lambda *ar,**kw :func(a,*ar,**kw),*args[1:],prerender=prerender,auto_png=auto_png,rec=rec+1,plays=plays,isls=isls,**kwargs)
                     else:
                         dkw = dict(kwargs).pop(key)
-                        tout = interactive(lambda *ar,**kw :func(*ar,**{key:a},**kw),prerender=prerender,auto_png=auto_png,rec=rec+1,isls=isls,**dkw)
+                        tout = interactive(lambda *ar,**kw :func(*ar,**{key:a},**kw),prerender=prerender,auto_png=auto_png,rec=rec+1,plays=plays,isls=isls,**dkw)
             outs += [tout]
 
 
         tab = widgets.Tab(children=outs)
-        widgets.jslink((isls[rec],'index'),(tab,'selected_index'))
+        if hasattr(isls[rec] ,'index'):
+            widgets.jslink((isls[rec],'index'),(tab,'selected_index'))
+        elif hasattr(isls[rec] ,'value'):
+            widgets.jslink((isls[rec],'value'),(tab,'selected_index'))
+        else:
+            print("no link")
 
         if rec:
             return tab
         else:
             out = widgets.Output(layout={'border': '0px solid black'})
-            for isl in isls:
-                out.append_display_data(isl)
+            for i,isl in enumerate(isls):
+                if plays[i] is not None:
+                    out.append_display_data(widgets.HBox([plays[i], isl]))
+                else:
+                    out.append_display_data(isl)
             out.append_display_data(tab)
             plt.close()
             return out
@@ -109,17 +137,6 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwar
 
 
 class FigAnimation(animation.FuncAnimation):
-    def widget_play(self,):
-        # TODO add pre rendereed list of images linked via jslink of values
-        play = widgets.Play(
-        #     interval=10,
-            value=50,
-            min=0,
-            max=100,
-            step=1,
-            description="Press play",
-            disabled=False
-        )
     def widget_gif(self):
         # convert to gif through save as anim.save wants a filename
         uf = str(uuid.uuid4())
