@@ -66,7 +66,7 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwar
                             format='png',
                         )
                 else:
-                    tout = interactive(func,*args[1:],prerender=prerender,auto_png=auto_png,rec=rec+1,isls=isls,**kwargs)
+                    tout = interactive(lambda *a,**kw :func(a,*a,**kw),*args[1:],prerender=prerender,auto_png=auto_png,rec=rec+1,isls=isls,**kwargs)
             outs += [tout]
 
 
