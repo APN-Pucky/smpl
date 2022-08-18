@@ -33,10 +33,28 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "def fta(n = 1.0):\n",
-    "    plot.function(lambda x : np.exp(n*np.log(x)-x),xmin = 0.1,xmax=100,tight=False,init=False)\n",
+    "def fta(n = 1.0,u=4.0):\n",
+    "    plot.function(lambda x : np.exp(n*np.log(x)-x)/u,xmin = 0.1,xmax=100,tight=False,init=False)\n",
     "    \n",
-    "animation.interactive(fta,widgets.IntSlider(value=0,min=0,max=100),prerender=True)"
+    "animation.interactive(fta,widgets.IntSlider(value=1,min=1,max=10,description=\"n\"),widgets.IntSlider(value=1,min=1,max=10,description=\"u\"),prerender=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7669ce4c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def fta(u=4.0):\n",
+    "    animation.clear()\n",
+    "    for a in np.linspace(0,10,100):\n",
+    "        plot.function(lambda x : u*x+a,xmin=-5,xmax=5,init=True,tight=False)\n",
+    "        animation.frame()\n",
+    "\n",
+    "    ani = animation.animate(interval=10,blit=True)\n",
+    "    display(ani.widget_gif())\n",
+    "animation.interactive(fta,widgets.FloatSlider(value=1,min=0,max=1,step=0.1,description=\"u\"),prerender=True,auto_png=False)"
    ]
   },
   {
@@ -58,7 +76,7 @@
     "    #print(\"STIRLING(\"+str(n)+\") = \" +  str(sti))\n",
     "    #print(\"REL-DIFF(\" + str(n)+\") = \"+ str((sti-fac)/fac*100) + \"%\")\n",
     "    \n",
-    "animation.interactive(fta,  widgets.IntSlider(min=1, max=130, step=1, value=1)) "
+    "animation.interactive(fta,  widgets.IntSlider(min=1, max=130, step=1, value=1,description=\"n\")) "
    ]
   },
   {
@@ -87,7 +105,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3",
+   "display_name": "Python 3 (ipykernel)",
    "language": "python",
    "name": "python3"
   },
