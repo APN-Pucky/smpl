@@ -32,42 +32,55 @@ def list_product(lists):
 
 
 #TODO mirror ipywidgets.interactive options
-def interactive(func, *args, prerender=True,auto_png=True,**kwargs):
+def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwargs):
     # first deiter all of them
+    if not rec:
+        isls=[]
+        for arg in args:
+            isl = widgets.SelectionSlider(
+                    options=r,
+                    value=arg.value,
+                    continuous_update=True,
+                    description=arg.description,# TODO copy more
+                    )
+            isls+=[isl]
     if not prerender:
         ipywidgets.interactive(func, *args, **kwargs)
     else:
-        # TODO generalize for many sliders and kwargs
         arg = args[0]
         outs=[]
+        isls=[]
         r = np.arange(arg.min,arg.max,arg.step)
         for a in r:
             tout = widgets.Output(layout={'border': '1px solid black'})
             with tout:
-                func(a)
-                if auto_png:
-                    output = io.BytesIO()
-                    plt.savefig(output, format='png')
-                    plt.clf()
+                if len(args)==1:
+                    func(a)
+                    if auto_png:
+                        output = io.BytesIO()
+                        plt.savefig(output, format='png')
+                        plt.clf()
 
-                    tout = ipywidgets.Image(
-                        value=output.getvalue(),
-                        format='png',
-                    )
+                        tout = ipywidgets.Image(
+                            value=output.getvalue(),
+                            format='png',
+                        )
+                else:
+                    tout = interactive(func,*args[1:],prerender=prerender,auto_png=auto_png,rec=rec+1,isls=isls,**kwargs)
             outs += [tout]
-        
-        out = widgets.Output(layout={'border': '1px solid black'})
-        isl = widgets.SelectionSlider(
-                options=r,
-                value=arg.value,
-                continuous_update=True,
-                description=arg.description,# TODO copy more
-                )
+
+
         tab = widgets.Tab(children=outs)
-        widgets.jslink((isl,'index'),(tab,'selected_index'))
-        out.append_display_data(isl)
-        out.append_display_data(tab)
-        return out
+        widgets.jslink((isls[rec],'index'),(tab,'selected_index'))
+
+        if rec:
+            return tab
+        else:
+            out = widgets.Output(layout={'border': '1px solid black'})
+            for isl in isls:
+                out.append_display_data(isl)
+            out.append_display_data(tab)
+            return out
 
 
 #class WigAnimation(widget.Image):
