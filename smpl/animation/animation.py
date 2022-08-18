@@ -12,24 +12,49 @@ import io
 
 frames = []
 
-def interactive(func, *args, prerender=True,**kwargs):
+import itertools
+
+def dict_product(dicts):
+    """
+    >>> d = {"number": [1,2], "color": ['a','b'] }
+    >>> list(dict_product(d))
+    [{'number': 1, 'color': 'a'}, {'number': 1, 'color': 'b'}, {'number': 2, 'color': 'a'}, {'number': 2, 'color': 'b'}]
+    """
+    return (dict(zip(dicts, x)) for x in itertools.product(*dicts.values()))
+
+def list_product(lists):
+    """
+    >>> l = [[1,2],[3,4]]
+    >>> list(list_product(l))
+    [(1, 3), (1, 4), (2, 3), (2, 4)]
+    """
+    return itertools.product(*lists)
+
+
+#TODO mirror ipywidgets.interactive options
+def interactive(func, *args, prerender=True,auto_png=True,**kwargs):
+    # first deiter all of them
     if not prerender:
         ipywidgets.interactive(func, *args, **kwargs)
     else:
         # TODO generalize for many sliders and kwargs
         arg = args[0]
-        imgs=[]
+        outs=[]
         r = np.arange(arg.min,arg.max,arg.step)
         for a in r:
-            func(a)
-            output = io.BytesIO()
-            plt.savefig(output, format='png')
-            plt.clf()
+            tout = widgets.Output(layout={'border': '1px solid black'})
+            with tout:
+                func(a)
+                if auto_png:
+                    output = io.BytesIO()
+                    plt.savefig(output, format='png')
+                    plt.clf()
 
-            imgs += [ipywidgets.Image(
-                value=output.getvalue(),
-                format='png',
-            )]
+                    tout = ipywidgets.Image(
+                        value=output.getvalue(),
+                        format='png',
+                    )
+            outs += [tout]
         
         out = widgets.Output(layout={'border': '1px solid black'})
         isl = widgets.SelectionSlider(
@@ -38,7 +63,7 @@ def interactive(func, *args, prerender=True,**kwargs):
                 continuous_update=True,
                 description=arg.description,# TODO copy more
                 )
-        tab = widgets.Tab(children=imgs)
+        tab = widgets.Tab(children=outs)
         widgets.jslink((isl,'index'),(tab,'selected_index'))
         out.append_display_data(isl)
         out.append_display_data(tab)
