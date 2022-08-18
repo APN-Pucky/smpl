@@ -34,9 +34,19 @@ def list_product(lists):
 #TODO mirror ipywidgets.interactive options
 def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwargs):
     # first deiter all of them
-    if not rec:
+    if rec==0:
         isls=[]
         for arg in args:
+            r = np.arange(arg.min,arg.max+arg.step,arg.step)
+            isl = widgets.SelectionSlider(
+                    options=r,
+                    value=arg.value,
+                    continuous_update=True,
+                    description=arg.description,# TODO copy more
+                    )
+            isls+=[isl]
+        for k,arg in kwargs.items():
+            r = np.arange(arg.min,arg.max+arg.step,arg.step)
             isl = widgets.SelectionSlider(
                     options=r,
                     value=arg.value,
@@ -47,15 +57,22 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwar
     if not prerender:
         ipywidgets.interactive(func, *args, **kwargs)
     else:
-        arg = args[0]
+        key = None
+        arg = None
+        if (len(kwargs)==0):
+            arg = args[0]
+        if (len(args)==0):
+            key,arg = list(kwargs.items())[0]
         outs=[]
-        isls=[]
-        r = np.arange(arg.min,arg.max,arg.step)
+        r = np.arange(arg.min,arg.max+arg.step,arg.step)
         for a in r:
-            tout = widgets.Output(layout={'border': '1px solid black'})
+            tout = widgets.Output(layout={'border': '0px solid black'})
             with tout:
-                if len(args)==1:
-                    func(a)
+                if (len(args)==1 and len(kwargs)==0) or (len(args)==0 and len(kwargs)==1):
+                    if key is None:
+                        func(a)
+                    else:
+                        func(**{key:a})
                     if auto_png:
                         output = io.BytesIO()
                         plt.savefig(output, format='png')
@@ -66,7 +83,11 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwar
                             format='png',
                         )
                 else:
-                    tout = interactive(lambda *a,**kw :func(a,*a,**kw),*args[1:],prerender=prerender,auto_png=auto_png,rec=rec+1,isls=isls,**kwargs)
+                    if len(args)!=0:
+                        tout = interactive(lambda *ar,**kw :func(a,*ar,**kw),*args[1:],prerender=prerender,auto_png=auto_png,rec=rec+1,isls=isls,**kwargs)
+                    else:
+                        dkw = dict(kwargs).pop(key)
+                        tout = interactive(lambda *ar,**kw :func(*ar,**{key:a},**kw),prerender=prerender,auto_png=auto_png,rec=rec+1,isls=isls,**dkw)
             outs += [tout]
 
 
@@ -76,10 +97,11 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,**kwar
         if rec:
             return tab
         else:
-            out = widgets.Output(layout={'border': '1px solid black'})
+            out = widgets.Output(layout={'border': '0px solid black'})
             for isl in isls:
                 out.append_display_data(isl)
             out.append_display_data(tab)
+            plt.close()
             return out
 
 
