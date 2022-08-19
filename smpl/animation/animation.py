@@ -10,7 +10,6 @@ import ipywidgets as widgets
 import uuid
 import os
 import io
-from IPython.core.interactiveshell import InteractiveShell
 
 frames = []
 
@@ -35,8 +34,6 @@ def list_product(lists):
 
 #TODO mirror ipywidgets.interactive options
 def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,plays=None,**kwargs):
-    InteractiveShell.ast_node_interactivity = "all"
-    # first deiter all of them
     if plays is None:
         plays = []
     if isls is None:
