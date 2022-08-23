@@ -12,7 +12,7 @@ jobs:
     devel:
       runs-on: ubuntu-latest
       container:
-        image: apnpucky/ubuntu-pip
+        image: apnpucky/ubuntu-pip:0.0.118
       steps:
         - name: work around permission issue
           run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
