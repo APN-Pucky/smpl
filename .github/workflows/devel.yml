@@ -27,4 +27,4 @@ jobs:
         - name: Tests
           run: make test
         - name: Build Sphinx
-          run: rm -rf build && make clean-all && make html
+          run: make doc
