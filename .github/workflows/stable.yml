@@ -13,38 +13,12 @@ jobs:
       container:
         image: apnpucky/ubuntu-pip
       steps:
-        - name: work around permission issue
-          run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
-        - uses: actions/checkout@v3
+        - uses: APN-Pucky/make-python-action@main
           with:
-            fetch-depth: "0"
-        - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-        - run: make build
-        - run: make install
-        - run: make test
-        - name: Build Sphinx
-          run: make doc
-       
-        - name: Report Coveralls
-          if: startsWith(github.ref, 'refs/tags')
-          uses: AndreMiras/coveralls-python-action@develop
-        - name: Report Codacy
-          if: startsWith(github.ref, 'refs/tags')
-          uses: codacy/codacy-coverage-reporter-action@v1
-          with:
-            project-token: ${{ secrets.CODACY_API_TOKEN }}
-            coverage-reports: coverage.xml
-        
-        - name: Deploy PyPI
-          if: startsWith(github.ref, 'refs/tags')
-          uses: pypa/gh-action-pypi-publish@release/v1
-          with:
-            password: ${{ secrets.pypi_token }}
-
-        - name: Deploy Github Pages
-          if: startsWith(github.ref, 'refs/tags')
-          uses: JamesIves/github-pages-deploy-action@v4.4.0
-          with:
-            BRANCH: gh-pages # The branch the action should deploy to.
-            FOLDER: build/html # The folder the action should deploy.
-            clean-exclude: test/
+            test: true
+            doc: true
+            coveralls: true
+            codacy-api-token: ${{ secrets.CODACY_API_TOKEN }}
+            pypi-token: ${{ secrets.pypi_token }}
+            gh-pages: true
+            gh-pages-folder: build/html
