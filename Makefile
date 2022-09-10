@@ -44,6 +44,7 @@ pull: commit
 	git pull
 	
 doc: clean-all html
+	@echo -n ""
 
 clean-all: clean
 	rm -rf build
