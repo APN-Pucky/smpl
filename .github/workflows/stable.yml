@@ -23,7 +23,7 @@ jobs:
         - run: make install
         - run: make test
         - name: Build Sphinx
-          run: rm -rf build && make clean-all && make html
+          run: make doc
        
         - name: Report Coveralls
           if: startsWith(github.ref, 'refs/tags')
