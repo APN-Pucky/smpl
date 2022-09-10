@@ -42,8 +42,11 @@ push: commit
 
 pull: commit
 	git pull
+	
+doc: clean-all html
 
 clean-all: clean
+	rm -rf build
 	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --clear-output --inplace
 
 
