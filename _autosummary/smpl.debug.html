@@ -8,8 +8,6 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
       <link rel="stylesheet" href="../_static/style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -20,11 +18,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -41,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145
+                0.0.146
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +58,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Performance</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -84,6 +74,11 @@
 <li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
 </ul>
 
         </div>
@@ -185,25 +180,18 @@
 <dt class="sig sig-object py" id="smpl.debug.get_line_number_file">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">get_line_number_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#get_line_number_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.get_line_number_file" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the current filename and the current linenumber within it.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>split</strong><span class="classifier">bool</span></dt><dd><p>Indicates whenever the folders above of the file should be included in the returned filename.</p>
+<dl class="simple">
+<dt>split<span class="classifier">bool</span></dt><dd><p>Indicates whenever the folders above of the file should be included in the returned filename.</p>
 </dd>
-<dt><strong>_back</strong><span class="classifier">int</span></dt><dd><p>Number of stack/frames to go back.</p>
+<dt>_back<span class="classifier">int</span></dt><dd><p>Number of stack/frames to go back.</p>
 </dd>
 </dl>
+<dl class="simple">
+<dt>filenumber<span class="classifier">int</span></dt><dd><p>First element in the return array</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>filenumber</strong><span class="classifier">int</span></dt><dd><p>First element in the return array</p>
-</dd>
-<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>Second element in the return array</p>
+<dt>filename<span class="classifier">str</span></dt><dd><p>Second element in the return array</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_line_number_file</span><span class="p">()</span>
 <span class="go">(1, &#39;&lt;doctest smpl.debug.debug.get_line_number_file[0]&gt;&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
@@ -218,23 +206,18 @@
 <dt class="sig sig-object py" id="smpl.debug.msg">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#msg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.msg" title="Permalink to this definition"></a></dt>
 <dd><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level and always returns the msg.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>tag</strong><span class="classifier">str</span></dt><dd><p>Sets a tag to be printed for the debug message.</p>
+<dl class="simple">
+<dt>tag<span class="classifier">str</span></dt><dd><p>Sets a tag to be printed for the debug message.</p>
 </dd>
-<dt><strong>level</strong><span class="classifier">int</span></dt><dd><p>Debug level.</p>
+<dt>level<span class="classifier">int</span></dt><dd><p>Debug level.</p>
 </dd>
-<dt><strong>times</strong><span class="classifier">int</span></dt><dd><p>How often should the message be printed if the function gets called multiple times (e.g. in a loop).</p>
+<dt>times<span class="classifier">int</span></dt><dd><p>How often should the message be printed if the function gets called multiple times (e.g. in a loop).</p>
 </dd>
-<dt><strong>_line</strong><span class="classifier">bool</span></dt><dd><p>Print the current line in the python source.</p>
+<dt>_line<span class="classifier">bool</span></dt><dd><p>Print the current line in the python source.</p>
 </dd>
-<dt><strong>_back</strong><span class="classifier">int</span></dt><dd><p>Number of stack/frames to go back.</p>
+<dt>_back<span class="classifier">int</span></dt><dd><p>Number of stack/frames to go back.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msg</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9999</span><span class="p">)</span>
 <span class="go">DBG::&lt;doctest smpl.debug.debug.msg[0]&gt;:1: hi</span>
 <span class="go">&#39;hi&#39;</span>
@@ -248,23 +231,18 @@
 <dt class="sig sig-object py" id="smpl.debug.msg1">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">msg1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#msg1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.msg1" title="Permalink to this definition"></a></dt>
 <dd><p>Just like <a class="reference internal" href="#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-func docutils literal notranslate"><span class="pre">msg()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>tag</strong><span class="classifier">str</span></dt><dd><p>Sets a tag to be printed for the debug message.</p>
+<dl class="simple">
+<dt>tag<span class="classifier">str</span></dt><dd><p>Sets a tag to be printed for the debug message.</p>
 </dd>
-<dt><strong>level</strong><span class="classifier">int</span></dt><dd><p>Debug level.</p>
+<dt>level<span class="classifier">int</span></dt><dd><p>Debug level.</p>
 </dd>
-<dt><strong>times</strong><span class="classifier">int</span></dt><dd><p>How often should the message be printed if the function gets called multiple times (e.g. in a loop).</p>
+<dt>times<span class="classifier">int</span></dt><dd><p>How often should the message be printed if the function gets called multiple times (e.g. in a loop).</p>
 </dd>
-<dt><strong>_line</strong><span class="classifier">bool</span></dt><dd><p>Print the current line in the python source.</p>
+<dt>_line<span class="classifier">bool</span></dt><dd><p>Print the current line in the python source.</p>
 </dd>
-<dt><strong>_back</strong><span class="classifier">int</span></dt><dd><p>Number of stack/frames to go back.</p>
+<dt>_back<span class="classifier">int</span></dt><dd><p>Number of stack/frames to go back.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">msg1</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="n">i</span><span class="p">)</span>
 <span class="go">DBG::&lt;doctest smpl.debug.debug.msg1[0]&gt;:2: -2</span>
@@ -280,7 +258,6 @@
 <dt class="sig sig-object py" id="smpl.debug.once">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#once"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.once" title="Permalink to this definition"></a></dt>
 <dd><p>Returns true only one time</p>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="n">once</span><span class="p">():</span>
 <span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -293,6 +270,63 @@
 <dt class="sig sig-object py" id="smpl.debug.table">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">';'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_print</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'debug_table.csv'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.table" title="Permalink to this definition"></a></dt>
 <dd><p>Saves <code class="docutils literal notranslate"><span class="pre">key</span></code>:<code class="docutils literal notranslate"><span class="pre">value</span></code> in <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">table</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span><span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">table</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">table</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">**</span><span class="n">i</span><span class="p">,</span><span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">once</span><span class="p">():</span> <span class="n">table_flush_header</span><span class="p">();</span>
+<span class="gp">... </span>    <span class="n">table_flush_line</span><span class="p">()</span>
+<span class="go">-2</span>
+<span class="go">4</span>
+<span class="go">0.25</span>
+<span class="go">-1</span>
+<span class="go">1</span>
+<span class="go">-1.0</span>
+<span class="go">0</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">1</span>
+<span class="go">1</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;debug_table.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="go">a;b;c;</span>
+<span class="go">-2.000000000000000000000000000000e+00;4.000000000000000000000000000000e+00;2.500000000000000000000000000000e-01;</span>
+<span class="go">-1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;-1.000000000000000000000000000000e+00;</span>
+<span class="go">0.000000000000000000000000000000e+00;0.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;</span>
+<span class="go">1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;debug_table.csv&quot;</span><span class="p">)</span>
+<span class="go">                                              a;b;c;</span>
+<span class="go">0  -2.000000000000000000000000000000e+00;4.000000...</span>
+<span class="go">1  -1.000000000000000000000000000000e+00;1.000000...</span>
+<span class="go">2  0.000000000000000000000000000000e+00;0.0000000...</span>
+<span class="go">3  1.000000000000000000000000000000e+00;1.0000000...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reset_table</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">io</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;debug_table.csv&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">table</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">*</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]),</span><span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">table</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="o">*</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]),</span><span class="n">level</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">once</span><span class="p">():</span> <span class="n">table_flush_header</span><span class="p">();</span>
+<span class="gp">... </span>    <span class="n">table_flush_line</span><span class="p">()</span>
+<span class="go">array([0, 1, 2, 3, 4])</span>
+<span class="go">array([0, 1, 2, 3, 4])</span>
+<span class="go">array([0, 2, 4, 6, 8])</span>
+<span class="go">array([ 0,  4,  8, 12, 16])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">&quot;debug_table.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="go">a;b;</span>
+<span class="go">0.000000000000000000000000000000e+00;0.000000000000000000000000000000e+00;</span>
+<span class="go">1.000000000000000000000000000000e+00;1.000000000000000000000000000000e+00;</span>
+<span class="go">2.000000000000000000000000000000e+00;2.000000000000000000000000000000e+00;</span>
+<span class="go">3.000000000000000000000000000000e+00;3.000000000000000000000000000000e+00;</span>
+<span class="go">4.000000000000000000000000000000e+00;4.000000000000000000000000000000e+00;</span>
+<span class="go">0.000000000000000000000000000000e+00;0.000000000000000000000000000000e+00;</span>
+<span class="go">2.000000000000000000000000000000e+00;4.000000000000000000000000000000e+00;</span>
+<span class="go">4.000000000000000000000000000000e+00;8.000000000000000000000000000000e+00;</span>
+<span class="go">6.000000000000000000000000000000e+00;1.200000000000000000000000000000e+01;</span>
+<span class="go">8.000000000000000000000000000000e+00;1.600000000000000000000000000000e+01;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">

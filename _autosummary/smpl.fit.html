@@ -8,8 +8,6 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
       <link rel="stylesheet" href="../_static/style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -20,11 +18,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -41,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145
+                0.0.146
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +58,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Performance</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -84,6 +74,11 @@
 <li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
 </ul>
 
         </div>
@@ -170,7 +165,6 @@
 <dd><p>Chi2 - Goodness of Fit</p>
 <p>In general, if Chi-squared/Nd is of order 1.0, then the fit is reasonably good.
 Coversely,  if Chi-squared/Nd &gt;&gt; 1.0, then the fit is a poor one.</p>
-<p class="rubric">References</p>
 <p><a class="reference external" href="https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html">https://www.phys.hawaii.edu/~varner/PHYS305-Spr12/DataFitting.html</a></p>
 </dd></dl>
 
@@ -187,7 +181,6 @@ Coversely,  if Chi-squared/Nd &gt;&gt; 1.0, then the fit is a poor one.</p>
 <p>In the best case, the modeled values exactly match the observed values, which results in R2 = 1.
 A baseline model, which always predicts the mean of y, will have R2 = 0.
 Models that have worse predictions than this baseline will have a negative R2.</p>
-<p class="rubric">References</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination">https://en.wikipedia.org/wiki/Coefficient_of_determination</a></p>
 </dd></dl>
 
@@ -195,21 +188,13 @@ Models that have worse predictions than this baseline will have a negative R2.</
 <dt class="sig sig-object py" id="smpl.fit.auto">
 <span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">auto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.auto" title="Permalink to this definition"></a></dt>
 <dd><p>Automatically loop over functions and fit the best one.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>funcs</strong><span class="classifier">function array</span></dt><dd><p>functions to consider as fit. Default all <code class="docutils literal notranslate"><span class="pre">smpl.functions</span></code>.</p>
+<dl class="simple">
+<dt>funcs<span class="classifier">function array</span></dt><dd><p>functions to consider as fit. Default all <code class="docutils literal notranslate"><span class="pre">smpl.functions</span></code>.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt>The best fit function and it’s parameters and a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> where the parameters are already applied to the function.</dt><dd></dd>
-</dl>
-</dd>
-</dl>
+<p>The best fit function and it’s parameters and a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> where the parameters are already applied to the function.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -222,18 +207,14 @@ Models that have worse predictions than this baseline will have a negative R2.</
 <dt class="sig sig-object py" id="smpl.fit.fit">
 <span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.fit" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a fit of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>datax</strong><span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="simple">
+<dt>datax<span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </dd>
-<dt><strong>datay</strong><span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<dt>datay<span class="classifier">array_like</span></dt><dd><p>Y data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </dd>
-<dt><strong>function</strong><span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
+<dt>function<span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
-</dd>
-</dl>
+<dt><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -276,7 +257,7 @@ Models that have worse predictions than this baseline will have a negative R2.</
 </tr>
 <tr class="row-even"><td><p>fitter</p></td>
 <td><p>Fitter.AUTO</p></td>
-<td><p>Choose from :class:<a href="#id1"><span class="problematic" id="id2">`</span></a>Fitter`s.</p></td>
+<td><p>Choose from :class:<a href="#id5"><span class="problematic" id="id6">`</span></a>Fitter`s.</p></td>
 </tr>
 </tbody>
 </table>
@@ -325,12 +306,8 @@ Models that have worse predictions than this baseline will have a negative R2.</
 <dt class="sig sig-object py" id="smpl.fit.fit_split">
 <span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">fit_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/fit/fit.html#fit_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.fit_split" title="Permalink to this definition"></a></dt>
 <dd><p>Splits datax and datay into (x,y,xerr,yerr).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>**kwargs</strong><span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
-</dd>
-</dl>
+<dl class="simple">
+<dt><a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.fit.fit_kwargs" title="smpl.fit.fit_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -1,4 +1,4 @@
-Performance
+Graph Profiling
 ================================
 
 .. image:: ../combined.svg

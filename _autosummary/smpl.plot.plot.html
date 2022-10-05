@@ -8,8 +8,6 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
       <link rel="stylesheet" href="../_static/style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -20,11 +18,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -39,7 +33,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145
+                0.0.146
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,10 +56,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Performance</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -82,6 +72,11 @@
 <li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
 </ul>
 
         </div>
@@ -213,24 +208,22 @@ parameter.</p>
 necessary if you want explicit deviations from these defaults.
 Alternatively, you can also change the style cycle using
 <a href="#id1"><span class="problematic" id="id2">:rc:`axes.prop_cycle`</span></a>.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
-<dt><strong>x, y</strong><span class="classifier">array-like or scalar</span></dt><dd><p>The horizontal / vertical coordinates of the data points.
+<dl>
+<dt>x, y<span class="classifier">array-like or scalar</span></dt><dd><p>The horizontal / vertical coordinates of the data points.
 <em>x</em> values are optional and default to <code class="docutils literal notranslate"><span class="pre">range(len(y))</span></code>.</p>
 <p>Commonly, these parameters are 1D arrays.</p>
 <p>They can also be scalars, or two-dimensional (in that case, the
 columns represent separate data sets).</p>
 <p>These arguments cannot be passed as keywords.</p>
 </dd>
-<dt><strong>fmt</strong><span class="classifier">str, optional</span></dt><dd><p>A format string, e.g. ‘ro’ for red circles. See the <em>Notes</em>
+<dt>fmt<span class="classifier">str, optional</span></dt><dd><p>A format string, e.g. ‘ro’ for red circles. See the <em>Notes</em>
 section for a full description of the format strings.</p>
 <p>Format strings are just an abbreviation for quickly setting
 basic line properties. All of these and more can also be
 controlled by keyword arguments.</p>
 <p>This argument cannot be passed as keyword.</p>
 </dd>
-<dt><strong>data</strong><span class="classifier">indexable object, optional</span></dt><dd><p>An object with labelled data. If given, provide the label names to
+<dt>data<span class="classifier">indexable object, optional</span></dt><dd><p>An object with labelled data. If given, provide the label names to
 plot in <em>x</em> and <em>y</em>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -243,19 +236,15 @@ You may suppress the warning by adding an empty format string
 </div>
 </dd>
 </dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
+<dl class="simple">
 <dt>list of <cite>.Line2D</cite></dt><dd><p>A list of lines representing the plotted data.</p>
 </dd>
 </dl>
-</dd>
-<dt class="field-odd">Other Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl>
-<dt><strong>scalex, scaley</strong><span class="classifier">bool, default: True</span></dt><dd><p>These parameters determine if the view limits are adapted to the
+<dl>
+<dt>scalex, scaley<span class="classifier">bool, default: True</span></dt><dd><p>These parameters determine if the view limits are adapted to the
 data limits. The values are passed on to <cite>autoscale_view</cite>.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier"><cite>.Line2D</cite> properties, optional</span></dt><dd><p><em>kwargs</em> are used to specify properties like a line label (for
+<dt><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs<span class="classifier"><cite>.Line2D</cite> properties, optional</span></dt><dd><p><em>kwargs</em> are used to specify properties like a line label (for
 auto legends), linewidth, antialiasing, marker face color.
 Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;go-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;line 1&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -310,16 +299,10 @@ ydata: 1D array
 zorder: float</p>
 </dd>
 </dl>
-</dd>
-</dl>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
 <dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter</span></code></dt><dd><p>XY scatter plot with markers of varying size and/or color ( sometimes also called bubble chart).</p>
+<dt>scatter<span class="classifier">XY scatter plot with markers of varying size and/or color (</span></dt><dd><p>sometimes also called bubble chart).</p>
 </dd>
 </dl>
-</div>
-<p class="rubric">Notes</p>
 <p><strong>Format Strings</strong></p>
 <p>A format string consists of a part for color, marker and line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;[marker][line][color]&#39;</span>

@@ -7,8 +7,6 @@
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
@@ -19,11 +17,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -38,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145
+                0.0.146
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -61,10 +55,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../performance/index.html">Performance</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -81,6 +71,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance/line.html">Line Profiling</a></li>
 </ul>
 
         </div>
@@ -235,10 +230,33 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="n">tmp</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">fixed</span><span class="p">,</span><span class="n">Ntot</span><span class="o">=</span><span class="n">_wrap_func_and_param</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="n">fitter</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fitter&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">AUTO</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fitter</span> <span class="o">=</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_ODR</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fitter</span> <span class="o">=</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_CURVEFIT</span>
+    <span class="k">if</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">MINUIT_LEASTSQUARES</span><span class="p">:</span>
+        <span class="n">fitt</span> <span class="o">=</span> <span class="n">_fit_minuit_leastsquares</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_CURVEFIT</span><span class="p">:</span>
+        <span class="n">fitt</span> <span class="o">=</span> <span class="n">_fit_curvefit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_ODR</span><span class="p">:</span>
+        <span class="n">fitt</span> <span class="o">=</span> <span class="n">_fit_odr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">_unwrap_param</span><span class="p">(</span><span class="n">fitt</span><span class="p">,</span><span class="n">fixed</span><span class="p">,</span><span class="n">Ntot</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_wrap_func_and_param</span><span class="p">(</span><span class="n">function</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wraps a function with a lambda function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">params</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;params&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
         <span class="n">params</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">]</span>
-
     <span class="n">fixed</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">vnames</span> <span class="o">=</span> <span class="n">wrap</span><span class="o">.</span><span class="n">get_varnames</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">])</span>
     <span class="n">Ntot</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">vnames</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
@@ -257,7 +275,11 @@
     <span class="n">params</span> <span class="o">=</span> <span class="n">tmp_params</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">tmp</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">_wrapped_func</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        wrapper for function with fixed parameters applied.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">tmp_x</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="c1"># print(x)</span>
@@ -273,30 +295,19 @@
         <span class="c1"># print(Ntot)</span>
         <span class="c1"># print(tmp_x)</span>
         <span class="k">return</span> <span class="n">unv</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">])(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">tmp_x</span><span class="p">))</span>
-    <span class="n">fitter</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fitter&quot;</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">AUTO</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">fitter</span> <span class="o">=</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_ODR</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">fitter</span> <span class="o">=</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_CURVEFIT</span>
-    <span class="k">if</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">MINUIT_LEASTSQUARES</span><span class="p">:</span>
-        <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit_minuit_leastsquares</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_CURVEFIT</span><span class="p">:</span>
-        <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit_curvefit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_ODR</span><span class="p">:</span>
-        <span class="n">fit</span> <span class="o">=</span> <span class="n">_fit_odr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
 
+    <span class="k">return</span> <span class="n">_wrapped_func</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">fixed</span><span class="p">,</span><span class="n">Ntot</span>
+
+<span class="k">def</span> <span class="nf">_unwrap_param</span><span class="p">(</span><span class="n">fitt</span><span class="p">,</span><span class="n">fixed</span><span class="p">,</span><span class="n">Ntot</span><span class="p">):</span>
     <span class="n">rfit</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ntot</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fixed</span><span class="p">):</span>
-            <span class="n">rfit</span> <span class="o">+=</span> <span class="p">[</span><span class="n">fit</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
+            <span class="n">rfit</span> <span class="o">+=</span> <span class="p">[</span><span class="n">fitt</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
             <span class="n">j</span> <span class="o">=</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">rfit</span> <span class="o">+=</span> <span class="p">[</span><span class="n">fixed</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-
-    <span class="k">return</span> <span class="n">rfit</span></div>
-
+    <span class="k">return</span> <span class="n">rfit</span>
 
 <div class="viewcode-block" id="Chi2"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.Chi2">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">insert_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">Chi2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>

@@ -13,6 +13,10 @@
    
       R2
    
+      fft
+   
+      get_interesting_domain
+   
       mean
    
       no_dist

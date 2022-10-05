@@ -65,8 +65,9 @@
    "outputs": [],
    "source": [
     "x= np.random.randn(1000)\n",
-    "plot.data(x,0,f.gauss,bins=20,label=\"data\",fmt=None)\n",
-    "plot.data(x,0,f.gauss,bins=20,label=\"data\",fmt=\"step\",init=True)\n"
+    "print(isinstance(x, (list, tuple, np.ndarray)))\n",
+    "plot.data(x,bins=20,label=\"data\",fmt=None)\n",
+    "plot.data(x,bins=20,label=\"data\",fmt=\"step\",init=True)\n"
    ]
   },
   {
@@ -82,9 +83,16 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "plot.data(x,0,f.gauss,bins=20,data_sigmas=5,label=\"data\",fmt=None)\n",
-    "plot.data(x,0,f.gauss,bins=20,data_sigmas=5,label=\"data\",fmt=\"step\",init=True)"
+    "plot.data(x,bins=20,data_sigmas=5,label=\"data\",fmt=None)\n",
+    "plot.data(x,bins=20,data_sigmas=5,label=\"data\",fmt=\"step\",init=True)"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
@@ -103,7 +111,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.7"
+   "version": "3.9.13"
   }
  },
  "nbformat": 4,

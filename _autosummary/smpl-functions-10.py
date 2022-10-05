@@ -1,3 +1,3 @@
-from smpl.functions.functions import lorentz
+from smpl.functions.functions import log
 from smpl import plot
-plot.function(lorentz,0,5,3,0,xmin=-5,xmax=5)
+plot.function(log,0.5,4,xmin=0.1,xmax=5)

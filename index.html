@@ -4,12 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>smpl 0.0.145 documentation &mdash; smpl  documentation</title>
+  <title>smpl 0.0.146 documentation &mdash; smpl  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
-      <link rel="stylesheet" href="_static/thebelab.css" type="text/css" />
       <link rel="stylesheet" href="_static/style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -20,11 +18,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -40,7 +34,7 @@
             <a href="#" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145
+                0.0.146
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -63,10 +57,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="example/index.html">Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="performance/index.html">Performance</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -84,6 +74,11 @@
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance/line.html">Line Profiling</a></li>
+</ul>
 
         </div>
       </div>
@@ -99,7 +94,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>smpl 0.0.145 documentation</li>
+      <li>smpl 0.0.146 documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -134,7 +129,7 @@
 }
 </style>
 <section id="smpl-version-documentation">
-<h1>smpl 0.0.145 documentation<a class="headerlink" href="#smpl-version-documentation" title="Permalink to this heading"></a></h1>
+<h1>smpl 0.0.146 documentation<a class="headerlink" href="#smpl-version-documentation" title="Permalink to this heading"></a></h1>
 <section id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
 <p>Stable version:</p>
@@ -186,6 +181,7 @@
 <li class="toctree-l3"><a class="reference internal" href="example/parallel/parallel.html#Non-parallelized">Non-parallelized</a></li>
 <li class="toctree-l3"><a class="reference internal" href="example/parallel/parallel.html#Auto-parallelized">Auto parallelized</a></li>
 <li class="toctree-l3"><a class="reference internal" href="example/parallel/parallel.html#Manual-parallelized">Manual parallelized</a></li>
+<li class="toctree-l3"><a class="reference internal" href="example/parallel/parallel.html#Lambda-usage">Lambda usage</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="example/uncertainties/demo_uncertainties.html">uncertainties</a><ul>
@@ -210,12 +206,6 @@
 </li>
 </ul>
 </li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="performance/index.html">Performance</a></li>
 </ul>
 </div>
 </section>
@@ -268,6 +258,35 @@
 </tr>
 </tbody>
 </table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance/line.html">Line Profiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-fit-py">tests/test_fit.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-fit">test_fit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-line-profiling-py">tests/test_line_profiling.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-as-mark">test_as_mark</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-line-profiling-doctests-py">tests/test_line_profiling_doctests.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#id1">test_as_mark</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-plot-py">tests/test_plot.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-em">test_em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance/line.html#tests-test-wrap-py">tests/test_wrap.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="performance/line.html#test-wrap">test_wrap</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 <section id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h2>

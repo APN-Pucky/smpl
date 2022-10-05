@@ -19,6 +19,8 @@
    
       exp
    
+      fac
+   
       gauss
    
       line

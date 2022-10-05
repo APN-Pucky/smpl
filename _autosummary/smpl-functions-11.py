@@ -1,3 +1,3 @@
-from smpl.functions.functions import sin
+from smpl.functions.functions import lorentz
 from smpl import plot
-plot.function(sin,3,0.02,3,xmin=-5,xmax=5)
+plot.function(lorentz,0,5,3,0,xmin=-5,xmax=5)

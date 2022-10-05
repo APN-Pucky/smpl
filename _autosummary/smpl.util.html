@@ -8,8 +8,6 @@
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
       <link rel="stylesheet" href="../_static/style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
@@ -20,11 +18,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/thebelab-helper.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
         <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -41,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145
+                0.0.146
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,10 +58,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Performance:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Performance</a></li>
-</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -84,6 +74,11 @@
 <li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
 </ul>
 
         </div>
@@ -164,7 +159,6 @@
 <dt class="sig sig-object py" id="smpl.util.find_nearest">
 <span class="sig-prename descclassname"><span class="pre">smpl.util.</span></span><span class="sig-name descname"><span class="pre">find_nearest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#find_nearest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.find_nearest" title="Permalink to this definition"></a></dt>
 <dd><p>Return the element in <code class="docutils literal notranslate"><span class="pre">array</span></code> closest to <code class="docutils literal notranslate"><span class="pre">value</span></code></p>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">find_nearest</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="p">,</span> <span class="mf">1.9</span><span class="p">)</span>
 <span class="go">2</span>
 </pre></div>
@@ -175,7 +169,6 @@
 <dt class="sig sig-object py" id="smpl.util.find_nearest_index">
 <span class="sig-prename descclassname"><span class="pre">smpl.util.</span></span><span class="sig-name descname"><span class="pre">find_nearest_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#find_nearest_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.find_nearest_index" title="Permalink to this definition"></a></dt>
 <dd><p>Returns the index of the element in <code class="docutils literal notranslate"><span class="pre">array</span></code> closest to <code class="docutils literal notranslate"><span class="pre">value</span></code></p>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">find_nearest_index</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="p">,</span> <span class="mf">1.9</span><span class="p">)</span>
 <span class="go">3</span>
 </pre></div>
@@ -186,7 +179,6 @@
 <dt class="sig sig-object py" id="smpl.util.get">
 <span class="sig-prename descclassname"><span class="pre">smpl.util.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.get" title="Permalink to this definition"></a></dt>
 <dd><p>Returns dict[key] if this exists else default.</p>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">,</span> <span class="s1">&#39;c&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">1</span>
@@ -200,7 +192,6 @@
 <dt class="sig sig-object py" id="smpl.util.has">
 <span class="sig-prename descclassname"><span class="pre">smpl.util.</span></span><span class="sig-name descname"><span class="pre">has</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#has"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.has" title="Permalink to this definition"></a></dt>
 <dd><p>Checks if the key is in the dict and not None.</p>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">,</span> <span class="s1">&#39;c&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
 <span class="go">True</span>
@@ -214,7 +205,6 @@
 <dt class="sig sig-object py" id="smpl.util.times">
 <span class="sig-prename descclassname"><span class="pre">smpl.util.</span></span><span class="sig-name descname"><span class="pre">times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#times"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.times" title="Permalink to this definition"></a></dt>
 <dd><p>Concats string <code class="docutils literal notranslate"><span class="pre">s</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code> times.</p>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">times</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">&#39;hihihihihi&#39;</span>
 </pre></div>
@@ -225,7 +215,6 @@
 <dt class="sig sig-object py" id="smpl.util.true">
 <span class="sig-prename descclassname"><span class="pre">smpl.util.</span></span><span class="sig-name descname"><span class="pre">true</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/util/util.html#true"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.util.true" title="Permalink to this definition"></a></dt>
 <dd><p>Checks if the key is in the dict and not None and True.</p>
-<p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="kc">True</span> <span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="kc">True</span> <span class="p">,</span> <span class="s1">&#39;c&#39;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">true</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 <span class="go">True</span>
