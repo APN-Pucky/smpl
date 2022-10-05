@@ -62,6 +62,7 @@ def par(f, *args, **kwargs):
     """
     return res([calc(f, *[args[k][i] for k in range(len(args))], **{k: v[i] for k, v in kwargs.items()}) for i in range(len(args[0]) if len(args) > 0 else len(next(iter(kwargs.values()))))])
 
+# TODO rework to same properties as par
 def partitioned_parallel(f,arr,n_jobs=None):
     """
     Parallel execution of f on each element of args
@@ -79,7 +80,7 @@ def partitioned_parallel(f,arr,n_jobs=None):
         res += par(f,sa[i])
     return res
 
-parallel = par
+parallel = partitioned_parallel
 
 if __name__ == "__main__":
     import doctest
