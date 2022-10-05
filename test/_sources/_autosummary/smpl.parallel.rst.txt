@@ -17,6 +17,8 @@
    
       parallel
    
+      partitioned_parallel
+   
       res
    
    

@@ -35,7 +35,7 @@
             <a href="../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.145-81-gf5cde624
+                0.0.145-83-g0eb7a400
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -146,7 +146,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="smpl.parallel.parallel.html#smpl.parallel.parallel" title="smpl.parallel.parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">parallel</span></code></a>(f, *args, **kwargs)</p></td>
 <td><p>Parallel execution of f on each element of args and kwargs</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.parallel.res" title="smpl.parallel.res"><code class="xref py py-obj docutils literal notranslate"><span class="pre">res</span></code></a>(a)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.parallel.partitioned_parallel" title="smpl.parallel.partitioned_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">partitioned_parallel</span></code></a>(f, arr[, n_jobs])</p></td>
+<td><p>Parallel execution of f on each element of args</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.parallel.res" title="smpl.parallel.res"><code class="xref py py-obj docutils literal notranslate"><span class="pre">res</span></code></a>(a)</p></td>
 <td><p>Parallel evaluation of the list generator from <a class="reference internal" href="#smpl.parallel.gen" title="smpl.parallel.gen"><code class="xref py py-func docutils literal notranslate"><span class="pre">gen()</span></code></a>.</p></td>
 </tr>
 </tbody>
@@ -193,6 +196,16 @@
 <span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.parallel.parallel" title="Permalink to this definition"></a></dt>
 <dd><p>Parallel execution of f on each element of args and kwargs</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">par</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">[0, 1, 4, 9, 16]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.parallel.partitioned_parallel">
+<span class="sig-prename descclassname"><span class="pre">smpl.parallel.</span></span><span class="sig-name descname"><span class="pre">partitioned_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/parallel/parallel.html#partitioned_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.parallel.partitioned_parallel" title="Permalink to this definition"></a></dt>
+<dd><p>Parallel execution of f on each element of args</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">partitioned_parallel</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="go">[0, 1, 4, 9, 16]</span>
 </pre></div>
 </div>
