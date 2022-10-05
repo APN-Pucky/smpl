@@ -14,17 +14,7 @@ jobs:
       container:
         image: apnpucky/ubuntu-pip:20220726175949
       steps:
-        - name: work around permission issue
-          run: git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
-        - uses: actions/checkout@v3
+        - uses: APN-Pucky/make-python-action@main
           with:
-            fetch-depth: "0"
-        - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-        - name: Build smpl
-          run: make build
-        - name: Install smpl
-          run: make install
-        - name: Tests
-          run: make test
-        - name: Build Sphinx
-          run: make doc
+            test: true
+            doc: true
