@@ -1,3 +1,3 @@
 """Simplified parallelization."""
-from .parallel import gen, calc, par, res, parallel
-__all__ = ['gen', 'calc', 'par', 'res', 'parallel']
+from .parallel import gen, calc, par, res, parallel,partitioned_parallel
+__all__ = ['gen', 'calc', 'par', 'res', 'parallel','partitioned_parallel']
