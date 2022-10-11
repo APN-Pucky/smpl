@@ -10,7 +10,7 @@ default = {
     'yaxis': [None, "."],
     'zaxis': [None, "."],
     'logz': [True, "Colorbar in logarithmic scale."],
-    'style': ['image', "Plot via an image ('image') or scatter ('scatter')."],
+    'style': ['pcolormesh', "Plot via an image ('image') or scatter ('scatter') or mesh ('pcolormesh')."],
     'interpolation': ['nearest', "Only 'nearest' or 'bilinear' for nonuniformimage. Check https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow"],
     'cmap': ['viridis', "Good default color map for missing datapoints since it does not include white."],
     # 'zscale' : [None,"Rescale z values."],
@@ -41,7 +41,9 @@ def plot2d(datax, datay, dataz, **kwargs):
         see :func:`plot2d_kwargs`.
     """
     kwargs = plot2d_kwargs(kwargs)
-    if kwargs["style"] == "image":
+    if kwargs["style"] == "pcolormesh":
+        pcolormesh_vplot(datax, datay, dataz, **kwargs)
+    elif kwargs["style"] == "image":
         map_vplot(datax, datay, dataz, **kwargs)
     elif (kwargs["style"] == "scatter"):
         scatter_vplot(datax, datay, dataz, **kwargs)
@@ -57,6 +59,48 @@ def sort_xyz(x, y, z):
     z = z[p2]
     return x, y, z
 
+def pcolormesh_vplot(tvx,
+              tvy,
+              tvz,
+              xaxis=None,
+              yaxis=None,
+              zaxis=None,
+              logz=True,
+              zscale=1., 
+              **kwargs):
+    """
+    Advantage over matplotlibs pcolor(mesh) is that does not require a meshgrid. Instead it uses the data points directly in three lists.
+    """
+    vx = np.copy(tvx)
+    vy = np.copy(tvy)
+    vz = np.copy(tvz)
+    assert vx.shape == vy.shape == vz.shape
+
+    if len(vz.shape) < 2:
+        mesh = np.meshgrid(np.unique(vx), np.unique(vy))
+        X,Y = mesh
+        # set Z to values of vz on the meshgrid
+        Z = np.empty(mesh[0].shape)
+        Z[:] = np.nan
+        for i in range(len(vx)):
+            Z[(mesh[0] == vx[i] )&( mesh[1] == vy[i])] = splot.unv(vz[i])
+        Z[:] *= zscale
+    else:
+        X = vx
+        Y = vy
+        Z = vz*zscale
+
+    plt.pcolormesh(X, Y, Z, shading='auto', norm=colors.LogNorm() if logz else None, cmap=kwargs['cmap'])
+
+    #ax.set_xlim(xl, xm)
+    #ax.set_ylim(yl, ym)
+
+    cb = plt.colorbar()
+    cb.set_label(zaxis)
+    plt.xlabel(xaxis)
+    plt.ylabel(yaxis)
+
+
 def map_vplot(tvx,
               tvy,
               tvz,
@@ -67,6 +111,8 @@ def map_vplot(tvx,
               sort=True,
               fill_missing=True,
               zscale=1., **kwargs):
+    """
+    """
     vx = np.copy(tvx)
     vy = np.copy(tvy)
     vz = np.copy(tvz)

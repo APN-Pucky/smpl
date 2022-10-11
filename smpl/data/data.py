@@ -109,7 +109,7 @@ def filtered_data_split(datax, datay, **kwargs):
 
 def flatmesh(*args):
     """
-    Similar to `numpy.meshgrid` but the result will be of one dimensio instead of stacked arrays.
+    Similar to `numpy.meshgrid` but the result will be of one dimension instead of stacked arrays.
     """
     r = np.meshgrid(*args)
     rr = []
