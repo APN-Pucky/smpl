@@ -25,7 +25,7 @@ setuptools.setup(
         "scipy",
         "sympy",
         "tqdm",
-        "pandas",
+        "pandas>=1.0.0",
         # "ipywidgets",
         # "iminuit",
         # "requests",
@@ -42,7 +42,6 @@ setuptools.setup(
             "pytest-profiling",
             "pytest-line-profiler-apn>=0.1.3",
             "jupyterlab",
-            "pandas",
             "ipython",
         ],
         'doc': [
