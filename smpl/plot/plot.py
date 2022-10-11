@@ -37,6 +37,7 @@ usd = unp.std_devs
 
 default = {
     #    'params'        :[None      ,"Initial fit parameters",
+    'title': [None, "Plot title"],
     'xlabel': ["", "X axis label", ],
     'ylabel': ["", "Y axis label", ],
     'label': [None, "Legend name of plotted ``data``", ],
@@ -547,6 +548,8 @@ def save_plot(**kwargs):
     """
         save plot
     """
+    if 'title' in kwargs and kwargs['title'] is not None:
+        plt.title(kwargs['title'])
     if 'logy' in kwargs and kwargs['logy']:
         plt.gca().set_yscale('log')
     if 'logx' in kwargs and kwargs['logx']:
