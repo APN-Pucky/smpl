@@ -26,11 +26,15 @@ setuptools.setup(
         "sympy",
         "tqdm",
         "pandas",
-        "ipywidgets",
-        "iminuit",
+        # "ipywidgets",
+        # "iminuit",
         # "requests",
     ],
     extras_require={
+        'opt': [
+            "iminuit",
+            "ipywidgets",
+        ],
         'dev': [
             "build",
             "pytest",
@@ -41,7 +45,7 @@ setuptools.setup(
             "pandas",
             "ipython",
         ],
-        'docs': [
+        'doc': [
             "jupyter-sphinx",
             "sphinx_math_dollar",
             "pandoc",

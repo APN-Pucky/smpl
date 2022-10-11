@@ -10,5 +10,5 @@ __all__ = ['unv',
            'mean', 'noisy',
            'R2','Chi2','fft',
            'get_interesting_domain',
-                  'average_deviation'
-                  ]
+           'average_deviation'
+          ]
