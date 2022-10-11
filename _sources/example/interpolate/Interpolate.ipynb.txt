@@ -9,14 +9,6 @@
    ]
   },
   {
-   "cell_type": "markdown",
-   "id": "a0ae32dc",
-   "metadata": {},
-   "source": [
-    "## Interpolate 1d"
-   ]
-  },
-  {
    "cell_type": "code",
    "execution_count": null,
    "id": "97909a53",
@@ -31,6 +23,14 @@
     "\n",
     "from smpl import interpolate as interp\n",
     "from uncertainties import unumpy as unp"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a0ae32dc",
+   "metadata": {},
+   "source": [
+    "## Interpolate 1d"
    ]
   },
   {
@@ -71,17 +71,22 @@
    "outputs": [],
    "source": [
     "x = np.linspace(2,100,10)\n",
-    "y = np.exp(-stat.noisy(x,std=2))\n",
-    "plot.data(x,y,interpolate=True,also_data=False,interpolator='linear',logy=True)\n",
-    "plot.data(x,y,interpolate=True,also_data=False,interpolator='exp',logy=True,init=False)\n",
+    "y = np.exp(-stat.noisy(x,std=0.05))\n",
+    "\n",
+    "ff1=plot.data(x,y,interpolate=True,also_data=False,interpolator='linear',logy=True,interpolate_label=\"linear\")\n",
+    "ff2=plot.data(x,y,interpolate=True,also_data=False,interpolator='exp',logy=True,init=False,interpolate_label=\"exp\")\n",
     "\n",
     "\n",
     "f1 = interp.interpolate(x,y,interpolator=\"exp\")\n",
-    "\n",
     "f2 = lambda x_ : np.exp(interp.interpolate(x,unp.log(y),interpolator=\"linear\")(x_))\n",
     "x2 = np.linspace(2,100,100)\n",
-    "plot.data(x2,f2(x2),logy=True,init=False)\n",
-    "plot.show()"
+    "\n",
+    "plot.data(x2,np.exp(-x2),logy=True,init=False,label=\"true data\")\n",
+    "plot.data(x,f2(x),logy=True,init=False,label=\"shifted interpolate data\")\n",
+    "plot.show()\n",
+    "\n",
+    "print(\"lin Chi2:\" + str(stat.Chi2(ff1[0](x2),np.exp(-x2))))\n",
+    "print(\"exp Chi2:\" + str(stat.Chi2(ff2[0](x2),np.exp(-x2))))"
    ]
   },
   {
@@ -105,12 +110,14 @@
     "zz=xx**2+yy**2+10*xx+10*yy\n",
     "print(zz)\n",
     "plot.plot2d(xx,yy,zz,fill_missing=False,style='scatter',logz=False)\n",
+    "plot.title(\"interpolate data\")\n",
     "f=interp.interpolate(xx,yy,zz)\n",
     "print(f(xx,yy))\n",
     "xvalues = np.linspace(-10,10,11)\n",
     "yvalues = np.linspace(-10,10,11)\n",
     "xx, yy = data.flatmesh(xvalues, yvalues)\n",
-    "plot.plot2d(xx,yy,f(xx,yy),fill_missing=False,style='scatter',logz=False)"
+    "plot.plot2d(xx,yy,f(xx,yy),fill_missing=False,style='scatter',logz=False)\n",
+    "plot.title(\"interpolated data\")"
    ]
   },
   {
@@ -132,20 +139,167 @@
     "f_lind=interp.interpolate(xx,yy,zz,interpolator='linearnd')\n",
     "f_bi=interp.interpolate(xx,yy,zz,interpolator='bivariatespline')\n",
     "plot.plot2d(xx,yy,xx**2+yy**2,style='scatter',fill_missing=True,logz=False)\n",
-    "\n",
+    "plot.title(\"interpolate data\")\n",
     "xvalues = np.linspace(-10,10,11)\n",
     "yvalues = np.linspace(-20,20,11)\n",
     "xx, yy = data.flatmesh(xvalues, yvalues)\n",
     "plot.plot2d(xx,yy,f_cub(xx,yy),fill_missing=False,style='scatter',logz=False)\n",
+    "plot.title(\"cubic interpolated data\")\n",
     "plot.plot2d(xx,yy,f_lin(xx,yy),fill_missing=False,style='scatter',logz=False)\n",
+    "plot.title(\"linear interpolated data\")\n",
     "plot.plot2d(xx,yy,f_lind(xx,yy),fill_missing=False,style='scatter',logz=False)\n",
-    "plot.plot2d(xx,yy,f_bi(xx,yy),fill_missing=False,style='scatter',logz=False)"
+    "plot.title(\"linearnd interpolated data\")\n",
+    "plot.plot2d(xx,yy,f_bi(xx,yy),fill_missing=False,style='scatter',logz=False)\n",
+    "plot.title(\"bivariatespline interpolated data\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "75995427",
+   "metadata": {},
+   "source": [
+    "### scipy vs smpl code\n",
+    "\n",
+    "Example taken from https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.LinearNDInterpolator.html"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "148efafc",
+   "id": "651cbc12",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "rng = np.random.default_rng()\n",
+    "x = rng.random(10) - 0.5\n",
+    "y = rng.random(10) - 0.5\n",
+    "z = np.hypot(x, y)\n",
+    "lX = np.linspace(min(x), max(x))\n",
+    "lY = np.linspace(min(y), max(y))\n",
+    "X, Y = np.meshgrid(lX, lY)  # 2D grid for interpolation\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "73ed0a7a",
+   "metadata": {},
+   "source": [
+    "#### scipy code"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "055c1f8e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from scipy.interpolate import LinearNDInterpolator\n",
+    "import matplotlib.pyplot as plt\n",
+    "# interpolate\n",
+    "interp = LinearNDInterpolator(list(zip(x, y)), z)\n",
+    "# evaluate interpoaltion function\n",
+    "Z = interp(X, Y)\n",
+    "# plot it\n",
+    "plt.pcolormesh(X, Y, Z, shading='auto')\n",
+    "plt.plot(x, y, \"ok\", label=\"input point\")\n",
+    "plt.legend()\n",
+    "plt.colorbar()\n",
+    "plt.axis(\"equal\")\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "72ffc0f7",
+   "metadata": {},
+   "source": [
+    "#### smpl code"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "26fdd8fe",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from smpl import interpolate as interpol\n",
+    "from smpl import plot,data\n",
+    "f=interpol.interpolate(x,y,z,interpolator='linearnd')\n",
+    "plot.plot2d(X,Y,f(X,Y),logz=False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4b7213a3",
+   "metadata": {},
+   "source": [
+    "### Pre and Post transformations\n",
+    "\n",
+    "It might turn out that some behaviour/shape of the function is known.\n",
+    "Including this into the interpolation improves the result as was seen in previos 1d expolential interpolation section."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c0405aa9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "rng = np.random.default_rng()\n",
+    "x = 20*rng.random(50) - 0.5\n",
+    "y = 20*rng.random(50) - 0.5\n",
+    "tx = np.linspace(min(x), max(x))\n",
+    "ty = np.linspace(min(y), max(y))\n",
+    "z = np.exp(-stat.noisy(x**2+y**2,std=0.05))\n",
+    "X, Y = np.meshgrid(tx, ty)  # 2D grid for interpolation\n",
+    "tz = np.exp(-np.abs(X)-np.abs(Y))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "74490efa",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "plot.plot2d(X,Y,tz,logz=True)\n",
+    "plt.plot(x, y, \"ok\", label=\"input point\")\n",
+    "plt.legend()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "726224ac",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "f=interpol.interpolate(x,y,z,interpolator='linearnd')\n",
+    "plot.plot2d(X,Y,f(X,Y),logz=True)\n",
+    "print(\"Chi2:\" + str(stat.Chi2(f(X,Y).flatten()[~np.isnan(f(X,Y).flatten())],tz.flatten()[~np.isnan(f(X,Y).flatten())])))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "19bb0007",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "f=interpol.interpolate(x,y,z,interpolator='linearnd',pre=np.log,post=np.exp)\n",
+    "plot.plot2d(X,Y,f(X,Y),logz=True)\n",
+    "print(\"Chi2:\" + str(stat.Chi2(f(X,Y).flatten()[~np.isnan(f(X,Y).flatten())],tz.flatten()[~np.isnan(f(X,Y).flatten())])))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "603ea1e2",
    "metadata": {},
    "outputs": [],
    "source": []
@@ -167,7 +321,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.13"
+   "version": "3.9.13"
   }
  },
  "nbformat": 4,
