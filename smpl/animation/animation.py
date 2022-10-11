@@ -5,8 +5,7 @@ import matplotlib as mpl
 from PIL import Image
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import numpy as np
-import ipywidgets
-import ipywidgets as widgets
+
 import uuid
 import os
 import io
@@ -34,6 +33,8 @@ def list_product(lists):
 
 #TODO mirror ipywidgets.interactive options
 def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,plays=None,**kwargs):
+    import ipywidgets
+    import ipywidgets as widgets
     if plays is None:
         plays = []
     if isls is None:
@@ -135,6 +136,8 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,plays=
 
 class FigAnimation(animation.FuncAnimation):
     def widget_gif(self):
+        import ipywidgets
+        import ipywidgets as widgets
         # convert to gif through save as anim.save wants a filename
         uf = str(uuid.uuid4())
         self.save(uf + ".gif")
