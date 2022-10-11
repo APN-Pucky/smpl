@@ -155,7 +155,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "75995427",
+   "id": "9289ed63",
    "metadata": {},
    "source": [
     "### scipy vs smpl code\n",
@@ -166,7 +166,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "651cbc12",
+   "id": "93234c75",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -182,7 +182,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "73ed0a7a",
+   "id": "247a80e8",
    "metadata": {},
    "source": [
     "#### scipy code"
@@ -191,7 +191,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "055c1f8e",
+   "id": "6b2af182",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -212,7 +212,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "72ffc0f7",
+   "id": "6d8ae4e2",
    "metadata": {},
    "source": [
     "#### smpl code"
@@ -221,7 +221,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "26fdd8fe",
+   "id": "dae32e88",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -233,7 +233,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4b7213a3",
+   "id": "419f4053",
    "metadata": {},
    "source": [
     "### Pre and Post transformations\n",
@@ -245,17 +245,17 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "c0405aa9",
+   "id": "8c927ad0",
    "metadata": {},
    "outputs": [],
    "source": [
     "import numpy as np\n",
     "rng = np.random.default_rng()\n",
-    "x = 20*rng.random(50) - 0.5\n",
-    "y = 20*rng.random(50) - 0.5\n",
+    "x = 20*rng.random(50)\n",
+    "y = 20*rng.random(50)\n",
     "tx = np.linspace(min(x), max(x))\n",
     "ty = np.linspace(min(y), max(y))\n",
-    "z = np.exp(-stat.noisy(x**2+y**2,std=0.05))\n",
+    "z = np.exp(-stat.noisy(x+y,std=0.05))\n",
     "X, Y = np.meshgrid(tx, ty)  # 2D grid for interpolation\n",
     "tz = np.exp(-np.abs(X)-np.abs(Y))"
    ]
@@ -263,7 +263,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "74490efa",
+   "id": "ccb04834",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -275,31 +275,47 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "726224ac",
+   "id": "eddd4eea",
    "metadata": {},
    "outputs": [],
    "source": [
     "f=interpol.interpolate(x,y,z,interpolator='linearnd')\n",
     "plot.plot2d(X,Y,f(X,Y),logz=True)\n",
-    "print(\"Chi2:\" + str(stat.Chi2(f(X,Y).flatten()[~np.isnan(f(X,Y).flatten())],tz.flatten()[~np.isnan(f(X,Y).flatten())])))"
+    "r= f(X,Y).flatten()[~np.isnan(f(X,Y).flatten())]\n",
+    "t = tz.flatten()[~np.isnan(f(X,Y).flatten())]\n",
+    "print(\"Chi2: \" + str(stat.Chi2(r,t)))\n",
+    "print(\"R2: \" + str(stat.R2(r,t)))\n",
+    "print(\"var: \" + str(stat.average_deviation(r,t)))"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "19bb0007",
+   "id": "6cb4357a",
    "metadata": {},
    "outputs": [],
    "source": [
     "f=interpol.interpolate(x,y,z,interpolator='linearnd',pre=np.log,post=np.exp)\n",
     "plot.plot2d(X,Y,f(X,Y),logz=True)\n",
-    "print(\"Chi2:\" + str(stat.Chi2(f(X,Y).flatten()[~np.isnan(f(X,Y).flatten())],tz.flatten()[~np.isnan(f(X,Y).flatten())])))"
+    "r= f(X,Y).flatten()[~np.isnan(f(X,Y).flatten())]\n",
+    "t = tz.flatten()[~np.isnan(f(X,Y).flatten())]\n",
+    "print(\"Chi2: \" + str(stat.Chi2(r,t)))\n",
+    "print(\"R2: \" + str(stat.R2(r,t)))\n",
+    "print(\"var: \" + str(stat.average_deviation(r,t)))"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "603ea1e2",
+   "id": "e23da0e5",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5f592b89",
    "metadata": {},
    "outputs": [],
    "source": []

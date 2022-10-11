@@ -13,6 +13,8 @@
    
       R2
    
+      average_deviation
+   
       fft
    
       get_interesting_domain
