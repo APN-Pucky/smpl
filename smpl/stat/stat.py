@@ -58,7 +58,7 @@ def R2(y, f):
     SStot = np.sum((r-mean)**2)
     Rsq = 1 - SSres/SStot
     return Rsq
-
+r2 = R2
 
 def Chi2(y, f, sigmas=None):
     """
@@ -79,6 +79,14 @@ def Chi2(y, f, sigmas=None):
         chisq = np.sum((r)**2)
 
     return chisq
+
+chi2 = Chi2
+
+def average_deviation(y,f):
+    r= np.abs((y-f)/f)
+    return mean(r)
+
+
 
 
 def unv_lambda(f):
