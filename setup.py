@@ -22,7 +22,7 @@ setuptools.setup(
         "uncertainties",
         "numpy",
         "matplotlib",
-        "scipy",
+        "scipy>=1.7.0",
         "sympy",
         "tqdm",
         "pandas>=1.0.0",
