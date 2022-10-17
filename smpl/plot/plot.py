@@ -87,7 +87,8 @@ default = {
     'capsize': [5, "size of cap on error bar plot"],
     'axes': [None, "set current axis"],
     'linestyle': [None, "linestyle, only active if `fmt`=None"],
-    'xspace': [np.linspace, "xspace gets called with xspace(xmin,xmax,steps) in :func:`function` to get the points of the function that will be drawn."]
+    'xspace': [np.linspace, "xspace gets called with xspace(xmin,xmax,steps) in :func:`function` to get the points of the function that will be drawn."],
+    'alpha': [0.2, "alpha value for the fill_between plot"]
 }
 
 
@@ -107,7 +108,9 @@ def plot_kwargs(kwargs):
 
 # TODO optimize to minimize number of calls to function
 # @append_doc(default_kwargs)
-def fit(func,*adata, **kwargs):
+
+
+def fit(func, *adata, **kwargs):
     """
     Fit and plot function to datax and datay.
 
@@ -146,44 +149,44 @@ def fit(func,*adata, **kwargs):
     if 'function' in kwargs:
         function = kwargs['function']
         del kwargs['function']
-        adata = [func,*adata]
+        adata = [func, *adata]
     # Fix parameter order if necessary
     elif isinstance(function, (list, tuple, np.ndarray)):
-        adata=[adata[-1],function,*adata[:-1]]
+        adata = [adata[-1], function, *adata[:-1]]
         function = adata[0]
         adata = adata[1:]
-    if util.true("bins",kwargs):
+    if util.true("bins", kwargs):
         # yvalue will be overwritten
-        ndata = [*adata,*adata]
-        for i,o in enumerate(adata):
-            ndata[2*i] =o
-            ndata[2*i+1] =o*0
-        adata= ndata
+        ndata = [*adata, *adata]
+        for i, o in enumerate(adata):
+            ndata[2*i] = o
+            ndata[2*i+1] = o*0
+        adata = ndata
 
-    assert len(adata)%2==0, "data must be pairs of x and y data"
-    if len(adata) ==2:
+    assert len(adata) % 2 == 0, "data must be pairs of x and y data"
+    if len(adata) == 2:
         datax, datay = adata
     else:
         rs = []
         for i in range(0, len(adata), 2):
             datax, datay = adata[i], adata[i+1]
-            if util.true("bins",kwargs):
-                rs.append(fit(function,datax,  **kwargs))
+            if util.true("bins", kwargs):
+                rs.append(fit(function, datax,  **kwargs))
             else:
-                rs.append(fit(function,datax, datay,  **kwargs))
+                rs.append(fit(function, datax, datay,  **kwargs))
         return rs
 
     kwargs = plot_kwargs(kwargs)
 
     if np.any(np.iscomplex(datay)):
-        label = util.get("label",kwargs, "")
-        kwargs['label'] =  label+ "(real)"
-        r= fit(datax, datay.real, function=function,**kwargs)
+        label = util.get("label", kwargs, "")
+        kwargs['label'] = label + "(real)"
+        r = fit(datax, datay.real, function=function, **kwargs)
         kwargs['label'] = label + "(imag)"
-        i= fit(datax, datay.imag, function=function,**kwargs)
-        return r,i
+        i = fit(datax, datay.imag, function=function, **kwargs)
+        return r, i
     if kwargs['auto_fit']:
-        print("function:",function)
+        print("function:", function)
         best_f, best_ff, lambda_f = ffit.auto(datax, datay, function, **kwargs)
         if best_f is not None:
             del kwargs['auto_fit']
@@ -193,7 +196,8 @@ def fit(func,*adata, **kwargs):
         kwargs['lpos'] = -1
     return _fit_impl(datax, datay, function, **kwargs)
 
-def _fit_impl(datax,datay,function, **kwargs):
+
+def _fit_impl(datax, datay, function, **kwargs):
     x = None
     y = None
     rfit = None
@@ -245,9 +249,11 @@ def data(*data, function=None, **kwargs):
     if 'also_fit' not in kwargs:
         kwargs['also_fit'] = False
     kwargs = plot_kwargs(kwargs)
-    return fit(function=function,*data, **kwargs)
+    return fit(function=function, *data, **kwargs)
 
 # @append_doc(default_kwargs)
+
+
 def auto(*adata, funcs=None, **kwargs):
     """
     Automatically loop over functions and fit the best one.
@@ -269,9 +275,7 @@ def auto(*adata, funcs=None, **kwargs):
     if 'auto_fit' not in kwargs:
         kwargs['auto_fit'] = True
     kwargs = plot_kwargs(kwargs)
-    return fit(function=funcs,*adata, **kwargs)
-
-
+    return fit(function=funcs, *adata, **kwargs)
 
 
 def _function(func, xfit, **kwargs):
@@ -284,6 +288,8 @@ def _function(func, xfit, **kwargs):
         kargs['color'] = kwargs['function_color']
     if util.has('sigmas', kwargs) and kwargs['sigmas'] != "":
         kargs['sigmas'] = kwargs['sigmas']
+    if util.has('alpha', kwargs) and kwargs['alpha'] != "":
+        kargs['alpha'] = kwargs['alpha']
     __function(func, xfit, **kargs)
 
 
@@ -296,7 +302,7 @@ def plt_plt(x, y, fmt, color, label, linestyle):
         return plt.plot(x, y, label=label, color=color)
 
 
-def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0., linestyle=None):
+def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, sigmas=0., linestyle=None, alpha=0.4):
     func = gfunc
     x = xlinspace
     l = label
@@ -307,7 +313,7 @@ def __function(gfunc, xlinspace, fmt="-", label=None, color=None, hatch=None, si
                           color=color, linestyle=linestyle)
             y = func(x)
             plt.fill_between(x, unv(y)-sigmas*usd(y), unv(
-                y)+sigmas*usd(y), alpha=0.4, label=l, color=ll.get_color(), hatch=hatch)
+                y)+sigmas*usd(y), alpha=alpha, label=l, color=ll.get_color(), hatch=hatch)
         else:
             ll, = plt_plt(x, unv(func(x)), fmt,  label=l,
                           color=color, linestyle=linestyle)
@@ -331,7 +337,7 @@ def function(func, *args, **kwargs):
         see :func:`plot_kwargs`.
     """
     if not util.has("xmin", kwargs) or not util.has("xmax", kwargs):
-        kwargs["xmin"],kwargs["xmax"]=stat.get_interesting_domain(func)
+        kwargs["xmin"], kwargs["xmax"] = stat.get_interesting_domain(func)
         #raise Exception("xmin or xmax missing.")
 
     # if not util.has('lpos', kwargs) and not util.has('label', kwargs):
@@ -427,10 +433,10 @@ def plt_data(datax, datay, **kwargs):
                     dx = (xerr[ix])
                     tx = [xv-dx, xv+dx]
                     plt.fill_between(tx, y[ix]-yerr[ix], y[ix]+yerr[ix],
-                                     label=kwargs['label']if ix == 1 else None, alpha=0.2, step='pre', color=ll.get_color())
+                                     label=kwargs['label']if ix == 1 else None, alpha=kwargs["alpha"], step='pre', color=ll.get_color())
             else:
                 plt.fill_between(x, y-yerr, y+yerr,
-                                 label=kwargs['label'], alpha=0.2, step='mid', color=ll.get_color())
+                                 label=kwargs['label'], alpha=kwargs["alpha"], step='mid', color=ll.get_color())
         elif kwargs['fmt'] == "hist":
             ll, _, _, = plt.errorbar(x, y, yerr=yerr, xerr=xerr, fmt=" ", capsize=kwargs["capsize"],
                                      color="black")
@@ -472,15 +478,15 @@ def plt_fit_or_interpolate(datax, datay, fitted, l=None, c=None, f=None, ls=None
         xfit = kwargs['xspace'](kwargs['prange'][0],
                                 kwargs['prange'][1], kwargs['steps'])
     ll = __function(fitted, xfit, kwargs['fit_fmt'] if f is not None and ls is None else f, label=l,
-                    color=kwargs['fit_color'] if c is None else c, sigmas=kwargs['sigmas'], linestyle=ls)
+                    color=kwargs['fit_color'] if c is None else c, sigmas=kwargs['sigmas'], linestyle=ls, alpha=kwargs['alpha'])
 
     if (kwargs['frange'] is not None or kwargs['fselector'] is not None) and util.true('extrapolate', kwargs) or util.has("extrapolate_max", kwargs) or util.has("extrapolate_min", kwargs):
         xxfit = kwargs['xspace'](util.get("extrapolate_min", kwargs, np.min(
             unv(datax))), util.get("extrapolate_max", kwargs, np.max(unv(datax))), kwargs['steps'])
         __function(fitted, kwargs['xspace'](np.min(xxfit), np.min(xfit), kwargs['steps']), util.get("extrapolate_fmt", kwargs, "--"),
-                   color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
+                   color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'], alpha=kwargs['alpha'])
         __function(fitted, kwargs['xspace'](np.max(xfit), np.max(xxfit), kwargs['steps']), util.get("extrapolate_fmt", kwargs, "--"),
-                   color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'])
+                   color=ll.get_color(), hatch=util.get("extrapolate_hatch", kwargs, r"||"), sigmas=kwargs['sigmas'], alpha=kwargs['alpha'])
     return ll.get_color(), xfit, fitted(xfit)
 
 

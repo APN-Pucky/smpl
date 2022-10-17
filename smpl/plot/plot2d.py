@@ -48,6 +48,7 @@ def plot2d(datax, datay, dataz, **kwargs):
     elif (kwargs["style"] == "scatter"):
         scatter_vplot(datax, datay, dataz, **kwargs)
 
+
 def sort_xyz(x, y, z):
     p1 = x.argsort(kind='stable')
     x = np.copy(x[p1])
@@ -59,15 +60,16 @@ def sort_xyz(x, y, z):
     z = z[p2]
     return x, y, z
 
+
 def pcolormesh_vplot(tvx,
-              tvy,
-              tvz,
-              xaxis=None,
-              yaxis=None,
-              zaxis=None,
-              logz=True,
-              zscale=1., 
-              **kwargs):
+                     tvy,
+                     tvz,
+                     xaxis=None,
+                     yaxis=None,
+                     zaxis=None,
+                     logz=True,
+                     zscale=1.,
+                     **kwargs):
     """
     Advantage over matplotlibs pcolor(mesh) is that does not require a meshgrid. Instead it uses the data points directly in three lists.
     """
@@ -78,19 +80,20 @@ def pcolormesh_vplot(tvx,
 
     if len(vz.shape) < 2:
         mesh = np.meshgrid(np.unique(vx), np.unique(vy))
-        X,Y = mesh
+        X, Y = mesh
         # set Z to values of vz on the meshgrid
         Z = np.empty(mesh[0].shape)
         Z[:] = np.nan
         for i in range(len(vx)):
-            Z[(mesh[0] == vx[i] )&( mesh[1] == vy[i])] = splot.unv(vz[i])
+            Z[(mesh[0] == vx[i]) & (mesh[1] == vy[i])] = splot.unv(vz[i])
         Z[:] *= zscale
     else:
         X = vx
         Y = vy
         Z = vz*zscale
 
-    plt.pcolormesh(X, Y, Z, shading='auto', norm=colors.LogNorm() if logz else None, cmap=kwargs['cmap'])
+    plt.pcolormesh(X, Y, Z, norm=colors.LogNorm()
+                   if logz else None, cmap=kwargs['cmap'])
 
     #ax.set_xlim(xl, xm)
     #ax.set_ylim(yl, ym)
