@@ -32,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.149-1-g91bafe23
+                0.0.150
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -153,6 +153,7 @@
     <span class="k">elif</span> <span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;style&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;scatter&quot;</span><span class="p">):</span>
         <span class="n">scatter_vplot</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">dataz</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
+
 <span class="k">def</span> <span class="nf">sort_xyz</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
     <span class="n">p1</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;stable&#39;</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">p1</span><span class="p">])</span>
@@ -164,15 +165,16 @@
     <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">p2</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 
+
 <span class="k">def</span> <span class="nf">pcolormesh_vplot</span><span class="p">(</span><span class="n">tvx</span><span class="p">,</span>
-              <span class="n">tvy</span><span class="p">,</span>
-              <span class="n">tvz</span><span class="p">,</span>
-              <span class="n">xaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">yaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">zaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-              <span class="n">zscale</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> 
-              <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                     <span class="n">tvy</span><span class="p">,</span>
+                     <span class="n">tvz</span><span class="p">,</span>
+                     <span class="n">xaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">yaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">zaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                     <span class="n">zscale</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
+                     <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Advantage over matplotlibs pcolor(mesh) is that does not require a meshgrid. Instead it uses the data points directly in three lists.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -183,19 +185,20 @@
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vz</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">mesh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">vx</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">vy</span><span class="p">))</span>
-        <span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">mesh</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">mesh</span>
         <span class="c1"># set Z to values of vz on the meshgrid</span>
         <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">mesh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="n">Z</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vx</span><span class="p">)):</span>
-            <span class="n">Z</span><span class="p">[(</span><span class="n">mesh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span><span class="o">&amp;</span><span class="p">(</span> <span class="n">mesh</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">vy</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="o">=</span> <span class="n">splot</span><span class="o">.</span><span class="n">unv</span><span class="p">(</span><span class="n">vz</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">Z</span><span class="p">[(</span><span class="n">mesh</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">vx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mesh</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">vy</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span> <span class="o">=</span> <span class="n">splot</span><span class="o">.</span><span class="n">unv</span><span class="p">(</span><span class="n">vz</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
         <span class="n">Z</span><span class="p">[:]</span> <span class="o">*=</span> <span class="n">zscale</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">vx</span>
         <span class="n">Y</span> <span class="o">=</span> <span class="n">vy</span>
         <span class="n">Z</span> <span class="o">=</span> <span class="n">vz</span><span class="o">*</span><span class="n">zscale</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">()</span> <span class="k">if</span> <span class="n">logz</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;cmap&#39;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">()</span>
+                   <span class="k">if</span> <span class="n">logz</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;cmap&#39;</span><span class="p">])</span>
 
     <span class="c1">#ax.set_xlim(xl, xm)</span>
     <span class="c1">#ax.set_ylim(yl, ym)</span>
