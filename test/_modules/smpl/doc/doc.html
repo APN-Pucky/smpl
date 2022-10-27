@@ -32,7 +32,7 @@
             <a href="../../../index.html" class="icon icon-home"> smpl
           </a>
               <div class="version">
-                0.0.150-2-gbb541ee8
+                0.0.150-5-g9d467416
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -104,7 +104,6 @@
              
   <h1>Source code for smpl.doc.doc</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">util</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
 <span class="n">params</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -135,8 +134,8 @@
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n\n\t</span><span class="s2">.. plot::</span><span class="se">\n\t\t</span><span class="s2">:include-source:</span><span class="se">\n\n\t\t</span><span class="s2">&gt;&gt;&gt; from &quot;</span> <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">+</span> <span class="s2">&quot; import &quot;</span> <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> \
-            <span class="s2">&quot;</span><span class="se">\n\t\t</span><span class="s2">&gt;&gt;&gt; from smpl import plot</span><span class="se">\n\t\t</span><span class="s2">&gt;&gt;&gt; plot.function(&quot;</span> <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span>  <span class="p">(</span><span class="s2">&quot;,&quot;</span> <span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,xmin=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">xmin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,xmax=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xmax</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)&quot;</span>
+            <span class="s2">&quot;</span><span class="se">\n\t\t</span><span class="s2">&gt;&gt;&gt; from smpl import plot</span><span class="se">\n\t\t</span><span class="s2">&gt;&gt;&gt; plot.function(&quot;</span> <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,xmin=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">xmin</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,xmax=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xmax</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)&quot;</span>
         <span class="c1"># print(target.__doc__)</span>
         <span class="k">return</span> <span class="n">target</span>
     <span class="k">return</span> <span class="n">wrapper</span></div>
@@ -226,6 +225,8 @@
 
 <div class="viewcode-block" id="insert_latex"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_latex">[docs]</a><span class="k">def</span> <span class="nf">insert_latex</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function.&quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
+
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">wrap</span><span class="o">.</span><span class="n">get_latex</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
