@@ -1,5 +1,4 @@
 from smpl import util
-from smpl import wrap
 params = 0
 name = 1
 
@@ -30,8 +29,8 @@ def append_plot(*args, xmin=-5, xmax=5):
         if target.__doc__ is None:
             target.__doc__ = ""
         target.__doc__ += "\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t>>> from " + target.__module__ + " import " + target.__name__ + \
-            "\n\t\t>>> from smpl import plot\n\t\t>>> plot.function(" + target.__name__ +  ("," +','.join(
-                [str(a) for a in args]) if len(args)>0 else "") + ",xmin="+str(xmin) + ",xmax=" + str(xmax)+")"
+            "\n\t\t>>> from smpl import plot\n\t\t>>> plot.function(" + target.__name__ + ("," + ','.join(
+                [str(a) for a in args]) if len(args) > 0 else "") + ",xmin="+str(xmin) + ",xmax=" + str(xmax)+")"
         # print(target.__doc__)
         return target
     return wrapper
@@ -121,6 +120,8 @@ def insert_latex_eq():
 
 def insert_latex():
     """Inserts latexed code of a oneline function."""
+    from smpl import wrap
+
     def wrapper(target):
         if target.__doc__ is None:
             target.__doc__ = wrap.get_latex(target)

@@ -232,13 +232,20 @@ def trim_domain(f,
     fmin = np.finfo(np.float32).min/2,
     fmax = np.finfo(np.float32).max/2,
     steps=10000,
-    min_ch=0.0001
+    min_ch=0.0001,
+    recursion_limit=100
                ):
     """
     Get the domain of the function ``f`` with the ranges removed where the derivative of ``f`` is below ``min_ch``.
     """
+    recursion_limit = recursion_limit - 1
+    if recursion_limit < 0:
+        return fmin,fmax
     test = np.linspace(fmin,fmax,steps)
-    dr = derivative(f,test,dx=1e-06)
+    try:
+        dr = derivative(f,test,dx=1e-06)
+    except: 
+        return 0.,0.
     m1 = np.abs(dr)>min_ch
     bmin=np.argmax(m1)
     m2=(np.abs(dr)>min_ch)[::-1]
@@ -249,11 +256,11 @@ def trim_domain(f,
         # trisect the full domain
         tmin = xmin
         tmax = xmax
-        t1a,t1b = trim_domain(f,tmin+ (tmax-tmin)/3,tmax -(tmax-tmin)/3,min_ch=min_ch)
+        t1a,t1b = trim_domain(f,tmin+ (tmax-tmin)/3,tmax -(tmax-tmin)/3,min_ch=min_ch,recursion_limit=recursion_limit)
         if np.isclose(t1a,t1b):
-            t2a,t2b = trim_domain(f,tmin + (tmax-tmin)/3,tmax,min_ch=min_ch)
+            t2a,t2b = trim_domain(f,tmin + (tmax-tmin)/3,tmax,min_ch=min_ch,recursion_limit=recursion_limit)
             if np.isclose(t2a,t2b):
-                t3a,t3b = trim_domain(f,tmin ,tmax- (tmax-tmin)/3,min_ch=min_ch)
+                t3a,t3b = trim_domain(f,tmin ,tmax- (tmax-tmin)/3,min_ch=min_ch,recursion_limit=recursion_limit)
                 if np.isclose(t3a,t3b):
                     return 0.,0. 
                 else:
@@ -268,7 +275,6 @@ def get_domain(f,
     fmin = np.finfo(np.float32).min/2,
     fmax = np.finfo(np.float32).max/2,
     steps=1000,
-    trisec=True,
 ):
     """
     Return the statistically probed domain of the function ``f``.
