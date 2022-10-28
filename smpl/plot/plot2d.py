@@ -5,6 +5,8 @@ import numpy as np
 from matplotlib.image import NonUniformImage
 import matplotlib.pyplot as plt
 
+from smpl.util import util
+
 default = {
     'xaxis': [None, "."],
     'yaxis': [None, "."],
@@ -41,6 +43,8 @@ def plot2d(datax, datay, dataz, **kwargs):
         see :func:`plot2d_kwargs`.
     """
     kwargs = plot2d_kwargs(kwargs)
+    if util.has("axes", kwargs) and kwargs["axes"] is not None:
+        plt.sca(kwargs["axes"])
     if kwargs["style"] == "pcolormesh":
         pcolormesh_vplot(datax, datay, dataz, **kwargs)
     elif kwargs["style"] == "image":
