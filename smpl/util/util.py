@@ -10,8 +10,10 @@ def times(s, n):
     >>> times("hi",5)
     'hihihihihi'
 
+    .. deprecated:: 0.0.0
+
     """
-    return s.join(["" for i in range(0, n+1)])
+    return s.join(["" for i in range(0, n + 1)])
 
 
 def get(key, ddict, default=None):

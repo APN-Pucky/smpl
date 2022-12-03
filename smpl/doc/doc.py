@@ -137,7 +137,12 @@ def table_sep(tabs=1):
 
 
 def table(dic, top=True, bottom=True, init=True, tabs=1):
-    """Add dict= {'key': [values...]} to a simple reST table."""
+    """
+    Add dict= {'key': [values...]} to a simple reST table.
+
+    ..deprecated:: 0.0.0
+
+    """
     t = util.times("\t", tabs)
     rs = ""
     if init:
@@ -159,6 +164,57 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
     else:
         rs += ""
     return rs
+
+def array_table(arr, top=True,bottom=True,init=True,tabs=1):
+    """
+    Produces a reST table from a numpy array or normal 2d array.
+
+    Parameters
+    ----------
+    arr : ``numpy.ndarray`` or ``list``
+        2d array
+    top : ``bool``
+        If ``True`` a top line is added.    
+    bottom : ``bool``
+        If ``True`` a bottom line is added.
+    init : ``bool``
+        If ``True`` a tab is added at the beginning of each line.
+    tabs : ``int``
+        Number of tabs at the beginning of each line.
+
+    Examples
+    --------
+    >>> print(array_table([["hihi", "hoho"]],tabs=0))
+    ====== ======
+    hihi   hoho   
+    ====== ======
+
+    """
+    width = len(arr[0])
+    height = len(arr)
+    widths = [0 for i in range(width)]
+    # maximum width of each column
+    for i in range(0,width):
+        for j in range(0,height):
+            if len(str(arr[j][i])) > widths[i]:
+                widths[i] = len(str(arr[j][i]))
+    rs =""
+    if init:
+        rs += "\t"*tabs 
+    if top:
+        rs += " ".join(["="*(widths[i]+2) for i in range(0,width)])+ "\n"
+
+    for i in range(0,height):
+        rs += "\t"*tabs
+        for j in range(0,width):
+            rs += str(arr[i][j]) + " "*(widths[j]-len(str(arr[i][j]))+3)
+        rs += "\n"
+
+    if bottom:
+        rs += "\t"*tabs 
+        rs += " ".join(["="*(widths[i]+2) for i in range(0,width)]) + "\n"
+    return rs
+    
 
 
 if __name__ == "__main__":
