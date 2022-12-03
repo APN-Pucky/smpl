@@ -172,7 +172,7 @@ def dict_to_table(dic):
     return rt
 
 
-def array_table(arr, top=True,bottom=True,init=True,tabs=1):
+def array_table(arr, top=True,bottom=True,init=True,tabs=1,header=True):
     """
     Produces a reST table from a numpy array or normal 2d array.
 
@@ -188,6 +188,8 @@ def array_table(arr, top=True,bottom=True,init=True,tabs=1):
         If ``True`` a tab is added at the beginning of each line.
     tabs : ``int``
         Number of tabs at the beginning of each line.
+    header : ``bool``
+        If ``True`` the first row is used as header.
 
     Examples
     --------
@@ -218,6 +220,8 @@ def array_table(arr, top=True,bottom=True,init=True,tabs=1):
         for j in range(0,width):
             rs += str(arr[i][j]) + " "*(widths[j]-len(str(arr[i][j]))+3)
         rs += "\n"
+        if header and i == 0:
+            rs += "\t"*tabs + " ".join(["="*(widths[i]+2) for i in range(0,width)])+ "\n"
 
     if bottom:
         rs += "\t"*tabs 
