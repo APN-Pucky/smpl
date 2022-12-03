@@ -165,6 +165,13 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
         rs += ""
     return rs
 
+def dict_to_table(dic):
+    rt = []
+    for k, vs in dic.items():
+        rt += [[k, *vs]]
+    return rt
+
+
 def array_table(arr, top=True,bottom=True,init=True,tabs=1):
     """
     Produces a reST table from a numpy array or normal 2d array.
@@ -190,6 +197,8 @@ def array_table(arr, top=True,bottom=True,init=True,tabs=1):
     ====== ======
 
     """
+    if type(arr) is dict:
+        arr = dict_to_table(arr)
     width = len(arr[0])
     height = len(arr)
     widths = [0 for i in range(width)]
