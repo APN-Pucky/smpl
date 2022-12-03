@@ -178,7 +178,7 @@ def array_table(arr, top=True,bottom=True,init=True,tabs=1):
 
     Parameters
     ----------
-    arr : ``numpy.ndarray`` or ``list``
+    arr : ``numpy.ndarray``, ``list`` or ``dict``
         2d array
     top : ``bool``
         If ``True`` a top line is added.    
