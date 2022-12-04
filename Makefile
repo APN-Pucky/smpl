@@ -16,7 +16,7 @@ build:
 test:
 	rm -f .coverage coverage.xml
 	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --to script
-	poetry run pytest
+	poetry run pytest smpl
 
 commit: 
 	-git add .
