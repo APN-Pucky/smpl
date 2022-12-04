@@ -1,0 +1,23 @@
+﻿:mod:`smpl.animation` 
+======================
+
+.. currentmodule:: smpl.animation
+
+
+.. automodule:: smpl.animation
+   :members:
+   
+   .. autosummary:: 
+   
+      animate
+   
+      clear
+   
+      frame
+   
+      interactive
+   
+   
+   .. rubric:: Functions
+
+   

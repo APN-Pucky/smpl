@@ -1,0 +1,27 @@
+﻿:mod:`smpl.parallel` 
+======================
+
+.. currentmodule:: smpl.parallel
+
+
+.. automodule:: smpl.parallel
+   :members:
+   
+   .. autosummary:: 
+   
+      calc
+   
+      gen
+   
+      par
+   
+      parallel
+   
+      partitioned_parallel
+   
+      res
+   
+   
+   .. rubric:: Functions
+
+   
