@@ -15,7 +15,7 @@ build:
 
 test:
 	rm -f .coverage coverage.xml
-	find source/example/ -type f -name '*.ipynb' | xargs poetry run jupyter nbconvert --to script
+	find docs/source/example/ -type f -name '*.ipynb' | xargs poetry run jupyter nbconvert --to script
 	poetry run pytest smpl
 
 commit: 
@@ -33,7 +33,7 @@ doc: clean-all html
 
 clean-all: clean
 	rm -rf build
-	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --clear-output --inplace
+	find docs/source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --clear-output --inplace
 
 
 release: push html
