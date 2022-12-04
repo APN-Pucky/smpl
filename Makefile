@@ -16,7 +16,7 @@ build:
 test:
 	rm -f .coverage coverage.xml
 	find docs/source/example/ -type f -name '*.ipynb' | xargs poetry run jupyter nbconvert --to script
-	poetry run pytest smpl
+	poetry run pytest
 
 commit: 
 	-git add .
@@ -27,12 +27,9 @@ push: commit
 
 pull: commit
 	git pull
-	
-doc: clean-all html
-	@echo -n ""
 
-clean-all: clean
-	rm -rf build
+clean: 
+	rm -r .eggs .pytest_cache *.egg-info
 	find docs/source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --clear-output --inplace
 
 
