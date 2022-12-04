@@ -1,4 +1,5 @@
 from smpl import util
+
 params = 0
 name = 1
 
@@ -9,6 +10,7 @@ def _append(txt):
             target.__doc__ = ""
         target.__doc__ += txt
         return target
+
     return wrapper
 
 
@@ -28,11 +30,23 @@ def append_plot(*args, xmin=-5, xmax=5):
     def wrapper(target):
         if target.__doc__ is None:
             target.__doc__ = ""
-        target.__doc__ += "\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t>>> from " + target.__module__ + " import " + target.__name__ + \
-            "\n\t\t>>> from smpl import plot\n\t\t>>> plot.function(" + target.__name__ + ("," + ','.join(
-                [str(a) for a in args]) if len(args) > 0 else "") + ",xmin="+str(xmin) + ",xmax=" + str(xmax)+")"
+        target.__doc__ += (
+            "\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t>>> from "
+            + target.__module__
+            + " import "
+            + target.__name__
+            + "\n\t\t>>> from smpl import plot\n\t\t>>> plot.function("
+            + target.__name__
+            + ("," + ",".join([str(a) for a in args]) if len(args) > 0 else "")
+            + ",xmin="
+            + str(xmin)
+            + ",xmax="
+            + str(xmax)
+            + ")"
+        )
         # print(target.__doc__)
         return target
+
     return wrapper
 
 
@@ -67,6 +81,7 @@ def _insert(txt):
             target.__doc__ = ""
         target.__doc__ = txt + target.__doc__
         return target
+
     return wrapper
 
 
@@ -100,6 +115,7 @@ def insert_doc(original):
 
 def insert_eq():
     """Inserts the function and its parameters and an equal sign."""
+
     def wrapper(target):
         if target.__doc__ is None:
             target.__doc__ = ""
@@ -110,6 +126,7 @@ def insert_eq():
         target.__doc__ = target.__doc__[:-1]
         target.__doc__ += ") = " + safe
         return target
+
     return wrapper
 
 
@@ -126,6 +143,7 @@ def insert_latex():
         if target.__doc__ is None:
             target.__doc__ = wrap.get_latex(target)
         return target
+
     return wrapper
 
 
@@ -133,7 +151,15 @@ tab_len = 20
 
 
 def table_sep(tabs=1):
-    return "="*(tab_len-2) + "  " + "="*(tab_len-2) + "  " + "="*(tab_len-2) + "\n" + "\t".join(["" for i in range(0, tabs+1)])
+    return (
+        "=" * (tab_len - 2)
+        + "  "
+        + "=" * (tab_len - 2)
+        + "  "
+        + "=" * (tab_len - 2)
+        + "\n"
+        + "\t".join(["" for i in range(0, tabs + 1)])
+    )
 
 
 def table(dic, top=True, bottom=True, init=True, tabs=1):
@@ -154,9 +180,9 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
         p = str(k)
         for v in vs:
             sv = str(v)
-            if("<function " in sv and "at 0x" in sv):
+            if "<function " in sv and "at 0x" in sv:
                 sv = sv.split("<function ")[1].split("at 0x")[0]
-            rs += "".join([' ' for i in range(tab_len-len(p))]) + sv
+            rs += "".join([" " for i in range(tab_len - len(p))]) + sv
             p = sv
         rs += "\n" + t
     if bottom:
@@ -165,6 +191,7 @@ def table(dic, top=True, bottom=True, init=True, tabs=1):
         rs += ""
     return rs
 
+
 def dict_to_table(dic):
     rt = []
     for k, vs in dic.items():
@@ -172,16 +199,16 @@ def dict_to_table(dic):
     return rt
 
 
-def array_table(arr, top=True,bottom=True,init=True,tabs=1,header=True):
+def array_table(arr, top=True, bottom=True, init=True, tabs=1, header=True):
     """
     Produces a reST table from a numpy array or normal 2d array.
 
     Parameters
     ----------
     arr : ``numpy.ndarray``, ``list`` or ``dict``
-        2d array
+        2d array or dict
     top : ``bool``
-        If ``True`` a top line is added.    
+        If ``True`` a top line is added.
     bottom : ``bool``
         If ``True`` a bottom line is added.
     init : ``bool``
@@ -193,10 +220,13 @@ def array_table(arr, top=True,bottom=True,init=True,tabs=1,header=True):
 
     Examples
     --------
-    >>> print(array_table([["hihi", "hoho"]],tabs=0))
+    >>> print(array_table([["a","b"],["hihi", "hoho"]],tabs=0))
     ====== ======
-    hihi   hoho   
+    a      b
     ====== ======
+    hihi   hoho
+    ====== ======
+    <BLANKLINE>
 
     """
     if type(arr) is dict:
@@ -205,31 +235,35 @@ def array_table(arr, top=True,bottom=True,init=True,tabs=1,header=True):
     height = len(arr)
     widths = [0 for i in range(width)]
     # maximum width of each column
-    for i in range(0,width):
-        for j in range(0,height):
+    for i in range(0, width):
+        for j in range(0, height):
             if len(str(arr[j][i])) > widths[i]:
                 widths[i] = len(str(arr[j][i]))
-    rs =""
+    rs = ""
     if init:
-        rs += "\t"*tabs 
+        rs += "\t" * tabs
     if top:
-        rs += " ".join(["="*(widths[i]+2) for i in range(0,width)])+ "\n"
+        rs += " ".join(["=" * (widths[i] + 2) for i in range(0, width)]) + "\n"
 
-    for i in range(0,height):
-        rs += "\t"*tabs
-        for j in range(0,width):
-            rs += str(arr[i][j]) + " "*(widths[j]-len(str(arr[i][j]))+3)
+    for i in range(0, height):
+        rs += "\t" * tabs
+        for j in range(0, width):
+            rs += str(arr[i][j]) + " " * (widths[j] - len(str(arr[i][j])) + 3)
         rs += "\n"
         if header and i == 0:
-            rs += "\t"*tabs + " ".join(["="*(widths[i]+2) for i in range(0,width)])+ "\n"
+            rs += (
+                "\t" * tabs
+                + " ".join(["=" * (widths[i] + 2) for i in range(0, width)])
+                + "\n"
+            )
 
     if bottom:
-        rs += "\t"*tabs 
-        rs += " ".join(["="*(widths[i]+2) for i in range(0,width)]) + "\n"
+        rs += "\t" * tabs
+        rs += " ".join(["=" * (widths[i] + 2) for i in range(0, width)]) + "\n"
     return rs
-    
 
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

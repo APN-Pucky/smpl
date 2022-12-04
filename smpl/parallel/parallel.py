@@ -1,7 +1,8 @@
-from multiprocessing import Process, Queue
 import multiprocessing
+from multiprocessing import Process, Queue
 
 import numpy as np
+
 from smpl.doc import append_doc
 
 
@@ -60,10 +61,22 @@ def par(f, *args, **kwargs):
     [0, 1, 4, 9, 16]
 
     """
-    return res([calc(f, *[args[k][i] for k in range(len(args))], **{k: v[i] for k, v in kwargs.items()}) for i in range(len(args[0]) if len(args) > 0 else len(next(iter(kwargs.values()))))])
+    return res(
+        [
+            calc(
+                f,
+                *[args[k][i] for k in range(len(args))],
+                **{k: v[i] for k, v in kwargs.items()}
+            )
+            for i in range(
+                len(args[0]) if len(args) > 0 else len(next(iter(kwargs.values())))
+            )
+        ]
+    )
+
 
 # TODO rework to same properties as par
-def partitioned_parallel(f,arr,n_jobs=None):
+def partitioned_parallel(f, arr, n_jobs=None):
     """
     Parallel execution of f on each element of args
 
@@ -74,14 +87,16 @@ def partitioned_parallel(f,arr,n_jobs=None):
 
     """
     n_jobs = n_jobs or multiprocessing.cpu_count()
-    sa = np.array_split(np.array(arr),len(arr)/n_jobs)
+    sa = np.array_split(np.array(arr), (len(arr) - 1) // n_jobs + 1)
     res = []
     for i in range(len(sa)):
-        res += par(f,sa[i])
+        res += par(f, sa[i])
     return res
+
 
 parallel = partitioned_parallel
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()
