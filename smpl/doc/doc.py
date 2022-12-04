@@ -199,6 +199,16 @@ def dict_to_table(dic):
     return rt
 
 
+def trim_eol_spaces(s):
+    """
+    Trim spaces at the end of lines.
+
+    This is only needed for the docstrings, because black does trim them.
+
+    """
+    return "\n".join([l.rstrip() for l in s.split("\n")])
+
+
 def array_table(arr, top=True, bottom=True, init=True, tabs=1, header=True):
     """
     Produces a reST table from a numpy array or normal 2d array.
@@ -220,7 +230,7 @@ def array_table(arr, top=True, bottom=True, init=True, tabs=1, header=True):
 
     Examples
     --------
-    >>> print(array_table([["a","b"],["hihi", "hoho"]],tabs=0))
+    >>> print(trim_eol_spaces(array_table([["a","b"],["hihi", "hoho"]],tabs=0)))
     ====== ======
     a      b
     ====== ======
