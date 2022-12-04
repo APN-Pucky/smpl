@@ -1,37 +1,22 @@
-# Minimal makefile for Sphinx documentation
-#
+livehtml:
+	poetry run $(MAKE) -C docs livehtml
 
-# You can set these variables from the command line, and also
-# from the environment for the first two.
-SPHINXOPTS    ?=
-SPHINXBUILD   ?= sphinx-build
-SOURCEDIR     = source
-BUILDDIR      = build
+html:
+	poetry run $(MAKE) -C docs html
 
-# Put it first so that "make" without argument is like "make help".
-help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-.PHONY: help Makefile
-
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-%: Makefile install
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+doc: html
 
 install:
-	python3 -m pip install --user .[opt,doc,dev]
+	poetry install --with dev --with docs --extras opt
+	python3 -m pip install --user .[opt]
 
 build:
-	python3 -m build
-
-livehtml:
-	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O) --watch smpl/
+	poetry build
 
 test:
 	rm -f .coverage coverage.xml
 	find source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --to script
-	pytest
+	poetry run pytest
 
 commit: 
 	-git add .
