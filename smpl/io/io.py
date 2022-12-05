@@ -300,8 +300,8 @@ def files( ending,folder="."):
 
     Examples
     --------
-    >>> files(".py")
-    [(0, 'setup', './setup.py')]
+    >>> files(".ini")
+    [(0, 'pytest', './pytest.ini')]
     """
     r = []
     i = 0
