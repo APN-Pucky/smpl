@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                1.0.1-10-g9a5ab2db
+                1.0.2
               </div>
             
           
@@ -622,7 +622,7 @@ Chi2 =  6.120448179271708
 <h3>Correlations<a class="headerlink" href="#Correlations" title="Permalink to this heading">¶</a></h3>
 <p>Let’s take a look at correlations on the example of calculating the y axis intercept. Again:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a,b = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,function=f.line, sigmas=1,extrapolate_min=-2)
@@ -638,7 +638,7 @@ Chi2 =  6.120448179271708
 </div>
 <p>Let’s calculated the intersection with the x axis, given by <span class="math notranslate nohighlight">\(-b/a\)</span>, with correlation</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>-b/a
@@ -646,7 +646,7 @@ Chi2 =  6.120448179271708
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -656,7 +656,7 @@ Chi2 =  6.120448179271708
 </div>
 <p>and without correlations</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_nocorr=unc.ufloat(plot.unv(a),plot.usd(a))
@@ -666,7 +666,7 @@ b_nocorr=unc.ufloat(plot.unv(b),plot.usd(b))
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -681,7 +681,7 @@ b_nocorr=unc.ufloat(plot.unv(b),plot.usd(b))
 <section id="Minuit">
 <h2>Minuit<a class="headerlink" href="#Minuit" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ff = plot.fit(xdata, y, fmt=&#39;.&#39;, function=f.line, params=[1,1], sigmas=1,lpos=2,fitter=fit.Fitter.MINUIT_LEASTSQUARES)
@@ -702,6 +702,22 @@ Chi2 =  6.120448179271703
 </div>
 <div class="output_area docutils container">
 <img alt="../../../_images/example_fit_linear_test_linear_17_1.png" src="../../../_images/example_fit_linear_test_linear_17_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
 </div>
 </div>
 </section>

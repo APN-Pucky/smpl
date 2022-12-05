@@ -169,7 +169,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -196,7 +196,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [
     {
@@ -205,7 +205,7 @@
        "-1.0648148148148089+/-0.41569533919028134"
       ]
      },
-     "execution_count": 16,
+     "execution_count": 9,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -223,7 +223,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -232,7 +232,7 @@
        "-1.0648148148148089+/-0.3375205305560758"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 10,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -261,7 +261,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [
     {
@@ -286,6 +286,20 @@
     "ff = plot.fit(xdata, y, fmt='.', function=f.line, params=[1,1], sigmas=1,lpos=2,fitter=fit.Fitter.MINUIT_LEASTSQUARES)\n",
     "print(\"Chi2 = \",fit.Chi2(xdata,y,f.line,ff))"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
