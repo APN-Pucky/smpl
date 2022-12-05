@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -107,6 +108,10 @@
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
@@ -179,6 +184,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../smpl.html">smpl</a> &raquo;</li>
+        
       <li>smpl.doc.doc</li>
     
     
@@ -197,30 +204,30 @@
   <h1>Source code for smpl.doc.doc</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">util</span>
 
-<span class="n">params</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">name</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="viewcode-block" id="params"><a class="viewcode-back" href="../../../autoapi/smpl/doc/doc/index.html#smpl.doc.params">[docs]</a><span class="n">params</span> <span class="o">=</span> <span class="mi">0</span></div>
+<div class="viewcode-block" id="name"><a class="viewcode-back" href="../../../autoapi/smpl/doc/doc/index.html#smpl.doc.name">[docs]</a><span class="n">name</span> <span class="o">=</span> <span class="mi">1</span></div>
 
 
-<span class="k">def</span> <span class="nf">_append</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+<div class="viewcode-block" id="_append"><a class="viewcode-back" href="../../../autoapi/smpl/doc/doc/index.html#smpl.doc._append">[docs]</a><span class="k">def</span> <span class="nf">_append</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="n">txt</span>
         <span class="k">return</span> <span class="n">target</span>
 
-    <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
-<span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+<div class="viewcode-block" id="append"><a class="viewcode-back" href="../../../autoapi/smpl/doc/doc/index.html#smpl.doc.append">[docs]</a><span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;TODO split cases doc/txt/plot?&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
 
 
-<span class="k">def</span> <span class="nf">append_str</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">_append</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+<div class="viewcode-block" id="append_str"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.append_str">[docs]</a><span class="k">def</span> <span class="nf">append_str</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_append</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="append_plot"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.append_plot">[docs]</a><span class="k">def</span> <span class="nf">append_plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="viewcode-block" id="append_plot"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.append_plot">[docs]</a><span class="k">def</span> <span class="nf">append_plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Append a plot to a function.&quot;&quot;&quot;</span>
     <span class="c1"># return _append(&quot;\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t&gt;&gt;&gt; from &quot; + target.__module__ + &quot; import &quot; +target.__name__ + &quot;\n\t\t&gt;&gt;&gt; from smpl import plot\n\t\t&gt;&gt;&gt; plot.function(&quot;+ target.__name__ + &quot;,&quot; + &#39;,&#39;.join([str(a) for a in args]) + &quot;,xmin=&quot;+str(xmin) + &quot;,xmax=&quot; + str(xmax)+&quot;)&quot;)</span>
 
@@ -247,7 +254,7 @@
     <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
-<div class="viewcode-block" id="append_doc"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.append_doc">[docs]</a><span class="k">def</span> <span class="nf">append_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
+<div class="viewcode-block" id="append_doc"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.append_doc">[docs]</a><span class="k">def</span> <span class="nf">append_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Append doc string of ``original`` to ``target`` object.</span>
 
@@ -272,21 +279,21 @@
     <span class="k">return</span> <span class="n">_append</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">_insert</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+<div class="viewcode-block" id="_insert"><a class="viewcode-back" href="../../../autoapi/smpl/doc/doc/index.html#smpl.doc._insert">[docs]</a><span class="k">def</span> <span class="nf">_insert</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">txt</span> <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span>
         <span class="k">return</span> <span class="n">target</span>
 
-    <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
-<span class="k">def</span> <span class="nf">insert_str</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+<div class="viewcode-block" id="insert_str"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.insert_str">[docs]</a><span class="k">def</span> <span class="nf">insert_str</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="insert_doc"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_doc">[docs]</a><span class="k">def</span> <span class="nf">insert_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
+<div class="viewcode-block" id="insert_doc"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.insert_doc">[docs]</a><span class="k">def</span> <span class="nf">insert_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Inserts the docstring from passed function ``original`` in the ``target`` function docstring.</span>
 
@@ -310,7 +317,7 @@
     <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="insert_eq"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_eq</span><span class="p">():</span>
+<div class="viewcode-block" id="insert_eq"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.insert_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_eq</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Inserts the function and its parameters and an equal sign.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
@@ -327,12 +334,12 @@
     <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
-<div class="viewcode-block" id="insert_latex_eq"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_latex_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_latex_eq</span><span class="p">():</span>
+<div class="viewcode-block" id="insert_latex_eq"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.insert_latex_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_latex_eq</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function with parameters.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">insert_eq</span><span class="p">()(</span><span class="n">insert_latex</span><span class="p">()(</span><span class="n">f</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="insert_latex"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_latex">[docs]</a><span class="k">def</span> <span class="nf">insert_latex</span><span class="p">():</span>
+<div class="viewcode-block" id="insert_latex"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.insert_latex">[docs]</a><span class="k">def</span> <span class="nf">insert_latex</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function.&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
 
@@ -344,10 +351,10 @@
     <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
-<span class="n">tab_len</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="viewcode-block" id="tab_len"><a class="viewcode-back" href="../../../autoapi/smpl/doc/doc/index.html#smpl.doc.tab_len">[docs]</a><span class="n">tab_len</span> <span class="o">=</span> <span class="mi">20</span></div>
 
 
-<span class="k">def</span> <span class="nf">table_sep</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="table_sep"><a class="viewcode-back" href="../../../autoapi/smpl/doc/doc/index.html#smpl.doc.table_sep">[docs]</a><span class="k">def</span> <span class="nf">table_sep</span><span class="p">(</span><span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="n">tab_len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
         <span class="o">+</span> <span class="s2">&quot;  &quot;</span>
@@ -356,10 +363,10 @@
         <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="n">tab_len</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
         <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tabs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
-    <span class="p">)</span>
+    <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="table"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.table">[docs]</a><span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="table"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.table">[docs]</a><span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add dict= {&#39;key&#39;: [values...]} to a simple reST table.</span>
 
@@ -389,24 +396,24 @@
     <span class="k">return</span> <span class="n">rs</span></div>
 
 
-<span class="k">def</span> <span class="nf">dict_to_table</span><span class="p">(</span><span class="n">dic</span><span class="p">):</span>
+<div class="viewcode-block" id="dict_to_table"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.dict_to_table">[docs]</a><span class="k">def</span> <span class="nf">dict_to_table</span><span class="p">(</span><span class="n">dic</span><span class="p">):</span>
     <span class="n">rt</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">vs</span> <span class="ow">in</span> <span class="n">dic</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">rt</span> <span class="o">+=</span> <span class="p">[[</span><span class="n">k</span><span class="p">,</span> <span class="o">*</span><span class="n">vs</span><span class="p">]]</span>
-    <span class="k">return</span> <span class="n">rt</span>
+    <span class="k">return</span> <span class="n">rt</span></div>
 
 
-<span class="k">def</span> <span class="nf">trim_eol_spaces</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="viewcode-block" id="trim_eol_spaces"><a class="viewcode-back" href="../../../autoapi/smpl/doc/doc/index.html#smpl.doc.trim_eol_spaces">[docs]</a><span class="k">def</span> <span class="nf">trim_eol_spaces</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Trim spaces at the end of lines.</span>
 
 <span class="sd">    This is only needed for the docstrings, because black does trim them.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">l</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">l</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)])</span></div>
 
 
-<div class="viewcode-block" id="array_table"><a class="viewcode-back" href="../../../_autosummary/smpl.doc.html#smpl.doc.array_table">[docs]</a><span class="k">def</span> <span class="nf">array_table</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="array_table"><a class="viewcode-back" href="../../../autoapi/smpl/doc/index.html#smpl.doc.array_table">[docs]</a><span class="k">def</span> <span class="nf">array_table</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Produces a reST table from a numpy array or normal 2d array.</span>
 

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
 
   
@@ -73,7 +74,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -111,6 +112,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -118,6 +123,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#smpl.data.data_kwargs"><code class="docutils literal notranslate"><span class="pre">data_kwargs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.data.filtered_data_split"><code class="docutils literal notranslate"><span class="pre">filtered_data_split()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.data.flatmesh"><code class="docutils literal notranslate"><span class="pre">flatmesh()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.data.data_kwargs">data_kwargs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.data.filtered_data_split">filtered_data_split</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.data.flatmesh">flatmesh</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
@@ -229,17 +237,17 @@
 }
 </style>
 <section id="module-smpl.data">
-<span id="smpl-data"></span><h1><a class="reference internal" href="#module-smpl.data" title="smpl.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a><a class="headerlink" href="#module-smpl.data" title="Permalink to this heading">¶</a></h1>
+<span id="smpl-data"></span><h1><a class="reference internal" href="../autoapi/smpl/data/index.html#module-smpl.data" title="smpl.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a><a class="headerlink" href="#module-smpl.data" title="Permalink to this heading">¶</a></h1>
 <p>Simplified internal data parsing and transforming.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.data.data_kwargs" title="smpl.data.data_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_kwargs</span></code></a>(kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/data/index.html#smpl.data.data_kwargs" title="smpl.data.data_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_kwargs</span></code></a>(kwargs)</p></td>
 <td><p>Set default data_kwargs if not set.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.data.filtered_data_split" title="smpl.data.filtered_data_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filtered_data_split</span></code></a>(datax, datay, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/data/index.html#smpl.data.filtered_data_split" title="smpl.data.filtered_data_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filtered_data_split</span></code></a>(datax, datay, **kwargs)</p></td>
 <td><p>Splits datax and datay into (x,y,xerr,yerr).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.data.flatmesh" title="smpl.data.flatmesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flatmesh</span></code></a>(*args)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/data/index.html#smpl.data.flatmesh" title="smpl.data.flatmesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flatmesh</span></code></a>(*args)</p></td>
 <td><p>Similar to <cite>numpy.meshgrid</cite> but the result will be of one dimension instead of stacked arrays.</p></td>
 </tr>
 </tbody>
@@ -276,7 +284,7 @@ Applies filters <cite>fselector</cite> and <cite>frange</cite>.</p>
 <section id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
-<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.data.data_kwargs" title="smpl.data.data_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">data_kwargs()</span></code></a>.</p>
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="../autoapi/smpl/data/index.html#smpl.data.data_kwargs" title="smpl.data.data_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">data_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
 </section>

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
 
   
@@ -73,7 +74,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -111,6 +112,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -127,6 +132,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#smpl.latex.si_tab"><code class="docutils literal notranslate"><span class="pre">si_tab()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.latex.si_ttab"><code class="docutils literal notranslate"><span class="pre">si_ttab()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.latex.transpose_table"><code class="docutils literal notranslate"><span class="pre">transpose_table()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.latex.si">si</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.latex.si_line">si_line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.latex.si_tab">si_tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.latex.si_ttab">si_ttab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.latex.transpose_table">transpose_table</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
@@ -231,23 +241,23 @@
 }
 </style>
 <section id="module-smpl.latex">
-<span id="smpl-latex"></span><h1><a class="reference internal" href="#module-smpl.latex" title="smpl.latex"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a><a class="headerlink" href="#module-smpl.latex" title="Permalink to this heading">¶</a></h1>
+<span id="smpl-latex"></span><h1><a class="reference internal" href="../autoapi/smpl/latex/index.html#module-smpl.latex" title="smpl.latex"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a><a class="headerlink" href="#module-smpl.latex" title="Permalink to this heading">¶</a></h1>
 <p>Simplified latex.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.latex.si" title="smpl.latex.si"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si</span></code></a>(s[, u, fmt])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/latex/index.html#smpl.latex.si" title="smpl.latex.si"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si</span></code></a>(s[, u, fmt])</p></td>
 <td><p>Get number with uncertainty and unit in <code class="docutils literal notranslate"><span class="pre">si</span></code> format for latex.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.latex.si_line" title="smpl.latex.si_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_line</span></code></a>(a[, skip, fmt])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/latex/index.html#smpl.latex.si_line" title="smpl.latex.si_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_line</span></code></a>(a[, skip, fmt])</p></td>
 <td><p>Get array <code class="docutils literal notranslate"><span class="pre">a</span></code> in the format of a line of a latex table.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.latex.si_tab" title="smpl.latex.si_tab"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_tab</span></code></a>(tab[, skip, fmt])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/latex/index.html#smpl.latex.si_tab" title="smpl.latex.si_tab"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_tab</span></code></a>(tab[, skip, fmt])</p></td>
 <td><p>Get arrays of (uncertainty) numbers in  a latex table compatible form.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.latex.si_ttab" title="smpl.latex.si_ttab"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_ttab</span></code></a>(tab[, skip, fmt])</p></td>
-<td><p>Transposed <a class="reference internal" href="#smpl.latex.si_tab" title="smpl.latex.si_tab"><code class="xref py py-func docutils literal notranslate"><span class="pre">si_tab()</span></code></a>.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/latex/index.html#smpl.latex.si_ttab" title="smpl.latex.si_ttab"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_ttab</span></code></a>(tab[, skip, fmt])</p></td>
+<td><p>Transposed <a class="reference internal" href="../autoapi/smpl/latex/index.html#smpl.latex.si_tab" title="smpl.latex.si_tab"><code class="xref py py-func docutils literal notranslate"><span class="pre">si_tab()</span></code></a>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.latex.transpose_table" title="smpl.latex.transpose_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose_table</span></code></a>(strtab)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/latex/index.html#smpl.latex.transpose_table" title="smpl.latex.transpose_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose_table</span></code></a>(strtab)</p></td>
 <td><p>Transpose a latex table and return it in latex format.</p></td>
 </tr>
 </tbody>
@@ -255,7 +265,7 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.latex.si">
-<span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get number with uncertainty and unit in <code class="docutils literal notranslate"><span class="pre">si</span></code> format for latex.</p>
 <section id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
@@ -288,11 +298,19 @@
 </pre></div>
 </div>
 </section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>str</em>) – </p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.latex.si_line">
-<span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si_line" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si_line" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get array <code class="docutils literal notranslate"><span class="pre">a</span></code> in the format of a line of a latex table.</p>
 <section id="id1">
 <h2>Examples<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
@@ -301,6 +319,14 @@
 </pre></div>
 </div>
 </section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>skip</strong> (<em>int</em>) – </p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -333,8 +359,8 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.latex.si_ttab">
-<span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si_ttab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si_ttab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si_ttab" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transposed <a class="reference internal" href="#smpl.latex.si_tab" title="smpl.latex.si_tab"><code class="xref py py-func docutils literal notranslate"><span class="pre">si_tab()</span></code></a>.</p>
+<span class="sig-prename descclassname"><span class="pre">smpl.latex.</span></span><span class="sig-name descname"><span class="pre">si_ttab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/latex/latex.html#si_ttab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.si_ttab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transposed <a class="reference internal" href="../autoapi/smpl/latex/index.html#smpl.latex.si_tab" title="smpl.latex.si_tab"><code class="xref py py-func docutils literal notranslate"><span class="pre">si_tab()</span></code></a>.</p>
 <section id="id5">
 <h2>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
@@ -360,6 +386,14 @@
 </pre></div>
 </div>
 </section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>skip</strong> (<em>int</em>) – </p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">

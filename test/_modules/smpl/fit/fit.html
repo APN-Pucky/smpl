@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -107,6 +108,10 @@
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
@@ -179,6 +184,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../smpl.html">smpl</a> &raquo;</li>
+        
       <li>smpl.fit.fit</li>
     
     
@@ -207,22 +214,22 @@
 <span class="kn">from</span> <span class="nn">.minuit</span> <span class="kn">import</span> <span class="n">_fit_minuit_leastsquares</span>
 <span class="kn">from</span> <span class="nn">.scipy</span> <span class="kn">import</span> <span class="n">_fit_curvefit</span><span class="p">,</span> <span class="n">_fit_odr</span>
 
-<span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
-<span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
+<div class="viewcode-block" id="unv"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit.unv">[docs]</a><span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span></div>
+<div class="viewcode-block" id="usd"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit.usd">[docs]</a><span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span></div>
 
 
-<div class="viewcode-block" id="Fitter"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.Fitter">[docs]</a><span class="k">class</span> <span class="nc">Fitter</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+<div class="viewcode-block" id="Fitter"><a class="viewcode-back" href="../../../autoapi/smpl/fit/index.html#smpl.fit.Fitter">[docs]</a><span class="k">class</span> <span class="nc">Fitter</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Different implementations to perform a fit.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">AUTO</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">SCIPY_CURVEFIT</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">SCIPY_ODR</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">MINUIT_LEASTSQUARES</span> <span class="o">=</span> <span class="mi">3</span></div>
+<div class="viewcode-block" id="Fitter.AUTO"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit.Fitter.AUTO">[docs]</a>    <span class="n">AUTO</span> <span class="o">=</span> <span class="mi">0</span></div>
+<div class="viewcode-block" id="Fitter.SCIPY_CURVEFIT"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit.Fitter.SCIPY_CURVEFIT">[docs]</a>    <span class="n">SCIPY_CURVEFIT</span> <span class="o">=</span> <span class="mi">1</span></div>
+<div class="viewcode-block" id="Fitter.SCIPY_ODR"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit.Fitter.SCIPY_ODR">[docs]</a>    <span class="n">SCIPY_ODR</span> <span class="o">=</span> <span class="mi">2</span></div>
+<div class="viewcode-block" id="Fitter.MINUIT_LEASTSQUARES"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit.Fitter.MINUIT_LEASTSQUARES">[docs]</a>    <span class="n">MINUIT_LEASTSQUARES</span> <span class="o">=</span> <span class="mi">3</span></div></div>
 
 
-<span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
+<div class="viewcode-block" id="default"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit.default">[docs]</a><span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;params&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="kc">None</span><span class="p">,</span>
         <span class="s2">&quot;Initial fit parameters&quot;</span><span class="p">,</span>
@@ -255,16 +262,16 @@
     <span class="c1"># &#39;xerror&#39;: [True, &quot;enable xerrors&quot;],</span>
     <span class="c1"># &#39;yerror&#39;: [True, &quot;enable yerrors&quot;],</span>
     <span class="s2">&quot;fitter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">Fitter</span><span class="o">.</span><span class="n">AUTO</span><span class="p">,</span> <span class="s2">&quot;Choose from :class:`Fitter`s.&quot;</span><span class="p">],</span>
-<span class="p">}</span>
+<span class="p">}</span></div>
 
 <span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
 
 
-<div class="viewcode-block" id="fit_kwargs"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_doc</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">)</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_doc</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">)</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;fit_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="fit_kwargs"><a class="viewcode-back" href="../../../autoapi/smpl/fit/index.html#smpl.fit.fit_kwargs">[docs]</a><span class="k">def</span> <span class="nf">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Set default fit_kwargs if not set.&quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -274,7 +281,7 @@
 
 
 <span class="c1"># @append_doc(default_kwargs)</span>
-<div class="viewcode-block" id="auto"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.auto">[docs]</a><span class="k">def</span> <span class="nf">auto</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">funcs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="auto"><a class="viewcode-back" href="../../../autoapi/smpl/fit/index.html#smpl.fit.auto">[docs]</a><span class="k">def</span> <span class="nf">auto</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">funcs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Automatically loop over functions and fit the best one.</span>
 
@@ -319,7 +326,7 @@
     <span class="k">return</span> <span class="n">best_f</span><span class="p">,</span> <span class="n">best_ff</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">best_f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">best_ff</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="fit"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.fit.html#smpl.fit.fit">[docs]</a><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="fit"><a class="viewcode-back" href="../../../autoapi/smpl/fit/index.html#smpl.fit.fit">[docs]</a><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a fit of ``function`` to ``datax`` and ``datay``.</span>
 
@@ -356,7 +363,7 @@
     <span class="k">return</span> <span class="n">_unwrap_param</span><span class="p">(</span><span class="n">fitt</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">Ntot</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">_wrap_func_and_param</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="_wrap_func_and_param"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit._wrap_func_and_param">[docs]</a><span class="k">def</span> <span class="nf">_wrap_func_and_param</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Wraps a function with a lambda function.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -401,10 +408,10 @@
         <span class="c1"># print(tmp_x)</span>
         <span class="k">return</span> <span class="n">unv</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xvar&quot;</span><span class="p">])(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">tmp_x</span><span class="p">))</span>
 
-    <span class="k">return</span> <span class="n">_wrapped_func</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">Ntot</span>
+    <span class="k">return</span> <span class="n">_wrapped_func</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">Ntot</span></div>
 
 
-<span class="k">def</span> <span class="nf">_unwrap_param</span><span class="p">(</span><span class="n">fitt</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">Ntot</span><span class="p">):</span>
+<div class="viewcode-block" id="_unwrap_param"><a class="viewcode-back" href="../../../autoapi/smpl/fit/fit/index.html#smpl.fit._unwrap_param">[docs]</a><span class="k">def</span> <span class="nf">_unwrap_param</span><span class="p">(</span><span class="n">fitt</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">Ntot</span><span class="p">):</span>
     <span class="n">rfit</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ntot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
@@ -413,32 +420,32 @@
             <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">rfit</span> <span class="o">+=</span> <span class="p">[</span><span class="n">fixed</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-    <span class="k">return</span> <span class="n">rfit</span>
+    <span class="k">return</span> <span class="n">rfit</span></div>
 
 
-<div class="viewcode-block" id="Chi2"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.Chi2">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">insert_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">Chi2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">insert_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">)</span>
+<div class="viewcode-block" id="Chi2"><a class="viewcode-back" href="../../../autoapi/smpl/fit/index.html#smpl.fit.Chi2">[docs]</a><span class="k">def</span> <span class="nf">Chi2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">sigmas</span> <span class="o">=</span> <span class="n">yerr</span>
     <span class="k">return</span> <span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">unv</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">ff</span><span class="p">)),</span> <span class="n">sigmas</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="R2"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.R2">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">insert_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">insert_doc</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">)</span>
+<div class="viewcode-block" id="R2"><a class="viewcode-back" href="../../../autoapi/smpl/fit/index.html#smpl.fit.R2">[docs]</a><span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">unv</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">ff</span><span class="p">)))</span></div>
 
 
-<div class="viewcode-block" id="data_split"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.data_split">[docs]</a><span class="k">def</span> <span class="nf">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="data_split"><a class="viewcode-back" href="../../../autoapi/smpl/fit/index.html#smpl.fit.data_split">[docs]</a><span class="k">def</span> <span class="nf">data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Split data + errors</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="fit_split"><a class="viewcode-back" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit_split">[docs]</a><span class="k">def</span> <span class="nf">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="fit_split"><a class="viewcode-back" href="../../../autoapi/smpl/fit/index.html#smpl.fit.fit_split">[docs]</a><span class="k">def</span> <span class="nf">fit_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Splits datax and datay into (x,y,xerr,yerr).</span>
 

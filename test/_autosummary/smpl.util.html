@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
 
   
@@ -73,7 +74,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -111,6 +112,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -132,6 +137,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#smpl.util.has"><code class="docutils literal notranslate"><span class="pre">has()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.util.times"><code class="docutils literal notranslate"><span class="pre">times()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.util.true"><code class="docutils literal notranslate"><span class="pre">true()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.util.find_nearest">find_nearest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.util.find_nearest_index">find_nearest_index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.util.get">get</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.util.has">has</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.util.times">times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.util.true">true</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
@@ -232,26 +243,26 @@
 }
 </style>
 <section id="module-smpl.util">
-<span id="smpl-util"></span><h1><a class="reference internal" href="#module-smpl.util" title="smpl.util"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a><a class="headerlink" href="#module-smpl.util" title="Permalink to this heading">¶</a></h1>
+<span id="smpl-util"></span><h1><a class="reference internal" href="../autoapi/smpl/util/index.html#module-smpl.util" title="smpl.util"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a><a class="headerlink" href="#module-smpl.util" title="Permalink to this heading">¶</a></h1>
 <p>Simplified general utilities.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.util.find_nearest" title="smpl.util.find_nearest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nearest</span></code></a>(array, value)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/util/index.html#smpl.util.find_nearest" title="smpl.util.find_nearest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nearest</span></code></a>(array, value)</p></td>
 <td><p>Return the element in <code class="docutils literal notranslate"><span class="pre">array</span></code> closest to <code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.util.find_nearest_index" title="smpl.util.find_nearest_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nearest_index</span></code></a>(array, value)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/util/index.html#smpl.util.find_nearest_index" title="smpl.util.find_nearest_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_nearest_index</span></code></a>(array, value)</p></td>
 <td><p>Returns the index of the element in <code class="docutils literal notranslate"><span class="pre">array</span></code> closest to <code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.util.get" title="smpl.util.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(key, ddict[, default])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/util/index.html#smpl.util.get" title="smpl.util.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(key, ddict[, default])</p></td>
 <td><p>Returns dict[key] if this exists else default.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.util.has" title="smpl.util.has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code></a>(key, ddict)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/util/index.html#smpl.util.has" title="smpl.util.has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code></a>(key, ddict)</p></td>
 <td><p>Checks if the key is in the dict and not None.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.util.times" title="smpl.util.times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">times</span></code></a>(s, n)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/util/index.html#smpl.util.times" title="smpl.util.times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">times</span></code></a>(s, n)</p></td>
 <td><p>Concats string <code class="docutils literal notranslate"><span class="pre">s</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code> times.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.util.true" title="smpl.util.true"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code></a>(key, ddict)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/util/index.html#smpl.util.true" title="smpl.util.true"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code></a>(key, ddict)</p></td>
 <td><p>Checks if the key is in the dict and not None and True.</p></td>
 </tr>
 </tbody>

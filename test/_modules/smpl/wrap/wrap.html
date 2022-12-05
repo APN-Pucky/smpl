@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -107,6 +108,10 @@
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
@@ -179,6 +184,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../smpl.html">smpl</a> &raquo;</li>
+        
       <li>smpl.wrap.wrap</li>
     
     
@@ -209,7 +216,7 @@
 <span class="kn">from</span> <span class="nn">sympy.printing.pycode</span> <span class="kn">import</span> <span class="n">pycode</span>
 
 
-<div class="viewcode-block" id="get_varnames"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_varnames">[docs]</a><span class="k">def</span> <span class="nf">get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+<div class="viewcode-block" id="get_varnames"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.get_varnames">[docs]</a><span class="k">def</span> <span class="nf">get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.</span>
 
@@ -225,7 +232,7 @@
         <span class="k">return</span> <span class="n">fnc_get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_latex"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_latex">[docs]</a><span class="k">def</span> <span class="nf">get_latex</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+<div class="viewcode-block" id="get_latex"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.get_latex">[docs]</a><span class="k">def</span> <span class="nf">get_latex</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return a latex string for passed function.</span>
 
@@ -283,12 +290,12 @@
     <span class="k">return</span> <span class="n">l</span></div>
 
 
-<span class="k">def</span> <span class="nf">get_lambda_argd</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="get_lambda_argd"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.get_lambda_argd">[docs]</a><span class="k">def</span> <span class="nf">get_lambda_argd</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="n">function</span> <span class="o">=</span> <span class="n">get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_lambda"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_lambda">[docs]</a><span class="k">def</span> <span class="nf">get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+<div class="viewcode-block" id="get_lambda"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.get_lambda">[docs]</a><span class="k">def</span> <span class="nf">get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.</span>
 
@@ -313,7 +320,7 @@
         <span class="k">return</span> <span class="n">fnc_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">fnc_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+<div class="viewcode-block" id="fnc_get_lambda"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.fnc_get_lambda">[docs]</a><span class="k">def</span> <span class="nf">fnc_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
     <span class="n">__l__</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span>
         <span class="s2">&quot;lambda &quot;</span>
         <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">))</span>
@@ -323,10 +330,10 @@
         <span class="p">{</span><span class="s2">&quot;expr&quot;</span><span class="p">:</span> <span class="n">expr</span><span class="p">},</span>
     <span class="p">)</span>
     <span class="n">__l__</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="vm">__doc__</span>
-    <span class="k">return</span> <span class="n">__l__</span>
+    <span class="k">return</span> <span class="n">__l__</span></div>
 
 
-<span class="k">def</span> <span class="nf">str_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+<div class="viewcode-block" id="str_get_lambda"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.str_get_lambda">[docs]</a><span class="k">def</span> <span class="nf">str_get_lambda</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
     <span class="n">parsed_expr</span> <span class="o">=</span> <span class="n">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
     <span class="n">pc</span> <span class="o">=</span> <span class="n">pycode</span><span class="p">(</span><span class="n">parsed_expr</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">unp</span><span class="o">.</span><span class="n">__all__</span><span class="p">:</span>
@@ -335,10 +342,10 @@
     <span class="c1"># __l__ = sympy.lambdify(get_varnames(expr),parsed_expr)</span>
     <span class="n">__l__</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;lambda &quot;</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="n">pc</span><span class="p">)</span>
     <span class="c1"># exec(&quot;global __l__; __l__ = lambda &quot; + &#39;,&#39;.join(get_varnames(expr)) + &quot;: &quot;+ pc)</span>
-    <span class="k">return</span> <span class="n">__l__</span>
+    <span class="k">return</span> <span class="n">__l__</span></div>
 
 
-<span class="k">def</span> <span class="nf">str_get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+<div class="viewcode-block" id="str_get_varnames"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.str_get_varnames">[docs]</a><span class="k">def</span> <span class="nf">str_get_varnames</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
 
     <span class="n">parsed_expr</span> <span class="o">=</span> <span class="n">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
 
@@ -350,20 +357,20 @@
         <span class="n">varss</span> <span class="o">=</span> <span class="n">new_locals</span>
         <span class="k">assert</span> <span class="n">xvar</span> <span class="ow">in</span> <span class="n">varss</span>
         <span class="n">varss</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">xvar</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">xvar</span><span class="p">,</span> <span class="o">*</span><span class="n">varss</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">xvar</span><span class="p">,</span> <span class="o">*</span><span class="n">varss</span><span class="p">]</span></div>
 
 
-<span class="k">def</span> <span class="nf">fnc_get_varnames</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
+<div class="viewcode-block" id="fnc_get_varnames"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.fnc_get_varnames">[docs]</a><span class="k">def</span> <span class="nf">fnc_get_varnames</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xvar</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">xvar</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">varss</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">func</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">]</span>
         <span class="k">assert</span> <span class="n">xvar</span> <span class="ow">in</span> <span class="n">varss</span>
         <span class="n">varss</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">xvar</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">xvar</span><span class="p">,</span> <span class="o">*</span><span class="n">varss</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">xvar</span><span class="p">,</span> <span class="o">*</span><span class="n">varss</span><span class="p">]</span></div>
 
 
-<span class="k">def</span> <span class="nf">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
+<div class="viewcode-block" id="str_get_expr"><a class="viewcode-back" href="../../../autoapi/smpl/wrap/wrap/index.html#smpl.wrap.str_get_expr">[docs]</a><span class="k">def</span> <span class="nf">str_get_expr</span><span class="p">(</span><span class="n">expr</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a pythonic string expression ot a sympy expression.</span>
 
@@ -387,7 +394,7 @@
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Illegal variable/function name (try uncap. letters) &quot;</span> <span class="o">+</span> <span class="n">expr</span><span class="p">)</span>
         <span class="k">raise</span> <span class="n">e</span>
-    <span class="k">return</span> <span class="n">parsed_expr</span>
+    <span class="k">return</span> <span class="n">parsed_expr</span></div>
 </pre></div>
 
            </div>

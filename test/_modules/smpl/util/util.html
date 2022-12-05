@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -107,6 +108,10 @@
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
@@ -179,6 +184,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../smpl.html">smpl</a> &raquo;</li>
+        
       <li>smpl.util.util</li>
     
     
@@ -198,7 +205,7 @@
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
-<div class="viewcode-block" id="times"><a class="viewcode-back" href="../../../_autosummary/smpl.util.html#smpl.util.times">[docs]</a><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<div class="viewcode-block" id="times"><a class="viewcode-back" href="../../../autoapi/smpl/util/util/index.html#smpl.util.times">[docs]</a><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Concats string ``s`` ``n`` times.</span>
 
@@ -213,7 +220,7 @@
     <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span></div>
 
 
-<div class="viewcode-block" id="get"><a class="viewcode-back" href="../../../_autosummary/smpl.util.html#smpl.util.get">[docs]</a><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get"><a class="viewcode-back" href="../../../autoapi/smpl/util/util/index.html#smpl.util.get">[docs]</a><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns dict[key] if this exists else default.</span>
 
@@ -232,7 +239,7 @@
         <span class="k">return</span> <span class="n">default</span></div>
 
 
-<div class="viewcode-block" id="has"><a class="viewcode-back" href="../../../_autosummary/smpl.util.html#smpl.util.has">[docs]</a><span class="k">def</span> <span class="nf">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
+<div class="viewcode-block" id="has"><a class="viewcode-back" href="../../../autoapi/smpl/util/util/index.html#smpl.util.has">[docs]</a><span class="k">def</span> <span class="nf">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks if the key is in the dict and not None.</span>
 
@@ -249,7 +256,7 @@
     <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ddict</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ddict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span></div>
 
 
-<div class="viewcode-block" id="true"><a class="viewcode-back" href="../../../_autosummary/smpl.util.html#smpl.util.true">[docs]</a><span class="k">def</span> <span class="nf">true</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
+<div class="viewcode-block" id="true"><a class="viewcode-back" href="../../../autoapi/smpl/util/util/index.html#smpl.util.true">[docs]</a><span class="k">def</span> <span class="nf">true</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks if the key is in the dict and not None and True.</span>
 
@@ -267,7 +274,7 @@
     <span class="k">return</span> <span class="n">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ddict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="find_nearest_index"><a class="viewcode-back" href="../../../_autosummary/smpl.util.html#smpl.util.find_nearest_index">[docs]</a><span class="k">def</span> <span class="nf">find_nearest_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="find_nearest_index"><a class="viewcode-back" href="../../../autoapi/smpl/util/util/index.html#smpl.util.find_nearest_index">[docs]</a><span class="k">def</span> <span class="nf">find_nearest_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the index of the element in ``array`` closest to ``value``</span>
 
@@ -282,7 +289,7 @@
     <span class="k">return</span> <span class="n">idx</span></div>
 
 
-<div class="viewcode-block" id="find_nearest"><a class="viewcode-back" href="../../../_autosummary/smpl.util.html#smpl.util.find_nearest">[docs]</a><span class="k">def</span> <span class="nf">find_nearest</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="find_nearest"><a class="viewcode-back" href="../../../autoapi/smpl/util/util/index.html#smpl.util.find_nearest">[docs]</a><span class="k">def</span> <span class="nf">find_nearest</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return the element in ``array`` closest to ``value``</span>
 

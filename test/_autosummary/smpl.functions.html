@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
 
   
@@ -75,7 +76,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -113,6 +114,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -136,6 +141,21 @@
 <li class="toctree-l2"><a class="reference internal" href="#smpl.functions.sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.functions.square"><code class="docutils literal notranslate"><span class="pre">square()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.functions.tan"><code class="docutils literal notranslate"><span class="pre">tan()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.const">const</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.cos">cos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.cos_abs">cos_abs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.cube">cube</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.exp">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.fac">fac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.gauss">gauss</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.line">line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.linear">linear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.log">log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.lorentz">lorentz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.sin">sin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.sqrt">sqrt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.square">square</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.functions.tan">tan</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.interpolate.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.interpolate</span></code></a></li>
@@ -243,53 +263,53 @@
 }
 </style>
 <section id="module-smpl.functions">
-<span id="smpl-functions"></span><h1><a class="reference internal" href="#module-smpl.functions" title="smpl.functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a><a class="headerlink" href="#module-smpl.functions" title="Permalink to this heading">¶</a></h1>
+<span id="smpl-functions"></span><h1><a class="reference internal" href="../autoapi/smpl/functions/index.html#module-smpl.functions" title="smpl.functions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a><a class="headerlink" href="#module-smpl.functions" title="Permalink to this heading">¶</a></h1>
 <p>A list of various functions.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.const" title="smpl.functions.const"><code class="xref py py-obj docutils literal notranslate"><span class="pre">const</span></code></a>(x, m)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.const" title="smpl.functions.const"><code class="xref py py-obj docutils literal notranslate"><span class="pre">const</span></code></a>(x, m)</p></td>
 <td><p>const(x) = <span class="math notranslate nohighlight">\(m\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.cos" title="smpl.functions.cos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos</span></code></a>(x, a, f, phi)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.cos" title="smpl.functions.cos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos</span></code></a>(x, a, f, phi)</p></td>
 <td><p>cos(x,a,f,phi) = <span class="math notranslate nohighlight">\(a \cos{\left(2 \pi f \left(- \phi + x\right) \right)}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.cos_abs" title="smpl.functions.cos_abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos_abs</span></code></a>(x, a, f, phi)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.cos_abs" title="smpl.functions.cos_abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cos_abs</span></code></a>(x, a, f, phi)</p></td>
 <td><p>cos_abs(x,a,f,phi) = <span class="math notranslate nohighlight">\(a \left|{\cos{\left(2 \pi f \left(- \phi + x\right) \right)}}\right|\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.cube" title="smpl.functions.cube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cube</span></code></a>(x, a, b, c, d)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.cube" title="smpl.functions.cube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cube</span></code></a>(x, a, b, c, d)</p></td>
 <td><p>cube(x,a,b,c,d) = <span class="math notranslate nohighlight">\(a x^{3} + b x^{2} + c x + d\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.exp" title="smpl.functions.exp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exp</span></code></a>(x, c, y_0)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.exp" title="smpl.functions.exp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">exp</span></code></a>(x, c, y_0)</p></td>
 <td><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(y_{0} e^{c x}\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.fac" title="smpl.functions.fac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fac</span></code></a>(n)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.fac" title="smpl.functions.fac"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fac</span></code></a>(n)</p></td>
 <td><p>Fac(x)</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.gauss" title="smpl.functions.gauss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss</span></code></a>(x, x_0, a, d, y)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.gauss" title="smpl.functions.gauss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss</span></code></a>(x, x_0, a, d, y)</p></td>
 <td><p>gauss(x,x_0,a,d,y) = <span class="math notranslate nohighlight">\(a e^{\frac{\left(-1\right) \left(x - x_{0}\right)^{2}}{2 d^{2}}} + y\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.line" title="smpl.functions.line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">line</span></code></a>(x, a, b)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.line" title="smpl.functions.line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">line</span></code></a>(x, a, b)</p></td>
 <td><p>line(x,a,b) = <span class="math notranslate nohighlight">\(a x + b\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.linear" title="smpl.functions.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear</span></code></a>(x, m)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.linear" title="smpl.functions.linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linear</span></code></a>(x, m)</p></td>
 <td><p>linear(x,m) = <span class="math notranslate nohighlight">\(m x\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.log" title="smpl.functions.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>(x, c, y_0)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.log" title="smpl.functions.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>(x, c, y_0)</p></td>
 <td><p>log(x,c,y_0) = <span class="math notranslate nohighlight">\(y_{0} \log{\left(c x \right)}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.lorentz" title="smpl.functions.lorentz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lorentz</span></code></a>(x, x_0, a, d, y)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.lorentz" title="smpl.functions.lorentz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lorentz</span></code></a>(x, x_0, a, d, y)</p></td>
 <td><p>lorentz(x,x_0,a,d,y) = <span class="math notranslate nohighlight">\(\frac{a}{\pi d \left(1 + \frac{\left(x - x_{0}\right)^{2}}{d^{2}}\right)} + y\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.sin" title="smpl.functions.sin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sin</span></code></a>(x, a, f, phi)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.sin" title="smpl.functions.sin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sin</span></code></a>(x, a, f, phi)</p></td>
 <td><p>sin(x,a,f,phi) = <span class="math notranslate nohighlight">\(a \sin{\left(2 \pi f \left(- \phi + x\right) \right)}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.sqrt" title="smpl.functions.sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt</span></code></a>(x, a, b, c)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.sqrt" title="smpl.functions.sqrt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sqrt</span></code></a>(x, a, b, c)</p></td>
 <td><p>sqrt(x,a,b,c) = <span class="math notranslate nohighlight">\(a \sqrt{b + x} + c\)</span></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.functions.square" title="smpl.functions.square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square</span></code></a>(x, x_0, a, y)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.square" title="smpl.functions.square"><code class="xref py py-obj docutils literal notranslate"><span class="pre">square</span></code></a>(x, x_0, a, y)</p></td>
 <td><p>square(x,x_0,a,y) = <span class="math notranslate nohighlight">\(a \left(x - x_{0}\right)^{2} + y\)</span></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.functions.tan" title="smpl.functions.tan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tan</span></code></a>(x, a, f, phi)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/functions/index.html#smpl.functions.tan" title="smpl.functions.tan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tan</span></code></a>(x, a, f, phi)</p></td>
 <td><p>tan(x,a,f,phi) = <span class="math notranslate nohighlight">\(a \tan{\left(2 \pi f \left(- \phi + x\right) \right)}\)</span></p></td>
 </tr>
 </tbody>
@@ -357,7 +377,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.functions.exp">
-<span class="sig-prename descclassname"><span class="pre">smpl.functions.</span></span><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.functions.exp" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.functions.</span></span><span class="sig-name descname"><span class="pre">exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions/functions.html#exp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.exp" title="Permalink to this definition">¶</a></dt>
 <dd><p>exponential(x,c,y_0) = <span class="math notranslate nohighlight">\(y_{0} e^{c x}\)</span></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions.functions</span> <span class="kn">import</span> <span class="n">exponential</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>

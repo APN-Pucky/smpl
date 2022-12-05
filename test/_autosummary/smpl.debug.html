@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
 
   
@@ -73,7 +74,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -111,6 +112,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -125,6 +130,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#smpl.debug.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.debug.table_flush_header"><code class="docutils literal notranslate"><span class="pre">table_flush_header()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.debug.table_flush_line"><code class="docutils literal notranslate"><span class="pre">table_flush_line()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.file">file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.file1">file1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.get_line_number_file">get_line_number_file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.msg">msg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.msg1">msg1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.once">once</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.table">table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.table_flush_header">table_flush_header</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.debug.table_flush_line">table_flush_line</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
@@ -235,36 +249,36 @@
 }
 </style>
 <section id="module-smpl.debug">
-<span id="smpl-debug"></span><h1><a class="reference internal" href="#module-smpl.debug" title="smpl.debug"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a><a class="headerlink" href="#module-smpl.debug" title="Permalink to this heading">¶</a></h1>
+<span id="smpl-debug"></span><h1><a class="reference internal" href="../autoapi/smpl/debug/index.html#module-smpl.debug" title="smpl.debug"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a><a class="headerlink" href="#module-smpl.debug" title="Permalink to this heading">¶</a></h1>
 <p>Simplified python debuging.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.debug.file" title="smpl.debug.file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file</span></code></a>(key, value[, level, times, seperator, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.file" title="smpl.debug.file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file</span></code></a>(key, value[, level, times, seperator, ...])</p></td>
 <td><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level to file <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.debug.file1" title="smpl.debug.file1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file1</span></code></a>(_key, _value[, level, times, _back])</p></td>
-<td><p>Just like <a class="reference internal" href="#smpl.debug.file" title="smpl.debug.file"><code class="xref py py-func docutils literal notranslate"><span class="pre">file()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.file1" title="smpl.debug.file1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file1</span></code></a>(_key, _value[, level, times, _back])</p></td>
+<td><p>Just like <a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.file" title="smpl.debug.file"><code class="xref py py-func docutils literal notranslate"><span class="pre">file()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.debug.get_line_number_file" title="smpl.debug.get_line_number_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_line_number_file</span></code></a>([split, _back])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.get_line_number_file" title="smpl.debug.get_line_number_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_line_number_file</span></code></a>([split, _back])</p></td>
 <td><p>Gets the current filename and the current linenumber within it.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">msg</span></code></a>(msg[, tag, level, times, line_, _back])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">msg</span></code></a>(msg[, tag, level, times, line_, _back])</p></td>
 <td><p>Prints the message <code class="docutils literal notranslate"><span class="pre">msg</span></code> if level &gt; debug_level and always returns the msg.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.debug.msg1" title="smpl.debug.msg1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">msg1</span></code></a>(_msg[, tag, level, times, line_, _back])</p></td>
-<td><p>Just like <a class="reference internal" href="#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-func docutils literal notranslate"><span class="pre">msg()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.msg1" title="smpl.debug.msg1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">msg1</span></code></a>(_msg[, tag, level, times, line_, _back])</p></td>
+<td><p>Just like <a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-func docutils literal notranslate"><span class="pre">msg()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.debug.once" title="smpl.debug.once"><code class="xref py py-obj docutils literal notranslate"><span class="pre">once</span></code></a>([_back])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.once" title="smpl.debug.once"><code class="xref py py-obj docutils literal notranslate"><span class="pre">once</span></code></a>([_back])</p></td>
 <td><p>Returns true only one time</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code></a>(key, value[, level, times, seperator, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code></a>(key, value[, level, times, seperator, ...])</p></td>
 <td><p>Saves <code class="docutils literal notranslate"><span class="pre">key</span></code>:<code class="docutils literal notranslate"><span class="pre">value</span></code> in <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.debug.table_flush_header" title="smpl.debug.table_flush_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_flush_header</span></code></a>([filename, seperator])</p></td>
-<td><p>Saves the current keys from <a class="reference internal" href="#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.table_flush_header" title="smpl.debug.table_flush_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_flush_header</span></code></a>([filename, seperator])</p></td>
+<td><p>Saves the current keys from <a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.debug.table_flush_line" title="smpl.debug.table_flush_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_flush_line</span></code></a>([filename, seperator])</p></td>
-<td><p>Saves the current values from <a class="reference internal" href="#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.table_flush_line" title="smpl.debug.table_flush_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_flush_line</span></code></a>([filename, seperator])</p></td>
+<td><p>Saves the current values from <a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -278,7 +292,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.debug.file1">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">file1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#file1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.file1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Just like <a class="reference internal" href="#smpl.debug.file" title="smpl.debug.file"><code class="xref py py-func docutils literal notranslate"><span class="pre">file()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p>
+<dd><p>Just like <a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.file" title="smpl.debug.file"><code class="xref py py-func docutils literal notranslate"><span class="pre">file()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -350,7 +364,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.debug.msg1">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">msg1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_back</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#msg1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.msg1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Just like <a class="reference internal" href="#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-func docutils literal notranslate"><span class="pre">msg()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p>
+<dd><p>Just like <a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.msg" title="smpl.debug.msg"><code class="xref py py-func docutils literal notranslate"><span class="pre">msg()</span></code></a> but <code class="docutils literal notranslate"><span class="pre">times</span></code> set to 1.</p>
 <section id="id3">
 <h2>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
@@ -464,13 +478,13 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.debug.table_flush_header">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">table_flush_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'debug_table.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">';'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#table_flush_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.table_flush_header" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves the current keys from <a class="reference internal" href="#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p>
+<dd><p>Saves the current keys from <a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.debug.table_flush_line">
 <span class="sig-prename descclassname"><span class="pre">smpl.debug.</span></span><span class="sig-name descname"><span class="pre">table_flush_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'debug_table.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seperator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">';'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/debug/debug.html#table_flush_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.debug.table_flush_line" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves the current values from <a class="reference internal" href="#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code></p>
+<dd><p>Saves the current values from <a class="reference internal" href="../autoapi/smpl/debug/index.html#smpl.debug.table" title="smpl.debug.table"><code class="xref py py-func docutils literal notranslate"><span class="pre">table()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">filename</span></code></p>
 </dd></dl>
 
 </section>

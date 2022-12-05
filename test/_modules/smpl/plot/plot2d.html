@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -107,6 +108,10 @@
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
@@ -179,6 +184,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../smpl.html">smpl</a> &raquo;</li>
+        
       <li>smpl.plot.plot2d</li>
     
     
@@ -204,7 +211,7 @@
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span> <span class="k">as</span> <span class="n">splot</span>
 <span class="kn">from</span> <span class="nn">smpl.util</span> <span class="kn">import</span> <span class="n">util</span>
 
-<span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
+<div class="viewcode-block" id="default"><a class="viewcode-back" href="../../../autoapi/smpl/plot/plot2d/index.html#smpl.plot.default">[docs]</a><span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;xaxis&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">],</span>
     <span class="s2">&quot;yaxis&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">],</span>
     <span class="s2">&quot;zaxis&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">],</span>
@@ -222,14 +229,14 @@
         <span class="s2">&quot;Good default color map for missing datapoints since it does not include white.&quot;</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="c1"># &#39;zscale&#39; : [None,&quot;Rescale z values.&quot;],</span>
-<span class="p">}</span>
+<span class="p">}</span></div>
 
 <span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
 
 
-<div class="viewcode-block" id="plot2d_kwargs"><a class="viewcode-back" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot2d_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;plot2d_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<span class="k">def</span> <span class="nf">plot2d_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="plot2d_kwargs"><a class="viewcode-back" href="../../../autoapi/smpl/plot/plot2d/index.html#smpl.plot.plot2d_kwargs">[docs]</a><span class="k">def</span> <span class="nf">plot2d_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Set default plot2d_kwargs if not set.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
@@ -237,7 +244,7 @@
     <span class="k">return</span> <span class="n">kwargs</span></div>
 
 
-<div class="viewcode-block" id="plot2d"><a class="viewcode-back" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot2d">[docs]</a><span class="k">def</span> <span class="nf">plot2d</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">dataz</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="plot2d"><a class="viewcode-back" href="../../../autoapi/smpl/plot/plot2d/index.html#smpl.plot.plot2d">[docs]</a><span class="k">def</span> <span class="nf">plot2d</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">dataz</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates a 2D-Plot.</span>
 
@@ -257,7 +264,7 @@
         <span class="n">scatter_vplot</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">dataz</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">sort_xyz</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div class="viewcode-block" id="sort_xyz"><a class="viewcode-back" href="../../../autoapi/smpl/plot/plot2d/index.html#smpl.plot.sort_xyz">[docs]</a><span class="k">def</span> <span class="nf">sort_xyz</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
     <span class="n">p1</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;stable&quot;</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">p1</span><span class="p">])</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">p1</span><span class="p">])</span>
@@ -266,10 +273,10 @@
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">p2</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">p2</span><span class="p">]</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">p2</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span></div>
 
 
-<span class="k">def</span> <span class="nf">pcolormesh_vplot</span><span class="p">(</span>
+<div class="viewcode-block" id="pcolormesh_vplot"><a class="viewcode-back" href="../../../autoapi/smpl/plot/plot2d/index.html#smpl.plot.pcolormesh_vplot">[docs]</a><span class="k">def</span> <span class="nf">pcolormesh_vplot</span><span class="p">(</span>
     <span class="n">tvx</span><span class="p">,</span> <span class="n">tvy</span><span class="p">,</span> <span class="n">tvz</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">zaxis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">zscale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -304,10 +311,10 @@
     <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
     <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">zaxis</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xaxis</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">map_vplot</span><span class="p">(</span>
+<div class="viewcode-block" id="map_vplot"><a class="viewcode-back" href="../../../autoapi/smpl/plot/plot2d/index.html#smpl.plot.map_vplot">[docs]</a><span class="k">def</span> <span class="nf">map_vplot</span><span class="p">(</span>
     <span class="n">tvx</span><span class="p">,</span>
     <span class="n">tvy</span><span class="p">,</span>
     <span class="n">tvz</span><span class="p">,</span>
@@ -375,10 +382,10 @@
     <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
     <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">zaxis</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xaxis</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">scatter_vplot</span><span class="p">(</span>
+<div class="viewcode-block" id="scatter_vplot"><a class="viewcode-back" href="../../../autoapi/smpl/plot/plot2d/index.html#smpl.plot.scatter_vplot">[docs]</a><span class="k">def</span> <span class="nf">scatter_vplot</span><span class="p">(</span>
     <span class="n">vx</span><span class="p">,</span>
     <span class="n">vy</span><span class="p">,</span>
     <span class="n">vz</span><span class="p">,</span>
@@ -427,7 +434,7 @@
     <span class="n">cb</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">zaxis</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xaxis</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">yaxis</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

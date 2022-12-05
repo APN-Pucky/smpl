@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
 
   
@@ -73,7 +74,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -111,6 +112,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
@@ -138,6 +143,19 @@
 <li class="toctree-l2"><a class="reference internal" href="#smpl.stat.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.stat.unv_lambda"><code class="docutils literal notranslate"><span class="pre">unv_lambda()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#smpl.stat.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.Chi2">Chi2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.R2">R2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.fft">fft</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.get_interesting_domain">get_interesting_domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.mean">mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.no_dist">no_dist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.noisy">noisy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.normalize">normalize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.novar_mean">novar_mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.poisson_dist">poisson_dist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.unv">unv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.unv_lambda">unv_lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#smpl.stat.usd">usd</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
@@ -239,50 +257,50 @@
 }
 </style>
 <section id="module-smpl.stat">
-<span id="smpl-stat"></span><h1><a class="reference internal" href="#module-smpl.stat" title="smpl.stat"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a><a class="headerlink" href="#module-smpl.stat" title="Permalink to this heading">¶</a></h1>
+<span id="smpl-stat"></span><h1><a class="reference internal" href="../autoapi/smpl/stat/index.html#module-smpl.stat" title="smpl.stat"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a><a class="headerlink" href="#module-smpl.stat" title="Permalink to this heading">¶</a></h1>
 <p>Simplified statistics.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.Chi2" title="smpl.stat.Chi2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Chi2</span></code></a>(y, f[, sigmas])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.Chi2" title="smpl.stat.Chi2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Chi2</span></code></a>(y, f[, sigmas])</p></td>
 <td><p>Chi2 - Goodness of Fit</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.R2" title="smpl.stat.R2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R2</span></code></a>(y, f)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.R2" title="smpl.stat.R2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">R2</span></code></a>(y, f)</p></td>
 <td><p>R2 - Coefficient of determination</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_deviation</span></code>(y, f)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.average_deviation" title="smpl.stat.average_deviation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">average_deviation</span></code></a>(y, f)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.fft" title="smpl.stat.fft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft</span></code></a>(y)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.fft" title="smpl.stat.fft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft</span></code></a>(y)</p></td>
 <td><p>fft(y,t,sp,freq) =  Compute the FFT of <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.get_interesting_domain" title="smpl.stat.get_interesting_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interesting_domain</span></code></a>(f[, min_ch])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.get_interesting_domain" title="smpl.stat.get_interesting_domain"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interesting_domain</span></code></a>(f[, min_ch])</p></td>
 <td><p>Return interesting xmin and xmax of function <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.mean" title="smpl.stat.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>(n)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.mean" title="smpl.stat.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>(n)</p></td>
 <td><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with combined error of variance and unvertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.no_dist" title="smpl.stat.no_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">no_dist</span></code></a>(N)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.no_dist" title="smpl.stat.no_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">no_dist</span></code></a>(N)</p></td>
 <td><p>Return <code class="docutils literal notranslate"><span class="pre">N</span></code> with no uncertainties.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.noisy" title="smpl.stat.noisy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noisy</span></code></a>(x[, mean, std])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.noisy" title="smpl.stat.noisy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noisy</span></code></a>(x[, mean, std])</p></td>
 <td><p>Add gaussian noise to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.normalize" title="smpl.stat.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(ydata)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.normalize" title="smpl.stat.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(ydata)</p></td>
 <td><p>Return normalized <code class="docutils literal notranslate"><span class="pre">ydata</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.novar_mean" title="smpl.stat.novar_mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">novar_mean</span></code></a>(n)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.novar_mean" title="smpl.stat.novar_mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">novar_mean</span></code></a>(n)</p></td>
 <td><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with only the uncertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code> and no variance.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.poisson_dist" title="smpl.stat.poisson_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson_dist</span></code></a>(N)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.poisson_dist" title="smpl.stat.poisson_dist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">poisson_dist</span></code></a>(N)</p></td>
 <td><p>Return <code class="docutils literal notranslate"><span class="pre">N</span></code> with added poissonian uncertainties.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
 <td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.stat.unv_lambda" title="smpl.stat.unv_lambda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv_lambda</span></code></a>(f)</p></td>
-<td><p>Returns a function which applies <a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unv()</span></code></a> on the result of <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.unv_lambda" title="smpl.stat.unv_lambda"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv_lambda</span></code></a>(f)</p></td>
+<td><p>Returns a function which applies <a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unv()</span></code></a> on the result of <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.stat.usd" title="smpl.stat.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.usd" title="smpl.stat.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
 <td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
 </tr>
 </tbody>
@@ -475,7 +493,7 @@ Compute the FFT of <code class="docutils literal notranslate"><span class="pre">
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.stat.unv">
-<span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">unv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.stat.unv" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">unv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#unv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.unv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the nominal values of the numbers in NumPy array arr.</p>
 <p>Elements that are not numbers with uncertainties (derived from a
 class from this module) are passed through untouched (because a
@@ -489,12 +507,12 @@ numbers with uncertainties.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.stat.unv_lambda">
 <span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">unv_lambda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#unv_lambda"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.unv_lambda" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a function which applies <a class="reference internal" href="#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unv()</span></code></a> on the result of <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
+<dd><p>Returns a function which applies <a class="reference internal" href="../autoapi/smpl/stat/index.html#smpl.stat.unv" title="smpl.stat.unv"><code class="xref py py-func docutils literal notranslate"><span class="pre">unv()</span></code></a> on the result of <code class="docutils literal notranslate"><span class="pre">f</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.stat.usd">
-<span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">usd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.stat.usd" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">usd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat/stat.html#usd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.usd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the standard deviations of the numbers in NumPy array arr.</p>
 <p>Elements that are not numbers with uncertainties (derived from a
 class from this module) are passed through untouched (because a

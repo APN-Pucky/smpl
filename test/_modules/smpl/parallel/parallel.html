@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -107,6 +108,10 @@
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
@@ -179,6 +184,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../smpl.html">smpl</a> &raquo;</li>
+        
       <li>smpl.parallel.parallel</li>
     
     
@@ -203,11 +210,11 @@
 <span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append_doc</span>
 
 
-<span class="k">def</span> <span class="nf">queued</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+<div class="viewcode-block" id="queued"><a class="viewcode-back" href="../../../autoapi/smpl/parallel/parallel/index.html#smpl.parallel.queued">[docs]</a><span class="k">def</span> <span class="nf">queued</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="res"><a class="viewcode-back" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.res">[docs]</a><span class="k">def</span> <span class="nf">res</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<div class="viewcode-block" id="res"><a class="viewcode-back" href="../../../autoapi/smpl/parallel/parallel/index.html#smpl.parallel.res">[docs]</a><span class="k">def</span> <span class="nf">res</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parallel evaluation of the list generator from :func:`gen`.</span>
 
@@ -233,7 +240,7 @@
     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="gen"><a class="viewcode-back" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.gen">[docs]</a><span class="k">def</span> <span class="nf">gen</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="gen"><a class="viewcode-back" href="../../../autoapi/smpl/parallel/parallel/index.html#smpl.parallel.gen">[docs]</a><span class="k">def</span> <span class="nf">gen</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Generates parallel execution list generator.&quot;&quot;&quot;</span>
     <span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">queued</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">),</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
@@ -241,14 +248,14 @@
     <span class="k">yield</span> <span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="calc"><a class="viewcode-back" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.calc">[docs]</a><span class="nd">@append_doc</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="nd">@append_doc</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<div class="viewcode-block" id="calc"><a class="viewcode-back" href="../../../autoapi/smpl/parallel/parallel/index.html#smpl.parallel.calc">[docs]</a><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">g</span> <span class="o">=</span> <span class="n">gen</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="nb">next</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">g</span></div>
 
 
-<div class="viewcode-block" id="par"><a class="viewcode-back" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.par">[docs]</a><span class="k">def</span> <span class="nf">par</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="par"><a class="viewcode-back" href="../../../autoapi/smpl/parallel/parallel/index.html#smpl.parallel.par">[docs]</a><span class="k">def</span> <span class="nf">par</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parallel execution of f on each element of args and kwargs</span>
 
@@ -273,7 +280,7 @@
 
 
 <span class="c1"># TODO rework to same properties as par</span>
-<div class="viewcode-block" id="partitioned_parallel"><a class="viewcode-back" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.partitioned_parallel">[docs]</a><span class="k">def</span> <span class="nf">partitioned_parallel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="partitioned_parallel"><a class="viewcode-back" href="../../../autoapi/smpl/parallel/parallel/index.html#smpl.parallel.partitioned_parallel">[docs]</a><span class="k">def</span> <span class="nf">partitioned_parallel</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parallel execution of f on each element of args</span>
 
@@ -291,7 +298,7 @@
     <span class="k">return</span> <span class="n">res</span></div>
 
 
-<span class="n">parallel</span> <span class="o">=</span> <span class="n">partitioned_parallel</span>
+<div class="viewcode-block" id="parallel"><a class="viewcode-back" href="../../../autoapi/smpl/parallel/parallel/index.html#smpl.parallel.parallel">[docs]</a><span class="n">parallel</span> <span class="o">=</span> <span class="n">partitioned_parallel</span></div>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>

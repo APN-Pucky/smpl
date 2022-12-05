@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -70,7 +71,7 @@
             
             
               <div class="version">
-                1.0.0-3-gbe418a98
+                1.0.0-4-g93e736c3
               </div>
             
           
@@ -107,6 +108,10 @@
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
@@ -179,6 +184,8 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
+          <li><a href="../../smpl.html">smpl</a> &raquo;</li>
+        
       <li>smpl.stat.stat</li>
     
     
@@ -210,11 +217,11 @@
 
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
 
-<span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
-<span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
+<div class="viewcode-block" id="unv"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.unv">[docs]</a><span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span></div>
+<div class="viewcode-block" id="usd"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.usd">[docs]</a><span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span></div>
 
 
-<span class="k">def</span> <span class="nf">round_sig</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<div class="viewcode-block" id="round_sig"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.round_sig">[docs]</a><span class="k">def</span> <span class="nf">round_sig</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Round to ``sig`` significant digits.</span>
 
@@ -237,10 +244,10 @@
 <span class="sd">    &gt;&gt;&gt; round_sig(1.23456789, sig=4)</span>
 <span class="sd">    1.235</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sig</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sig</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">floor</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="R2"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.R2">[docs]</a><span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<div class="viewcode-block" id="R2"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.R2">[docs]</a><span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    R2 - Coefficient of determination</span>
 
@@ -261,10 +268,10 @@
     <span class="k">return</span> <span class="n">Rsq</span></div>
 
 
-<span class="n">r2</span> <span class="o">=</span> <span class="n">R2</span>
+<div class="viewcode-block" id="r2"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.r2">[docs]</a><span class="n">r2</span> <span class="o">=</span> <span class="n">R2</span></div>
 
 
-<div class="viewcode-block" id="Chi2"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.Chi2">[docs]</a><span class="k">def</span> <span class="nf">Chi2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Chi2"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.Chi2">[docs]</a><span class="k">def</span> <span class="nf">Chi2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">sigmas</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Chi2 - Goodness of Fit</span>
 
@@ -285,20 +292,20 @@
     <span class="k">return</span> <span class="n">chisq</span></div>
 
 
-<span class="n">chi2</span> <span class="o">=</span> <span class="n">Chi2</span>
+<div class="viewcode-block" id="chi2"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.chi2">[docs]</a><span class="n">chi2</span> <span class="o">=</span> <span class="n">Chi2</span></div>
 
 
-<span class="k">def</span> <span class="nf">average_deviation</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<div class="viewcode-block" id="average_deviation"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.average_deviation">[docs]</a><span class="k">def</span> <span class="nf">average_deviation</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
     <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="unv_lambda"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.unv_lambda">[docs]</a><span class="k">def</span> <span class="nf">unv_lambda</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<div class="viewcode-block" id="unv_lambda"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.unv_lambda">[docs]</a><span class="k">def</span> <span class="nf">unv_lambda</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Returns a function which applies :func:`unv` on the result of ``f``.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">unv</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="poisson_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.poisson_dist">[docs]</a><span class="k">def</span> <span class="nf">poisson_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<div class="viewcode-block" id="poisson_dist"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.poisson_dist">[docs]</a><span class="k">def</span> <span class="nf">poisson_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return ``N`` with added poissonian uncertainties.</span>
 
@@ -320,12 +327,12 @@
     <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="no_dist"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.no_dist">[docs]</a><span class="k">def</span> <span class="nf">no_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<div class="viewcode-block" id="no_dist"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.no_dist">[docs]</a><span class="k">def</span> <span class="nf">no_dist</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return ``N`` with no uncertainties.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">ydata</span><span class="p">):</span>
+<div class="viewcode-block" id="normalize"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.normalize">[docs]</a><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">ydata</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return normalized ``ydata``.</span>
 
@@ -348,12 +355,12 @@
     <span class="k">return</span> <span class="p">(</span><span class="n">ydata</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ydata</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="novar_mean"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.novar_mean">[docs]</a><span class="k">def</span> <span class="nf">novar_mean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="viewcode-block" id="novar_mean"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.novar_mean">[docs]</a><span class="k">def</span> <span class="nf">novar_mean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return mean of ``n`` with only the uncertainties of ``n`` and no variance.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="mean"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.mean">[docs]</a><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="viewcode-block" id="mean"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.mean">[docs]</a><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return mean of ``n`` with combined error of variance and unvertainties of ``n``.</span>
 
@@ -381,7 +388,7 @@
     <span class="k">return</span> <span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">usd</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">err</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="noisy"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.noisy">[docs]</a><span class="k">def</span> <span class="nf">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<div class="viewcode-block" id="noisy"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.noisy">[docs]</a><span class="k">def</span> <span class="nf">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add gaussian noise to ``x``.</span>
 
@@ -408,12 +415,12 @@
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
 
 
-<span class="k">def</span> <span class="nf">normal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="viewcode-block" id="normal"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.normal">[docs]</a><span class="k">def</span> <span class="nf">normal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="fft"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.fft">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">insert_eq</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">insert_eq</span><span class="p">()</span>
+<div class="viewcode-block" id="fft"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.fft">[docs]</a><span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the FFT of ``y``.</span>
 
@@ -433,7 +440,7 @@
     <span class="k">return</span> <span class="n">freq</span><span class="p">,</span> <span class="n">sp</span></div>
 
 
-<span class="k">def</span> <span class="nf">trim_domain</span><span class="p">(</span>
+<div class="viewcode-block" id="trim_domain"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.trim_domain">[docs]</a><span class="k">def</span> <span class="nf">trim_domain</span><span class="p">(</span>
     <span class="n">f</span><span class="p">,</span>
     <span class="n">fmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">min</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
     <span class="n">fmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
@@ -493,10 +500,10 @@
                 <span class="k">return</span> <span class="n">t2a</span><span class="p">,</span> <span class="n">t2b</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">t1b</span>
-    <span class="k">return</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span>
+    <span class="k">return</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span></div>
 
 
-<span class="k">def</span> <span class="nf">get_domain</span><span class="p">(</span>
+<div class="viewcode-block" id="get_domain"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.get_domain">[docs]</a><span class="k">def</span> <span class="nf">get_domain</span><span class="p">(</span>
     <span class="n">f</span><span class="p">,</span>
     <span class="n">fmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">min</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
     <span class="n">fmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
@@ -535,10 +542,10 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">t2a</span><span class="p">,</span> <span class="n">t2b</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">t1b</span>
+        <span class="k">return</span> <span class="n">t1a</span><span class="p">,</span> <span class="n">t1b</span></div>
 
 
-<span class="k">def</span> <span class="nf">is_monotone</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="viewcode-block" id="is_monotone"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.is_monotone">[docs]</a><span class="k">def</span> <span class="nf">is_monotone</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Test if function ``f`` is monotone.</span>
 
@@ -566,10 +573,10 @@
     <span class="k">if</span> <span class="n">tmax</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tmin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span> <span class="o">=</span> <span class="n">get_domain</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="n">test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">tmin</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">&gt;=</span> <span class="n">f</span><span class="p">(</span><span class="n">test</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">&gt;=</span> <span class="n">f</span><span class="p">(</span><span class="n">test</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span></div>
 
 
-<div class="viewcode-block" id="get_interesting_domain"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.html#smpl.stat.get_interesting_domain">[docs]</a><span class="k">def</span> <span class="nf">get_interesting_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">min_ch</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+<div class="viewcode-block" id="get_interesting_domain"><a class="viewcode-back" href="../../../autoapi/smpl/stat/stat/index.html#smpl.stat.get_interesting_domain">[docs]</a><span class="k">def</span> <span class="nf">get_interesting_domain</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">min_ch</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return interesting xmin and xmax of function ``f``.</span>
 
