@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                1.0.1-2-g05e22045
+                1.0.1-3-g3228c73f
               </div>
             
           
@@ -118,7 +118,29 @@
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Graph Profiling</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Line Profiling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Line Profiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tests-test-fit-py">tests/test_fit.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-fit">test_fit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-test-line-profiling-py">tests/test_line_profiling.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-as-mark">test_as_mark</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-test-line-profiling-doctests-py">tests/test_line_profiling_doctests.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">test_as_mark</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-test-plot-py">tests/test_plot.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-em">test_em</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tests-test-wrap-py">tests/test_wrap.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#test-wrap">test_wrap</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -213,6 +235,375 @@
 <section id="line-profiling">
 <h1>Line Profiling<a class="headerlink" href="#line-profiling" title="Permalink to this heading">¶</a></h1>
 <p>Only available on the github page: <a class="reference external" href="https://apn-pucky.github.io/smpl/">https://apn-pucky.github.io/smpl/</a></p>
+<section id="tests-test-fit-py">
+<h2>tests/test_fit.py<a class="headerlink" href="#tests-test-fit-py" title="Permalink to this heading">¶</a></h2>
+<section id="test-fit">
+<h3>test_fit<a class="headerlink" href="#test-fit" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-09</span> <span class="n">s</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">1.08884</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">plot</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">fit</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">234</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+   <span class="mi">234</span>                                           <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">235</span>                                               <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">   236                                               Fit and plot function to datax and datay.</span>
+<span class="s2">   237</span>
+<span class="s2">   238                                               Parameters</span>
+<span class="s2">   239                                               ----------</span>
+<span class="s2">   240                                               datax : array_like</span>
+<span class="s2">   241                                                   X data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
+<span class="s2">   242                                               datay : array_like</span>
+<span class="s2">   243                                                   Y data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
+<span class="s2">   244                                               function : func</span>
+<span class="s2">   245                                                   Fit function with parameters: ``x``, ``params``</span>
+<span class="s2">   246                                               **kwargs : optional</span>
+<span class="s2">   247                                                   see :func:`plot_kwargs`.</span>
+<span class="s2">   248                                               Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.</span>
+<span class="s2">   249</span>
+<span class="s2">   250                                               Returns</span>
+<span class="s2">   251                                               -------</span>
+<span class="s2">   252                                               array_like</span>
+<span class="s2">   253                                                   Optimized fit parameters of ``function`` to ``datax`` and ``datay``.</span>
+<span class="s2">   254                                                   If ``datay`` is complex, both the real and imaginary part are returned.</span>
+<span class="s2">   255</span>
+<span class="s2">   256                                               Examples</span>
+<span class="s2">   257                                               --------</span>
+<span class="s2">   258</span>
+<span class="s2">   259                                               .. plot::</span>
+<span class="s2">   260                                                   :include-source:</span>
+<span class="s2">   261</span>
+<span class="s2">   262                                                   &gt;&gt;&gt; from smpl import functions as f</span>
+<span class="s2">   263                                                   &gt;&gt;&gt; from smpl import plot</span>
+<span class="s2">   264                                                   &gt;&gt;&gt; param = plot.fit([0,1,2],[0,1,2],f.line)</span>
+<span class="s2">   265                                                   &gt;&gt;&gt; plot.unv(param).round()[0]</span>
+<span class="s2">   266                                                   1.0</span>
+<span class="s2">   267</span>
+<span class="s2">   268                                               &quot;&quot;&quot;</span>
+   <span class="mi">269</span>         <span class="mi">2</span>       <span class="mf">1900.0</span>    <span class="mf">950.0</span>      <span class="mf">0.0</span>      <span class="n">function</span> <span class="o">=</span> <span class="n">func</span>
+   <span class="mi">270</span>         <span class="mi">2</span>       <span class="mf">1300.0</span>    <span class="mf">650.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="s2">&quot;function&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+   <span class="mi">271</span>         <span class="mi">2</span>        <span class="mf">800.0</span>    <span class="mf">400.0</span>      <span class="mf">0.0</span>          <span class="n">function</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>
+   <span class="mi">272</span>         <span class="mi">2</span>       <span class="mf">1200.0</span>    <span class="mf">600.0</span>      <span class="mf">0.0</span>          <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>
+   <span class="mi">273</span>         <span class="mi">2</span>       <span class="mf">1600.0</span>    <span class="mf">800.0</span>      <span class="mf">0.0</span>          <span class="n">adata</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">adata</span><span class="p">]</span>
+   <span class="mi">274</span>                                               <span class="c1"># Fix parameter order if necessary</span>
+   <span class="mi">275</span>                                               <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+   <span class="mi">276</span>                                                   <span class="n">adata</span> <span class="o">=</span> <span class="p">[</span><span class="n">adata</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">function</span><span class="p">,</span> <span class="o">*</span><span class="n">adata</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+   <span class="mi">277</span>                                                   <span class="n">function</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="mi">278</span>                                                   <span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+   <span class="mi">279</span>         <span class="mi">2</span>      <span class="mf">14502.0</span>   <span class="mf">7251.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="s2">&quot;bins&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">280</span>                                                   <span class="c1"># yvalue will be overwritten</span>
+   <span class="mi">281</span>                                                   <span class="n">ndata</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">adata</span><span class="p">,</span> <span class="o">*</span><span class="n">adata</span><span class="p">]</span>
+   <span class="mi">282</span>                                                   <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">adata</span><span class="p">):</span>
+   <span class="mi">283</span>                                                       <span class="n">ndata</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">o</span>
+   <span class="mi">284</span>                                                       <span class="n">ndata</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">o</span> <span class="o">*</span> <span class="mi">0</span>
+   <span class="mi">285</span>                                                   <span class="n">adata</span> <span class="o">=</span> <span class="n">ndata</span>
+   <span class="mi">286</span>
+   <span class="mi">287</span>         <span class="mi">2</span>       <span class="mf">3100.0</span>   <span class="mf">1550.0</span>      <span class="mf">0.0</span>      <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;data must be pairs of x and y data&quot;</span>
+   <span class="mi">288</span>         <span class="mi">2</span>       <span class="mf">1900.0</span>    <span class="mf">950.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+   <span class="mi">289</span>         <span class="mi">2</span>       <span class="mf">1000.0</span>    <span class="mf">500.0</span>      <span class="mf">0.0</span>          <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span> <span class="o">=</span> <span class="n">adata</span>
+   <span class="mi">290</span>                                               <span class="k">else</span><span class="p">:</span>
+   <span class="mi">291</span>                                                   <span class="n">rs</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="mi">292</span>                                                   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+   <span class="mi">293</span>                                                       <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">adata</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+   <span class="mi">294</span>                                                       <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="s2">&quot;bins&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">295</span>                                                           <span class="n">rs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">datax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+   <span class="mi">296</span>                                                       <span class="k">else</span><span class="p">:</span>
+   <span class="mi">297</span>                                                           <span class="n">rs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+   <span class="mi">298</span>                                                   <span class="k">return</span> <span class="n">rs</span>
+   <span class="mi">299</span>
+   <span class="mi">300</span>         <span class="mi">2</span>      <span class="mf">95207.0</span>  <span class="mf">47603.5</span>      <span class="mf">0.0</span>      <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">301</span>
+   <span class="mi">302</span>         <span class="mi">2</span>     <span class="mf">111109.0</span>  <span class="mf">55554.5</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iscomplex</span><span class="p">(</span><span class="n">datay</span><span class="p">)):</span>
+   <span class="mi">303</span>                                                   <span class="n">label</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+   <span class="mi">304</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;(real)&quot;</span>
+   <span class="mi">305</span>                                                   <span class="n">r</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">306</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;(imag)&quot;</span>
+   <span class="mi">307</span>                                                   <span class="n">i</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">308</span>                                                   <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span>
+   <span class="mi">309</span>         <span class="mi">2</span>       <span class="mf">1000.0</span>    <span class="mf">500.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;auto_fit&quot;</span><span class="p">]:</span>
+   <span class="mi">310</span>                                                   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;function:&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+   <span class="mi">311</span>                                                   <span class="n">best_f</span><span class="p">,</span> <span class="n">best_ff</span><span class="p">,</span> <span class="n">lambda_f</span> <span class="o">=</span> <span class="n">ffit</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">312</span>                                                   <span class="k">if</span> <span class="n">best_f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+   <span class="mi">313</span>                                                       <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;auto_fit&quot;</span><span class="p">]</span>
+   <span class="mi">314</span>                                                       <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">best_f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">315</span>                                                   <span class="k">return</span> <span class="n">best_f</span><span class="p">,</span> <span class="n">best_ff</span><span class="p">,</span> <span class="n">lambda_f</span>
+   <span class="mi">316</span>         <span class="mi">2</span>        <span class="mf">800.0</span>    <span class="mf">400.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;also_fit&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;lpos&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+   <span class="mi">317</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;lpos&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+   <span class="mi">318</span>         <span class="mi">2</span> <span class="mf">1088606919.0</span> <span class="mf">544303459.5</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="n">_fit_impl</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.124802</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">plot</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">function</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">467</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+   <span class="mi">467</span>                                           <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">468</span>                                               <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">   469                                               Plot function ``func`` between ``xmin`` and ``xmax``</span>
+<span class="s2">   470</span>
+<span class="s2">   471                                               Parameters</span>
+<span class="s2">   472                                               ----------</span>
+<span class="s2">   473                                               func : function</span>
+<span class="s2">   474                                                   Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter</span>
+<span class="s2">   475                                               *args : optional</span>
+<span class="s2">   476                                                   arguments for ``func``</span>
+<span class="s2">   477                                               **kwargs : optional</span>
+<span class="s2">   478                                                   see :func:`plot_kwargs`.</span>
+<span class="s2">   479                                               &quot;&quot;&quot;</span>
+   <span class="mi">480</span>         <span class="mi">1</span>       <span class="mf">6801.0</span>   <span class="mf">6801.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmin&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmax&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">481</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmin&quot;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">get_interesting_domain</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+   <span class="mi">482</span>                                                   <span class="c1"># raise Exception(&quot;xmin or xmax missing.&quot;)</span>
+   <span class="mi">483</span>
+   <span class="mi">484</span>                                               <span class="c1"># if not util.has(&#39;lpos&#39;, kwargs) and not util.has(&#39;label&#39;, kwargs):</span>
+   <span class="mi">485</span>                                               <span class="c1">#    kwargs[&#39;lpos&#39;] = -1</span>
+   <span class="mi">486</span>         <span class="mi">1</span>       <span class="mf">1200.0</span>   <span class="mf">1200.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;fmt&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">487</span>         <span class="mi">1</span>        <span class="mf">400.0</span>    <span class="mf">400.0</span>      <span class="mf">0.0</span>          <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fmt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
+   <span class="mi">488</span>
+   <span class="mi">489</span>         <span class="mi">1</span>        <span class="mf">300.0</span>    <span class="mf">300.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="s2">&quot;label&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+   <span class="mi">490</span>         <span class="mi">1</span>      <span class="mf">54604.0</span>  <span class="mf">54604.0</span>      <span class="mf">0.0</span>          <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">491</span>         <span class="mi">1</span>    <span class="mf">5273592.0</span> <span class="mf">5273592.0</span>      <span class="mf">4.2</span>          <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fnc_legend</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">492</span>                                               <span class="k">else</span><span class="p">:</span>
+   <span class="mi">493</span>                                                   <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">494</span>
+   <span class="mi">495</span>         <span class="mi">1</span>     <span class="mf">222217.0</span> <span class="mf">222217.0</span>      <span class="mf">0.2</span>      <span class="n">xlin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xspace&quot;</span><span class="p">](</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmin&quot;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmax&quot;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">])</span>
+   <span class="mi">496</span>         <span class="mi">1</span>   <span class="mf">32764232.0</span> <span class="mf">32764232.0</span>     <span class="mf">26.3</span>      <span class="n">init_plot</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">497</span>
+   <span class="mi">498</span>                                               <span class="c1"># kwargs[&#39;lpos&#39;] = 0</span>
+   <span class="mi">499</span>                                               <span class="c1"># _plot(xfit, func(xfit, *args), **kwargs)</span>
+   <span class="mi">500</span>         <span class="mi">1</span>    <span class="mf">1564916.0</span> <span class="mf">1564916.0</span>      <span class="mf">1.3</span>      <span class="n">_function</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda_argd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xvar&quot;</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">),</span> <span class="n">xlin</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">501</span>         <span class="mi">1</span>        <span class="mf">800.0</span>    <span class="mf">800.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ss&quot;</span><span class="p">]:</span>
+   <span class="mi">502</span>         <span class="mi">1</span>   <span class="mf">84912604.0</span> <span class="mf">84912604.0</span>     <span class="mf">68.0</span>          <span class="n">save_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.814699</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">plot</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">init_plot</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">753</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+   <span class="mi">753</span>                                           <span class="k">def</span> <span class="nf">init_plot</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">754</span>         <span class="mi">3</span>       <span class="mf">1500.0</span>    <span class="mf">500.0</span>      <span class="mf">0.0</span>      <span class="n">fig</span> <span class="o">=</span> <span class="kc">None</span>
+   <span class="mi">755</span>         <span class="mi">3</span>       <span class="mf">9700.0</span>   <span class="mf">3233.3</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+   <span class="mi">756</span>                                                   <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">])</span>
+   <span class="mi">757</span>                                                   <span class="n">fig</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+   <span class="mi">758</span>         <span class="mi">2</span>       <span class="mf">4200.0</span>   <span class="mf">2100.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;init&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">util</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="s2">&quot;residue&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">759</span>         <span class="mi">2</span>        <span class="mf">600.0</span>    <span class="mf">300.0</span>      <span class="mf">0.0</span>          <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+   <span class="mi">760</span>         <span class="mi">2</span>    <span class="mf">1883640.0</span> <span class="mf">941820.0</span>      <span class="mf">0.2</span>              <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+   <span class="mi">761</span>                                                   <span class="k">else</span><span class="p">:</span>
+   <span class="mi">762</span>                                                       <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">])</span>
+   <span class="mi">763</span>         <span class="mi">2</span>       <span class="mf">1300.0</span>    <span class="mf">650.0</span>      <span class="mf">0.0</span>          <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;residue&quot;</span><span class="p">]:</span>
+   <span class="mi">764</span>         <span class="mi">2</span>  <span class="mf">779611879.0</span> <span class="mf">389805939.5</span>     <span class="mf">95.7</span>              <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span>
+   <span class="mi">765</span>         <span class="mi">3</span>      <span class="mf">13301.0</span>   <span class="mf">4433.7</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xlabel&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xlabel&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+   <span class="mi">766</span>                                                   <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xlabel&quot;</span><span class="p">])</span>
+   <span class="mi">767</span>         <span class="mi">3</span>       <span class="mf">4100.0</span>   <span class="mf">1366.7</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;ylabel&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ylabel&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+   <span class="mi">768</span>                                                   <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ylabel&quot;</span><span class="p">])</span>
+   <span class="mi">769</span>         <span class="mi">3</span>       <span class="mf">3400.0</span>   <span class="mf">1133.3</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xaxis&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xaxis&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+   <span class="mi">770</span>         <span class="mi">3</span>   <span class="mf">32837338.0</span> <span class="mf">10945779.3</span>      <span class="mf">4.0</span>          <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xaxis&quot;</span><span class="p">])</span>
+   <span class="mi">771</span>         <span class="mi">3</span>       <span class="mf">8502.0</span>   <span class="mf">2834.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;yaxis&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;yaxis&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+   <span class="mi">772</span>         <span class="mi">3</span>     <span class="mf">313324.0</span> <span class="mf">104441.3</span>      <span class="mf">0.0</span>          <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;yaxis&quot;</span><span class="p">])</span>
+   <span class="mi">773</span>         <span class="mi">3</span>       <span class="mf">5000.0</span>   <span class="mf">1666.7</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;next_color&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;next_color&quot;</span><span class="p">]:</span>
+   <span class="mi">774</span>                                                   <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">tee</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">_get_lines</span><span class="o">.</span><span class="n">prop_cycler</span><span class="p">))</span>
+   <span class="mi">775</span>                                                   <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">_get_lines</span><span class="o">.</span><span class="n">prop_cycler</span> <span class="o">=</span> <span class="n">it2</span>
+   <span class="mi">776</span>                                                   <span class="n">tmp_color</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it1</span><span class="p">)[</span><span class="s2">&quot;color&quot;</span><span class="p">]</span>
+   <span class="mi">777</span>                                                   <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data_color&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+   <span class="mi">778</span>                                                       <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;data_color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_color</span>
+   <span class="mi">779</span>                                                   <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fit_color&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+   <span class="mi">780</span>                                                       <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fit_color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_color</span>
+   <span class="mi">781</span>                                                   <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;function_color&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+   <span class="mi">782</span>                                                       <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;function_color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_color</span>
+   <span class="mi">783</span>         <span class="mi">3</span>        <span class="mf">800.0</span>    <span class="mf">266.7</span>      <span class="mf">0.0</span>      <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tests-test-line-profiling-py">
+<h2>tests/test_line_profiling.py<a class="headerlink" href="#tests-test-line-profiling-py" title="Permalink to this heading">¶</a></h2>
+<section id="test-as-mark">
+<h3>test_as_mark<a class="headerlink" href="#test-as-mark" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-09</span> <span class="n">s</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">2.2e-06</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_line_profiling</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">f</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">4</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+     <span class="mi">4</span>                                           <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+     <span class="mi">5</span>        <span class="mi">10</span>       <span class="mf">2200.0</span>    <span class="mf">220.0</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">2.8902e-05</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_line_profiling</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">g</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">8</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+     <span class="mi">8</span>                                           <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+     <span class="mi">9</span>         <span class="mi">1</span>      <span class="mf">28902.0</span>  <span class="mf">28902.0</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tests-test-line-profiling-doctests-py">
+<h2>tests/test_line_profiling_doctests.py<a class="headerlink" href="#tests-test-line-profiling-doctests-py" title="Permalink to this heading">¶</a></h2>
+<section id="id1">
+<h3>test_as_mark<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-09</span> <span class="n">s</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">1.901e-06</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_line_profiling_doctests</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">f</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">4</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+     <span class="mi">4</span>                                           <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+     <span class="mi">5</span>                                               <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">     6                                               &gt;&gt;&gt; f(0)</span>
+<span class="s2">     7                                               0</span>
+<span class="s2">     8                                               &quot;&quot;&quot;</span>
+     <span class="mi">9</span>        <span class="mi">10</span>       <span class="mf">1901.0</span>    <span class="mf">190.1</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">2.0702e-05</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_line_profiling_doctests</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">g</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">12</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+    <span class="mi">12</span>                                           <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="mi">13</span>                                               <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    14                                               &gt;&gt;&gt; g(10)</span>
+<span class="s2">    15                                               450</span>
+<span class="s2">    16</span>
+<span class="s2">    17                                               &quot;&quot;&quot;</span>
+    <span class="mi">18</span>         <span class="mi">1</span>      <span class="mf">20702.0</span>  <span class="mf">20702.0</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tests-test-plot-py">
+<h2>tests/test_plot.py<a class="headerlink" href="#tests-test-plot-py" title="Permalink to this heading">¶</a></h2>
+<section id="test-em">
+<h3>test_em<a class="headerlink" href="#test-em" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-09</span> <span class="n">s</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.692612</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">plot</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">function</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">467</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+   <span class="mi">467</span>                                           <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">468</span>                                               <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">   469                                               Plot function ``func`` between ``xmin`` and ``xmax``</span>
+<span class="s2">   470</span>
+<span class="s2">   471                                               Parameters</span>
+<span class="s2">   472                                               ----------</span>
+<span class="s2">   473                                               func : function</span>
+<span class="s2">   474                                                   Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter</span>
+<span class="s2">   475                                               *args : optional</span>
+<span class="s2">   476                                                   arguments for ``func``</span>
+<span class="s2">   477                                               **kwargs : optional</span>
+<span class="s2">   478                                                   see :func:`plot_kwargs`.</span>
+<span class="s2">   479                                               &quot;&quot;&quot;</span>
+   <span class="mi">480</span>        <span class="mi">12</span>      <span class="mf">73906.0</span>   <span class="mf">6158.8</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmin&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmax&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">481</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmin&quot;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">get_interesting_domain</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+   <span class="mi">482</span>                                                   <span class="c1"># raise Exception(&quot;xmin or xmax missing.&quot;)</span>
+   <span class="mi">483</span>
+   <span class="mi">484</span>                                               <span class="c1"># if not util.has(&#39;lpos&#39;, kwargs) and not util.has(&#39;label&#39;, kwargs):</span>
+   <span class="mi">485</span>                                               <span class="c1">#    kwargs[&#39;lpos&#39;] = -1</span>
+   <span class="mi">486</span>        <span class="mi">12</span>      <span class="mf">16002.0</span>   <span class="mf">1333.5</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;fmt&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+   <span class="mi">487</span>        <span class="mi">12</span>       <span class="mf">7601.0</span>    <span class="mf">633.4</span>      <span class="mf">0.0</span>          <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fmt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
+   <span class="mi">488</span>
+   <span class="mi">489</span>        <span class="mi">12</span>       <span class="mf">4800.0</span>    <span class="mf">400.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="s2">&quot;label&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+   <span class="mi">490</span>        <span class="mi">12</span>     <span class="mf">571143.0</span>  <span class="mf">47595.2</span>      <span class="mf">0.1</span>          <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">491</span>        <span class="mi">12</span>   <span class="mf">68798506.0</span> <span class="mf">5733208.8</span>      <span class="mf">9.9</span>          <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fnc_legend</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">492</span>                                               <span class="k">else</span><span class="p">:</span>
+   <span class="mi">493</span>                                                   <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">494</span>
+   <span class="mi">495</span>        <span class="mi">12</span>    <span class="mf">1784332.0</span> <span class="mf">148694.3</span>      <span class="mf">0.3</span>      <span class="n">xlin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xspace&quot;</span><span class="p">](</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmin&quot;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmax&quot;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">])</span>
+   <span class="mi">496</span>        <span class="mi">12</span>   <span class="mf">35453231.0</span> <span class="mf">2954435.9</span>      <span class="mf">5.1</span>      <span class="n">init_plot</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">497</span>
+   <span class="mi">498</span>                                               <span class="c1"># kwargs[&#39;lpos&#39;] = 0</span>
+   <span class="mi">499</span>                                               <span class="c1"># _plot(xfit, func(xfit, *args), **kwargs)</span>
+   <span class="mi">500</span>        <span class="mi">12</span>   <span class="mf">20405918.0</span> <span class="mf">1700493.2</span>      <span class="mf">2.9</span>      <span class="n">_function</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda_argd</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xvar&quot;</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">),</span> <span class="n">xlin</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+   <span class="mi">501</span>        <span class="mi">12</span>      <span class="mf">11100.0</span>    <span class="mf">925.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;ss&quot;</span><span class="p">]:</span>
+   <span class="mi">502</span>        <span class="mi">12</span>  <span class="mf">565485381.0</span> <span class="mf">47123781.8</span>     <span class="mf">81.6</span>          <span class="n">save_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tests-test-wrap-py">
+<h2>tests/test_wrap.py<a class="headerlink" href="#tests-test-wrap-py" title="Permalink to this heading">¶</a></h2>
+<section id="test-wrap">
+<h3>test_wrap<a class="headerlink" href="#test-wrap" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-09</span> <span class="n">s</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.00993574</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">wrap</span><span class="o">/</span><span class="n">wrap</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">get_latex</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">31</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+    <span class="mi">31</span>                                           <span class="k">def</span> <span class="nf">get_latex</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+    <span class="mi">32</span>                                               <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    33                                               Return a latex string for passed function.</span>
+<span class="s2">    34</span>
+<span class="s2">    35</span>
+<span class="s2">    36                                               Parameters</span>
+<span class="s2">    37                                               ----------</span>
+<span class="s2">    38                                               function : function_like</span>
+<span class="s2">    39                                                   function as str lambda or (oneline) function</span>
+<span class="s2">    40</span>
+<span class="s2">    41                                               Examples</span>
+<span class="s2">    42                                               --------</span>
+<span class="s2">    43                                               &gt;&gt;&gt; get_latex(lambda a,b,c,x : (a+b+c)*x,)</span>
+<span class="s2">    44                                               &#39;$x </span><span class="se">\\\\</span><span class="s2">left(a + b + c</span><span class="se">\\\\</span><span class="s2">right)$&#39;</span>
+<span class="s2">    45                                               &gt;&gt;&gt; get_latex(&quot;(a+b+c)*x&quot;)</span>
+<span class="s2">    46                                               &#39;$x </span><span class="se">\\\\</span><span class="s2">left(a + b + c</span><span class="se">\\\\</span><span class="s2">right)$&#39;</span>
+<span class="s2">    47                                               &gt;&gt;&gt; def fun(a,b,x,c):</span>
+<span class="s2">    48                                               ...     return (a+b+c)*x</span>
+<span class="s2">    49                                               &gt;&gt;&gt; get_latex(fun)</span>
+<span class="s2">    50                                               &#39;$x </span><span class="se">\\\\</span><span class="s2">left(a + b + c</span><span class="se">\\\\</span><span class="s2">right)$&#39;</span>
+<span class="s2">    51</span>
+<span class="s2">    52                                               &quot;&quot;&quot;</span>
+    <span class="mi">53</span>         <span class="mi">3</span>       <span class="mf">4700.0</span>   <span class="mf">1566.7</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="mi">54</span>                                                   <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">function</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
+    <span class="mi">55</span>                                               <span class="k">else</span><span class="p">:</span>
+    <span class="mi">56</span>         <span class="mi">3</span>       <span class="mf">2100.0</span>    <span class="mf">700.0</span>      <span class="mf">0.0</span>          <span class="n">l</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="mi">57</span>         <span class="mi">2</span>        <span class="mf">800.0</span>    <span class="mf">400.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="s2">&quot;&lt;lambda&gt;&quot;</span><span class="p">:</span>
+    <span class="mi">58</span>         <span class="mi">1</span>        <span class="mf">200.0</span>    <span class="mf">200.0</span>      <span class="mf">0.0</span>          <span class="k">try</span><span class="p">:</span>
+    <span class="mi">59</span>         <span class="mi">1</span>        <span class="mf">200.0</span>    <span class="mf">200.0</span>      <span class="mf">0.0</span>              <span class="k">try</span><span class="p">:</span>
+    <span class="mi">60</span>         <span class="mi">1</span>     <span class="mf">202815.0</span> <span class="mf">202815.0</span>      <span class="mf">2.0</span>                  <span class="n">cc</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">findsource</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+    <span class="mi">61</span>         <span class="mi">1</span>        <span class="mf">300.0</span>    <span class="mf">300.0</span>      <span class="mf">0.0</span>                  <span class="n">f</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mi">62</span>         <span class="mi">2</span>       <span class="mf">3600.0</span>   <span class="mf">1800.0</span>      <span class="mf">0.0</span>                      <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span>
+    <span class="mi">63</span>         <span class="mi">2</span>        <span class="mf">700.0</span>    <span class="mf">350.0</span>      <span class="mf">0.0</span>                      <span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;lambda&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="mi">64</span>         <span class="mi">2</span>        <span class="mf">400.0</span>    <span class="mf">200.0</span>      <span class="mf">0.0</span>                      <span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="mi">65</span>         <span class="mi">2</span>        <span class="mf">400.0</span>    <span class="mf">200.0</span>      <span class="mf">0.0</span>                      <span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="mi">66</span>         <span class="mi">1</span>        <span class="mf">200.0</span>    <span class="mf">200.0</span>      <span class="mf">0.0</span>                      <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="mi">67</span>                                                           <span class="p">)</span>
+    <span class="mi">68</span>         <span class="mi">1</span>    <span class="mf">4505534.0</span> <span class="mf">4505534.0</span>     <span class="mf">45.3</span>                  <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
+    <span class="mi">69</span>                                                       <span class="k">except</span> <span class="n">TokenError</span><span class="p">:</span>
+    <span class="mi">70</span>                                                           <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+    <span class="mi">71</span>                                                               <span class="s2">&quot;Make sure there is a &#39;,&#39; behind the lambda expression and no commas are in the lambda expression and no newlines&quot;</span>
+    <span class="mi">72</span>                                                           <span class="p">)</span>
+    <span class="mi">73</span>                                                   <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+    <span class="mi">74</span>                                                       <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">lambda$(&quot;</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
+    <span class="mi">75</span>         <span class="mi">2</span>       <span class="mf">2000.0</span>   <span class="mf">1000.0</span>      <span class="mf">0.0</span>      <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="mi">76</span>         <span class="mi">1</span>       <span class="mf">1101.0</span>   <span class="mf">1101.0</span>      <span class="mf">0.0</span>          <span class="k">if</span> <span class="n">function</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="mi">77</span>         <span class="mi">1</span>       <span class="mf">3400.0</span>   <span class="mf">3400.0</span>      <span class="mf">0.0</span>              <span class="n">l</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="mi">78</span>                                                   <span class="k">else</span><span class="p">:</span>
+    <span class="mi">79</span>         <span class="mi">1</span>        <span class="mf">300.0</span>    <span class="mf">300.0</span>      <span class="mf">0.0</span>              <span class="k">try</span><span class="p">:</span>
+    <span class="mi">80</span>         <span class="mi">1</span>     <span class="mf">303922.0</span> <span class="mf">303922.0</span>      <span class="mf">3.1</span>                  <span class="n">cc</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">findsource</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+    <span class="mi">81</span>         <span class="mi">1</span>      <span class="mf">23802.0</span>  <span class="mf">23802.0</span>      <span class="mf">0.2</span>                  <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;return&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="mi">82</span>         <span class="mi">1</span>    <span class="mf">4878162.0</span> <span class="mf">4878162.0</span>     <span class="mf">49.1</span>                  <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
+    <span class="mi">83</span>                                                       <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+    <span class="mi">84</span>                                                           <span class="n">l</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="mi">85</span>
+    <span class="mi">86</span>         <span class="mi">3</span>       <span class="mf">1101.0</span>    <span class="mf">367.0</span>      <span class="mf">0.0</span>      <span class="k">return</span> <span class="n">l</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
 

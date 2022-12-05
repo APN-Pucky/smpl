@@ -7,4 +7,4 @@ Only available on the github page: https://apn-pucky.github.io/smpl/
    :target: ../combined.svg
 
 .. raw:: html
-    :file: ../../prof/combined.svg
+    :file: ../../../prof/combined.svg
