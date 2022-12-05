@@ -10,7 +10,7 @@ from smpl.plot.plot import init_plot
 # from smpl.animation.animation import FigAnimation
 
 # @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
-# @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot)
+@pytest.mark.line_profile.with_args(plot.function, plot.fit, init_plot)
 def test_animation():
     plt.ioff()
 
@@ -42,7 +42,7 @@ bahnh = 0
 bahnhs = 0
 
 # @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
-# @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot)
+@pytest.mark.line_profile.with_args(plot.function, plot.fit, init_plot)
 def test_histogram():
     global c, datax, datay, bahnh, bahnhs
     n = 13
