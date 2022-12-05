@@ -43,31 +43,6 @@
 
    autoapi/index
 
-
-:mod:`smpl` package
-===================
-.. currentmodule:: smpl
-.. automodule:: smpl
-.. autosummary::
-   :toctree: _autosummary
-   :template: as_module.rst
-   :caption: modules:
-
-   animation
-   data
-   debug
-   doc
-   fit
-   functions
-   interpolate
-   io
-   latex
-   parallel
-   plot
-   stat
-   util
-   wrap
-
 .. toctree::
    :glob:
    :maxdepth: 3  

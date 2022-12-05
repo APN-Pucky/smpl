@@ -45,7 +45,7 @@ project = info["tool"]["poetry"]["name"]
 copyright = str(datetime.datetime.now().year) + ", Alexander Puck Neuwirth"
 author = ", ".join(info["tool"]["poetry"]["authors"])
 version = re.sub("^", "", os.popen("git describe --tags").read().strip())
-rst_epilog = f""".. |project| replace:: {project}"""
+rst_epilog = f""".. |project| replace:: {project} \n\n"""
 
 # -- General configuration ---------------------------------------------------
 
@@ -76,7 +76,7 @@ autosummary_generate = True
 autosummary_imported_members = True
 
 autoapi_type = "python"
-autoapi_dirs = ["../../smpl"]
+autoapi_dirs = ["../../" + project]
 autoapi_python_class_content = "both"
 autodoc_typehints = "description"
 
