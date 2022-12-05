@@ -422,7 +422,7 @@ devel = ["colorama", "json-spec", "jsonschema", "pylint", "pytest", "pytest-benc
 
 [[package]]
 name = "filelock"
-version = "3.8.1"
+version = "3.8.2"
 description = "A platform independent file lock."
 category = "dev"
 optional = false
@@ -1055,7 +1055,7 @@ traitlets = "*"
 
 [[package]]
 name = "mdit-py-plugins"
-version = "0.3.1"
+version = "0.3.2"
 description = "Collection of plugins for markdown-it-py"
 category = "dev"
 optional = false
@@ -1742,11 +1742,11 @@ testing = ["fields", "hunter", "process-tests", "pytest-xdist", "six", "virtuale
 
 [[package]]
 name = "pytest-line-profiler-apn"
-version = "0.1.4"
+version = "0.1.5"
 description = "Profile code executed by pytest"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 line-profiler = "*"
@@ -2441,7 +2441,7 @@ opt = ["iminuit", "ipywidgets"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "256e1fdb98781d474639889898edd81815df638a846a88df2acbfb3742fb8221"
+content-hash = "a3632a8be7a1e82043133e7e22aafc20301bd3486a8083b0fa9320f1e6fcba8d"
 
 [metadata.files]
 alabaster = [
@@ -2886,8 +2886,8 @@ fastjsonschema = [
     {file = "fastjsonschema-2.16.2.tar.gz", hash = "sha256:01e366f25d9047816fe3d288cbfc3e10541daf0af2044763f3d0ade42476da18"},
 ]
 filelock = [
-    {file = "filelock-3.8.1-py3-none-any.whl", hash = "sha256:3156639b1454b5f828255abf5710f7fc1e10dac69bde3e09e6189b29a91f2505"},
-    {file = "filelock-3.8.1.tar.gz", hash = "sha256:9255d3cd8de8fcb2a441444f7a4f1949ae826da36cd070dc3e0c883614b4bbad"},
+    {file = "filelock-3.8.2-py3-none-any.whl", hash = "sha256:8df285554452285f79c035efb0c861eb33a4bcfa5b7a137016e32e6a90f9792c"},
+    {file = "filelock-3.8.2.tar.gz", hash = "sha256:7565f628ea56bfcd8e54e42bdc55da899c85c1abfe1b5bcfd147e9188cebb3b2"},
 ]
 fonttools = [
     {file = "fonttools-4.38.0-py3-none-any.whl", hash = "sha256:820466f43c8be8c3009aef8b87e785014133508f0de64ec469e4efb643ae54fb"},
@@ -3282,8 +3282,8 @@ matplotlib-inline = [
     {file = "matplotlib_inline-0.1.6-py3-none-any.whl", hash = "sha256:f1f41aab5328aa5aaea9b16d083b128102f8712542f819fe7e6a420ff581b311"},
 ]
 mdit-py-plugins = [
-    {file = "mdit-py-plugins-0.3.1.tar.gz", hash = "sha256:3fc13298497d6e04fe96efdd41281bfe7622152f9caa1815ea99b5c893de9441"},
-    {file = "mdit_py_plugins-0.3.1-py3-none-any.whl", hash = "sha256:606a7f29cf56dbdfaf914acb21709b8f8ee29d857e8f29dcc33d8cb84c57bfa1"},
+    {file = "mdit-py-plugins-0.3.2.tar.gz", hash = "sha256:c37ca25a4a5244b41cc3b34b9d7762a96ee0416dd43efaa837304d592a84995f"},
+    {file = "mdit_py_plugins-0.3.2-py3-none-any.whl", hash = "sha256:01e1c0f5432792d79ef627cd1745ce7c240d88d84b4e9dc6e87529a0f3ebba3e"},
 ]
 mdurl = [
     {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
@@ -3677,7 +3677,8 @@ pytest-cov = [
     {file = "pytest_cov-4.0.0-py3-none-any.whl", hash = "sha256:2feb1b751d66a8bd934e5edfa2e961d11309dc37b73b0eabe73b5945fee20f6b"},
 ]
 pytest-line-profiler-apn = [
-    {file = "pytest-line-profiler-apn-0.1.4.tar.gz", hash = "sha256:2ea28e966b537d87cb7a60a12932a6aaac2290099802f6717bd3ab58c8804213"},
+    {file = "pytest_line_profiler_apn-0.1.5-py3-none-any.whl", hash = "sha256:d1ad4b28a1063e8639f09ce8672ea42a4b3d33e34f92e9041c706cf7c91d8b3c"},
+    {file = "pytest_line_profiler_apn-0.1.5.tar.gz", hash = "sha256:620b5f16a192ba3e7a77d0ed67d77f3d394d862250df5206cd96e570047f859d"},
 ]
 pytest-profiling = [
     {file = "pytest-profiling-1.7.0.tar.gz", hash = "sha256:93938f147662225d2b8bd5af89587b979652426a8a6ffd7e73ec4a23e24b7f29"},
