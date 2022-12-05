@@ -45,7 +45,7 @@ project = info["tool"]["poetry"]["name"]
 copyright = str(datetime.datetime.now().year) + ", Alexander Puck Neuwirth"
 author = ", ".join(info["tool"]["poetry"]["authors"])
 version = re.sub("^", "", os.popen("git describe --tags").read().strip())
-rst_prolog = f""".. |project| replace:: {project}"""
+rst_epilog = f""".. |project| replace:: {project}"""
 
 # -- General configuration ---------------------------------------------------
 
