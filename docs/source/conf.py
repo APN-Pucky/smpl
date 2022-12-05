@@ -37,8 +37,10 @@ version = re.sub("^", "", os.popen("git describe --tags").read().strip())
 
 
 # -- Project information -----------------------------------------------------
-
-info = toml.load("../../pyproject.toml")
+try:
+    info = toml.load("../../pyproject.toml")
+except FileNotFoundError:
+    info = toml.load("pyproject.toml")
 project = info["tool"]["poetry"]["name"]
 copyright = str(datetime.datetime.now().year) + ", Alexander Puck Neuwirth"
 author = ", ".join(info["tool"]["poetry"]["authors"])
