@@ -63,7 +63,7 @@ extensions = [
     "matplotlib.sphinxext.plot_directive",
     #'numpydoc',
     "sphinx_math_dollar",
-    "sphinx.ext.autosummary",
+    #    "sphinx.ext.autosummary",
     "sphinx.ext.coverage",
     "nbsphinx",
     #'jupyter_sphinx',
@@ -72,8 +72,8 @@ extensions = [
 ]
 # nbsphinx_execute = 'always'
 # nbsphinx_widgets_path=""
-autosummary_generate = True
-autosummary_imported_members = True
+# autosummary_generate = True
+# autosummary_imported_members = True
 
 autoapi_type = "python"
 autoapi_dirs = ["../../" + project]
