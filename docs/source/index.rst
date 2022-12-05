@@ -6,19 +6,8 @@
 smpl |version| documentation
 ============================
 
-Install
-=======
-
-Stable version::
-
-   $ pip install smpl
-
-Dev version::
-
-   $ pip install --index-url https://test.pypi.org/simple/ smpl
-
-
-
+.. include:: ../../README.md
+   :parser: myst_parser.sphinx_
 
 .. toctree::
    :glob:

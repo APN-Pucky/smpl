@@ -35,7 +35,7 @@ sphinx_autobuild = "*"
 sphinx_math_dollar = "*"
 pandoc = "*"
 numpydoc = "*"
-#myst-parser  = "*"
+myst-parser  = "*"
 
 [tool.poetry.group.dev]
 optional = true
