@@ -307,7 +307,6 @@ def fit(func, *adata, **kwargs):
         i = fit(datax, datay.imag, function=function, **kwargs)
         return r, i
     if kwargs["auto_fit"]:
-        print("function:", function)
         best_f, best_ff, lambda_f = ffit.auto(datax, datay, function, **kwargs)
         if best_f is not None:
             del kwargs["auto_fit"]
