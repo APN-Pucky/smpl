@@ -12,7 +12,9 @@ def _fit_minuit_leastsquares(datax, datay, function, yerr, params=None, **kwargs
     # TODO check/add params
     if params is None:
         params = []
-    least_squares = LeastSquares(datax, datay, yerr, function)
+    least_squares = LeastSquares(
+        datax, datay, yerr if yerr is not None else 1, function
+    )
     m = Minuit(least_squares, *params)
     m.migrad()
     m.hesse()

@@ -155,6 +155,8 @@ def fit(datax, datay, function, **kwargs):
         fitt = _fit_curvefit(x, y, tmp, params=params, yerr=yerr)
     elif fitter is Fitter.SCIPY_ODR:
         fitt = _fit_odr(x, y, tmp, params=params, xerr=xerr, yerr=yerr)
+    else:
+        raise ValueError("Unknown fitter: {}".format(fitter))
 
     return _unwrap_param(fitt, fixed, Ntot)
 

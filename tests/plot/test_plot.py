@@ -13,7 +13,7 @@ def solution_gompertz(t, a, b, c):
     return 1 / b * np.exp(np.exp(-t * a) * c)
 
 
-@pytest.mark.line_profile.with_args(plot.function)
+# @pytest.mark.line_profile.with_args(plot.function)
 def test_em():
     for a in [1, 2]:
         for b in [1, 2]:
