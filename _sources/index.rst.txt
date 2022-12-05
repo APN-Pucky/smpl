@@ -7,16 +7,10 @@
 ============================
 
 
-Install
-=======
 
-Stable version::
+.. include:: ../../README.md
+   :parser: myst_parser.sphinx_
 
-   $ pip install smpl
-
-Dev version::
-
-   $ pip install --index-url https://test.pypi.org/simple/ smpl
 
 .. toctree::
    :glob:
@@ -43,31 +37,11 @@ Dev version::
 
    example/*
 
+.. toctree::
+   :titlesonly:
+   :caption: Module:
 
-
-:mod:`smpl` package
-===================
-.. currentmodule:: smpl
-.. automodule:: smpl
-.. autosummary::
-   :toctree: _autosummary
-   :template: as_module.rst
-   :caption: modules:
-
-   animation
-   data
-   debug
-   doc
-   fit
-   functions
-   interpolate
-   io
-   latex
-   parallel
-   plot
-   stat
-   util
-   wrap
+   autoapi/index
 
 .. toctree::
    :glob:

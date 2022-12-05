@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.latex.latex &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="smpl.parallel" href="../../parallel/index.html" />
+    <link rel="prev" title="smpl.latex" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../animation/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../data/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../debug/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fit/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../functions/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../interpolate/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.interpolate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../io/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex.latex</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../parallel/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plot/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../stat/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../util/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../wrap/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../performance/line.html">Line Profiling</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">API Reference</a> &raquo;</li>
+        
+          <li><a href="../../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl</span></code></a> &raquo;</li>
+        
+          <li><a href="../index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex.latex</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/smpl/latex/latex/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="module-smpl.latex.latex">
+<span id="smpl-latex-latex"></span><h1><a class="reference internal" href="#module-smpl.latex.latex" title="smpl.latex.latex"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex.latex</span></code></a><a class="headerlink" href="#module-smpl.latex.latex" title="Permalink to this heading">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading">¶</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.latex.latex.si" title="smpl.latex.latex.si"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si</span></code></a>(s[, u, fmt])</p></td>
+<td><p>Get number with uncertainty and unit in <code class="docutils literal notranslate"><span class="pre">si</span></code> format for latex.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.latex.latex.si_line" title="smpl.latex.latex.si_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_line</span></code></a>(a[, skip, fmt])</p></td>
+<td><p>Get array <code class="docutils literal notranslate"><span class="pre">a</span></code> in the format of a line of a latex table.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.latex.latex.si_ttab" title="smpl.latex.latex.si_ttab"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_ttab</span></code></a>(tab[, skip, fmt])</p></td>
+<td><p>Transposed <a class="reference internal" href="#smpl.latex.latex.si_tab" title="smpl.latex.latex.si_tab"><code class="xref py py-func docutils literal notranslate"><span class="pre">si_tab()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.latex.latex.si_tab" title="smpl.latex.latex.si_tab"><code class="xref py py-obj docutils literal notranslate"><span class="pre">si_tab</span></code></a>(tab[, skip, fmt])</p></td>
+<td><p>Get arrays of (uncertainty) numbers in  a latex table compatible form.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.latex.latex.transpose_table" title="smpl.latex.latex.transpose_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transpose_table</span></code></a>(strtab)</p></td>
+<td><p>Transpose a latex table and return it in latex format.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.latex.latex.si">
+<span class="sig-prename descclassname"><span class="pre">smpl.latex.latex.</span></span><span class="sig-name descname"><span class="pre">si</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/latex/latex.html#si"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.latex.si" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get number with uncertainty and unit in <code class="docutils literal notranslate"><span class="pre">si</span></code> format for latex.</p>
+<section id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>s<span class="classifier">ufloat</span></dt><dd><p>number to be returned in a latex compatible format.</p>
+</dd>
+<dt>u<span class="classifier">str</span></dt><dd><p>unit of that number.</p>
+</dd>
+<dt>fmt<span class="classifier">str</span></dt><dd><p>format string for the numbers.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>str</dt><dd><p>latex SI string of the number with it’s uncertainty and unit.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h4>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">si</span><span class="p">(</span><span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mf">0.1</span><span class="p">))</span>
+<span class="go">&#39;\\SI{2000.00+-0.10}{}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">si</span><span class="p">(</span><span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">meter&quot;</span><span class="p">)</span>
+<span class="go">&#39;\\SI{2000.00+-0.10}{\\meter}&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">si</span><span class="p">(</span><span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">meter&quot;</span><span class="p">,</span> <span class="n">io</span><span class="o">.</span><span class="n">gf</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="go">&#39;\\SI{2.0+-0.0e+03}{\\meter}&#39;</span>
+</pre></div>
+</div>
+</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> (<em>str</em>) – </p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.latex.latex.si_line">
+<span class="sig-prename descclassname"><span class="pre">smpl.latex.latex.</span></span><span class="sig-name descname"><span class="pre">si_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/latex/latex.html#si_line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.latex.si_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get array <code class="docutils literal notranslate"><span class="pre">a</span></code> in the format of a line of a latex table.</p>
+<section id="id1">
+<h4>Examples<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">si_line</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,])</span>
+<span class="go">&#39;\\SI{1}{}&amp;\\SI{2}{}&amp;\\SI{3}{}\\\\\n&#39;</span>
+</pre></div>
+</div>
+</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>skip</strong> (<em>int</em>) – </p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.latex.latex.si_ttab">
+<span class="sig-prename descclassname"><span class="pre">smpl.latex.latex.</span></span><span class="sig-name descname"><span class="pre">si_ttab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/latex/latex.html#si_ttab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.latex.si_ttab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transposed <a class="reference internal" href="#smpl.latex.latex.si_tab" title="smpl.latex.latex.si_tab"><code class="xref py py-func docutils literal notranslate"><span class="pre">si_tab()</span></code></a>.</p>
+<section id="id2">
+<h4>Parameters<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>tab<span class="classifier">array_like</span></dt><dd><p>Array containing the values of the table</p>
+</dd>
+<dt>skip<span class="classifier">number</span></dt><dd><p>Skip this many table lines</p>
+</dd>
+<dt>fmt<span class="classifier">str</span></dt><dd><p>format string for the numbers</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h4>Returns<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>tabstr<span class="classifier">str</span></dt><dd><p>table latex string</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h4>Examples<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h4>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">si_ttab</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="go">&#39;\\SI{1}{}&amp;\\SI{3}{}\\\\\n\\SI{2}{}&amp;\\SI{4}{}\\\\\n&#39;</span>
+</pre></div>
+</div>
+</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>skip</strong> (<em>int</em>) – </p></li>
+<li><p><strong>fmt</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.latex.latex.si_tab">
+<span class="sig-prename descclassname"><span class="pre">smpl.latex.latex.</span></span><span class="sig-name descname"><span class="pre">si_tab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tab</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'{}'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/latex/latex.html#si_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.latex.si_tab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get arrays of (uncertainty) numbers in  a latex table compatible form.</p>
+<section id="id5">
+<h4>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>tab<span class="classifier">array_like</span></dt><dd><p>Array containing the values of the table</p>
+</dd>
+<dt>skip<span class="classifier">number</span></dt><dd><p>Skip this many table lines</p>
+</dd>
+<dt>fmt<span class="classifier">str</span></dt><dd><p>format string for the numbers</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h4>Returns<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h4>
+<p>str</p>
+</section>
+<section id="id7">
+<h4>Examples<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">si_tab</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="go">&#39;\\SI{1}{}&amp;\\SI{2}{}\\\\\n\\SI{3}{}&amp;\\SI{4}{}\\\\\n&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.latex.latex.transpose_table">
+<span class="sig-prename descclassname"><span class="pre">smpl.latex.latex.</span></span><span class="sig-name descname"><span class="pre">transpose_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strtab</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/latex/latex.html#transpose_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.latex.latex.transpose_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transpose a latex table and return it in latex format.</p>
+<section id="id8">
+<h4>Examples<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h4>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transpose_table</span><span class="p">(</span><span class="n">si_tab</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]))</span>
+<span class="go">&#39;\\SI{1}{}&amp;\\SI{3}{}\\\\\n\\SI{2}{}&amp;\\SI{4}{}\\\\\n&#39;</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../parallel/index.html" class="btn btn-neutral float-right" title="smpl.parallel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="smpl.latex" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
