@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.0.1-9-g43a3248d
+                1.0.1-10-g9a5ab2db
               </div>
             
           
@@ -883,24 +883,19 @@
             <span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extrapolate_max&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">))),</span>
             <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">],</span>
         <span class="p">)</span>
-        <span class="n">__function</span><span class="p">(</span>
-            <span class="n">fitted</span><span class="p">,</span>
-            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xspace&quot;</span><span class="p">](</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">xxfit</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">xfit</span><span class="p">),</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">]),</span>
-            <span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extrapolate_fmt&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">),</span>
-            <span class="n">color</span><span class="o">=</span><span class="n">ll</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span>
-            <span class="n">hatch</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extrapolate_hatch&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;||&quot;</span><span class="p">),</span>
-            <span class="n">sigmas</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;sigmas&quot;</span><span class="p">],</span>
-            <span class="n">alpha</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
-        <span class="n">__function</span><span class="p">(</span>
-            <span class="n">fitted</span><span class="p">,</span>
-            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xspace&quot;</span><span class="p">](</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">xfit</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">xxfit</span><span class="p">),</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">]),</span>
-            <span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extrapolate_fmt&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">),</span>
-            <span class="n">color</span><span class="o">=</span><span class="n">ll</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span>
-            <span class="n">hatch</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extrapolate_hatch&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;||&quot;</span><span class="p">),</span>
-            <span class="n">sigmas</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;sigmas&quot;</span><span class="p">],</span>
-            <span class="n">alpha</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">],</span>
-        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">pmin</span><span class="p">,</span> <span class="n">pmax</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">xxfit</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">xfit</span><span class="p">)),</span>
+            <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">xfit</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">xxfit</span><span class="p">)),</span>
+        <span class="p">]:</span>
+            <span class="n">__function</span><span class="p">(</span>
+                <span class="n">fitted</span><span class="p">,</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xspace&quot;</span><span class="p">](</span><span class="n">pmin</span><span class="p">,</span> <span class="n">pmax</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;steps&quot;</span><span class="p">]),</span>
+                <span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extrapolate_fmt&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">),</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">ll</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span>
+                <span class="n">hatch</span><span class="o">=</span><span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;extrapolate_hatch&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;||&quot;</span><span class="p">),</span>
+                <span class="n">sigmas</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;sigmas&quot;</span><span class="p">],</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
     <span class="k">return</span> <span class="n">ll</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span> <span class="n">xfit</span><span class="p">,</span> <span class="n">fitted</span><span class="p">(</span><span class="n">xfit</span><span class="p">)</span></div>
 
 
