@@ -87,7 +87,7 @@ def test_histogram():
 
 
 # @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
-# @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot)
+@pytest.mark.line_profile.with_args(plot.function, plot.fit, init_plot)
 def test_subplots():
     plt.ioff()
     for a in tqdm.tqdm(np.linspace(0, 10, 200)):
