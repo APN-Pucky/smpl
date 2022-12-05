@@ -11,6 +11,7 @@ smpl.egg-info/
 .coverage
 coverage.xml
 docs/source/example/**/*.py
+docs/source/example/**/*.gif
 test.out
 prof/
 debug_table.csv
