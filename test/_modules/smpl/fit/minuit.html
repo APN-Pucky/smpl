@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.0.1-8-g665e0a3d
+                1.0.1-9-g43a3248d
               </div>
             
           
@@ -199,7 +199,9 @@
     <span class="c1"># TODO check/add params</span>
     <span class="k">if</span> <span class="n">params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">least_squares</span> <span class="o">=</span> <span class="n">LeastSquares</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">yerr</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
+    <span class="n">least_squares</span> <span class="o">=</span> <span class="n">LeastSquares</span><span class="p">(</span>
+        <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">yerr</span> <span class="k">if</span> <span class="n">yerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mi">1</span><span class="p">,</span> <span class="n">function</span>
+    <span class="p">)</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">Minuit</span><span class="p">(</span><span class="n">least_squares</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">)</span>
     <span class="n">m</span><span class="o">.</span><span class="n">migrad</span><span class="p">()</span>
     <span class="n">m</span><span class="o">.</span><span class="n">hesse</span><span class="p">()</span>

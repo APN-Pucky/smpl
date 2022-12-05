@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.0.1-8-g665e0a3d
+                1.0.1-9-g43a3248d
               </div>
             
           
@@ -342,6 +342,8 @@
         <span class="n">fitt</span> <span class="o">=</span> <span class="n">_fit_curvefit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">fitter</span> <span class="ow">is</span> <span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_ODR</span><span class="p">:</span>
         <span class="n">fitt</span> <span class="o">=</span> <span class="n">_fit_odr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">xerr</span><span class="o">=</span><span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown fitter: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fitter</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">_unwrap_param</span><span class="p">(</span><span class="n">fitt</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">Ntot</span><span class="p">)</span></div>
 
