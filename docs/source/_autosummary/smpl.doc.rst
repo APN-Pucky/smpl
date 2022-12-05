@@ -15,6 +15,10 @@
    
       append_str
    
+      array_table
+   
+      dict_to_table
+   
       insert_doc
    
       insert_eq

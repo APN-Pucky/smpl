@@ -1,9 +1,8 @@
 import numpy as np
 import pandas as pd
-import sys
 
 
-def si(s, u:str="", fmt:str="{}"):
+def si(s, u: str = "", fmt: str = "{}"):
     """
     Get number with uncertainty and unit in ``si`` format for latex.
 
@@ -33,10 +32,13 @@ def si(s, u:str="", fmt:str="{}"):
     '\\\\SI{2.0+-0.0e+03}{\\\\meter}'
 
     """
-    return "\\SI{%s}{%s}" % ((fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""), u)
+    return "\\SI{%s}{%s}" % (
+        (fmt.format(s)).replace("/", "").replace("(", "").replace(")", ""),
+        u,
+    )
 
 
-def si_line(a, skip:int=0, fmt:str="{}"):
+def si_line(a, skip: int = 0, fmt: str = "{}"):
     """
     Get array ``a`` in the format of a line of a latex table.
 
@@ -49,7 +51,7 @@ def si_line(a, skip:int=0, fmt:str="{}"):
     return si_tab(np.transpose([[t] for t in a]), skip, fmt)
 
 
-def si_ttab(tab, skip:int=0, fmt:str="{}"):
+def si_ttab(tab, skip: int = 0, fmt: str = "{}"):
     """
     Transposed :func:`si_tab`.
 
@@ -100,20 +102,22 @@ def si_tab(tab, skip=0, fmt="{}"):
 
     """
     # mkdirs(fn)
-    #file = open(fn,"w")
+    # file = open(fn,"w")
     s = ""
     for _, ti in enumerate(tab):
         for j, tij in enumerate(ti):
-            if(j != 0):
+            if j != 0:
                 s += "&"
-            if(j >= skip):
+            if j >= skip:
                 s += si(tij, fmt=fmt)
             else:
                 s += "%s" % (tij)
         s += "\\\\\n"
     return s
 
+
 from io import StringIO
+
 
 def transpose_table(strtab):
     """
@@ -125,5 +129,5 @@ def transpose_table(strtab):
     '\\\\SI{1}{}&\\\\SI{3}{}\\\\\\\\\\n\\\\SI{2}{}&\\\\SI{4}{}\\\\\\\\\\n'
     """
     s = StringIO(strtab.replace("\\\\", ""))
-    df = pd.read_csv(s, sep="&", engine="python",header=None)
-    return (si_ttab(df.values,skip= float('inf')))
+    df = pd.read_csv(s, sep="&", engine="python", header=None)
+    return si_ttab(df.values, skip=float("inf"))
