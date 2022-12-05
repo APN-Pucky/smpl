@@ -33,6 +33,3 @@ smpl.stat.stat
    
    
    
-
-
-

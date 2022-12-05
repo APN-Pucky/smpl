@@ -231,8 +231,6 @@
    
       plot_kwargs
    
-      plotting
-   
       polar
    
       prism

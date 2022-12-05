@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 ============================
-smpl |version| documentation
+|project| |version| documentation
 ============================
+
 
 Install
 =======
@@ -16,9 +17,6 @@ Stable version::
 Dev version::
 
    $ pip install --index-url https://test.pypi.org/simple/ smpl
-
-
-
 
 .. toctree::
    :glob:

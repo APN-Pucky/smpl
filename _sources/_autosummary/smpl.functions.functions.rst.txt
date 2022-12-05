@@ -40,6 +40,3 @@ smpl.functions.functions
    
    
    
-
-
-

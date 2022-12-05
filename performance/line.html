@@ -1,41 +1,83 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>Line Profiling &mdash; smpl  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
-    <script src="../_static/js/theme.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Graph Profiling" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
           </a>
+
+          
+            
+            
               <div class="version">
-                0.152
+                1.0.0
               </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -43,7 +85,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
               <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
@@ -59,73 +112,175 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.interpolate.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.interpolate</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.animation.html"><code class="docutils literal notranslate"><span class="pre">animate()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.animation.html#smpl.animation.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.animation.html#smpl.animation.frame"><code class="docutils literal notranslate"><span class="pre">frame()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.data.html"><code class="docutils literal notranslate"><span class="pre">data_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.data.html#smpl.data.filtered_data_split"><code class="docutils literal notranslate"><span class="pre">filtered_data_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.data.html#smpl.data.flatmesh"><code class="docutils literal notranslate"><span class="pre">flatmesh()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html"><code class="docutils literal notranslate"><span class="pre">file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html#smpl.debug.file1"><code class="docutils literal notranslate"><span class="pre">file1()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html#smpl.debug.get_line_number_file"><code class="docutils literal notranslate"><span class="pre">get_line_number_file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html#smpl.debug.msg"><code class="docutils literal notranslate"><span class="pre">msg()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html#smpl.debug.msg1"><code class="docutils literal notranslate"><span class="pre">msg1()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html#smpl.debug.once"><code class="docutils literal notranslate"><span class="pre">once()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html#smpl.debug.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html#smpl.debug.table_flush_header"><code class="docutils literal notranslate"><span class="pre">table_flush_header()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.debug.html#smpl.debug.table_flush_line"><code class="docutils literal notranslate"><span class="pre">table_flush_line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html"><code class="docutils literal notranslate"><span class="pre">append_doc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html#smpl.doc.append_plot"><code class="docutils literal notranslate"><span class="pre">append_plot()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html#smpl.doc.array_table"><code class="docutils literal notranslate"><span class="pre">array_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html#smpl.doc.insert_doc"><code class="docutils literal notranslate"><span class="pre">insert_doc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html#smpl.doc.insert_eq"><code class="docutils literal notranslate"><span class="pre">insert_eq()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html#smpl.doc.insert_latex"><code class="docutils literal notranslate"><span class="pre">insert_latex()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html#smpl.doc.insert_latex_eq"><code class="docutils literal notranslate"><span class="pre">insert_latex_eq()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.doc.html#smpl.doc.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html"><code class="docutils literal notranslate"><span class="pre">Chi2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html#smpl.fit.Fitter"><code class="docutils literal notranslate"><span class="pre">Fitter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html#smpl.fit.R2"><code class="docutils literal notranslate"><span class="pre">R2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html#smpl.fit.auto"><code class="docutils literal notranslate"><span class="pre">auto()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html#smpl.fit.data_split"><code class="docutils literal notranslate"><span class="pre">data_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html#smpl.fit.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html#smpl.fit.fit_kwargs"><code class="docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.fit.html#smpl.fit.fit_split"><code class="docutils literal notranslate"><span class="pre">fit_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html"><code class="docutils literal notranslate"><span class="pre">const()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.cos"><code class="docutils literal notranslate"><span class="pre">cos()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.cos_abs"><code class="docutils literal notranslate"><span class="pre">cos_abs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.cube"><code class="docutils literal notranslate"><span class="pre">cube()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.exp"><code class="docutils literal notranslate"><span class="pre">exp()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.fac"><code class="docutils literal notranslate"><span class="pre">fac()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.gauss"><code class="docutils literal notranslate"><span class="pre">gauss()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.linear"><code class="docutils literal notranslate"><span class="pre">linear()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.log"><code class="docutils literal notranslate"><span class="pre">log()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.lorentz"><code class="docutils literal notranslate"><span class="pre">lorentz()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.sin"><code class="docutils literal notranslate"><span class="pre">sin()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.square"><code class="docutils literal notranslate"><span class="pre">square()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.functions.html#smpl.functions.tan"><code class="docutils literal notranslate"><span class="pre">tan()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html"><code class="docutils literal notranslate"><span class="pre">append()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html#smpl.io.files"><code class="docutils literal notranslate"><span class="pre">files()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html#smpl.io.find_file"><code class="docutils literal notranslate"><span class="pre">find_file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html#smpl.io.gf"><code class="docutils literal notranslate"><span class="pre">gf()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html#smpl.io.mkdirs"><code class="docutils literal notranslate"><span class="pre">mkdirs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html#smpl.io.pr"><code class="docutils literal notranslate"><span class="pre">pr()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html#smpl.io.pwd"><code class="docutils literal notranslate"><span class="pre">pwd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html#smpl.io.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.io.html#smpl.io.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.latex.html"><code class="docutils literal notranslate"><span class="pre">si()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.latex.html#smpl.latex.si_line"><code class="docutils literal notranslate"><span class="pre">si_line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.latex.html#smpl.latex.si_tab"><code class="docutils literal notranslate"><span class="pre">si_tab()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.latex.html#smpl.latex.si_ttab"><code class="docutils literal notranslate"><span class="pre">si_ttab()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.latex.html#smpl.latex.transpose_table"><code class="docutils literal notranslate"><span class="pre">transpose_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.parallel.html"><code class="docutils literal notranslate"><span class="pre">calc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.parallel.html#smpl.parallel.gen"><code class="docutils literal notranslate"><span class="pre">gen()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.parallel.html#smpl.parallel.par"><code class="docutils literal notranslate"><span class="pre">par()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.parallel.html#smpl.parallel.parallel"><code class="docutils literal notranslate"><span class="pre">parallel()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.parallel.html#smpl.parallel.partitioned_parallel"><code class="docutils literal notranslate"><span class="pre">partitioned_parallel()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.parallel.html#smpl.parallel.res"><code class="docutils literal notranslate"><span class="pre">res()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html"><code class="docutils literal notranslate"><span class="pre">auto()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html#smpl.plot.data"><code class="docutils literal notranslate"><span class="pre">data()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html#smpl.plot.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html#smpl.plot.function"><code class="docutils literal notranslate"><span class="pre">function()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html#smpl.plot.plot2d"><code class="docutils literal notranslate"><span class="pre">plot2d()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html#smpl.plot.plot2d_kwargs"><code class="docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html#smpl.plot.plot_kwargs"><code class="docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html#smpl.plot.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.plot.html#smpl.plot.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html"><code class="docutils literal notranslate"><span class="pre">Chi2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.R2"><code class="docutils literal notranslate"><span class="pre">R2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.fft"><code class="docutils literal notranslate"><span class="pre">fft()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.get_interesting_domain"><code class="docutils literal notranslate"><span class="pre">get_interesting_domain()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.mean"><code class="docutils literal notranslate"><span class="pre">mean()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.no_dist"><code class="docutils literal notranslate"><span class="pre">no_dist()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.noisy"><code class="docutils literal notranslate"><span class="pre">noisy()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.novar_mean"><code class="docutils literal notranslate"><span class="pre">novar_mean()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.poisson_dist"><code class="docutils literal notranslate"><span class="pre">poisson_dist()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.unv_lambda"><code class="docutils literal notranslate"><span class="pre">unv_lambda()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.stat.html#smpl.stat.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.util.html"><code class="docutils literal notranslate"><span class="pre">find_nearest()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.util.html#smpl.util.find_nearest_index"><code class="docutils literal notranslate"><span class="pre">find_nearest_index()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.util.html#smpl.util.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.util.html#smpl.util.has"><code class="docutils literal notranslate"><span class="pre">has()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.util.html#smpl.util.times"><code class="docutils literal notranslate"><span class="pre">times()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.util.html#smpl.util.true"><code class="docutils literal notranslate"><span class="pre">true()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.wrap.html"><code class="docutils literal notranslate"><span class="pre">get_lambda()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.wrap.html#smpl.wrap.get_latex"><code class="docutils literal notranslate"><span class="pre">get_latex()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../_autosummary/smpl.wrap.html#smpl.wrap.get_varnames"><code class="docutils literal notranslate"><span class="pre">get_varnames()</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Graph Profiling</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Line Profiling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tests-test-fit-py">tests/test_fit.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#test-fit">test_fit</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tests-test-line-profiling-py">tests/test_line_profiling.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#test-as-mark">test_as_mark</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tests-test-line-profiling-doctests-py">tests/test_line_profiling_doctests.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">test_as_mark</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tests-test-plot-py">tests/test_plot.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#test-em">test_em</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tests-test-wrap-py">tests/test_wrap.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#test-wrap">test_wrap</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Line Profiling</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">smpl</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
       <li>Line Profiling</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
             <a href="../_sources/performance/line.rst.txt" rel="nofollow"> View page source</a>
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -151,403 +306,55 @@
 }
 </style>
 <section id="line-profiling">
-<h1>Line Profiling<a class="headerlink" href="#line-profiling" title="Permalink to this heading"></a></h1>
+<h1>Line Profiling<a class="headerlink" href="#line-profiling" title="Permalink to this heading">¶</a></h1>
 <p>Only available on the github page: <a class="reference external" href="https://apn-pucky.github.io/smpl/">https://apn-pucky.github.io/smpl/</a></p>
-<section id="tests-test-fit-py">
-<h2>tests/test_fit.py<a class="headerlink" href="#tests-test-fit-py" title="Permalink to this heading"></a></h2>
-<section id="test-fit">
-<h3>test_fit<a class="headerlink" href="#test-fit" title="Permalink to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-06</span> <span class="n">s</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.45101</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">plot</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">fit</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">113</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-   <span class="mi">113</span>                                           <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">adata</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">114</span>                                               <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">   115                                               Fit and plot function to datax and datay.</span>
-<span class="s2">   116</span>
-<span class="s2">   117                                               Parameters</span>
-<span class="s2">   118                                               ----------</span>
-<span class="s2">   119                                               datax : array_like</span>
-<span class="s2">   120                                                   X data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
-<span class="s2">   121                                               datay : array_like</span>
-<span class="s2">   122                                                   Y data either as ``unp.uarray`` or ``np.array`` or ``list``</span>
-<span class="s2">   123                                               function : func</span>
-<span class="s2">   124                                                   Fit function with parameters: ``x``, ``params``</span>
-<span class="s2">   125                                               **kwargs : optional</span>
-<span class="s2">   126                                                   see :func:`plot_kwargs`.</span>
-<span class="s2">   127                                               Fit parameters can be fixed via ``kwargs`` eg. ``a=5``.</span>
-<span class="s2">   128</span>
-<span class="s2">   129                                               Returns</span>
-<span class="s2">   130                                               -------</span>
-<span class="s2">   131                                               array_like</span>
-<span class="s2">   132                                                   Optimized fit parameters of ``function`` to ``datax`` and ``datay``.</span>
-<span class="s2">   133                                                   If ``datay`` is complex, both the real and imaginary part are returned.</span>
-<span class="s2">   134</span>
-<span class="s2">   135                                               Examples</span>
-<span class="s2">   136                                               --------</span>
-<span class="s2">   137</span>
-<span class="s2">   138                                               .. plot::</span>
-<span class="s2">   139                                                   :include-source:</span>
-<span class="s2">   140</span>
-<span class="s2">   141                                                   &gt;&gt;&gt; from smpl import functions as f</span>
-<span class="s2">   142                                                   &gt;&gt;&gt; from smpl import plot</span>
-<span class="s2">   143                                                   &gt;&gt;&gt; param = plot.fit([0,1,2],[0,1,2],f.line)</span>
-<span class="s2">   144                                                   &gt;&gt;&gt; plot.unv(param).round()[0]</span>
-<span class="s2">   145                                                   1.0</span>
-<span class="s2">   146</span>
-<span class="s2">   147                                               &quot;&quot;&quot;</span>
-   <span class="mi">148</span>         <span class="mi">2</span>          <span class="mf">4.0</span>      <span class="mf">2.0</span>      <span class="mf">0.0</span>      <span class="n">function</span> <span class="o">=</span> <span class="n">func</span>
-   <span class="mi">149</span>         <span class="mi">2</span>          <span class="mf">4.0</span>      <span class="mf">2.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="s1">&#39;function&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-   <span class="mi">150</span>         <span class="mi">2</span>          <span class="mf">1.0</span>      <span class="mf">0.5</span>      <span class="mf">0.0</span>          <span class="n">function</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;function&#39;</span><span class="p">]</span>
-   <span class="mi">151</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>          <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;function&#39;</span><span class="p">]</span>
-   <span class="mi">152</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>          <span class="n">adata</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">adata</span><span class="p">]</span>
-   <span class="mi">153</span>                                               <span class="c1"># Fix parameter order if necessary</span>
-   <span class="mi">154</span>                                               <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
-   <span class="mi">155</span>                                                   <span class="n">adata</span> <span class="o">=</span> <span class="p">[</span><span class="n">adata</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">function</span><span class="p">,</span> <span class="o">*</span><span class="n">adata</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-   <span class="mi">156</span>                                                   <span class="n">function</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-   <span class="mi">157</span>                                                   <span class="n">adata</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-   <span class="mi">158</span>         <span class="mi">2</span>         <span class="mf">14.0</span>      <span class="mf">7.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="s2">&quot;bins&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">159</span>                                                   <span class="c1"># yvalue will be overwritten</span>
-   <span class="mi">160</span>                                                   <span class="n">ndata</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">adata</span><span class="p">,</span> <span class="o">*</span><span class="n">adata</span><span class="p">]</span>
-   <span class="mi">161</span>                                                   <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">adata</span><span class="p">):</span>
-   <span class="mi">162</span>                                                       <span class="n">ndata</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">o</span>
-   <span class="mi">163</span>                                                       <span class="n">ndata</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">o</span><span class="o">*</span><span class="mi">0</span>
-   <span class="mi">164</span>                                                   <span class="n">adata</span> <span class="o">=</span> <span class="n">ndata</span>
-   <span class="mi">165</span>
-   <span class="mi">166</span>         <span class="mi">2</span>          <span class="mf">6.0</span>      <span class="mf">3.0</span>      <span class="mf">0.0</span>      <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;data must be pairs of x and y data&quot;</span>
-   <span class="mi">167</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-   <span class="mi">168</span>         <span class="mi">2</span>          <span class="mf">1.0</span>      <span class="mf">0.5</span>      <span class="mf">0.0</span>          <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span> <span class="o">=</span> <span class="n">adata</span>
-   <span class="mi">169</span>                                               <span class="k">else</span><span class="p">:</span>
-   <span class="mi">170</span>                                                   <span class="n">rs</span> <span class="o">=</span> <span class="p">[]</span>
-   <span class="mi">171</span>                                                   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">adata</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
-   <span class="mi">172</span>                                                       <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span> <span class="o">=</span> <span class="n">adata</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">adata</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-   <span class="mi">173</span>                                                       <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="s2">&quot;bins&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">174</span>                                                           <span class="n">rs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">datax</span><span class="p">,</span>  <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-   <span class="mi">175</span>                                                       <span class="k">else</span><span class="p">:</span>
-   <span class="mi">176</span>                                                           <span class="n">rs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span>  <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-   <span class="mi">177</span>                                                   <span class="k">return</span> <span class="n">rs</span>
-   <span class="mi">178</span>
-   <span class="mi">179</span>         <span class="mi">2</span>        <span class="mf">109.0</span>     <span class="mf">54.5</span>      <span class="mf">0.0</span>      <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">180</span>
-   <span class="mi">181</span>         <span class="mi">2</span>        <span class="mf">100.0</span>     <span class="mf">50.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iscomplex</span><span class="p">(</span><span class="n">datay</span><span class="p">)):</span>
-   <span class="mi">182</span>                                                   <span class="n">label</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-   <span class="mi">183</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;(real)&quot;</span>
-   <span class="mi">184</span>                                                   <span class="n">r</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">185</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span> <span class="o">+</span> <span class="s2">&quot;(imag)&quot;</span>
-   <span class="mi">186</span>                                                   <span class="n">i</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">187</span>                                                   <span class="k">return</span> <span class="n">r</span><span class="p">,</span> <span class="n">i</span>
-   <span class="mi">188</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;auto_fit&#39;</span><span class="p">]:</span>
-   <span class="mi">189</span>                                                   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;function:&quot;</span><span class="p">,</span> <span class="n">function</span><span class="p">)</span>
-   <span class="mi">190</span>                                                   <span class="n">best_f</span><span class="p">,</span> <span class="n">best_ff</span><span class="p">,</span> <span class="n">lambda_f</span> <span class="o">=</span> <span class="n">ffit</span><span class="o">.</span><span class="n">auto</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">191</span>                                                   <span class="k">if</span> <span class="n">best_f</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-   <span class="mi">192</span>                                                       <span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;auto_fit&#39;</span><span class="p">]</span>
-   <span class="mi">193</span>                                                       <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">best_f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">194</span>                                                   <span class="k">return</span> <span class="n">best_f</span><span class="p">,</span> <span class="n">best_ff</span><span class="p">,</span> <span class="n">lambda_f</span>
-   <span class="mi">195</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;also_fit&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-   <span class="mi">196</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;lpos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-   <span class="mi">197</span>         <span class="mi">2</span>     <span class="mf">450761.0</span> <span class="mf">225380.5</span>     <span class="mf">99.9</span>      <span class="k">return</span> <span class="n">_fit_impl</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.183062</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">plot</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">function</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">326</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-   <span class="mi">326</span>                                           <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">327</span>                                               <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">   328                                               Plot function ``func`` between ``xmin`` and ``xmax``</span>
-<span class="s2">   329</span>
-<span class="s2">   330                                               Parameters</span>
-<span class="s2">   331                                               ----------</span>
-<span class="s2">   332                                               func : function</span>
-<span class="s2">   333                                                   Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter</span>
-<span class="s2">   334                                               *args : optional</span>
-<span class="s2">   335                                                   arguments for ``func``</span>
-<span class="s2">   336                                               **kwargs : optional</span>
-<span class="s2">   337                                                   see :func:`plot_kwargs`.</span>
-<span class="s2">   338                                               &quot;&quot;&quot;</span>
-   <span class="mi">339</span>         <span class="mi">1</span>          <span class="mf">8.0</span>      <span class="mf">8.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmin&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmax&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">340</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmin&quot;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">get_interesting_domain</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-   <span class="mi">341</span>                                                   <span class="c1">#raise Exception(&quot;xmin or xmax missing.&quot;)</span>
-   <span class="mi">342</span>
-   <span class="mi">343</span>                                               <span class="c1"># if not util.has(&#39;lpos&#39;, kwargs) and not util.has(&#39;label&#39;, kwargs):</span>
-   <span class="mi">344</span>                                               <span class="c1">#    kwargs[&#39;lpos&#39;] = -1</span>
-   <span class="mi">345</span>         <span class="mi">1</span>          <span class="mf">2.0</span>      <span class="mf">2.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;fmt&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">346</span>         <span class="mi">1</span>          <span class="mf">0.0</span>      <span class="mf">0.0</span>      <span class="mf">0.0</span>          <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;fmt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
-   <span class="mi">347</span>
-   <span class="mi">348</span>         <span class="mi">1</span>          <span class="mf">1.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="s2">&quot;label&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-   <span class="mi">349</span>         <span class="mi">1</span>         <span class="mf">61.0</span>     <span class="mf">61.0</span>      <span class="mf">0.0</span>          <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">350</span>         <span class="mi">1</span>       <span class="mf">6630.0</span>   <span class="mf">6630.0</span>      <span class="mf">3.6</span>          <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fnc_legend</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">351</span>                                               <span class="k">else</span><span class="p">:</span>
-   <span class="mi">352</span>                                                   <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">353</span>
-   <span class="mi">354</span>         <span class="mi">1</span>        <span class="mf">260.0</span>    <span class="mf">260.0</span>      <span class="mf">0.1</span>      <span class="n">xlin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xspace&quot;</span><span class="p">](</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xmin&#39;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xmax&#39;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;steps&#39;</span><span class="p">])</span>
-   <span class="mi">355</span>         <span class="mi">1</span>      <span class="mf">39055.0</span>  <span class="mf">39055.0</span>     <span class="mf">21.3</span>      <span class="n">init_plot</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">356</span>
-   <span class="mi">357</span>                                               <span class="c1"># kwargs[&#39;lpos&#39;] = 0</span>
-   <span class="mi">358</span>                                               <span class="c1">#_plot(xfit, func(xfit, *args), **kwargs)</span>
-   <span class="mi">359</span>         <span class="mi">5</span>       <span class="mf">1667.0</span>    <span class="mf">333.4</span>      <span class="mf">0.9</span>      <span class="n">_function</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda_argd</span><span class="p">(</span>
-   <span class="mi">360</span>         <span class="mi">4</span>          <span class="mf">3.0</span>      <span class="mf">0.8</span>      <span class="mf">0.0</span>          <span class="n">func</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">),</span> <span class="n">xlin</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">361</span>         <span class="mi">1</span>          <span class="mf">2.0</span>      <span class="mf">2.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ss&#39;</span><span class="p">]:</span>
-   <span class="mi">362</span>         <span class="mi">1</span>     <span class="mf">135373.0</span> <span class="mf">135373.0</span>     <span class="mf">73.9</span>          <span class="n">save_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.11269</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">plot</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">init_plot</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">520</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-   <span class="mi">520</span>                                           <span class="k">def</span> <span class="nf">init_plot</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">521</span>         <span class="mi">3</span>          <span class="mf">4.0</span>      <span class="mf">1.3</span>      <span class="mf">0.0</span>      <span class="n">fig</span> <span class="o">=</span> <span class="kc">None</span>
-   <span class="mi">522</span>         <span class="mi">3</span>         <span class="mf">10.0</span>      <span class="mf">3.3</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-   <span class="mi">523</span>                                                   <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">])</span>
-   <span class="mi">524</span>                                                   <span class="n">fig</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
-   <span class="mi">525</span>         <span class="mi">3</span>         <span class="mf">10.0</span>      <span class="mf">3.3</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;init&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">util</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="s2">&quot;residue&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">526</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>          <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-   <span class="mi">527</span>         <span class="mi">2</span>       <span class="mf">1872.0</span>    <span class="mf">936.0</span>      <span class="mf">1.7</span>              <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-   <span class="mi">528</span>                                                   <span class="k">else</span><span class="p">:</span>
-   <span class="mi">529</span>                                                       <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">])</span>
-   <span class="mi">530</span>         <span class="mi">2</span>          <span class="mf">4.0</span>      <span class="mf">2.0</span>      <span class="mf">0.0</span>          <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;residue&#39;</span><span class="p">]:</span>
-   <span class="mi">531</span>         <span class="mi">2</span>      <span class="mf">71255.0</span>  <span class="mf">35627.5</span>     <span class="mf">63.2</span>              <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">((</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="mf">.6</span><span class="p">))</span>
-   <span class="mi">532</span>         <span class="mi">3</span>         <span class="mf">16.0</span>      <span class="mf">5.3</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xlabel&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlabel&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-   <span class="mi">533</span>                                                   <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xlabel&#39;</span><span class="p">])</span>
-   <span class="mi">534</span>         <span class="mi">3</span>          <span class="mf">4.0</span>      <span class="mf">1.3</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;ylabel&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ylabel&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-   <span class="mi">535</span>                                                   <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ylabel&#39;</span><span class="p">])</span>
-   <span class="mi">536</span>         <span class="mi">3</span>          <span class="mf">5.0</span>      <span class="mf">1.7</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xaxis&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xaxis&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-   <span class="mi">537</span>         <span class="mi">3</span>      <span class="mf">39131.0</span>  <span class="mf">13043.7</span>     <span class="mf">34.7</span>          <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xaxis&#39;</span><span class="p">])</span>
-   <span class="mi">538</span>         <span class="mi">3</span>         <span class="mf">10.0</span>      <span class="mf">3.3</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;yaxis&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yaxis&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
-   <span class="mi">539</span>         <span class="mi">3</span>        <span class="mf">356.0</span>    <span class="mf">118.7</span>      <span class="mf">0.3</span>          <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;yaxis&#39;</span><span class="p">])</span>
-   <span class="mi">540</span>         <span class="mi">3</span>          <span class="mf">9.0</span>      <span class="mf">3.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;next_color&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;next_color&#39;</span><span class="p">]:</span>
-   <span class="mi">541</span>                                                   <span class="n">it1</span><span class="p">,</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">tee</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">_get_lines</span><span class="o">.</span><span class="n">prop_cycler</span><span class="p">))</span>
-   <span class="mi">542</span>                                                   <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">_get_lines</span><span class="o">.</span><span class="n">prop_cycler</span> <span class="o">=</span> <span class="n">it2</span>
-   <span class="mi">543</span>                                                   <span class="n">tmp_color</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it1</span><span class="p">)[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
-   <span class="mi">544</span>                                                   <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;data_color&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-   <span class="mi">545</span>                                                       <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;data_color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_color</span>
-   <span class="mi">546</span>                                                   <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;fit_color&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-   <span class="mi">547</span>                                                       <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;fit_color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_color</span>
-   <span class="mi">548</span>                                                   <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;function_color&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-   <span class="mi">549</span>                                                       <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;function_color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_color</span>
-   <span class="mi">550</span>         <span class="mi">3</span>          <span class="mf">2.0</span>      <span class="mf">0.7</span>      <span class="mf">0.0</span>      <span class="k">return</span> <span class="n">fig</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="tests-test-line-profiling-py">
-<h2>tests/test_line_profiling.py<a class="headerlink" href="#tests-test-line-profiling-py" title="Permalink to this heading"></a></h2>
-<section id="test-as-mark">
-<h3>test_as_mark<a class="headerlink" href="#test-as-mark" title="Permalink to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-06</span> <span class="n">s</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">2e-06</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_line_profiling</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">f</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">3</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-     <span class="mi">3</span>                                           <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-     <span class="mi">4</span>        <span class="mi">10</span>          <span class="mf">2.0</span>      <span class="mf">0.2</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">2.5e-05</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_line_profiling</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">g</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">6</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-     <span class="mi">6</span>                                           <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-     <span class="mi">7</span>         <span class="mi">1</span>         <span class="mf">25.0</span>     <span class="mf">25.0</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="tests-test-line-profiling-doctests-py">
-<h2>tests/test_line_profiling_doctests.py<a class="headerlink" href="#tests-test-line-profiling-doctests-py" title="Permalink to this heading"></a></h2>
-<section id="id1">
-<h3>test_as_mark<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-06</span> <span class="n">s</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">4e-06</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_line_profiling_doctests</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">f</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">3</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-     <span class="mi">3</span>                                           <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-     <span class="mi">4</span>                                               <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">     5                                               &gt;&gt;&gt; f(0)</span>
-<span class="s2">     6                                               0</span>
-<span class="s2">     7                                               &quot;&quot;&quot;</span>
-     <span class="mi">8</span>        <span class="mi">10</span>          <span class="mf">4.0</span>      <span class="mf">0.4</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">2.4e-05</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_line_profiling_doctests</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">g</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">10</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-    <span class="mi">10</span>                                           <span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="mi">11</span>                                               <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    12                                               &gt;&gt;&gt; g(10)</span>
-<span class="s2">    13                                               450</span>
-<span class="s2">    14</span>
-<span class="s2">    15                                               &quot;&quot;&quot;</span>
-    <span class="mi">16</span>         <span class="mi">1</span>         <span class="mf">24.0</span>     <span class="mf">24.0</span>    <span class="mf">100.0</span>      <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="tests-test-plot-py">
-<h2>tests/test_plot.py<a class="headerlink" href="#tests-test-plot-py" title="Permalink to this heading"></a></h2>
-<section id="test-em">
-<h3>test_em<a class="headerlink" href="#test-em" title="Permalink to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-06</span> <span class="n">s</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.694994</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">plot</span><span class="o">/</span><span class="n">plot</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">function</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">326</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-   <span class="mi">326</span>                                           <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">327</span>                                               <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">   328                                               Plot function ``func`` between ``xmin`` and ``xmax``</span>
-<span class="s2">   329</span>
-<span class="s2">   330                                               Parameters</span>
-<span class="s2">   331                                               ----------</span>
-<span class="s2">   332                                               func : function</span>
-<span class="s2">   333                                                   Function to be plotted between ``xmin`` and ``xmax``, only taking `array_like` ``x`` as parameter</span>
-<span class="s2">   334                                               *args : optional</span>
-<span class="s2">   335                                                   arguments for ``func``</span>
-<span class="s2">   336                                               **kwargs : optional</span>
-<span class="s2">   337                                                   see :func:`plot_kwargs`.</span>
-<span class="s2">   338                                               &quot;&quot;&quot;</span>
-   <span class="mi">339</span>        <span class="mi">12</span>         <span class="mf">71.0</span>      <span class="mf">5.9</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmin&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xmax&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">340</span>                                                   <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmin&quot;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xmax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">get_interesting_domain</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-   <span class="mi">341</span>                                                   <span class="c1">#raise Exception(&quot;xmin or xmax missing.&quot;)</span>
-   <span class="mi">342</span>
-   <span class="mi">343</span>                                               <span class="c1"># if not util.has(&#39;lpos&#39;, kwargs) and not util.has(&#39;label&#39;, kwargs):</span>
-   <span class="mi">344</span>                                               <span class="c1">#    kwargs[&#39;lpos&#39;] = -1</span>
-   <span class="mi">345</span>        <span class="mi">12</span>         <span class="mf">17.0</span>      <span class="mf">1.4</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s1">&#39;fmt&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
-   <span class="mi">346</span>        <span class="mi">12</span>          <span class="mf">9.0</span>      <span class="mf">0.8</span>      <span class="mf">0.0</span>          <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;fmt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
-   <span class="mi">347</span>
-   <span class="mi">348</span>        <span class="mi">12</span>          <span class="mf">8.0</span>      <span class="mf">0.7</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="s2">&quot;label&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-   <span class="mi">349</span>        <span class="mi">12</span>        <span class="mf">601.0</span>     <span class="mf">50.1</span>      <span class="mf">0.1</span>          <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">350</span>        <span class="mi">12</span>      <span class="mf">83936.0</span>   <span class="mf">6994.7</span>     <span class="mf">12.1</span>          <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_fnc_legend</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">351</span>                                               <span class="k">else</span><span class="p">:</span>
-   <span class="mi">352</span>                                                   <span class="n">kwargs</span> <span class="o">=</span> <span class="n">plot_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">353</span>
-   <span class="mi">354</span>        <span class="mi">12</span>       <span class="mf">1542.0</span>    <span class="mf">128.5</span>      <span class="mf">0.2</span>      <span class="n">xlin</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xspace&quot;</span><span class="p">](</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xmin&#39;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xmax&#39;</span><span class="p">],</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;steps&#39;</span><span class="p">])</span>
-   <span class="mi">355</span>        <span class="mi">12</span>      <span class="mf">41001.0</span>   <span class="mf">3416.8</span>      <span class="mf">5.9</span>      <span class="n">init_plot</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">356</span>
-   <span class="mi">357</span>                                               <span class="c1"># kwargs[&#39;lpos&#39;] = 0</span>
-   <span class="mi">358</span>                                               <span class="c1">#_plot(xfit, func(xfit, *args), **kwargs)</span>
-   <span class="mi">359</span>        <span class="mi">60</span>      <span class="mf">18807.0</span>    <span class="mf">313.4</span>      <span class="mf">2.7</span>      <span class="n">_function</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda_argd</span><span class="p">(</span>
-   <span class="mi">360</span>        <span class="mi">48</span>         <span class="mf">32.0</span>      <span class="mf">0.7</span>      <span class="mf">0.0</span>          <span class="n">func</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;xvar&#39;</span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">),</span> <span class="n">xlin</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-   <span class="mi">361</span>        <span class="mi">12</span>         <span class="mf">20.0</span>      <span class="mf">1.7</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;ss&#39;</span><span class="p">]:</span>
-   <span class="mi">362</span>        <span class="mi">12</span>     <span class="mf">548950.0</span>  <span class="mf">45745.8</span>     <span class="mf">79.0</span>          <span class="n">save_plot</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="tests-test-wrap-py">
-<h2>tests/test_wrap.py<a class="headerlink" href="#tests-test-wrap-py" title="Permalink to this heading"></a></h2>
-<section id="test-wrap">
-<h3>test_wrap<a class="headerlink" href="#test-wrap" title="Permalink to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-06</span> <span class="n">s</span>
-
-<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.011905</span> <span class="n">s</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">__w</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">smpl</span><span class="o">/</span><span class="n">wrap</span><span class="o">/</span><span class="n">wrap</span><span class="o">.</span><span class="n">py</span>
-<span class="n">Function</span><span class="p">:</span> <span class="n">get_latex</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">27</span>
-
-<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
-<span class="o">==============================================================</span>
-    <span class="mi">27</span>                                           <span class="k">def</span> <span class="nf">get_latex</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
-    <span class="mi">28</span>                                               <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    29                                               Return a latex string for passed function.</span>
-<span class="s2">    30</span>
-<span class="s2">    31</span>
-<span class="s2">    32                                               Parameters</span>
-<span class="s2">    33                                               ----------</span>
-<span class="s2">    34                                               function : function_like</span>
-<span class="s2">    35                                                   function as str lambda or (oneline) function</span>
-<span class="s2">    36</span>
-<span class="s2">    37                                               Examples</span>
-<span class="s2">    38                                               --------</span>
-<span class="s2">    39                                               &gt;&gt;&gt; get_latex(lambda a,b,c,x : (a+b+c)*x,)</span>
-<span class="s2">    40                                               &#39;$x </span><span class="se">\\\\</span><span class="s2">left(a + b + c</span><span class="se">\\\\</span><span class="s2">right)$&#39;</span>
-<span class="s2">    41                                               &gt;&gt;&gt; get_latex(&quot;(a+b+c)*x&quot;)</span>
-<span class="s2">    42                                               &#39;$x </span><span class="se">\\\\</span><span class="s2">left(a + b + c</span><span class="se">\\\\</span><span class="s2">right)$&#39;</span>
-<span class="s2">    43                                               &gt;&gt;&gt; def fun(a,b,x,c):</span>
-<span class="s2">    44                                               ...     return (a+b+c)*x</span>
-<span class="s2">    45                                               &gt;&gt;&gt; get_latex(fun)</span>
-<span class="s2">    46                                               &#39;$x </span><span class="se">\\\\</span><span class="s2">left(a + b + c</span><span class="se">\\\\</span><span class="s2">right)$&#39;</span>
-<span class="s2">    47</span>
-<span class="s2">    48                                               &quot;&quot;&quot;</span>
-    <span class="mi">49</span>         <span class="mi">3</span>          <span class="mf">7.0</span>      <span class="mf">2.3</span>      <span class="mf">0.1</span>      <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="mi">50</span>                                                   <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">function</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
-    <span class="mi">51</span>                                               <span class="k">else</span><span class="p">:</span>
-    <span class="mi">52</span>         <span class="mi">3</span>          <span class="mf">4.0</span>      <span class="mf">1.3</span>      <span class="mf">0.0</span>          <span class="n">l</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
-    <span class="mi">53</span>         <span class="mi">3</span>          <span class="mf">3.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="s2">&quot;&lt;lambda&gt;&quot;</span><span class="p">:</span>
-    <span class="mi">54</span>         <span class="mi">1</span>          <span class="mf">0.0</span>      <span class="mf">0.0</span>      <span class="mf">0.0</span>          <span class="k">try</span><span class="p">:</span>
-    <span class="mi">55</span>         <span class="mi">1</span>          <span class="mf">0.0</span>      <span class="mf">0.0</span>      <span class="mf">0.0</span>              <span class="k">try</span><span class="p">:</span>
-    <span class="mi">56</span>         <span class="mi">1</span>        <span class="mf">196.0</span>    <span class="mf">196.0</span>      <span class="mf">1.6</span>                  <span class="n">cc</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">findsource</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
-    <span class="mi">57</span>         <span class="mi">3</span>          <span class="mf">8.0</span>      <span class="mf">2.7</span>      <span class="mf">0.1</span>                  <span class="n">f</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;lambda&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span>
-    <span class="mi">58</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>                      <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="mi">59</span>         <span class="mi">1</span>       <span class="mf">5606.0</span>   <span class="mf">5606.0</span>     <span class="mf">47.1</span>                  <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">f</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
-    <span class="mi">60</span>                                                       <span class="k">except</span> <span class="n">TokenError</span><span class="p">:</span>
-    <span class="mi">61</span>                                                           <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
-    <span class="mi">62</span>                                                               <span class="s2">&quot;Make sure there is a &#39;,&#39; behind the lambda expression and no commas are in the lambda expression and no newlines&quot;</span><span class="p">)</span>
-    <span class="mi">63</span>                                                   <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
-    <span class="mi">64</span>                                                       <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">lambda$(&quot;</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">function</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
-    <span class="mi">65</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>      <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-    <span class="mi">66</span>         <span class="mi">2</span>          <span class="mf">2.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>          <span class="k">if</span> <span class="n">function</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="mi">67</span>         <span class="mi">1</span>          <span class="mf">3.0</span>      <span class="mf">3.0</span>      <span class="mf">0.0</span>              <span class="n">l</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__doc__</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="mi">68</span>                                                   <span class="k">else</span><span class="p">:</span>
-    <span class="mi">69</span>         <span class="mi">1</span>          <span class="mf">1.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>              <span class="k">try</span><span class="p">:</span>
-    <span class="mi">70</span>         <span class="mi">1</span>        <span class="mf">279.0</span>    <span class="mf">279.0</span>      <span class="mf">2.3</span>                  <span class="n">cc</span><span class="p">,</span> <span class="n">li</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">findsource</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
-    <span class="mi">71</span>         <span class="mi">1</span>         <span class="mf">19.0</span>     <span class="mf">19.0</span>      <span class="mf">0.2</span>                  <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cc</span><span class="p">[</span><span class="n">li</span><span class="p">:])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;return&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="mi">72</span>         <span class="mi">1</span>       <span class="mf">5770.0</span>   <span class="mf">5770.0</span>     <span class="mf">48.5</span>                  <span class="n">l</span> <span class="o">=</span> <span class="s2">&quot;$&quot;</span> <span class="o">+</span> <span class="n">sympy</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">str_get_expr</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;$&quot;</span>
-    <span class="mi">73</span>                                                       <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
-    <span class="mi">74</span>                                                           <span class="n">l</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
-    <span class="mi">75</span>
-    <span class="mi">76</span>         <span class="mi">3</span>          <span class="mf">3.0</span>      <span class="mf">1.0</span>      <span class="mf">0.0</span>      <span class="k">return</span> <span class="n">l</span>
-</pre></div>
-</div>
-</section>
-</section>
 </section>
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="index.html" class="btn btn-neutral float-left" title="Graph Profiling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, APN-Pucky.</p>
-  </div>
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
