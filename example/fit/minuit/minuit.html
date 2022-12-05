@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>iminuit example &mdash; smpl  documentation</title>
+  <title>Iminuit Fit &mdash; smpl  documentation</title>
   
 
   
@@ -51,7 +51,7 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Selective Fit" href="../selective_fit/test_selective_fit.html" />
+    <link rel="next" title="Selective fit range" href="../selective_fit/test_selective_fit.html" />
     <link rel="prev" title="Linear Fit" href="../linear/test_linear.html" /> 
 </head>
 
@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                1.0.1
+                1.0.2
               </div>
             
           
@@ -114,16 +114,18 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../plot/index.html">Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../plot/plot2d.html">Plot2d</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Fitting</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../auto/test_auto.html">Auto Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../custom/test_custom.html">Custom Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../fixed_fit/test_fixed.html">Fixed Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lambda/test_lambda.html">Lambda Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto/test_auto.html">Automatic fit function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../custom/test_custom.html">Custom fit function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fixed_fit/test_fixed.html">Fixed fit parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lambda/test_lambda.html">Lambda and string fit functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../linear/test_linear.html">Linear Fit</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">iminuit example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#SMPL-example">SMPL example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../selective_fit/test_selective_fit.html">Selective Fit</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Iminuit Fit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#iminuit-example">iminuit example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smpl-example">smpl example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../selective_fit/test_selective_fit.html">Selective fit range</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../interpolate/Interpolate.html">Interpolate</a></li>
@@ -195,7 +197,7 @@
         
           <li><a href="../index.html">Fitting</a> &raquo;</li>
         
-      <li>iminuit example</li>
+      <li>Iminuit Fit</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -493,8 +495,10 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
+<section id="Iminuit-Fit">
+<h1>Iminuit Fit<a class="headerlink" href="#Iminuit-Fit" title="Permalink to this heading">¶</a></h1>
 <section id="iminuit-example">
-<h1>iminuit example<a class="headerlink" href="#iminuit-example" title="Permalink to this heading">¶</a></h1>
+<h2>iminuit example<a class="headerlink" href="#iminuit-example" title="Permalink to this heading">¶</a></h2>
 <p>from <a class="reference external" href="https://iminuit.readthedocs.io/en/stable/notebooks/basic_tutorial.html">https://iminuit.readthedocs.io/en/stable/notebooks/basic_tutorial.html</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -548,7 +552,7 @@ plt.errorbar(data_x, data_y, data_yerr, fmt=&quot;o&quot;);
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_minuit_minuit_2_0.png" src="../../../_images/example_fit_minuit_minuit_2_0.png" />
+<img alt="../../../_images/example_fit_minuit_minuit_3_0.png" src="../../../_images/example_fit_minuit_minuit_3_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -583,12 +587,12 @@ plt.legend(title=&quot;\n&quot;.join(fit_info));
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_minuit_minuit_3_0.png" src="../../../_images/example_fit_minuit_minuit_3_0.png" />
+<img alt="../../../_images/example_fit_minuit_minuit_4_0.png" src="../../../_images/example_fit_minuit_minuit_4_0.png" />
 </div>
 </div>
 </section>
-<section id="SMPL-example">
-<h1>SMPL example<a class="headerlink" href="#SMPL-example" title="Permalink to this heading">¶</a></h1>
+<section id="smpl-example">
+<h2>smpl example<a class="headerlink" href="#smpl-example" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -614,7 +618,7 @@ Chi2 =  14.064905067721451
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_minuit_minuit_5_1.png" src="../../../_images/example_fit_minuit_minuit_5_1.png" />
+<img alt="../../../_images/example_fit_minuit_minuit_6_1.png" src="../../../_images/example_fit_minuit_minuit_6_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -642,9 +646,34 @@ Chi2 =  14.064905067721474
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_minuit_minuit_6_1.png" src="../../../_images/example_fit_minuit_minuit_6_1.png" />
+<img alt="../../../_images/example_fit_minuit_minuit_7_1.png" src="../../../_images/example_fit_minuit_minuit_7_1.png" />
 </div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 
 
@@ -653,7 +682,7 @@ Chi2 =  14.064905067721474
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../selective_fit/test_selective_fit.html" class="btn btn-neutral float-right" title="Selective Fit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../selective_fit/test_selective_fit.html" class="btn btn-neutral float-right" title="Selective fit range" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../linear/test_linear.html" class="btn btn-neutral float-left" title="Linear Fit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

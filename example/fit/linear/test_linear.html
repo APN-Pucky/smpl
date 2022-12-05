@@ -51,8 +51,8 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="iminuit example" href="../minuit/minuit.html" />
-    <link rel="prev" title="Lambda Fit" href="../lambda/test_lambda.html" /> 
+    <link rel="next" title="Iminuit Fit" href="../minuit/minuit.html" />
+    <link rel="prev" title="Lambda and string fit functions" href="../lambda/test_lambda.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                1.0.1
+                1.0.2
               </div>
             
           
@@ -114,20 +114,18 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../plot/index.html">Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../plot/plot2d.html">Plot2d</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Fitting</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../auto/test_auto.html">Auto Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../custom/test_custom.html">Custom Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../fixed_fit/test_fixed.html">Fixed Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lambda/test_lambda.html">Lambda Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto/test_auto.html">Automatic fit function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../custom/test_custom.html">Custom fit function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fixed_fit/test_fixed.html">Fixed fit parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lambda/test_lambda.html">Lambda and string fit functions</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Linear Fit</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#SciPy">SciPy</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Minuit">Minuit</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../minuit/minuit.html">iminuit example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../minuit/minuit.html#SMPL-example">SMPL example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../selective_fit/test_selective_fit.html">Selective Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../minuit/minuit.html">Iminuit Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../selective_fit/test_selective_fit.html">Selective fit range</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../interpolate/Interpolate.html">Interpolate</a></li>
@@ -624,7 +622,7 @@ Chi2 =  6.120448179271708
 <h3>Correlations<a class="headerlink" href="#Correlations" title="Permalink to this heading">¶</a></h3>
 <p>Let’s take a look at correlations on the example of calculating the y axis intercept. Again:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a,b = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,function=f.line, sigmas=1,extrapolate_min=-2)
@@ -640,7 +638,7 @@ Chi2 =  6.120448179271708
 </div>
 <p>Let’s calculated the intersection with the x axis, given by <span class="math notranslate nohighlight">\(-b/a\)</span>, with correlation</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>-b/a
@@ -648,7 +646,7 @@ Chi2 =  6.120448179271708
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -658,7 +656,7 @@ Chi2 =  6.120448179271708
 </div>
 <p>and without correlations</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_nocorr=unc.ufloat(plot.unv(a),plot.usd(a))
@@ -668,7 +666,7 @@ b_nocorr=unc.ufloat(plot.unv(b),plot.usd(b))
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -683,7 +681,7 @@ b_nocorr=unc.ufloat(plot.unv(b),plot.usd(b))
 <section id="Minuit">
 <h2>Minuit<a class="headerlink" href="#Minuit" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ff = plot.fit(xdata, y, fmt=&#39;.&#39;, function=f.line, params=[1,1], sigmas=1,lpos=2,fitter=fit.Fitter.MINUIT_LEASTSQUARES)
@@ -706,6 +704,22 @@ Chi2 =  6.120448179271703
 <img alt="../../../_images/example_fit_linear_test_linear_17_1.png" src="../../../_images/example_fit_linear_test_linear_17_1.png" />
 </div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 
@@ -715,8 +729,8 @@ Chi2 =  6.120448179271703
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../minuit/minuit.html" class="btn btn-neutral float-right" title="iminuit example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../lambda/test_lambda.html" class="btn btn-neutral float-left" title="Lambda Fit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../minuit/minuit.html" class="btn btn-neutral float-right" title="Iminuit Fit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../lambda/test_lambda.html" class="btn btn-neutral float-left" title="Lambda and string fit functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -49,7 +49,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Auto Fit" href="auto/test_auto.html" />
+    <link rel="next" title="Automatic fit function" href="auto/test_auto.html" />
     <link rel="prev" title="Uncertainties" href="../plot/uncertainties/plot_uncertainties.html" /> 
 </head>
 
@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.0.1
+                1.0.2
               </div>
             
           
@@ -112,16 +112,14 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../plot/index.html">Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../plot/plot2d.html">Plot2d</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Fitting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="auto/test_auto.html">Auto Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="custom/test_custom.html">Custom Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fixed_fit/test_fixed.html">Fixed Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="lambda/test_lambda.html">Lambda Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto/test_auto.html">Automatic fit function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom/test_custom.html">Custom fit function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fixed_fit/test_fixed.html">Fixed fit parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lambda/test_lambda.html">Lambda and string fit functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="linear/test_linear.html">Linear Fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="minuit/minuit.html">iminuit example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="minuit/minuit.html#SMPL-example">SMPL example</a></li>
-<li class="toctree-l3"><a class="reference internal" href="selective_fit/test_selective_fit.html">Selective Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minuit/minuit.html">Iminuit Fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selective_fit/test_selective_fit.html">Selective fit range</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../interpolate/Interpolate.html">Interpolate</a></li>
@@ -238,21 +236,24 @@
 <h1>Fitting<a class="headerlink" href="#fitting" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="auto/test_auto.html">Auto Fit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="custom/test_custom.html">Custom Fit</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="auto/test_auto.html">Automatic fit function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom/test_custom.html">Custom fit function</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="custom/test_custom.html#Initial-guess">Initial guess</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="fixed_fit/test_fixed.html">Fixed Fit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lambda/test_lambda.html">Lambda Fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fixed_fit/test_fixed.html">Fixed fit parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lambda/test_lambda.html">Lambda and string fit functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear/test_linear.html">Linear Fit</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="linear/test_linear.html#SciPy">SciPy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linear/test_linear.html#Minuit">Minuit</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="minuit/minuit.html">iminuit example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="minuit/minuit.html#SMPL-example">SMPL example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="selective_fit/test_selective_fit.html">Selective Fit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minuit/minuit.html">Iminuit Fit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="minuit/minuit.html#iminuit-example">iminuit example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minuit/minuit.html#smpl-example">smpl example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="selective_fit/test_selective_fit.html">Selective fit range</a></li>
 </ul>
 </div>
 </section>
@@ -263,7 +264,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="auto/test_auto.html" class="btn btn-neutral float-right" title="Auto Fit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="auto/test_auto.html" class="btn btn-neutral float-right" title="Automatic fit function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../plot/uncertainties/plot_uncertainties.html" class="btn btn-neutral float-left" title="Uncertainties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
