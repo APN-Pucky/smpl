@@ -1,4 +1,3 @@
-PROJECT := $(shell python -c "import toml; print(toml.load('pyproject.toml')['tool']['poetry']['name'])")
 livehtml:
 	poetry run $(MAKE) -C docs livehtml
 
@@ -17,7 +16,7 @@ build:
 test:
 	rm -f .coverage coverage.xml
 	find docs/source/example/ -type f -name '*.ipynb' | xargs poetry run jupyter nbconvert --to script
-	poetry run pytest $(PROJECT)
+	poetry run pytest
 
 commit: 
 	-git add .
