@@ -1,0 +1,20 @@
+:py:mod:`smpl.fit.minuit`
+=========================
+
+.. py:module:: smpl.fit.minuit
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   smpl.fit.minuit._fit_minuit_leastsquares
+
+
+
+.. py:function:: _fit_minuit_leastsquares(datax, datay, function, yerr, params=None, **kwargs)

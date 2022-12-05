@@ -17,7 +17,7 @@ python:
       - poetry config virtualenvs.create false
     post_install:
       # Install dependencies
-      - poetry install --with docs
+      - poetry install --with docs -E opt
 
 submodules:
   include: all

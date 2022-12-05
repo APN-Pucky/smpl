@@ -68,11 +68,17 @@ extensions = [
     "nbsphinx",
     #'jupyter_sphinx',
     #'jupyter_sphinx.execute'
+    "autoapi.extension",
 ]
 # nbsphinx_execute = 'always'
 # nbsphinx_widgets_path=""
 autosummary_generate = True
 autosummary_imported_members = True
+
+autoapi_type = "python"
+autoapi_dirs = ["../../smpl"]
+autoapi_python_class_content = "both"
+autodoc_typehints = "description"
 
 math_dollar_node_blacklist = (
     literal,

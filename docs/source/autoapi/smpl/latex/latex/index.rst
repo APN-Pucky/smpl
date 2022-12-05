@@ -1,0 +1,122 @@
+:py:mod:`smpl.latex.latex`
+==========================
+
+.. py:module:: smpl.latex.latex
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   smpl.latex.latex.si
+   smpl.latex.latex.si_line
+   smpl.latex.latex.si_ttab
+   smpl.latex.latex.si_tab
+   smpl.latex.latex.transpose_table
+
+
+
+.. py:function:: si(s, u = '', fmt = '{}')
+
+   Get number with uncertainty and unit in ``si`` format for latex.
+
+   Parameters
+   ----------
+   s : ufloat
+       number to be returned in a latex compatible format.
+   u : str
+       unit of that number.
+   fmt : str
+       format string for the numbers.
+
+   Returns
+   -------
+   str
+       latex SI string of the number with it's uncertainty and unit.
+
+   Examples
+   --------
+   >>> import uncertainties as unc
+   >>> from smpl import io
+   >>> si(unc.ufloat(2000,0.1))
+   '\\SI{2000.00+-0.10}{}'
+   >>> si(unc.ufloat(2000,0.1),"\\meter")
+   '\\SI{2000.00+-0.10}{\\meter}'
+   >>> si(unc.ufloat(2000,0.1),"\\meter", io.gf(2))
+   '\\SI{2.0+-0.0e+03}{\\meter}'
+
+
+
+.. py:function:: si_line(a, skip = 0, fmt = '{}')
+
+   Get array ``a`` in the format of a line of a latex table.
+
+   Examples
+   --------
+   >>> si_line([1,2,3,])
+   '\\SI{1}{}&\\SI{2}{}&\\SI{3}{}\\\\\n'
+
+
+
+.. py:function:: si_ttab(tab, skip = 0, fmt = '{}')
+
+   Transposed :func:`si_tab`.
+
+   Parameters
+   ----------
+   tab : array_like
+       Array containing the values of the table
+   skip : number
+       Skip this many table lines
+   fmt : str
+       format string for the numbers
+
+   Returns
+   -------
+   tabstr : str
+       table latex string
+
+   Examples
+   --------
+   >>> si_ttab([[1,2],[3,4]])
+   '\\SI{1}{}&\\SI{3}{}\\\\\n\\SI{2}{}&\\SI{4}{}\\\\\n'
+
+
+
+.. py:function:: si_tab(tab, skip=0, fmt='{}')
+
+   Get arrays of (uncertainty) numbers in  a latex table compatible form.
+
+   Parameters
+   ----------
+   tab : array_like
+       Array containing the values of the table
+   skip : number
+       Skip this many table lines
+   fmt : str
+       format string for the numbers
+
+   Returns
+   -------
+   str
+
+   Examples
+   --------
+   >>> si_tab([[1,2],[3,4]])
+   '\\SI{1}{}&\\SI{2}{}\\\\\n\\SI{3}{}&\\SI{4}{}\\\\\n'
+
+
+
+.. py:function:: transpose_table(strtab)
+
+   Transpose a latex table and return it in latex format.
+
+   Examples
+   --------
+   >>> transpose_table(si_tab([[1,2],[3,4]]))
+   '\\SI{1}{}&\\SI{3}{}\\\\\n\\SI{2}{}&\\SI{4}{}\\\\\n'

@@ -37,6 +37,11 @@
 
    example/*
 
+.. toctree::
+   :titlesonly:
+   :caption: Module:
+
+   autoapi/index
 
 
 :mod:`smpl` package

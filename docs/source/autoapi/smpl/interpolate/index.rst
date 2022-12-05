@@ -1,0 +1,36 @@
+:py:mod:`smpl.interpolate`
+==========================
+
+.. py:module:: smpl.interpolate
+
+.. autoapi-nested-parse::
+
+   Simplified Interpolating.
+
+   Uses scipy.interpolate.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   interpolate/index.rst
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   smpl.interpolate.interpolate
+
+
+
+.. py:function:: interpolate(*data, **kwargs)

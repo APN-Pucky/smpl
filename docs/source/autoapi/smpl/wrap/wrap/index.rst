@@ -1,0 +1,101 @@
+:py:mod:`smpl.wrap.wrap`
+========================
+
+.. py:module:: smpl.wrap.wrap
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   smpl.wrap.wrap.get_varnames
+   smpl.wrap.wrap.get_latex
+   smpl.wrap.wrap.get_lambda_argd
+   smpl.wrap.wrap.get_lambda
+   smpl.wrap.wrap.fnc_get_lambda
+   smpl.wrap.wrap.str_get_lambda
+   smpl.wrap.wrap.str_get_varnames
+   smpl.wrap.wrap.fnc_get_varnames
+   smpl.wrap.wrap.str_get_expr
+
+
+
+.. py:function:: get_varnames(expr, xvar)
+
+   Returns a list of variables used in the ``str`` math-expression via sympy and puts ``xvar`` to the front.
+
+   Examples
+   --------
+   >>> get_varnames("a**x*b+c","x")
+   ['x', 'a', 'b', 'c']
+
+
+
+.. py:function:: get_latex(function)
+
+   Return a latex string for passed function.
+
+
+   Parameters
+   ----------
+   function : function_like
+       function as str lambda or (oneline) function
+
+   Examples
+   --------
+   >>> get_latex(lambda a,b,c,x : (a+b+c)*x,)
+   '$x \\left(a + b + c\\right)$'
+   >>> get_latex("(a+b+c)*x")
+   '$x \\left(a + b + c\\right)$'
+   >>> def fun(a,b,x,c):
+   ...     return (a+b+c)*x
+   >>> get_latex(fun)
+   '$x \\left(a + b + c\\right)$'
+
+
+
+.. py:function:: get_lambda_argd(expr, xvar, *args)
+
+
+.. py:function:: get_lambda(expr, xvar)
+
+   Returns a lambda of given ``str``/``function``/``lambda`` expression with ``__doc__`` set to the latex expression. ``xvar`` is moved to the front.
+
+   Examples
+   --------
+   >>> l = get_lambda(lambda a,b,c,x : (a+b+c)*x,'x')
+   >>> l(4,1,1,1)
+   12
+   >>> l = get_lambda("(a+b+c)*x",'x')
+   >>> l(4,1,1,1)
+   12
+   >>> def fun(a,b,x,c):
+   ...     return (a+b+c)*x
+   >>> l = get_lambda(fun,'x')
+   >>> l(4,1,1,1)
+   12
+
+
+
+.. py:function:: fnc_get_lambda(expr, xvar)
+
+
+.. py:function:: str_get_lambda(expr, xvar)
+
+
+.. py:function:: str_get_varnames(expr, xvar)
+
+
+.. py:function:: fnc_get_varnames(func, xvar)
+
+
+.. py:function:: str_get_expr(expr)
+
+   Convert a pythonic string expression ot a sympy expression.
+
+   Only works with np or unp naming.
