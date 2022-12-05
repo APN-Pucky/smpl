@@ -696,24 +696,19 @@ def plt_fit_or_interpolate(
             util.get("extrapolate_max", kwargs, np.max(unv(datax))),
             kwargs["steps"],
         )
-        __function(
-            fitted,
-            kwargs["xspace"](np.min(xxfit), np.min(xfit), kwargs["steps"]),
-            util.get("extrapolate_fmt", kwargs, "--"),
-            color=ll.get_color(),
-            hatch=util.get("extrapolate_hatch", kwargs, r"||"),
-            sigmas=kwargs["sigmas"],
-            alpha=kwargs["alpha"],
-        )
-        __function(
-            fitted,
-            kwargs["xspace"](np.max(xfit), np.max(xxfit), kwargs["steps"]),
-            util.get("extrapolate_fmt", kwargs, "--"),
-            color=ll.get_color(),
-            hatch=util.get("extrapolate_hatch", kwargs, r"||"),
-            sigmas=kwargs["sigmas"],
-            alpha=kwargs["alpha"],
-        )
+        for pmin, pmax in [
+            (np.min(xxfit), np.min(xfit)),
+            (np.max(xfit), np.max(xxfit)),
+        ]:
+            __function(
+                fitted,
+                kwargs["xspace"](pmin, pmax, kwargs["steps"]),
+                util.get("extrapolate_fmt", kwargs, "--"),
+                color=ll.get_color(),
+                hatch=util.get("extrapolate_hatch", kwargs, r"||"),
+                sigmas=kwargs["sigmas"],
+                alpha=kwargs["alpha"],
+            )
     return ll.get_color(), xfit, fitted(xfit)
 
 

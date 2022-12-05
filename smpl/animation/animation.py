@@ -44,22 +44,7 @@ def interactive(
         isls = []
     if rec == 0:
         isls = []
-        for arg in args:
-            r = np.arange(arg.min, arg.max + arg.step, arg.step)
-            if isinstance(arg, widgets.Play):
-                isl = widgets.IntSlider()
-                widgets.jslink((arg, "value"), (isl, "value"))
-                plays += [arg]
-            else:
-                isl = widgets.SelectionSlider(
-                    options=r,
-                    value=arg.value,
-                    continuous_update=True,
-                    description=arg.description,  # TODO copy more
-                )
-                plays += [None]
-            isls += [isl]
-        for k, arg in kwargs.items():
+        for arg in [*args, *kwargs.values()]:
             r = np.arange(arg.min, arg.max + arg.step, arg.step)
             if isinstance(arg, widgets.Play):
                 isl = widgets.IntSlider()

@@ -7,7 +7,6 @@ from smpl import fit
 from smpl import functions as f
 from smpl.fit import minuit, scipy
 from smpl.fit.fit import Fitter
-from smpl.plot.plot import init_plot
 
 
 def _test_fit_linear(fitter, datax, datay):
@@ -76,6 +75,13 @@ def _test_fit_algos():
     _test_fit(Fitter.SCIPY_ODR)
 
 
-@pytest.mark.line_profile.with_args(fit.fit, scipy._fit_odr, _test_fit, _test_fit_algos)
+@pytest.mark.line_profile.with_args(
+    fit.fit,
+    minuit._fit_minuit_leastsquares,
+    scipy._fit_curvefit,
+    scipy._fit_odr,
+    _test_fit,
+    _test_fit_algos,
+)
 def test_fit_algos():
     _test_fit_algos()
