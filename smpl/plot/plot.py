@@ -313,7 +313,7 @@ def fit(func, *adata, **kwargs):
             del kwargs["auto_fit"]
             fit(datax, datay, best_f, **kwargs)
         return best_f, best_ff, lambda_f
-    if kwargs["also_fit"] == False and kwargs["label"] == None and kwargs["lpos"] == 0:
+    if kwargs["also_fit"] == False and kwargs["label"] is None and kwargs["lpos"] == 0:
         kwargs["lpos"] = -1
     return _fit_impl(datax, datay, function, **kwargs)
 
@@ -810,7 +810,7 @@ def save_plot(**kwargs):
             plt.legend(loc=kwargs["lpos"])
     # plt.gca().set_xlim([kwargs['xmin'],kwargs['xmax']])
     # plt.gca().set_ylim([kwargs['ymin'],kwargs['ymax']])
-    if "save" in kwargs and not kwargs["save"] == None:
+    if "save" in kwargs and not kwargs["save"] is None:
         io.mkdirs(kwargs["save"])
         plt.savefig(kwargs["save"] + ".pdf")
     plt.grid(b=kwargs["grid"])
