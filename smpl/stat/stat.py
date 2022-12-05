@@ -253,7 +253,7 @@ def trim_domain(
     test = np.linspace(fmin, fmax, steps)
     try:
         dr = derivative(f, test, dx=1e-06)
-    except Exception as e:
+    except Exception:
         return 0.0, 0.0
     m1 = np.abs(dr) > min_ch
     bmin = np.argmax(m1)
