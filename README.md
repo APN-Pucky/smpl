@@ -1,7 +1,7 @@
 # smpl
 Simplified plotting and fitting in python.
 
-[![PyPI version][pypi image]][pypi link]    ![downloads](https://img.shields.io/pypi/dm/smpl.svg)
+[![PyPI version][pypi image]][pypi link] [![PyPI version][pypi versions]][pypi link]  ![downloads](https://img.shields.io/pypi/dm/smpl.svg)
 
 | [Stable][doc stable]        | [Unstable][doc test]           |
 | ------------- |:-------------:|
@@ -37,6 +37,7 @@ pip install --index-url https://test.pypi.org/simple/ smpl
 
 [pypi image]: https://badge.fury.io/py/smpl.svg
 [pypi link]: https://pypi.org/project/smpl/
+[pypi versions]: https://img.shields.io/pypi/pyversions/smpl.svg
 
 [a s image]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml/badge.svg
 [a s link]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml
