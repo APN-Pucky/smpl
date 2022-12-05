@@ -1,12 +1,14 @@
-from io import StringIO
-import pathlib
-from smpl import debug
 import os
+import pathlib
 import sys
+from io import StringIO
 from pathlib import Path
 
-#TODO add regex capabilities
-def grep(pattern,inp):
+from smpl import debug
+
+
+# TODO add regex capabilities
+def grep(pattern, inp):
     """
     Searches for ``pattern`` in ``inp``.
 
@@ -15,15 +17,15 @@ def grep(pattern,inp):
     >>> grep("h","test.txt").read()
     'hi\\nho1\\n'
     """
-    r=""
-    with open(inp, 'r') as f:
+    r = ""
+    with open(inp, "r") as f:
         for line in f:
             if pattern in line:
                 r += line
     return StringIO(r)
 
 
-def tail(inp,n=1):
+def tail(inp, n=1):
     """
     Returns the last ``n`` lines of ``fname``.
 
@@ -50,10 +52,11 @@ def tail(inp,n=1):
     1  4
 
     """
-    with open(inp, 'r') as f:
-        return StringIO('\n'.join(f.readlines()[-n:]))
+    with open(inp, "r") as f:
+        return StringIO("\n".join(f.readlines()[-n:]))
 
-def head(inp,n=1):
+
+def head(inp, n=1):
     """
     Returns the first ``n`` lines of ``fname``.
 
@@ -80,11 +83,12 @@ def head(inp,n=1):
     1   2
 
     """
-    r=""
-    with open(inp, 'r') as f:
+    r = ""
+    with open(inp, "r") as f:
         for _ in range(n):
-            r +=f.readline()
+            r += f.readline()
     return StringIO(r)
+
 
 def read(fname):
     """
@@ -108,12 +112,13 @@ def read(fname):
     >>> read("test.out")
     'hi'
     """
-    if(not os.path.exists(fname)):
+    if not os.path.exists(fname):
         return ""
-    with open(fname, 'r') as f:
+    with open(fname, "r") as f:
         return f.read()
 
-def write(destination,content,mode='w+'):
+
+def write(destination, content, mode="w+"):
     """
     Write to file by string or writable :obj:`destiantion`.
 
@@ -133,14 +138,15 @@ def write(destination,content,mode='w+'):
     'hi'
     """
     # TODO add http and other string based write methodes
-    if isinstance(destination,str):
-        #os.makedirs(os.path.dirname(destination), exist_ok=True)
+    if isinstance(destination, str):
+        # os.makedirs(os.path.dirname(destination), exist_ok=True)
         with open(destination, mode) as f:
             f.write(content)
     else:
         destination.write(content)
 
-def append(destination,content,mode='a+'):
+
+def append(destination, content, mode="a+"):
     """
     Appends to file by string or writable :obj:`destiantion`.
 
@@ -159,7 +165,8 @@ def append(destination,content,mode='a+'):
     >>> append(sys.stdout,"hi")
     hi
     """
-    write(destination,content,mode)
+    write(destination, content, mode)
+
 
 def gf(i=3):
     """
@@ -214,13 +221,12 @@ def pwd():
     str
         path to the path of current file.
     """
-    #TODO better use pathlib.Path.cwd()
-    pwd_ = "/".join(debug.get_line_number_file(split=False,
-                    _back=1)[1].split("/")[:-1])
+    # TODO better use pathlib.Path.cwd()
+    pwd_ = "/".join(debug.get_line_number_file(split=False, _back=1)[1].split("/")[:-1])
     return pwd_
 
 
-def import_path(path='../..'):
+def import_path(path="../.."):
     """
     Adds ``path`` to the ``sys.path``.
 
@@ -276,13 +282,13 @@ def pr(a, nnl=False):
 
     """
     if nnl:
-        print(a, end='')
+        print(a, end="")
     else:
         print(a)
     return a
 
 
-def files( ending,folder="."):
+def files(ending, folder="."):
     """
     Get all the files in ``folder`` ending with ``ending``.
 
@@ -307,19 +313,18 @@ def files( ending,folder="."):
     i = 0
     for file in os.scandir(folder):
         if file.path.endswith(ending):
-            r.append((i, os.path.splitext(
-                os.path.basename(file.path))[0], file.path))
-            i = i+1
+            r.append((i, os.path.splitext(os.path.basename(file.path))[0], file.path))
+            i = i + 1
     return r
 
 
 def pn(a, nnl=False):
     gl = globals()
     for key in gl:
-        if(gl[key] == a):
+        if gl[key] == a:
             print(key)
     if nnl:
-        print("%s=%s" % (a.__name__, a), end='')
+        print("%s=%s" % (a.__name__, a), end="")
     else:
         print("%s=%s" % (a.__name__, a))
     return a

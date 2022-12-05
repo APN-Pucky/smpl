@@ -1,20 +1,29 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import colors
+from matplotlib.image import NonUniformImage
+
 from smpl import doc
 from smpl import plot as splot
-from matplotlib import colors
-import numpy as np
-from matplotlib.image import NonUniformImage
-import matplotlib.pyplot as plt
-
 from smpl.util import util
 
 default = {
-    'xaxis': [None, "."],
-    'yaxis': [None, "."],
-    'zaxis': [None, "."],
-    'logz': [True, "Colorbar in logarithmic scale."],
-    'style': ['pcolormesh', "Plot via an image ('image') or scatter ('scatter') or mesh ('pcolormesh')."],
-    'interpolation': ['nearest', "Only 'nearest' or 'bilinear' for nonuniformimage. Check https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow"],
-    'cmap': ['viridis', "Good default color map for missing datapoints since it does not include white."],
+    "xaxis": [None, "."],
+    "yaxis": [None, "."],
+    "zaxis": [None, "."],
+    "logz": [True, "Colorbar in logarithmic scale."],
+    "style": [
+        "pcolormesh",
+        "Plot via an image ('image') or scatter ('scatter') or mesh ('pcolormesh').",
+    ],
+    "interpolation": [
+        "nearest",
+        "Only 'nearest' or 'bilinear' for nonuniformimage. Check https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow",
+    ],
+    "cmap": [
+        "viridis",
+        "Good default color map for missing datapoints since it does not include white.",
+    ],
     # 'zscale' : [None,"Rescale z values."],
 }
 
@@ -24,9 +33,7 @@ default = {
 @doc.append_str(doc.table(default, init=False))
 @doc.append_str(doc.table({"plot2d_kwargs": ["default", "description"]}, bottom=False))
 def plot2d_kwargs(kwargs):
-    """Set default plot2d_kwargs if not set.
-
-    """
+    """Set default plot2d_kwargs if not set."""
     for k, v in default.items():
         if not k in kwargs:
             kwargs[k] = v[0]
@@ -49,31 +56,25 @@ def plot2d(datax, datay, dataz, **kwargs):
         pcolormesh_vplot(datax, datay, dataz, **kwargs)
     elif kwargs["style"] == "image":
         map_vplot(datax, datay, dataz, **kwargs)
-    elif (kwargs["style"] == "scatter"):
+    elif kwargs["style"] == "scatter":
         scatter_vplot(datax, datay, dataz, **kwargs)
 
 
 def sort_xyz(x, y, z):
-    p1 = x.argsort(kind='stable')
+    p1 = x.argsort(kind="stable")
     x = np.copy(x[p1])
     y = np.copy(y[p1])
     z = np.copy(z[p1])
-    p2 = y.argsort(kind='stable')
+    p2 = y.argsort(kind="stable")
     x = x[p2]
     y = y[p2]
     z = z[p2]
     return x, y, z
 
 
-def pcolormesh_vplot(tvx,
-                     tvy,
-                     tvz,
-                     xaxis=None,
-                     yaxis=None,
-                     zaxis=None,
-                     logz=True,
-                     zscale=1.,
-                     **kwargs):
+def pcolormesh_vplot(
+    tvx, tvy, tvz, xaxis=None, yaxis=None, zaxis=None, logz=True, zscale=1.0, **kwargs
+):
     """
     Advantage over matplotlibs pcolor(mesh) is that does not require a meshgrid. Instead it uses the data points directly in three lists.
     """
@@ -94,13 +95,14 @@ def pcolormesh_vplot(tvx,
     else:
         X = vx
         Y = vy
-        Z = vz*zscale
+        Z = vz * zscale
 
-    plt.pcolormesh(X, Y, Z, norm=colors.LogNorm()
-                   if logz else None, cmap=kwargs['cmap'])
+    plt.pcolormesh(
+        X, Y, Z, norm=colors.LogNorm() if logz else None, cmap=kwargs["cmap"]
+    )
 
-    #ax.set_xlim(xl, xm)
-    #ax.set_ylim(yl, ym)
+    # ax.set_xlim(xl, xm)
+    # ax.set_ylim(yl, ym)
 
     cb = plt.colorbar()
     cb.set_label(zaxis)
@@ -108,18 +110,20 @@ def pcolormesh_vplot(tvx,
     plt.ylabel(yaxis)
 
 
-def map_vplot(tvx,
-              tvy,
-              tvz,
-              xaxis=None,
-              yaxis=None,
-              zaxis=None,
-              logz=True,
-              sort=True,
-              fill_missing=True,
-              zscale=1., **kwargs):
-    """
-    """
+def map_vplot(
+    tvx,
+    tvy,
+    tvz,
+    xaxis=None,
+    yaxis=None,
+    zaxis=None,
+    logz=True,
+    sort=True,
+    fill_missing=True,
+    zscale=1.0,
+    **kwargs
+):
+    """ """
     vx = np.copy(tvx)
     vy = np.copy(tvy)
     vz = np.copy(tvz)
@@ -139,13 +143,13 @@ def map_vplot(tvx,
     while vy[s] == vy[s - 1]:
         s = s + 1
     if s == 1:
-        #print("flipped x y ")
+        # print("flipped x y ")
         while vx[s] == vx[s - 1]:
             s = s + 1
         if s == 1:
             print("error too small map")
             return
-        #x, y = y, x
+        # x, y = y, x
         xaxis, yaxis = yaxis, xaxis
         vx, vy = vy, vx
 
@@ -160,8 +164,8 @@ def map_vplot(tvx,
     im = NonUniformImage(
         ax,
         origin="lower",
-        cmap=kwargs['cmap'],
-        interpolation=kwargs['interpolation'],
+        cmap=kwargs["cmap"],
+        interpolation=kwargs["interpolation"],
         extent=(xl, xm, yl, ym),
         norm=colors.LogNorm() if logz else None,
     )
@@ -177,16 +181,19 @@ def map_vplot(tvx,
     plt.ylabel(yaxis)
 
 
-def scatter_vplot(vx,
-                  vy,
-                  vz,
-                  xaxis=None,
-                  yaxis=None,
-                  zaxis=None,
-                  logz=True,
-                  sort=True,
-                  fill_missing=True,
-                  zscale=1., **kwargs):
+def scatter_vplot(
+    vx,
+    vy,
+    vz,
+    xaxis=None,
+    yaxis=None,
+    zaxis=None,
+    logz=True,
+    sort=True,
+    fill_missing=True,
+    zscale=1.0,
+    **kwargs
+):
     if sort:
         vx, vy, vz = sort_xyz(vx, vy, vz)
 
@@ -196,20 +203,26 @@ def scatter_vplot(vx,
     yl = vy.min() + (vy.min() / 2) - vy[vy != vy.min()].min() / 2
     ym = vy.max() + (vy.max() / 2) - vy[vy != vy.max()].max() / 2
 
-    s = plt.scatter(np.concatenate((vx, vx, vx)),
-                    np.concatenate((vy, vy, vy)),
-                    c=np.concatenate(
-                        (splot.unv(vz) + splot.usd(vz),
-                         splot.unv(vz) - splot.usd(vz), splot.unv(vz))),
-                    s=np.concatenate(
-                        ([(3 * plt.rcParams['lines.markersize'])**2
-                          for i in range(len(vx))], [
-                              (2 * plt.rcParams['lines.markersize'])**2
-                              for i in range(len(vx))
-                        ], [(plt.rcParams['lines.markersize'])**2
-                            for i in range(len(vx))])),
-                    norm=colors.LogNorm() if logz else None,
-                    cmap=kwargs['cmap'],)
+    s = plt.scatter(
+        np.concatenate((vx, vx, vx)),
+        np.concatenate((vy, vy, vy)),
+        c=np.concatenate(
+            (
+                splot.unv(vz) + splot.usd(vz),
+                splot.unv(vz) - splot.usd(vz),
+                splot.unv(vz),
+            )
+        ),
+        s=np.concatenate(
+            (
+                [(3 * plt.rcParams["lines.markersize"]) ** 2 for i in range(len(vx))],
+                [(2 * plt.rcParams["lines.markersize"]) ** 2 for i in range(len(vx))],
+                [(plt.rcParams["lines.markersize"]) ** 2 for i in range(len(vx))],
+            )
+        ),
+        norm=colors.LogNorm() if logz else None,
+        cmap=kwargs["cmap"],
+    )
 
     ax.set_xlim(xl, xm)
     ax.set_ylim(yl, ym)

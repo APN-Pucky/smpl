@@ -34,6 +34,3 @@ smpl.doc.doc
    
    
    
-
-
-

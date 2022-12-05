@@ -40,5 +40,3 @@ Animations
     :maxdepth: 2
 
     **
-
-

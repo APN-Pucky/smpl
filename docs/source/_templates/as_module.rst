@@ -15,4 +15,3 @@
    .. rubric:: Functions
 
    
-

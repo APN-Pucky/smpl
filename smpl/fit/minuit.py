@@ -1,14 +1,14 @@
 import uncertainties as unc
 
 
-
 def _fit_minuit_leastsquares(datax, datay, function, yerr, params=None, **kwargs):
     # everything in iminuit is done through the Minuit object, so we import it
     from iminuit import Minuit
-    
+
     # we also need a cost function to fit and import the LeastSquares function
     from iminuit.cost import LeastSquares
     from iminuit.util import Matrix
+
     # TODO check/add params
     if params is None:
         params = []

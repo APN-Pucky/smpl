@@ -27,6 +27,3 @@ smpl.latex.latex
    
    
    
-
-
-

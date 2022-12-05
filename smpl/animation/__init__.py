@@ -1,6 +1,4 @@
 """Simplified Animations."""
-from .animation import clear, frame, animate, interactive
+from .animation import animate, clear, frame, interactive
 
-__all__ = [
-    'clear', 'frame', 'animate', 'interactive'
-]
+__all__ = ["clear", "frame", "animate", "interactive"]
