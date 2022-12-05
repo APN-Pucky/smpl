@@ -36,6 +36,7 @@ sphinx_math_dollar = "*"
 pandoc = "*"
 numpydoc = "*"
 myst-parser  = "*"
+toml = "*"
 
 [tool.poetry.group.dev]
 optional = true

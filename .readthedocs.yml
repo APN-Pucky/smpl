@@ -12,7 +12,7 @@ python:
       path: .
       extra_requirements:
         - dev
-        - doc
+        - docs
 
 submodules:
   include: all
