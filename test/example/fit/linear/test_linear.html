@@ -76,7 +76,7 @@
             
             
               <div class="version">
-                1.0.0-7-g52ce4024
+                1.0.0-8-g159c7d84
               </div>
             
           
@@ -620,6 +620,65 @@ Chi2 =  6.120448179271708
 <img alt="../../../_images/example_fit_linear_test_linear_8_1.png" src="../../../_images/example_fit_linear_test_linear_8_1.png" />
 </div>
 </div>
+<section id="Correlations">
+<h3>Correlations<a class="headerlink" href="#Correlations" title="Permalink to this heading">¶</a></h3>
+<p>Let’s take a look at correlations on the example of calculating the y axis intercept. Again:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a,b = plot.fit(xdata, ydata, fmt=&#39;.&#39;, label=&#39;data&#39;, xaxis=&quot;x in a.u.&quot;,yaxis=&quot;y in a.u.&quot;,function=f.line, sigmas=1,extrapolate_min=-2)
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_linear_test_linear_10_0.png" src="../../../_images/example_fit_linear_test_linear_10_0.png" />
+</div>
+</div>
+<p>Let’s calculated the intersection with the x axis, given by <span class="math notranslate nohighlight">\(-b/a\)</span>, with correlation</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>-b/a
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-1.0648148148148089+/-0.41569533919028134
+</pre></div></div>
+</div>
+<p>and without correlations</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a_nocorr=unc.ufloat(plot.unv(a),plot.usd(a))
+b_nocorr=unc.ufloat(plot.unv(b),plot.usd(b))
+-b_nocorr/a_nocorr
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-1.0648148148148089+/-0.3375205305560758
+</pre></div></div>
+</div>
+<p>While the mean agrees the uncertainties are not the same.</p>
+<p>The Lines drawn in the plot are also correlated and cross the axis at -0.67 and -1.51 corresponding to an uncertainties of -0.42.</p>
+</section>
 </section>
 <section id="Minuit">
 <h2>Minuit<a class="headerlink" href="#Minuit" title="Permalink to this heading">¶</a></h2>
@@ -644,7 +703,7 @@ Chi2 =  6.120448179271703
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../../_images/example_fit_linear_test_linear_10_1.png" src="../../../_images/example_fit_linear_test_linear_10_1.png" />
+<img alt="../../../_images/example_fit_linear_test_linear_17_1.png" src="../../../_images/example_fit_linear_test_linear_17_1.png" />
 </div>
 </div>
 </section>
