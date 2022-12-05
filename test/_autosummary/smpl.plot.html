@@ -1,42 +1,84 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>smpl.plot &mdash; smpl  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+  
+  <title>Parameters &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
-    <script src="../_static/js/theme.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="smpl.stat" href="smpl.stat.html" />
-    <link rel="prev" title="smpl.parallel" href="smpl.parallel.html" /> 
+    <link rel="next" title="References" href="smpl.stat.html" />
+    <link rel="prev" title="Examples" href="smpl.parallel.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
           </a>
+
+          
+            
+            
               <div class="version">
-                0.152
+                0.152-5-g1a72ba0c
               </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -44,7 +86,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
               <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
@@ -60,20 +113,103 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.interpolate.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.interpolate</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="docutils literal notranslate"><span class="pre">animate()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html#smpl.animation.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html#smpl.animation.frame"><code class="docutils literal notranslate"><span class="pre">frame()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.data.html"><code class="docutils literal notranslate"><span class="pre">data_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.data.html#smpl.data.filtered_data_split"><code class="docutils literal notranslate"><span class="pre">filtered_data_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.data.html#smpl.data.flatmesh"><code class="docutils literal notranslate"><span class="pre">flatmesh()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="docutils literal notranslate"><span class="pre">file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.file1"><code class="docutils literal notranslate"><span class="pre">file1()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.get_line_number_file"><code class="docutils literal notranslate"><span class="pre">get_line_number_file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.msg"><code class="docutils literal notranslate"><span class="pre">msg()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.msg1"><code class="docutils literal notranslate"><span class="pre">msg1()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.once"><code class="docutils literal notranslate"><span class="pre">once()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.table_flush_header"><code class="docutils literal notranslate"><span class="pre">table_flush_header()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.table_flush_line"><code class="docutils literal notranslate"><span class="pre">table_flush_line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="docutils literal notranslate"><span class="pre">append_doc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.append_plot"><code class="docutils literal notranslate"><span class="pre">append_plot()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.array_table"><code class="docutils literal notranslate"><span class="pre">array_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.insert_doc"><code class="docutils literal notranslate"><span class="pre">insert_doc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.insert_eq"><code class="docutils literal notranslate"><span class="pre">insert_eq()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.insert_latex"><code class="docutils literal notranslate"><span class="pre">insert_latex()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.insert_latex_eq"><code class="docutils literal notranslate"><span class="pre">insert_latex_eq()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html"><code class="docutils literal notranslate"><span class="pre">Chi2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.Fitter"><code class="docutils literal notranslate"><span class="pre">Fitter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.R2"><code class="docutils literal notranslate"><span class="pre">R2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.auto"><code class="docutils literal notranslate"><span class="pre">auto()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.data_split"><code class="docutils literal notranslate"><span class="pre">data_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.fit_kwargs"><code class="docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.fit_split"><code class="docutils literal notranslate"><span class="pre">fit_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="docutils literal notranslate"><span class="pre">const()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.cos"><code class="docutils literal notranslate"><span class="pre">cos()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.cos_abs"><code class="docutils literal notranslate"><span class="pre">cos_abs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.cube"><code class="docutils literal notranslate"><span class="pre">cube()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.exp"><code class="docutils literal notranslate"><span class="pre">exp()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.fac"><code class="docutils literal notranslate"><span class="pre">fac()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.gauss"><code class="docutils literal notranslate"><span class="pre">gauss()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.linear"><code class="docutils literal notranslate"><span class="pre">linear()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.log"><code class="docutils literal notranslate"><span class="pre">log()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.lorentz"><code class="docutils literal notranslate"><span class="pre">lorentz()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.sin"><code class="docutils literal notranslate"><span class="pre">sin()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.square"><code class="docutils literal notranslate"><span class="pre">square()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.tan"><code class="docutils literal notranslate"><span class="pre">tan()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="docutils literal notranslate"><span class="pre">append()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.files"><code class="docutils literal notranslate"><span class="pre">files()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.find_file"><code class="docutils literal notranslate"><span class="pre">find_file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.gf"><code class="docutils literal notranslate"><span class="pre">gf()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.mkdirs"><code class="docutils literal notranslate"><span class="pre">mkdirs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.pr"><code class="docutils literal notranslate"><span class="pre">pr()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.pwd"><code class="docutils literal notranslate"><span class="pre">pwd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html"><code class="docutils literal notranslate"><span class="pre">si()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html#smpl.latex.si_line"><code class="docutils literal notranslate"><span class="pre">si_line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html#smpl.latex.si_tab"><code class="docutils literal notranslate"><span class="pre">si_tab()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html#smpl.latex.si_ttab"><code class="docutils literal notranslate"><span class="pre">si_ttab()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html#smpl.latex.transpose_table"><code class="docutils literal notranslate"><span class="pre">transpose_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="docutils literal notranslate"><span class="pre">calc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.gen"><code class="docutils literal notranslate"><span class="pre">gen()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.par"><code class="docutils literal notranslate"><span class="pre">par()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.parallel"><code class="docutils literal notranslate"><span class="pre">parallel()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.partitioned_parallel"><code class="docutils literal notranslate"><span class="pre">partitioned_parallel()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.res"><code class="docutils literal notranslate"><span class="pre">res()</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">auto()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#smpl.plot.data"><code class="docutils literal notranslate"><span class="pre">data()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#smpl.plot.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#smpl.plot.function"><code class="docutils literal notranslate"><span class="pre">function()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#smpl.plot.plot2d"><code class="docutils literal notranslate"><span class="pre">plot2d()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#smpl.plot.plot2d_kwargs"><code class="docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#smpl.plot.plot_kwargs"><code class="docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#smpl.plot.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#smpl.plot.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="docutils literal notranslate"><span class="pre">Chi2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.R2"><code class="docutils literal notranslate"><span class="pre">R2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.fft"><code class="docutils literal notranslate"><span class="pre">fft()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.get_interesting_domain"><code class="docutils literal notranslate"><span class="pre">get_interesting_domain()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.mean"><code class="docutils literal notranslate"><span class="pre">mean()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.no_dist"><code class="docutils literal notranslate"><span class="pre">no_dist()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.noisy"><code class="docutils literal notranslate"><span class="pre">noisy()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.novar_mean"><code class="docutils literal notranslate"><span class="pre">novar_mean()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.poisson_dist"><code class="docutils literal notranslate"><span class="pre">poisson_dist()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.unv_lambda"><code class="docutils literal notranslate"><span class="pre">unv_lambda()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="docutils literal notranslate"><span class="pre">find_nearest()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.find_nearest_index"><code class="docutils literal notranslate"><span class="pre">find_nearest_index()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.has"><code class="docutils literal notranslate"><span class="pre">has()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.times"><code class="docutils literal notranslate"><span class="pre">times()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.true"><code class="docutils literal notranslate"><span class="pre">true()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="docutils literal notranslate"><span class="pre">get_lambda()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html#smpl.wrap.get_latex"><code class="docutils literal notranslate"><span class="pre">get_latex()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html#smpl.wrap.get_varnames"><code class="docutils literal notranslate"><span class="pre">get_varnames()</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -81,30 +217,71 @@
 <li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">smpl</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></li>
+        
+      <li>Parameters</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
             <a href="../_sources/_autosummary/smpl.plot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -129,9 +306,9 @@
     text-align: unset;
 }
 </style>
-<section id="module-smpl.plot">
-<span id="smpl-plot"></span><h1><a class="reference internal" href="#module-smpl.plot" title="smpl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a><a class="headerlink" href="#module-smpl.plot" title="Permalink to this heading"></a></h1>
-<p>Simplified plotting.</p>
+<p><a class="reference internal" href="#module-smpl.plot" title="smpl.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></p>
+<hr class="docutils" />
+<span class="target" id="module-smpl.plot"></span><p>Simplified plotting.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">acorr</span></code>(x, *[, data])</p></td>
@@ -140,7 +317,7 @@
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">angle_spectrum</span></code>(x[, Fs, Fc, window, pad_to, ...])</p></td>
 <td><p>Plot the angle spectrum.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate</span></code>(text, xy, *args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate</span></code>(text, xy[, xytext, xycoords, ...])</p></td>
 <td><p>Annotate the point <em>xy</em> with text <em>text</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">arrow</span></code>(x, y, dx, dy, **kwargs)</p></td>
@@ -156,7 +333,7 @@
 <td><p>Set the colormap to 'autumn'.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes</span></code>([arg])</p></td>
-<td><p>Add an axes to the current figure and make it the current axes.</p></td>
+<td><p>Add an Axes to the current figure and make it the current Axes.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axhline</span></code>([y, xmin, xmax])</p></td>
 <td><p>Add a horizontal line across the Axes.</p></td>
@@ -185,7 +362,7 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">barbs</span></code>(*args[, data])</p></td>
 <td><p>Plot a 2D field of barbs.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">barh</span></code>(y, width[, height, left, align])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">barh</span></code>(y, width[, height, left, align, data])</p></td>
 <td><p>Make a horizontal bar plot.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bone</span></code>()</p></td>
@@ -305,7 +482,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></a>(func, *args, **kwargs)</p></td>
 <td><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">gca</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">gca</span></code>()</p></td>
 <td><p>Get the current Axes.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">gcf</span></code>()</p></td>
@@ -354,7 +531,7 @@
 <td><p>Make a 2D hexagonal binning plot of points <em>x</em>, <em>y</em>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hist</span></code>(x[, bins, range, density, weights, ...])</p></td>
-<td><p>Plot a histogram.</p></td>
+<td><p>Compute and plot a histogram.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hist2d</span></code>(x, y[, bins, range, density, ...])</p></td>
 <td><p>Make a 2D histogram plot.</p></td>
@@ -372,7 +549,7 @@
 <td><p>Read an image from a file into an array.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">imsave</span></code>(fname, arr, **kwargs)</p></td>
-<td><p>Save an array as an image file.</p></td>
+<td><p>Colormap and save an array as an image file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">imshow</span></code>(X[, cmap, norm, aspect, ...])</p></td>
 <td><p>Display data as an image, i.e., on a 2D regular raster.</p></td>
@@ -381,7 +558,7 @@
 <td><p>Set the colormap to 'inferno'.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">install_repl_displayhook</span></code>()</p></td>
-<td><p>Install a repl display hook so that any stale figure are automatically redrawn when control is returned to the repl.</p></td>
+<td><p>Connect to the display hook of the current shell.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interactive</span></code>(b)</p></td>
 <td><p>Set whether to redraw after every plotting command (e.g.</p></td>
@@ -462,216 +639,213 @@
 <td><p>Set default plot2d_kwargs if not set.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_date</span></code>(x, y[, fmt, tz, xdate, ydate, data])</p></td>
-<td><p>Plot coercing the axis to treat floats as dates.</p></td>
+<td><p>[<em>Discouraged</em>] Plot coercing the axis to treat floats as dates.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_kwargs</span></code></a>(kwargs)</p></td>
 <td><p>Set default plot_kwargs if not set.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting</span></code>()</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">polar</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">polar</span></code>(*args, **kwargs)</p></td>
 <td><p>Make a polar plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prism</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prism</span></code>()</p></td>
 <td><p>Set the colormap to 'prism'.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
 <td><p>Plot the power spectral density.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiver</span></code>(*args[, data])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiver</span></code>(*args[, data])</p></td>
 <td><p>Plot a 2D field of arrows.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiverkey</span></code>(Q, X, Y, U, label, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiverkey</span></code>(Q, X, Y, U, label, **kwargs)</p></td>
 <td><p>Add a key to a quiver plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc</span></code>(group, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc</span></code>(group, **kwargs)</p></td>
 <td><p>Set the current <cite>.rcParams</cite>. <em>group</em> is the grouping for the rc, e.g., for <code class="docutils literal notranslate"><span class="pre">lines.linewidth</span></code> the group is <code class="docutils literal notranslate"><span class="pre">lines</span></code>, for <code class="docutils literal notranslate"><span class="pre">axes.facecolor</span></code>, the group is <code class="docutils literal notranslate"><span class="pre">axes</span></code>, and so on. Group may also be a list or tuple of group names, e.g., (<em>xtick</em>, <em>ytick</em>). <em>kwargs</em> is a dictionary attribute name/value pairs, e.g.,::.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc_context</span></code>([rc, fname])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc_context</span></code>([rc, fname])</p></td>
 <td><p>Return a context manager for temporarily changing rcParams.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rcdefaults</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rcdefaults</span></code>()</p></td>
 <td><p>Restore the <cite>.rcParams</cite> from Matplotlib's internal default style.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_cmap</span></code>([name, cmap, override_builtin])</p></td>
-<td><p>Add a colormap to the set recognized by <code class="xref py py-func docutils literal notranslate"><span class="pre">get_cmap()</span></code>.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_cmap</span></code>([name, cmap, override_builtin])</p></td>
+<td><p>[<em>Deprecated</em>] Add a colormap to the set recognized by <code class="xref py py-func docutils literal notranslate"><span class="pre">get_cmap()</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgrids</span></code>([radii, labels, angle, fmt])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgrids</span></code>([radii, labels, angle, fmt])</p></td>
 <td><p>Get or set the radial gridlines on the current polar plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code>(*args, **kwargs)</p></td>
 <td><p>Save the current figure.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sca</span></code>(ax)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sca</span></code>(ax)</p></td>
 <td><p>Set the current Axes to <em>ax</em> and the current Figure to the parent of <em>ax</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter</span></code>(x, y[, s, c, marker, cmap, norm, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter</span></code>(x, y[, s, c, marker, cmap, norm, ...])</p></td>
 <td><p>A scatter plot of <em>y</em> vs.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sci</span></code>(im)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sci</span></code>(im)</p></td>
 <td><p>Set the current image.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogx</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogx</span></code>(*args, **kwargs)</p></td>
 <td><p>Make a plot with log scaling on the x axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogy</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogy</span></code>(*args, **kwargs)</p></td>
 <td><p>Make a plot with log scaling on the y axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cmap</span></code>(cmap)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cmap</span></code>(cmap)</p></td>
 <td><p>Set the default colormap, and applies it to the current image if any.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_loglevel</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_loglevel</span></code>(*args, **kwargs)</p></td>
 <td><p>Set Matplotlib's root logger and root logger handler level, creating the handler if it does not exist yet.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setp</span></code>(obj, *args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">setp</span></code>(obj, *args, **kwargs)</p></td>
 <td><p>Set one or more properties on an <cite>.Artist</cite>, or list allowed values.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(*[, block])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code>(*[, block])</p></td>
 <td><p>Display all open figures.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">specgram</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">specgram</span></code>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
 <td><p>Plot a spectrogram.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">spring</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">spring</span></code>()</p></td>
 <td><p>Set the colormap to 'spring'.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">spy</span></code>(Z[, precision, marker, markersize, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">spy</span></code>(Z[, precision, marker, markersize, ...])</p></td>
 <td><p>Plot the sparsity pattern of a 2D array.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stackplot</span></code>(x, *args[, labels, colors, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stackplot</span></code>(x, *args[, labels, colors, ...])</p></td>
 <td><p>Draw a stacked area plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stairs</span></code>(values[, edges, orientation, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stairs</span></code>(values[, edges, orientation, ...])</p></td>
 <td><p>A stepwise constant function as a line with bounding edges or a filled plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stem</span></code>(*args[, linefmt, markerfmt, basefmt, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">stem</span></code>(*args[, linefmt, markerfmt, basefmt, ...])</p></td>
 <td><p>Create a stem plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code>(x, y, *args[, where, data])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code>(x, y, *args[, where, data])</p></td>
 <td><p>Make a step plot.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">streamplot</span></code>(x, y, u, v[, density, linewidth, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">streamplot</span></code>(x, y, u, v[, density, linewidth, ...])</p></td>
 <td><p>Draw streamlines of a vector flow.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot</span></code>(*args, **kwargs)</p></td>
 <td><p>Add an Axes to the current figure or retrieve an existing Axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot2grid</span></code>(shape, loc[, rowspan, colspan, fig])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot2grid</span></code>(shape, loc[, rowspan, colspan, fig])</p></td>
 <td><p>Create a subplot at a specific location inside a regular grid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_mosaic</span></code>(mosaic, *[, sharex, sharey, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_mosaic</span></code>(mosaic, *[, sharex, sharey, ...])</p></td>
 <td><p>Build a layout of Axes based on ASCII art or nested lists.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_tool</span></code>([targetfig])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_tool</span></code>([targetfig])</p></td>
 <td><p>Launch a subplot tool window for a figure.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots</span></code>([nrows, ncols, sharex, sharey, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots</span></code>([nrows, ncols, sharex, sharey, ...])</p></td>
 <td><p>Create a figure and a set of subplots.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots_adjust</span></code>([left, bottom, right, top, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots_adjust</span></code>([left, bottom, right, top, ...])</p></td>
 <td><p>Adjust the subplot layout parameters.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summer</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summer</span></code>()</p></td>
 <td><p>Set the colormap to 'summer'.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">suptitle</span></code>(t, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">suptitle</span></code>(t, **kwargs)</p></td>
 <td><p>Add a centered suptitle to the figure.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">switch_backend</span></code>(newbackend)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">switch_backend</span></code>(newbackend)</p></td>
 <td><p>Close all open figures and set the Matplotlib backend.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code>([cellText, cellColours, cellLoc, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code>([cellText, cellColours, cellLoc, ...])</p></td>
 <td><p>Add a table to an <cite>~.axes.Axes</cite>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code>(x, y, s[, fontdict])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code>(x, y, s[, fontdict])</p></td>
 <td><p>Add text to the Axes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">thetagrids</span></code>([angles, labels, fmt])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">thetagrids</span></code>([angles, labels, fmt])</p></td>
 <td><p>Get or set the theta gridlines on the current polar plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick_params</span></code>([axis])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick_params</span></code>([axis])</p></td>
 <td><p>Change the appearance of ticks, tick labels, and gridlines.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticklabel_format</span></code>(*[, axis, style, ...])</p></td>
-<td><p>Configure the <cite>.ScalarFormatter</cite> used by default for linear axes.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticklabel_format</span></code>(*[, axis, style, ...])</p></td>
+<td><p>Configure the <cite>.ScalarFormatter</cite> used by default for linear Axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code>(*[, pad, h_pad, w_pad, rect])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code>(*[, pad, h_pad, w_pad, rect])</p></td>
 <td><p>Adjust the padding between and around subplots.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">title</span></code>(label[, fontdict, loc, pad, y])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">title</span></code>(label[, fontdict, loc, pad, y])</p></td>
 <td><p>Set a title for the Axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontour</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontour</span></code>(*args, **kwargs)</p></td>
 <td><p>Draw contour lines on an unstructured triangular grid.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontourf</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontourf</span></code>(*args, **kwargs)</p></td>
 <td><p>Draw contour regions on an unstructured triangular grid.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tripcolor</span></code>(*args[, alpha, norm, cmap, vmin, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tripcolor</span></code>(*args[, alpha, norm, cmap, vmin, ...])</p></td>
 <td><p>Create a pseudocolor plot of an unstructured triangular grid.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">triplot</span></code>(*args, **kwargs)</p></td>
-<td><p>Draw a unstructured triangular grid as lines and/or markers.</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">triplot</span></code>(*args, **kwargs)</p></td>
+<td><p>Draw an unstructured triangular grid as lines and/or markers.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">twinx</span></code>([ax])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">twinx</span></code>([ax])</p></td>
 <td><p>Make and return a second axes that shares the <em>x</em>-axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">twiny</span></code>([ax])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">twiny</span></code>([ax])</p></td>
 <td><p>Make and return a second axes that shares the <em>y</em>-axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">uninstall_repl_displayhook</span></code>()</p></td>
-<td><p>Uninstall the Matplotlib display hook.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">uninstall_repl_displayhook</span></code>()</p></td>
+<td><p>Disconnect from the display hook of the current shell.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
 <td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
 <td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">violinplot</span></code>(dataset[, positions, vert, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">violinplot</span></code>(dataset[, positions, vert, ...])</p></td>
 <td><p>Make a violin plot.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">viridis</span></code>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">viridis</span></code>()</p></td>
 <td><p>Set the colormap to 'viridis'.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vlines</span></code>(x, ymin, ymax[, colors, linestyles, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">vlines</span></code>(x, ymin, ymax[, colors, linestyles, ...])</p></td>
 <td><p>Plot vertical lines at each <em>x</em> from <em>ymin</em> to <em>ymax</em>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitforbuttonpress</span></code>([timeout])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitforbuttonpress</span></code>([timeout])</p></td>
 <td><p>Blocking call to interact with the figure.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">winter</span></code>()</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">winter</span></code>()</p></td>
 <td><p>Set the colormap to 'winter'.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcorr</span></code>(x, y[, normed, detrend, usevlines, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcorr</span></code>(x, y[, normed, detrend, usevlines, ...])</p></td>
 <td><p>Plot the cross correlation between <em>x</em> and <em>y</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xkcd</span></code>([scale, length, randomness])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xkcd</span></code>([scale, length, randomness])</p></td>
 <td><p>Turn on <a class="reference external" href="https://xkcd.com/">xkcd</a> sketch-style drawing mode.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlabel</span></code>(xlabel[, fontdict, labelpad, loc])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlabel</span></code>(xlabel[, fontdict, labelpad, loc])</p></td>
 <td><p>Set the label for the x-axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlim</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlim</span></code>(*args, **kwargs)</p></td>
 <td><p>Get or set the x limits of the current axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xscale</span></code>(value, **kwargs)</p></td>
-<td><p>Set the x-axis scale.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xscale</span></code>(value, **kwargs)</p></td>
+<td><p>Set the xaxis' scale.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xticks</span></code>([ticks, labels])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">xticks</span></code>([ticks, labels, minor])</p></td>
 <td><p>Get or set the current tick locations and labels of the x-axis.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylabel</span></code>(ylabel[, fontdict, labelpad, loc])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylabel</span></code>(ylabel[, fontdict, labelpad, loc])</p></td>
 <td><p>Set the label for the y-axis.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylim</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylim</span></code>(*args, **kwargs)</p></td>
 <td><p>Get or set the y-limits of the current axes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">yscale</span></code>(value, **kwargs)</p></td>
-<td><p>Set the y-axis scale.</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">yscale</span></code>(value, **kwargs)</p></td>
+<td><p>Set the yaxis' scale.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">yticks</span></code>([ticks, labels])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">yticks</span></code>([ticks, labels, minor])</p></td>
 <td><p>Get or set the current tick locations and labels of the y-axis.</p></td>
 </tr>
 </tbody>
@@ -679,21 +853,29 @@
 <p class="rubric">Functions</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.auto">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">auto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">auto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">funcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#auto"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.auto" title="Permalink to this definition">¶</a></dt>
 <dd><p>Automatically loop over functions and fit the best one.</p>
+<section id="parameters">
+<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h1>
 <dl class="simple">
 <dt>funcs<span class="classifier">function array</span></dt><dd><p>functions to consider as fit. Default all <code class="docutils literal notranslate"><span class="pre">smpl.functions</span></code>.</p>
 </dd>
 <dt><a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
+</section>
+<section id="returns">
+<h1>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h1>
 <p>The best fit function and it’s parameters. Also a lambda function where the parameters are already applied.</p>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.data">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot datay against datax via <a class="reference internal" href="#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p>
+<section id="id3">
+<h1>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h1>
 <dl class="simple">
 <dt>datax<span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </dd>
@@ -701,19 +883,25 @@
 </dd>
 <dt>function<span class="classifier">func,optional</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
 </dd>
-<dt><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+<dt><a href="#id4"><span class="problematic" id="id5">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
+</section>
+<section id="id6">
+<h1>Returns<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h1>
 <dl class="simple">
 <dt>array_like</dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code></p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.fit">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">adata</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit and plot function to datax and datay.</p>
+<section id="id7">
+<h1>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h1>
 <dl class="simple">
 <dt>datax<span class="classifier">array_like</span></dt><dd><p>X data either as <code class="docutils literal notranslate"><span class="pre">unp.uarray</span></code> or <code class="docutils literal notranslate"><span class="pre">np.array</span></code> or <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
 </dd>
@@ -721,15 +909,21 @@
 </dd>
 <dt>function<span class="classifier">func</span></dt><dd><p>Fit function with parameters: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">params</span></code></p>
 </dd>
-<dt><a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+<dt><a href="#id8"><span class="problematic" id="id9">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
 <p>Fit parameters can be fixed via <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> eg. <code class="docutils literal notranslate"><span class="pre">a=5</span></code>.</p>
+</section>
+<section id="id10">
+<h1>Returns<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h1>
 <dl class="simple">
 <dt>array_like</dt><dd><p>Optimized fit parameters of <code class="docutils literal notranslate"><span class="pre">function</span></code> to <code class="docutils literal notranslate"><span class="pre">datax</span></code> and <code class="docutils literal notranslate"><span class="pre">datay</span></code>.
 If <code class="docutils literal notranslate"><span class="pre">datay</span></code> is complex, both the real and imaginary part are returned.</p>
 </dd>
 </dl>
+</section>
+<section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h1>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">)</span>
@@ -741,371 +935,137 @@ If <code class="docutils literal notranslate"><span class="pre">datay</span></co
 <figure class="align-default">
 <img alt="../_images/smpl-plot-1.png" class="plot-directive" src="../_images/smpl-plot-1.png" />
 </figure>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.function">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p>
+<section id="id11">
+<h1>Parameters<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h1>
 <dl class="simple">
 <dt>func<span class="classifier">function</span></dt><dd><p>Function to be plotted between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code>, only taking <cite>array_like</cite> <code class="docutils literal notranslate"><span class="pre">x</span></code> as parameter</p>
 </dd>
-<dt><a href="#id7"><span class="problematic" id="id8">*</span></a>args<span class="classifier">optional</span></dt><dd><p>arguments for <code class="docutils literal notranslate"><span class="pre">func</span></code></p>
+<dt><a href="#id12"><span class="problematic" id="id13">*</span></a>args<span class="classifier">optional</span></dt><dd><p>arguments for <code class="docutils literal notranslate"><span class="pre">func</span></code></p>
 </dd>
-<dt><a href="#id9"><span class="problematic" id="id10">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
+<dt><a href="#id14"><span class="problematic" id="id15">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.plot2d">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataz</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot2d.html#plot2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot2d" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataz</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot2d.html#plot2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a 2D-Plot.</p>
+<section id="id16">
+<h1>Parameters<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h1>
 <dl class="simple">
-<dt><a href="#id11"><span class="problematic" id="id12">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot2d_kwargs" title="smpl.plot.plot2d_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code></a>.</p>
+<dt><a href="#id17"><span class="problematic" id="id18">**</span></a>kwargs<span class="classifier">optional</span></dt><dd><p>see <a class="reference internal" href="#smpl.plot.plot2d_kwargs" title="smpl.plot.plot2d_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code></a>.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.plot2d_kwargs">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot2d_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot2d.html#plot2d_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot2d_kwargs" title="Permalink to this definition"></a></dt>
-<dd><p>Set default plot2d_kwargs if not set.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>plot2d_kwargs</p></th>
-<th class="head"><p>default</p></th>
-<th class="head"><p>description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>xaxis</p></td>
-<td><p>None</p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>yaxis</p></td>
-<td><p>None</p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="row-even"><td><p>zaxis</p></td>
-<td><p>None</p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>logz</p></td>
-<td><p>True</p></td>
-<td><p>Colorbar in logarithmic scale.</p></td>
-</tr>
-<tr class="row-even"><td><p>style</p></td>
-<td><p>pcolormesh</p></td>
-<td><p>Plot via an image (‘image’) or scatter (‘scatter’) or mesh (‘pcolormesh’).</p></td>
-</tr>
-<tr class="row-odd"><td><p>interpolation</p></td>
-<td><p>nearest</p></td>
-<td><p>Only ‘nearest’ or ‘bilinear’ for nonuniformimage. Check <a class="reference external" href="https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow">https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow</a></p></td>
-</tr>
-<tr class="row-even"><td><p>cmap</p></td>
-<td><p>viridis</p></td>
-<td><p>Good default color map for missing datapoints since it does not include white.</p></td>
-</tr>
-</tbody>
-</table>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot2d_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot2d.html#plot2d_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot2d_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set default plot2d_kwargs if not set.   ==================  ==================  ==================
+plot2d_kwargs       default             description
+==================  ==================  ==================
+xaxis               None                .
+yaxis               None                .
+zaxis               None                .
+logz                True                Colorbar in logarithmic scale.
+style               pcolormesh          Plot via an image (‘image’) or scatter (‘scatter’) or mesh (‘pcolormesh’).
+interpolation       nearest             Only ‘nearest’ or ‘bilinear’ for nonuniformimage. Check <a class="reference external" href="https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow">https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html#interpolations-for-imshow</a>
+cmap                viridis             Good default color map for missing datapoints since it does not include white.
+==================  ==================  ==================</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.plot_kwargs">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#plot_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot_kwargs" title="Permalink to this definition"></a></dt>
-<dd><p>Set default plot_kwargs if not set.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>plot_kwargs</p></th>
-<th class="head"><p>default</p></th>
-<th class="head"><p>description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>title</p></td>
-<td><p>None</p></td>
-<td><p>Plot title</p></td>
-</tr>
-<tr class="row-odd"><td><p>xlabel</p></td>
-<td></td>
-<td><p>X axis label</p></td>
-</tr>
-<tr class="row-even"><td><p>ylabel</p></td>
-<td></td>
-<td><p>Y axis label</p></td>
-</tr>
-<tr class="row-odd"><td><p>label</p></td>
-<td><p>None</p></td>
-<td><p>Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>fmt</p></td>
-<td><p>.</p></td>
-<td><p>Format for plotting fit function</p></td>
-</tr>
-<tr class="row-odd"><td><p>units</p></td>
-<td><p>None</p></td>
-<td><p>Units of the fit parameters as strings. Displayed in the Legend</p></td>
-</tr>
-<tr class="row-even"><td><p>save</p></td>
-<td><p>None</p></td>
-<td><p>File to save the plot</p></td>
-</tr>
-<tr class="row-odd"><td><p>lpos</p></td>
-<td><p>0</p></td>
-<td><p>Legend position</p></td>
-</tr>
-<tr class="row-even"><td><p>tight</p></td>
-<td><p>True</p></td>
-<td><p>tight_layout</p></td>
-</tr>
-<tr class="row-odd"><td><p>prange</p></td>
-<td><p>None</p></td>
-<td><p>Limit the plot of the fit to given range</p></td>
-</tr>
-<tr class="row-even"><td><p>sigmas</p></td>
-<td><p>0</p></td>
-<td><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty. Only works if the fit function is coded with <code class="docutils literal notranslate"><span class="pre">unp</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>data_sigmas</p></td>
-<td><p>1</p></td>
-<td><p>Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty. Only works if the data has uncertainties</p></td>
-</tr>
-<tr class="row-even"><td><p>init</p></td>
-<td><p>False</p></td>
-<td><p>Initialize a new plot</p></td>
-</tr>
-<tr class="row-odd"><td><p>ss</p></td>
-<td><p>True</p></td>
-<td><p>save, add legends and grid to the plot</p></td>
-</tr>
-<tr class="row-even"><td><p>also_data</p></td>
-<td><p>True</p></td>
-<td><p>also plot the data</p></td>
-</tr>
-<tr class="row-odd"><td><p>also_fit</p></td>
-<td><p>True</p></td>
-<td><p>also plot the fit</p></td>
-</tr>
-<tr class="row-even"><td><p>auto_fit</p></td>
-<td><p>False</p></td>
-<td><p>automatically fit</p></td>
-</tr>
-<tr class="row-odd"><td><p>logy</p></td>
-<td><p>False</p></td>
-<td><p>logarithmic x axis</p></td>
-</tr>
-<tr class="row-even"><td><p>logx</p></td>
-<td><p>False</p></td>
-<td><p>logarithmic y axis</p></td>
-</tr>
-<tr class="row-odd"><td><p>function_color</p></td>
-<td><p>None</p></td>
-<td><p>Color of the function plot</p></td>
-</tr>
-<tr class="row-even"><td><p>data_color</p></td>
-<td><p>None</p></td>
-<td><p>Color of the data plot</p></td>
-</tr>
-<tr class="row-odd"><td><p>fit_color</p></td>
-<td><p>None</p></td>
-<td><p>Color of the fit plot</p></td>
-</tr>
-<tr class="row-even"><td><p>fit_fmt</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Format of the fit plot</p></td>
-</tr>
-<tr class="row-odd"><td><p>residue</p></td>
-<td><p>False</p></td>
-<td><p>Display difference between fit and data in a second plot</p></td>
-</tr>
-<tr class="row-even"><td><p>residue_err</p></td>
-<td><p>True</p></td>
-<td><p>Differences between fit and data will have errorbars</p></td>
-</tr>
-<tr class="row-odd"><td><p>show</p></td>
-<td><p>False</p></td>
-<td><p>Call plt.show()</p></td>
-</tr>
-<tr class="row-even"><td><p>size</p></td>
-<td><p>None</p></td>
-<td><p>Size of the plot as a tuple (x,y). Only has an effect if <code class="docutils literal notranslate"><span class="pre">init</span></code> is True</p></td>
-</tr>
-<tr class="row-odd"><td><p>number_format</p></td>
-<td><p>{0:.4g}</p></td>
-<td><p>Format to display numbers.</p></td>
-</tr>
-<tr class="row-even"><td><p>interpolate</p></td>
-<td><p>False</p></td>
-<td><p>Enable interpolation of the data.</p></td>
-</tr>
-<tr class="row-odd"><td><p>interpolate_fmt</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>Either format string or linestyle tuple.</p></td>
-</tr>
-<tr class="row-even"><td><p>interpolate_label</p></td>
-<td><p>None</p></td>
-<td><p>Label for the interpolation.</p></td>
-</tr>
-<tr class="row-odd"><td><p>extrapolate</p></td>
-<td><p>True</p></td>
-<td><p>Enable extrapolation of whole data if fit range is limited by <code class="docutils literal notranslate"><span class="pre">frange</span></code> or <code class="docutils literal notranslate"><span class="pre">fselector</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p>extrapolate_min</p></td>
-<td><p>None</p></td>
-<td><p>Lower extrapolation bound</p></td>
-</tr>
-<tr class="row-odd"><td><p>extrapolate_max</p></td>
-<td><p>None</p></td>
-<td><p>Higher extrapolation bound</p></td>
-</tr>
-<tr class="row-even"><td><p>extrapolate_fmt</p></td>
-<td><p>–</p></td>
-<td><p>Format of the extrapolation line</p></td>
-</tr>
-<tr class="row-odd"><td><p>extrapolate_hatch</p></td>
-<td><p>||</p></td>
-<td><p>Extrapolation shape/hatch for filled area in case of <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>&gt;0. See <a class="reference external" href="https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html">https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html</a></p></td>
-</tr>
-<tr class="row-even"><td><p>bbox_to_anchor</p></td>
-<td><p>None</p></td>
-<td><p>Position in a tuple (x,y),Shift position of the legend out of the main pane.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ncol</p></td>
-<td><p>None</p></td>
-<td><p>Columns in the legend if used with <code class="docutils literal notranslate"><span class="pre">bbox_to_anchor</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p>steps</p></td>
-<td><p>1000</p></td>
-<td><p>resolution of the plotted function</p></td>
-</tr>
-<tr class="row-odd"><td><p>fitinline</p></td>
-<td><p>False</p></td>
-<td><p>No newlines for each fit parameter</p></td>
-</tr>
-<tr class="row-even"><td><p>grid</p></td>
-<td><p>True</p></td>
-<td><p>Enable grid for the plot</p></td>
-</tr>
-<tr class="row-odd"><td><p>hist</p></td>
-<td><p>False</p></td>
-<td><p>Enable histogram plot</p></td>
-</tr>
-<tr class="row-even"><td><p>stairs</p></td>
-<td><p>False</p></td>
-<td><p>Enable stair plot</p></td>
-</tr>
-<tr class="row-odd"><td><p>capsize</p></td>
-<td><p>5</p></td>
-<td><p>size of cap on error bar plot</p></td>
-</tr>
-<tr class="row-even"><td><p>axes</p></td>
-<td><p>None</p></td>
-<td><p>set current axis</p></td>
-</tr>
-<tr class="row-odd"><td><p>linestyle</p></td>
-<td><p>None</p></td>
-<td><p>linestyle, only active if <a href="#id13"><span class="problematic" id="id14">`</span></a>fmt`=None</p></td>
-</tr>
-<tr class="row-even"><td><p>xspace</p></td>
-<td><p>linspace</p></td>
-<td><p>xspace gets called with xspace(xmin,xmax,steps) in <a class="reference internal" href="#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-func docutils literal notranslate"><span class="pre">function()</span></code></a> to get the points of the function that will be drawn.</p></td>
-</tr>
-<tr class="row-odd"><td><p>alpha</p></td>
-<td><p>0.2</p></td>
-<td><p>alpha value for the fill_between plot</p></td>
-</tr>
-</tbody>
-</table>
-<p>Set default fit_kwargs if not set.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>fit_kwargs</p></th>
-<th class="head"><p>default</p></th>
-<th class="head"><p>description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>params</p></td>
-<td><p>None</p></td>
-<td><p>Initial fit parameters</p></td>
-</tr>
-<tr class="row-odd"><td><p>fixed_params</p></td>
-<td><p>True</p></td>
-<td><p>Enable fixing parameters by choosing the same-named variables from <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p>maxfev</p></td>
-<td><p>10000</p></td>
-<td><p>Maximum function evaluations during fitting.</p></td>
-</tr>
-<tr class="row-odd"><td><p>epsfcn</p></td>
-<td><p>0.0001</p></td>
-<td><p>Suitable step length for jacobian approximation.</p></td>
-</tr>
-<tr class="row-even"><td><p>xvar</p></td>
-<td><p>None</p></td>
-<td><p>Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.</p></td>
-</tr>
-<tr class="row-odd"><td><p>autotqdm</p></td>
-<td><p>True</p></td>
-<td><p>Auto fitting display tqdm</p></td>
-</tr>
-<tr class="row-even"><td><p>fitter</p></td>
-<td><p>Fitter.AUTO</p></td>
-<td><p>Choose from :class:<a href="#id15"><span class="problematic" id="id16">`</span></a>Fitter`s.</p></td>
-</tr>
-</tbody>
-</table>
-<p>Set default data_kwargs if not set.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>data_kwargs</p></th>
-<th class="head"><p>default</p></th>
-<th class="head"><p>description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>frange</p></td>
-<td><p>None</p></td>
-<td><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p></td>
-</tr>
-<tr class="row-odd"><td><p>fselector</p></td>
-<td><p>None</p></td>
-<td><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.</p></td>
-</tr>
-<tr class="row-even"><td><p>sortbyx</p></td>
-<td><p>True</p></td>
-<td><p>Enable sorting the x and y data so that x is sorted.</p></td>
-</tr>
-<tr class="row-odd"><td><p>bins</p></td>
-<td><p>0</p></td>
-<td><p>Number of bins for histogram</p></td>
-</tr>
-<tr class="row-even"><td><p>binunc</p></td>
-<td><p>poisson_dist</p></td>
-<td><p>Number of bins for histogram</p></td>
-</tr>
-<tr class="row-odd"><td><p>xerror</p></td>
-<td><p>True</p></td>
-<td><p>enable xerrors</p></td>
-</tr>
-<tr class="row-even"><td><p>yerror</p></td>
-<td><p>True</p></td>
-<td><p>enable yerrors</p></td>
-</tr>
-</tbody>
-</table>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/plot/plot.html#plot_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set default plot_kwargs if not set.     ==================  ==================  ==================
+plot_kwargs         default             description
+==================  ==================  ==================
+title               None                Plot title
+xlabel                                  X axis label
+ylabel                                  Y axis label
+label               None                Legend name of plotted <code class="docutils literal notranslate"><span class="pre">data</span></code>
+fmt                 .                   Format for plotting fit function
+units               None                Units of the fit parameters as strings. Displayed in the Legend
+save                None                 File to save the plot
+lpos                0                   Legend position
+tight               True                tight_layout
+prange              None                Limit the plot of the fit to given range
+sigmas              0                   Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty. Only works if the fit function is coded with <code class="docutils literal notranslate"><span class="pre">unp</span></code>
+data_sigmas         1                   Color the array of given <code class="docutils literal notranslate"><span class="pre">sigma</span></code> times uncertainty. Only works if the data has uncertainties
+init                False               Initialize a new plot
+ss                  True                save, add legends and grid to the plot
+also_data           True                 also plot the data
+also_fit            True                also plot the fit
+auto_fit            False               automatically fit
+logy                False               logarithmic x axis
+logx                False               logarithmic y axis
+function_color      None                Color of the function plot
+data_color          None                Color of the data plot
+fit_color           None                Color of the fit plot
+fit_fmt             -                   Format of the fit plot
+residue             False               Display difference between fit and data in a second plot
+residue_err         True                Differences between fit and data will have errorbars
+show                False               Call plt.show()
+size                None                Size of the plot as a tuple (x,y). Only has an effect if <code class="docutils literal notranslate"><span class="pre">init</span></code> is True
+number_format       {0:.4g}             Format to display numbers.
+interpolate         False               Enable interpolation of the data.
+interpolate_fmt     -                   Either format string or linestyle tuple.
+interpolate_label   None                Label for the interpolation.
+extrapolate         True                Enable extrapolation of whole data if fit range is limited by <code class="docutils literal notranslate"><span class="pre">frange</span></code> or <code class="docutils literal notranslate"><span class="pre">fselector</span></code>.
+extrapolate_min     None                Lower extrapolation bound
+extrapolate_max     None                Higher extrapolation bound
+extrapolate_fmt     –                  Format of the extrapolation line
+extrapolate_hatch   ||                  Extrapolation shape/hatch for filled area in case of <code class="docutils literal notranslate"><span class="pre">sigmas</span></code>&gt;0. See <a class="reference external" href="https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html">https://matplotlib.org/stable/gallery/shapes_and_collections/hatch_style_reference.html</a>
+bbox_to_anchor      None                Position in a tuple (x,y),Shift position of the legend out of the main pane. 
+ncol                None                Columns in the legend if used with <code class="docutils literal notranslate"><span class="pre">bbox_to_anchor</span></code>.
+steps               1000                resolution of the plotted function
+fitinline           False               No newlines for each fit parameter
+grid                True                Enable grid for the plot
+hist                False               Enable histogram plot
+stairs              False               Enable stair plot
+capsize             5                   size of cap on error bar plot
+axes                None                set current axis
+linestyle           None                linestyle, only active if <cite>fmt`=None
+xspace              linspace            xspace gets called with xspace(xmin,xmax,steps) in :func:`function</cite> to get the points of the function that will be drawn.
+alpha               0.2                 alpha value for the fill_between plot
+==================  ==================  ==================</p>
+<p>Set default fit_kwargs if not set.      ==================  ==================  ==================
+fit_kwargs          default             description
+==================  ==================  ==================
+params              None                Initial fit parameters
+fixed_params        True                Enable fixing parameters by choosing the same-named variables from <code class="docutils literal notranslate"><span class="pre">kwargs</span></code>.
+maxfev              10000               Maximum function evaluations during fitting.
+epsfcn              0.0001              Suitable step length for jacobian approximation.
+xvar                None                Variable in fit function parameters that corresponds to the x axis. If it is None the last of the alphabetical sorted parameters is used.
+autotqdm            True                Auto fitting display tqdm
+fitter              Fitter.AUTO         Choose from :class:<a href="#id19"><span class="problematic" id="id20">`</span></a>Fitter`s.
+==================  ==================  ==================</p>
+<p>Set default data_kwargs if not set.     ==================  ==================  ==================
+data_kwargs         default             description
+==================  ==================  ==================
+frange              None                Limit the fit to given range. First integer is the lowest and second the highest index.
+fselector           None                Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.
+sortbyx             True                Enable sorting the x and y data so that x is sorted.
+bins                0                   Number of bins for histogram
+binunc              poisson_dist        Number of bins for histogram
+xerror              True                enable xerrors
+yerror              True                enable yerrors
+==================  ==================  ==================</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.unv">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">unv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.unv" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">unv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.unv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the nominal values of the numbers in NumPy array arr.</p>
 <p>Elements that are not numbers with uncertainties (derived from a
 class from this module) are passed through untouched (because a
@@ -1118,7 +1078,7 @@ numbers with uncertainties.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.usd">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">usd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.usd" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">usd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.usd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the standard deviations of the numbers in NumPy array arr.</p>
 <p>Elements that are not numbers with uncertainties (derived from a
 class from this module) are passed through untouched (because a
@@ -1129,37 +1089,53 @@ numpy.matrix, because the resulting matrix does not contain
 numbers with uncertainties.</p>
 </dd></dl>
 
-</section>
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="smpl.parallel.html" class="btn btn-neutral float-left" title="smpl.parallel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="smpl.stat.html" class="btn btn-neutral float-right" title="smpl.stat" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="smpl.stat.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.parallel.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, APN-Pucky.</p>
-  </div>
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

@@ -1,44 +1,86 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>iminuit example &mdash; smpl  documentation</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="../../../_static/js/theme.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Selective Fit" href="../selective_fit/test_selective_fit.html" />
     <link rel="prev" title="Linear Fit" href="../linear/test_linear.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../../../index.html" class="icon icon-home"> smpl
+          
+
+          
           </a>
+
+          
+            
+            
               <div class="version">
-                0.152
+                0.152-5-g1a72ba0c
               </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -46,7 +88,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
               <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
@@ -83,20 +136,103 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.interpolate.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.interpolate</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.animation.html"><code class="docutils literal notranslate"><span class="pre">animate()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.animation.html#smpl.animation.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.animation.html#smpl.animation.frame"><code class="docutils literal notranslate"><span class="pre">frame()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.data.html"><code class="docutils literal notranslate"><span class="pre">data_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.data.html#smpl.data.filtered_data_split"><code class="docutils literal notranslate"><span class="pre">filtered_data_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.data.html#smpl.data.flatmesh"><code class="docutils literal notranslate"><span class="pre">flatmesh()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html"><code class="docutils literal notranslate"><span class="pre">file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html#smpl.debug.file1"><code class="docutils literal notranslate"><span class="pre">file1()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html#smpl.debug.get_line_number_file"><code class="docutils literal notranslate"><span class="pre">get_line_number_file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html#smpl.debug.msg"><code class="docutils literal notranslate"><span class="pre">msg()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html#smpl.debug.msg1"><code class="docutils literal notranslate"><span class="pre">msg1()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html#smpl.debug.once"><code class="docutils literal notranslate"><span class="pre">once()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html#smpl.debug.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html#smpl.debug.table_flush_header"><code class="docutils literal notranslate"><span class="pre">table_flush_header()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.debug.html#smpl.debug.table_flush_line"><code class="docutils literal notranslate"><span class="pre">table_flush_line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html"><code class="docutils literal notranslate"><span class="pre">append_doc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html#smpl.doc.append_plot"><code class="docutils literal notranslate"><span class="pre">append_plot()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html#smpl.doc.array_table"><code class="docutils literal notranslate"><span class="pre">array_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_doc"><code class="docutils literal notranslate"><span class="pre">insert_doc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_eq"><code class="docutils literal notranslate"><span class="pre">insert_eq()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_latex"><code class="docutils literal notranslate"><span class="pre">insert_latex()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html#smpl.doc.insert_latex_eq"><code class="docutils literal notranslate"><span class="pre">insert_latex_eq()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.doc.html#smpl.doc.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html"><code class="docutils literal notranslate"><span class="pre">Chi2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html#smpl.fit.Fitter"><code class="docutils literal notranslate"><span class="pre">Fitter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html#smpl.fit.R2"><code class="docutils literal notranslate"><span class="pre">R2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html#smpl.fit.auto"><code class="docutils literal notranslate"><span class="pre">auto()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html#smpl.fit.data_split"><code class="docutils literal notranslate"><span class="pre">data_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit_kwargs"><code class="docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.fit.html#smpl.fit.fit_split"><code class="docutils literal notranslate"><span class="pre">fit_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html"><code class="docutils literal notranslate"><span class="pre">const()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.cos"><code class="docutils literal notranslate"><span class="pre">cos()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.cos_abs"><code class="docutils literal notranslate"><span class="pre">cos_abs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.cube"><code class="docutils literal notranslate"><span class="pre">cube()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.exp"><code class="docutils literal notranslate"><span class="pre">exp()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.fac"><code class="docutils literal notranslate"><span class="pre">fac()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.gauss"><code class="docutils literal notranslate"><span class="pre">gauss()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.linear"><code class="docutils literal notranslate"><span class="pre">linear()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.log"><code class="docutils literal notranslate"><span class="pre">log()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.lorentz"><code class="docutils literal notranslate"><span class="pre">lorentz()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.sin"><code class="docutils literal notranslate"><span class="pre">sin()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.square"><code class="docutils literal notranslate"><span class="pre">square()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.functions.html#smpl.functions.tan"><code class="docutils literal notranslate"><span class="pre">tan()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html"><code class="docutils literal notranslate"><span class="pre">append()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html#smpl.io.files"><code class="docutils literal notranslate"><span class="pre">files()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html#smpl.io.find_file"><code class="docutils literal notranslate"><span class="pre">find_file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html#smpl.io.gf"><code class="docutils literal notranslate"><span class="pre">gf()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html#smpl.io.mkdirs"><code class="docutils literal notranslate"><span class="pre">mkdirs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html#smpl.io.pr"><code class="docutils literal notranslate"><span class="pre">pr()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html#smpl.io.pwd"><code class="docutils literal notranslate"><span class="pre">pwd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html#smpl.io.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.io.html#smpl.io.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.latex.html"><code class="docutils literal notranslate"><span class="pre">si()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.latex.html#smpl.latex.si_line"><code class="docutils literal notranslate"><span class="pre">si_line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.latex.html#smpl.latex.si_tab"><code class="docutils literal notranslate"><span class="pre">si_tab()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.latex.html#smpl.latex.si_ttab"><code class="docutils literal notranslate"><span class="pre">si_ttab()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.latex.html#smpl.latex.transpose_table"><code class="docutils literal notranslate"><span class="pre">transpose_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html"><code class="docutils literal notranslate"><span class="pre">calc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.gen"><code class="docutils literal notranslate"><span class="pre">gen()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.par"><code class="docutils literal notranslate"><span class="pre">par()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.parallel"><code class="docutils literal notranslate"><span class="pre">parallel()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.partitioned_parallel"><code class="docutils literal notranslate"><span class="pre">partitioned_parallel()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.parallel.html#smpl.parallel.res"><code class="docutils literal notranslate"><span class="pre">res()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html"><code class="docutils literal notranslate"><span class="pre">auto()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html#smpl.plot.data"><code class="docutils literal notranslate"><span class="pre">data()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html#smpl.plot.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html#smpl.plot.function"><code class="docutils literal notranslate"><span class="pre">function()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot2d"><code class="docutils literal notranslate"><span class="pre">plot2d()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot2d_kwargs"><code class="docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html#smpl.plot.plot_kwargs"><code class="docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html#smpl.plot.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.plot.html#smpl.plot.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html"><code class="docutils literal notranslate"><span class="pre">Chi2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.R2"><code class="docutils literal notranslate"><span class="pre">R2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.fft"><code class="docutils literal notranslate"><span class="pre">fft()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.get_interesting_domain"><code class="docutils literal notranslate"><span class="pre">get_interesting_domain()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.mean"><code class="docutils literal notranslate"><span class="pre">mean()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.no_dist"><code class="docutils literal notranslate"><span class="pre">no_dist()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.noisy"><code class="docutils literal notranslate"><span class="pre">noisy()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.novar_mean"><code class="docutils literal notranslate"><span class="pre">novar_mean()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.poisson_dist"><code class="docutils literal notranslate"><span class="pre">poisson_dist()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.unv_lambda"><code class="docutils literal notranslate"><span class="pre">unv_lambda()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.stat.html#smpl.stat.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html"><code class="docutils literal notranslate"><span class="pre">find_nearest()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html#smpl.util.find_nearest_index"><code class="docutils literal notranslate"><span class="pre">find_nearest_index()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html#smpl.util.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html#smpl.util.has"><code class="docutils literal notranslate"><span class="pre">has()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html#smpl.util.times"><code class="docutils literal notranslate"><span class="pre">times()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.util.html#smpl.util.true"><code class="docutils literal notranslate"><span class="pre">true()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.wrap.html"><code class="docutils literal notranslate"><span class="pre">get_lambda()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_latex"><code class="docutils literal notranslate"><span class="pre">get_latex()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.wrap.html#smpl.wrap.get_varnames"><code class="docutils literal notranslate"><span class="pre">get_varnames()</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -104,32 +240,75 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../performance/line.html">Line Profiling</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">smpl</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
           <li><a href="../../index.html">Examples</a> &raquo;</li>
+        
           <li><a href="../index.html">Fitting</a> &raquo;</li>
+        
       <li>iminuit example</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
             <a href="../../../_sources/example/fit/minuit/minuit.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   
 <style>
 /* CSS for nbsphinx extension */
@@ -240,10 +419,11 @@ div.nboutput.container div.prompt > div {
     }
 }
 
-/* disable scrollbars on prompts */
+/* disable scrollbars and line breaks on prompts */
 div.nbinput.container div.prompt pre,
 div.nboutput.container div.prompt pre {
     overflow: hidden;
+    white-space: pre;
 }
 
 /* input/output area */
@@ -409,25 +589,25 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="iminuit-example">
-<h1>iminuit example<a class="headerlink" href="#iminuit-example" title="Permalink to this heading"></a></h1>
+<h1>iminuit example<a class="headerlink" href="#iminuit-example" title="Permalink to this heading">¶</a></h1>
 <p>from <a class="reference external" href="https://iminuit.readthedocs.io/en/stable/notebooks/basic_tutorial.html">https://iminuit.readthedocs.io/en/stable/notebooks/basic_tutorial.html</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># basic setup of the notebook</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># basic setup of the notebook
+from matplotlib import pyplot as plt
+import numpy as np
 
-<span class="c1"># everything in iminuit is done through the Minuit object, so we import it</span>
-<span class="kn">from</span> <span class="nn">iminuit</span> <span class="kn">import</span> <span class="n">Minuit</span>
+# everything in iminuit is done through the Minuit object, so we import it
+from iminuit import Minuit
 
-<span class="c1"># we also need a cost function to fit and import the LeastSquares function</span>
-<span class="kn">from</span> <span class="nn">iminuit.cost</span> <span class="kn">import</span> <span class="n">LeastSquares</span>
+# we also need a cost function to fit and import the LeastSquares function
+from iminuit.cost import LeastSquares
 
-<span class="c1"># display iminuit version</span>
-<span class="kn">import</span> <span class="nn">iminuit</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;iminuit version:&quot;</span><span class="p">,</span> <span class="n">iminuit</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+# display iminuit version
+import iminuit
+print(&quot;iminuit version:&quot;, iminuit.__version__)
 </pre></div>
 </div>
 </div>
@@ -443,19 +623,19 @@ iminuit version: 2.17.0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># our line model, unicode parameter names are supported :)</span>
-<span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">β</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">α</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">β</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># our line model, unicode parameter names are supported :)
+def line(x, α, β):
+    return α + x * β
 
 
-<span class="c1"># generate random toy data with random offsets in y</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">data_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">data_yerr</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># could also be an array</span>
-<span class="n">data_y</span> <span class="o">=</span> <span class="n">line</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">data_yerr</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_x</span><span class="p">))</span>
+# generate random toy data with random offsets in y
+np.random.seed(1)
+data_x = np.linspace(0, 1, 10)
+data_yerr = 0.1  # could also be an array
+data_y = line(data_x, 1, 2) + data_yerr * np.random.randn(len(data_x))
 
-<span class="c1"># draw toy data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span> <span class="n">data_y</span><span class="p">,</span> <span class="n">data_yerr</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">);</span>
+# draw toy data
+plt.errorbar(data_x, data_y, data_yerr, fmt=&quot;o&quot;);
 </pre></div>
 </div>
 </div>
@@ -470,27 +650,27 @@ iminuit version: 2.17.0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iminuit contains a LeastSquares class to conveniently generate a least-squares cost function.</span>
-<span class="c1"># We will revisit how to write this by hand in a later section.</span>
-<span class="n">least_squares</span> <span class="o">=</span> <span class="n">LeastSquares</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span> <span class="n">data_y</span><span class="p">,</span> <span class="n">data_yerr</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># iminuit contains a LeastSquares class to conveniently generate a least-squares cost function.
+# We will revisit how to write this by hand in a later section.
+least_squares = LeastSquares(data_x, data_y, data_yerr, line)
 
-<span class="n">m</span> <span class="o">=</span> <span class="n">Minuit</span><span class="p">(</span><span class="n">least_squares</span><span class="p">,</span> <span class="n">α</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">β</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># starting values for α and β</span>
+m = Minuit(least_squares, α=0, β=0)  # starting values for α and β
 
-<span class="n">m</span><span class="o">.</span><span class="n">migrad</span><span class="p">()</span>  <span class="c1"># finds minimum of least_squares function</span>
-<span class="n">m</span><span class="o">.</span><span class="n">hesse</span><span class="p">()</span>   <span class="c1"># accurately computes uncertainties</span>
+m.migrad()  # finds minimum of least_squares function
+m.hesse()   # accurately computes uncertainties
 
-<span class="c1"># draw data and fitted line</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span> <span class="n">data_y</span><span class="p">,</span> <span class="n">data_yerr</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span> <span class="n">line</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span> <span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fit&quot;</span><span class="p">)</span>
+# draw data and fitted line
+plt.errorbar(data_x, data_y, data_yerr, fmt=&quot;o&quot;, label=&quot;data&quot;)
+plt.plot(data_x, line(data_x, *m.values), label=&quot;fit&quot;)
 
-<span class="c1"># display legend with some fit info</span>
-<span class="n">fit_info</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="sa">f</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">chi^2$ / $n_</span><span class="se">\\</span><span class="s2">mathrm</span><span class="se">{{</span><span class="s2">dof</span><span class="se">}}</span><span class="s2">$ = </span><span class="si">{</span><span class="n">m</span><span class="o">.</span><span class="n">fval</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span> <span class="o">-</span> <span class="n">m</span><span class="o">.</span><span class="n">nfit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">errors</span><span class="p">):</span>
-    <span class="n">fit_info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2"> = $</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> </span><span class="se">\\</span><span class="s2">pm </span><span class="si">{</span><span class="n">e</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+# display legend with some fit info
+fit_info = [
+    f&quot;$\\chi^2$ / $n_\\mathrm{{dof}}$ = {m.fval:.1f} / {len(data_x) - m.nfit}&quot;,
+]
+for p, v, e in zip(m.parameters, m.values, m.errors):
+    fit_info.append(f&quot;{p} = ${v:.3f} \\pm {e:.3f}$&quot;)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fit_info</span><span class="p">));</span>
+plt.legend(title=&quot;\n&quot;.join(fit_info));
 </pre></div>
 </div>
 </div>
@@ -503,17 +683,17 @@ iminuit version: 2.17.0
 </div>
 </section>
 <section id="SMPL-example">
-<h1>SMPL example<a class="headerlink" href="#SMPL-example" title="Permalink to this heading"></a></h1>
+<h1>SMPL example<a class="headerlink" href="#SMPL-example" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">fit</span>
-<span class="kn">from</span> <span class="nn">uncertainties</span> <span class="kn">import</span> <span class="n">unumpy</span> <span class="k">as</span> <span class="n">unp</span>
-<span class="n">y</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">data_y</span><span class="p">,</span><span class="n">data_yerr</span><span class="p">)</span>
-<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span><span class="n">y</span> <span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">line</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chi2 = &quot;</span><span class="p">,</span><span class="n">fit</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">line</span><span class="p">,</span><span class="n">ff</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import plot
+from smpl import fit
+from uncertainties import unumpy as unp
+y=unp.uarray(data_y,data_yerr)
+ff = plot.fit(data_x,y , fmt=&#39;.&#39;, function=line, params=[0,0], sigmas=1,lpos=2)
+print(&quot;Chi2 = &quot;,fit.Chi2(data_x,y,line,ff))
 </pre></div>
 </div>
 </div>
@@ -536,12 +716,12 @@ Chi2 =  14.064905067721451
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">fit</span>
-<span class="kn">from</span> <span class="nn">uncertainties</span> <span class="kn">import</span> <span class="n">unumpy</span> <span class="k">as</span> <span class="n">unp</span>
-<span class="n">y</span><span class="o">=</span><span class="n">unp</span><span class="o">.</span><span class="n">uarray</span><span class="p">(</span><span class="n">data_y</span><span class="p">,</span><span class="n">data_yerr</span><span class="p">)</span>
-<span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span><span class="n">y</span> <span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">line</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">fitter</span><span class="o">=</span><span class="n">fit</span><span class="o">.</span><span class="n">Fitter</span><span class="o">.</span><span class="n">MINUIT_LEASTSQUARES</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chi2 = &quot;</span><span class="p">,</span><span class="n">fit</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">line</span><span class="p">,</span><span class="n">ff</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import plot
+from smpl import fit
+from uncertainties import unumpy as unp
+y=unp.uarray(data_y,data_yerr)
+ff = plot.fit(data_x,y , fmt=&#39;.&#39;, function=line, params=[0,0], sigmas=1,lpos=2,fitter=fit.Fitter.MINUIT_LEASTSQUARES)
+print(&quot;Chi2 = &quot;,fit.Chi2(data_x,y,line,ff))
 </pre></div>
 </div>
 </div>
@@ -564,33 +744,50 @@ Chi2 =  14.064905067721474
 
 
            </div>
+           
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../linear/test_linear.html" class="btn btn-neutral float-left" title="Linear Fit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="../selective_fit/test_selective_fit.html" class="btn btn-neutral float-right" title="Selective Fit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../linear/test_linear.html" class="btn btn-neutral float-left" title="Linear Fit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, APN-Pucky.</p>
-  </div>
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

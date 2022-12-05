@@ -1,40 +1,82 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <title>smpl.plot.plot &mdash; smpl  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
-    <script src="../_static/js/theme.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav"> 
+<body class="wy-body-for-nav">
+
+   
   <div class="wy-grid-for-nav">
+    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
+          
+
+          
             <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
           </a>
+
+          
+            
+            
               <div class="version">
-                0.152
+                0.152-5-g1a72ba0c
               </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -42,7 +84,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
               <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
@@ -58,20 +111,103 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.animation</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.data.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.data</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.debug</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.doc</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.fit</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.functions</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.interpolate.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.interpolate</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.io</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.latex</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.parallel</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.plot</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.stat</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.util</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">smpl.wrap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html"><code class="docutils literal notranslate"><span class="pre">animate()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html#smpl.animation.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.animation.html#smpl.animation.frame"><code class="docutils literal notranslate"><span class="pre">frame()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.data.html"><code class="docutils literal notranslate"><span class="pre">data_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.data.html#smpl.data.filtered_data_split"><code class="docutils literal notranslate"><span class="pre">filtered_data_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.data.html#smpl.data.flatmesh"><code class="docutils literal notranslate"><span class="pre">flatmesh()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html"><code class="docutils literal notranslate"><span class="pre">file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.file1"><code class="docutils literal notranslate"><span class="pre">file1()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.get_line_number_file"><code class="docutils literal notranslate"><span class="pre">get_line_number_file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.msg"><code class="docutils literal notranslate"><span class="pre">msg()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.msg1"><code class="docutils literal notranslate"><span class="pre">msg1()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.once"><code class="docutils literal notranslate"><span class="pre">once()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.table_flush_header"><code class="docutils literal notranslate"><span class="pre">table_flush_header()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.debug.html#smpl.debug.table_flush_line"><code class="docutils literal notranslate"><span class="pre">table_flush_line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html"><code class="docutils literal notranslate"><span class="pre">append_doc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.append_plot"><code class="docutils literal notranslate"><span class="pre">append_plot()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.array_table"><code class="docutils literal notranslate"><span class="pre">array_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.insert_doc"><code class="docutils literal notranslate"><span class="pre">insert_doc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.insert_eq"><code class="docutils literal notranslate"><span class="pre">insert_eq()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.insert_latex"><code class="docutils literal notranslate"><span class="pre">insert_latex()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.insert_latex_eq"><code class="docutils literal notranslate"><span class="pre">insert_latex_eq()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.doc.html#smpl.doc.table"><code class="docutils literal notranslate"><span class="pre">table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html"><code class="docutils literal notranslate"><span class="pre">Chi2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.Fitter"><code class="docutils literal notranslate"><span class="pre">Fitter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.R2"><code class="docutils literal notranslate"><span class="pre">R2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.auto"><code class="docutils literal notranslate"><span class="pre">auto()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.data_split"><code class="docutils literal notranslate"><span class="pre">data_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.fit_kwargs"><code class="docutils literal notranslate"><span class="pre">fit_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.fit.html#smpl.fit.fit_split"><code class="docutils literal notranslate"><span class="pre">fit_split()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html"><code class="docutils literal notranslate"><span class="pre">const()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.cos"><code class="docutils literal notranslate"><span class="pre">cos()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.cos_abs"><code class="docutils literal notranslate"><span class="pre">cos_abs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.cube"><code class="docutils literal notranslate"><span class="pre">cube()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.exp"><code class="docutils literal notranslate"><span class="pre">exp()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.fac"><code class="docutils literal notranslate"><span class="pre">fac()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.gauss"><code class="docutils literal notranslate"><span class="pre">gauss()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.line"><code class="docutils literal notranslate"><span class="pre">line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.linear"><code class="docutils literal notranslate"><span class="pre">linear()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.log"><code class="docutils literal notranslate"><span class="pre">log()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.lorentz"><code class="docutils literal notranslate"><span class="pre">lorentz()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.sin"><code class="docutils literal notranslate"><span class="pre">sin()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.square"><code class="docutils literal notranslate"><span class="pre">square()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.functions.html#smpl.functions.tan"><code class="docutils literal notranslate"><span class="pre">tan()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html"><code class="docutils literal notranslate"><span class="pre">append()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.files"><code class="docutils literal notranslate"><span class="pre">files()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.find_file"><code class="docutils literal notranslate"><span class="pre">find_file()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.gf"><code class="docutils literal notranslate"><span class="pre">gf()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.mkdirs"><code class="docutils literal notranslate"><span class="pre">mkdirs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.pr"><code class="docutils literal notranslate"><span class="pre">pr()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.pwd"><code class="docutils literal notranslate"><span class="pre">pwd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.read"><code class="docutils literal notranslate"><span class="pre">read()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.io.html#smpl.io.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html"><code class="docutils literal notranslate"><span class="pre">si()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html#smpl.latex.si_line"><code class="docutils literal notranslate"><span class="pre">si_line()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html#smpl.latex.si_tab"><code class="docutils literal notranslate"><span class="pre">si_tab()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html#smpl.latex.si_ttab"><code class="docutils literal notranslate"><span class="pre">si_ttab()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.latex.html#smpl.latex.transpose_table"><code class="docutils literal notranslate"><span class="pre">transpose_table()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html"><code class="docutils literal notranslate"><span class="pre">calc()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.gen"><code class="docutils literal notranslate"><span class="pre">gen()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.par"><code class="docutils literal notranslate"><span class="pre">par()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.parallel"><code class="docutils literal notranslate"><span class="pre">parallel()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.partitioned_parallel"><code class="docutils literal notranslate"><span class="pre">partitioned_parallel()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.parallel.html#smpl.parallel.res"><code class="docutils literal notranslate"><span class="pre">res()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html"><code class="docutils literal notranslate"><span class="pre">auto()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html#smpl.plot.data"><code class="docutils literal notranslate"><span class="pre">data()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html#smpl.plot.fit"><code class="docutils literal notranslate"><span class="pre">fit()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html#smpl.plot.function"><code class="docutils literal notranslate"><span class="pre">function()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html#smpl.plot.plot2d"><code class="docutils literal notranslate"><span class="pre">plot2d()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html#smpl.plot.plot2d_kwargs"><code class="docutils literal notranslate"><span class="pre">plot2d_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html#smpl.plot.plot_kwargs"><code class="docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html#smpl.plot.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.plot.html#smpl.plot.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html"><code class="docutils literal notranslate"><span class="pre">Chi2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.R2"><code class="docutils literal notranslate"><span class="pre">R2()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.fft"><code class="docutils literal notranslate"><span class="pre">fft()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.get_interesting_domain"><code class="docutils literal notranslate"><span class="pre">get_interesting_domain()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.mean"><code class="docutils literal notranslate"><span class="pre">mean()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.no_dist"><code class="docutils literal notranslate"><span class="pre">no_dist()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.noisy"><code class="docutils literal notranslate"><span class="pre">noisy()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.novar_mean"><code class="docutils literal notranslate"><span class="pre">novar_mean()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.poisson_dist"><code class="docutils literal notranslate"><span class="pre">poisson_dist()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.unv"><code class="docutils literal notranslate"><span class="pre">unv()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.unv_lambda"><code class="docutils literal notranslate"><span class="pre">unv_lambda()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.stat.html#smpl.stat.usd"><code class="docutils literal notranslate"><span class="pre">usd()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html"><code class="docutils literal notranslate"><span class="pre">find_nearest()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.find_nearest_index"><code class="docutils literal notranslate"><span class="pre">find_nearest_index()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.has"><code class="docutils literal notranslate"><span class="pre">has()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.times"><code class="docutils literal notranslate"><span class="pre">times()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.util.html#smpl.util.true"><code class="docutils literal notranslate"><span class="pre">true()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html"><code class="docutils literal notranslate"><span class="pre">get_lambda()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html#smpl.wrap.get_latex"><code class="docutils literal notranslate"><span class="pre">get_latex()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl.wrap.html#smpl.wrap.get_varnames"><code class="docutils literal notranslate"><span class="pre">get_varnames()</span></code></a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -79,30 +215,71 @@
 <li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
 </ul>
 
+            
+          
         </div>
+        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">smpl</a>
+        
       </nav>
 
+
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
+    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
       <li>smpl.plot.plot</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
+        
+          
             <a href="../_sources/_autosummary/smpl.plot.plot.rst.txt" rel="nofollow"> View page source</a>
+          
+        
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-             
+            
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -128,10 +305,10 @@
 }
 </style>
 <section id="smpl-plot-plot">
-<h1>smpl.plot.plot<a class="headerlink" href="#smpl-plot-plot" title="Permalink to this heading"></a></h1>
+<h1>smpl.plot.plot<a class="headerlink" href="#smpl-plot-plot" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.plot.plot">
-<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaley</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/pyplot.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaley</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/pyplot.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot y versus x as lines and/or markers.</p>
 <p>Call signatures:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">fmt</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -208,6 +385,8 @@ parameter.</p>
 necessary if you want explicit deviations from these defaults.
 Alternatively, you can also change the style cycle using
 <a href="#id1"><span class="problematic" id="id2">:rc:`axes.prop_cycle`</span></a>.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt>x, y<span class="classifier">array-like or scalar</span></dt><dd><p>The horizontal / vertical coordinates of the data points.
 <em>x</em> values are optional and default to <code class="docutils literal notranslate"><span class="pre">range(len(y))</span></code>.</p>
@@ -236,13 +415,20 @@ You may suppress the warning by adding an empty format string
 </div>
 </dd>
 </dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>list of <cite>.Line2D</cite></dt><dd><p>A list of lines representing the plotted data.</p>
 </dd>
 </dl>
+</section>
+<section id="other-parameters">
+<h2>Other Parameters<a class="headerlink" href="#other-parameters" title="Permalink to this heading">¶</a></h2>
 <dl>
 <dt>scalex, scaley<span class="classifier">bool, default: True</span></dt><dd><p>These parameters determine if the view limits are adapted to the
-data limits. The values are passed on to <cite>autoscale_view</cite>.</p>
+data limits. The values are passed on to
+<cite>~.axes.Axes.autoscale_view</cite>.</p>
 </dd>
 <dt><a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs<span class="classifier"><cite>.Line2D</cite> properties, optional</span></dt><dd><p><em>kwargs</em> are used to specify properties like a line label (for
 auto legends), linewidth, antialiasing, marker face color.
@@ -256,7 +442,7 @@ to all those lines. In case the label object is iterable, each
 element is used as labels for each set of data.</p>
 <p>Here is a list of available <cite>.Line2D</cite> properties:</p>
 <p>Properties:
-agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array
+agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array and two offsets from the bottom left corner of the image
 alpha: scalar or None
 animated: bool
 antialiased or aa: bool
@@ -271,6 +457,7 @@ data: (2, N) array or two 1D arrays
 drawstyle or ds: {‘default’, ‘steps’, ‘steps-pre’, ‘steps-mid’, ‘steps-post’}, default: ‘default’
 figure: <cite>.Figure</cite>
 fillstyle: {‘full’, ‘left’, ‘right’, ‘bottom’, ‘top’, ‘none’}
+gapcolor: color or None
 gid: str
 in_layout: bool
 label: object
@@ -283,9 +470,10 @@ markerfacecolor or mfc: color
 markerfacecoloralt or mfcalt: color
 markersize or ms: float
 markevery: None or int or (int, int) or slice or list[int] or float or (float, float) or list[bool]
+mouseover: bool
 path_effects: <cite>.AbstractPathEffect</cite>
 picker: float or callable[[Artist, Event], tuple[bool, dict]]
-pickradius: float
+pickradius: unknown
 rasterized: bool
 sketch_params: (scale: float, length: float, randomness: float)
 snap: bool or None
@@ -299,10 +487,16 @@ ydata: 1D array
 zorder: float</p>
 </dd>
 </dl>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
 <dl class="simple">
 <dt>scatter<span class="classifier">XY scatter plot with markers of varying size and/or color (</span></dt><dd><p>sometimes also called bubble chart).</p>
 </dd>
 </dl>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h2>
 <p><strong>Format Strings</strong></p>
 <p>A format string consists of a part for color, marker and line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;[marker][line][color]&#39;</span>
@@ -467,36 +661,53 @@ supported, but note that their parsing may be ambiguous.</p>
 <p>If the color is the only part of the format string, you can
 additionally use any  <cite>matplotlib.colors</cite> spec, e.g. full names
 (<code class="docutils literal notranslate"><span class="pre">'green'</span></code>) or hex strings (<code class="docutils literal notranslate"><span class="pre">'#008000'</span></code>).</p>
+</section>
 </dd></dl>
 
 </section>
 
 
            </div>
+           
           </div>
           <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, APN-Pucky.</p>
-  </div>
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
         </div>
       </div>
+
     </section>
+
   </div>
-  <script>
+  
+
+  <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
