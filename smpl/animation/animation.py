@@ -1,18 +1,18 @@
-import matplotlib.pyplot as plt
-from smpl import util
-import matplotlib.animation as animation
-import matplotlib as mpl
-from PIL import Image
-from matplotlib.backends.backend_agg import FigureCanvasAgg
-import numpy as np
-
-import uuid
-import os
 import io
+import os
+import uuid
+
+import matplotlib as mpl
+import matplotlib.animation as animation
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+from PIL import Image
 
 frames = []
 
 import itertools
+
 
 def dict_product(dicts):
     """
@@ -21,6 +21,7 @@ def dict_product(dicts):
     [{'number': 1, 'color': 'a'}, {'number': 1, 'color': 'b'}, {'number': 2, 'color': 'a'}, {'number': 2, 'color': 'b'}]
     """
     return (dict(zip(dicts, x)) for x in itertools.product(*dicts.values()))
+
 
 def list_product(lists):
     """
@@ -31,97 +32,117 @@ def list_product(lists):
     return itertools.product(*lists)
 
 
-#TODO mirror ipywidgets.interactive options
-def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,plays=None,**kwargs):
-    import ipywidgets
+# TODO mirror ipywidgets.interactive options
+def interactive(
+    func, *args, prerender=True, auto_png=True, rec=0, isls=None, plays=None, **kwargs
+):
     import ipywidgets as widgets
+
     if plays is None:
         plays = []
     if isls is None:
         isls = []
-    if rec==0:
-        isls=[]
+    if rec == 0:
+        isls = []
         for arg in args:
-            r = np.arange(arg.min,arg.max+arg.step,arg.step)
-            if isinstance(arg,widgets.Play):
+            r = np.arange(arg.min, arg.max + arg.step, arg.step)
+            if isinstance(arg, widgets.Play):
                 isl = widgets.IntSlider()
-                widgets.jslink((arg, 'value'), (isl, 'value'))
+                widgets.jslink((arg, "value"), (isl, "value"))
                 plays += [arg]
             else:
                 isl = widgets.SelectionSlider(
                     options=r,
                     value=arg.value,
                     continuous_update=True,
-                    description=arg.description,# TODO copy more
-                    )
+                    description=arg.description,  # TODO copy more
+                )
                 plays += [None]
-            isls+=[isl]
-        for k,arg in kwargs.items():
-            r = np.arange(arg.min,arg.max+arg.step,arg.step)
-            if isinstance(arg,widgets.Play):
+            isls += [isl]
+        for k, arg in kwargs.items():
+            r = np.arange(arg.min, arg.max + arg.step, arg.step)
+            if isinstance(arg, widgets.Play):
                 isl = widgets.IntSlider()
-                widgets.jslink((arg, 'value'), (isl, 'value'))
+                widgets.jslink((arg, "value"), (isl, "value"))
                 plays += [arg]
             else:
                 isl = widgets.SelectionSlider(
                     options=r,
                     value=arg.value,
                     continuous_update=True,
-                    description=arg.description,# TODO copy more
-                    )
+                    description=arg.description,  # TODO copy more
+                )
                 plays += [None]
-            isls+=[isl]
+            isls += [isl]
     if not prerender:
-        ipywidgets.interactive(func, *args, **kwargs)
+        widgets.interactive(func, *args, **kwargs)
     else:
         key = None
         arg = None
-        if (len(kwargs)==0):
+        if len(kwargs) == 0:
             arg = args[0]
-        if (len(args)==0):
-            key,arg = list(kwargs.items())[0]
-        outs=[]
-        r = np.arange(arg.min,arg.max+arg.step,arg.step)
+        if len(args) == 0:
+            key, arg = list(kwargs.items())[0]
+        outs = []
+        r = np.arange(arg.min, arg.max + arg.step, arg.step)
         for a in r:
-            tout = widgets.Output(layout={'border': '0px solid black'})
+            tout = widgets.Output(layout={"border": "0px solid black"})
             with tout:
-                if (len(args)==1 and len(kwargs)==0) or (len(args)==0 and len(kwargs)==1):
+                if (len(args) == 1 and len(kwargs) == 0) or (
+                    len(args) == 0 and len(kwargs) == 1
+                ):
                     if key is None:
                         func(a)
                     else:
-                        func(**{key:a})
+                        func(**{key: a})
                     if auto_png:
                         output = io.BytesIO()
-                        plt.savefig(output, format='png')
+                        plt.savefig(output, format="png")
                         plt.close()
-                        #plt.clf()
+                        # plt.clf()
 
-                        tout = ipywidgets.Image(
+                        tout = widgets.Image(
                             value=output.getvalue(),
-                            format='png',
+                            format="png",
                         )
                 else:
-                    if len(args)!=0:
-                        tout = interactive(lambda *ar,**kw :func(a,*ar,**kw),*args[1:],prerender=prerender,auto_png=auto_png,rec=rec+1,plays=plays,isls=isls,**kwargs)
+                    if len(args) != 0:
+                        tout = interactive(
+                            lambda *ar, **kw: func(a, *ar, **kw),
+                            *args[1:],
+                            prerender=prerender,
+                            auto_png=auto_png,
+                            rec=rec + 1,
+                            plays=plays,
+                            isls=isls,
+                            **kwargs
+                        )
                     else:
                         dkw = dict(kwargs).pop(key)
-                        tout = interactive(lambda *ar,**kw :func(*ar,**{key:a},**kw),prerender=prerender,auto_png=auto_png,rec=rec+1,plays=plays,isls=isls,**dkw)
+                        tout = interactive(
+                            lambda *ar, **kw: func(*ar, **{key: a}, **kw),
+                            prerender=prerender,
+                            auto_png=auto_png,
+                            rec=rec + 1,
+                            plays=plays,
+                            isls=isls,
+                            **dkw
+                        )
             outs += [tout]
 
-
         tab = widgets.Tab(children=outs)
-        if hasattr(isls[rec] ,'index'):
-            widgets.jslink((isls[rec],'index'),(tab,'selected_index'))
-        elif hasattr(isls[rec] ,'value'):
-            widgets.jslink((isls[rec],'value'),(tab,'selected_index'))
+        if hasattr(isls[rec], "index"):
+            widgets.jslink((isls[rec], "index"), (tab, "selected_index"))
+        elif hasattr(isls[rec], "value"):
+            widgets.jslink((isls[rec], "value"), (tab, "selected_index"))
         else:
             print("no link")
 
         if rec:
             return tab
         else:
-            out = widgets.Output(layout={'border': '0px solid black'})
-            for i,isl in enumerate(isls):
+            out = widgets.Output(layout={"border": "0px solid black"})
+            for i, isl in enumerate(isls):
                 if plays[i] is not None:
                     out.append_display_data(widgets.HBox([plays[i], isl]))
                 else:
@@ -131,13 +152,13 @@ def interactive(func, *args, prerender=True,auto_png=True,rec=0,isls=None,plays=
             return out
 
 
-#class WigAnimation(widget.Image):
+# class WigAnimation(widget.Image):
 
 
 class FigAnimation(animation.FuncAnimation):
     def widget_gif(self):
         import ipywidgets
-        import ipywidgets as widgets
+
         # convert to gif through save as anim.save wants a filename
         uf = str(uuid.uuid4())
         self.save(uf + ".gif")
@@ -147,10 +168,10 @@ class FigAnimation(animation.FuncAnimation):
 
         return ipywidgets.Image(
             value=image,
-            format='gif',
+            format="gif",
         )
 
-    def __init__(self, figs=None, frames=None, init=None, update=None,  *args, **kwargs):
+    def __init__(self, figs=None, frames=None, init=None, update=None, *args, **kwargs):
         # Use the list of figures as the framedata, which will be iterated
         # over by the machinery.
         if update is None:
@@ -163,9 +184,8 @@ class FigAnimation(animation.FuncAnimation):
 
         self._figs = figs
         f = plt.figure()
-        plt.axis('off')
-        plt.subplots_adjust(top=1, bottom=0, right=1,
-                            left=0, hspace=0, wspace=0)
+        plt.axis("off")
+        plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
         plt.margins(0, 0)
 
         canvas = FigureCanvasAgg(f1)
@@ -186,10 +206,17 @@ class FigAnimation(animation.FuncAnimation):
             rgba = np.asarray(canvas.buffer_rgba())
             im = Image.fromarray(rgba)
             self.im.set_array(mpl.image.pil_to_array(im))
-            return self.im,
+            return (self.im,)
 
         animation.FuncAnimation.__init__(
-            self, f, _update, frames=len(figs) if update is None else frames, init_func=init, *args, **kwargs)
+            self,
+            f,
+            _update,
+            frames=len(figs) if update is None else frames,
+            init_func=init,
+            *args,
+            **kwargs
+        )
 
 
 def frame():
@@ -235,5 +262,3 @@ def animate(**kwargs):
     ani = FigAnimation(frames, **kwargs)
     # clear()
     return ani
-
-

@@ -1,11 +1,15 @@
-from tokenize import TokenError
-import warnings
-from sympy.parsing.sympy_parser import standard_transformations, implicit_multiplication_application
-import sympy
-from sympy.printing.pycode import pycode
-import uncertainties.unumpy as unp
 import inspect
+import warnings
+from tokenize import TokenError
+
 import numpy as np
+import sympy
+import uncertainties.unumpy as unp
+from sympy.parsing.sympy_parser import (
+    implicit_multiplication_application,
+    standard_transformations,
+)
+from sympy.printing.pycode import pycode
 
 
 def get_varnames(expr, xvar):
@@ -54,21 +58,27 @@ def get_latex(function):
         try:
             try:
                 cc, li = inspect.findsource(function)
-                f = ''.join(cc[li:]).split('lambda')[1].split(':')[1].split(',')[
-                    0].replace("\n", "")
+                f = (
+                    "".join(cc[li:])
+                    .split("lambda")[1]
+                    .split(":")[1]
+                    .split(",")[0]
+                    .replace("\n", "")
+                )
                 l = "$" + sympy.latex(str_get_expr(f)) + "$"
             except TokenError:
                 raise Exception(
-                    "Make sure there is a ',' behind the lambda expression and no commas are in the lambda expression and no newlines")
+                    "Make sure there is a ',' behind the lambda expression and no commas are in the lambda expression and no newlines"
+                )
         except OSError:
-            l = "$\\lambda$(" + ','.join(function.__code__.co_varnames) + ")"
+            l = "$\\lambda$(" + ",".join(function.__code__.co_varnames) + ")"
     elif not isinstance(function, str):
         if function.__doc__ is not None:
-            l = function.__doc__.split('\n')[0]
+            l = function.__doc__.split("\n")[0]
         else:
             try:
                 cc, li = inspect.findsource(function)
-                s = ''.join(cc[li:]).split('return')[1].split('\n')[0]
+                s = "".join(cc[li:]).split("return")[1].split("\n")[0]
                 l = "$" + sympy.latex(str_get_expr(s)) + "$"
             except OSError:
                 l = function.__name__
@@ -107,8 +117,14 @@ def get_lambda(expr, xvar):
 
 
 def fnc_get_lambda(expr, xvar):
-    __l__ = eval("lambda " + ','.join(get_varnames(expr, xvar)) +
-                             ": expr(" + ','.join(expr.__code__.co_varnames) + ")", {"expr": expr})
+    __l__ = eval(
+        "lambda "
+        + ",".join(get_varnames(expr, xvar))
+        + ": expr("
+        + ",".join(expr.__code__.co_varnames)
+        + ")",
+        {"expr": expr},
+    )
     __l__.__doc__ = expr.__doc__
     return __l__
 
@@ -117,12 +133,11 @@ def str_get_lambda(expr, xvar):
     parsed_expr = str_get_expr(expr)
     pc = pycode(parsed_expr)
     for s in unp.__all__:
-        pc = pc.replace("math." + s, "unp."+s)
+        pc = pc.replace("math." + s, "unp." + s)
     # old direct way. Doesn't use unp.
-    #__l__ = sympy.lambdify(get_varnames(expr),parsed_expr)
-    __l__ = eval(
-        "lambda " + ','.join(get_varnames(expr, xvar)) + ": " + pc)
-    #exec("global __l__; __l__ = lambda " + ','.join(get_varnames(expr)) + ": "+ pc)
+    # __l__ = sympy.lambdify(get_varnames(expr),parsed_expr)
+    __l__ = eval("lambda " + ",".join(get_varnames(expr, xvar)) + ": " + pc)
+    # exec("global __l__; __l__ = lambda " + ','.join(get_varnames(expr)) + ": "+ pc)
     return __l__
 
 
@@ -130,14 +145,13 @@ def str_get_varnames(expr, xvar):
 
     parsed_expr = str_get_expr(expr)
 
-    new_locals = [sym.name
-                  for sym in parsed_expr.atoms(sympy.Symbol)]
+    new_locals = [sym.name for sym in parsed_expr.atoms(sympy.Symbol)]
     new_locals = sorted(new_locals)
     if xvar is None:
         return np.roll(new_locals, 1)
     else:
         varss = new_locals
-        assert(xvar in varss)
+        assert xvar in varss
         varss.remove(xvar)
         return [xvar, *varss]
 
@@ -147,7 +161,7 @@ def fnc_get_varnames(func, xvar):
         return func.__code__.co_varnames
     else:
         varss = [s for s in func.__code__.co_varnames]
-        assert(xvar in varss)
+        assert xvar in varss
         varss.remove(xvar)
         return [xvar, *varss]
 
@@ -158,19 +172,22 @@ def str_get_expr(expr):
 
     Only works with np or unp naming.
     """
-    expr = expr.replace("math.abs(", "Abs(").replace(
-        "np.abs(", "Abs(").replace("unp.abs(", "Abs(")
+    expr = (
+        expr.replace("math.abs(", "Abs(")
+        .replace("np.abs(", "Abs(")
+        .replace("unp.abs(", "Abs(")
+    )
     expr = expr.replace("math.", "").replace("unp.", "").replace("np.", "")
     try:
         parsed_expr = sympy.parsing.sympy_parser.parse_expr(
             expr,
             local_dict=None,
-            transformations=(standard_transformations +
-                             (implicit_multiplication_application,)),
-            evaluate=False
+            transformations=(
+                standard_transformations + (implicit_multiplication_application,)
+            ),
+            evaluate=False,
         )
     except Exception as e:
-        warnings.warn(
-            "Illegal variable/function name (try uncap. letters) " + expr)
+        warnings.warn("Illegal variable/function name (try uncap. letters) " + expr)
         raise e
     return parsed_expr

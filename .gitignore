@@ -10,7 +10,8 @@ smpl.egg-info/
 .ipynb_checkpoints
 .coverage
 coverage.xml
-source/example/**/*.py
+docs/source/example/**/*.py
+docs/source/example/**/*.gif
 test.out
 prof/
 debug_table.csv

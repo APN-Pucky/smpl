@@ -1,11 +1,13 @@
 import pytest
 
+
 def f(i):
     """
     >>> f(0)
     0
     """
     return i * 10
+
 
 def g(n=10):
     """

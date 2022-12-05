@@ -1,7 +1,9 @@
 import pytest
 
+
 def f(i):
     return i * 10
+
 
 def g(n=10):
     return sum(f(i) for i in range(n))

@@ -1,11 +1,13 @@
 import warnings
+
 import numpy as np
+import uncertainties as unc
 from scipy import optimize
 from scipy.odr.odrpack import ODR, Model, RealData
-import uncertainties as unc
 
 from smpl import debug
 from smpl.util import util
+
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck
 #
@@ -16,22 +18,30 @@ from smpl.util import util
 
 def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
     try:
-        pfit, pcov = \
-            optimize.curve_fit(function, datax, datay, p0=params,
-                               sigma=yerr, epsfcn=util.get("epsfcn", kwargs, 0.0001), **kwargs, maxfev=util.get("maxfev", kwargs, 10000))
+        pfit, pcov = optimize.curve_fit(
+            function,
+            datax,
+            datay,
+            p0=params,
+            sigma=yerr,
+            epsfcn=util.get("epsfcn", kwargs, 0.0001),
+            **kwargs,
+            maxfev=util.get("maxfev", kwargs, 10000)
+        )
     except RuntimeError as e:
         debug.msg(str(e))
         return params
     error = []
     for i in range(len(pfit)):
         try:
-            error.append(np.absolute(pcov[i][i])**0.5)
+            error.append(np.absolute(pcov[i][i]) ** 0.5)
         except Exception as e:
             warnings.warn(str(e))
             error.append(0.00)
     # print(pcov)
     # restore cov: unc.covariance_matrix([*ff])
     return unc.correlated_values(pfit, pcov)
+
 
 # https://stackoverflow.com/a/52592811
 

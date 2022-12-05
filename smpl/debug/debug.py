@@ -1,5 +1,6 @@
-from inspect import currentframe, getsource
 import os
+from inspect import currentframe, getsource
+
 import numpy as np
 
 # TODO comapare against logging module https://docs.python.org/3.5/library/logging.html
@@ -7,15 +8,14 @@ import numpy as np
 # TODO instead of hard coded global variables, use function arguments
 
 
-#TODO Enum maybe?
-#DEBUG_LEVEL=-1 no debug
-#DEBUG_LEVEL= 0 default level
-#DEBUG_LEVEL= 1,2,3 higher levels, more debug
+# TODO Enum maybe?
+# DEBUG_LEVEL=-1 no debug
+# DEBUG_LEVEL= 0 default level
+# DEBUG_LEVEL= 1,2,3 higher levels, more debug
 DEBUG_LEVEL = -1
 
 
-
-#print prefix
+# print prefix
 DEBUG_PRE = "DBG"
 
 # remove folders of files for print
@@ -32,7 +32,7 @@ cur_table_line = {}
 
 def get_frame(_back=0):
     cf = currentframe()
-    for _ in range(_back+1):
+    for _ in range(_back + 1):
         cf = cf.f_back
     return cf
 
@@ -49,7 +49,8 @@ def once(_back=0):
     0
 
     """
-    return times(1, _back=_back+1)
+    return times(1, _back=_back + 1)
+
 
 def times(t=1, _back=0):
     """
@@ -77,7 +78,7 @@ def times(t=1, _back=0):
     1
     2
     """
-    line, fname = get_line_number_file(_back=_back+1)
+    line, fname = get_line_number_file(_back=_back + 1)
     inc_count(line, fname)
     return check_count(line, fname, t)
 
@@ -103,9 +104,8 @@ def get_line_src(_back=0):
     >>> "funky"+get_line_src()
     'funky"funky"+get_line_src()'
     """
-    cf = get_frame(_back=_back+1)
-    srcline = getsource(cf).split(
-        "\n")[cf.f_lineno-cf.f_code.co_firstlineno].strip()
+    cf = get_frame(_back=_back + 1)
+    srcline = getsource(cf).split("\n")[cf.f_lineno - cf.f_code.co_firstlineno].strip()
     return srcline
 
 
@@ -136,7 +136,7 @@ def get_line_number_file(split=True, _back=0):
     (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
     (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
     """
-    cf = get_frame(_back=_back+1)
+    cf = get_frame(_back=_back + 1)
     fname = cf.f_code.co_filename
     if split:
         fname = cf.f_code.co_filename.split("/")[-1]
@@ -144,12 +144,13 @@ def get_line_number_file(split=True, _back=0):
 
 
 def get_line_number(_back=0):
-    return get_line_number_file(_back=_back+1)[0]
+    return get_line_number_file(_back=_back + 1)[0]
 
 
 def line(msg_, tag="", level=0, times=-1, _back=0, **kwargs):
-    msg(msg_, tag=tag, level=level, times=times,
-        line_=True, _back=_back+1, **kwargs)
+    msg(msg_, tag=tag, level=level, times=times, line_=True, _back=_back + 1, **kwargs)
+
+
 # only once
 def line1(msg_, tag="", level=0, times=1, _back=0, **kwargs):
     """
@@ -161,8 +162,8 @@ def line1(msg_, tag="", level=0, times=1, _back=0, **kwargs):
     ...     line1(i,level=-1)
     DBG::<doctest smpl.debug.debug.line1[0]>:2: line1(i,level=-1) = -2
     """
-    msg1(msg_, tag=tag, level=level, times=times,
-         line_=True, _back=_back+1, **kwargs)
+    msg1(msg_, tag=tag, level=level, times=times, line_=True, _back=_back + 1, **kwargs)
+
 
 # counting functions
 
@@ -189,8 +190,8 @@ def get_count(line, fname):
     0
     """
     global count_times
-    if fname+":"+str(line) in count_times:
-        return count_times[fname+":"+str(line)]
+    if fname + ":" + str(line) in count_times:
+        return count_times[fname + ":" + str(line)]
     return 0
 
 
@@ -210,10 +211,10 @@ def inc_count(line, fname):
     >>> inc_count(1, "debug.py")
     """
     global count_times
-    if fname+":"+str(line) in count_times:
-        count_times[fname+":"+str(line)] += 1
+    if fname + ":" + str(line) in count_times:
+        count_times[fname + ":" + str(line)] += 1
     else:
-        count_times[fname+":"+str(line)] = 1
+        count_times[fname + ":" + str(line)] = 1
 
 
 def check_count(line, fname, t):
@@ -244,14 +245,16 @@ def check_count(line, fname, t):
 
     """
     if t >= get_count(line, fname) or t == -1:
-        if(fname not in BLACK_LIST_FILES and (len(WHITE_LIST_FILES) == 0 or fname in WHITE_LIST_FILES)):
+        if fname not in BLACK_LIST_FILES and (
+            len(WHITE_LIST_FILES) == 0 or fname in WHITE_LIST_FILES
+        ):
             return True
     return False
 
 
 # _line enables printint src line
 # t stands for times
-def msg(msg, tag="", level=0, times=-1, line_=False, _back=0,**kwargs):
+def msg(msg, tag="", level=0, times=-1, line_=False, _back=0, **kwargs):
     """
     Prints the message ``msg`` if level > debug_level and always returns the msg.
 
@@ -277,16 +280,26 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0,**kwargs):
     'hi'
 
     """
-    if(level <= DEBUG_LEVEL):
-        line, fname = get_line_number_file(_back=_back+1)
+    if level <= DEBUG_LEVEL:
+        line, fname = get_line_number_file(_back=_back + 1)
         src = ""
         if line_:
-            src = get_line_src(_back=_back+1)
-            src = src+ " = "
+            src = get_line_src(_back=_back + 1)
+            src = src + " = "
         inc_count(line, fname)
-        if(check_count(line, fname, times)):
-            print(DEBUG_PRE + ":" + tag + ":" + fname +
-                  ":" + str(line) + ": " + src + str(msg))
+        if check_count(line, fname, times):
+            print(
+                DEBUG_PRE
+                + ":"
+                + tag
+                + ":"
+                + fname
+                + ":"
+                + str(line)
+                + ": "
+                + src
+                + str(msg)
+            )
     return msg
 
 
@@ -317,22 +330,44 @@ def msg1(_msg, tag="", level=0, times=1, line_=False, _back=0, **kwargs):
     0
     1
     """
-    return msg(_msg, level=level, tag=tag, times=times, line_=line_, _back=_back+1, **kwargs)
+    return msg(
+        _msg, level=level, tag=tag, times=times, line_=line_, _back=_back + 1, **kwargs
+    )
 
 
-def file(key, value, level=0, times=-1, seperator=";", _print=True, _back=0, filename="debug.csv"):
+def file(
+    key,
+    value,
+    level=0,
+    times=-1,
+    seperator=";",
+    _print=True,
+    _back=0,
+    filename="debug.csv",
+):
     """
     Prints the message ``msg`` if level > debug_level to file ``filename``.
     """
-    if(level <= DEBUG_LEVEL):
-        line, fname = get_line_number_file(_back=_back+1)
+    if level <= DEBUG_LEVEL:
+        line, fname = get_line_number_file(_back=_back + 1)
         inc_count(line, fname)
-        if(check_count(line, fname, times)):
+        if check_count(line, fname, times):
             f = open(filename, "a+")
-            if(_print):
+            if _print:
                 tag = "debug.file"
-                print(DEBUG_PRE + ":" + tag + ":" + fname + ":" +
-                      str(line) + ": " + key + seperator + value)
+                print(
+                    DEBUG_PRE
+                    + ":"
+                    + tag
+                    + ":"
+                    + fname
+                    + ":"
+                    + str(line)
+                    + ": "
+                    + key
+                    + seperator
+                    + value
+                )
             f.write(key + seperator + value + "\n")
             f.close()
     return value
@@ -342,7 +377,7 @@ def file1(_key, _value, level=0, times=1, _back=0, **kwargs):
     """
     Just like :func:`file` but ``times`` set to 1.
     """
-    return file(_key, _value, level=level, times=times, _back=_back+1, **kwargs)
+    return file(_key, _value, level=level, times=times, _back=_back + 1, **kwargs)
 
 
 def table_flush_header(filename="debug_table.csv", seperator=";"):
@@ -353,7 +388,7 @@ def table_flush_header(filename="debug_table.csv", seperator=";"):
     f = open(filename, "a+")
     for key in sorted(cur_table_line):
         f.write(key + seperator)
-    f.write('\n')
+    f.write("\n")
     f.close()
 
 
@@ -376,11 +411,20 @@ def table_flush_line(filename="debug_table.csv", seperator=";"):
                 f.write("%.30e" % cur_table_line[key][i] + seperator)
             else:
                 f.write("%.30e" % cur_table_line[key] + seperator)
-        f.write('\n')
+        f.write("\n")
     f.close()
 
 
-def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, filename="debug_table.csv"):
+def table(
+    key,
+    value,
+    level=0,
+    times=-1,
+    seperator=";",
+    _print=False,
+    _back=0,
+    filename="debug_table.csv",
+):
     """
     Saves ``key``:``value`` in ``filename``.
 
@@ -443,10 +487,10 @@ def table(key, value, level=0, times=-1, seperator=";", _print=False, _back=0, f
     8.000000000000000000000000000000e+00;1.600000000000000000000000000000e+01;
     """
     global cur_table_line
-    if(level <= DEBUG_LEVEL):
-        line, fname = get_line_number_file(_back=_back+1)
+    if level <= DEBUG_LEVEL:
+        line, fname = get_line_number_file(_back=_back + 1)
         inc_count(line, fname)
-        if(check_count(line, fname, times)):
+        if check_count(line, fname, times):
             if isinstance(value, np.ndarray):
                 cur_table_line[key] = value.copy()
             else:
@@ -461,6 +505,7 @@ def reset_times():
     global count_times
     count_times = {}
 
+
 def reset_table():
     """
     Resets global `cur_table_line`.
@@ -469,7 +514,7 @@ def reset_table():
     cur_table_line = {}
 
 
-reset_count=reset_times
+reset_count = reset_times
 
 if os.path.exists("debug.csv"):
     os.remove("debug.csv")
@@ -478,4 +523,5 @@ if os.path.exists("debug_table.csv"):
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
