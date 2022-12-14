@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.0.2-3-g6d47e21a
+                1.0.2-7-g5f2137c8
               </div>
             
           
@@ -278,7 +278,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.read" title="smpl.io.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(fname)</p></td>
 <td><p>Reads the file <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.write" title="smpl.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content[, mode])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.remove" title="smpl.io.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(file)</p></td>
+<td><p>Removes <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.write" title="smpl.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content[, mode, create_dir])</p></td>
 <td><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p></td>
 </tr>
 </tbody>
@@ -467,20 +470,44 @@ Default is ‘a+’ (append and read).</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="smpl.io.write">
-<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w+'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/smpl/io/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p>
+<dt class="sig sig-object py" id="smpl.io.remove">
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/smpl/io/io.html#remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
 <section id="id15">
 <h4>Parameters<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h4>
 <dl class="simple">
-<dt>destination<span class="classifier">str, writeable</span></dt><dd><p>destination to write to.</p>
-</dd>
-<dt>content<span class="classifier">str</span></dt><dd><p>text to be written.</p>
+<dt>file<span class="classifier">str</span></dt><dd><p>file name.</p>
 </dd>
 </dl>
 </section>
 <section id="id16">
 <h4>Examples<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h4>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.io.write">
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w+'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/smpl/io/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p>
+<section id="id17">
+<h4>Parameters<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>destination<span class="classifier">str, writeable</span></dt><dd><p>destination to write to.</p>
+</dd>
+<dt>content<span class="classifier">str</span></dt><dd><p>text to be written.</p>
+</dd>
+<dt>mode<span class="classifier">str</span></dt><dd><p>mode to open the file.
+Default is ‘w+’ (write and read).</p>
+</dd>
+<dt>create_dir<span class="classifier">bool</span></dt><dd><p>create directory if it does not exist.</p>
+</dd>
+</dl>
+</section>
+<section id="id18">
+<h4>Examples<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h4>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
 <span class="go">hi</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">,</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>

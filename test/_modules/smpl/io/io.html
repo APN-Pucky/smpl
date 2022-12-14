@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.0.2-3-g6d47e21a
+                1.0.2-7-g5f2137c8
               </div>
             
           
@@ -305,7 +305,7 @@
         <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../autoapi/smpl/io/io/index.html#smpl.io.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w+&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../autoapi/smpl/io/io/index.html#smpl.io.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">create_dir</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write to file by string or writable :obj:`destiantion`.</span>
 
@@ -315,6 +315,11 @@
 <span class="sd">        destination to write to.</span>
 <span class="sd">    content : str</span>
 <span class="sd">        text to be written.</span>
+<span class="sd">    mode : str</span>
+<span class="sd">        mode to open the file.</span>
+<span class="sd">        Default is &#39;w+&#39; (write and read).</span>
+<span class="sd">    create_dir : bool</span>
+<span class="sd">        create directory if it does not exist.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -326,7 +331,12 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO add http and other string based write methodes</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="c1"># os.makedirs(os.path.dirname(destination), exist_ok=True)</span>
+        <span class="k">if</span> <span class="n">create_dir</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">destination</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+                <span class="c1"># this happens when the path is a local path, ie. a single file</span>
+                <span class="k">pass</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -515,6 +525,23 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">a</span></div>
+
+
+<div class="viewcode-block" id="remove"><a class="viewcode-back" href="../../../autoapi/smpl/io/io/index.html#smpl.io.remove">[docs]</a><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes ``file``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file : str</span>
+<span class="sd">        file name.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; remove(&quot;test.out&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

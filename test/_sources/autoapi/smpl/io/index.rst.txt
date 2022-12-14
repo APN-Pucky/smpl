@@ -35,6 +35,7 @@ Functions
    smpl.io.pr
    smpl.io.pwd
    smpl.io.read
+   smpl.io.remove
    smpl.io.write
 
 
@@ -182,7 +183,21 @@ Functions
    'hi'
 
 
-.. py:function:: write(destination, content, mode='w+')
+.. py:function:: remove(file)
+
+   Removes ``file``.
+
+   Parameters
+   ----------
+   file : str
+       file name.
+
+   Examples
+   --------
+   >>> remove("test.out")
+
+
+.. py:function:: write(destination, content, mode='w+', create_dir=True)
 
    Write to file by string or writable :obj:`destiantion`.
 
@@ -192,6 +207,11 @@ Functions
        destination to write to.
    content : str
        text to be written.
+   mode : str
+       mode to open the file.
+       Default is 'w+' (write and read).
+   create_dir : bool
+       create directory if it does not exist.
 
    Examples
    --------
