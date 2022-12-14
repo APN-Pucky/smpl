@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.0.2
+                1.0.3
               </div>
             
           
@@ -196,15 +196,15 @@
 <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">data</span>
 <span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append_doc</span><span class="p">,</span> <span class="n">append_str</span><span class="p">,</span> <span class="n">table</span>
 
-<div class="viewcode-block" id="unv"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.unv">[docs]</a><span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span></div>
-<div class="viewcode-block" id="usd"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.usd">[docs]</a><span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span></div>
+<div class="viewcode-block" id="unv"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate.unv">[docs]</a><span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span></div>
+<div class="viewcode-block" id="usd"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate.usd">[docs]</a><span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span></div>
 
 
-<div class="viewcode-block" id="identity"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.identity">[docs]</a><span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="identity"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate.identity">[docs]</a><span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span></div>
 
 
-<div class="viewcode-block" id="default"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.default">[docs]</a><span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
+<div class="viewcode-block" id="default"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate.default">[docs]</a><span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;interpolator&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;cubic&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Use &#39;cubic&#39; (spline) or &#39;linear&#39; (cf. &lt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html#scipy.interpolate.interp1d&gt;).&quot;</span><span class="p">,</span>
@@ -229,7 +229,7 @@
 <span class="nd">@append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nd">@append_str</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nd">@append_str</span><span class="p">(</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;interpolate_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<div class="viewcode-block" id="interpolate_kwargs"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate_kwargs">[docs]</a><span class="k">def</span> <span class="nf">interpolate_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="interpolate_kwargs"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate.interpolate_kwargs">[docs]</a><span class="k">def</span> <span class="nf">interpolate_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Set default interpolate_kwargs if not set.&quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -238,7 +238,7 @@
     <span class="k">return</span> <span class="n">kwargs</span></div>
 
 
-<div class="viewcode-block" id="interpolate_split"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate_split">[docs]</a><span class="k">def</span> <span class="nf">interpolate_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="interpolate_split"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate.interpolate_split">[docs]</a><span class="k">def</span> <span class="nf">interpolate_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Splits datax and datay into (x,y,xerr,yerr).</span>
 
@@ -251,7 +251,7 @@
     <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">filtered_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="interpolate"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate">[docs]</a><span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="interpolate"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate.interpolate">[docs]</a><span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="c1"># TODO save spl_upd spl_down values instead of recalculate</span>
     <span class="c1"># TODO set eps</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">interpolate_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
@@ -304,11 +304,11 @@
     <span class="k">return</span> <span class="n">ret</span></div>
 
 
-<div class="viewcode-block" id="check"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.check">[docs]</a><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="check"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate.check">[docs]</a><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">unv</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="_interpolate"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate._interpolate">[docs]</a><span class="k">def</span> <span class="nf">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="_interpolate"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate._interpolate">[docs]</a><span class="k">def</span> <span class="nf">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">datay</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">](</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -333,7 +333,7 @@
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">](</span><span class="n">ret</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)),</span> <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">])</span></div>
 
 
-<div class="viewcode-block" id="_interpolate_exp"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate._interpolate_exp">[docs]</a><span class="k">def</span> <span class="nf">_interpolate_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="_interpolate_exp"><a class="viewcode-back" href="../../../autoapi/smpl/interpolate/interpolate/index.html#smpl.interpolate.interpolate._interpolate_exp">[docs]</a><span class="k">def</span> <span class="nf">_interpolate_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">ip</span> <span class="o">=</span> <span class="n">interp</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="n">x_new</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ip</span><span class="p">(</span><span class="n">x_new</span><span class="p">))</span></div>
 </pre></div>

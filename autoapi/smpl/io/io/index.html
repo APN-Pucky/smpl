@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.0.2
+                1.0.3
               </div>
             
           
@@ -259,7 +259,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.io.read" title="smpl.io.io.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(fname)</p></td>
 <td><p>Reads the file <code class="docutils literal notranslate"><span class="pre">fname</span></code>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.io.write" title="smpl.io.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content[, mode])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.io.write" title="smpl.io.io.write"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write</span></code></a>(destination, content[, mode, create_dir])</p></td>
 <td><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.io.append" title="smpl.io.io.append"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append</span></code></a>(destination, content[, mode])</p></td>
@@ -288,6 +288,9 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#smpl.io.io.pn" title="smpl.io.io.pn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pn</span></code></a>(a[, nnl])</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.io.io.remove" title="smpl.io.io.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>(file)</p></td>
+<td><p>Removes <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -403,7 +406,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.io.write">
-<span class="sig-prename descclassname"><span class="pre">smpl.io.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w+'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/io/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.io.write" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.io.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w+'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/io/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.io.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p>
 <section id="id7">
 <h4>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h4>
@@ -411,6 +414,11 @@
 <dt>destination<span class="classifier">str, writeable</span></dt><dd><p>destination to write to.</p>
 </dd>
 <dt>content<span class="classifier">str</span></dt><dd><p>text to be written.</p>
+</dd>
+<dt>mode<span class="classifier">str</span></dt><dd><p>mode to open the file.
+Default is ‘w+’ (write and read).</p>
+</dd>
+<dt>create_dir<span class="classifier">bool</span></dt><dd><p>create directory if it does not exist.</p>
 </dd>
 </dl>
 </section>
@@ -602,6 +610,25 @@ Default is ‘a+’ (append and read).</p>
 <dt class="sig sig-object py" id="smpl.io.io.pn">
 <span class="sig-prename descclassname"><span class="pre">smpl.io.io.</span></span><span class="sig-name descname"><span class="pre">pn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/io/io.html#pn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.io.pn" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.io.io.remove">
+<span class="sig-prename descclassname"><span class="pre">smpl.io.io.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/smpl/io/io.html#remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.io.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes <code class="docutils literal notranslate"><span class="pre">file</span></code>.</p>
+<section id="id25">
+<h4>Parameters<a class="headerlink" href="#id25" title="Permalink to this heading">¶</a></h4>
+<dl class="simple">
+<dt>file<span class="classifier">str</span></dt><dd><p>file name.</p>
+</dd>
+</dl>
+</section>
+<section id="id26">
+<h4>Examples<a class="headerlink" href="#id26" title="Permalink to this heading">¶</a></h4>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;test.out&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
 
 </section>
 </section>
