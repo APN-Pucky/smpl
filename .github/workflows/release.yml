@@ -1,14 +1,12 @@
-name: unstable 
+name: release
 
 on: 
   push:
-    branches:
-      - 'master'
-    tags-ignore: 
+    tags: 
       - '*'
 
 jobs:
-    unstable:
+    build:
       runs-on: ubuntu-latest
       container:
         image: apnpucky/ubuntu-poetry
@@ -19,6 +17,6 @@ jobs:
             doc: true
             coveralls: true
             codacy-api-token: ${{ secrets.CODACY_API_TOKEN }}
-            test-pypi-token: ${{ secrets.test_pypi_token }}
-            test-gh-pages: true
+            pypi-token: ${{ secrets.pypi_token }}
+            gh-pages: true
             gh-pages-folder: docs/build/html

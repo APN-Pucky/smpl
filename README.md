@@ -3,7 +3,7 @@ Simplified plotting and fitting in python.
 
 [![PyPI version][pypi image]][pypi link] [![PyPI version][pypi versions]][pypi link]  ![downloads](https://img.shields.io/pypi/dm/smpl.svg)
 
-| [Stable][doc stable]        | [Unstable][doc test]           |
+| [Stable][doc stable]        | [Test][doc test]           |
 | ------------- |:-------------:|
 | [![workflow][a s image]][a s link]   | [![test][a t image]][a t link]     |
 | [![Coverage Status][c s i]][c s l]   | [![Coverage Status][c t i]][c t l] |
@@ -41,8 +41,8 @@ pip install --index-url https://test.pypi.org/simple/ smpl
 
 [a s image]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml/badge.svg
 [a s link]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml
-[a t link]: https://github.com/APN-Pucky/smpl/actions/workflows/unstable.yml
-[a t image]: https://github.com/APN-Pucky/smpl/actions/workflows/unstable.yml/badge.svg
+[a t link]: https://github.com/APN-Pucky/smpl/actions/workflows/test.yml
+[a t image]: https://github.com/APN-Pucky/smpl/actions/workflows/test.yml/badge.svg
 
 [cc s q i]: https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2?branch=stable
 [cc s q l]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade?branch=stable
