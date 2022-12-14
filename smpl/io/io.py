@@ -118,7 +118,7 @@ def read(fname):
         return f.read()
 
 
-def write(destination, content, mode="w+"):
+def write(destination, content, mode="w+", create_dir=True):
     """
     Write to file by string or writable :obj:`destiantion`.
 
@@ -128,6 +128,11 @@ def write(destination, content, mode="w+"):
         destination to write to.
     content : str
         text to be written.
+    mode : str
+        mode to open the file.
+        Default is 'w+' (write and read).
+    create_dir : bool
+        create directory if it does not exist.
 
     Examples
     --------
@@ -139,7 +144,12 @@ def write(destination, content, mode="w+"):
     """
     # TODO add http and other string based write methodes
     if isinstance(destination, str):
-        # os.makedirs(os.path.dirname(destination), exist_ok=True)
+        if create_dir:
+            try:
+                os.makedirs(os.path.dirname(destination), exist_ok=True)
+            except FileNotFoundError:
+                # this happens when the path is a local path, ie. a single file
+                pass
         with open(destination, mode) as f:
             f.write(content)
     else:
@@ -328,3 +338,20 @@ def pn(a, nnl=False):
     else:
         print("%s=%s" % (a.__name__, a))
     return a
+
+
+def remove(file):
+    """
+    Removes ``file``.
+
+    Parameters
+    ----------
+    file : str
+        file name.
+
+    Examples
+    --------
+    >>> remove("test.out")
+    """
+    if os.path.exists(file):
+        os.remove(file)
