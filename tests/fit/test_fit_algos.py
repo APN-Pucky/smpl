@@ -3,14 +3,13 @@ import numpy as np
 import pytest
 import uncertainties.unumpy as unp
 
-from smpl import fit
 from smpl import functions as f
 from smpl.fit import minuit, scipy
-from smpl.fit.fit import Fitter
+from smpl.fit.fit import Fitter, old
 
 
 def _test_fit_linear(fitter, datax, datay):
-    fit.fit(
+    old.fit(
         datax,
         datay,
         fmt=".",
@@ -29,7 +28,7 @@ def _test_fit_linear(fitter, datax, datay):
 
 
 def _test_fit_exponential(fitter, datax, datay):
-    fit.fit(
+    old.fit(
         datax,
         datay,
         fmt=".",
@@ -76,7 +75,7 @@ def _test_fit_algos():
 
 
 @pytest.mark.line_profile.with_args(
-    fit.fit,
+    old.fit,
     minuit._fit_minuit_leastsquares,
     scipy._fit_curvefit,
     scipy._fit_odr,
