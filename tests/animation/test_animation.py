@@ -5,7 +5,7 @@ import tqdm
 
 from smpl import animation, plot, stat
 from smpl.functions import fac
-from smpl.plot.plot import init_plot
+from smpl.plot import init_plot
 
 # from smpl.animation.animation import FigAnimation
 

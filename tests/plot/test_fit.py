@@ -4,7 +4,7 @@ import pytest
 
 from smpl import functions as f
 from smpl import plot
-from smpl.plot.plot import init_plot
+from smpl.plot import init_plot
 
 
 @pytest.mark.line_profile.with_args(plot.fit, plot.function, init_plot)
