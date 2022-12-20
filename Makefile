@@ -29,6 +29,7 @@ pull: commit
 	git pull
 
 clean: 
+	rm -r docs/build docs/source/_autosummary
 	rm -r .eggs .pytest_cache *.egg-info
 	find docs/source/example/ -type f -name '*.ipynb' | xargs jupyter nbconvert --clear-output --inplace
 

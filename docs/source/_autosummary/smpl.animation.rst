@@ -1,23 +1,40 @@
-﻿:mod:`smpl.animation` 
-======================
-
-.. currentmodule:: smpl.animation
-
+smpl.animation
+==============
 
 .. automodule:: smpl.animation
-   :members:
+  
    
-   .. autosummary:: 
    
-      animate
    
-      clear
-   
-      frame
-   
-      interactive
+
    
    
    .. rubric:: Functions
 
+   .. autosummary::
+      :toctree:                                         
+   
+      animate
+      clear
+      dict_product
+      frame
+      interactive
+      list_product
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      FigAnimation
+   
+   
+
+   
+   
    

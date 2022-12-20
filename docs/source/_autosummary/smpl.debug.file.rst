@@ -1,0 +1,6 @@
+smpl.debug.file
+===============
+
+.. currentmodule:: smpl.debug
+
+.. autofunction:: file

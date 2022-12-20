@@ -1,0 +1,6 @@
+smpl.io.pn
+==========
+
+.. currentmodule:: smpl.io
+
+.. autofunction:: pn

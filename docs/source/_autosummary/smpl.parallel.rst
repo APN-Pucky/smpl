@@ -1,27 +1,33 @@
-﻿:mod:`smpl.parallel` 
-======================
-
-.. currentmodule:: smpl.parallel
-
+﻿smpl.parallel
+=============
 
 .. automodule:: smpl.parallel
-   :members:
+  
    
-   .. autosummary:: 
    
-      calc
    
-      gen
-   
-      par
-   
-      parallel
-   
-      partitioned_parallel
-   
-      res
+
    
    
    .. rubric:: Functions
 
+   .. autosummary::
+      :toctree:                                         
+   
+      calc
+      gen
+      par
+      parallel
+      partitioned_parallel
+      queued
+      res
+   
+   
+
+   
+   
+   
+
+   
+   
    

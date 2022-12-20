@@ -1,27 +1,32 @@
-﻿:mod:`smpl.util` 
-======================
-
-.. currentmodule:: smpl.util
-
+smpl.util
+=========
 
 .. automodule:: smpl.util
-   :members:
+  
    
-   .. autosummary:: 
    
-      find_nearest
    
-      find_nearest_index
-   
-      get
-   
-      has
-   
-      times
-   
-      true
+
    
    
    .. rubric:: Functions
 
+   .. autosummary::
+      :toctree:                                         
+   
+      find_nearest
+      find_nearest_index
+      get
+      has
+      times
+      true
+   
+   
+
+   
+   
+   
+
+   
+   
    

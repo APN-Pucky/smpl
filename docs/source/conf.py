@@ -63,21 +63,21 @@ extensions = [
     "matplotlib.sphinxext.plot_directive",
     #'numpydoc',
     "sphinx_math_dollar",
-    #    "sphinx.ext.autosummary",
+    "sphinx.ext.autosummary",
     "sphinx.ext.coverage",
     "nbsphinx",
-    #'jupyter_sphinx',
+    "jupyter_sphinx",
     #'jupyter_sphinx.execute'
-    "autoapi.extension",
+    # "autoapi.extension",
 ]
-# nbsphinx_execute = 'always'
+nbsphinx_execute = "never"
 # nbsphinx_widgets_path=""
-# autosummary_generate = True
+autosummary_generate = True
 # autosummary_imported_members = True
 
-autoapi_type = "python"
-autoapi_dirs = ["../../" + project]
-autoapi_python_class_content = "both"
+# autoapi_type = "python"
+# autoapi_dirs = ["../../" + project]
+# autoapi_python_class_content = "both"
 autodoc_typehints = "description"
 
 math_dollar_node_blacklist = (

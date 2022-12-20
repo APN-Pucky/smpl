@@ -1,33 +1,41 @@
-﻿:mod:`smpl.io` 
-======================
-
-.. currentmodule:: smpl.io
-
+smpl.io
+=======
 
 .. automodule:: smpl.io
-   :members:
+  
    
-   .. autosummary:: 
    
-      append
    
-      files
-   
-      find_file
-   
-      gf
-   
-      mkdirs
-   
-      pr
-   
-      pwd
-   
-      read
-   
-      write
+
    
    
    .. rubric:: Functions
 
+   .. autosummary::
+      :toctree:                                         
+   
+      append
+      files
+      find_file
+      gf
+      grep
+      head
+      import_path
+      mkdirs
+      pn
+      pr
+      pwd
+      read
+      remove
+      tail
+      write
+   
+   
+
+   
+   
+   
+
+   
+   
    

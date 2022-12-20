@@ -1,17 +1,31 @@
-﻿:mod:`smpl.interpolate` 
-======================
-
-.. currentmodule:: smpl.interpolate
-
+﻿smpl.interpolate
+================
 
 .. automodule:: smpl.interpolate
-   :members:
+  
    
-   .. autosummary:: 
    
-      interpolate
+   
+
    
    
    .. rubric:: Functions
 
+   .. autosummary::
+      :toctree:                                         
+   
+      check
+      identity
+      interpolate
+      interpolate_kwargs
+      interpolate_split
+   
+   
+
+   
+   
+   
+
+   
+   
    
