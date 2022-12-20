@@ -1,0 +1,6 @@
+smpl.io.import\_path
+====================
+
+.. currentmodule:: smpl.io
+
+.. autofunction:: import_path
