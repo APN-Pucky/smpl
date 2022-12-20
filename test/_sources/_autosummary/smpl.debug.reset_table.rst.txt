@@ -1,0 +1,6 @@
+smpl.debug.reset\_table
+=======================
+
+.. currentmodule:: smpl.debug
+
+.. autofunction:: reset_table

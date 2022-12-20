@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.functions.sqrt &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.functions.square" href="smpl.functions.square.html" />
+    <link rel="prev" title="smpl.functions.sin" href="smpl.functions.sin.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.3-4-g72e944c5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.fit.html">smpl.fit</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="smpl.functions.html">smpl.functions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.Gauss.html">smpl.functions.Gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.const.html">smpl.functions.const</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.cos.html">smpl.functions.cos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.cos_abs.html">smpl.functions.cos_abs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.cube.html">smpl.functions.cube</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.exp.html">smpl.functions.exp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.exponential.html">smpl.functions.exponential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.fac.html">smpl.functions.fac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.gauss.html">smpl.functions.gauss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.line.html">smpl.functions.line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.linear.html">smpl.functions.linear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.log.html">smpl.functions.log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.lorentz.html">smpl.functions.lorentz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.order.html">smpl.functions.order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.sin.html">smpl.functions.sin</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">smpl.functions.sqrt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#smpl.functions.sqrt"><code class="docutils literal notranslate"><span class="pre">sqrt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.square.html">smpl.functions.square</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.functions.tan.html">smpl.functions.tan</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.interpolate.html">smpl.interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.io.html">smpl.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.parallel.html">smpl.parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot.html">smpl.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot2d.html">smpl.plot2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.stat.html">smpl.stat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.util.html">smpl.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="smpl.html">smpl</a> &raquo;</li>
+        
+          <li><a href="smpl.functions.html">smpl.functions</a> &raquo;</li>
+        
+      <li>smpl.functions.sqrt</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/_autosummary/smpl.functions.sqrt.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="smpl-functions-sqrt">
+<h1>smpl.functions.sqrt<a class="headerlink" href="#smpl-functions-sqrt" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.functions.sqrt">
+<span class="sig-prename descclassname"><span class="pre">smpl.functions.</span></span><span class="sig-name descname"><span class="pre">sqrt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/functions.html#sqrt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.functions.sqrt" title="Permalink to this definition">¶</a></dt>
+<dd><p>sqrt(x,a,b,c) = <span class="math notranslate nohighlight">\(a \sqrt{b + x} + c\)</span></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl.functions</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">sqrt</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">3.3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="../_autosummary/smpl-functions-sqrt-1.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-sqrt-1.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-sqrt-1.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-sqrt-1.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="../_images/smpl-functions-sqrt-1.png" class="plot-directive" src="../_images/smpl-functions-sqrt-1.png" />
+</figure>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="smpl.functions.square.html" class="btn btn-neutral float-right" title="smpl.functions.square" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.functions.sin.html" class="btn btn-neutral float-left" title="smpl.functions.sin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -41,6 +42,9 @@
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -76,7 +80,7 @@
             
             
               <div class="version">
-                1.0.3-3-gfaef8554
+                1.0.3-4-g72e944c5
               </div>
             
           
@@ -131,9 +135,9 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.html">smpl</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -492,213 +496,92 @@ div.rendered_html tbody tr:hover {
 <section id="Interactive">
 <h1>Interactive<a class="headerlink" href="#Interactive" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import animation
-from smpl import plot
-import matplotlib.pyplot as plt
-import scipy
-import numpy as np
-import tqdm
-import uncertainties as unc
-from uncertainties import unumpy
-from ipywidgets import widgets
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def fta(a,u=4.0):
-    plot.function(lambda x : u*x+a,xmin=-5,xmax=5,init=True,tight=False)
-print(&quot;Double click play for speedup.&quot;)
-animation.interactive(fta,
-    widgets.Play(    value=0,    min=0,    max=100,    step=1,    interval=500,    description=&quot;Press play&quot;, disabled=False),
-    widgets.FloatSlider(value=1,min=0,max=1,step=0.1,description=&quot;u&quot;),
-    prerender=True)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tqdm</span>
+<span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
+<span class="kn">from</span> <span class="nn">uncertainties</span> <span class="kn">import</span> <span class="n">unumpy</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">widgets</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Double click play for speedup.
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "4d31b7dc6c9b4fc0aae7fd0592fd6b8f", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fta</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">u</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">u</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Double click play for speedup.&quot;</span><span class="p">)</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">fta</span><span class="p">,</span>
+    <span class="n">widgets</span><span class="o">.</span><span class="n">Play</span><span class="p">(</span>    <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>    <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>    <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>    <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>    <span class="n">interval</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Press play&quot;</span><span class="p">,</span> <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;u&quot;</span><span class="p">),</span>
+    <span class="n">prerender</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def fta(n = 1.0,u=4.0):
-    plot.function(lambda x : np.exp(n*np.log(x)-x)/u,xmin = 0.1,xmax=100,tight=False,init=False)
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fta</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span><span class="n">u</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">u</span><span class="p">,</span><span class="n">xmin</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-animation.interactive(fta,widgets.IntSlider(value=1,min=1,max=10,description=&quot;n&quot;),widgets.IntSlider(value=1,min=1,max=10,description=&quot;u&quot;),prerender=True)
+<span class="n">animation</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">fta</span><span class="p">,</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="p">),</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;u&quot;</span><span class="p">),</span><span class="n">prerender</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2c09f2ecbc7f4062b3ba1c0fe96a926d", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def fta(u=4.0):
-    animation.clear()
-    for a in np.linspace(0,10,100):
-        plot.function(lambda x : u*x+a,xmin=-5,xmax=5,init=True,tight=False)
-        animation.frame()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fta</span><span class="p">(</span><span class="n">u</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+    <span class="n">animation</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">u</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">a</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">animation</span><span class="o">.</span><span class="n">frame</span><span class="p">()</span>
 
-    ani = animation.animate(interval=10,blit=True)
-    display(ani.widget_gif())
-animation.interactive(fta,widgets.FloatSlider(value=1,min=0,max=1,step=0.1,description=&quot;u&quot;),prerender=True,auto_png=False)
+    <span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">widget_gif</span><span class="p">())</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">fta</span><span class="p">,</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;u&quot;</span><span class="p">),</span><span class="n">prerender</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">auto_png</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "718e7a52574b4d1bbc24d544293f06a8", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_1.png" src="../../../_images/example_animation_interactive_interactive_4_1.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_2.png" src="../../../_images/example_animation_interactive_interactive_4_2.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_3.png" src="../../../_images/example_animation_interactive_interactive_4_3.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_4.png" src="../../../_images/example_animation_interactive_interactive_4_4.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_5.png" src="../../../_images/example_animation_interactive_interactive_4_5.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_6.png" src="../../../_images/example_animation_interactive_interactive_4_6.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_7.png" src="../../../_images/example_animation_interactive_interactive_4_7.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_8.png" src="../../../_images/example_animation_interactive_interactive_4_8.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_9.png" src="../../../_images/example_animation_interactive_interactive_4_9.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_4_10.png" src="../../../_images/example_animation_interactive_interactive_4_10.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#%matplotlib notebook
-#plt.ioff()
-#import ipywidgets
-def fta(n = 1.0):
-    plot.function(lambda x : np.exp(n*np.log(x)-x),xmin = 0.1,xmax=100,tight=False,init=False)
-    plot.function(lambda x : np.exp(n*np.log(n)-n-(x-n)**2/2/n),xmin = 0.1,xmax=100,tight=False,init=False)
-    fac = np.math.factorial(n)
-    sti = np.sqrt(2* np.pi* n) *  n**n *np.exp(-n)
-    #print(&quot;FAKULTÄT(&quot;+str(n)+&quot;) = &quot; + str(fac))
-    #print(&quot;STIRLING(&quot;+str(n)+&quot;) = &quot; +  str(sti))
-    #print(&quot;REL-DIFF(&quot; + str(n)+&quot;) = &quot;+ str((sti-fac)/fac*100) + &quot;%&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib notebook</span>
+<span class="c1">#plt.ioff()</span>
+<span class="c1">#import ipywidgets</span>
+<span class="k">def</span> <span class="nf">fta</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">x</span><span class="p">),</span><span class="n">xmin</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">),</span><span class="n">xmin</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">fac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">sti</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span>  <span class="n">n</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1">#print(&quot;FAKULTÄT(&quot;+str(n)+&quot;) = &quot; + str(fac))</span>
+    <span class="c1">#print(&quot;STIRLING(&quot;+str(n)+&quot;) = &quot; +  str(sti))</span>
+    <span class="c1">#print(&quot;REL-DIFF(&quot; + str(n)+&quot;) = &quot;+ str((sti-fac)/fac*100) + &quot;%&quot;)</span>
 
-animation.interactive(fta,  widgets.IntSlider(min=1, max=130, step=1, value=1,description=&quot;n&quot;))
+<span class="n">animation</span><span class="o">.</span><span class="n">interactive</span><span class="p">(</span><span class="n">fta</span><span class="p">,</span>  <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">130</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;n&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "38729f7bfeb14c20b8d06222f2df5354", "version_major": 2, "version_minor": 0}</script></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Approximate factorial by gamma
-def fac(n):
-    return scipy.special.gamma(n+1)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Approximate factorial by gamma</span>
+<span class="k">def</span> <span class="nf">fac</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
-plot.function(lambda n : (fac(n)-np.sqrt(2* np.pi* n) *  n**n *np.exp(-n))/fac(n) *100 ,xmin = 1,xmax=140,xlabel=&quot;N&quot;, ylabel=&quot;Rel. diff. between factorial und stirling [%]&quot;,label=&quot;&quot;,logy=True,tight=False,init=True)
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span> <span class="p">:</span> <span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span>  <span class="n">n</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">fac</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span><span class="mi">100</span> <span class="p">,</span><span class="n">xmin</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Rel. diff. between factorial und stirling [%]&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">logy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">tight</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_animation_interactive_interactive_6_1.png" src="../../../_images/example_animation_interactive_interactive_6_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

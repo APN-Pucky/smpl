@@ -2,9 +2,9 @@
    sphinx-quickstart on Tue Nov 17 13:55:14 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-============================
+=================================
 |project| |version| documentation
-============================
+=================================
 
 
 
@@ -37,11 +37,16 @@
 
    example/*
 
-.. toctree::
-   :titlesonly:
-   :caption: Module:
 
-   autoapi/index
+:mod:`smpl` package
+===================
+.. autosummary::
+   :toctree: _autosummary
+   :template: custom-module-template.rst
+   :recursive:
+   :caption: Modules:
+
+   smpl
 
 .. toctree::
    :glob:

@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.data &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.3-4-g72e944c5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.html">smpl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance/line.html">Line Profiling</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>smpl.data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for smpl.data</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Simplified internal data parsing and transforming.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span><span class="p">,</span> <span class="n">stat</span><span class="p">,</span> <span class="n">util</span>
+
+<span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;frange&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">&quot;Limit the fit to given range. First integer is the lowest and second the highest index.&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;fselector&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">&quot;Function that takes ``x`` and ``y`` as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;sortbyx&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;Enable sorting the x and y data so that x is sorted.&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;bins&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;Number of bins for histogram&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;binunc&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">stat</span><span class="o">.</span><span class="n">poisson_dist</span><span class="p">,</span>
+        <span class="s2">&quot;Number of bins for histogram&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;xerror&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;enable xerrors&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;yerror&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;enable yerrors&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+
+
+<span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
+<span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
+
+
+<div class="viewcode-block" id="data_kwargs"><a class="viewcode-back" href="../../_autosummary/smpl.data.data_kwargs.html#smpl.data.data_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;data_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">data_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set default :func:`data_kwargs` if not set.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">kwargs</span></div>
+
+
+<span class="k">def</span> <span class="nf">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Splits datax and datay into (x,y,xerr,yerr).</span>
+<span class="sd">    Does not apply filters `frange` and `fselector`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **kwargs : optional</span>
+<span class="sd">        see :func:`data_kwargs`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;bins&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">N</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;bins&quot;</span><span class="p">])</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;binunc&quot;</span><span class="p">](</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">yerr</span> <span class="o">=</span> <span class="n">usd</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">yerr</span> <span class="o">=</span> <span class="n">yerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yerr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">unv</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="n">yerr</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;sortbyx&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;sortbyx&quot;</span><span class="p">]:</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">datax</span><span class="p">)))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">unv</span><span class="p">(</span><span class="n">datax</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">unv</span><span class="p">(</span><span class="n">datay</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">xerr</span> <span class="o">=</span> <span class="n">usd</span><span class="p">(</span><span class="n">datax</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">yerr</span> <span class="o">=</span> <span class="n">usd</span><span class="p">(</span><span class="n">datay</span><span class="p">)[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">xerr</span> <span class="o">=</span> <span class="n">xerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xerr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">yerr</span> <span class="o">=</span> <span class="n">yerr</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yerr</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;xerror&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xerror&quot;</span><span class="p">]:</span>
+        <span class="n">xerr</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;yerror&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;yerror&quot;</span><span class="p">]:</span>
+        <span class="n">yerr</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span>
+
+
+<span class="k">def</span> <span class="nf">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Applies `fselector` and calls :func:`data_split`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;fselector&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">sel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fselector&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">__data_split</span><span class="p">(</span>
+                <span class="n">datax</span><span class="p">[</span><span class="n">sel</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">)],</span> <span class="n">datay</span><span class="p">[</span><span class="n">sel</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">)],</span> <span class="o">**</span><span class="n">kwargs</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="n">datay</span><span class="p">[</span><span class="n">sel</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">__data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="filtered_data_split"><a class="viewcode-back" href="../../_autosummary/smpl.data.filtered_data_split.html#smpl.data.filtered_data_split">[docs]</a><span class="k">def</span> <span class="nf">filtered_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Splits datax and datay into (x,y,xerr,yerr).</span>
+<span class="sd">    Applies filters `fselector` and `frange`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    (x,y,xerr,yerr) : tuple</span>
+<span class="sd">        four arrays with specified values.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **kwargs : optional</span>
+<span class="sd">        see :func:`data_kwargs`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">data_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span> <span class="o">=</span> <span class="n">_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;frange&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;frange&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;frange&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;frange&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;frange&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">yerr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">yerr</span> <span class="o">=</span> <span class="n">yerr</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;frange&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;frange&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">xerr</span> <span class="o">=</span> <span class="n">xerr</span><span class="p">[</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;frange&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;frange&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xerr</span><span class="p">,</span> <span class="n">yerr</span></div>
+
+
+<div class="viewcode-block" id="flatmesh"><a class="viewcode-back" href="../../_autosummary/smpl.data.flatmesh.html#smpl.data.flatmesh">[docs]</a><span class="k">def</span> <span class="nf">flatmesh</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Similar to `numpy.meshgrid` but the result will be of one dimension instead of stacked arrays.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ri</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">rr</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ri</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ri</span><span class="o">.</span><span class="n">size</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">rr</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

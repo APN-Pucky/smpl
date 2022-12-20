@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.interpolate &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.3-4-g72e944c5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.html">smpl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance/line.html">Line Profiling</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>smpl.interpolate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for smpl.interpolate</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simplified Interpolating.</span>
+
+<span class="sd">Uses scipy.interpolate.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
+<span class="kn">import</span> <span class="nn">uncertainties.unumpy</span> <span class="k">as</span> <span class="nn">unp</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span> <span class="k">as</span> <span class="n">interp</span>
+
+<span class="c1"># from smpl import plot as splot</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append_doc</span><span class="p">,</span> <span class="n">append_str</span><span class="p">,</span> <span class="n">table</span>
+
+<span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
+<span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
+
+
+<div class="viewcode-block" id="identity"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.identity.html#smpl.interpolate.identity">[docs]</a><span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span></div>
+
+
+<span class="n">default</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;interpolator&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;cubic&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Use &#39;cubic&#39; (spline) or &#39;linear&#39; (cf. &lt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html#scipy.interpolate.interp1d&gt;).&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;order&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Spline order.&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;pre&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">identity</span><span class="p">,</span> <span class="s2">&quot;pre interpolation&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;post&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">identity</span><span class="p">,</span> <span class="s2">&quot;post interpolation&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;interpolate_upper_uncertainty&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;Interpolate only using upper uncertainty.&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;interpolate_lower_uncertainty&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;Interpolate only using lower uncertainty.&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># @doc.insert_str(&quot;\tDefault kwargs\n\n\t&quot;)</span>
+
+
+<div class="viewcode-block" id="interpolate_kwargs"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.interpolate_kwargs.html#smpl.interpolate.interpolate_kwargs">[docs]</a><span class="nd">@append_doc</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">)</span>
+<span class="nd">@append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nd">@append_str</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@append_str</span><span class="p">(</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;interpolate_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">interpolate_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set default interpolate_kwargs if not set.&quot;&quot;&quot;</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">default</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">kwargs</span></div>
+
+
+<div class="viewcode-block" id="interpolate_split"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.interpolate_split.html#smpl.interpolate.interpolate_split">[docs]</a><span class="k">def</span> <span class="nf">interpolate_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Splits datax and datay into (x,y,xerr,yerr).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    **kwargs : optional</span>
+<span class="sd">        see :func:`interpolate_kwargs`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">interpolate_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">filtered_data_split</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="interpolate"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.interpolate.html#smpl.interpolate.interpolate">[docs]</a><span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># TODO save spl_upd spl_down values instead of recalculate</span>
+    <span class="c1"># TODO set eps</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="n">interpolate_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;sortbyx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">interpolate_split</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">dy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">spl_center</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">spl_center</span><span class="p">,</span> <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;float&quot;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolate_upper_uncertainty&quot;</span><span class="p">]</span>
+            <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolate_lower_uncertainty&quot;</span><span class="p">]</span>
+        <span class="p">):</span>
+            <span class="n">spl_up</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">spl_down</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">dy</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span>
+                    <span class="n">spl_up</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">spl_down</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spl_up</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="n">spl_down</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="p">),</span>
+                <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">],</span>
+            <span class="p">)</span>  <span class="c1"># symmetrized error...</span>
+            <span class="c1"># return np.vectorize(Bounds(spl_up, spl_down), otypes=[&quot;object&quot;])</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolate_lower_uncertainty&quot;</span><span class="p">]:</span>
+            <span class="n">spl_center</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">spl_up</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span>
+                    <span class="n">spl_center</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spl_up</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="n">spl_center</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
+                <span class="p">),</span>
+                <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">],</span>
+            <span class="p">)</span>  <span class="c1"># symmetrized error...</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolate_upper_uncertainty&quot;</span><span class="p">]:</span>
+            <span class="n">spl_center</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">spl_down</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">dy</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span>
+                    <span class="n">spl_center</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spl_down</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="n">spl_center</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
+                <span class="p">),</span>
+                <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">],</span>
+            <span class="p">)</span>  <span class="c1"># symmetrized error...</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;interpolate_upper_uncertainty and interpolate_lower_uncertainty can&#39;t be both False&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">check</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="o">*</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Bad interpolation. Increase Order or symmetrize error.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ret</span></div>
+
+
+<div class="viewcode-block" id="check"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.check.html#smpl.interpolate.check">[docs]</a><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">unv</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">unv</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">))</span></div>
+
+
+<span class="k">def</span> <span class="nf">_interpolate</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">datay</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">](</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolator&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;exp&quot;</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">_interpolate_exp</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">datay</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">interp</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">datay</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolator&quot;</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolator&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;bivariatespline&quot;</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">interp</span><span class="o">.</span><span class="n">SmoothBivariateSpline</span><span class="p">(</span>
+                <span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">datay</span><span class="p">,</span> <span class="n">kx</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;order&quot;</span><span class="p">],</span> <span class="n">ky</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;order&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolator&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;linearnd&quot;</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">interp</span><span class="o">.</span><span class="n">LinearNDInterpolator</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">datay</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">interp</span><span class="o">.</span><span class="n">interp2d</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">datay</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolator&quot;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;interpolator&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;linear&quot;</span><span class="p">:</span>
+            <span class="n">ret</span> <span class="o">=</span> <span class="n">interp</span><span class="o">.</span><span class="n">LinearNDInterpolator</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])),</span> <span class="n">datay</span><span class="p">)</span>
+
+    <span class="c1"># return np.vectorize(Post(ret, kwargs[&#39;post&#39;]), otypes=[&quot;object&quot;])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="o">*</span><span class="n">a</span><span class="p">:</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">](</span><span class="n">ret</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)),</span> <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">_interpolate_exp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">ip</span> <span class="o">=</span> <span class="n">interp</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x_new</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">ip</span><span class="p">(</span><span class="n">x_new</span><span class="p">))</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

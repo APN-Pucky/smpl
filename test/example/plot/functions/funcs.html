@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
 
   
@@ -41,6 +42,9 @@
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -76,7 +80,7 @@
             
             
               <div class="version">
-                1.0.3-3-gfaef8554
+                1.0.3-4-g72e944c5
               </div>
             
           
@@ -140,9 +144,9 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.html">smpl</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -500,26 +504,17 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="Function-Plot">
 <h1>Function Plot<a class="headerlink" href="#Function-Plot" title="Permalink to this heading">¶</a></h1>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import plot
-import numpy as np
-import smpl
-import math
-smpl.__version__
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">smpl</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">smpl</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;1.0.1.8&#39;
-</pre></div></div>
 </div>
 <section id="without-uncertainties">
 <h2>without uncertainties<a class="headerlink" href="#without-uncertainties" title="Permalink to this heading">¶</a></h2>
@@ -528,19 +523,12 @@ smpl.__version__
 <p>Fixed point <span class="math notranslate nohighlight">\(x = 0\)</span> and</p>
 <p><span class="math notranslate nohighlight">\(\ddot x = -2x \exp(-x^2) \implies \ddot x(x = 0)=0\)</span></p>
 <p>only metastable for <span class="math notranslate nohighlight">\(x\lt0\)</span></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plot.function( lambda x : 1- np.exp(-x**2), xaxis=&quot;$x$&quot;, yaxis=&quot;$\\dot x$&quot;,xmin=-10, xmax=10 )
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="mi">1</span><span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot x$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">10</span> <span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_4_0.png" src="../../../_images/example_plot_functions_funcs_4_0.png" />
 </div>
 </div>
 </section>
@@ -550,19 +538,12 @@ smpl.__version__
 <div class="math notranslate nohighlight">
 \[\ddot x = \frac{1}{x} \implies \ddot x(x=1) = 1 &gt; 0\]</div>
 <p><span class="math notranslate nohighlight">\(\implies\)</span> unstable</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plot.function( lambda x : np.log(x), xaxis=&quot;$x$&quot;, yaxis=&quot;$\\dot x$&quot;,xmin=0.1, xmax=5 )
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot x$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span> <span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_6_0.png" src="../../../_images/example_plot_functions_funcs_6_0.png" />
 </div>
 </div>
 </section>
@@ -576,19 +557,12 @@ smpl.__version__
 <div class="math notranslate nohighlight">
 \[\ddot x(x=n \pi) = -1 \lt 0\]</div>
 <p><span class="math notranslate nohighlight">\(\implies\)</span> stable</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plot.function( lambda x : -np.tan(x), xaxis=&quot;$x$&quot;, yaxis=&quot;$\\dot x$&quot;,xmin=0.1, xmax=5,steps=100 )
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot x$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">steps</span><span class="o">=</span><span class="mi">100</span> <span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_8_0.png" src="../../../_images/example_plot_functions_funcs_8_0.png" />
 </div>
 </div>
 </section>
@@ -596,339 +570,162 @@ smpl.__version__
 <section id="with-uncertainties">
 <h2>with uncertainties<a class="headerlink" href="#with-uncertainties" title="Permalink to this heading">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import uncertainties as unc
-a = unc.ufloat(1,0.1)
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plot.function(lambda x : 1- a*np.exp(-x**2), xaxis=&quot;$x$&quot;, yaxis=&quot;$\\dot x$&quot;,xmin=-1, xmax=1,sigmas=1 )
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">uncertainties</span> <span class="k">as</span> <span class="nn">unc</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">unc</span><span class="o">.</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_11_0.png" src="../../../_images/example_plot_functions_funcs_11_0.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="mi">1</span><span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot x$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span> <span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </section>
 <section id="Complex">
 <h2>Complex<a class="headerlink" href="#Complex" title="Permalink to this heading">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl.stat import fft
-y = np.sin(np.arange(256))
-print(len(fft(y)))
-plot.data(*fft(y),label=&quot;FFT&quot;,fmt=&quot;-&quot;)
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-2
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(None, None)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_13_2.png" src="../../../_images/example_plot_functions_funcs_13_2.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl.stat import fft
-plot.data(*fft(np.sin(np.arange(256))),*fft(np.sin(1/np.pi*np.arange(100))),label=&quot;FFT&quot;,fmt=&quot;-&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl.stat</span> <span class="kn">import</span> <span class="n">fft</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">256</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="o">*</span><span class="n">fft</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;FFT&quot;</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[(None, None), (None, None)]
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_14_1.png" src="../../../_images/example_plot_functions_funcs_14_1.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl.stat</span> <span class="kn">import</span> <span class="n">fft</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="o">*</span><span class="n">fft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">256</span><span class="p">))),</span><span class="o">*</span><span class="n">fft</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">))),</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;FFT&quot;</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </section>
 <section id="without-xmin-and-xmax">
 <h2>without xmin and xmax<a class="headerlink" href="#without-xmin-and-xmax" title="Permalink to this heading">¶</a></h2>
 <p>xmin and xmax will have to be guessed</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import plot
-plot.function(lambda x: x**2,)
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_16_0.png" src="../../../_images/example_plot_functions_funcs_16_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import plot
-import numpy as np
-def f(x):
-    return np.exp(x)
-plot.function(f,label=&quot;exp&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/tmp/ipykernel_18258/1264896925.py:4: RuntimeWarning: overflow encountered in exp
-  return np.exp(x)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_17_1.png" src="../../../_images/example_plot_functions_funcs_17_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import plot
-from smpl import functions as f
-def gauss(x):
-    &quot;&quot;&quot;Gauss&quot;&quot;&quot;
-    return f.gauss(x,0,1,3,0)
-plot.function(gauss)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_18_0.png" src="../../../_images/example_plot_functions_funcs_18_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def gauss(x):
-    return np.arctan(x)
-plot.function(gauss)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Gauss&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">gauss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_19_0.png" src="../../../_images/example_plot_functions_funcs_19_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def gauss(x):
-    return np.tan(x)
-plot.function(gauss)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">gauss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_20_0.png" src="../../../_images/example_plot_functions_funcs_20_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def gauss(x):
-    return np.log(x)
-plot.function(gauss)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">gauss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/tmp/ipykernel_18258/455222689.py:2: RuntimeWarning: invalid value encountered in log
-  return np.log(x)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_21_1.png" src="../../../_images/example_plot_functions_funcs_21_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def gauss(x):
-    return x**3+5*x**2-2
-plot.function(gauss)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">gauss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_22_0.png" src="../../../_images/example_plot_functions_funcs_22_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def gauss(x):
-    return x**0.5
-plot.function(gauss)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">gauss</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/tmp/ipykernel_18258/1404190211.py:2: RuntimeWarning: invalid value encountered in sqrt
-  return x**0.5
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_23_1.png" src="../../../_images/example_plot_functions_funcs_23_1.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gauss</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mf">0.5</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">gauss</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <p>Guessing the interesting regions of a function can’t always be correct/satisfactory, especially in numerical unstable regions:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>c=299792458#m/s
-h=4.13566769692*10**-15#eVs
-kb=8.617333262*10**-5#eV/K
-T=273
-def Strahlungsgesetz(x):
-    return 8*np.pi/c**3*h*x**3/(np.exp((h*x)/(kb*T))-1)
-plot.function(Strahlungsgesetz,xaxis=&quot;$x$&quot;, yaxis=&quot;$\\dot x$&quot;)
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/tmp/ipykernel_18258/4149904953.py:6: RuntimeWarning: overflow encountered in exp
-  return 8*np.pi/c**3*h*x**3/(np.exp((h*x)/(kb*T))-1)
-/tmp/ipykernel_18258/4149904953.py:6: RuntimeWarning: invalid value encountered in divide
-  return 8*np.pi/c**3*h*x**3/(np.exp((h*x)/(kb*T))-1)
-/tmp/ipykernel_18258/4149904953.py:6: RuntimeWarning: divide by zero encountered in divide
-  return 8*np.pi/c**3*h*x**3/(np.exp((h*x)/(kb*T))-1)
-/home/apn/.cache/pypoetry/virtualenvs/smpl-HHUrKbcW-py3.9/lib/python3.9/site-packages/scipy/optimize/_optimize.py:790: RuntimeWarning: invalid value encountered in subtract
-  np.max(np.abs(fsim[0] - fsim[1:])) &lt;= fatol):
-/home/apn/.cache/pypoetry/virtualenvs/smpl-HHUrKbcW-py3.9/lib/python3.9/site-packages/scipy/misc/_common.py:144: RuntimeWarning: invalid value encountered in multiply
-  val += weights[k]*func(x0+(k-ho)*dx,*args)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_25_1.png" src="../../../_images/example_plot_functions_funcs_25_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plot.function(Strahlungsgesetz,xaxis=&quot;$x$&quot;, yaxis=&quot;$\\dot x$&quot;,xmin=1e-7-2e-2,xmax=1e-7+2e-2)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">=</span><span class="mi">299792458</span><span class="c1">#m/s</span>
+<span class="n">h</span><span class="o">=</span><span class="mf">4.13566769692</span><span class="o">*</span><span class="mi">10</span><span class="o">**-</span><span class="mi">15</span><span class="c1">#eVs</span>
+<span class="n">kb</span><span class="o">=</span><span class="mf">8.617333262</span><span class="o">*</span><span class="mi">10</span><span class="o">**-</span><span class="mi">5</span><span class="c1">#eV/K</span>
+<span class="n">T</span><span class="o">=</span><span class="mi">273</span>
+<span class="k">def</span> <span class="nf">Strahlungsgesetz</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">c</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">kb</span><span class="o">*</span><span class="n">T</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">Strahlungsgesetz</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot x$&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/tmp/ipykernel_18258/4149904953.py:6: RuntimeWarning: divide by zero encountered in divide
-  return 8*np.pi/c**3*h*x**3/(np.exp((h*x)/(kb*T))-1)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_26_1.png" src="../../../_images/example_plot_functions_funcs_26_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plot.function(Strahlungsgesetz,xaxis=&quot;$x$&quot;, yaxis=&quot;$\\dot x$&quot;,xmin=1,xmax=0.3e15)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">Strahlungsgesetz</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot x$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mf">1e-7</span><span class="o">-</span><span class="mf">2e-2</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mf">1e-7</span><span class="o">+</span><span class="mf">2e-2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<img alt="../../../_images/example_plot_functions_funcs_27_0.png" src="../../../_images/example_plot_functions_funcs_27_0.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">Strahlungsgesetz</span><span class="p">,</span><span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;$x$&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;$</span><span class="se">\\</span><span class="s2">dot x$&quot;</span><span class="p">,</span><span class="n">xmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mf">0.3e15</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
