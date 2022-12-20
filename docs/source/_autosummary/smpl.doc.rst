@@ -1,4 +1,4 @@
-smpl.doc
+﻿smpl.doc
 ========
 
 .. automodule:: smpl.doc
@@ -19,6 +19,7 @@ smpl.doc
       append_plot
       append_str
       array_table
+      deprecated
       dict_to_table
       insert_doc
       insert_eq

@@ -1,4 +1,4 @@
-smpl.data
+﻿smpl.data
 =========
 
 .. automodule:: smpl.data

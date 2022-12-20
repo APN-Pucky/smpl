@@ -1,4 +1,4 @@
-smpl.stat
+﻿smpl.stat
 =========
 
 .. automodule:: smpl.stat

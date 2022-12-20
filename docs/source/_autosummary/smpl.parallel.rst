@@ -1,4 +1,4 @@
-smpl.parallel
+﻿smpl.parallel
 =============
 
 .. automodule:: smpl.parallel

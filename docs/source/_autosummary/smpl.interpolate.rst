@@ -1,4 +1,4 @@
-smpl.interpolate
+﻿smpl.interpolate
 ================
 
 .. automodule:: smpl.interpolate

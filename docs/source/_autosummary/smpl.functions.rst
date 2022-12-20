@@ -1,4 +1,4 @@
-smpl.functions
+﻿smpl.functions
 ==============
 
 .. automodule:: smpl.functions
