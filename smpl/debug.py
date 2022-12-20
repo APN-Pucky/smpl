@@ -131,11 +131,11 @@ def get_line_number_file(split=True, _back=0):
     Examples
     --------
     >>> get_line_number_file()
-    (1, '<doctest smpl.debug.debug.get_line_number_file[0]>')
+    (1, '<doctest smpl.debug.get_line_number_file[0]>')
     >>> for i in range(2):
     ...     get_line_number_file()
-    (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
-    (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
+    (2, '<doctest smpl.debug.get_line_number_file[1]>')
+    (2, '<doctest smpl.debug.get_line_number_file[1]>')
     """
     cf = get_frame(_back=_back + 1)
     fname = cf.f_code.co_filename
@@ -161,7 +161,7 @@ def line1(msg_, tag="", level=0, times=1, _back=0, **kwargs):
     --------
     >>> for i in range(-2,2):
     ...     line1(i,level=-1)
-    DBG::<doctest smpl.debug.debug.line1[0]>:2: line1(i,level=-1) = -2
+    DBG::<doctest smpl.debug.line1[0]>:2: line1(i,level=-1) = -2
     """
     msg1(msg_, tag=tag, level=level, times=times, line_=True, _back=_back + 1, **kwargs)
 
@@ -275,7 +275,7 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0, **kwargs):
     Examples
     --------
     >>> msg("hi", level = -9999)
-    DBG::<doctest smpl.debug.debug.msg[0]>:1: hi
+    DBG::<doctest smpl.debug.msg[0]>:1: hi
     'hi'
     >>> msg("hi")
     'hi'
@@ -325,7 +325,7 @@ def msg1(_msg, tag="", level=0, times=1, line_=False, _back=0, **kwargs):
     --------
     >>> for i in range(-2,2):
     ...     msg1(i, level = i)
-    DBG::<doctest smpl.debug.debug.msg1[0]>:2: -2
+    DBG::<doctest smpl.debug.msg1[0]>:2: -2
     -2
     -1
     0
