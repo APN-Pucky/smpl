@@ -295,12 +295,8 @@ def _fit_minuit_leastsquares(datax, datay, function, yerr, params=None, **kwargs
 
 import warnings
 
-import numpy as np
-import uncertainties as unc
 from scipy import optimize
 from scipy.odr.odrpack import ODR, Model, RealData
-
-from smpl import debug, util
 
 # fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler
 # gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck

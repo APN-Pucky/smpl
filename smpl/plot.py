@@ -14,7 +14,6 @@ from matplotlib.pyplot import *
 from smpl import doc
 from smpl import fit as ffit
 from smpl import interpolate, io, stat, util, wrap
-from smpl.plot2d import plot2d, plot2d_kwargs
 
 
 def set_plot_style():
@@ -821,6 +820,18 @@ def show(**kwargs):
 
     plt.grid(b=kwargs["grid"])
     plt.show()
+
+
+from smpl.plot2d import plot2d as _plot2d
+from smpl.plot2d import plot2d_kwargs as _plot2d_kwargs
+
+
+def plot2d(*args, **kwargs):
+    _plot2d(*args, **kwargs)
+
+
+def plot2d_kwargs(*args, **kwargs):
+    _plot2d_kwargs(*args, **kwargs)
 
 
 if __name__ == "__main__":
