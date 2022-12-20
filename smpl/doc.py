@@ -267,7 +267,7 @@ def array_table(arr, top=True, bottom=True, init=True, tabs=1, header=True):
     <BLANKLINE>
 
     """
-    if type(arr) is dict:
+    if isinstance(arr, dict):
         arr = dict_to_table(arr)
     width = len(arr[0])
     height = len(arr)

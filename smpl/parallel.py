@@ -90,7 +90,7 @@ def partitioned_parallel(f, arr, n_jobs=None):
     n_jobs = n_jobs or multiprocessing.cpu_count()
     sa = np.array_split(np.array(arr), (len(arr) - 1) // n_jobs + 1)
     res = []
-    for i in range(len(sa)):
+    for i, _ in enumerate(sa):
         res += par(f, sa[i])
     return res
 

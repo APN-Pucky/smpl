@@ -89,7 +89,7 @@ def pcolormesh_vplot(
         # set Z to values of vz on the meshgrid
         Z = np.empty(mesh[0].shape)
         Z[:] = np.nan
-        for i in range(len(vx)):
+        for i, _ in enumerate(vx):
             Z[(mesh[0] == vx[i]) & (mesh[1] == vy[i])] = splot.unv(vz[i])
         Z[:] *= zscale
     else:
