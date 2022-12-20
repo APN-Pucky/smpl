@@ -150,31 +150,31 @@ def insert_latex():
     return wrapper
 
 
-def deprecated(
-    version=None, deprecated_in=None, removed_in=None, reason=None, details=None
-):
-    # merge details and reason
-    if details is None:
-        details = reason
-    elif reason is not None:
-        details = reason + " " + details
-
-    # merge deprecated_in and version
-    if version is None:
-        version = deprecated_in
-
-    # increment minor version
-    if removed_in is None:
-        removed_in = ".".join(
-            [version.split(".")[0]] + [str(int(version.split(".")[1]) + 2)]
-        )
-
-    return _deprecated(
-        deprecated_in=version,
-        removed_in=removed_in,
-        # current_version=_version("pyfeyn2"),
-        details=details,
-    )
+# def deprecated(
+#    version=None, deprecated_in=None, removed_in=None, reason=None, details=None
+# ):
+#    # merge details and reason
+#    if details is None:
+#        details = reason
+#    elif reason is not None:
+#        details = reason + " " + details
+#
+#    # merge deprecated_in and version
+#    if version is None:
+#        version = deprecated_in
+#
+#    # increment minor version
+#    if removed_in is None:
+#        removed_in = ".".join(
+#            [version.split(".")[0]] + [str(int(version.split(".")[1]) + 2)]
+#        )
+#
+#    return _deprecated(
+#        deprecated_in=version,
+#        removed_in=removed_in,
+#        # current_version=_version("pyfeyn2"),
+#        details=details,
+#    )
 
 
 tab_len = 20

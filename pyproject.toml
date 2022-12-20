@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "smpl"
-version = "1.0.3.2"
+version = "0.0.0"
 description = "SiMPLe plotting and fitting"
 authors = ["Alexander Puck Neuwirth <alexander@neuwirth-informatik.de>"]
 readme = "README.md"
@@ -15,7 +15,7 @@ scipy  = ">=1.7.0"
 sympy= "*"
 tqdm = "*"
 pandas = ">=1.0.0"
-deprecation = "*"
+# deprecation ="*"
 
 iminuit = {version = "*", optional = true}
 ipywidgets = {version = "*", optional = true}
@@ -32,6 +32,7 @@ sphinx-rtd-theme = "*"
 sphinxcontrib-napoleon = "*"
 nbsphinx = "*"
 jupyter-sphinx = "*"
+sphinx-autoapi = "*"
 sphinx_autobuild = "*"
 sphinx_math_dollar = "*"
 pandoc = "*"
@@ -59,7 +60,7 @@ requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.poetry-dynamic-versioning]
-enable = false
+enable = true
 vcs = "git"
 style = "pep440"
 dirty = true
