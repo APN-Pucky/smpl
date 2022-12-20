@@ -5,11 +5,11 @@ import uncertainties.unumpy as unp
 
 import smpl.fit as fit
 from smpl import functions as f
-from smpl.fit import Fitter, old
+from smpl.fit import Fitter
 
 
 def _test_fit_linear(fitter, datax, datay):
-    old.fit(
+    fit.fit(
         datax,
         datay,
         fmt=".",
@@ -28,7 +28,7 @@ def _test_fit_linear(fitter, datax, datay):
 
 
 def _test_fit_exponential(fitter, datax, datay):
-    old.fit(
+    fit.fit(
         datax,
         datay,
         fmt=".",
@@ -75,7 +75,7 @@ def _test_fit_algos():
 
 
 @pytest.mark.line_profile.with_args(
-    old.fit,
+    fit.fit,
     fit._fit_minuit_leastsquares,
     fit._fit_curvefit,
     fit._fit_odr,

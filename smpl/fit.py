@@ -102,7 +102,7 @@ def auto(datax, datay, funcs=None, **kwargs):
     best_ff = None
 
     if funcs is None:
-        funcs = functions.__dict__.values()
+        funcs = list(functions.__dict__.values())
     for f in tqdm(funcs, disable=not kwargs["autotqdm"]):
         if callable(f):
             try:
