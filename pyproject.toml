@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "smpl"
-version = "0.0.0"
+version = "1.1.1.1"
 description = "SiMPLe plotting and fitting"
 authors = ["Alexander Puck Neuwirth <alexander@neuwirth-informatik.de>"]
 readme = "README.md"
@@ -22,10 +22,11 @@ pandas = ">=1.0.0"
 deprecation ="*"
 
 iminuit = {version = "*", optional = true}
-ipywidgets = {version = "*", optional = true}
+smpl_animation= {version = "*", optional = true}
 
 [tool.poetry.extras]
-opt = ["iminuit", "ipywidgets"]
+opt = ["iminuit", "smpl_animation"]
+animation = ["smpl_animation", ]
 
 [tool.poetry.group.docs]
 optional = true
@@ -64,7 +65,7 @@ requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.poetry-dynamic-versioning]
-enable = true
+enable = false
 vcs = "git"
 style = "pep440"
 dirty = true
