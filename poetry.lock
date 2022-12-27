@@ -3882,6 +3882,22 @@ files = [
 ]
 
 [[package]]
+name = "smpl-util"
+version = "1.0.10"
+description = "SiMPLe plotting and fitting"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+files = [
+    {file = "smpl_util-1.0.10-py3-none-any.whl", hash = "sha256:15f03e9effb5f1423e617d212b268a9b1b80cd16a780bd27037f6bef0ba096e8"},
+    {file = "smpl_util-1.0.10.tar.gz", hash = "sha256:801691ed26194eb0813c1a6bfa3dbb44e5bde680070710fdd890604b7112fc63"},
+]
+
+[package.dependencies]
+numpy = "*"
+smpl_doc = "*"
+
+[[package]]
 name = "sniffio"
 version = "1.3.0"
 description = "Sniff out which async library your code is running under"
@@ -4734,4 +4750,4 @@ opt = ["iminuit", "ipywidgets"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "d01d9df50041797310e84e78d826dc7a61013e49246a4b5f83da81818503d225"
+content-hash = "b88a3b525a0e2969d64401c393bb7b53449daa1f1dfbda05635f03ef2d43c4f7"
