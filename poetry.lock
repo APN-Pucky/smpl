@@ -3822,24 +3822,6 @@ files = [
 ]
 
 [[package]]
-name = "smpl-animation"
-version = "1.0.5"
-description = "SiMPLe plotting and fitting"
-category = "main"
-optional = false
-python-versions = ">=3.8,<4.0"
-files = [
-    {file = "smpl_animation-1.0.5-py3-none-any.whl", hash = "sha256:8a408c727b698feb96348ccec9eec4e6456dda846a23dc45167e2a5af0101626"},
-    {file = "smpl_animation-1.0.5.tar.gz", hash = "sha256:63fd0cbbc151029bddc876ea0920ff26b05a9953213d67b047e7f02bc9ad7b53"},
-]
-
-[package.dependencies]
-ipywidgets = "*"
-matplotlib = "*"
-numpy = "*"
-pillow = "*"
-
-[[package]]
 name = "smpl-debug"
 version = "1.0.5"
 description = "SiMPLe plotting and fitting"
@@ -4750,4 +4732,4 @@ opt = ["iminuit", "ipywidgets"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "b88a3b525a0e2969d64401c393bb7b53449daa1f1dfbda05635f03ef2d43c4f7"
+content-hash = "14c98b199d6f83a4168a94ecaf45d793e00f96de716374e10924dd74f1e70979"
