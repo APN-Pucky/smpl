@@ -46,7 +46,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -78,7 +77,7 @@
             
             
               <div class="version">
-                1.0.3-10-g619f51a9
+                1.2.1
               </div>
             
           
@@ -115,7 +114,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="smpl.doc.html">smpl.doc</a><ul class="current">
@@ -129,6 +127,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.deprecated.html">smpl.doc.deprecated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.dict_to_table.html">smpl.doc.dict_to_table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert.html">smpl.doc.insert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert_doc.html">smpl.doc.insert_doc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert_eq.html">smpl.doc.insert_eq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert_latex.html">smpl.doc.insert_latex</a></li>
@@ -289,6 +288,12 @@
 <span class="go">====== ======</span>
 <span class="go">hihi   hoho</span>
 <span class="go">====== ======</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">trim_eol_spaces</span><span class="p">(</span><span class="n">array_table</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:[</span><span class="s2">&quot;hihi&quot;</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hoho&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">]},</span><span class="n">tabs</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">)))</span>
+<span class="go">=== ====== ===</span>
+<span class="go">a   hihi   2</span>
+<span class="go">b   hoho   3</span>
+<span class="go">=== ====== ===</span>
 </pre></div>
 </div>
 </section>

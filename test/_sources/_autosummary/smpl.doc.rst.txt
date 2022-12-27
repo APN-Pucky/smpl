@@ -21,6 +21,7 @@ smpl.doc
       array_table
       deprecated
       dict_to_table
+      insert
       insert_doc
       insert_eq
       insert_latex

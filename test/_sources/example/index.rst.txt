@@ -12,4 +12,3 @@ Examples
     parallel/*
     uncertainties/*
     pandas/*
-    animation/*

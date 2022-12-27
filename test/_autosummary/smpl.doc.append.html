@@ -46,7 +46,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -78,7 +77,7 @@
             
             
               <div class="version">
-                1.0.3-10-g619f51a9
+                1.2.1
               </div>
             
           
@@ -115,7 +114,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="smpl.doc.html">smpl.doc</a><ul class="current">
@@ -129,6 +127,7 @@
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.array_table.html">smpl.doc.array_table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.deprecated.html">smpl.doc.deprecated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.dict_to_table.html">smpl.doc.dict_to_table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert.html">smpl.doc.insert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert_doc.html">smpl.doc.insert_doc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert_eq.html">smpl.doc.insert_eq</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert_latex.html">smpl.doc.insert_latex</a></li>
@@ -263,7 +262,20 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.doc.append">
 <span class="sig-prename descclassname"><span class="pre">smpl.doc.</span></span><span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">txt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl_doc/doc.html#append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.doc.append" title="Permalink to this definition">¶</a></dt>
-<dd><p>TODO split cases doc/txt/plot?</p>
+<dd><p>Append <code class="docutils literal notranslate"><span class="pre">txt</span></code> in the <code class="docutils literal notranslate"><span class="pre">target</span></code> function docstring.</p>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@append</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span>
+<span class="go">&#39;hi&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nd">@append</span><span class="p">(</span><span class="n">ho</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">def</span> <span class="nf">hi</span><span class="p">():</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hi</span><span class="o">.</span><span class="vm">__doc__</span>
+<span class="go">&#39;hi&#39;</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 </section>

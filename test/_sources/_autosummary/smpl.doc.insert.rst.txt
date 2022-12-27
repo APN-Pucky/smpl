@@ -1,0 +1,6 @@
+smpl.doc.insert
+===============
+
+.. currentmodule:: smpl.doc
+
+.. autofunction:: insert
