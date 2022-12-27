@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                1.0.3-5-g0d615f42
+                1.0.3-6-gc4dde1e5
               </div>
             
           
@@ -119,6 +119,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
@@ -128,6 +129,7 @@
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.append_plot.html">smpl.doc.append_plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.append_str.html">smpl.doc.append_str</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.array_table.html">smpl.doc.array_table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.doc.deprecated.html">smpl.doc.deprecated</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.dict_to_table.html">smpl.doc.dict_to_table</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert_doc.html">smpl.doc.insert_doc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.doc.insert_eq.html">smpl.doc.insert_eq</a></li>
@@ -252,7 +254,7 @@
 </style>
 <section id="module-smpl.doc">
 <span id="smpl-doc"></span><h1>smpl.doc<a class="headerlink" href="#module-smpl.doc" title="Permalink to this heading">¶</a></h1>
-<p>Simplified python code documentation.</p>
+<p>Moved to smpl_doc</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -271,31 +273,34 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.array_table.html#smpl.doc.array_table" title="smpl.doc.array_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array_table</span></code></a>(arr[, top, bottom, init, tabs, ...])</p></td>
 <td><p>Produces a reST table from a numpy array or normal 2d array.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.dict_to_table.html#smpl.doc.dict_to_table" title="smpl.doc.dict_to_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict_to_table</span></code></a>(dic)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.deprecated.html#smpl.doc.deprecated" title="smpl.doc.deprecated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">deprecated</span></code></a>([version, deprecated_in, ...])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.insert_doc.html#smpl.doc.insert_doc" title="smpl.doc.insert_doc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_doc</span></code></a>(original)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.dict_to_table.html#smpl.doc.dict_to_table" title="smpl.doc.dict_to_table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict_to_table</span></code></a>(dic)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.insert_doc.html#smpl.doc.insert_doc" title="smpl.doc.insert_doc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_doc</span></code></a>(original)</p></td>
 <td><p>Inserts the docstring from passed function <code class="docutils literal notranslate"><span class="pre">original</span></code> in the <code class="docutils literal notranslate"><span class="pre">target</span></code> function docstring.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.insert_eq.html#smpl.doc.insert_eq" title="smpl.doc.insert_eq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_eq</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.insert_eq.html#smpl.doc.insert_eq" title="smpl.doc.insert_eq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_eq</span></code></a>()</p></td>
 <td><p>Inserts the function and its parameters and an equal sign.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.insert_latex.html#smpl.doc.insert_latex" title="smpl.doc.insert_latex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_latex</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.insert_latex.html#smpl.doc.insert_latex" title="smpl.doc.insert_latex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_latex</span></code></a>()</p></td>
 <td><p>Inserts latexed code of a oneline function.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.insert_latex_eq.html#smpl.doc.insert_latex_eq" title="smpl.doc.insert_latex_eq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_latex_eq</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.insert_latex_eq.html#smpl.doc.insert_latex_eq" title="smpl.doc.insert_latex_eq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_latex_eq</span></code></a>()</p></td>
 <td><p>Inserts latexed code of a oneline function with parameters.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.insert_str.html#smpl.doc.insert_str" title="smpl.doc.insert_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_str</span></code></a>(txt)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.insert_str.html#smpl.doc.insert_str" title="smpl.doc.insert_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_str</span></code></a>(txt)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.table.html#smpl.doc.table" title="smpl.doc.table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code></a>(dic[, top, bottom, init, tabs])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.table.html#smpl.doc.table" title="smpl.doc.table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code></a>(dic[, top, bottom, init, tabs])</p></td>
 <td><p>Add dict= {'key': [values...]} to a simple reST table.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.table_sep.html#smpl.doc.table_sep" title="smpl.doc.table_sep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_sep</span></code></a>([tabs])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.table_sep.html#smpl.doc.table_sep" title="smpl.doc.table_sep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table_sep</span></code></a>([tabs])</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="smpl.doc.trim_eol_spaces.html#smpl.doc.trim_eol_spaces" title="smpl.doc.trim_eol_spaces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trim_eol_spaces</span></code></a>(s)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.doc.trim_eol_spaces.html#smpl.doc.trim_eol_spaces" title="smpl.doc.trim_eol_spaces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trim_eol_spaces</span></code></a>(s)</p></td>
 <td><p>Trim spaces at the end of lines.</p></td>
 </tr>
 </tbody>

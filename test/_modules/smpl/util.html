@@ -75,7 +75,7 @@
             
             
               <div class="version">
-                1.0.3-5-g0d615f42
+                1.0.3-6-gc4dde1e5
               </div>
             
           
@@ -190,8 +190,11 @@
 <span></span><span class="sd">&quot;&quot;&quot;Simplified general utilities.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">doc</span>
 
-<div class="viewcode-block" id="times"><a class="viewcode-back" href="../../_autosummary/smpl.util.times.html#smpl.util.times">[docs]</a><span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+
+<div class="viewcode-block" id="times"><a class="viewcode-back" href="../../_autosummary/smpl.util.times.html#smpl.util.times">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">deprecated</span><span class="p">(</span><span class="s2">&quot;1.0.3&quot;</span><span class="p">,</span> <span class="s2">&quot;Use `s*n` instead.&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Concats string ``s`` ``n`` times.</span>
 

@@ -1,0 +1,6 @@
+smpl.plot.fill
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: fill

@@ -1,0 +1,6 @@
+smpl.plot.draw\_all
+===================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: draw_all

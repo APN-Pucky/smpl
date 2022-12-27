@@ -53,7 +53,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="smpl.latex" href="smpl.latex.html" />
+    <link rel="next" title="smpl.io.Path" href="smpl.io.Path.html" />
     <link rel="prev" title="smpl.io.tail" href="smpl.io.tail.html" /> 
 </head>
 
@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                1.0.3-5-g0d615f42
+                1.0.3-6-gc4dde1e5
               </div>
             
           
@@ -119,6 +119,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
@@ -131,12 +132,14 @@
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.files.html">smpl.io.files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.find_file.html">smpl.io.find_file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.gf.html">smpl.io.gf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.io.glob_re.html">smpl.io.glob_re</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.grep.html">smpl.io.grep</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.head.html">smpl.io.head</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.import_path.html">smpl.io.import_path</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.mkdirs.html">smpl.io.mkdirs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.pn.html">smpl.io.pn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.pr.html">smpl.io.pr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.io.pushd.html">smpl.io.pushd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.pwd.html">smpl.io.pwd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.read.html">smpl.io.read</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.remove.html">smpl.io.remove</a></li>
@@ -145,6 +148,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#smpl.io.write"><code class="docutils literal notranslate"><span class="pre">write()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.io.Path.html">smpl.io.Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.io.StringIO.html">smpl.io.StringIO</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
@@ -260,7 +265,7 @@
 <h1>smpl.io.write<a class="headerlink" href="#smpl-io-write" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.write">
-<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w+'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'w+'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">create_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl_io/io.html#write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write to file by string or writable <code class="xref py py-obj docutils literal notranslate"><span class="pre">destiantion</span></code>.</p>
 <section id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
@@ -296,7 +301,7 @@ Default is ‘w+’ (write and read).</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="smpl.latex.html" class="btn btn-neutral float-right" title="smpl.latex" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.io.Path.html" class="btn btn-neutral float-right" title="smpl.io.Path" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="smpl.io.tail.html" class="btn btn-neutral float-left" title="smpl.io.tail" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

@@ -1,0 +1,6 @@
+smpl.plot.pcolor
+================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: pcolor

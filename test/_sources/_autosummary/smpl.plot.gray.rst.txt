@@ -1,0 +1,6 @@
+smpl.plot.gray
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: gray

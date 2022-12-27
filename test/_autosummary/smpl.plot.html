@@ -53,8 +53,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="smpl.plot.auto" href="smpl.plot.auto.html" />
-    <link rel="prev" title="smpl.parallel.res" href="smpl.parallel.res.html" /> 
+    <link rel="next" title="smpl.plot.acorr" href="smpl.plot.acorr.html" />
+    <link rel="prev" title="smpl.parallel.Process" href="smpl.parallel.Process.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                1.0.3-5-g0d615f42
+                1.0.3-6-gc4dde1e5
               </div>
             
           
@@ -119,6 +119,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
@@ -130,15 +131,119 @@
 <li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.parallel.html">smpl.parallel</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">smpl.plot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.acorr.html">smpl.plot.acorr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.angle_spectrum.html">smpl.plot.angle_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.annotate.html">smpl.plot.annotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.arrow.html">smpl.plot.arrow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.auto.html">smpl.plot.auto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.autoscale.html">smpl.plot.autoscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.autumn.html">smpl.plot.autumn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axes.html">smpl.plot.axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axhline.html">smpl.plot.axhline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axhspan.html">smpl.plot.axhspan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axis.html">smpl.plot.axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axline.html">smpl.plot.axline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axvline.html">smpl.plot.axvline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axvspan.html">smpl.plot.axvspan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bar.html">smpl.plot.bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bar_label.html">smpl.plot.bar_label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.barbs.html">smpl.plot.barbs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.barh.html">smpl.plot.barh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bone.html">smpl.plot.bone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.box.html">smpl.plot.box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.boxplot.html">smpl.plot.boxplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.broken_barh.html">smpl.plot.broken_barh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cla.html">smpl.plot.cla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clabel.html">smpl.plot.clabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clf.html">smpl.plot.clf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clim.html">smpl.plot.clim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.close.html">smpl.plot.close</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cohere.html">smpl.plot.cohere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.colorbar.html">smpl.plot.colorbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.connect.html">smpl.plot.connect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.contour.html">smpl.plot.contour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.contourf.html">smpl.plot.contourf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cool.html">smpl.plot.cool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.copper.html">smpl.plot.copper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.csd.html">smpl.plot.csd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cycler.html">smpl.plot.cycler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.data.html">smpl.plot.data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.data_split.html">smpl.plot.data_split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.delaxes.html">smpl.plot.delaxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.disconnect.html">smpl.plot.disconnect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw.html">smpl.plot.draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw_all.html">smpl.plot.draw_all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw_if_interactive.html">smpl.plot.draw_if_interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.errorbar.html">smpl.plot.errorbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.eventplot.html">smpl.plot.eventplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figaspect.html">smpl.plot.figaspect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figimage.html">smpl.plot.figimage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figlegend.html">smpl.plot.figlegend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fignum_exists.html">smpl.plot.fignum_exists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figtext.html">smpl.plot.figtext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figure.html">smpl.plot.figure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill.html">smpl.plot.fill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill_between.html">smpl.plot.fill_between</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill_betweenx.html">smpl.plot.fill_betweenx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.findobj.html">smpl.plot.findobj</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.fit.html">smpl.plot.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.flag.html">smpl.plot.flag</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.function.html">smpl.plot.function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gca.html">smpl.plot.gca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gcf.html">smpl.plot.gcf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gci.html">smpl.plot.gci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get.html">smpl.plot.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_backend.html">smpl.plot.get_backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_cmap.html">smpl.plot.get_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_current_fig_manager.html">smpl.plot.get_current_fig_manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_figlabels.html">smpl.plot.get_figlabels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_fignums.html">smpl.plot.get_fignums</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_fnc_legend.html">smpl.plot.get_fnc_legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_plot_commands.html">smpl.plot.get_plot_commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_scale_names.html">smpl.plot.get_scale_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.getp.html">smpl.plot.getp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ginput.html">smpl.plot.ginput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gray.html">smpl.plot.gray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.grid.html">smpl.plot.grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hexbin.html">smpl.plot.hexbin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hist.html">smpl.plot.hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hist2d.html">smpl.plot.hist2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hlines.html">smpl.plot.hlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hot.html">smpl.plot.hot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hsv.html">smpl.plot.hsv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imread.html">smpl.plot.imread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imsave.html">smpl.plot.imsave</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imshow.html">smpl.plot.imshow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.inferno.html">smpl.plot.inferno</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.init_plot.html">smpl.plot.init_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.install_repl_displayhook.html">smpl.plot.install_repl_displayhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.interactive.html">smpl.plot.interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ioff.html">smpl.plot.ioff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ion.html">smpl.plot.ion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.isinteractive.html">smpl.plot.isinteractive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.jet.html">smpl.plot.jet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.legend.html">smpl.plot.legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.locator_params.html">smpl.plot.locator_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.loglog.html">smpl.plot.loglog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.magma.html">smpl.plot.magma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.magnitude_spectrum.html">smpl.plot.magnitude_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.margins.html">smpl.plot.margins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.matshow.html">smpl.plot.matshow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.minorticks_off.html">smpl.plot.minorticks_off</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.minorticks_on.html">smpl.plot.minorticks_on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.new_figure_manager.html">smpl.plot.new_figure_manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.nipy_spectral.html">smpl.plot.nipy_spectral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pause.html">smpl.plot.pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pcolor.html">smpl.plot.pcolor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pcolormesh.html">smpl.plot.pcolormesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.phase_spectrum.html">smpl.plot.phase_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pie.html">smpl.plot.pie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pink.html">smpl.plot.pink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plasma.html">smpl.plot.plasma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot.html">smpl.plot.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot2d.html">smpl.plot.plot2d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot2d_kwargs.html">smpl.plot.plot2d_kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot_date.html">smpl.plot.plot_date</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot_kwargs.html">smpl.plot.plot_kwargs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_data.html">smpl.plot.plt_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_fit.html">smpl.plot.plt_fit</a></li>
@@ -146,9 +251,119 @@
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_interpolate.html">smpl.plot.plt_interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_plt.html">smpl.plot.plt_plt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_residue.html">smpl.plot.plt_residue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.polar.html">smpl.plot.polar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.prism.html">smpl.plot.prism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.psd.html">smpl.plot.psd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.quiver.html">smpl.plot.quiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.quiverkey.html">smpl.plot.quiverkey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rc.html">smpl.plot.rc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rc_context.html">smpl.plot.rc_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rcdefaults.html">smpl.plot.rcdefaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.register_cmap.html">smpl.plot.register_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rgrids.html">smpl.plot.rgrids</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.save_plot.html">smpl.plot.save_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.savefig.html">smpl.plot.savefig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.sca.html">smpl.plot.sca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.scatter.html">smpl.plot.scatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.sci.html">smpl.plot.sci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.semilogx.html">smpl.plot.semilogx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.semilogy.html">smpl.plot.semilogy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_cmap.html">smpl.plot.set_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_loglevel.html">smpl.plot.set_loglevel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_plot_style.html">smpl.plot.set_plot_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.setp.html">smpl.plot.setp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.show.html">smpl.plot.show</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.specgram.html">smpl.plot.specgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.spring.html">smpl.plot.spring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.spy.html">smpl.plot.spy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stackplot.html">smpl.plot.stackplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stairs.html">smpl.plot.stairs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stem.html">smpl.plot.stem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.step.html">smpl.plot.step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.streamplot.html">smpl.plot.streamplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot.html">smpl.plot.subplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot2grid.html">smpl.plot.subplot2grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot_mosaic.html">smpl.plot.subplot_mosaic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot_tool.html">smpl.plot.subplot_tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplots.html">smpl.plot.subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplots_adjust.html">smpl.plot.subplots_adjust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.summer.html">smpl.plot.summer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.suptitle.html">smpl.plot.suptitle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.switch_backend.html">smpl.plot.switch_backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.table.html">smpl.plot.table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.text.html">smpl.plot.text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.thetagrids.html">smpl.plot.thetagrids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tick_params.html">smpl.plot.tick_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ticklabel_format.html">smpl.plot.ticklabel_format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tight_layout.html">smpl.plot.tight_layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.title.html">smpl.plot.title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tricontour.html">smpl.plot.tricontour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tricontourf.html">smpl.plot.tricontourf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tripcolor.html">smpl.plot.tripcolor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.triplot.html">smpl.plot.triplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.twinx.html">smpl.plot.twinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.twiny.html">smpl.plot.twiny</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.uninstall_repl_displayhook.html">smpl.plot.uninstall_repl_displayhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.unv.html">smpl.plot.unv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.usd.html">smpl.plot.usd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.violinplot.html">smpl.plot.violinplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.viridis.html">smpl.plot.viridis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.vlines.html">smpl.plot.vlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.waitforbuttonpress.html">smpl.plot.waitforbuttonpress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.winter.html">smpl.plot.winter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xcorr.html">smpl.plot.xcorr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xkcd.html">smpl.plot.xkcd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xlabel.html">smpl.plot.xlabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xlim.html">smpl.plot.xlim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xscale.html">smpl.plot.xscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xticks.html">smpl.plot.xticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ylabel.html">smpl.plot.ylabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ylim.html">smpl.plot.ylim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.yscale.html">smpl.plot.yscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.yticks.html">smpl.plot.yticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Annotation.html">smpl.plot.Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Arrow.html">smpl.plot.Arrow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Artist.html">smpl.plot.Artist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.AutoLocator.html">smpl.plot.AutoLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Axes.html">smpl.plot.Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Button.html">smpl.plot.Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Circle.html">smpl.plot.Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Enum.html">smpl.plot.Enum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ExitStack.html">smpl.plot.ExitStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Figure.html">smpl.plot.Figure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FigureBase.html">smpl.plot.FigureBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FigureCanvasBase.html">smpl.plot.FigureCanvasBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FixedFormatter.html">smpl.plot.FixedFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FixedLocator.html">smpl.plot.FixedLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FormatStrFormatter.html">smpl.plot.FormatStrFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Formatter.html">smpl.plot.Formatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FuncFormatter.html">smpl.plot.FuncFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.GridSpec.html">smpl.plot.GridSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.IndexLocator.html">smpl.plot.IndexLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Line2D.html">smpl.plot.Line2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LinearLocator.html">smpl.plot.LinearLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Locator.html">smpl.plot.Locator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatter.html">smpl.plot.LogFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatterExponent.html">smpl.plot.LogFormatterExponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatterMathtext.html">smpl.plot.LogFormatterMathtext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogLocator.html">smpl.plot.LogLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MaxNLocator.html">smpl.plot.MaxNLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MouseButton.html">smpl.plot.MouseButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MultipleLocator.html">smpl.plot.MultipleLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Normalize.html">smpl.plot.Normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.NullFormatter.html">smpl.plot.NullFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.NullLocator.html">smpl.plot.NullLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Number.html">smpl.plot.Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.PolarAxes.html">smpl.plot.PolarAxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Polygon.html">smpl.plot.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Rectangle.html">smpl.plot.Rectangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ScalarFormatter.html">smpl.plot.ScalarFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Slider.html">smpl.plot.Slider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Subplot.html">smpl.plot.Subplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.SubplotSpec.html">smpl.plot.SubplotSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Text.html">smpl.plot.Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.TickHelper.html">smpl.plot.TickHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Widget.html">smpl.plot.Widget</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.plot2d.html">smpl.plot2d</a></li>
@@ -261,32 +476,344 @@
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.acorr.html#smpl.plot.acorr" title="smpl.plot.acorr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">acorr</span></code></a>(x, *[, data])</p></td>
+<td><p>Plot the autocorrelation of <em>x</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.angle_spectrum.html#smpl.plot.angle_spectrum" title="smpl.plot.angle_spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">angle_spectrum</span></code></a>(x[, Fs, Fc, window, pad_to, ...])</p></td>
+<td><p>Plot the angle spectrum.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.annotate.html#smpl.plot.annotate" title="smpl.plot.annotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">annotate</span></code></a>(text, xy[, xytext, xycoords, ...])</p></td>
+<td><p>Annotate the point <em>xy</em> with text <em>text</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.arrow.html#smpl.plot.arrow" title="smpl.plot.arrow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">arrow</span></code></a>(x, y, dx, dy, **kwargs)</p></td>
+<td><p>Add an arrow to the Axes.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.auto.html#smpl.plot.auto" title="smpl.plot.auto"><code class="xref py py-obj docutils literal notranslate"><span class="pre">auto</span></code></a>(*adata[, funcs])</p></td>
 <td><p>Automatically loop over functions and fit the best one.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.data.html#smpl.plot.data" title="smpl.plot.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>(*data[, function])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.autoscale.html#smpl.plot.autoscale" title="smpl.plot.autoscale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">autoscale</span></code></a>([enable, axis, tight])</p></td>
+<td><p>Autoscale the axis view to the data (toggle).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.autumn.html#smpl.plot.autumn" title="smpl.plot.autumn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">autumn</span></code></a>()</p></td>
+<td><p>Set the colormap to 'autumn'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.axes.html#smpl.plot.axes" title="smpl.plot.axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes</span></code></a>([arg])</p></td>
+<td><p>Add an Axes to the current figure and make it the current Axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.axhline.html#smpl.plot.axhline" title="smpl.plot.axhline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axhline</span></code></a>([y, xmin, xmax])</p></td>
+<td><p>Add a horizontal line across the Axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.axhspan.html#smpl.plot.axhspan" title="smpl.plot.axhspan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axhspan</span></code></a>(ymin, ymax[, xmin, xmax])</p></td>
+<td><p>Add a horizontal span (rectangle) across the Axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.axis.html#smpl.plot.axis" title="smpl.plot.axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis</span></code></a>(*args[, emit])</p></td>
+<td><p>Convenience method to get or set some axis properties.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.axline.html#smpl.plot.axline" title="smpl.plot.axline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axline</span></code></a>(xy1[, xy2, slope])</p></td>
+<td><p>Add an infinitely long straight line.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.axvline.html#smpl.plot.axvline" title="smpl.plot.axvline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axvline</span></code></a>([x, ymin, ymax])</p></td>
+<td><p>Add a vertical line across the Axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.axvspan.html#smpl.plot.axvspan" title="smpl.plot.axvspan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axvspan</span></code></a>(xmin, xmax[, ymin, ymax])</p></td>
+<td><p>Add a vertical span (rectangle) across the Axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.bar.html#smpl.plot.bar" title="smpl.plot.bar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bar</span></code></a>(x, height[, width, bottom, align, data])</p></td>
+<td><p>Make a bar plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.bar_label.html#smpl.plot.bar_label" title="smpl.plot.bar_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bar_label</span></code></a>(container[, labels, fmt, ...])</p></td>
+<td><p>Label a bar plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.barbs.html#smpl.plot.barbs" title="smpl.plot.barbs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">barbs</span></code></a>(*args[, data])</p></td>
+<td><p>Plot a 2D field of barbs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.barh.html#smpl.plot.barh" title="smpl.plot.barh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">barh</span></code></a>(y, width[, height, left, align, data])</p></td>
+<td><p>Make a horizontal bar plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.bone.html#smpl.plot.bone" title="smpl.plot.bone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bone</span></code></a>()</p></td>
+<td><p>Set the colormap to 'bone'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.box.html#smpl.plot.box" title="smpl.plot.box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">box</span></code></a>([on])</p></td>
+<td><p>Turn the axes box on or off on the current axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.boxplot.html#smpl.plot.boxplot" title="smpl.plot.boxplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boxplot</span></code></a>(x[, notch, sym, vert, whis, ...])</p></td>
+<td><p>Draw a box and whisker plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.broken_barh.html#smpl.plot.broken_barh" title="smpl.plot.broken_barh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">broken_barh</span></code></a>(xranges, yrange, *[, data])</p></td>
+<td><p>Plot a horizontal sequence of rectangles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.cla.html#smpl.plot.cla" title="smpl.plot.cla"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cla</span></code></a>()</p></td>
+<td><p>Clear the current axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.clabel.html#smpl.plot.clabel" title="smpl.plot.clabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clabel</span></code></a>(CS[, levels])</p></td>
+<td><p>Label a contour plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.clf.html#smpl.plot.clf" title="smpl.plot.clf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clf</span></code></a>()</p></td>
+<td><p>Clear the current figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.clim.html#smpl.plot.clim" title="smpl.plot.clim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clim</span></code></a>([vmin, vmax])</p></td>
+<td><p>Set the color limits of the current image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.close.html#smpl.plot.close" title="smpl.plot.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a>([fig])</p></td>
+<td><p>Close a figure window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.cohere.html#smpl.plot.cohere" title="smpl.plot.cohere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cohere</span></code></a>(x, y[, NFFT, Fs, Fc, detrend, ...])</p></td>
+<td><p>Plot the coherence between <em>x</em> and <em>y</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.colorbar.html#smpl.plot.colorbar" title="smpl.plot.colorbar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">colorbar</span></code></a>([mappable, cax, ax])</p></td>
+<td><p>Add a colorbar to a plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.connect.html#smpl.plot.connect" title="smpl.plot.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>(s, func)</p></td>
+<td><p>Bind function <em>func</em> to event <em>s</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.contour.html#smpl.plot.contour" title="smpl.plot.contour"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contour</span></code></a>(*args[, data])</p></td>
+<td><p>Plot contour lines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.contourf.html#smpl.plot.contourf" title="smpl.plot.contourf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contourf</span></code></a>(*args[, data])</p></td>
+<td><p>Plot filled contours.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.cool.html#smpl.plot.cool" title="smpl.plot.cool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cool</span></code></a>()</p></td>
+<td><p>Set the colormap to 'cool'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.copper.html#smpl.plot.copper" title="smpl.plot.copper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copper</span></code></a>()</p></td>
+<td><p>Set the colormap to 'copper'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.csd.html#smpl.plot.csd" title="smpl.plot.csd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">csd</span></code></a>(x, y[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
+<td><p>Plot the cross-spectral density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.cycler.html#smpl.plot.cycler" title="smpl.plot.cycler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cycler</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Create a new <cite>Cycler</cite> object from a single positional argument, a pair of positional arguments, or the combination of keyword arguments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.data.html#smpl.plot.data" title="smpl.plot.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a>(*data[, function])</p></td>
 <td><p>Plot datay against datax via <a class="reference internal" href="smpl.plot.fit.html#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">fit()</span></code></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.data_split.html#smpl.plot.data_split" title="smpl.plot.data_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_split</span></code></a>(datax, datay, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.data_split.html#smpl.plot.data_split" title="smpl.plot.data_split"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_split</span></code></a>(datax, datay, **kwargs)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.delaxes.html#smpl.plot.delaxes" title="smpl.plot.delaxes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delaxes</span></code></a>([ax])</p></td>
+<td><p>Remove an <cite>~.axes.Axes</cite> (defaulting to the current axes) from its figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.disconnect.html#smpl.plot.disconnect" title="smpl.plot.disconnect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">disconnect</span></code></a>(cid)</p></td>
+<td><p>Disconnect the callback with id <em>cid</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.draw.html#smpl.plot.draw" title="smpl.plot.draw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw</span></code></a>()</p></td>
+<td><p>Redraw the current figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.draw_all.html#smpl.plot.draw_all" title="smpl.plot.draw_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_all</span></code></a>([force])</p></td>
+<td><p>Redraw all stale managed figures, or, if <em>force</em> is True, all managed figures.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.draw_if_interactive.html#smpl.plot.draw_if_interactive" title="smpl.plot.draw_if_interactive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw_if_interactive</span></code></a>()</p></td>
+<td><p>Redraw the current figure if in interactive mode.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.errorbar.html#smpl.plot.errorbar" title="smpl.plot.errorbar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">errorbar</span></code></a>(x, y[, yerr, xerr, fmt, ecolor, ...])</p></td>
+<td><p>Plot y versus x as lines and/or markers with attached errorbars.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.eventplot.html#smpl.plot.eventplot" title="smpl.plot.eventplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eventplot</span></code></a>(positions[, orientation, ...])</p></td>
+<td><p>Plot identical parallel lines at the given positions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.figaspect.html#smpl.plot.figaspect" title="smpl.plot.figaspect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">figaspect</span></code></a>(arg)</p></td>
+<td><p>Calculate the width and height for a figure with a specified aspect ratio.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.figimage.html#smpl.plot.figimage" title="smpl.plot.figimage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">figimage</span></code></a>(X[, xo, yo, alpha, norm, cmap, ...])</p></td>
+<td><p>Add a non-resampled image to the figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.figlegend.html#smpl.plot.figlegend" title="smpl.plot.figlegend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">figlegend</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Place a legend on the figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.fignum_exists.html#smpl.plot.fignum_exists" title="smpl.plot.fignum_exists"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fignum_exists</span></code></a>(num)</p></td>
+<td><p>Return whether the figure with the given id exists.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.figtext.html#smpl.plot.figtext" title="smpl.plot.figtext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">figtext</span></code></a>(x, y, s[, fontdict])</p></td>
+<td><p>Add text to figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.figure.html#smpl.plot.figure" title="smpl.plot.figure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">figure</span></code></a>([num, figsize, dpi, facecolor, ...])</p></td>
+<td><p>Create a new figure, or activate an existing figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.fill.html#smpl.plot.fill" title="smpl.plot.fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code></a>(*args[, data])</p></td>
+<td><p>Plot filled polygons.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.fill_between.html#smpl.plot.fill_between" title="smpl.plot.fill_between"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_between</span></code></a>(x, y1[, y2, where, ...])</p></td>
+<td><p>Fill the area between two horizontal curves.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.fill_betweenx.html#smpl.plot.fill_betweenx" title="smpl.plot.fill_betweenx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_betweenx</span></code></a>(y, x1[, x2, where, step, ...])</p></td>
+<td><p>Fill the area between two vertical curves.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.findobj.html#smpl.plot.findobj" title="smpl.plot.findobj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">findobj</span></code></a>([o, match, include_self])</p></td>
+<td><p>Find artist objects.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.fit.html#smpl.plot.fit" title="smpl.plot.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(func, *adata, **kwargs)</p></td>
 <td><p>Fit and plot function to datax and datay.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.function.html#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></a>(func, *args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.flag.html#smpl.plot.flag" title="smpl.plot.flag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">flag</span></code></a>()</p></td>
+<td><p>Set the colormap to 'flag'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.function.html#smpl.plot.function" title="smpl.plot.function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">function</span></code></a>(func, *args, **kwargs)</p></td>
 <td><p>Plot function <code class="docutils literal notranslate"><span class="pre">func</span></code> between <code class="docutils literal notranslate"><span class="pre">xmin</span></code> and <code class="docutils literal notranslate"><span class="pre">xmax</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.gca.html#smpl.plot.gca" title="smpl.plot.gca"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gca</span></code></a>()</p></td>
+<td><p>Get the current Axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.gcf.html#smpl.plot.gcf" title="smpl.plot.gcf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gcf</span></code></a>()</p></td>
+<td><p>Get the current figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.gci.html#smpl.plot.gci" title="smpl.plot.gci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gci</span></code></a>()</p></td>
+<td><p>Get the current colorable artist.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.get.html#smpl.plot.get" title="smpl.plot.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get</span></code></a>(obj, *args, **kwargs)</p></td>
+<td><p>Return the value of an <cite>.Artist</cite>'s <em>property</em>, or print all of them.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.get_backend.html#smpl.plot.get_backend" title="smpl.plot.get_backend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_backend</span></code></a>()</p></td>
+<td><p>Return the name of the current backend.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.get_cmap.html#smpl.plot.get_cmap" title="smpl.plot.get_cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cmap</span></code></a>([name, lut])</p></td>
+<td><p>Get a colormap instance, defaulting to rc values if <em>name</em> is None.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.get_current_fig_manager.html#smpl.plot.get_current_fig_manager" title="smpl.plot.get_current_fig_manager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_current_fig_manager</span></code></a>()</p></td>
+<td><p>Return the figure manager of the current figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.get_figlabels.html#smpl.plot.get_figlabels" title="smpl.plot.get_figlabels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_figlabels</span></code></a>()</p></td>
+<td><p>Return a list of existing figure labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.get_fignums.html#smpl.plot.get_fignums" title="smpl.plot.get_fignums"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fignums</span></code></a>()</p></td>
+<td><p>Return a list of existing figure numbers.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.get_fnc_legend.html#smpl.plot.get_fnc_legend" title="smpl.plot.get_fnc_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fnc_legend</span></code></a>(function, rfit, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.get_plot_commands.html#smpl.plot.get_plot_commands" title="smpl.plot.get_plot_commands"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_plot_commands</span></code></a>()</p></td>
+<td><p>Get a sorted list of all of the plotting commands.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.get_scale_names.html#smpl.plot.get_scale_names" title="smpl.plot.get_scale_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_scale_names</span></code></a>()</p></td>
+<td><p>Return the names of the available scales.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.getp.html#smpl.plot.getp" title="smpl.plot.getp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getp</span></code></a>(obj, *args, **kwargs)</p></td>
+<td><p>Return the value of an <cite>.Artist</cite>'s <em>property</em>, or print all of them.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.ginput.html#smpl.plot.ginput" title="smpl.plot.ginput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ginput</span></code></a>([n, timeout, show_clicks, mouse_add, ...])</p></td>
+<td><p>Blocking call to interact with a figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.gray.html#smpl.plot.gray" title="smpl.plot.gray"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gray</span></code></a>()</p></td>
+<td><p>Set the colormap to 'gray'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.grid.html#smpl.plot.grid" title="smpl.plot.grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code></a>([visible, which, axis])</p></td>
+<td><p>Configure the grid lines.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.hexbin.html#smpl.plot.hexbin" title="smpl.plot.hexbin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hexbin</span></code></a>(x, y[, C, gridsize, bins, xscale, ...])</p></td>
+<td><p>Make a 2D hexagonal binning plot of points <em>x</em>, <em>y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.hist.html#smpl.plot.hist" title="smpl.plot.hist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hist</span></code></a>(x[, bins, range, density, weights, ...])</p></td>
+<td><p>Compute and plot a histogram.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.hist2d.html#smpl.plot.hist2d" title="smpl.plot.hist2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hist2d</span></code></a>(x, y[, bins, range, density, ...])</p></td>
+<td><p>Make a 2D histogram plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.hlines.html#smpl.plot.hlines" title="smpl.plot.hlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hlines</span></code></a>(y, xmin, xmax[, colors, linestyles, ...])</p></td>
+<td><p>Plot horizontal lines at each <em>y</em> from <em>xmin</em> to <em>xmax</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.hot.html#smpl.plot.hot" title="smpl.plot.hot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hot</span></code></a>()</p></td>
+<td><p>Set the colormap to 'hot'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.hsv.html#smpl.plot.hsv" title="smpl.plot.hsv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hsv</span></code></a>()</p></td>
+<td><p>Set the colormap to 'hsv'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.imread.html#smpl.plot.imread" title="smpl.plot.imread"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imread</span></code></a>(fname[, format])</p></td>
+<td><p>Read an image from a file into an array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.imsave.html#smpl.plot.imsave" title="smpl.plot.imsave"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imsave</span></code></a>(fname, arr, **kwargs)</p></td>
+<td><p>Colormap and save an array as an image file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.imshow.html#smpl.plot.imshow" title="smpl.plot.imshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imshow</span></code></a>(X[, cmap, norm, aspect, ...])</p></td>
+<td><p>Display data as an image, i.e., on a 2D regular raster.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.inferno.html#smpl.plot.inferno" title="smpl.plot.inferno"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inferno</span></code></a>()</p></td>
+<td><p>Set the colormap to 'inferno'.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.init_plot.html#smpl.plot.init_plot" title="smpl.plot.init_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">init_plot</span></code></a>(kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.plot2d.html#smpl.plot.plot2d" title="smpl.plot.plot2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot2d</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.install_repl_displayhook.html#smpl.plot.install_repl_displayhook" title="smpl.plot.install_repl_displayhook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">install_repl_displayhook</span></code></a>()</p></td>
+<td><p>Connect to the display hook of the current shell.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.interactive.html#smpl.plot.interactive" title="smpl.plot.interactive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interactive</span></code></a>(b)</p></td>
+<td><p>Set whether to redraw after every plotting command (e.g.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.ioff.html#smpl.plot.ioff" title="smpl.plot.ioff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ioff</span></code></a>()</p></td>
+<td><p>Disable interactive mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.ion.html#smpl.plot.ion" title="smpl.plot.ion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ion</span></code></a>()</p></td>
+<td><p>Enable interactive mode.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.isinteractive.html#smpl.plot.isinteractive" title="smpl.plot.isinteractive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isinteractive</span></code></a>()</p></td>
+<td><p>Return whether plots are updated after every plotting command.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.jet.html#smpl.plot.jet" title="smpl.plot.jet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">jet</span></code></a>()</p></td>
+<td><p>Set the colormap to 'jet'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.legend.html#smpl.plot.legend" title="smpl.plot.legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">legend</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Place a legend on the Axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.locator_params.html#smpl.plot.locator_params" title="smpl.plot.locator_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">locator_params</span></code></a>([axis, tight])</p></td>
+<td><p>Control behavior of major tick locators.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.loglog.html#smpl.plot.loglog" title="smpl.plot.loglog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">loglog</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Make a plot with log scaling on both the x and y axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.magma.html#smpl.plot.magma" title="smpl.plot.magma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">magma</span></code></a>()</p></td>
+<td><p>Set the colormap to 'magma'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.magnitude_spectrum.html#smpl.plot.magnitude_spectrum" title="smpl.plot.magnitude_spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">magnitude_spectrum</span></code></a>(x[, Fs, Fc, window, ...])</p></td>
+<td><p>Plot the magnitude spectrum.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.margins.html#smpl.plot.margins" title="smpl.plot.margins"><code class="xref py py-obj docutils literal notranslate"><span class="pre">margins</span></code></a>(*margins[, x, y, tight])</p></td>
+<td><p>Set or retrieve autoscaling margins.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.matshow.html#smpl.plot.matshow" title="smpl.plot.matshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matshow</span></code></a>(A[, fignum])</p></td>
+<td><p>Display an array as a matrix in a new figure window.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.minorticks_off.html#smpl.plot.minorticks_off" title="smpl.plot.minorticks_off"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minorticks_off</span></code></a>()</p></td>
+<td><p>Remove minor ticks from the Axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.minorticks_on.html#smpl.plot.minorticks_on" title="smpl.plot.minorticks_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">minorticks_on</span></code></a>()</p></td>
+<td><p>Display minor ticks on the Axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.new_figure_manager.html#smpl.plot.new_figure_manager" title="smpl.plot.new_figure_manager"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_figure_manager</span></code></a>(num, *args, **kwargs)</p></td>
+<td><p>Create a new figure manager instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.nipy_spectral.html#smpl.plot.nipy_spectral" title="smpl.plot.nipy_spectral"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nipy_spectral</span></code></a>()</p></td>
+<td><p>Set the colormap to 'nipy_spectral'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.pause.html#smpl.plot.pause" title="smpl.plot.pause"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pause</span></code></a>(interval)</p></td>
+<td><p>Run the GUI event loop for <em>interval</em> seconds.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.pcolor.html#smpl.plot.pcolor" title="smpl.plot.pcolor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pcolor</span></code></a>(*args[, shading, alpha, norm, cmap, ...])</p></td>
+<td><p>Create a pseudocolor plot with a non-regular rectangular grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.pcolormesh.html#smpl.plot.pcolormesh" title="smpl.plot.pcolormesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pcolormesh</span></code></a>(*args[, alpha, norm, cmap, vmin, ...])</p></td>
+<td><p>Create a pseudocolor plot with a non-regular rectangular grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.phase_spectrum.html#smpl.plot.phase_spectrum" title="smpl.plot.phase_spectrum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">phase_spectrum</span></code></a>(x[, Fs, Fc, window, pad_to, ...])</p></td>
+<td><p>Plot the phase spectrum.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.pie.html#smpl.plot.pie" title="smpl.plot.pie"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pie</span></code></a>(x[, explode, labels, colors, autopct, ...])</p></td>
+<td><p>Plot a pie chart.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.pink.html#smpl.plot.pink" title="smpl.plot.pink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pink</span></code></a>()</p></td>
+<td><p>Set the colormap to 'pink'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.plasma.html#smpl.plot.plasma" title="smpl.plot.plasma"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plasma</span></code></a>()</p></td>
+<td><p>Set the colormap to 'plasma'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.plot.html#smpl.plot.plot" title="smpl.plot.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a>(*args[, scalex, scaley, data])</p></td>
+<td><p>Plot y versus x as lines and/or markers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.plot2d.html#smpl.plot.plot2d" title="smpl.plot.plot2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot2d</span></code></a>(*args, **kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.plot2d_kwargs.html#smpl.plot.plot2d_kwargs" title="smpl.plot.plot2d_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot2d_kwargs</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.plot2d_kwargs.html#smpl.plot.plot2d_kwargs" title="smpl.plot.plot2d_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot2d_kwargs</span></code></a>(*args, **kwargs)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.plot_date.html#smpl.plot.plot_date" title="smpl.plot.plot_date"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_date</span></code></a>(x, y[, fmt, tz, xdate, ydate, data])</p></td>
+<td><p>[<em>Discouraged</em>] Plot coercing the axis to treat floats as dates.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.plot_kwargs.html#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_kwargs</span></code></a>(kwargs)</p></td>
 <td><p>Set default <a class="reference internal" href="smpl.plot.plot_kwargs.html#smpl.plot.plot_kwargs" title="smpl.plot.plot_kwargs"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_kwargs()</span></code></a> if not set.</p></td>
@@ -309,14 +836,349 @@
 <tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.plt_residue.html#smpl.plot.plt_residue" title="smpl.plot.plt_residue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plt_residue</span></code></a>(datax, datay, gfunction, rfit, ...)</p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.polar.html#smpl.plot.polar" title="smpl.plot.polar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">polar</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Make a polar plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.prism.html#smpl.plot.prism" title="smpl.plot.prism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prism</span></code></a>()</p></td>
+<td><p>Set the colormap to 'prism'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.psd.html#smpl.plot.psd" title="smpl.plot.psd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">psd</span></code></a>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
+<td><p>Plot the power spectral density.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.quiver.html#smpl.plot.quiver" title="smpl.plot.quiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiver</span></code></a>(*args[, data])</p></td>
+<td><p>Plot a 2D field of arrows.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.quiverkey.html#smpl.plot.quiverkey" title="smpl.plot.quiverkey"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiverkey</span></code></a>(Q, X, Y, U, label, **kwargs)</p></td>
+<td><p>Add a key to a quiver plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.rc.html#smpl.plot.rc" title="smpl.plot.rc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc</span></code></a>(group, **kwargs)</p></td>
+<td><p>Set the current <cite>.rcParams</cite>. <em>group</em> is the grouping for the rc, e.g., for <code class="docutils literal notranslate"><span class="pre">lines.linewidth</span></code> the group is <code class="docutils literal notranslate"><span class="pre">lines</span></code>, for <code class="docutils literal notranslate"><span class="pre">axes.facecolor</span></code>, the group is <code class="docutils literal notranslate"><span class="pre">axes</span></code>, and so on. Group may also be a list or tuple of group names, e.g., (<em>xtick</em>, <em>ytick</em>). <em>kwargs</em> is a dictionary attribute name/value pairs, e.g.,::.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.rc_context.html#smpl.plot.rc_context" title="smpl.plot.rc_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rc_context</span></code></a>([rc, fname])</p></td>
+<td><p>Return a context manager for temporarily changing rcParams.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.rcdefaults.html#smpl.plot.rcdefaults" title="smpl.plot.rcdefaults"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rcdefaults</span></code></a>()</p></td>
+<td><p>Restore the <cite>.rcParams</cite> from Matplotlib's internal default style.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.register_cmap.html#smpl.plot.register_cmap" title="smpl.plot.register_cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_cmap</span></code></a>([name, cmap, override_builtin])</p></td>
+<td><p>[<em>Deprecated</em>] Add a colormap to the set recognized by <a class="reference internal" href="smpl.plot.get_cmap.html#smpl.plot.get_cmap" title="smpl.plot.get_cmap"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_cmap()</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.rgrids.html#smpl.plot.rgrids" title="smpl.plot.rgrids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rgrids</span></code></a>([radii, labels, angle, fmt])</p></td>
+<td><p>Get or set the radial gridlines on the current polar plot.</p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.save_plot.html#smpl.plot.save_plot" title="smpl.plot.save_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_plot</span></code></a>(**kwargs)</p></td>
 <td><p>save plot</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.savefig.html#smpl.plot.savefig" title="smpl.plot.savefig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">savefig</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Save the current figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.sca.html#smpl.plot.sca" title="smpl.plot.sca"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sca</span></code></a>(ax)</p></td>
+<td><p>Set the current Axes to <em>ax</em> and the current Figure to the parent of <em>ax</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.scatter.html#smpl.plot.scatter" title="smpl.plot.scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter</span></code></a>(x, y[, s, c, marker, cmap, norm, ...])</p></td>
+<td><p>A scatter plot of <em>y</em> vs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.sci.html#smpl.plot.sci" title="smpl.plot.sci"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sci</span></code></a>(im)</p></td>
+<td><p>Set the current image.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.semilogx.html#smpl.plot.semilogx" title="smpl.plot.semilogx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogx</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Make a plot with log scaling on the x axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.semilogy.html#smpl.plot.semilogy" title="smpl.plot.semilogy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">semilogy</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Make a plot with log scaling on the y axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.set_cmap.html#smpl.plot.set_cmap" title="smpl.plot.set_cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_cmap</span></code></a>(cmap)</p></td>
+<td><p>Set the default colormap, and applies it to the current image if any.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.set_loglevel.html#smpl.plot.set_loglevel" title="smpl.plot.set_loglevel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_loglevel</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Set Matplotlib's root logger and root logger handler level, creating the handler if it does not exist yet.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.set_plot_style.html#smpl.plot.set_plot_style" title="smpl.plot.set_plot_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_plot_style</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.show.html#smpl.plot.show" title="smpl.plot.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.setp.html#smpl.plot.setp" title="smpl.plot.setp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setp</span></code></a>(obj, *args, **kwargs)</p></td>
+<td><p>Set one or more properties on an <cite>.Artist</cite>, or list allowed values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.show.html#smpl.plot.show" title="smpl.plot.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show</span></code></a>(**kwargs)</p></td>
 <td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.specgram.html#smpl.plot.specgram" title="smpl.plot.specgram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">specgram</span></code></a>(x[, NFFT, Fs, Fc, detrend, window, ...])</p></td>
+<td><p>Plot a spectrogram.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.spring.html#smpl.plot.spring" title="smpl.plot.spring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spring</span></code></a>()</p></td>
+<td><p>Set the colormap to 'spring'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.spy.html#smpl.plot.spy" title="smpl.plot.spy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spy</span></code></a>(Z[, precision, marker, markersize, ...])</p></td>
+<td><p>Plot the sparsity pattern of a 2D array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.stackplot.html#smpl.plot.stackplot" title="smpl.plot.stackplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stackplot</span></code></a>(x, *args[, labels, colors, ...])</p></td>
+<td><p>Draw a stacked area plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.stairs.html#smpl.plot.stairs" title="smpl.plot.stairs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stairs</span></code></a>(values[, edges, orientation, ...])</p></td>
+<td><p>A stepwise constant function as a line with bounding edges or a filled plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.stem.html#smpl.plot.stem" title="smpl.plot.stem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stem</span></code></a>(*args[, linefmt, markerfmt, basefmt, ...])</p></td>
+<td><p>Create a stem plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.step.html#smpl.plot.step" title="smpl.plot.step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">step</span></code></a>(x, y, *args[, where, data])</p></td>
+<td><p>Make a step plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.streamplot.html#smpl.plot.streamplot" title="smpl.plot.streamplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">streamplot</span></code></a>(x, y, u, v[, density, linewidth, ...])</p></td>
+<td><p>Draw streamlines of a vector flow.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.subplot.html#smpl.plot.subplot" title="smpl.plot.subplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Add an Axes to the current figure or retrieve an existing Axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.subplot2grid.html#smpl.plot.subplot2grid" title="smpl.plot.subplot2grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot2grid</span></code></a>(shape, loc[, rowspan, colspan, fig])</p></td>
+<td><p>Create a subplot at a specific location inside a regular grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.subplot_mosaic.html#smpl.plot.subplot_mosaic" title="smpl.plot.subplot_mosaic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_mosaic</span></code></a>(mosaic, *[, sharex, sharey, ...])</p></td>
+<td><p>Build a layout of Axes based on ASCII art or nested lists.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.subplot_tool.html#smpl.plot.subplot_tool" title="smpl.plot.subplot_tool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplot_tool</span></code></a>([targetfig])</p></td>
+<td><p>Launch a subplot tool window for a figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.subplots.html#smpl.plot.subplots" title="smpl.plot.subplots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots</span></code></a>([nrows, ncols, sharex, sharey, ...])</p></td>
+<td><p>Create a figure and a set of subplots.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.subplots_adjust.html#smpl.plot.subplots_adjust" title="smpl.plot.subplots_adjust"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subplots_adjust</span></code></a>([left, bottom, right, top, ...])</p></td>
+<td><p>Adjust the subplot layout parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.summer.html#smpl.plot.summer" title="smpl.plot.summer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">summer</span></code></a>()</p></td>
+<td><p>Set the colormap to 'summer'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.suptitle.html#smpl.plot.suptitle" title="smpl.plot.suptitle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">suptitle</span></code></a>(t, **kwargs)</p></td>
+<td><p>Add a centered suptitle to the figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.switch_backend.html#smpl.plot.switch_backend" title="smpl.plot.switch_backend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">switch_backend</span></code></a>(newbackend)</p></td>
+<td><p>Close all open figures and set the Matplotlib backend.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.table.html#smpl.plot.table" title="smpl.plot.table"><code class="xref py py-obj docutils literal notranslate"><span class="pre">table</span></code></a>([cellText, cellColours, cellLoc, ...])</p></td>
+<td><p>Add a table to an <cite>~.axes.Axes</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.text.html#smpl.plot.text" title="smpl.plot.text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code></a>(x, y, s[, fontdict])</p></td>
+<td><p>Add text to the Axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.thetagrids.html#smpl.plot.thetagrids" title="smpl.plot.thetagrids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thetagrids</span></code></a>([angles, labels, fmt])</p></td>
+<td><p>Get or set the theta gridlines on the current polar plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.tick_params.html#smpl.plot.tick_params" title="smpl.plot.tick_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tick_params</span></code></a>([axis])</p></td>
+<td><p>Change the appearance of ticks, tick labels, and gridlines.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.ticklabel_format.html#smpl.plot.ticklabel_format" title="smpl.plot.ticklabel_format"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ticklabel_format</span></code></a>(*[, axis, style, ...])</p></td>
+<td><p>Configure the <cite>.ScalarFormatter</cite> used by default for linear Axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.tight_layout.html#smpl.plot.tight_layout" title="smpl.plot.tight_layout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tight_layout</span></code></a>(*[, pad, h_pad, w_pad, rect])</p></td>
+<td><p>Adjust the padding between and around subplots.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.title.html#smpl.plot.title" title="smpl.plot.title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">title</span></code></a>(label[, fontdict, loc, pad, y])</p></td>
+<td><p>Set a title for the Axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.tricontour.html#smpl.plot.tricontour" title="smpl.plot.tricontour"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontour</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Draw contour lines on an unstructured triangular grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.tricontourf.html#smpl.plot.tricontourf" title="smpl.plot.tricontourf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tricontourf</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Draw contour regions on an unstructured triangular grid.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.tripcolor.html#smpl.plot.tripcolor" title="smpl.plot.tripcolor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tripcolor</span></code></a>(*args[, alpha, norm, cmap, vmin, ...])</p></td>
+<td><p>Create a pseudocolor plot of an unstructured triangular grid.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.triplot.html#smpl.plot.triplot" title="smpl.plot.triplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">triplot</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Draw an unstructured triangular grid as lines and/or markers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.twinx.html#smpl.plot.twinx" title="smpl.plot.twinx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">twinx</span></code></a>([ax])</p></td>
+<td><p>Make and return a second axes that shares the <em>x</em>-axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.twiny.html#smpl.plot.twiny" title="smpl.plot.twiny"><code class="xref py py-obj docutils literal notranslate"><span class="pre">twiny</span></code></a>([ax])</p></td>
+<td><p>Make and return a second axes that shares the <em>y</em>-axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.uninstall_repl_displayhook.html#smpl.plot.uninstall_repl_displayhook" title="smpl.plot.uninstall_repl_displayhook"><code class="xref py py-obj docutils literal notranslate"><span class="pre">uninstall_repl_displayhook</span></code></a>()</p></td>
+<td><p>Disconnect from the display hook of the current shell.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.unv.html#smpl.plot.unv" title="smpl.plot.unv"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unv</span></code></a>(arr)</p></td>
+<td><p>Return the nominal values of the numbers in NumPy array arr.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.usd.html#smpl.plot.usd" title="smpl.plot.usd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">usd</span></code></a>(arr)</p></td>
+<td><p>Return the standard deviations of the numbers in NumPy array arr.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.violinplot.html#smpl.plot.violinplot" title="smpl.plot.violinplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">violinplot</span></code></a>(dataset[, positions, vert, ...])</p></td>
+<td><p>Make a violin plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.viridis.html#smpl.plot.viridis" title="smpl.plot.viridis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">viridis</span></code></a>()</p></td>
+<td><p>Set the colormap to 'viridis'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.vlines.html#smpl.plot.vlines" title="smpl.plot.vlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vlines</span></code></a>(x, ymin, ymax[, colors, linestyles, ...])</p></td>
+<td><p>Plot vertical lines at each <em>x</em> from <em>ymin</em> to <em>ymax</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.waitforbuttonpress.html#smpl.plot.waitforbuttonpress" title="smpl.plot.waitforbuttonpress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">waitforbuttonpress</span></code></a>([timeout])</p></td>
+<td><p>Blocking call to interact with the figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.winter.html#smpl.plot.winter" title="smpl.plot.winter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">winter</span></code></a>()</p></td>
+<td><p>Set the colormap to 'winter'.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.xcorr.html#smpl.plot.xcorr" title="smpl.plot.xcorr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xcorr</span></code></a>(x, y[, normed, detrend, usevlines, ...])</p></td>
+<td><p>Plot the cross correlation between <em>x</em> and <em>y</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.xkcd.html#smpl.plot.xkcd" title="smpl.plot.xkcd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xkcd</span></code></a>([scale, length, randomness])</p></td>
+<td><p>Turn on <a class="reference external" href="https://xkcd.com/">xkcd</a> sketch-style drawing mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.xlabel.html#smpl.plot.xlabel" title="smpl.plot.xlabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlabel</span></code></a>(xlabel[, fontdict, labelpad, loc])</p></td>
+<td><p>Set the label for the x-axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.xlim.html#smpl.plot.xlim" title="smpl.plot.xlim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlim</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Get or set the x limits of the current axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.xscale.html#smpl.plot.xscale" title="smpl.plot.xscale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xscale</span></code></a>(value, **kwargs)</p></td>
+<td><p>Set the xaxis' scale.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.xticks.html#smpl.plot.xticks" title="smpl.plot.xticks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xticks</span></code></a>([ticks, labels, minor])</p></td>
+<td><p>Get or set the current tick locations and labels of the x-axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.ylabel.html#smpl.plot.ylabel" title="smpl.plot.ylabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylabel</span></code></a>(ylabel[, fontdict, labelpad, loc])</p></td>
+<td><p>Set the label for the y-axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.ylim.html#smpl.plot.ylim" title="smpl.plot.ylim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylim</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Get or set the y-limits of the current axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.yscale.html#smpl.plot.yscale" title="smpl.plot.yscale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yscale</span></code></a>(value, **kwargs)</p></td>
+<td><p>Set the yaxis' scale.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.yticks.html#smpl.plot.yticks" title="smpl.plot.yticks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yticks</span></code></a>([ticks, labels, minor])</p></td>
+<td><p>Get or set the current tick locations and labels of the y-axis.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Annotation.html#smpl.plot.Annotation" title="smpl.plot.Annotation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Annotation</span></code></a>(text, xy[, xytext, xycoords, ...])</p></td>
+<td><p>An <cite>.Annotation</cite> is a <cite>.Text</cite> that can refer to a specific position <em>xy</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Arrow.html#smpl.plot.Arrow" title="smpl.plot.Arrow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Arrow</span></code></a>(x, y, dx, dy, *[, width])</p></td>
+<td><p>An arrow patch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Artist.html#smpl.plot.Artist" title="smpl.plot.Artist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Artist</span></code></a>()</p></td>
+<td><p>Abstract base class for objects that render into a FigureCanvas.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.AutoLocator.html#smpl.plot.AutoLocator" title="smpl.plot.AutoLocator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AutoLocator</span></code></a>()</p></td>
+<td><p>Dynamically find major tick positions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Axes.html#smpl.plot.Axes" title="smpl.plot.Axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>(fig, rect, *[, facecolor, frameon, ...])</p></td>
+<td><p>The <cite>Axes</cite> contains most of the figure elements: <cite>~.axis.Axis</cite>, <cite>~.axis.Tick</cite>, <cite>~.lines.Line2D</cite>, <cite>~.text.Text</cite>, <cite>~.patches.Polygon</cite>, etc., and sets the coordinate system.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Button.html#smpl.plot.Button" title="smpl.plot.Button"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Button</span></code></a>(ax, label[, image, color, hovercolor])</p></td>
+<td><p>A GUI neutral button.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Circle.html#smpl.plot.Circle" title="smpl.plot.Circle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Circle</span></code></a>(xy[, radius])</p></td>
+<td><p>A circle patch.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Enum.html#smpl.plot.Enum" title="smpl.plot.Enum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Enum</span></code></a>(value)</p></td>
+<td><p>Generic enumeration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.ExitStack.html#smpl.plot.ExitStack" title="smpl.plot.ExitStack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExitStack</span></code></a>()</p></td>
+<td><p>Context manager for dynamic management of a stack of exit callbacks.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Figure.html#smpl.plot.Figure" title="smpl.plot.Figure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>([figsize, dpi, facecolor, edgecolor, ...])</p></td>
+<td><p>The top level container for all the plot elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.FigureBase.html#smpl.plot.FigureBase" title="smpl.plot.FigureBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FigureBase</span></code></a>(**kwargs)</p></td>
+<td><p>Base class for <cite>.Figure</cite> and <cite>.SubFigure</cite> containing the methods that add artists to the figure or subfigure, create Axes, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.FigureCanvasBase.html#smpl.plot.FigureCanvasBase" title="smpl.plot.FigureCanvasBase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FigureCanvasBase</span></code></a>([figure])</p></td>
+<td><p>The canvas the figure renders into.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.FixedFormatter.html#smpl.plot.FixedFormatter" title="smpl.plot.FixedFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedFormatter</span></code></a>(seq)</p></td>
+<td><p>Return fixed strings for tick labels based only on position, not value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.FixedLocator.html#smpl.plot.FixedLocator" title="smpl.plot.FixedLocator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedLocator</span></code></a>(locs[, nbins])</p></td>
+<td><p>Tick locations are fixed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.FormatStrFormatter.html#smpl.plot.FormatStrFormatter" title="smpl.plot.FormatStrFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FormatStrFormatter</span></code></a>(fmt)</p></td>
+<td><p>Use an old-style ('%' operator) format string to format the tick.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Formatter.html#smpl.plot.Formatter" title="smpl.plot.Formatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Formatter</span></code></a>()</p></td>
+<td><p>Create a string based on a tick value and location.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.FuncFormatter.html#smpl.plot.FuncFormatter" title="smpl.plot.FuncFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FuncFormatter</span></code></a>(func)</p></td>
+<td><p>Use a user-defined function for formatting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.GridSpec.html#smpl.plot.GridSpec" title="smpl.plot.GridSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GridSpec</span></code></a>(nrows, ncols[, figure, left, ...])</p></td>
+<td><p>A grid layout to place subplots within a figure.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.IndexLocator.html#smpl.plot.IndexLocator" title="smpl.plot.IndexLocator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IndexLocator</span></code></a>(base, offset)</p></td>
+<td><p>Place a tick on every multiple of some base number of points plotted, e.g., on every 5th point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Line2D.html#smpl.plot.Line2D" title="smpl.plot.Line2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Line2D</span></code></a>(xdata, ydata, *[, linewidth, ...])</p></td>
+<td><p>A line - the line can have both a solid linestyle connecting all the vertices, and a marker at each vertex.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.LinearLocator.html#smpl.plot.LinearLocator" title="smpl.plot.LinearLocator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LinearLocator</span></code></a>([numticks, presets])</p></td>
+<td><p>Determine the tick locations</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Locator.html#smpl.plot.Locator" title="smpl.plot.Locator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Locator</span></code></a>()</p></td>
+<td><p>Determine the tick locations;</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.LogFormatter.html#smpl.plot.LogFormatter" title="smpl.plot.LogFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogFormatter</span></code></a>([base, labelOnlyBase, ...])</p></td>
+<td><p>Base class for formatting ticks on a log or symlog scale.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.LogFormatterExponent.html#smpl.plot.LogFormatterExponent" title="smpl.plot.LogFormatterExponent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogFormatterExponent</span></code></a>([base, labelOnlyBase, ...])</p></td>
+<td><p>Format values for log axis using <code class="docutils literal notranslate"><span class="pre">exponent</span> <span class="pre">=</span> <span class="pre">log_base(value)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.LogFormatterMathtext.html#smpl.plot.LogFormatterMathtext" title="smpl.plot.LogFormatterMathtext"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogFormatterMathtext</span></code></a>([base, labelOnlyBase, ...])</p></td>
+<td><p>Format values for log axis using <code class="docutils literal notranslate"><span class="pre">exponent</span> <span class="pre">=</span> <span class="pre">log_base(value)</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.LogLocator.html#smpl.plot.LogLocator" title="smpl.plot.LogLocator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogLocator</span></code></a>([base, subs, numdecs, numticks])</p></td>
+<td><p>Determine the tick locations for log axes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.MaxNLocator.html#smpl.plot.MaxNLocator" title="smpl.plot.MaxNLocator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MaxNLocator</span></code></a>([nbins])</p></td>
+<td><p>Find nice tick locations with no more than N being within the view limits.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.MouseButton.html#smpl.plot.MouseButton" title="smpl.plot.MouseButton"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MouseButton</span></code></a>(value)</p></td>
+<td><p>An enumeration.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.MultipleLocator.html#smpl.plot.MultipleLocator" title="smpl.plot.MultipleLocator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultipleLocator</span></code></a>([base])</p></td>
+<td><p>Set a tick on each integer multiple of a base within the view interval.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Normalize.html#smpl.plot.Normalize" title="smpl.plot.Normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Normalize</span></code></a>([vmin, vmax, clip])</p></td>
+<td><p>A class which, when called, linearly normalizes data into the <code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code> interval.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.NullFormatter.html#smpl.plot.NullFormatter" title="smpl.plot.NullFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NullFormatter</span></code></a>()</p></td>
+<td><p>Always return the empty string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.NullLocator.html#smpl.plot.NullLocator" title="smpl.plot.NullLocator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NullLocator</span></code></a>()</p></td>
+<td><p>No ticks</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Number.html#smpl.plot.Number" title="smpl.plot.Number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Number</span></code></a>()</p></td>
+<td><p>All numbers inherit from this class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.PolarAxes.html#smpl.plot.PolarAxes" title="smpl.plot.PolarAxes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolarAxes</span></code></a>(*args[, theta_offset, ...])</p></td>
+<td><p>A polar graph projection, where the input dimensions are <em>theta</em>, <em>r</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Polygon.html#smpl.plot.Polygon" title="smpl.plot.Polygon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Polygon</span></code></a>(xy, *[, closed])</p></td>
+<td><p>A general polygon patch.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Rectangle.html#smpl.plot.Rectangle" title="smpl.plot.Rectangle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rectangle</span></code></a>(xy, width, height, *[, angle, ...])</p></td>
+<td><p>A rectangle defined via an anchor point <em>xy</em> and its <em>width</em> and <em>height</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.ScalarFormatter.html#smpl.plot.ScalarFormatter" title="smpl.plot.ScalarFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ScalarFormatter</span></code></a>([useOffset, useMathText, ...])</p></td>
+<td><p>Format tick values as a number.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.Slider.html#smpl.plot.Slider" title="smpl.plot.Slider"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Slider</span></code></a>(ax, label, valmin, valmax[, valinit, ...])</p></td>
+<td><p>A slider representing a floating point range.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Subplot.html#smpl.plot.Subplot" title="smpl.plot.Subplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Subplot</span></code></a></p></td>
+<td><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">AxesSubplot</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.SubplotSpec.html#smpl.plot.SubplotSpec" title="smpl.plot.SubplotSpec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SubplotSpec</span></code></a>(gridspec, num1[, num2])</p></td>
+<td><p>The location of a subplot in a <cite>GridSpec</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Text.html#smpl.plot.Text" title="smpl.plot.Text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Text</span></code></a>([x, y, text, color, verticalalignment, ...])</p></td>
+<td><p>Handle storing and drawing of text in window or data coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.plot.TickHelper.html#smpl.plot.TickHelper" title="smpl.plot.TickHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TickHelper</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.plot.Widget.html#smpl.plot.Widget" title="smpl.plot.Widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Widget</span></code></a>()</p></td>
+<td><p>Abstract base class for GUI neutral widgets.</p></td>
 </tr>
 </tbody>
 </table>
@@ -328,8 +1190,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="smpl.plot.auto.html" class="btn btn-neutral float-right" title="smpl.plot.auto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="smpl.parallel.res.html" class="btn btn-neutral float-left" title="smpl.parallel.res" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smpl.plot.acorr.html" class="btn btn-neutral float-right" title="smpl.plot.acorr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.parallel.Process.html" class="btn btn-neutral float-left" title="smpl.parallel.Process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

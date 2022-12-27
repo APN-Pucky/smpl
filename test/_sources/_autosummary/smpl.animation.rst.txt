@@ -32,6 +32,7 @@ smpl.animation
       :template: custom-class-template.rst               
    
       FigAnimation
+      FigureCanvasAgg
    
    
 

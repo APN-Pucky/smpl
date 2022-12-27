@@ -1,0 +1,6 @@
+smpl.plot.polar
+===============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: polar

@@ -1,0 +1,6 @@
+smpl.plot.close
+===============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: close

@@ -1,0 +1,6 @@
+smpl.plot.grid
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: grid

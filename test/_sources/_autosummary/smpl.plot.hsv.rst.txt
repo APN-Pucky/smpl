@@ -1,0 +1,6 @@
+smpl.plot.hsv
+=============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: hsv

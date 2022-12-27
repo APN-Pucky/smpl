@@ -1,0 +1,6 @@
+smpl.plot.ylim
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: ylim

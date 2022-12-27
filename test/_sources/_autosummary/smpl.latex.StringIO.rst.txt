@@ -1,0 +1,52 @@
+smpl.latex.StringIO
+===================
+
+.. currentmodule:: smpl.latex
+
+.. autoclass:: StringIO
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~StringIO.__init__
+      ~StringIO.close
+      ~StringIO.detach
+      ~StringIO.fileno
+      ~StringIO.flush
+      ~StringIO.getvalue
+      ~StringIO.isatty
+      ~StringIO.read
+      ~StringIO.readable
+      ~StringIO.readline
+      ~StringIO.readlines
+      ~StringIO.seek
+      ~StringIO.seekable
+      ~StringIO.tell
+      ~StringIO.truncate
+      ~StringIO.writable
+      ~StringIO.write
+      ~StringIO.writelines
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~StringIO.closed
+      ~StringIO.encoding
+      ~StringIO.errors
+      ~StringIO.line_buffering
+      ~StringIO.newlines
+   
+   

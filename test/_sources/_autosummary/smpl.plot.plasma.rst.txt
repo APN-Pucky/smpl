@@ -1,0 +1,6 @@
+smpl.plot.plasma
+================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: plasma

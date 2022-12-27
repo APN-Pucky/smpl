@@ -15,6 +15,7 @@ smpl.debug
       :toctree:                                         
    
       check_count
+      currentframe
       file
       file1
       get_count
@@ -22,6 +23,7 @@ smpl.debug
       get_line_number
       get_line_number_file
       get_line_src
+      getsource
       inc_count
       line
       line1

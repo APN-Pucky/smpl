@@ -1,0 +1,6 @@
+smpl.interpolate.unv
+====================
+
+.. currentmodule:: smpl.interpolate
+
+.. autofunction:: unv

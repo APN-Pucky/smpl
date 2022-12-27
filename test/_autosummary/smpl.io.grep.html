@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="smpl.io.head" href="smpl.io.head.html" />
-    <link rel="prev" title="smpl.io.gf" href="smpl.io.gf.html" /> 
+    <link rel="prev" title="smpl.io.glob_re" href="smpl.io.glob_re.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                1.0.3-5-g0d615f42
+                1.0.3-6-gc4dde1e5
               </div>
             
           
@@ -119,6 +119,7 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
@@ -131,6 +132,7 @@
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.files.html">smpl.io.files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.find_file.html">smpl.io.find_file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.gf.html">smpl.io.gf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.io.glob_re.html">smpl.io.glob_re</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">smpl.io.grep</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#smpl.io.grep"><code class="docutils literal notranslate"><span class="pre">grep()</span></code></a></li>
 </ul>
@@ -140,11 +142,14 @@
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.mkdirs.html">smpl.io.mkdirs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.pn.html">smpl.io.pn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.pr.html">smpl.io.pr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.io.pushd.html">smpl.io.pushd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.pwd.html">smpl.io.pwd</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.read.html">smpl.io.read</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.remove.html">smpl.io.remove</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.tail.html">smpl.io.tail</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.io.write.html">smpl.io.write</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.io.Path.html">smpl.io.Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.io.StringIO.html">smpl.io.StringIO</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
@@ -260,7 +265,7 @@
 <h1>smpl.io.grep<a class="headerlink" href="#smpl-io-grep" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.io.grep">
-<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">grep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/io.html#grep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.grep" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl.io.</span></span><span class="sig-name descname"><span class="pre">grep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl_io/io.html#grep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.io.grep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for <code class="docutils literal notranslate"><span class="pre">pattern</span></code> in <code class="docutils literal notranslate"><span class="pre">inp</span></code>.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">,</span><span class="s2">&quot;hi</span><span class="se">\n</span><span class="s2">ho1</span><span class="se">\n</span><span class="s2">2</span><span class="se">\n</span><span class="s2">3</span><span class="se">\n</span><span class="s2">4</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -279,7 +284,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="smpl.io.head.html" class="btn btn-neutral float-right" title="smpl.io.head" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="smpl.io.gf.html" class="btn btn-neutral float-left" title="smpl.io.gf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smpl.io.glob_re.html" class="btn btn-neutral float-left" title="smpl.io.glob_re" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
