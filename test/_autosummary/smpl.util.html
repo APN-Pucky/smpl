@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                1.0.3-6-gc4dde1e5
+                1.0.3-8-gfb8e1de3
               </div>
             
           
@@ -138,8 +138,10 @@
 <li class="toctree-l3"><a class="reference internal" href="smpl.util.find_nearest_index.html">smpl.util.find_nearest_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.util.get.html">smpl.util.get</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.util.has.html">smpl.util.has</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.util.rename.html">smpl.util.rename</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.util.times.html">smpl.util.times</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.util.true.html">smpl.util.true</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.util.withify.html">smpl.util.withify</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
@@ -245,7 +247,7 @@
 </style>
 <section id="module-smpl.util">
 <span id="smpl-util"></span><h1>smpl.util<a class="headerlink" href="#module-smpl.util" title="Permalink to this heading">¶</a></h1>
-<p>Simplified general utilities.</p>
+<p>Moved to &lt;<a class="reference external" href="https://apn-pucky.github.io/smpl_util/">https://apn-pucky.github.io/smpl_util/</a>&gt;</p>
 <p class="rubric">Functions</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
@@ -261,11 +263,17 @@
 <tr class="row-even"><td><p><a class="reference internal" href="smpl.util.has.html#smpl.util.has" title="smpl.util.has"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has</span></code></a>(key, ddict)</p></td>
 <td><p>Checks if the key is in the dict and not None.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="smpl.util.times.html#smpl.util.times" title="smpl.util.times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">times</span></code></a>(s, n)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.util.rename.html#smpl.util.rename" title="smpl.util.rename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename</span></code></a>(old, new[, warning])</p></td>
+<td><p>Annotation to replace the name of a function argument.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.util.times.html#smpl.util.times" title="smpl.util.times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">times</span></code></a>(s, n)</p></td>
 <td><p>Concats string <code class="docutils literal notranslate"><span class="pre">s</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code> times.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="smpl.util.true.html#smpl.util.true" title="smpl.util.true"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code></a>(key, ddict)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="smpl.util.true.html#smpl.util.true" title="smpl.util.true"><code class="xref py py-obj docutils literal notranslate"><span class="pre">true</span></code></a>(key, ddict)</p></td>
 <td><p>Checks if the key is in the dict and not None and True.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="smpl.util.withify.html#smpl.util.withify" title="smpl.util.withify"><code class="xref py py-obj docutils literal notranslate"><span class="pre">withify</span></code></a>([prefix, sufix, override])</p></td>
+<td><p>Decorator to add <a href="#id1"><span class="problematic" id="id2">with_</span></a> methods to a class.</p></td>
 </tr>
 </tbody>
 </table>

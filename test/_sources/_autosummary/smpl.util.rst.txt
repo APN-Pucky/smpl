@@ -18,8 +18,10 @@ smpl.util
       find_nearest_index
       get
       has
+      rename
       times
       true
+      withify
    
    
 
