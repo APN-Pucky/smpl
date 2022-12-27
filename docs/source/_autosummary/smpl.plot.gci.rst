@@ -1,6 +1,0 @@
-smpl.plot.gci
-=============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: gci

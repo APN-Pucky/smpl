@@ -1,6 +1,0 @@
-smpl.plot.plot\_date
-====================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: plot_date

@@ -1,6 +1,0 @@
-smpl.stat.floor
-===============
-
-.. currentmodule:: smpl.stat
-
-.. autofunction:: floor

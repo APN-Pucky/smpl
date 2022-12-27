@@ -1,6 +1,0 @@
-smpl.plot.boxplot
-=================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: boxplot

@@ -1,6 +1,0 @@
-smpl.plot.margins
-=================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: margins

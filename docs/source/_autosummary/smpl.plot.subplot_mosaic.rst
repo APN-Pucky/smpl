@@ -1,6 +1,0 @@
-smpl.plot.subplot\_mosaic
-=========================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: subplot_mosaic

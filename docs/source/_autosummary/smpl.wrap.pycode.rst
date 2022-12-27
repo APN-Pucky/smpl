@@ -1,6 +1,0 @@
-smpl.wrap.pycode
-================
-
-.. currentmodule:: smpl.wrap
-
-.. autofunction:: pycode

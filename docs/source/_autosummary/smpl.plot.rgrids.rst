@@ -1,6 +1,0 @@
-smpl.plot.rgrids
-================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: rgrids

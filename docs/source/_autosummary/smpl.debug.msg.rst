@@ -1,6 +1,0 @@
-smpl.debug.msg
-==============
-
-.. currentmodule:: smpl.debug
-
-.. autofunction:: msg

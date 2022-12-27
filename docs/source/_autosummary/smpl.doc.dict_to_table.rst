@@ -1,6 +1,0 @@
-smpl.doc.dict\_to\_table
-========================
-
-.. currentmodule:: smpl.doc
-
-.. autofunction:: dict_to_table

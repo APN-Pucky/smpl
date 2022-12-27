@@ -1,6 +1,0 @@
-smpl.wrap.TokenError
-====================
-
-.. currentmodule:: smpl.wrap
-
-.. autoexception:: TokenError

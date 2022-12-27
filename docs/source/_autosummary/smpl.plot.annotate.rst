@@ -1,6 +1,0 @@
-smpl.plot.annotate
-==================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: annotate

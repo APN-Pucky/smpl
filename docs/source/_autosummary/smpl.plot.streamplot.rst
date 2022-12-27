@@ -1,6 +1,0 @@
-smpl.plot.streamplot
-====================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: streamplot

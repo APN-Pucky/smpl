@@ -1,6 +1,0 @@
-smpl.io.glob\_re
-================
-
-.. currentmodule:: smpl.io
-
-.. autofunction:: glob_re

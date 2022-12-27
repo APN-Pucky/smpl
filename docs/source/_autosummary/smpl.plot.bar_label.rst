@@ -1,6 +1,0 @@
-smpl.plot.bar\_label
-====================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: bar_label

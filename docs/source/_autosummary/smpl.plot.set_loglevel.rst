@@ -1,6 +1,0 @@
-smpl.plot.set\_loglevel
-=======================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: set_loglevel

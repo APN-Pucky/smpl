@@ -1,6 +1,0 @@
-smpl.plot.get\_current\_fig\_manager
-====================================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: get_current_fig_manager

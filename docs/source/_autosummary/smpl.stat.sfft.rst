@@ -1,6 +1,0 @@
-smpl.stat.sfft
-==============
-
-.. currentmodule:: smpl.stat
-
-.. autofunction:: sfft

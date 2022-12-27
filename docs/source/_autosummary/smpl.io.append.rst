@@ -1,6 +1,0 @@
-smpl.io.append
-==============
-
-.. currentmodule:: smpl.io
-
-.. autofunction:: append
