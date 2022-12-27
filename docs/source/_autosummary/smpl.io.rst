@@ -18,12 +18,14 @@ smpl.io
       files
       find_file
       gf
+      glob_re
       grep
       head
       import_path
       mkdirs
       pn
       pr
+      pushd
       pwd
       read
       remove
@@ -33,6 +35,15 @@ smpl.io
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Path
+      StringIO
    
    
 

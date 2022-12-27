@@ -1,0 +1,6 @@
+smpl.plot.get\_scale\_names
+===========================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: get_scale_names

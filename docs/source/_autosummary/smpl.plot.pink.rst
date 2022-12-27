@@ -1,0 +1,6 @@
+smpl.plot.pink
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: pink

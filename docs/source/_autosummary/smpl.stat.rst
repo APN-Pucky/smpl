@@ -1,4 +1,4 @@
-﻿smpl.stat
+smpl.stat
 =========
 
 .. automodule:: smpl.stat
@@ -18,10 +18,15 @@
       R2
       average_deviation
       chi2
+      derivative
       fft
+      fftfreq
+      fftshift
+      floor
       get_domain
       get_interesting_domain
       is_monotone
+      log10
       mean
       no_dist
       noisy
@@ -31,8 +36,11 @@
       poisson_dist
       r2
       round_sig
+      sfft
       trim_domain
+      unv
       unv_lambda
+      usd
    
    
 

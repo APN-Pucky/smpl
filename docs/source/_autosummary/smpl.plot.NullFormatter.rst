@@ -1,0 +1,43 @@
+smpl.plot.NullFormatter
+=======================
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: NullFormatter
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~NullFormatter.__init__
+      ~NullFormatter.create_dummy_axis
+      ~NullFormatter.fix_minus
+      ~NullFormatter.format_data
+      ~NullFormatter.format_data_short
+      ~NullFormatter.format_ticks
+      ~NullFormatter.get_offset
+      ~NullFormatter.set_axis
+      ~NullFormatter.set_bounds
+      ~NullFormatter.set_data_interval
+      ~NullFormatter.set_locs
+      ~NullFormatter.set_view_interval
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~NullFormatter.axis
+      ~NullFormatter.locs
+   
+   

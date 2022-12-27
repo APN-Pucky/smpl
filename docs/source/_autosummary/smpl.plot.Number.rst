@@ -1,0 +1,25 @@
+smpl.plot.Number
+================
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: Number
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Number.__init__
+   
+   
+
+   
+   
+   

@@ -1,0 +1,30 @@
+smpl.plot.ExitStack
+===================
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: ExitStack
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ExitStack.__init__
+      ~ExitStack.callback
+      ~ExitStack.close
+      ~ExitStack.enter_context
+      ~ExitStack.pop_all
+      ~ExitStack.push
+   
+   
+
+   
+   
+   

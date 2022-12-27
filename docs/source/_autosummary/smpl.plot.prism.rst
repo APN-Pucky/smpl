@@ -1,0 +1,6 @@
+smpl.plot.prism
+===============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: prism

@@ -1,4 +1,4 @@
-﻿smpl.doc
+smpl.doc
 ========
 
 .. automodule:: smpl.doc

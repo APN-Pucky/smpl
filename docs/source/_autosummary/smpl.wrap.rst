@@ -20,6 +20,8 @@ smpl.wrap
       get_lambda_argd
       get_latex
       get_varnames
+      implicit_multiplication_application
+      pycode
       str_get_expr
       str_get_lambda
       str_get_varnames
@@ -31,5 +33,12 @@ smpl.wrap
    
 
    
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      TokenError
    
    

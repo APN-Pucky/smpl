@@ -1,0 +1,6 @@
+smpl.plot.semilogy
+==================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: semilogy

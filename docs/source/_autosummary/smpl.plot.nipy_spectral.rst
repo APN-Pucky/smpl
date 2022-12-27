@@ -1,0 +1,6 @@
+smpl.plot.nipy\_spectral
+========================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: nipy_spectral

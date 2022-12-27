@@ -1,4 +1,4 @@
-﻿smpl.parallel
+smpl.parallel
 =============
 
 .. automodule:: smpl.parallel
@@ -14,6 +14,8 @@
    .. autosummary::
       :toctree:                                         
    
+      Queue
+      append_doc
       calc
       gen
       par
@@ -25,6 +27,14 @@
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      Process
    
    
 

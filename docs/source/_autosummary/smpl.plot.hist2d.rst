@@ -1,0 +1,6 @@
+smpl.plot.hist2d
+================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: hist2d

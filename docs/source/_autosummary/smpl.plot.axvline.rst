@@ -1,0 +1,6 @@
+smpl.plot.axvline
+=================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: axvline

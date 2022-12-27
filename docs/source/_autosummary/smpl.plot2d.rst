@@ -1,4 +1,4 @@
-﻿smpl.plot2d
+smpl.plot2d
 ===========
 
 .. automodule:: smpl.plot2d
@@ -24,6 +24,14 @@
    
 
    
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      NonUniformImage
    
    
 

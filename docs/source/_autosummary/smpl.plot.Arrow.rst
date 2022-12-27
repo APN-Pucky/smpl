@@ -1,0 +1,135 @@
+smpl.plot.Arrow
+===============
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: Arrow
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Arrow.__init__
+      ~Arrow.add_callback
+      ~Arrow.contains
+      ~Arrow.contains_point
+      ~Arrow.contains_points
+      ~Arrow.convert_xunits
+      ~Arrow.convert_yunits
+      ~Arrow.draw
+      ~Arrow.findobj
+      ~Arrow.format_cursor_data
+      ~Arrow.get_aa
+      ~Arrow.get_agg_filter
+      ~Arrow.get_alpha
+      ~Arrow.get_animated
+      ~Arrow.get_antialiased
+      ~Arrow.get_capstyle
+      ~Arrow.get_children
+      ~Arrow.get_clip_box
+      ~Arrow.get_clip_on
+      ~Arrow.get_clip_path
+      ~Arrow.get_cursor_data
+      ~Arrow.get_data_transform
+      ~Arrow.get_ec
+      ~Arrow.get_edgecolor
+      ~Arrow.get_extents
+      ~Arrow.get_facecolor
+      ~Arrow.get_fc
+      ~Arrow.get_figure
+      ~Arrow.get_fill
+      ~Arrow.get_gid
+      ~Arrow.get_hatch
+      ~Arrow.get_in_layout
+      ~Arrow.get_joinstyle
+      ~Arrow.get_label
+      ~Arrow.get_linestyle
+      ~Arrow.get_linewidth
+      ~Arrow.get_ls
+      ~Arrow.get_lw
+      ~Arrow.get_mouseover
+      ~Arrow.get_patch_transform
+      ~Arrow.get_path
+      ~Arrow.get_path_effects
+      ~Arrow.get_picker
+      ~Arrow.get_rasterized
+      ~Arrow.get_sketch_params
+      ~Arrow.get_snap
+      ~Arrow.get_tightbbox
+      ~Arrow.get_transform
+      ~Arrow.get_transformed_clip_path_and_affine
+      ~Arrow.get_url
+      ~Arrow.get_verts
+      ~Arrow.get_visible
+      ~Arrow.get_window_extent
+      ~Arrow.get_zorder
+      ~Arrow.have_units
+      ~Arrow.is_transform_set
+      ~Arrow.pchanged
+      ~Arrow.pick
+      ~Arrow.pickable
+      ~Arrow.properties
+      ~Arrow.remove
+      ~Arrow.remove_callback
+      ~Arrow.set
+      ~Arrow.set_aa
+      ~Arrow.set_agg_filter
+      ~Arrow.set_alpha
+      ~Arrow.set_animated
+      ~Arrow.set_antialiased
+      ~Arrow.set_capstyle
+      ~Arrow.set_clip_box
+      ~Arrow.set_clip_on
+      ~Arrow.set_clip_path
+      ~Arrow.set_color
+      ~Arrow.set_ec
+      ~Arrow.set_edgecolor
+      ~Arrow.set_facecolor
+      ~Arrow.set_fc
+      ~Arrow.set_figure
+      ~Arrow.set_fill
+      ~Arrow.set_gid
+      ~Arrow.set_hatch
+      ~Arrow.set_in_layout
+      ~Arrow.set_joinstyle
+      ~Arrow.set_label
+      ~Arrow.set_linestyle
+      ~Arrow.set_linewidth
+      ~Arrow.set_ls
+      ~Arrow.set_lw
+      ~Arrow.set_mouseover
+      ~Arrow.set_path_effects
+      ~Arrow.set_picker
+      ~Arrow.set_rasterized
+      ~Arrow.set_sketch_params
+      ~Arrow.set_snap
+      ~Arrow.set_transform
+      ~Arrow.set_url
+      ~Arrow.set_visible
+      ~Arrow.set_zorder
+      ~Arrow.update
+      ~Arrow.update_from
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Arrow.axes
+      ~Arrow.fill
+      ~Arrow.mouseover
+      ~Arrow.stale
+      ~Arrow.sticky_edges
+      ~Arrow.zorder
+   
+   

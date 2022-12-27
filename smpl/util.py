@@ -1,7 +1,10 @@
 """Simplified general utilities."""
 import numpy as np
 
+from smpl import doc
 
+
+@doc.deprecated("1.0.3", "Use `s*n` instead.")
 def times(s, n):
     """
     Concats string ``s`` ``n`` times.

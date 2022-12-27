@@ -1,0 +1,6 @@
+smpl.plot.waitforbuttonpress
+============================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: waitforbuttonpress

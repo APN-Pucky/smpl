@@ -1,0 +1,6 @@
+smpl.plot.tight\_layout
+=======================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: tight_layout

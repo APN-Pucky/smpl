@@ -1,0 +1,6 @@
+smpl.plot.axes
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: axes

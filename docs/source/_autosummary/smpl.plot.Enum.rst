@@ -1,0 +1,26 @@
+smpl.plot.Enum
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: Enum
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Enum.name
+      ~Enum.value
+   
+   

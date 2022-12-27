@@ -1,0 +1,6 @@
+smpl.fit.unv
+============
+
+.. currentmodule:: smpl.fit
+
+.. autofunction:: unv

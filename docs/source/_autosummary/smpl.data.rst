@@ -1,4 +1,4 @@
-﻿smpl.data
+smpl.data
 =========
 
 .. automodule:: smpl.data
@@ -17,6 +17,8 @@
       data_kwargs
       filtered_data_split
       flatmesh
+      unv
+      usd
    
    
 

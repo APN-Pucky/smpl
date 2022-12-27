@@ -1,0 +1,6 @@
+smpl.plot.uninstall\_repl\_displayhook
+======================================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: uninstall_repl_displayhook

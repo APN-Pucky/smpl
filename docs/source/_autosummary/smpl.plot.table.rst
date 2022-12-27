@@ -1,0 +1,6 @@
+smpl.plot.table
+===============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: table

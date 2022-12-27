@@ -1,0 +1,6 @@
+smpl.plot.phase\_spectrum
+=========================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: phase_spectrum

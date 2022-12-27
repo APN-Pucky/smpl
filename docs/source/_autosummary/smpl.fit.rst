@@ -1,4 +1,4 @@
-﻿smpl.fit
+smpl.fit
 ========
 
 .. automodule:: smpl.fit
@@ -21,6 +21,8 @@
       fit
       fit_kwargs
       fit_split
+      unv
+      usd
    
    
 
@@ -33,9 +35,20 @@
       :template: custom-class-template.rst               
    
       Fitter
+      Model
+      ODR
+      RealData
+      tqdm
    
    
 
    
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      LinAlgError
    
    

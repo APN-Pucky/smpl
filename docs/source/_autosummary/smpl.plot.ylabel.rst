@@ -1,0 +1,6 @@
+smpl.plot.ylabel
+================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: ylabel

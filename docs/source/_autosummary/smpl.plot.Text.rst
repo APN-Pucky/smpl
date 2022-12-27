@@ -1,0 +1,172 @@
+smpl.plot.Text
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: Text
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Text.__init__
+      ~Text.add_callback
+      ~Text.contains
+      ~Text.convert_xunits
+      ~Text.convert_yunits
+      ~Text.draw
+      ~Text.findobj
+      ~Text.format_cursor_data
+      ~Text.get_agg_filter
+      ~Text.get_alpha
+      ~Text.get_animated
+      ~Text.get_bbox_patch
+      ~Text.get_c
+      ~Text.get_children
+      ~Text.get_clip_box
+      ~Text.get_clip_on
+      ~Text.get_clip_path
+      ~Text.get_color
+      ~Text.get_cursor_data
+      ~Text.get_family
+      ~Text.get_figure
+      ~Text.get_font
+      ~Text.get_font_properties
+      ~Text.get_fontfamily
+      ~Text.get_fontname
+      ~Text.get_fontproperties
+      ~Text.get_fontsize
+      ~Text.get_fontstyle
+      ~Text.get_fontvariant
+      ~Text.get_fontweight
+      ~Text.get_gid
+      ~Text.get_ha
+      ~Text.get_horizontalalignment
+      ~Text.get_in_layout
+      ~Text.get_label
+      ~Text.get_math_fontfamily
+      ~Text.get_mouseover
+      ~Text.get_name
+      ~Text.get_parse_math
+      ~Text.get_path_effects
+      ~Text.get_picker
+      ~Text.get_position
+      ~Text.get_prop_tup
+      ~Text.get_rasterized
+      ~Text.get_rotation
+      ~Text.get_rotation_mode
+      ~Text.get_size
+      ~Text.get_sketch_params
+      ~Text.get_snap
+      ~Text.get_stretch
+      ~Text.get_style
+      ~Text.get_text
+      ~Text.get_tightbbox
+      ~Text.get_transform
+      ~Text.get_transform_rotates_text
+      ~Text.get_transformed_clip_path_and_affine
+      ~Text.get_unitless_position
+      ~Text.get_url
+      ~Text.get_usetex
+      ~Text.get_va
+      ~Text.get_variant
+      ~Text.get_verticalalignment
+      ~Text.get_visible
+      ~Text.get_weight
+      ~Text.get_window_extent
+      ~Text.get_wrap
+      ~Text.get_zorder
+      ~Text.have_units
+      ~Text.is_transform_set
+      ~Text.pchanged
+      ~Text.pick
+      ~Text.pickable
+      ~Text.properties
+      ~Text.remove
+      ~Text.remove_callback
+      ~Text.set
+      ~Text.set_agg_filter
+      ~Text.set_alpha
+      ~Text.set_animated
+      ~Text.set_backgroundcolor
+      ~Text.set_bbox
+      ~Text.set_c
+      ~Text.set_clip_box
+      ~Text.set_clip_on
+      ~Text.set_clip_path
+      ~Text.set_color
+      ~Text.set_family
+      ~Text.set_figure
+      ~Text.set_font
+      ~Text.set_font_properties
+      ~Text.set_fontfamily
+      ~Text.set_fontname
+      ~Text.set_fontproperties
+      ~Text.set_fontsize
+      ~Text.set_fontstretch
+      ~Text.set_fontstyle
+      ~Text.set_fontvariant
+      ~Text.set_fontweight
+      ~Text.set_gid
+      ~Text.set_ha
+      ~Text.set_horizontalalignment
+      ~Text.set_in_layout
+      ~Text.set_label
+      ~Text.set_linespacing
+      ~Text.set_ma
+      ~Text.set_math_fontfamily
+      ~Text.set_mouseover
+      ~Text.set_multialignment
+      ~Text.set_name
+      ~Text.set_parse_math
+      ~Text.set_path_effects
+      ~Text.set_picker
+      ~Text.set_position
+      ~Text.set_rasterized
+      ~Text.set_rotation
+      ~Text.set_rotation_mode
+      ~Text.set_size
+      ~Text.set_sketch_params
+      ~Text.set_snap
+      ~Text.set_stretch
+      ~Text.set_style
+      ~Text.set_text
+      ~Text.set_transform
+      ~Text.set_transform_rotates_text
+      ~Text.set_url
+      ~Text.set_usetex
+      ~Text.set_va
+      ~Text.set_variant
+      ~Text.set_verticalalignment
+      ~Text.set_visible
+      ~Text.set_weight
+      ~Text.set_wrap
+      ~Text.set_x
+      ~Text.set_y
+      ~Text.set_zorder
+      ~Text.update
+      ~Text.update_bbox_position_size
+      ~Text.update_from
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Text.axes
+      ~Text.mouseover
+      ~Text.stale
+      ~Text.sticky_edges
+      ~Text.zorder
+   
+   

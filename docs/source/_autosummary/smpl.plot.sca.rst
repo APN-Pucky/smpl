@@ -1,0 +1,6 @@
+smpl.plot.sca
+=============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: sca

@@ -1,0 +1,54 @@
+smpl.plot.ScalarFormatter
+=========================
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: ScalarFormatter
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ScalarFormatter.__init__
+      ~ScalarFormatter.create_dummy_axis
+      ~ScalarFormatter.fix_minus
+      ~ScalarFormatter.format_data
+      ~ScalarFormatter.format_data_short
+      ~ScalarFormatter.format_ticks
+      ~ScalarFormatter.get_offset
+      ~ScalarFormatter.get_useLocale
+      ~ScalarFormatter.get_useMathText
+      ~ScalarFormatter.get_useOffset
+      ~ScalarFormatter.set_axis
+      ~ScalarFormatter.set_bounds
+      ~ScalarFormatter.set_data_interval
+      ~ScalarFormatter.set_locs
+      ~ScalarFormatter.set_powerlimits
+      ~ScalarFormatter.set_scientific
+      ~ScalarFormatter.set_useLocale
+      ~ScalarFormatter.set_useMathText
+      ~ScalarFormatter.set_useOffset
+      ~ScalarFormatter.set_view_interval
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ScalarFormatter.axis
+      ~ScalarFormatter.locs
+      ~ScalarFormatter.useLocale
+      ~ScalarFormatter.useMathText
+      ~ScalarFormatter.useOffset
+   
+   

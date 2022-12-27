@@ -1,0 +1,29 @@
+smpl.fit.ODR
+============
+
+.. currentmodule:: smpl.fit
+
+.. autoclass:: ODR
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ODR.__init__
+      ~ODR.restart
+      ~ODR.run
+      ~ODR.set_iprint
+      ~ODR.set_job
+   
+   
+
+   
+   
+   

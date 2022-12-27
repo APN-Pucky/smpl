@@ -1,0 +1,6 @@
+smpl.plot.get\_fignums
+======================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: get_fignums

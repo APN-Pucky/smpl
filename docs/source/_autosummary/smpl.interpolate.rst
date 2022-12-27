@@ -1,4 +1,4 @@
-﻿smpl.interpolate
+smpl.interpolate
 ================
 
 .. automodule:: smpl.interpolate
@@ -14,11 +14,16 @@
    .. autosummary::
       :toctree:                                         
    
+      append_doc
+      append_str
       check
       identity
       interpolate
       interpolate_kwargs
       interpolate_split
+      table
+      unv
+      usd
    
    
 

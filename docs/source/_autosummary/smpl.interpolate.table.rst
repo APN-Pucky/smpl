@@ -1,0 +1,6 @@
+smpl.interpolate.table
+======================
+
+.. currentmodule:: smpl.interpolate
+
+.. autofunction:: table

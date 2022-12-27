@@ -1,0 +1,6 @@
+smpl.plot.step
+==============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: step

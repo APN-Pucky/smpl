@@ -1,0 +1,6 @@
+smpl.plot.subplots
+==================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: subplots
