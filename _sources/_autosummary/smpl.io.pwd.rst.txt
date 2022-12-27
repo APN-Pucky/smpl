@@ -1,0 +1,6 @@
+smpl.io.pwd
+===========
+
+.. currentmodule:: smpl.io
+
+.. autofunction:: pwd

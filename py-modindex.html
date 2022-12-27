@@ -16,7 +16,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="_static/style.css" type="text/css" />
 
   
@@ -40,6 +41,9 @@
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
@@ -74,7 +78,7 @@
             
             
               <div class="version">
-                1.0.3
+                1.1.1
               </div>
             
           
@@ -99,12 +103,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 </ul>
@@ -112,14 +111,20 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="example/index.html">Examples</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.html">smpl</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="performance/index.html">Graph Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
 </ul>
 
             
@@ -198,162 +203,82 @@
        <td><img src="_static/minus.png" class="toggler"
               id="toggle-1" style="display: none" alt="-" /></td>
        <td>
-       <a href="autoapi/smpl/index.html#module-smpl"><code class="xref">smpl</code></a></td><td>
+       <a href="_autosummary/smpl.html#module-smpl"><code class="xref">smpl</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/animation/index.html#module-smpl.animation"><code class="xref">smpl.animation</code></a></td><td>
+       <a href="_autosummary/smpl.animation.html#module-smpl.animation"><code class="xref">smpl.animation</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/animation/animation/index.html#module-smpl.animation.animation"><code class="xref">smpl.animation.animation</code></a></td><td>
+       <a href="_autosummary/smpl.data.html#module-smpl.data"><code class="xref">smpl.data</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/data/index.html#module-smpl.data"><code class="xref">smpl.data</code></a></td><td>
+       <a href="_autosummary/smpl.debug.html#module-smpl.debug"><code class="xref">smpl.debug</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/data/data/index.html#module-smpl.data.data"><code class="xref">smpl.data.data</code></a></td><td>
+       <a href="_autosummary/smpl.doc.html#module-smpl.doc"><code class="xref">smpl.doc</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/debug/index.html#module-smpl.debug"><code class="xref">smpl.debug</code></a></td><td>
+       <a href="_autosummary/smpl.fit.html#module-smpl.fit"><code class="xref">smpl.fit</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/debug/debug/index.html#module-smpl.debug.debug"><code class="xref">smpl.debug.debug</code></a></td><td>
+       <a href="_autosummary/smpl.functions.html#module-smpl.functions"><code class="xref">smpl.functions</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/doc/index.html#module-smpl.doc"><code class="xref">smpl.doc</code></a></td><td>
+       <a href="_autosummary/smpl.interpolate.html#module-smpl.interpolate"><code class="xref">smpl.interpolate</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/doc/doc/index.html#module-smpl.doc.doc"><code class="xref">smpl.doc.doc</code></a></td><td>
+       <a href="_autosummary/smpl.io.html#module-smpl.io"><code class="xref">smpl.io</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/fit/index.html#module-smpl.fit"><code class="xref">smpl.fit</code></a></td><td>
+       <a href="_autosummary/smpl.latex.html#module-smpl.latex"><code class="xref">smpl.latex</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/fit/fit/index.html#module-smpl.fit.fit"><code class="xref">smpl.fit.fit</code></a></td><td>
+       <a href="_autosummary/smpl.parallel.html#module-smpl.parallel"><code class="xref">smpl.parallel</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/fit/minuit/index.html#module-smpl.fit.minuit"><code class="xref">smpl.fit.minuit</code></a></td><td>
+       <a href="_autosummary/smpl.plot.html#module-smpl.plot"><code class="xref">smpl.plot</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/fit/scipy/index.html#module-smpl.fit.scipy"><code class="xref">smpl.fit.scipy</code></a></td><td>
+       <a href="_autosummary/smpl.plot2d.html#module-smpl.plot2d"><code class="xref">smpl.plot2d</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/functions/index.html#module-smpl.functions"><code class="xref">smpl.functions</code></a></td><td>
+       <a href="_autosummary/smpl.stat.html#module-smpl.stat"><code class="xref">smpl.stat</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/functions/functions/index.html#module-smpl.functions.functions"><code class="xref">smpl.functions.functions</code></a></td><td>
+       <a href="_autosummary/smpl.util.html#module-smpl.util"><code class="xref">smpl.util</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/interpolate/index.html#module-smpl.interpolate"><code class="xref">smpl.interpolate</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/interpolate/interpolate/index.html#module-smpl.interpolate.interpolate"><code class="xref">smpl.interpolate.interpolate</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/io/index.html#module-smpl.io"><code class="xref">smpl.io</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/io/io/index.html#module-smpl.io.io"><code class="xref">smpl.io.io</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/latex/index.html#module-smpl.latex"><code class="xref">smpl.latex</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/latex/latex/index.html#module-smpl.latex.latex"><code class="xref">smpl.latex.latex</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/parallel/index.html#module-smpl.parallel"><code class="xref">smpl.parallel</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/parallel/parallel/index.html#module-smpl.parallel.parallel"><code class="xref">smpl.parallel.parallel</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/plot/index.html#module-smpl.plot"><code class="xref">smpl.plot</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/plot/plot/index.html#module-smpl.plot.plot"><code class="xref">smpl.plot.plot</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/plot/plot2d/index.html#module-smpl.plot.plot2d"><code class="xref">smpl.plot.plot2d</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/stat/index.html#module-smpl.stat"><code class="xref">smpl.stat</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/stat/stat/index.html#module-smpl.stat.stat"><code class="xref">smpl.stat.stat</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/util/index.html#module-smpl.util"><code class="xref">smpl.util</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/util/util/index.html#module-smpl.util.util"><code class="xref">smpl.util.util</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/wrap/index.html#module-smpl.wrap"><code class="xref">smpl.wrap</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="autoapi/smpl/wrap/wrap/index.html#module-smpl.wrap.wrap"><code class="xref">smpl.wrap.wrap</code></a></td><td>
+       <a href="_autosummary/smpl.wrap.html#module-smpl.wrap"><code class="xref">smpl.wrap</code></a></td><td>
        <em></em></td></tr>
    </table>
 

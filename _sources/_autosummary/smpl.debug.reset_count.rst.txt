@@ -1,0 +1,6 @@
+smpl.debug.reset\_count
+=======================
+
+.. currentmodule:: smpl.debug
+
+.. autofunction:: reset_count

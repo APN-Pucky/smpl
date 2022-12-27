@@ -1,0 +1,6 @@
+smpl.plot.switch\_backend
+=========================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: switch_backend

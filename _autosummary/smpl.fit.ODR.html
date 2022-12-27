@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.fit.ODR &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.fit.RealData" href="smpl.fit.RealData.html" />
+    <link rel="prev" title="smpl.fit.Model" href="smpl.fit.Model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="smpl.fit.html">smpl.fit</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.Chi2.html">smpl.fit.Chi2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.R2.html">smpl.fit.R2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.auto.html">smpl.fit.auto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.data_split.html">smpl.fit.data_split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.fit.html">smpl.fit.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.fit_kwargs.html">smpl.fit.fit_kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.fit_split.html">smpl.fit.fit_split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.unv.html">smpl.fit.unv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.usd.html">smpl.fit.usd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.Fitter.html">smpl.fit.Fitter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.Model.html">smpl.fit.Model</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">smpl.fit.ODR</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#smpl.fit.ODR"><code class="docutils literal notranslate"><span class="pre">ODR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.RealData.html">smpl.fit.RealData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.tqdm.html">smpl.fit.tqdm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.LinAlgError.html">smpl.fit.LinAlgError</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.functions.html">smpl.functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.interpolate.html">smpl.interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.io.html">smpl.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.parallel.html">smpl.parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot.html">smpl.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot2d.html">smpl.plot2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.stat.html">smpl.stat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.util.html">smpl.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="smpl.html">smpl</a> &raquo;</li>
+        
+          <li><a href="smpl.fit.html">smpl.fit</a> &raquo;</li>
+        
+      <li>smpl.fit.ODR</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/_autosummary/smpl.fit.ODR.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="smpl-fit-odr">
+<h1>smpl.fit.ODR<a class="headerlink" href="#smpl-fit-odr" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="smpl.fit.ODR">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">ODR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifixb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifixx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rptfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndigit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taufac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sstol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stpb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stpd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sclb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iwork</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#ODR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.ODR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The ODR class gathers all information and coordinates the running of the
+main fitting routine.</p>
+<p>Members of instances of the ODR class have the same names as the arguments
+to the initialization routine.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>data<span class="classifier">Data class instance</span></dt><dd><p>instance of the Data class</p>
+</dd>
+<dt>model<span class="classifier">Model class instance</span></dt><dd><p>instance of the Model class</p>
+</dd>
+</dl>
+</section>
+<section id="other-parameters">
+<h2>Other Parameters<a class="headerlink" href="#other-parameters" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>beta0<span class="classifier">array_like of rank-1</span></dt><dd><p>a rank-1 sequence of initial parameter values. Optional if
+model provides an “estimate” function to estimate these values.</p>
+</dd>
+<dt>delta0<span class="classifier">array_like of floats of rank-1, optional</span></dt><dd><p>a (double-precision) float array to hold the initial values of
+the errors in the input variables. Must be same shape as data.x</p>
+</dd>
+<dt>ifixb<span class="classifier">array_like of ints of rank-1, optional</span></dt><dd><p>sequence of integers with the same length as beta0 that determines
+which parameters are held fixed. A value of 0 fixes the parameter,
+a value &gt; 0 makes the parameter free.</p>
+</dd>
+<dt>ifixx<span class="classifier">array_like of ints with same shape as data.x, optional</span></dt><dd><p>an array of integers with the same shape as data.x that determines
+which input observations are treated as fixed. One can use a sequence
+of length m (the dimensionality of the input observations) to fix some
+dimensions for all observations. A value of 0 fixes the observation,
+a value &gt; 0 makes it free.</p>
+</dd>
+<dt>job<span class="classifier">int, optional</span></dt><dd><p>an integer telling ODRPACK what tasks to perform. See p. 31 of the
+ODRPACK User’s Guide if you absolutely must set the value here. Use the
+method set_job post-initialization for a more readable interface.</p>
+</dd>
+<dt>iprint<span class="classifier">int, optional</span></dt><dd><p>an integer telling ODRPACK what to print. See pp. 33-34 of the
+ODRPACK User’s Guide if you absolutely must set the value here. Use the
+method set_iprint post-initialization for a more readable interface.</p>
+</dd>
+<dt>errfile<span class="classifier">str, optional</span></dt><dd><p>string with the filename to print ODRPACK errors to. If the file already
+exists, an error will be thrown. The <cite>overwrite</cite> argument can be used to
+prevent this. <em>Do Not Open This File Yourself!</em></p>
+</dd>
+<dt>rptfile<span class="classifier">str, optional</span></dt><dd><p>string with the filename to print ODRPACK summaries to. If the file
+already exists, an error will be thrown. The <cite>overwrite</cite> argument can be
+used to prevent this. <em>Do Not Open This File Yourself!</em></p>
+</dd>
+<dt>ndigit<span class="classifier">int, optional</span></dt><dd><p>integer specifying the number of reliable digits in the computation
+of the function.</p>
+</dd>
+<dt>taufac<span class="classifier">float, optional</span></dt><dd><p>float specifying the initial trust region. The default value is 1.
+The initial trust region is equal to taufac times the length of the
+first computed Gauss-Newton step. taufac must be less than 1.</p>
+</dd>
+<dt>sstol<span class="classifier">float, optional</span></dt><dd><p>float specifying the tolerance for convergence based on the relative
+change in the sum-of-squares. The default value is eps**(1/2) where eps
+is the smallest value such that 1 + eps &gt; 1 for double precision
+computation on the machine. sstol must be less than 1.</p>
+</dd>
+<dt>partol<span class="classifier">float, optional</span></dt><dd><p>float specifying the tolerance for convergence based on the relative
+change in the estimated parameters. The default value is eps**(2/3) for
+explicit models and <code class="docutils literal notranslate"><span class="pre">eps**(1/3)</span></code> for implicit models. partol must be less
+than 1.</p>
+</dd>
+<dt>maxit<span class="classifier">int, optional</span></dt><dd><p>integer specifying the maximum number of iterations to perform. For
+first runs, maxit is the total number of iterations performed and
+defaults to 50. For restarts, maxit is the number of additional
+iterations to perform and defaults to 10.</p>
+</dd>
+<dt>stpb<span class="classifier">array_like, optional</span></dt><dd><p>sequence (<code class="docutils literal notranslate"><span class="pre">len(stpb)</span> <span class="pre">==</span> <span class="pre">len(beta0)</span></code>) of relative step sizes to compute
+finite difference derivatives wrt the parameters.</p>
+</dd>
+<dt>stpd<span class="classifier">optional</span></dt><dd><p>array (<code class="docutils literal notranslate"><span class="pre">stpd.shape</span> <span class="pre">==</span> <span class="pre">data.x.shape</span></code> or <code class="docutils literal notranslate"><span class="pre">stpd.shape</span> <span class="pre">==</span> <span class="pre">(m,)</span></code>) of relative
+step sizes to compute finite difference derivatives wrt the input
+variable errors. If stpd is a rank-1 array with length m (the
+dimensionality of the input variable), then the values are broadcast to
+all observations.</p>
+</dd>
+<dt>sclb<span class="classifier">array_like, optional</span></dt><dd><p>sequence (<code class="docutils literal notranslate"><span class="pre">len(stpb)</span> <span class="pre">==</span> <span class="pre">len(beta0)</span></code>) of scaling factors for the
+parameters. The purpose of these scaling factors are to scale all of
+the parameters to around unity. Normally appropriate scaling factors
+are computed if this argument is not specified. Specify them yourself
+if the automatic procedure goes awry.</p>
+</dd>
+<dt>scld<span class="classifier">array_like, optional</span></dt><dd><p>array (scld.shape == data.x.shape or scld.shape == (m,)) of scaling
+factors for the <em>errors</em> in the input variables. Again, these factors
+are automatically computed if you do not provide them. If scld.shape ==
+(m,), then the scaling factors are broadcast to all observations.</p>
+</dd>
+<dt>work<span class="classifier">ndarray, optional</span></dt><dd><p>array to hold the double-valued working data for ODRPACK. When
+restarting, takes the value of self.output.work.</p>
+</dd>
+<dt>iwork<span class="classifier">ndarray, optional</span></dt><dd><p>array to hold the integer-valued working data for ODRPACK. When
+restarting, takes the value of self.output.iwork.</p>
+</dd>
+<dt>overwrite<span class="classifier">bool, optional</span></dt><dd><p>If it is True, output files defined by <cite>errfile</cite> and <cite>rptfile</cite> are
+overwritten. The default is False.</p>
+</dd>
+</dl>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>data<span class="classifier">Data</span></dt><dd><p>The data for this fit</p>
+</dd>
+<dt>model<span class="classifier">Model</span></dt><dd><p>The model used in fit</p>
+</dd>
+<dt>output<span class="classifier">Output</span></dt><dd><p>An instance if the Output class containing all of the returned
+data from an invocation of ODR.run() or ODR.restart()</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.fit.ODR.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifixb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ifixx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iprint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rptfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndigit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taufac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sstol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stpb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stpd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sclb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scld</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iwork</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#ODR.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.ODR.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.fit.ODR.__init__" title="smpl.fit.ODR.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(data, model[, beta0, delta0, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.fit.ODR.restart" title="smpl.fit.ODR.restart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restart</span></code></a>([iter])</p></td>
+<td><p>Restarts the run with iter more iterations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.fit.ODR.run" title="smpl.fit.ODR.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<td><p>Run the fitting routine with all of the information given and with <code class="docutils literal notranslate"><span class="pre">full_output=1</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.fit.ODR.set_iprint" title="smpl.fit.ODR.set_iprint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_iprint</span></code></a>([init, so_init, iter, so_iter, ...])</p></td>
+<td><p>Set the iprint parameter for the printing of computation reports.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.fit.ODR.set_job" title="smpl.fit.ODR.set_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_job</span></code></a>([fit_type, deriv, var_calc, ...])</p></td>
+<td><p>Sets the &quot;job&quot; parameter is a hopefully comprehensible way.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.fit.ODR.restart">
+<span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#ODR.restart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.ODR.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restarts the run with iter more iterations.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>iter<span class="classifier">int, optional</span></dt><dd><p>ODRPACK’s default for the number of new iterations is 10.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>output<span class="classifier">Output instance</span></dt><dd><p>This object is also assigned to the attribute .output .</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.fit.ODR.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#ODR.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.ODR.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the fitting routine with all of the information given and with <code class="docutils literal notranslate"><span class="pre">full_output=1</span></code>.</p>
+<section id="id2">
+<h3>Returns<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>output<span class="classifier">Output instance</span></dt><dd><p>This object is also assigned to the attribute .output .</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.fit.ODR.set_iprint">
+<span class="sig-name descname"><span class="pre">set_iprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">so_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">so_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">final</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">so_final</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#ODR.set_iprint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.ODR.set_iprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the iprint parameter for the printing of computation reports.</p>
+<p>If any of the arguments are specified here, then they are set in the
+iprint member. If iprint is not set manually or with this method, then
+ODRPACK defaults to no printing. If no filename is specified with the
+member rptfile, then ODRPACK prints to stdout. One can tell ODRPACK to
+print to stdout in addition to the specified filename by setting the
+so_* arguments to this function, but one cannot specify to print to
+stdout but not a file since one can do that by not specifying a rptfile
+filename.</p>
+<p>There are three reports: initialization, iteration, and final reports.
+They are represented by the arguments init, iter, and final
+respectively.  The permissible values are 0, 1, and 2 representing “no
+report”, “short report”, and “long report” respectively.</p>
+<p>The argument iter_step (0 &lt;= iter_step &lt;= 9) specifies how often to make
+the iteration report; the report will be made for every iter_step’th
+iteration starting with iteration one. If iter_step == 0, then no
+iteration report is made, regardless of the other arguments.</p>
+<p>If the rptfile is None, then any so_* arguments supplied will raise an
+exception.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.fit.ODR.set_job">
+<span class="sig-name descname"><span class="pre">set_job</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fit_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deriv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_calc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">del_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#ODR.set_job"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.ODR.set_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the “job” parameter is a hopefully comprehensible way.</p>
+<p>If an argument is not specified, then the value is left as is. The
+default value from class initialization is for all of these options set
+to 0.</p>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<dl>
+<dt>fit_type<span class="classifier">{0, 1, 2} int</span></dt><dd><p>0 -&gt; explicit ODR</p>
+<p>1 -&gt; implicit ODR</p>
+<p>2 -&gt; ordinary least-squares</p>
+</dd>
+<dt>deriv<span class="classifier">{0, 1, 2, 3} int</span></dt><dd><p>0 -&gt; forward finite differences</p>
+<p>1 -&gt; central finite differences</p>
+<dl class="simple">
+<dt>2 -&gt; user-supplied derivatives (Jacobians) with results</dt><dd><p>checked by ODRPACK</p>
+</dd>
+</dl>
+<p>3 -&gt; user-supplied derivatives, no checking</p>
+</dd>
+<dt>var_calc<span class="classifier">{0, 1, 2} int</span></dt><dd><dl class="simple">
+<dt>0 -&gt; calculate asymptotic covariance matrix and fit</dt><dd><p>parameter uncertainties (V_B, s_B) using derivatives
+recomputed at the final solution</p>
+</dd>
+</dl>
+<p>1 -&gt; calculate V_B and s_B using derivatives from last iteration</p>
+<p>2 -&gt; do not calculate V_B and s_B</p>
+</dd>
+<dt>del_init<span class="classifier">{0, 1} int</span></dt><dd><p>0 -&gt; initial input variable offsets set to 0</p>
+<p>1 -&gt; initial offsets provided by user in variable “work”</p>
+</dd>
+<dt>restart<span class="classifier">{0, 1} int</span></dt><dd><p>0 -&gt; fit is not a restart</p>
+<p>1 -&gt; fit is a restart</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h3>
+<p>The permissible values are different from those given on pg. 31 of the
+ODRPACK User’s Guide only in that one cannot specify numbers greater than
+the last value for each variable.</p>
+<p>If one does not supply functions to compute the Jacobians, the fitting
+procedure will change deriv to 0, finite differences, as a default. To
+initialize the input variable offsets by yourself, set del_init to 1 and
+put the offsets into the “work” variable correctly.</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="smpl.fit.RealData.html" class="btn btn-neutral float-right" title="smpl.fit.RealData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.fit.Model.html" class="btn btn-neutral float-left" title="smpl.fit.Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

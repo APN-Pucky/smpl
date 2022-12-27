@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>scipy.misc._common &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.html">smpl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>scipy.misc._common</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for scipy.misc._common</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Functions which are common and require SciPy Base and Level 1 SciPy</span>
+<span class="sd">(special, linalg)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span><span class="p">,</span> <span class="n">newaxis</span><span class="p">,</span> <span class="n">hstack</span><span class="p">,</span> <span class="n">prod</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">frombuffer</span><span class="p">,</span> <span class="n">load</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;central_diff_weights&#39;</span><span class="p">,</span> <span class="s1">&#39;derivative&#39;</span><span class="p">,</span> <span class="s1">&#39;ascent&#39;</span><span class="p">,</span> <span class="s1">&#39;face&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;electrocardiogram&#39;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">central_diff_weights</span><span class="p">(</span><span class="n">Np</span><span class="p">,</span> <span class="n">ndiv</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return weights for an Np-point central derivative.</span>
+
+<span class="sd">    Assumes equally-spaced function points.</span>
+
+<span class="sd">    If weights are in the vector w, then</span>
+<span class="sd">    derivative is w[0] * f(x-ho*dx) + ... + w[-1] * f(x+h0*dx)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Np : int</span>
+<span class="sd">        Number of points for the central derivative.</span>
+<span class="sd">    ndiv : int, optional</span>
+<span class="sd">        Number of divisions. Default is 1.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    w : ndarray</span>
+<span class="sd">        Weights for an Np-point central derivative. Its size is `Np`.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Can be inaccurate for a large number of points.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    We can calculate a derivative value of a function.</span>
+
+<span class="sd">    &gt;&gt;&gt; from scipy.misc import central_diff_weights</span>
+<span class="sd">    &gt;&gt;&gt; def f(x):</span>
+<span class="sd">    ...     return 2 * x**2 + 3</span>
+<span class="sd">    &gt;&gt;&gt; x = 3.0 # derivative point</span>
+<span class="sd">    &gt;&gt;&gt; h = 0.1 # differential step</span>
+<span class="sd">    &gt;&gt;&gt; Np = 3 # point number for central derivative</span>
+<span class="sd">    &gt;&gt;&gt; weights = central_diff_weights(Np) # weights for first derivative</span>
+<span class="sd">    &gt;&gt;&gt; vals = [f(x + (i - Np/2) * h) for i in range(Np)]</span>
+<span class="sd">    &gt;&gt;&gt; sum(w * v for (w, v) in zip(weights, vals))/h</span>
+<span class="sd">    11.79999999999998</span>
+
+<span class="sd">    This value is close to the analytical solution:</span>
+<span class="sd">    f&#39;(x) = 4x, so f&#39;(3) = 12</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] https://en.wikipedia.org/wiki/Finite_difference</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Np</span> <span class="o">&lt;</span> <span class="n">ndiv</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of points must be at least the derivative order + 1.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Np</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The number of points must be odd.&quot;</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
+    <span class="n">ho</span> <span class="o">=</span> <span class="n">Np</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">ho</span><span class="p">,</span><span class="n">ho</span><span class="o">+</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Np</span><span class="p">):</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">hstack</span><span class="p">([</span><span class="n">X</span><span class="p">,</span><span class="n">x</span><span class="o">**</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">prod</span><span class="p">(</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ndiv</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="n">ndiv</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">w</span>
+
+
+<div class="viewcode-block" id="derivative"><a class="viewcode-back" href="../../../_autosummary/smpl.stat.derivative.html#smpl.stat.derivative">[docs]</a><span class="k">def</span> <span class="nf">derivative</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find the nth derivative of a function at a point.</span>
+
+<span class="sd">    Given a function, use a central difference formula with spacing `dx` to</span>
+<span class="sd">    compute the nth derivative at `x0`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    func : function</span>
+<span class="sd">        Input function.</span>
+<span class="sd">    x0 : float</span>
+<span class="sd">        The point at which the nth derivative is found.</span>
+<span class="sd">    dx : float, optional</span>
+<span class="sd">        Spacing.</span>
+<span class="sd">    n : int, optional</span>
+<span class="sd">        Order of the derivative. Default is 1.</span>
+<span class="sd">    args : tuple, optional</span>
+<span class="sd">        Arguments</span>
+<span class="sd">    order : int, optional</span>
+<span class="sd">        Number of points to use, must be odd.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Decreasing the step size too small can result in round-off error.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from scipy.misc import derivative</span>
+<span class="sd">    &gt;&gt;&gt; def f(x):</span>
+<span class="sd">    ...     return x**3 + x**2</span>
+<span class="sd">    &gt;&gt;&gt; derivative(f, 1.0, dx=1e-6)</span>
+<span class="sd">    4.9999999999217337</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;order&#39; (the number of points used to compute the derivative), &quot;</span>
+                         <span class="s2">&quot;must be at least the derivative order &#39;n&#39; + 1.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">order</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;order&#39; (the number of points used to compute the derivative) &quot;</span>
+                         <span class="s2">&quot;must be odd.&quot;</span><span class="p">)</span>
+    <span class="c1"># pre-computed for n=1 and 2 and low-order for speed.</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">2.0</span>
+        <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">12.0</span>
+        <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">60.0</span>
+        <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">32</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="o">-</span><span class="mi">672</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">672</span><span class="p">,</span><span class="o">-</span><span class="mi">168</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span><span class="o">/</span><span class="mf">840.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">central_diff_weights</span><span class="p">(</span><span class="n">order</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mf">12.0</span>
+        <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">27</span><span class="p">,</span><span class="mi">270</span><span class="p">,</span><span class="o">-</span><span class="mi">490</span><span class="p">,</span><span class="mi">270</span><span class="p">,</span><span class="o">-</span><span class="mi">27</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="mf">180.0</span>
+        <span class="k">elif</span> <span class="n">order</span> <span class="o">==</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="o">-</span><span class="mi">1008</span><span class="p">,</span><span class="mi">8064</span><span class="p">,</span><span class="o">-</span><span class="mi">14350</span><span class="p">,</span><span class="mi">8064</span><span class="p">,</span><span class="o">-</span><span class="mi">1008</span><span class="p">,</span><span class="mi">128</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">])</span><span class="o">/</span><span class="mf">5040.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">central_diff_weights</span><span class="p">(</span><span class="n">order</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">central_diff_weights</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">ho</span> <span class="o">=</span> <span class="n">order</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">):</span>
+        <span class="n">val</span> <span class="o">+=</span> <span class="n">weights</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">x0</span><span class="o">+</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="n">ho</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">val</span> <span class="o">/</span> <span class="n">prod</span><span class="p">((</span><span class="n">dx</span><span class="p">,)</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">ascent</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get an 8-bit grayscale bit-depth, 512 x 512 derived image for easy use in demos</span>
+
+<span class="sd">    The image is derived from accent-to-the-top.jpg at</span>
+<span class="sd">    http://www.public-domain-image.com/people-public-domain-images-pictures/</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ascent : ndarray</span>
+<span class="sd">       convenient image to use for testing and demonstration</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import scipy.misc</span>
+<span class="sd">    &gt;&gt;&gt; ascent = scipy.misc.ascent()</span>
+<span class="sd">    &gt;&gt;&gt; ascent.shape</span>
+<span class="sd">    (512, 512)</span>
+<span class="sd">    &gt;&gt;&gt; ascent.max()</span>
+<span class="sd">    255</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; plt.gray()</span>
+<span class="sd">    &gt;&gt;&gt; plt.imshow(ascent)</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">pickle</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span><span class="s1">&#39;ascent.dat&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">ascent</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ascent</span>
+
+
+<span class="k">def</span> <span class="nf">face</span><span class="p">(</span><span class="n">gray</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a 1024 x 768, color image of a raccoon face.</span>
+
+<span class="sd">    raccoon-procyon-lotor.jpg at http://www.public-domain-image.com</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    gray : bool, optional</span>
+<span class="sd">        If True return 8-bit grey-scale image, otherwise return a color image</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    face : ndarray</span>
+<span class="sd">        image of a racoon face</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import scipy.misc</span>
+<span class="sd">    &gt;&gt;&gt; face = scipy.misc.face()</span>
+<span class="sd">    &gt;&gt;&gt; face.shape</span>
+<span class="sd">    (768, 1024, 3)</span>
+<span class="sd">    &gt;&gt;&gt; face.max()</span>
+<span class="sd">    255</span>
+<span class="sd">    &gt;&gt;&gt; face.dtype</span>
+<span class="sd">    dtype(&#39;uint8&#39;)</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; plt.gray()</span>
+<span class="sd">    &gt;&gt;&gt; plt.imshow(face)</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">bz2</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;face.dat&#39;</span><span class="p">),</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">rawdata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bz2</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">rawdata</span><span class="p">)</span>
+    <span class="n">face</span> <span class="o">=</span> <span class="n">frombuffer</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
+    <span class="n">face</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">768</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">gray</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">face</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.21</span> <span class="o">*</span> <span class="n">face</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.71</span> <span class="o">*</span> <span class="n">face</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.07</span> <span class="o">*</span> <span class="n">face</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">face</span>
+
+
+<span class="k">def</span> <span class="nf">electrocardiogram</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load an electrocardiogram as an example for a 1-D signal.</span>
+
+<span class="sd">    The returned signal is a 5 minute long electrocardiogram (ECG), a medical</span>
+<span class="sd">    recording of the heart&#39;s electrical activity, sampled at 360 Hz.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ecg : ndarray</span>
+<span class="sd">        The electrocardiogram in millivolt (mV) sampled at 360 Hz.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The provided signal is an excerpt (19:35 to 24:35) from the `record 208`_</span>
+<span class="sd">    (lead MLII) provided by the MIT-BIH Arrhythmia Database [1]_ on</span>
+<span class="sd">    PhysioNet [2]_. The excerpt includes noise induced artifacts, typical</span>
+<span class="sd">    heartbeats as well as pathological changes.</span>
+
+<span class="sd">    .. _record 208: https://physionet.org/physiobank/database/html/mitdbdir/records.htm#208</span>
+
+<span class="sd">    .. versionadded:: 1.1.0</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Moody GB, Mark RG. The impact of the MIT-BIH Arrhythmia Database.</span>
+<span class="sd">           IEEE Eng in Med and Biol 20(3):45-50 (May-June 2001).</span>
+<span class="sd">           (PMID: 11446209); :doi:`10.13026/C2F305`</span>
+<span class="sd">    .. [2] Goldberger AL, Amaral LAN, Glass L, Hausdorff JM, Ivanov PCh,</span>
+<span class="sd">           Mark RG, Mietus JE, Moody GB, Peng C-K, Stanley HE. PhysioBank,</span>
+<span class="sd">           PhysioToolkit, and PhysioNet: Components of a New Research Resource</span>
+<span class="sd">           for Complex Physiologic Signals. Circulation 101(23):e215-e220;</span>
+<span class="sd">           :doi:`10.1161/01.CIR.101.23.e215`</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from scipy.misc import electrocardiogram</span>
+<span class="sd">    &gt;&gt;&gt; ecg = electrocardiogram()</span>
+<span class="sd">    &gt;&gt;&gt; ecg</span>
+<span class="sd">    array([-0.245, -0.215, -0.185, ..., -0.405, -0.395, -0.385])</span>
+<span class="sd">    &gt;&gt;&gt; ecg.shape, ecg.mean(), ecg.std()</span>
+<span class="sd">    ((108000,), -0.16510875, 0.5992473991177294)</span>
+
+<span class="sd">    As stated the signal features several areas with a different morphology.</span>
+<span class="sd">    E.g., the first few seconds show the electrical activity of a heart in</span>
+<span class="sd">    normal sinus rhythm as seen below.</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fs = 360</span>
+<span class="sd">    &gt;&gt;&gt; time = np.arange(ecg.size) / fs</span>
+<span class="sd">    &gt;&gt;&gt; plt.plot(time, ecg)</span>
+<span class="sd">    &gt;&gt;&gt; plt.xlabel(&quot;time in s&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.ylabel(&quot;ECG in mV&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.xlim(9, 10.2)</span>
+<span class="sd">    &gt;&gt;&gt; plt.ylim(-1, 1.5)</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    After second 16, however, the first premature ventricular contractions, also</span>
+<span class="sd">    called extrasystoles, appear. These have a different morphology compared to</span>
+<span class="sd">    typical heartbeats. The difference can easily be observed in the following</span>
+<span class="sd">    plot.</span>
+
+<span class="sd">    &gt;&gt;&gt; plt.plot(time, ecg)</span>
+<span class="sd">    &gt;&gt;&gt; plt.xlabel(&quot;time in s&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.ylabel(&quot;ECG in mV&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.xlim(46.5, 50)</span>
+<span class="sd">    &gt;&gt;&gt; plt.ylim(-2, 1.5)</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    At several points large artifacts disturb the recording, e.g.:</span>
+
+<span class="sd">    &gt;&gt;&gt; plt.plot(time, ecg)</span>
+<span class="sd">    &gt;&gt;&gt; plt.xlabel(&quot;time in s&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.ylabel(&quot;ECG in mV&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.xlim(207, 215)</span>
+<span class="sd">    &gt;&gt;&gt; plt.ylim(-2, 3.5)</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    Finally, examining the power spectrum reveals that most of the biosignal is</span>
+<span class="sd">    made up of lower frequencies. At 60 Hz the noise induced by the mains</span>
+<span class="sd">    electricity can be clearly observed.</span>
+
+<span class="sd">    &gt;&gt;&gt; from scipy.signal import welch</span>
+<span class="sd">    &gt;&gt;&gt; f, Pxx = welch(ecg, fs=fs, nperseg=2048, scaling=&quot;spectrum&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.semilogy(f, Pxx)</span>
+<span class="sd">    &gt;&gt;&gt; plt.xlabel(&quot;Frequency in Hz&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.ylabel(&quot;Power spectrum of the ECG in mV**2&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; plt.xlim(f[[0, -1]])</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;ecg.dat&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">load</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">ecg</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s2">&quot;ecg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>  <span class="c1"># np.uint16 -&gt; int</span>
+    <span class="c1"># Convert raw output of ADC to mV: (ecg - adc_zero) / adc_gain</span>
+    <span class="n">ecg</span> <span class="o">=</span> <span class="p">(</span><span class="n">ecg</span> <span class="o">-</span> <span class="mi">1024</span><span class="p">)</span> <span class="o">/</span> <span class="mf">200.0</span>
+    <span class="k">return</span> <span class="n">ecg</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

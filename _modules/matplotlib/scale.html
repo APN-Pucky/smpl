@@ -1,0 +1,991 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>matplotlib.scale &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.html">smpl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../matplotlib.html">matplotlib</a> &raquo;</li>
+        
+      <li>matplotlib.scale</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for matplotlib.scale</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Scales define the distribution of data values on an axis, e.g. a log scaling.</span>
+<span class="sd">They are defined as subclasses of `ScaleBase`.</span>
+
+<span class="sd">See also `.axes.Axes.set_xscale` and the scales examples in the documentation.</span>
+
+<span class="sd">See :doc:`/gallery/scales/custom_scale` for a full example of defining a custom</span>
+<span class="sd">scale.</span>
+
+<span class="sd">Matplotlib also supports non-separable transformations that operate on both</span>
+<span class="sd">`~.axis.Axis` at the same time.  They are known as projections, and defined in</span>
+<span class="sd">`matplotlib.projections`.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">_docstring</span>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NullFormatter</span><span class="p">,</span> <span class="n">ScalarFormatter</span><span class="p">,</span> <span class="n">LogFormatterSciNotation</span><span class="p">,</span> <span class="n">LogitFormatter</span><span class="p">,</span>
+    <span class="n">NullLocator</span><span class="p">,</span> <span class="n">LogLocator</span><span class="p">,</span> <span class="n">AutoLocator</span><span class="p">,</span> <span class="n">AutoMinorLocator</span><span class="p">,</span>
+    <span class="n">SymmetricalLogLocator</span><span class="p">,</span> <span class="n">AsinhLocator</span><span class="p">,</span> <span class="n">LogitLocator</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">matplotlib.transforms</span> <span class="kn">import</span> <span class="n">Transform</span><span class="p">,</span> <span class="n">IdentityTransform</span>
+
+
+<span class="k">class</span> <span class="nc">ScaleBase</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The base class for all scales.</span>
+
+<span class="sd">    Scales are separable transformations, working on a single dimension.</span>
+
+<span class="sd">    Subclasses should override</span>
+
+<span class="sd">    :attr:`name`</span>
+<span class="sd">        The scale&#39;s name.</span>
+<span class="sd">    :meth:`get_transform`</span>
+<span class="sd">        A method returning a `.Transform`, which converts data coordinates to</span>
+<span class="sd">        scaled coordinates.  This transform should be invertible, so that e.g.</span>
+<span class="sd">        mouse positions can be converted back to data coordinates.</span>
+<span class="sd">    :meth:`set_default_locators_and_formatters`</span>
+<span class="sd">        A method that sets default locators and formatters for an `~.axis.Axis`</span>
+<span class="sd">        that uses this scale.</span>
+<span class="sd">    :meth:`limit_range_for_scale`</span>
+<span class="sd">        An optional method that &quot;fixes&quot; the axis range to acceptable values,</span>
+<span class="sd">        e.g. restricting log-scaled axes to positive values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Construct a new scale.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The following note is for scale implementors.</span>
+
+<span class="sd">        For back-compatibility reasons, scales take an `~matplotlib.axis.Axis`</span>
+<span class="sd">        object as first argument.  However, this argument should not</span>
+<span class="sd">        be used: a single scale object should be usable by multiple</span>
+<span class="sd">        `~matplotlib.axis.Axis`\es at the same time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the `.Transform` object associated with this scale.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the locators and formatters of *axis* to instances suitable for</span>
+<span class="sd">        this scale.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">limit_range_for_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">minpos</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the range *vmin*, *vmax*, restricted to the</span>
+<span class="sd">        domain supported by this scale (if any).</span>
+
+<span class="sd">        *minpos* should be the minimum positive value in the data.</span>
+<span class="sd">        This is used by log scales to determine a minimum value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span>
+
+
+<span class="k">class</span> <span class="nc">LinearScale</span><span class="p">(</span><span class="n">ScaleBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The default linear scale.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="c1"># This method is present only to prevent inheritance of the base class&#39;</span>
+        <span class="c1"># constructor docstring, which would otherwise end up interpolated into</span>
+        <span class="c1"># the docstring of Axis.set_scale.</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="c1"># docstring inherited</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">AutoLocator</span><span class="p">())</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">ScalarFormatter</span><span class="p">())</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">NullFormatter</span><span class="p">())</span>
+        <span class="c1"># update the minor locator for x and y axis based on rcParams</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">axis</span><span class="o">.</span><span class="n">axis_name</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span> <span class="ow">and</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.minor.visible&#39;</span><span class="p">]</span> <span class="ow">or</span>
+                <span class="n">axis</span><span class="o">.</span><span class="n">axis_name</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span> <span class="ow">and</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.minor.visible&#39;</span><span class="p">]):</span>
+            <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">NullLocator</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the transform for linear scaling, which is just the</span>
+<span class="sd">        `~matplotlib.transforms.IdentityTransform`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">IdentityTransform</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">FuncTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A simple transform that takes and arbitrary function for the</span>
+<span class="sd">    forward and inverse transform.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forward</span><span class="p">,</span> <span class="n">inverse</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        forward : callable</span>
+<span class="sd">            The forward function for the transform.  This function must have</span>
+<span class="sd">            an inverse and, for best behavior, be monotonic.</span>
+<span class="sd">            It must have the signature::</span>
+
+<span class="sd">               def forward(values: array-like) -&gt; array-like</span>
+
+<span class="sd">        inverse : callable</span>
+<span class="sd">            The inverse of the forward function.  Signature as ``forward``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">forward</span><span class="p">)</span> <span class="ow">and</span> <span class="n">callable</span><span class="p">(</span><span class="n">inverse</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span> <span class="o">=</span> <span class="n">forward</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span> <span class="o">=</span> <span class="n">inverse</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;arguments to FuncTransform must be functions&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">FuncTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inverse</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">FuncScale</span><span class="p">(</span><span class="n">ScaleBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Provide an arbitrary scale with user-supplied function for the axis.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;function&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">functions</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : `~matplotlib.axis.Axis`</span>
+<span class="sd">            The axis for the scale.</span>
+<span class="sd">        functions : (callable, callable)</span>
+<span class="sd">            two-tuple of the forward and inverse functions for the scale.</span>
+<span class="sd">            The forward function must be monotonic.</span>
+
+<span class="sd">            Both functions must have the signature::</span>
+
+<span class="sd">               def forward(values: array-like) -&gt; array-like</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">forward</span><span class="p">,</span> <span class="n">inverse</span> <span class="o">=</span> <span class="n">functions</span>
+        <span class="n">transform</span> <span class="o">=</span> <span class="n">FuncTransform</span><span class="p">(</span><span class="n">forward</span><span class="p">,</span> <span class="n">inverse</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span> <span class="o">=</span> <span class="n">transform</span>
+
+    <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the `.FuncTransform` associated with this scale.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span>
+
+    <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="c1"># docstring inherited</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">AutoLocator</span><span class="p">())</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">ScalarFormatter</span><span class="p">())</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">NullFormatter</span><span class="p">())</span>
+        <span class="c1"># update the minor locator for x and y axis based on rcParams</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">axis</span><span class="o">.</span><span class="n">axis_name</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span> <span class="ow">and</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.minor.visible&#39;</span><span class="p">]</span> <span class="ow">or</span>
+                <span class="n">axis</span><span class="o">.</span><span class="n">axis_name</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span> <span class="ow">and</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.minor.visible&#39;</span><span class="p">]):</span>
+            <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">AutoMinorLocator</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">NullLocator</span><span class="p">())</span>
+
+
+<span class="k">class</span> <span class="nc">LogTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">nonpositive</span><span class="o">=</span><span class="s1">&#39;clip&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">base</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">base</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The log base cannot be &lt;= 0 or == 1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clip</span> <span class="o">=</span> <span class="n">_api</span><span class="o">.</span><span class="n">check_getitem</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;clip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;mask&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="n">nonpositive</span><span class="o">=</span><span class="n">nonpositive</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(base=</span><span class="si">{}</span><span class="s2">, nonpositive=</span><span class="si">{!r}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s2">&quot;clip&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clip</span> <span class="k">else</span> <span class="s2">&quot;mask&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="c1"># Ignore invalid values due to nans being passed to the transform.</span>
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+            <span class="n">log</span> <span class="o">=</span> <span class="p">{</span><span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">log</span><span class="p">:</span>  <span class="c1"># If possible, do everything in a single call to NumPy.</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+                <span class="n">out</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clip</span><span class="p">:</span>
+                <span class="c1"># SVG spec says that conforming viewers must support values up</span>
+                <span class="c1"># to 3.4e38 (C float); however experiments suggest that</span>
+                <span class="c1"># Inkscape (which uses cairo for rendering) runs into cairo&#39;s</span>
+                <span class="c1"># 24-bit limit (which is apparently shared by Agg).</span>
+                <span class="c1"># Ghostscript (used for pdf rendering appears to overflow even</span>
+                <span class="c1"># earlier, with the max value around 2 ** 15 for the tests to</span>
+                <span class="c1"># pass. On the other hand, in practice, we want to clip beyond</span>
+                <span class="c1">#     np.log10(np.nextafter(0, 1)) ~ -323</span>
+                <span class="c1"># so 1000 seems safe.</span>
+                <span class="n">out</span><span class="p">[</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">InvertedLogTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">InvertedLogTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(base=</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">LogTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">LogScale</span><span class="p">(</span><span class="n">ScaleBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A standard logarithmic scale.  Care is taken to only plot positive values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;log&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">subs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nonpositive</span><span class="o">=</span><span class="s2">&quot;clip&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : `~matplotlib.axis.Axis`</span>
+<span class="sd">            The axis for the scale.</span>
+<span class="sd">        base : float, default: 10</span>
+<span class="sd">            The base of the logarithm.</span>
+<span class="sd">        nonpositive : {&#39;clip&#39;, &#39;mask&#39;}, default: &#39;clip&#39;</span>
+<span class="sd">            Determines the behavior for non-positive values. They can either</span>
+<span class="sd">            be masked as invalid, or clipped to a very small positive number.</span>
+<span class="sd">        subs : sequence of int, default: None</span>
+<span class="sd">            Where to place the subticks between each major tick.  For example,</span>
+<span class="sd">            in a log10 scale, ``[2, 3, 4, 5, 6, 7, 8, 9]`` will place 8</span>
+<span class="sd">            logarithmically spaced minor ticks between each major tick.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span> <span class="o">=</span> <span class="n">LogTransform</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">nonpositive</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subs</span> <span class="o">=</span> <span class="n">subs</span>
+
+    <span class="n">base</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="c1"># docstring inherited</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">LogLocator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">))</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">LogFormatterSciNotation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">))</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">LogLocator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subs</span><span class="p">))</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span>
+            <span class="n">LogFormatterSciNotation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span>
+                                    <span class="n">labelOnlyBase</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)))</span>
+
+    <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the `.LogTransform` associated with this scale.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span>
+
+    <span class="k">def</span> <span class="nf">limit_range_for_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">minpos</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Limit the domain to positive values.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">minpos</span><span class="p">):</span>
+            <span class="n">minpos</span> <span class="o">=</span> <span class="mf">1e-300</span>  <span class="c1"># Should rarely (if ever) have a visible effect.</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">minpos</span> <span class="k">if</span> <span class="n">vmin</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">vmin</span><span class="p">,</span>
+                <span class="n">minpos</span> <span class="k">if</span> <span class="n">vmax</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">vmax</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">FuncScaleLog</span><span class="p">(</span><span class="n">LogScale</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Provide an arbitrary scale with user-supplied function for the axis and</span>
+<span class="sd">    then put on a logarithmic axes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;functionlog&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">functions</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : `matplotlib.axis.Axis`</span>
+<span class="sd">            The axis for the scale.</span>
+<span class="sd">        functions : (callable, callable)</span>
+<span class="sd">            two-tuple of the forward and inverse functions for the scale.</span>
+<span class="sd">            The forward function must be monotonic.</span>
+
+<span class="sd">            Both functions must have the signature::</span>
+
+<span class="sd">                def forward(values: array-like) -&gt; array-like</span>
+
+<span class="sd">        base : float, default: 10</span>
+<span class="sd">            Logarithmic base of the scale.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">forward</span><span class="p">,</span> <span class="n">inverse</span> <span class="o">=</span> <span class="n">functions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subs</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span> <span class="o">=</span> <span class="n">FuncTransform</span><span class="p">(</span><span class="n">forward</span><span class="p">,</span> <span class="n">inverse</span><span class="p">)</span> <span class="o">+</span> <span class="n">LogTransform</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">base</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="o">.</span><span class="n">_b</span><span class="o">.</span><span class="n">base</span>  <span class="c1"># Base of the LogTransform.</span>
+
+    <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the `.Transform` associated with this scale.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span>
+
+
+<span class="k">class</span> <span class="nc">SymmetricalLogTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">linthresh</span><span class="p">,</span> <span class="n">linscale</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">base</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;base&#39; must be larger than 1&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">linthresh</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;linthresh&#39; must be positive&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">linscale</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;linscale&#39; must be positive&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span> <span class="o">=</span> <span class="n">linthresh</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linscale</span> <span class="o">=</span> <span class="n">linscale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_linscale_adj</span> <span class="o">=</span> <span class="p">(</span><span class="n">linscale</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="n">abs_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span> <span class="o">*</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_linscale_adj</span> <span class="o">+</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">abs_a</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_base</span><span class="p">)</span>
+            <span class="n">inside</span> <span class="o">=</span> <span class="n">abs_a</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">inside</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">inside</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linscale_adj</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">InvertedSymmetricalLogTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span><span class="p">,</span>
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">linscale</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">InvertedSymmetricalLogTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">linthresh</span><span class="p">,</span> <span class="n">linscale</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">symlog</span> <span class="o">=</span> <span class="n">SymmetricalLogTransform</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">linthresh</span><span class="p">,</span> <span class="n">linscale</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span> <span class="o">=</span> <span class="n">linthresh</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invlinthresh</span> <span class="o">=</span> <span class="n">symlog</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">linthresh</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linscale</span> <span class="o">=</span> <span class="n">linscale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_linscale_adj</span> <span class="o">=</span> <span class="p">(</span><span class="n">linscale</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">**</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="n">abs_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span> <span class="o">*</span> <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span>
+                         <span class="n">abs_a</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linscale_adj</span><span class="p">))</span>
+            <span class="n">inside</span> <span class="o">=</span> <span class="n">abs_a</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">invlinthresh</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">inside</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">inside</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linscale_adj</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">SymmetricalLogTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span>
+                                       <span class="bp">self</span><span class="o">.</span><span class="n">linthresh</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">linscale</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">SymmetricalLogScale</span><span class="p">(</span><span class="n">ScaleBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The symmetrical logarithmic scale is logarithmic in both the</span>
+<span class="sd">    positive and negative directions from the origin.</span>
+
+<span class="sd">    Since the values close to zero tend toward infinity, there is a</span>
+<span class="sd">    need to have a range around zero that is linear.  The parameter</span>
+<span class="sd">    *linthresh* allows the user to specify the size of this range</span>
+<span class="sd">    (-*linthresh*, *linthresh*).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    base : float, default: 10</span>
+<span class="sd">        The base of the logarithm.</span>
+
+<span class="sd">    linthresh : float, default: 2</span>
+<span class="sd">        Defines the range ``(-x, x)``, within which the plot is linear.</span>
+<span class="sd">        This avoids having the plot go to infinity around zero.</span>
+
+<span class="sd">    subs : sequence of int</span>
+<span class="sd">        Where to place the subticks between each major tick.</span>
+<span class="sd">        For example, in a log10 scale: ``[2, 3, 4, 5, 6, 7, 8, 9]`` will place</span>
+<span class="sd">        8 logarithmically spaced minor ticks between each major tick.</span>
+
+<span class="sd">    linscale : float, optional</span>
+<span class="sd">        This allows the linear range ``(-linthresh, linthresh)`` to be</span>
+<span class="sd">        stretched relative to the logarithmic range. Its value is the number of</span>
+<span class="sd">        decades to use for each half of the linear range. For example, when</span>
+<span class="sd">        *linscale* == 1.0 (the default), the space used for the positive and</span>
+<span class="sd">        negative halves of the linear range will be equal to one decade in</span>
+<span class="sd">        the logarithmic range.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;symlog&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linthresh</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">subs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linscale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span> <span class="o">=</span> <span class="n">SymmetricalLogTransform</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">linthresh</span><span class="p">,</span> <span class="n">linscale</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subs</span> <span class="o">=</span> <span class="n">subs</span>
+
+    <span class="n">base</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+    <span class="n">linthresh</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="o">.</span><span class="n">linthresh</span><span class="p">)</span>
+    <span class="n">linscale</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="o">.</span><span class="n">linscale</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="c1"># docstring inherited</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">SymmetricalLogLocator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_transform</span><span class="p">()))</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">LogFormatterSciNotation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">))</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">SymmetricalLogLocator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_transform</span><span class="p">(),</span>
+                                                     <span class="bp">self</span><span class="o">.</span><span class="n">subs</span><span class="p">))</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span><span class="n">NullFormatter</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the `.SymmetricalLogTransform` associated with this scale.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span>
+
+
+<span class="k">class</span> <span class="nc">AsinhTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Inverse hyperbolic-sine transformation used by `.AsinhScale`&quot;&quot;&quot;</span>
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linear_width</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">linear_width</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Scale parameter &#39;linear_width&#39; &quot;</span> <span class="o">+</span>
+                             <span class="s2">&quot;must be strictly positive&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span> <span class="o">=</span> <span class="n">linear_width</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arcsinh</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">InvertedAsinhTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">InvertedAsinhTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Hyperbolic sine transformation used by `.AsinhScale`&quot;&quot;&quot;</span>
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linear_width</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span> <span class="o">=</span> <span class="n">linear_width</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">AsinhTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">AsinhScale</span><span class="p">(</span><span class="n">ScaleBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A quasi-logarithmic scale based on the inverse hyperbolic sine (asinh)</span>
+
+<span class="sd">    For values close to zero, this is essentially a linear scale,</span>
+<span class="sd">    but for large magnitude values (either positive or negative)</span>
+<span class="sd">    it is asymptotically logarithmic. The transition between these</span>
+<span class="sd">    linear and logarithmic regimes is smooth, and has no discontinuities</span>
+<span class="sd">    in the function gradient in contrast to</span>
+<span class="sd">    the `.SymmetricalLogScale` (&quot;symlog&quot;) scale.</span>
+
+<span class="sd">    Specifically, the transformation of an axis coordinate :math:`a` is</span>
+<span class="sd">    :math:`a \\rightarrow a_0 \\sinh^{-1} (a / a_0)` where :math:`a_0`</span>
+<span class="sd">    is the effective width of the linear region of the transformation.</span>
+<span class="sd">    In that region, the transformation is</span>
+<span class="sd">    :math:`a \\rightarrow a + \\mathcal{O}(a^3)`.</span>
+<span class="sd">    For large values of :math:`a` the transformation behaves as</span>
+<span class="sd">    :math:`a \\rightarrow a_0 \\, \\mathrm{sgn}(a) \\ln |a| + \\mathcal{O}(1)`.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">       This API is provisional and may be revised in the future</span>
+<span class="sd">       based on early user feedback.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;asinh&#39;</span>
+
+    <span class="n">auto_tick_multipliers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">),</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">),</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">),</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="mi">10</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="mi">16</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+        <span class="mi">64</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+        <span class="mi">1024</span><span class="p">:</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">linear_width</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+                 <span class="n">base</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">subs</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        linear_width : float, default: 1</span>
+<span class="sd">            The scale parameter (elsewhere referred to as :math:`a_0`)</span>
+<span class="sd">            defining the extent of the quasi-linear region,</span>
+<span class="sd">            and the coordinate values beyond which the transformation</span>
+<span class="sd">            becomes asymptotically logarithmic.</span>
+<span class="sd">        base : int, default: 10</span>
+<span class="sd">            The number base used for rounding tick locations</span>
+<span class="sd">            on a logarithmic scale. If this is less than one,</span>
+<span class="sd">            then rounding is to the nearest integer multiple</span>
+<span class="sd">            of powers of ten.</span>
+<span class="sd">        subs : sequence of int</span>
+<span class="sd">            Multiples of the number base used for minor ticks.</span>
+<span class="sd">            If set to &#39;auto&#39;, this will use built-in defaults,</span>
+<span class="sd">            e.g. (2, 5) for base=10.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span> <span class="o">=</span> <span class="n">AsinhTransform</span><span class="p">(</span><span class="n">linear_width</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_base</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subs</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_subs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_tick_multipliers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_base</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_subs</span> <span class="o">=</span> <span class="n">subs</span>
+
+    <span class="n">linear_width</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span><span class="o">.</span><span class="n">linear_width</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span>
+
+    <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">major_locator</span><span class="o">=</span><span class="n">AsinhLocator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span><span class="p">,</span>
+                                            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_base</span><span class="p">),</span>
+                 <span class="n">minor_locator</span><span class="o">=</span><span class="n">AsinhLocator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">linear_width</span><span class="p">,</span>
+                                            <span class="n">base</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_base</span><span class="p">,</span>
+                                            <span class="n">subs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_subs</span><span class="p">),</span>
+                 <span class="n">minor_formatter</span><span class="o">=</span><span class="n">NullFormatter</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">LogFormatterSciNotation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_base</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{x:.3g}</span><span class="s1">&#39;</span><span class="p">),</span>
+
+
+<span class="k">class</span> <span class="nc">LogitTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nonpositive</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="n">_api</span><span class="o">.</span><span class="n">check_in_list</span><span class="p">([</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="s1">&#39;clip&#39;</span><span class="p">],</span> <span class="n">nonpositive</span><span class="o">=</span><span class="n">nonpositive</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nonpositive</span> <span class="o">=</span> <span class="n">nonpositive</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_clip</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;clip&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;mask&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}[</span><span class="n">nonpositive</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;logit transform (base 10), masked or clipped&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">divide</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clip</span><span class="p">:</span>  <span class="c1"># See LogTransform for choice of clip value.</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">LogisticTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nonpositive</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{!r}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nonpositive</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">LogisticTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="n">input_dims</span> <span class="o">=</span> <span class="n">output_dims</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nonpositive</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nonpositive</span> <span class="o">=</span> <span class="n">nonpositive</span>
+
+    <span class="k">def</span> <span class="nf">transform_non_affine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;logistic transform (base 10)&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">inverted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">LogitTransform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nonpositive</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{!r}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nonpositive</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">LogitScale</span><span class="p">(</span><span class="n">ScaleBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Logit scale for data between zero and one, both excluded.</span>
+
+<span class="sd">    This scale is similar to a log scale close to zero and to one, and almost</span>
+<span class="sd">    linear around 0.5. It maps the interval ]0, 1[ onto ]-infty, +infty[.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;logit&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">nonpositive</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">one_half</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\frac</span><span class="si">{1}{2}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">use_overline</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        axis : `matplotlib.axis.Axis`</span>
+<span class="sd">            Currently unused.</span>
+<span class="sd">        nonpositive : {&#39;mask&#39;, &#39;clip&#39;}</span>
+<span class="sd">            Determines the behavior for values beyond the open interval ]0, 1[.</span>
+<span class="sd">            They can either be masked as invalid, or clipped to a number very</span>
+<span class="sd">            close to 0 or 1.</span>
+<span class="sd">        use_overline : bool, default: False</span>
+<span class="sd">            Indicate the usage of survival notation (\overline{x}) in place of</span>
+<span class="sd">            standard notation (1-x) for probability close to one.</span>
+<span class="sd">        one_half : str, default: r&quot;\frac{1}{2}&quot;</span>
+<span class="sd">            The string used for ticks formatter to represent 1/2.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span> <span class="o">=</span> <span class="n">LogitTransform</span><span class="p">(</span><span class="n">nonpositive</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_overline</span> <span class="o">=</span> <span class="n">use_overline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_one_half</span> <span class="o">=</span> <span class="n">one_half</span>
+
+    <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the `.LogitTransform` associated with this scale.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform</span>
+
+    <span class="k">def</span> <span class="nf">set_default_locators_and_formatters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">):</span>
+        <span class="c1"># docstring inherited</span>
+        <span class="c1"># ..., 0.01, 0.1, 0.5, 0.9, 0.99, ...</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">LogitLocator</span><span class="p">())</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span>
+            <span class="n">LogitFormatter</span><span class="p">(</span>
+                <span class="n">one_half</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_one_half</span><span class="p">,</span>
+                <span class="n">use_overline</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_overline</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">LogitLocator</span><span class="p">(</span><span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="n">axis</span><span class="o">.</span><span class="n">set_minor_formatter</span><span class="p">(</span>
+            <span class="n">LogitFormatter</span><span class="p">(</span>
+                <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">one_half</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_one_half</span><span class="p">,</span>
+                <span class="n">use_overline</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_overline</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">limit_range_for_scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">minpos</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Limit the domain to values between 0 and 1 (excluded).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">minpos</span><span class="p">):</span>
+            <span class="n">minpos</span> <span class="o">=</span> <span class="mf">1e-7</span>  <span class="c1"># Should rarely (if ever) have a visible effect.</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">minpos</span> <span class="k">if</span> <span class="n">vmin</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">vmin</span><span class="p">,</span>
+                <span class="mi">1</span> <span class="o">-</span> <span class="n">minpos</span> <span class="k">if</span> <span class="n">vmax</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">vmax</span><span class="p">)</span>
+
+
+<span class="n">_scale_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;linear&#39;</span><span class="p">:</span> <span class="n">LinearScale</span><span class="p">,</span>
+    <span class="s1">&#39;log&#39;</span><span class="p">:</span>    <span class="n">LogScale</span><span class="p">,</span>
+    <span class="s1">&#39;symlog&#39;</span><span class="p">:</span> <span class="n">SymmetricalLogScale</span><span class="p">,</span>
+    <span class="s1">&#39;asinh&#39;</span><span class="p">:</span>  <span class="n">AsinhScale</span><span class="p">,</span>
+    <span class="s1">&#39;logit&#39;</span><span class="p">:</span>  <span class="n">LogitScale</span><span class="p">,</span>
+    <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">FuncScale</span><span class="p">,</span>
+    <span class="s1">&#39;functionlog&#39;</span><span class="p">:</span> <span class="n">FuncScaleLog</span><span class="p">,</span>
+    <span class="p">}</span>
+
+
+<div class="viewcode-block" id="get_scale_names"><a class="viewcode-back" href="../../_autosummary/smpl.plot.get_scale_names.html#smpl.plot.get_scale_names">[docs]</a><span class="k">def</span> <span class="nf">get_scale_names</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return the names of the available scales.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_scale_mapping</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">scale_factory</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a scale class by name.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scale : {%(names)s}</span>
+<span class="sd">    axis : `matplotlib.axis.Axis`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">scale</span> <span class="o">!=</span> <span class="n">scale</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="n">_api</span><span class="o">.</span><span class="n">warn_deprecated</span><span class="p">(</span>
+            <span class="s2">&quot;3.5&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Support for case-insensitive scales is deprecated &quot;</span>
+            <span class="s2">&quot;since </span><span class="si">%(since)s</span><span class="s2"> and support will be removed </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">scale_cls</span> <span class="o">=</span> <span class="n">_api</span><span class="o">.</span><span class="n">check_getitem</span><span class="p">(</span><span class="n">_scale_mapping</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scale_cls</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">scale_factory</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">:</span>
+    <span class="n">scale_factory</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">scale_factory</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">%</span> <span class="p">{</span>
+        <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">repr</span><span class="p">,</span> <span class="n">get_scale_names</span><span class="p">()))}</span>
+
+
+<span class="k">def</span> <span class="nf">register_scale</span><span class="p">(</span><span class="n">scale_class</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Register a new kind of scale.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scale_class : subclass of `ScaleBase`</span>
+<span class="sd">        The scale to register.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_scale_mapping</span><span class="p">[</span><span class="n">scale_class</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale_class</span>
+
+
+<span class="k">def</span> <span class="nf">_get_scale_docs</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function for generating docstrings related to scales.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">docs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">scale_class</span> <span class="ow">in</span> <span class="n">_scale_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">docstring</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getdoc</span><span class="p">(</span><span class="n">scale_class</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">docs</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+            <span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">name</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">textwrap</span><span class="o">.</span><span class="n">indent</span><span class="p">(</span><span class="n">docstring</span><span class="p">,</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="mi">8</span><span class="p">),</span>
+            <span class="s2">&quot;&quot;</span>
+        <span class="p">])</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+
+
+<span class="n">_docstring</span><span class="o">.</span><span class="n">interpd</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="n">scale_type</span><span class="o">=</span><span class="s1">&#39;{</span><span class="si">%s</span><span class="s1">}&#39;</span> <span class="o">%</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">repr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">get_scale_names</span><span class="p">()]),</span>
+    <span class="n">scale_docs</span><span class="o">=</span><span class="n">_get_scale_docs</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(),</span>
+    <span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

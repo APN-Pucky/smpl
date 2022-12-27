@@ -2,24 +2,15 @@
    sphinx-quickstart on Tue Nov 17 13:55:14 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
-============================
+=================================
 |project| |version| documentation
-============================
+=================================
 
 
 
 .. include:: ../../README.md
    :parser: myst_parser.sphinx_
 
-
-.. toctree::
-   :glob:
-   :hidden:
-   :caption: Versions:
-   :maxdepth: 3
-
-   Stable <https://apn-pucky.github.io/smpl/>
-   Dev <https://apn-pucky.github.io/smpl/test/>
 
 .. toctree::
    :glob:
@@ -37,11 +28,16 @@
 
    example/*
 
-.. toctree::
-   :titlesonly:
-   :caption: Module:
 
-   autoapi/index
+:mod:`smpl` package
+===================
+.. autosummary::
+   :toctree: _autosummary
+   :template: custom-module-template.rst
+   :recursive:
+   :caption: Modules:
+
+   smpl
 
 .. toctree::
    :glob:
@@ -49,6 +45,18 @@
    :caption: Profiling:
 
    performance/*
+
+
+.. toctree::
+   :glob:
+   :hidden:
+   :caption: Versions:
+   :maxdepth: 3
+
+   RTD <https://smpl.readthedocs.io/en/stable/>
+   Stable <https://apn-pucky.github.io/smpl/>
+   Dev <https://apn-pucky.github.io/smpl/test/>
+
 
 
 

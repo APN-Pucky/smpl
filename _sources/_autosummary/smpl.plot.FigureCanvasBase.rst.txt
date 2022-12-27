@@ -1,0 +1,75 @@
+smpl.plot.FigureCanvasBase
+==========================
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: FigureCanvasBase
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FigureCanvasBase.__init__
+      ~FigureCanvasBase.blit
+      ~FigureCanvasBase.button_press_event
+      ~FigureCanvasBase.button_release_event
+      ~FigureCanvasBase.close_event
+      ~FigureCanvasBase.draw
+      ~FigureCanvasBase.draw_event
+      ~FigureCanvasBase.draw_idle
+      ~FigureCanvasBase.enter_notify_event
+      ~FigureCanvasBase.flush_events
+      ~FigureCanvasBase.get_default_filename
+      ~FigureCanvasBase.get_default_filetype
+      ~FigureCanvasBase.get_supported_filetypes
+      ~FigureCanvasBase.get_supported_filetypes_grouped
+      ~FigureCanvasBase.get_width_height
+      ~FigureCanvasBase.grab_mouse
+      ~FigureCanvasBase.inaxes
+      ~FigureCanvasBase.is_saving
+      ~FigureCanvasBase.key_press_event
+      ~FigureCanvasBase.key_release_event
+      ~FigureCanvasBase.leave_notify_event
+      ~FigureCanvasBase.motion_notify_event
+      ~FigureCanvasBase.mpl_connect
+      ~FigureCanvasBase.mpl_disconnect
+      ~FigureCanvasBase.new_manager
+      ~FigureCanvasBase.new_timer
+      ~FigureCanvasBase.pick
+      ~FigureCanvasBase.pick_event
+      ~FigureCanvasBase.print_figure
+      ~FigureCanvasBase.release_mouse
+      ~FigureCanvasBase.resize
+      ~FigureCanvasBase.resize_event
+      ~FigureCanvasBase.scroll_event
+      ~FigureCanvasBase.set_cursor
+      ~FigureCanvasBase.start_event_loop
+      ~FigureCanvasBase.stop_event_loop
+      ~FigureCanvasBase.switch_backends
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~FigureCanvasBase.button_pick_id
+      ~FigureCanvasBase.callbacks
+      ~FigureCanvasBase.device_pixel_ratio
+      ~FigureCanvasBase.events
+      ~FigureCanvasBase.filetypes
+      ~FigureCanvasBase.fixed_dpi
+      ~FigureCanvasBase.required_interactive_framework
+      ~FigureCanvasBase.scroll_pick_id
+      ~FigureCanvasBase.supports_blit
+   
+   

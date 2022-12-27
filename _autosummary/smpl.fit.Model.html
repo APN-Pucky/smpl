@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.fit.Model &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.fit.ODR" href="smpl.fit.ODR.html" />
+    <link rel="prev" title="smpl.fit.Fitter" href="smpl.fit.Fitter.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="smpl.fit.html">smpl.fit</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.Chi2.html">smpl.fit.Chi2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.R2.html">smpl.fit.R2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.auto.html">smpl.fit.auto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.data_split.html">smpl.fit.data_split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.fit.html">smpl.fit.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.fit_kwargs.html">smpl.fit.fit_kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.fit_split.html">smpl.fit.fit_split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.unv.html">smpl.fit.unv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.usd.html">smpl.fit.usd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.Fitter.html">smpl.fit.Fitter</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">smpl.fit.Model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#smpl.fit.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.ODR.html">smpl.fit.ODR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.RealData.html">smpl.fit.RealData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.tqdm.html">smpl.fit.tqdm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.fit.LinAlgError.html">smpl.fit.LinAlgError</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.functions.html">smpl.functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.interpolate.html">smpl.interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.io.html">smpl.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.parallel.html">smpl.parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot.html">smpl.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot2d.html">smpl.plot2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.stat.html">smpl.stat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.util.html">smpl.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="smpl.html">smpl</a> &raquo;</li>
+        
+          <li><a href="smpl.fit.html">smpl.fit</a> &raquo;</li>
+        
+      <li>smpl.fit.Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/_autosummary/smpl.fit.Model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="smpl-fit-model">
+<h1>smpl.fit.Model<a class="headerlink" href="#smpl-fit-model" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="smpl.fit.Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">smpl.fit.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fjacb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fjacd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implicit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#Model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The Model class stores information about the function you wish to fit.</p>
+<p>It stores the function itself, at the least, and optionally stores
+functions which compute the Jacobians used during fitting. Also, one
+can provide a function that will provide reasonable starting values
+for the fit parameters possibly given the set of data.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>fcn<span class="classifier">function</span></dt><dd><p>fcn(beta, x) –&gt; y</p>
+</dd>
+<dt>fjacb<span class="classifier">function</span></dt><dd><p>Jacobian of fcn wrt the fit parameters beta.</p>
+<p>fjacb(beta, x) –&gt; &#64;f_i(x,B)/&#64;B_j</p>
+</dd>
+<dt>fjacd<span class="classifier">function</span></dt><dd><p>Jacobian of fcn wrt the (possibly multidimensional) input
+variable.</p>
+<p>fjacd(beta, x) –&gt; &#64;f_i(x,B)/&#64;x_j</p>
+</dd>
+<dt>extra_args<span class="classifier">tuple, optional</span></dt><dd><p>If specified, <cite>extra_args</cite> should be a tuple of extra
+arguments to pass to <cite>fcn</cite>, <cite>fjacb</cite>, and <cite>fjacd</cite>. Each will be called
+by <cite>apply(fcn, (beta, x) + extra_args)</cite></p>
+</dd>
+<dt>estimate<span class="classifier">array_like of rank-1</span></dt><dd><p>Provides estimates of the fit parameters from the data</p>
+<p>estimate(data) –&gt; estbeta</p>
+</dd>
+<dt>implicit<span class="classifier">boolean</span></dt><dd><p>If TRUE, specifies that the model
+is implicit; i.e <cite>fcn(beta, x)</cite> ~= 0 and there is no y data to fit
+against</p>
+</dd>
+<dt>meta<span class="classifier">dict, optional</span></dt><dd><p>freeform dictionary of metadata for the model</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h2>
+<p>Note that the <cite>fcn</cite>, <cite>fjacb</cite>, and <cite>fjacd</cite> operate on NumPy arrays and
+return a NumPy array. The <cite>estimate</cite> object takes an instance of the
+Data class.</p>
+<p>Here are the rules for the shapes of the argument and return
+arrays of the callback functions:</p>
+<dl class="simple">
+<dt><cite>x</cite></dt><dd><p>if the input data is single-dimensional, then <cite>x</cite> is rank-1
+array; i.e., <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">array([1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">...]);</span> <span class="pre">x.shape</span> <span class="pre">=</span> <span class="pre">(n,)</span></code>
+If the input data is multi-dimensional, then <cite>x</cite> is a rank-2 array;
+i.e., <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">array([[1,</span> <span class="pre">2,</span> <span class="pre">...],</span> <span class="pre">[2,</span> <span class="pre">4,</span> <span class="pre">...]]);</span> <span class="pre">x.shape</span> <span class="pre">=</span> <span class="pre">(m,</span> <span class="pre">n)</span></code>.
+In all cases, it has the same shape as the input data array passed to
+<cite>~scipy.odr.odr</cite>. <cite>m</cite> is the dimensionality of the input data,
+<cite>n</cite> is the number of observations.</p>
+</dd>
+<dt><cite>y</cite></dt><dd><p>if the response variable is single-dimensional, then <cite>y</cite> is a
+rank-1 array, i.e., <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">array([2,</span> <span class="pre">4,</span> <span class="pre">...]);</span> <span class="pre">y.shape</span> <span class="pre">=</span> <span class="pre">(n,)</span></code>.
+If the response variable is multi-dimensional, then <cite>y</cite> is a rank-2
+array, i.e., <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">array([[2,</span> <span class="pre">4,</span> <span class="pre">...],</span> <span class="pre">[3,</span> <span class="pre">6,</span> <span class="pre">...]]);</span> <span class="pre">y.shape</span> <span class="pre">=</span>
+<span class="pre">(q,</span> <span class="pre">n)</span></code> where <cite>q</cite> is the dimensionality of the response variable.</p>
+</dd>
+<dt><cite>beta</cite></dt><dd><p>rank-1 array of length <cite>p</cite> where <cite>p</cite> is the number of parameters;
+i.e. <code class="docutils literal notranslate"><span class="pre">beta</span> <span class="pre">=</span> <span class="pre">array([B_1,</span> <span class="pre">B_2,</span> <span class="pre">...,</span> <span class="pre">B_p])</span></code></p>
+</dd>
+<dt><cite>fjacb</cite></dt><dd><p>if the response variable is multi-dimensional, then the
+return array’s shape is <cite>(q, p, n)</cite> such that <code class="docutils literal notranslate"><span class="pre">fjacb(x,beta)[l,k,i]</span> <span class="pre">=</span>
+<span class="pre">d</span> <span class="pre">f_l(X,B)/d</span> <span class="pre">B_k</span></code> evaluated at the ith data point.  If <cite>q == 1</cite>, then
+the return array is only rank-2 and with shape <cite>(p, n)</cite>.</p>
+</dd>
+<dt><cite>fjacd</cite></dt><dd><p>as with fjacb, only the return array’s shape is <cite>(q, m, n)</cite>
+such that <code class="docutils literal notranslate"><span class="pre">fjacd(x,beta)[l,j,i]</span> <span class="pre">=</span> <span class="pre">d</span> <span class="pre">f_l(X,B)/d</span> <span class="pre">X_j</span></code> at the ith data
+point.  If <cite>q == 1</cite>, then the return array’s shape is <cite>(m, n)</cite>. If
+<cite>m == 1</cite>, the shape is (q, n). If <cite>m == q == 1</cite>, the shape is <cite>(n,)</cite>.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.fit.Model.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fcn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fjacb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fjacd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implicit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#Model.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.Model.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.fit.Model.__init__" title="smpl.fit.Model.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(fcn[, fjacb, fjacd, extra_args, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.fit.Model.set_meta" title="smpl.fit.Model.set_meta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_meta</span></code></a>(**kwds)</p></td>
+<td><p>Update the metadata dictionary with the keywords and data provided here.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.fit.Model.set_meta">
+<span class="sig-name descname"><span class="pre">set_meta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/scipy/odr/_odrpack.html#Model.set_meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.fit.Model.set_meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the metadata dictionary with the keywords and data provided
+here.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
+<p>set_meta(name=”Exponential”, equation=”y = a exp(b x) + c”)</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="smpl.fit.ODR.html" class="btn btn-neutral float-right" title="smpl.fit.ODR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.fit.Fitter.html" class="btn btn-neutral float-left" title="smpl.fit.Fitter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

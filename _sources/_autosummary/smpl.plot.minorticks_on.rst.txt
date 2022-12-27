@@ -1,0 +1,6 @@
+smpl.plot.minorticks\_on
+========================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: minorticks_on

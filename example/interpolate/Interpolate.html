@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/thebelab.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
 
   
@@ -41,6 +42,9 @@
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -76,7 +80,7 @@
             
             
               <div class="version">
-                1.0.3
+                1.1.1
               </div>
             
           
@@ -101,12 +105,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 </ul>
@@ -132,14 +131,20 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Module:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.html">smpl</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../performance/index.html">Graph Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
 </ul>
 
             
@@ -491,346 +496,179 @@ div.rendered_html tbody tr:hover {
 <section id="Interpolate">
 <h1>Interpolate<a class="headerlink" href="#Interpolate" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import plot
-from smpl import stat
-from smpl import data
-from smpl import interpolate
-import numpy as np
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">stat</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-from smpl import interpolate as interp
-from uncertainties import unumpy as unp
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">interpolate</span> <span class="k">as</span> <span class="n">interp</span>
+<span class="kn">from</span> <span class="nn">uncertainties</span> <span class="kn">import</span> <span class="n">unumpy</span> <span class="k">as</span> <span class="n">unp</span>
 </pre></div>
 </div>
 </div>
 <section id="Interpolate-1d">
 <h2>Interpolate 1d<a class="headerlink" href="#Interpolate-1d" title="Permalink to this heading">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(2,100,20)
-y = stat.noisy(x)
-plot.data(x,y,interpolate=True)
-plot.show()
-plot.data(x,y,interpolate=True,also_data=False)
-plot.show()
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_3_0.png" src="../../_images/example_interpolate_Interpolate_3_0.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_3_1.png" src="../../_images/example_interpolate_Interpolate_3_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(2,100,20)
-y = stat.poisson_dist(stat.noisy(x))
-plot.data(x,y,interpolate=True,sigmas=1,show=True)
-plot.data(x,y,interpolate=True,sigmas=1,also_data=False)
-plot.data(x,y,interpolate=True,sigmas=1,also_data=False,init=False,interpolator=&#39;linear&#39;)
-&quot;&quot;
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_4_0.png" src="../../_images/example_interpolate_Interpolate_4_0.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;&#39;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_4_2.png" src="../../_images/example_interpolate_Interpolate_4_2.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stat</span><span class="o">.</span><span class="n">poisson_dist</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="s2">&quot;&quot;</span>
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>x = np.linspace(2,100,10)
-y = np.exp(-stat.noisy(x,std=0.05))
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">))</span>
 
-ff1=plot.data(x,y,interpolate=True,also_data=False,interpolator=&#39;linear&#39;,logy=True,interpolate_label=&quot;linear&quot;)
-ff2=plot.data(x,y,interpolate=True,also_data=False,interpolator=&#39;exp&#39;,logy=True,init=False,interpolate_label=&quot;exp&quot;)
+<span class="n">ff1</span><span class="o">=</span><span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span><span class="n">logy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">interpolate_label</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+<span class="n">ff2</span><span class="o">=</span><span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">also_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;exp&#39;</span><span class="p">,</span><span class="n">logy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">interpolate_label</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">)</span>
 
 
-f1 = interp.interpolate(x,y,interpolator=&quot;exp&quot;)
-f2 = lambda x_ : np.exp(interp.interpolate(x,unp.log(y),interpolator=&quot;linear&quot;)(x_))
-x2 = np.linspace(2,100,100)
+<span class="n">f1</span> <span class="o">=</span> <span class="n">interp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s2">&quot;exp&quot;</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x_</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">interp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">unp</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">interpolator</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)(</span><span class="n">x_</span><span class="p">))</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 
-plot.data(x2,np.exp(-x2),logy=True,init=False,label=&quot;true data&quot;)
-plot.data(x,f2(x),logy=True,init=False,label=&quot;shifted interpolate data&quot;)
-plot.show()
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x2</span><span class="p">),</span><span class="n">logy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;true data&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">logy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;shifted interpolate data&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-print(&quot;lin Chi2:&quot; + str(stat.Chi2(ff1[0](x2),np.exp(-x2))))
-print(&quot;exp Chi2:&quot; + str(stat.Chi2(ff2[0](x2),np.exp(-x2))))
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lin Chi2:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">ff1</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x2</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x2</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;exp Chi2:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">ff2</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x2</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x2</span><span class="p">))))</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_5_0.png" src="../../_images/example_interpolate_Interpolate_5_0.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-lin Chi2:0.05242451828185399
-exp Chi2:0.00016349798698576606
-</pre></div></div>
 </div>
 </section>
 <section id="Interpolate-2d">
 <h2>Interpolate 2d<a class="headerlink" href="#Interpolate-2d" title="Permalink to this heading">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>xvalues = np.linspace(-10,10,5)
-yvalues = np.linspace(-10,10,5)
-xx, yy = data.flatmesh(xvalues, yvalues)
-zz=xx**2+yy**2+10*xx+10*yy
-print(zz)
-plot.plot2d(xx,yy,zz,fill_missing=False,style=&#39;scatter&#39;,logz=False)
-plot.title(&quot;interpolate data&quot;)
-f=interp.interpolate(xx,yy,zz)
-print(f(xx,yy))
-xvalues = np.linspace(-10,10,11)
-yvalues = np.linspace(-10,10,11)
-xx, yy = data.flatmesh(xvalues, yvalues)
-plot.plot2d(xx,yy,f(xx,yy),fill_missing=False,style=&#39;scatter&#39;,logz=False)
-plot.title(&quot;interpolated data&quot;)
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[  0. -25.   0.  75. 200. -25. -50. -25.  50. 175.   0. -25.   0.  75.
- 200.  75.  50.  75. 150. 275. 200. 175. 200. 275. 400.]
-[ 3.84453829e-15 -2.50000000e+01 -1.77635684e-14  7.50000000e+01
-  2.00000000e+02 -2.50000000e+01 -5.00000000e+01 -2.50000000e+01
-  5.00000000e+01  1.75000000e+02  1.06581410e-14 -2.50000000e+01
-  7.10542736e-15  7.50000000e+01  2.00000000e+02  7.50000000e+01
-  5.00000000e+01  7.50000000e+01  1.50000000e+02  2.75000000e+02
-  2.00000000e+02  1.75000000e+02  2.00000000e+02  2.75000000e+02
-  4.00000000e+02]
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0.5, 1.0, &#39;interpolated data&#39;)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_7_2.png" src="../../_images/example_interpolate_Interpolate_7_2.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_7_3.png" src="../../_images/example_interpolate_Interpolate_7_3.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>xvalues = np.linspace(-10,10,10)
-yvalues = xvalues*2
-xx = xvalues
-yy = yvalues
-xx = np.append(xx,xx)
-yy = np.append(yy,-yy)
-zz = xx**2+yy**2
-f_cub=interp.interpolate(xx,yy,zz)
-f_lin=interp.interpolate(xx,yy,zz,interpolator=&#39;linear&#39;)
-f_lind=interp.interpolate(xx,yy,zz,interpolator=&#39;linearnd&#39;)
-f_bi=interp.interpolate(xx,yy,zz,interpolator=&#39;bivariatespline&#39;)
-plot.plot2d(xx,yy,xx**2+yy**2,style=&#39;scatter&#39;,fill_missing=True,logz=False)
-plot.title(&quot;interpolate data&quot;)
-xvalues = np.linspace(-10,10,11)
-yvalues = np.linspace(-20,20,11)
-xx, yy = data.flatmesh(xvalues, yvalues)
-plot.plot2d(xx,yy,f_cub(xx,yy),fill_missing=False,style=&#39;scatter&#39;,logz=False)
-plot.title(&quot;cubic interpolated data&quot;)
-plot.plot2d(xx,yy,f_lin(xx,yy),fill_missing=False,style=&#39;scatter&#39;,logz=False)
-plot.title(&quot;linear interpolated data&quot;)
-plot.plot2d(xx,yy,f_lind(xx,yy),fill_missing=False,style=&#39;scatter&#39;,logz=False)
-plot.title(&quot;linearnd interpolated data&quot;)
-plot.plot2d(xx,yy,f_bi(xx,yy),fill_missing=False,style=&#39;scatter&#39;,logz=False)
-plot.title(&quot;bivariatespline interpolated data&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">yvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatmesh</span><span class="p">(</span><span class="n">xvalues</span><span class="p">,</span> <span class="n">yvalues</span><span class="p">)</span>
+<span class="n">zz</span><span class="o">=</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">yy</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">xx</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">yy</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zz</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span><span class="n">fill_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;interpolate data&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">=</span><span class="n">interp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">))</span>
+<span class="n">xvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">yvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatmesh</span><span class="p">(</span><span class="n">xvalues</span><span class="p">,</span> <span class="n">yvalues</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">),</span><span class="n">fill_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;interpolated data&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/lib/python3.9/site-packages/scipy/interpolate/_fitpack_impl.py:977: RuntimeWarning: No more knots can be added because the number of B-spline
-coefficients already exceeds the number of data points m.
-Probable causes: either s or m too small. (fp&gt;s)
-        kx,ky=3,3 nx,ny=9,9 m=20 fp=0.000000 s=0.000000
-  warnings.warn(RuntimeWarning(_iermess2[ierm][0] + _mess))
-/usr/lib/python3.9/site-packages/scipy/interpolate/_fitpack_impl.py:977: RuntimeWarning: No more knots can be added because the number of B-spline
-coefficients already exceeds the number of data points m.
-Probable causes: either s or m too small. (fp&gt;s)
-        kx,ky=1,1 nx,ny=6,8 m=20 fp=0.000000 s=0.000000
-  warnings.warn(RuntimeWarning(_iermess2[ierm][0] + _mess))
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Text(0.5, 1.0, &#39;bivariatespline interpolated data&#39;)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_8_2.png" src="../../_images/example_interpolate_Interpolate_8_2.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_8_3.png" src="../../_images/example_interpolate_Interpolate_8_3.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_8_4.png" src="../../_images/example_interpolate_Interpolate_8_4.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_8_5.png" src="../../_images/example_interpolate_Interpolate_8_5.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_8_6.png" src="../../_images/example_interpolate_Interpolate_8_6.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">yvalues</span> <span class="o">=</span> <span class="n">xvalues</span><span class="o">*</span><span class="mi">2</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">xvalues</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">yvalues</span>
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">xx</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yy</span><span class="p">,</span><span class="o">-</span><span class="n">yy</span><span class="p">)</span>
+<span class="n">zz</span> <span class="o">=</span> <span class="n">xx</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">yy</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">f_cub</span><span class="o">=</span><span class="n">interp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">)</span>
+<span class="n">f_lin</span><span class="o">=</span><span class="n">interp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">f_lind</span><span class="o">=</span><span class="n">interp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linearnd&#39;</span><span class="p">)</span>
+<span class="n">f_bi</span><span class="o">=</span><span class="n">interp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;bivariatespline&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">yy</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span><span class="n">fill_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;interpolate data&quot;</span><span class="p">)</span>
+<span class="n">xvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">yvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatmesh</span><span class="p">(</span><span class="n">xvalues</span><span class="p">,</span> <span class="n">yvalues</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">f_cub</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">),</span><span class="n">fill_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;cubic interpolated data&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">f_lin</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">),</span><span class="n">fill_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;linear interpolated data&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">f_lind</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">),</span><span class="n">fill_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;linearnd interpolated data&quot;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">f_bi</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">),</span><span class="n">fill_missing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;bivariatespline interpolated data&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 <section id="scipy-vs-smpl-code">
 <h3>scipy vs smpl code<a class="headerlink" href="#scipy-vs-smpl-code" title="Permalink to this heading">¶</a></h3>
 <p>Example taken from <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.LinearNDInterpolator.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.LinearNDInterpolator.html</a></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-rng = np.random.default_rng()
-x = rng.random(10) - 0.5
-y = rng.random(10) - 0.5
-z = np.hypot(x, y)
-lX = np.linspace(min(x), max(x))
-lY = np.linspace(min(y), max(y))
-X, Y = np.meshgrid(lX, lY)  # 2D grid for interpolation
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">lX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">lY</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">lX</span><span class="p">,</span> <span class="n">lY</span><span class="p">)</span>  <span class="c1"># 2D grid for interpolation</span>
 <br/></pre></div>
 </div>
 </div>
 <section id="scipy-code">
 <h4>scipy code<a class="headerlink" href="#scipy-code" title="Permalink to this heading">¶</a></h4>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from scipy.interpolate import LinearNDInterpolator
-import matplotlib.pyplot as plt
-# interpolate
-interp = LinearNDInterpolator(list(zip(x, y)), z)
-# evaluate interpoaltion function
-Z = interp(X, Y)
-# plot it
-plt.pcolormesh(X, Y, Z, shading=&#39;auto&#39;)
-plt.plot(x, y, &quot;ok&quot;, label=&quot;input point&quot;)
-plt.legend()
-plt.colorbar()
-plt.axis(&quot;equal&quot;)
-plt.show()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">LinearNDInterpolator</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># interpolate</span>
+<span class="n">interp</span> <span class="o">=</span> <span class="n">LinearNDInterpolator</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)),</span> <span class="n">z</span><span class="p">)</span>
+<span class="c1"># evaluate interpoaltion function</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">interp</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="c1"># plot it</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;input point&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_12_0.png" src="../../_images/example_interpolate_Interpolate_12_0.png" />
 </div>
 </div>
 </section>
 <section id="smpl-code">
 <h4>smpl code<a class="headerlink" href="#smpl-code" title="Permalink to this heading">¶</a></h4>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from smpl import interpolate as interpol
-from smpl import plot,data
-f=interpol.interpolate(x,y,z,interpolator=&#39;linearnd&#39;)
-plot.plot2d(X,Y,f(X,Y),logz=False)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">interpolate</span> <span class="k">as</span> <span class="n">interpol</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span><span class="p">,</span><span class="n">data</span>
+<span class="n">f</span><span class="o">=</span><span class="n">interpol</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linearnd&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">),</span><span class="n">logz</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_14_0.png" src="../../_images/example_interpolate_Interpolate_14_0.png" />
 </div>
 </div>
 </section>
@@ -839,107 +677,57 @@ plot.plot2d(X,Y,f(X,Y),logz=False)
 <h3>Pre and Post transformations<a class="headerlink" href="#Pre-and-Post-transformations" title="Permalink to this heading">¶</a></h3>
 <p>It might turn out that some behaviour/shape of the function is known. Including this into the interpolation improves the result as was seen in previos 1d expolential interpolation section.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-rng = np.random.default_rng()
-x = 20*rng.random(50)
-y = 20*rng.random(50)
-tx = np.linspace(min(x), max(x))
-ty = np.linspace(min(y), max(y))
-z = np.exp(-stat.noisy(x+y,std=0.05))
-X, Y = np.meshgrid(tx, ty)  # 2D grid for interpolation
-tz = np.exp(-np.abs(X)-np.abs(Y))
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plot.plot2d(X,Y,tz,logz=True)
-plt.plot(x, y, &quot;ok&quot;, label=&quot;input point&quot;)
-plt.legend()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">tx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">stat</span><span class="o">.</span><span class="n">noisy</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="mf">0.05</span><span class="p">))</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">ty</span><span class="p">)</span>  <span class="c1"># 2D grid for interpolation</span>
+<span class="n">tz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x7f09c86ea970&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_17_1.png" src="../../_images/example_interpolate_Interpolate_17_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f=interpol.interpolate(x,y,z,interpolator=&#39;linearnd&#39;)
-plot.plot2d(X,Y,f(X,Y),logz=True)
-r= f(X,Y).flatten()[~np.isnan(f(X,Y).flatten())]
-t = tz.flatten()[~np.isnan(f(X,Y).flatten())]
-print(&quot;Chi2: &quot; + str(stat.Chi2(r,t)))
-print(&quot;R2: &quot; + str(stat.R2(r,t)))
-print(&quot;var: &quot; + str(stat.average_deviation(r,t)))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">tz</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;input point&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Chi2: 3.165981906173436e-05
-R2: -0.11706425672155785
-var: 9+/-19
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_18_1.png" src="../../_images/example_interpolate_Interpolate_18_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>f=interpol.interpolate(x,y,z,interpolator=&#39;linearnd&#39;,pre=np.log,post=np.exp)
-plot.plot2d(X,Y,f(X,Y),logz=True)
-r= f(X,Y).flatten()[~np.isnan(f(X,Y).flatten())]
-t = tz.flatten()[~np.isnan(f(X,Y).flatten())]
-print(&quot;Chi2: &quot; + str(stat.Chi2(r,t)))
-print(&quot;R2: &quot; + str(stat.R2(r,t)))
-print(&quot;var: &quot; + str(stat.average_deviation(r,t)))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="n">interpol</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linearnd&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">),</span><span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">r</span><span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">())]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">tz</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">())]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chi2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;var: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">average_deviation</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Chi2: 8.354100571224012e-07
-R2: -0.002291189542880767
-var: 0.7+/-1.3
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../../_images/example_interpolate_Interpolate_19_1.png" src="../../_images/example_interpolate_Interpolate_19_1.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="n">interpol</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linearnd&#39;</span><span class="p">,</span><span class="n">pre</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">,</span><span class="n">post</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">)</span>
+<span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">),</span><span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">r</span><span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">())]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">tz</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">())]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chi2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;var: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">average_deviation</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
+</pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">

@@ -1,0 +1,6 @@
+smpl.fit.LinAlgError
+====================
+
+.. currentmodule:: smpl.fit
+
+.. autoexception:: LinAlgError

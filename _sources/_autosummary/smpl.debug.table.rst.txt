@@ -1,0 +1,6 @@
+smpl.debug.table
+================
+
+.. currentmodule:: smpl.debug
+
+.. autofunction:: table

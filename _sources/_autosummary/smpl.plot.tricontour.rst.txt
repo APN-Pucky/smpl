@@ -1,0 +1,6 @@
+smpl.plot.tricontour
+====================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: tricontour

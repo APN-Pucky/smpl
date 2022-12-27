@@ -1,0 +1,986 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>sympy.printing.pycode &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl.html">smpl</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>sympy.printing.pycode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for sympy.printing.pycode</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Python code printers</span>
+
+<span class="sd">This module contains Python code printers for plain Python as well as NumPy &amp; SciPy enabled code.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">from</span> <span class="nn">sympy.core</span> <span class="kn">import</span> <span class="n">S</span>
+<span class="kn">from</span> <span class="nn">sympy.core.mod</span> <span class="kn">import</span> <span class="n">Mod</span>
+<span class="kn">from</span> <span class="nn">.precedence</span> <span class="kn">import</span> <span class="n">precedence</span>
+<span class="kn">from</span> <span class="nn">.codeprinter</span> <span class="kn">import</span> <span class="n">CodePrinter</span>
+
+<span class="n">_kw</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;assert&#39;</span><span class="p">,</span> <span class="s1">&#39;break&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="s1">&#39;continue&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;del&#39;</span><span class="p">,</span> <span class="s1">&#39;elif&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;else&#39;</span><span class="p">,</span> <span class="s1">&#39;except&#39;</span><span class="p">,</span> <span class="s1">&#39;finally&#39;</span><span class="p">,</span> <span class="s1">&#39;for&#39;</span><span class="p">,</span> <span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;if&#39;</span><span class="p">,</span> <span class="s1">&#39;import&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;lambda&#39;</span><span class="p">,</span> <span class="s1">&#39;not&#39;</span><span class="p">,</span> <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;pass&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">,</span> <span class="s1">&#39;return&#39;</span><span class="p">,</span> <span class="s1">&#39;try&#39;</span><span class="p">,</span> <span class="s1">&#39;while&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;with&#39;</span><span class="p">,</span> <span class="s1">&#39;yield&#39;</span><span class="p">,</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span> <span class="s1">&#39;nonlocal&#39;</span><span class="p">,</span> <span class="s1">&#39;True&#39;</span>
+<span class="p">}</span>
+
+<span class="n">_known_functions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Abs&#39;</span><span class="p">:</span> <span class="s1">&#39;abs&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Min&#39;</span><span class="p">:</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Max&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_known_functions_math</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;acos&#39;</span><span class="p">:</span> <span class="s1">&#39;acos&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;acosh&#39;</span><span class="p">:</span> <span class="s1">&#39;acosh&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;asin&#39;</span><span class="p">:</span> <span class="s1">&#39;asin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;asinh&#39;</span><span class="p">:</span> <span class="s1">&#39;asinh&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;atan&#39;</span><span class="p">:</span> <span class="s1">&#39;atan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;atan2&#39;</span><span class="p">:</span> <span class="s1">&#39;atan2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;atanh&#39;</span><span class="p">:</span> <span class="s1">&#39;atanh&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ceiling&#39;</span><span class="p">:</span> <span class="s1">&#39;ceil&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cos&#39;</span><span class="p">:</span> <span class="s1">&#39;cos&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cosh&#39;</span><span class="p">:</span> <span class="s1">&#39;cosh&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;erf&#39;</span><span class="p">:</span> <span class="s1">&#39;erf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;erfc&#39;</span><span class="p">:</span> <span class="s1">&#39;erfc&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;exp&#39;</span><span class="p">:</span> <span class="s1">&#39;exp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;expm1&#39;</span><span class="p">:</span> <span class="s1">&#39;expm1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;factorial&#39;</span><span class="p">:</span> <span class="s1">&#39;factorial&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;floor&#39;</span><span class="p">:</span> <span class="s1">&#39;floor&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="s1">&#39;gamma&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;hypot&#39;</span><span class="p">:</span> <span class="s1">&#39;hypot&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;loggamma&#39;</span><span class="p">:</span> <span class="s1">&#39;lgamma&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;log&#39;</span><span class="p">:</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ln&#39;</span><span class="p">:</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;log10&#39;</span><span class="p">:</span> <span class="s1">&#39;log10&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;log1p&#39;</span><span class="p">:</span> <span class="s1">&#39;log1p&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;log2&#39;</span><span class="p">:</span> <span class="s1">&#39;log2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sin&#39;</span><span class="p">:</span> <span class="s1">&#39;sin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sinh&#39;</span><span class="p">:</span> <span class="s1">&#39;sinh&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Sqrt&#39;</span><span class="p">:</span> <span class="s1">&#39;sqrt&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tan&#39;</span><span class="p">:</span> <span class="s1">&#39;tan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tanh&#39;</span><span class="p">:</span> <span class="s1">&#39;tanh&#39;</span>
+<span class="p">}</span>  <span class="c1"># Not used from ``math``: [copysign isclose isfinite isinf isnan ldexp frexp pow modf</span>
+<span class="c1"># radians trunc fmod fsum gcd degrees fabs]</span>
+<span class="n">_known_constants_math</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Exp1&#39;</span><span class="p">:</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Pi&#39;</span><span class="p">:</span> <span class="s1">&#39;pi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Infinity&#39;</span><span class="p">:</span> <span class="s1">&#39;inf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NaN&#39;</span><span class="p">:</span> <span class="s1">&#39;nan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ComplexInfinity&#39;</span><span class="p">:</span> <span class="s1">&#39;nan&#39;</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">_print_known_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+    <span class="n">known</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">known_functions</span><span class="p">[</span><span class="n">expr</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{name}</span><span class="s1">(</span><span class="si">{args}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="n">known</span><span class="p">),</span>
+                                   <span class="n">args</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">),</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">_print_known_const</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+    <span class="n">known</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">known_constants</span><span class="p">[</span><span class="n">expr</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="n">known</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">AbstractPythonCodePrinter</span><span class="p">(</span><span class="n">CodePrinter</span><span class="p">):</span>
+    <span class="n">printmethod</span> <span class="o">=</span> <span class="s2">&quot;_pythoncode&quot;</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+    <span class="n">reserved_words</span> <span class="o">=</span> <span class="n">_kw</span>
+    <span class="n">modules</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># initialized to a set in __init__</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="s1">&#39;    &#39;</span>
+    <span class="n">_kf</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span>
+        <span class="n">_known_functions</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
+        <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;math.&#39;</span> <span class="o">+</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_known_functions_math</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+    <span class="p">))</span>
+    <span class="n">_kc</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;math.&#39;</span><span class="o">+</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_known_constants_math</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">_operators</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;and&#39;</span><span class="p">:</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;or&#39;</span><span class="p">:</span> <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;not&#39;</span><span class="p">:</span> <span class="s1">&#39;not&#39;</span><span class="p">}</span>
+    <span class="n">_default_settings</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">CodePrinter</span><span class="o">.</span><span class="n">_default_settings</span><span class="p">,</span>
+        <span class="n">user_functions</span><span class="o">=</span><span class="p">{},</span>
+        <span class="n">precision</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span>
+        <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">fully_qualified_modules</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">contract</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">standard</span><span class="o">=</span><span class="s1">&#39;python3&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">settings</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+
+        <span class="c1"># Python standard handler</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="p">[</span><span class="s1">&#39;standard&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">std</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="kn">import</span> <span class="nn">sys</span>
+            <span class="n">std</span> <span class="o">=</span> <span class="s1">&#39;python</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="o">.</span><span class="n">major</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">std</span> <span class="o">!=</span> <span class="s1">&#39;python3&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Only Python 3 is supported.&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">standard</span> <span class="o">=</span> <span class="n">std</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">module_imports</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+
+        <span class="c1"># Known functions and constants handler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">known_functions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kf</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">settings</span> <span class="ow">or</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;user_functions&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">known_constants</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_kc</span><span class="p">,</span> <span class="o">**</span><span class="p">(</span><span class="n">settings</span> <span class="ow">or</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;user_constants&#39;</span><span class="p">,</span> <span class="p">{}))</span>
+
+    <span class="k">def</span> <span class="nf">_declare_number_const</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_module_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fqn</span><span class="p">,</span> <span class="n">register</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">fqn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">register</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">module_imports</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parts</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="p">[</span><span class="s1">&#39;fully_qualified_modules&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">fqn</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">fqn</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_format_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">lines</span>
+
+    <span class="k">def</span> <span class="nf">_get_statement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">codestring</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">codestring</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_comment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;  # </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_expand_fold_binary_op</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method expands a fold on binary operations.</span>
+
+<span class="sd">        ``functools.reduce`` is an example of a folded operation.</span>
+
+<span class="sd">        For example, the expression</span>
+
+<span class="sd">        `A + B + C + D`</span>
+
+<span class="sd">        is folded into</span>
+
+<span class="sd">        `((A + B) + C) + D`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="n">op</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_expand_fold_binary_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">args</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_expand_reduce_binary_op</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method expands a reductin on binary operations.</span>
+
+<span class="sd">        Notice: this is NOT the same as ``functools.reduce``.</span>
+
+<span class="sd">        For example, the expression</span>
+
+<span class="sd">        `A + B + C + D`</span>
+
+<span class="sd">        is reduced into:</span>
+
+<span class="sd">        `(A + B) + (C + D)`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">Nhalf</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="n">op</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_expand_reduce_binary_op</span><span class="p">(</span><span class="n">args</span><span class="p">[:</span><span class="n">Nhalf</span><span class="p">]),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_expand_reduce_binary_op</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">Nhalf</span><span class="p">:]),</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_NaN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;float(&#39;nan&#39;)&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_print_Infinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;float(&#39;inf&#39;)&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_print_NegativeInfinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;float(&#39;-inf&#39;)&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_print_ComplexInfinity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_NaN</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Mod</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">PREC</span> <span class="o">=</span> <span class="n">precedence</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> % </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">parenthesize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">PREC</span><span class="p">),</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">)))</span>
+
+    <span class="k">def</span> <span class="nf">_print_Piecewise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">expr</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">cond</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; if &#39;</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; else &#39;</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39; else None)&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Relational</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="s2">&quot;Relational printer for Equality and Unequality&quot;</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;==&#39;</span> <span class="p">:</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;!=&#39;</span> <span class="p">:</span><span class="s1">&#39;not_equal&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;&#39;</span>  <span class="p">:</span><span class="s1">&#39;less&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&lt;=&#39;</span> <span class="p">:</span><span class="s1">&#39;less_equal&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&gt;&#39;</span>  <span class="p">:</span><span class="s1">&#39;greater&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;&gt;=&#39;</span> <span class="p">:</span><span class="s1">&#39;greater_equal&#39;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">expr</span><span class="o">.</span><span class="n">rel_op</span> <span class="ow">in</span> <span class="n">op</span><span class="p">:</span>
+            <span class="n">lhs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">lhs</span><span class="p">)</span>
+            <span class="n">rhs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">rhs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s1">&#39;(</span><span class="si">{lhs}</span><span class="s1"> </span><span class="si">{op}</span><span class="s1"> </span><span class="si">{rhs}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">op</span><span class="o">=</span><span class="n">expr</span><span class="o">.</span><span class="n">rel_op</span><span class="p">,</span> <span class="n">lhs</span><span class="o">=</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="n">rhs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_print_Relational</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_ITE</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">sympy.functions.elementary.piecewise</span> <span class="kn">import</span> <span class="n">Piecewise</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">rewrite</span><span class="p">(</span><span class="n">Piecewise</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_print_Sum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">loops</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;for </span><span class="si">{i}</span><span class="s1"> in range(</span><span class="si">{a}</span><span class="s1">, </span><span class="si">{b}</span><span class="s1">+1)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">i</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                <span class="n">a</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+                <span class="n">b</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">expr</span><span class="o">.</span><span class="n">limits</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;(builtins.sum(</span><span class="si">{function}</span><span class="s1"> </span><span class="si">{loops}</span><span class="s1">))&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">function</span><span class="p">),</span>
+            <span class="n">loops</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">loops</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_print_ImaginaryUnit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;1j&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_print_KroneckerDelta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span>
+
+        <span class="k">return</span> <span class="s1">&#39;(1 if </span><span class="si">{a}</span><span class="s1"> == </span><span class="si">{b}</span><span class="s1"> else 0)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_MatrixBase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">known_functions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
+
+    <span class="n">_print_SparseRepMatrix</span> <span class="o">=</span> \
+        <span class="n">_print_MutableSparseMatrix</span> <span class="o">=</span> \
+        <span class="n">_print_ImmutableSparseMatrix</span> <span class="o">=</span> \
+        <span class="n">_print_Matrix</span> <span class="o">=</span> \
+        <span class="n">_print_DenseMatrix</span> <span class="o">=</span> \
+        <span class="n">_print_MutableDenseMatrix</span> <span class="o">=</span> \
+        <span class="n">_print_ImmutableMatrix</span> <span class="o">=</span> \
+        <span class="n">_print_ImmutableDenseMatrix</span> <span class="o">=</span> \
+        <span class="k">lambda</span> <span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_MatrixBase</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_indent_codestring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">codestring</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">tab</span> <span class="o">+</span> <span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">codestring</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)])</span>
+
+    <span class="k">def</span> <span class="nf">_print_FunctionDefinition</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fd</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">),</span> <span class="n">fd</span><span class="o">.</span><span class="n">body</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot;def </span><span class="si">{name}</span><span class="s2">(</span><span class="si">{parameters}</span><span class="s2">):</span><span class="se">\n</span><span class="si">{body}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">var</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">fd</span><span class="o">.</span><span class="n">parameters</span><span class="p">]),</span>
+            <span class="n">body</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_indent_codestring</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_While</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">whl</span><span class="p">):</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">),</span> <span class="n">whl</span><span class="o">.</span><span class="n">body</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot;while </span><span class="si">{cond}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{body}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">cond</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">whl</span><span class="o">.</span><span class="n">condition</span><span class="p">),</span>
+            <span class="n">body</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_indent_codestring</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Declaration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">decl</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">decl</span><span class="o">.</span><span class="n">variable</span><span class="o">.</span><span class="n">symbol</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">decl</span><span class="o">.</span><span class="n">variable</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Return</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ret</span><span class="p">):</span>
+        <span class="n">arg</span><span class="p">,</span> <span class="o">=</span> <span class="n">ret</span><span class="o">.</span><span class="n">args</span>
+        <span class="k">return</span> <span class="s1">&#39;return </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Print</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prnt</span><span class="p">):</span>
+        <span class="n">print_args</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">),</span> <span class="n">prnt</span><span class="o">.</span><span class="n">print_args</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">prnt</span><span class="o">.</span><span class="n">format_string</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># Must be &#39;!= None&#39;, cannot be &#39;is not None&#39;</span>
+            <span class="n">print_args</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> % (</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">prnt</span><span class="o">.</span><span class="n">format_string</span><span class="p">),</span> <span class="n">print_args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">prnt</span><span class="o">.</span><span class="n">file</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># Must be &#39;!= None&#39;, cannot be &#39;is not None&#39;</span>
+            <span class="n">print_args</span> <span class="o">+=</span> <span class="s1">&#39;, file=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">prnt</span><span class="o">.</span><span class="n">file</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="s1">&#39;print(</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">print_args</span>
+
+    <span class="k">def</span> <span class="nf">_print_Stream</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strm</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">strm</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;stdout&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;sys.stdout&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">strm</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;stderr&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;sys.stderr&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">strm</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_NoneToken</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;None&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_hprint_Pow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sqrt</span><span class="o">=</span><span class="s1">&#39;math.sqrt&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Printing helper function for ``Pow``</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        =====</span>
+
+<span class="sd">        This preprocesses the ``sqrt`` as math formatter and prints division</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        ========</span>
+
+<span class="sd">        &gt;&gt;&gt; from sympy import sqrt</span>
+<span class="sd">        &gt;&gt;&gt; from sympy.printing.pycode import PythonCodePrinter</span>
+<span class="sd">        &gt;&gt;&gt; from sympy.abc import x</span>
+
+<span class="sd">        Python code printer automatically looks up ``math.sqrt``.</span>
+
+<span class="sd">        &gt;&gt;&gt; printer = PythonCodePrinter()</span>
+<span class="sd">        &gt;&gt;&gt; printer._hprint_Pow(sqrt(x), rational=True)</span>
+<span class="sd">        &#39;x**(1/2)&#39;</span>
+<span class="sd">        &gt;&gt;&gt; printer._hprint_Pow(sqrt(x), rational=False)</span>
+<span class="sd">        &#39;math.sqrt(x)&#39;</span>
+<span class="sd">        &gt;&gt;&gt; printer._hprint_Pow(1/sqrt(x), rational=True)</span>
+<span class="sd">        &#39;x**(-1/2)&#39;</span>
+<span class="sd">        &gt;&gt;&gt; printer._hprint_Pow(1/sqrt(x), rational=False)</span>
+<span class="sd">        &#39;1/math.sqrt(x)&#39;</span>
+<span class="sd">        &gt;&gt;&gt; printer._hprint_Pow(1/x, rational=False)</span>
+<span class="sd">        &#39;1/x&#39;</span>
+<span class="sd">        &gt;&gt;&gt; printer._hprint_Pow(1/x, rational=True)</span>
+<span class="sd">        &#39;x**(-1)&#39;</span>
+
+<span class="sd">        Using sqrt from numpy or mpmath</span>
+
+<span class="sd">        &gt;&gt;&gt; printer._hprint_Pow(sqrt(x), sqrt=&#39;numpy.sqrt&#39;)</span>
+<span class="sd">        &#39;numpy.sqrt(x)&#39;</span>
+<span class="sd">        &gt;&gt;&gt; printer._hprint_Pow(sqrt(x), sqrt=&#39;mpmath.sqrt&#39;)</span>
+<span class="sd">        &#39;mpmath.sqrt(x)&#39;</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        ========</span>
+
+<span class="sd">        sympy.printing.str.StrPrinter._print_Pow</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">PREC</span> <span class="o">=</span> <span class="n">precedence</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">expr</span><span class="o">.</span><span class="n">exp</span> <span class="o">==</span> <span class="n">S</span><span class="o">.</span><span class="n">Half</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">rational</span><span class="p">:</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">)</span>
+            <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{func}</span><span class="s1">(</span><span class="si">{arg}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="n">arg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">expr</span><span class="o">.</span><span class="n">is_commutative</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">rational</span><span class="p">:</span>
+            <span class="k">if</span> <span class="o">-</span><span class="n">expr</span><span class="o">.</span><span class="n">exp</span> <span class="ow">is</span> <span class="n">S</span><span class="o">.</span><span class="n">Half</span><span class="p">:</span>
+                <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">)</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">One</span><span class="p">)</span>
+                <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">base</span><span class="p">)</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">func</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">)&quot;</span>
+            <span class="k">if</span> <span class="n">expr</span><span class="o">.</span><span class="n">exp</span> <span class="ow">is</span> <span class="n">S</span><span class="o">.</span><span class="n">NegativeOne</span><span class="p">:</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">One</span><span class="p">)</span>
+                <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parenthesize</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">PREC</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">&quot;</span>
+
+
+        <span class="n">base_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parenthesize</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">PREC</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">exp_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parenthesize</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span> <span class="n">PREC</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">**</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base_str</span><span class="p">,</span> <span class="n">exp_str</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">ArrayPrinter</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">_arrayify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indexed</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">sympy.tensor.array.expressions.conv_indexed_to_array</span> <span class="kn">import</span> <span class="n">convert_indexed_to_array</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">convert_indexed_to_array</span><span class="p">(</span><span class="n">indexed</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">indexed</span>
+
+    <span class="k">def</span> <span class="nf">_get_einsum_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subranks</span><span class="p">,</span> <span class="n">contraction_indices</span><span class="p">):</span>
+        <span class="n">letters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_letter_generator_for_einsum</span><span class="p">()</span>
+        <span class="n">contraction_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">j</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">contraction_indices</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">}</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">rank_arg</span> <span class="ow">in</span> <span class="n">subranks</span><span class="p">:</span>
+            <span class="n">lindices</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rank_arg</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">counter</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+                    <span class="n">lindices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">counter</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">lindices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+                <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lindices</span><span class="p">)</span>
+        <span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">letters_free</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">letters_dum</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
+                    <span class="n">l</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span>
+                    <span class="n">mapping</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">l</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">l</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">contraction_string</span> <span class="o">+=</span> <span class="n">l</span>
+                <span class="k">if</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">l</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">letters_dum</span><span class="p">:</span>
+                        <span class="n">letters_dum</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">letters_free</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+            <span class="n">contraction_string</span> <span class="o">+=</span> <span class="s2">&quot;,&quot;</span>
+        <span class="n">contraction_string</span> <span class="o">=</span> <span class="n">contraction_string</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">contraction_string</span><span class="p">,</span> <span class="n">letters_free</span><span class="p">,</span> <span class="n">letters_dum</span>
+
+    <span class="k">def</span> <span class="nf">_get_letter_generator_for_einsum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">97</span><span class="p">,</span> <span class="mi">123</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mi">91</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="nb">chr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;out of letters&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_ArrayTensorProduct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">letters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_letter_generator_for_einsum</span><span class="p">()</span>
+        <span class="n">contraction_string</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">next</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">expr</span><span class="o">.</span><span class="n">subranks</span><span class="p">])</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">(&quot;</span><span class="si">%s</span><span class="s1">&quot;, </span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_module</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_einsum</span><span class="p">),</span>
+                <span class="n">contraction_string</span><span class="p">,</span>
+                <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">])</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_ArrayContraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">sympy.tensor.array.expressions.array_expressions</span> <span class="kn">import</span> <span class="n">ArrayTensorProduct</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">expr</span>
+        <span class="n">contraction_indices</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">contraction_indices</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">ArrayTensorProduct</span><span class="p">):</span>
+            <span class="n">elems</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">))</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">base</span><span class="o">.</span><span class="n">args</span><span class="p">])</span>
+            <span class="n">ranks</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">subranks</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">elems</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+            <span class="n">ranks</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">shape</span><span class="p">)]</span>
+
+        <span class="n">contraction_string</span><span class="p">,</span> <span class="n">letters_free</span><span class="p">,</span> <span class="n">letters_dum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_einsum_string</span><span class="p">(</span><span class="n">ranks</span><span class="p">,</span> <span class="n">contraction_indices</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">contraction_indices</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">ArrayTensorProduct</span><span class="p">):</span>
+            <span class="n">elems</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">))</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">base</span><span class="o">.</span><span class="n">args</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">elems</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_module</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_einsum</span><span class="p">),</span>
+            <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-&gt;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">contraction_string</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">letters_free</span><span class="p">))),</span>
+            <span class="n">elems</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_ArrayDiagonal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">sympy.tensor.array.expressions.array_expressions</span> <span class="kn">import</span> <span class="n">ArrayTensorProduct</span>
+        <span class="n">diagonal_indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">diagonal_indices</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">expr</span><span class="p">,</span> <span class="n">ArrayTensorProduct</span><span class="p">):</span>
+            <span class="n">subranks</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">subranks</span>
+            <span class="n">elems</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">subranks</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">subranks</span>
+            <span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="n">expr</span><span class="o">.</span><span class="n">expr</span><span class="p">]</span>
+        <span class="n">diagonal_string</span><span class="p">,</span> <span class="n">letters_free</span><span class="p">,</span> <span class="n">letters_dum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_einsum_string</span><span class="p">(</span><span class="n">subranks</span><span class="p">,</span> <span class="n">diagonal_indices</span><span class="p">)</span>
+        <span class="n">elems</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">elems</span><span class="p">]</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">(&quot;</span><span class="si">%s</span><span class="s1">&quot;, </span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_module</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_einsum</span><span class="p">),</span>
+            <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">-&gt;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">diagonal_string</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">letters_free</span><span class="o">+</span><span class="n">letters_dum</span><span class="p">)),</span>
+            <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">elems</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_PermuteDims</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_module</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transpose</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">expr</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">permutation</span><span class="o">.</span><span class="n">array_form</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_ArrayAdd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_expand_fold_binary_op</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_module</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add</span><span class="p">,</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_OneArray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">((</span><span class="si">%s</span><span class="s2">,))&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_module</span><span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ones</span><span class="p">),</span>
+            <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">,</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_ZeroArray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">((</span><span class="si">%s</span><span class="s2">,))&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_module</span><span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zeros</span><span class="p">),</span>
+            <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">,</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Assignment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="c1">#XXX: maybe this needs to happen at a higher level e.g. at _print or</span>
+        <span class="c1">#doprint?</span>
+        <span class="n">lhs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_arrayify</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">lhs</span><span class="p">))</span>
+        <span class="n">rhs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_arrayify</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">rhs</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_IndexedBase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_ArraySymbol</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">PythonCodePrinter</span><span class="p">(</span><span class="n">AbstractPythonCodePrinter</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">_print_sign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;(0.0 if </span><span class="si">{e}</span><span class="s1"> == 0 else </span><span class="si">{f}</span><span class="s1">(1, </span><span class="si">{e}</span><span class="s1">))&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">f</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;math.copysign&#39;</span><span class="p">),</span> <span class="n">e</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">_print_Not</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">PREC</span> <span class="o">=</span> <span class="n">precedence</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operators</span><span class="p">[</span><span class="s1">&#39;not&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">parenthesize</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">PREC</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Indexed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">[</span><span class="si">{}</span><span class="s2">]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">base</span><span class="p">),</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">index</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">_print_Pow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hprint_Pow</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="n">rational</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Rational</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">expr</span><span class="o">.</span><span class="n">q</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Half</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_Rational</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_frac</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_Mod</span><span class="p">(</span><span class="n">Mod</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_print_Symbol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_print_Symbol</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reserved_words</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="p">[</span><span class="s1">&#39;error_on_reserved&#39;</span><span class="p">]:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;This expression includes the symbol &quot;</span><span class="si">{}</span><span class="s1">&quot; which is a &#39;</span>
+                       <span class="s1">&#39;reserved keyword in this language.&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="p">[</span><span class="s1">&#39;reserved_word_suffix&#39;</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="s1">&#39;{&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>   <span class="c1"># Remove curly braces from subscripted variables</span>
+            <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">name</span>
+
+    <span class="n">_print_lowergamma</span> <span class="o">=</span> <span class="n">CodePrinter</span><span class="o">.</span><span class="n">_print_not_supported</span>
+    <span class="n">_print_uppergamma</span> <span class="o">=</span> <span class="n">CodePrinter</span><span class="o">.</span><span class="n">_print_not_supported</span>
+    <span class="n">_print_fresnelc</span> <span class="o">=</span> <span class="n">CodePrinter</span><span class="o">.</span><span class="n">_print_not_supported</span>
+    <span class="n">_print_fresnels</span> <span class="o">=</span> <span class="n">CodePrinter</span><span class="o">.</span><span class="n">_print_not_supported</span>
+
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">PythonCodePrinter</span><span class="o">.</span><span class="n">_kf</span><span class="p">:</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">PythonCodePrinter</span><span class="p">,</span> <span class="s1">&#39;_print_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">,</span> <span class="n">_print_known_func</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_known_constants_math</span><span class="p">:</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">PythonCodePrinter</span><span class="p">,</span> <span class="s1">&#39;_print_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">,</span> <span class="n">_print_known_const</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="pycode"><a class="viewcode-back" href="../../../_autosummary/smpl.wrap.pycode.html#smpl.wrap.pycode">[docs]</a><span class="k">def</span> <span class="nf">pycode</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="o">**</span><span class="n">settings</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Converts an expr to a string of Python code</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ==========</span>
+
+<span class="sd">    expr : Expr</span>
+<span class="sd">        A SymPy expression.</span>
+<span class="sd">    fully_qualified_modules : bool</span>
+<span class="sd">        Whether or not to write out full module names of functions</span>
+<span class="sd">        (``math.sin`` vs. ``sin``). default: ``True``.</span>
+<span class="sd">    standard : str or None, optional</span>
+<span class="sd">        Only &#39;python3&#39; (default) is supported.</span>
+<span class="sd">        This parameter may be removed in the future.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ========</span>
+
+<span class="sd">    &gt;&gt;&gt; from sympy import pycode, tan, Symbol</span>
+<span class="sd">    &gt;&gt;&gt; pycode(tan(Symbol(&#39;x&#39;)) + 1)</span>
+<span class="sd">    &#39;math.tan(x) + 1&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">PythonCodePrinter</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span><span class="o">.</span><span class="n">doprint</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span></div>
+
+
+<span class="n">_not_in_mpmath</span> <span class="o">=</span> <span class="s1">&#39;log1p log2&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">_in_mpmath</span> <span class="o">=</span> <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_known_functions_math</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_not_in_mpmath</span><span class="p">]</span>
+<span class="n">_known_functions_mpmath</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_in_mpmath</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span>
+    <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;frac&#39;</span><span class="p">:</span> <span class="s1">&#39;frac&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fresnelc&#39;</span><span class="p">:</span> <span class="s1">&#39;fresnelc&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fresnels&#39;</span><span class="p">:</span> <span class="s1">&#39;fresnels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sign&#39;</span><span class="p">:</span> <span class="s1">&#39;sign&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;loggamma&#39;</span><span class="p">:</span> <span class="s1">&#39;loggamma&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;hyper&#39;</span><span class="p">:</span> <span class="s1">&#39;hyper&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;meijerg&#39;</span><span class="p">:</span> <span class="s1">&#39;meijerg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;besselj&#39;</span><span class="p">:</span> <span class="s1">&#39;besselj&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;bessely&#39;</span><span class="p">:</span> <span class="s1">&#39;bessely&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;besseli&#39;</span><span class="p">:</span> <span class="s1">&#39;besseli&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;besselk&#39;</span><span class="p">:</span> <span class="s1">&#39;besselk&#39;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="n">_known_constants_mpmath</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Exp1&#39;</span><span class="p">:</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Pi&#39;</span><span class="p">:</span> <span class="s1">&#39;pi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GoldenRatio&#39;</span><span class="p">:</span> <span class="s1">&#39;phi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;EulerGamma&#39;</span><span class="p">:</span> <span class="s1">&#39;euler&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Catalan&#39;</span><span class="p">:</span> <span class="s1">&#39;catalan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NaN&#39;</span><span class="p">:</span> <span class="s1">&#39;nan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Infinity&#39;</span><span class="p">:</span> <span class="s1">&#39;inf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NegativeInfinity&#39;</span><span class="p">:</span> <span class="s1">&#39;ninf&#39;</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_unpack_integral_limits</span><span class="p">(</span><span class="n">integral_expr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; helper function for _print_Integral that</span>
+<span class="sd">        - accepts an Integral expression</span>
+<span class="sd">        - returns a tuple of</span>
+<span class="sd">           - a list variables of integration</span>
+<span class="sd">           - a list of tuples of the upper and lower limits of integration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">integration_vars</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">limits</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">integration_range</span> <span class="ow">in</span> <span class="n">integral_expr</span><span class="o">.</span><span class="n">limits</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">integration_range</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">integration_var</span><span class="p">,</span> <span class="n">lower_limit</span><span class="p">,</span> <span class="n">upper_limit</span> <span class="o">=</span> <span class="n">integration_range</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Only definite integrals are supported&quot;</span><span class="p">)</span>
+        <span class="n">integration_vars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">integration_var</span><span class="p">)</span>
+        <span class="n">limits</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">lower_limit</span><span class="p">,</span> <span class="n">upper_limit</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">integration_vars</span><span class="p">,</span> <span class="n">limits</span>
+
+
+<span class="k">class</span> <span class="nc">MpmathPrinter</span><span class="p">(</span><span class="n">PythonCodePrinter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lambda printer for mpmath which maintains precision for floats</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">printmethod</span> <span class="o">=</span> <span class="s2">&quot;_mpmathcode&quot;</span>
+
+    <span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;Python with mpmath&quot;</span>
+
+    <span class="n">_kf</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span>
+        <span class="n">_known_functions</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
+        <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;mpmath.&#39;</span> <span class="o">+</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_known_functions_mpmath</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+    <span class="p">))</span>
+    <span class="n">_kc</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;mpmath.&#39;</span><span class="o">+</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">_known_constants_mpmath</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="k">def</span> <span class="nf">_print_Float</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="c1"># XXX: This does not handle setting mpmath.mp.dps. It is assumed that</span>
+        <span class="c1"># the caller of the lambdified function will have set it to sufficient</span>
+        <span class="c1"># precision to match the Floats in the expression.</span>
+
+        <span class="c1"># Remove &#39;mpz&#39; if gmpy is installed.</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">_mpf_</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{func}</span><span class="s1">(</span><span class="si">{args}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;mpmath.mpf&#39;</span><span class="p">),</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+
+
+    <span class="k">def</span> <span class="nf">_print_Rational</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{func}</span><span class="s2">(</span><span class="si">{p}</span><span class="s2">)/</span><span class="si">{func}</span><span class="s2">(</span><span class="si">{q}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;mpmath.mpf&#39;</span><span class="p">),</span>
+            <span class="n">q</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">q</span><span class="p">),</span>
+            <span class="n">p</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Half</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_Rational</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_uppergamma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;mpmath.gammainc&#39;</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;mpmath.inf&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_print_lowergamma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{}</span><span class="s2">, 0, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;mpmath.gammainc&#39;</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">_print_log2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">(</span><span class="si">{1}</span><span class="s1">)/</span><span class="si">{0}</span><span class="s1">(2)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;mpmath.log&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">_print_log1p</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">(</span><span class="si">{}</span><span class="s1">+1)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s1">&#39;mpmath.log&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">_print_Pow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hprint_Pow</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="n">rational</span><span class="p">,</span> <span class="n">sqrt</span><span class="o">=</span><span class="s1">&#39;mpmath.sqrt&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_print_Integral</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+        <span class="n">integration_vars</span><span class="p">,</span> <span class="n">limits</span> <span class="o">=</span> <span class="n">_unpack_integral_limits</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(lambda </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="s2">&quot;mpmath.quad&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">,</span> <span class="n">integration_vars</span><span class="p">)),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;(</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">,</span> <span class="n">l</span><span class="p">))</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">limits</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">MpmathPrinter</span><span class="o">.</span><span class="n">_kf</span><span class="p">:</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">MpmathPrinter</span><span class="p">,</span> <span class="s1">&#39;_print_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">,</span> <span class="n">_print_known_func</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_known_constants_mpmath</span><span class="p">:</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">MpmathPrinter</span><span class="p">,</span> <span class="s1">&#39;_print_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">k</span><span class="p">,</span> <span class="n">_print_known_const</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">SymPyPrinter</span><span class="p">(</span><span class="n">AbstractPythonCodePrinter</span><span class="p">):</span>
+
+    <span class="n">language</span> <span class="o">=</span> <span class="s2">&quot;Python with SymPy&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_print_Function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">):</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="vm">__module__</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">(</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_module_format</span><span class="p">(</span><span class="n">mod</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;.&#39;</span> <span class="k">if</span> <span class="n">mod</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">expr</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">),</span>
+                           <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">arg</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print</span><span class="p">(</span><span class="n">arg</span><span class="p">),</span> <span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">)))</span>
+
+    <span class="k">def</span> <span class="nf">_print_Pow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expr</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hprint_Pow</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">rational</span><span class="o">=</span><span class="n">rational</span><span class="p">,</span> <span class="n">sqrt</span><span class="o">=</span><span class="s1">&#39;sympy.sqrt&#39;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

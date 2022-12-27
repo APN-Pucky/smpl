@@ -1,0 +1,6 @@
+smpl.plot.hot
+=============
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: hot

@@ -1,0 +1,6 @@
+smpl.animation.dict\_product
+============================
+
+.. currentmodule:: smpl.animation
+
+.. autofunction:: dict_product

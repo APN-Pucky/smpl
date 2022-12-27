@@ -1,0 +1,2299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.plot.Circle &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.plot.Enum" href="smpl.plot.Enum.html" />
+    <link rel="prev" title="smpl.plot.Button" href="smpl.plot.Button.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.fit.html">smpl.fit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.functions.html">smpl.functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.interpolate.html">smpl.interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.io.html">smpl.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.parallel.html">smpl.parallel</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="smpl.plot.html">smpl.plot</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.acorr.html">smpl.plot.acorr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.angle_spectrum.html">smpl.plot.angle_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.annotate.html">smpl.plot.annotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.arrow.html">smpl.plot.arrow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.auto.html">smpl.plot.auto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.autoscale.html">smpl.plot.autoscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.autumn.html">smpl.plot.autumn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axes.html">smpl.plot.axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axhline.html">smpl.plot.axhline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axhspan.html">smpl.plot.axhspan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axis.html">smpl.plot.axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axline.html">smpl.plot.axline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axvline.html">smpl.plot.axvline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axvspan.html">smpl.plot.axvspan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bar.html">smpl.plot.bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bar_label.html">smpl.plot.bar_label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.barbs.html">smpl.plot.barbs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.barh.html">smpl.plot.barh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bone.html">smpl.plot.bone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.box.html">smpl.plot.box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.boxplot.html">smpl.plot.boxplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.broken_barh.html">smpl.plot.broken_barh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cla.html">smpl.plot.cla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clabel.html">smpl.plot.clabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clf.html">smpl.plot.clf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clim.html">smpl.plot.clim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.close.html">smpl.plot.close</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cohere.html">smpl.plot.cohere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.colorbar.html">smpl.plot.colorbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.connect.html">smpl.plot.connect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.contour.html">smpl.plot.contour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.contourf.html">smpl.plot.contourf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cool.html">smpl.plot.cool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.copper.html">smpl.plot.copper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.csd.html">smpl.plot.csd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cycler.html">smpl.plot.cycler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.data.html">smpl.plot.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.data_split.html">smpl.plot.data_split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.delaxes.html">smpl.plot.delaxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.disconnect.html">smpl.plot.disconnect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw.html">smpl.plot.draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw_all.html">smpl.plot.draw_all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw_if_interactive.html">smpl.plot.draw_if_interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.errorbar.html">smpl.plot.errorbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.eventplot.html">smpl.plot.eventplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figaspect.html">smpl.plot.figaspect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figimage.html">smpl.plot.figimage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figlegend.html">smpl.plot.figlegend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fignum_exists.html">smpl.plot.fignum_exists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figtext.html">smpl.plot.figtext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figure.html">smpl.plot.figure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill.html">smpl.plot.fill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill_between.html">smpl.plot.fill_between</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill_betweenx.html">smpl.plot.fill_betweenx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.findobj.html">smpl.plot.findobj</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fit.html">smpl.plot.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.flag.html">smpl.plot.flag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.function.html">smpl.plot.function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gca.html">smpl.plot.gca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gcf.html">smpl.plot.gcf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gci.html">smpl.plot.gci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get.html">smpl.plot.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_backend.html">smpl.plot.get_backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_cmap.html">smpl.plot.get_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_current_fig_manager.html">smpl.plot.get_current_fig_manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_figlabels.html">smpl.plot.get_figlabels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_fignums.html">smpl.plot.get_fignums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_fnc_legend.html">smpl.plot.get_fnc_legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_plot_commands.html">smpl.plot.get_plot_commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_scale_names.html">smpl.plot.get_scale_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.getp.html">smpl.plot.getp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ginput.html">smpl.plot.ginput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gray.html">smpl.plot.gray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.grid.html">smpl.plot.grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hexbin.html">smpl.plot.hexbin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hist.html">smpl.plot.hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hist2d.html">smpl.plot.hist2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hlines.html">smpl.plot.hlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hot.html">smpl.plot.hot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hsv.html">smpl.plot.hsv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imread.html">smpl.plot.imread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imsave.html">smpl.plot.imsave</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imshow.html">smpl.plot.imshow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.inferno.html">smpl.plot.inferno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.init_plot.html">smpl.plot.init_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.install_repl_displayhook.html">smpl.plot.install_repl_displayhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.interactive.html">smpl.plot.interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ioff.html">smpl.plot.ioff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ion.html">smpl.plot.ion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.isinteractive.html">smpl.plot.isinteractive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.jet.html">smpl.plot.jet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.legend.html">smpl.plot.legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.locator_params.html">smpl.plot.locator_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.loglog.html">smpl.plot.loglog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.magma.html">smpl.plot.magma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.magnitude_spectrum.html">smpl.plot.magnitude_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.margins.html">smpl.plot.margins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.matshow.html">smpl.plot.matshow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.minorticks_off.html">smpl.plot.minorticks_off</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.minorticks_on.html">smpl.plot.minorticks_on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.new_figure_manager.html">smpl.plot.new_figure_manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.nipy_spectral.html">smpl.plot.nipy_spectral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pause.html">smpl.plot.pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pcolor.html">smpl.plot.pcolor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pcolormesh.html">smpl.plot.pcolormesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.phase_spectrum.html">smpl.plot.phase_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pie.html">smpl.plot.pie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pink.html">smpl.plot.pink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plasma.html">smpl.plot.plasma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot.html">smpl.plot.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot2d.html">smpl.plot.plot2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot2d_kwargs.html">smpl.plot.plot2d_kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot_date.html">smpl.plot.plot_date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot_kwargs.html">smpl.plot.plot_kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_data.html">smpl.plot.plt_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_fit.html">smpl.plot.plt_fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_fit_or_interpolate.html">smpl.plot.plt_fit_or_interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_interpolate.html">smpl.plot.plt_interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_plt.html">smpl.plot.plt_plt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_residue.html">smpl.plot.plt_residue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.polar.html">smpl.plot.polar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.prism.html">smpl.plot.prism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.psd.html">smpl.plot.psd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.quiver.html">smpl.plot.quiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.quiverkey.html">smpl.plot.quiverkey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rc.html">smpl.plot.rc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rc_context.html">smpl.plot.rc_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rcdefaults.html">smpl.plot.rcdefaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.register_cmap.html">smpl.plot.register_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rgrids.html">smpl.plot.rgrids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.save_plot.html">smpl.plot.save_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.savefig.html">smpl.plot.savefig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.sca.html">smpl.plot.sca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.scatter.html">smpl.plot.scatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.sci.html">smpl.plot.sci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.semilogx.html">smpl.plot.semilogx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.semilogy.html">smpl.plot.semilogy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_cmap.html">smpl.plot.set_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_loglevel.html">smpl.plot.set_loglevel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_plot_style.html">smpl.plot.set_plot_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.setp.html">smpl.plot.setp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.show.html">smpl.plot.show</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.specgram.html">smpl.plot.specgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.spring.html">smpl.plot.spring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.spy.html">smpl.plot.spy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stackplot.html">smpl.plot.stackplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stairs.html">smpl.plot.stairs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stem.html">smpl.plot.stem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.step.html">smpl.plot.step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.streamplot.html">smpl.plot.streamplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot.html">smpl.plot.subplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot2grid.html">smpl.plot.subplot2grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot_mosaic.html">smpl.plot.subplot_mosaic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot_tool.html">smpl.plot.subplot_tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplots.html">smpl.plot.subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplots_adjust.html">smpl.plot.subplots_adjust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.summer.html">smpl.plot.summer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.suptitle.html">smpl.plot.suptitle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.switch_backend.html">smpl.plot.switch_backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.table.html">smpl.plot.table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.text.html">smpl.plot.text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.thetagrids.html">smpl.plot.thetagrids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tick_params.html">smpl.plot.tick_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ticklabel_format.html">smpl.plot.ticklabel_format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tight_layout.html">smpl.plot.tight_layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.title.html">smpl.plot.title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tricontour.html">smpl.plot.tricontour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tricontourf.html">smpl.plot.tricontourf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tripcolor.html">smpl.plot.tripcolor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.triplot.html">smpl.plot.triplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.twinx.html">smpl.plot.twinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.twiny.html">smpl.plot.twiny</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.uninstall_repl_displayhook.html">smpl.plot.uninstall_repl_displayhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.unv.html">smpl.plot.unv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.usd.html">smpl.plot.usd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.violinplot.html">smpl.plot.violinplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.viridis.html">smpl.plot.viridis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.vlines.html">smpl.plot.vlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.waitforbuttonpress.html">smpl.plot.waitforbuttonpress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.winter.html">smpl.plot.winter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xcorr.html">smpl.plot.xcorr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xkcd.html">smpl.plot.xkcd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xlabel.html">smpl.plot.xlabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xlim.html">smpl.plot.xlim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xscale.html">smpl.plot.xscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xticks.html">smpl.plot.xticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ylabel.html">smpl.plot.ylabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ylim.html">smpl.plot.ylim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.yscale.html">smpl.plot.yscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.yticks.html">smpl.plot.yticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Annotation.html">smpl.plot.Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Arrow.html">smpl.plot.Arrow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Artist.html">smpl.plot.Artist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.AutoLocator.html">smpl.plot.AutoLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Axes.html">smpl.plot.Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Button.html">smpl.plot.Button</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">smpl.plot.Circle</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#smpl.plot.Circle"><code class="docutils literal notranslate"><span class="pre">Circle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Enum.html">smpl.plot.Enum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ExitStack.html">smpl.plot.ExitStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Figure.html">smpl.plot.Figure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FigureBase.html">smpl.plot.FigureBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FigureCanvasBase.html">smpl.plot.FigureCanvasBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FixedFormatter.html">smpl.plot.FixedFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FixedLocator.html">smpl.plot.FixedLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FormatStrFormatter.html">smpl.plot.FormatStrFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Formatter.html">smpl.plot.Formatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FuncFormatter.html">smpl.plot.FuncFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.GridSpec.html">smpl.plot.GridSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.IndexLocator.html">smpl.plot.IndexLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Line2D.html">smpl.plot.Line2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LinearLocator.html">smpl.plot.LinearLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Locator.html">smpl.plot.Locator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatter.html">smpl.plot.LogFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatterExponent.html">smpl.plot.LogFormatterExponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatterMathtext.html">smpl.plot.LogFormatterMathtext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogLocator.html">smpl.plot.LogLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MaxNLocator.html">smpl.plot.MaxNLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MouseButton.html">smpl.plot.MouseButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MultipleLocator.html">smpl.plot.MultipleLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Normalize.html">smpl.plot.Normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.NullFormatter.html">smpl.plot.NullFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.NullLocator.html">smpl.plot.NullLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Number.html">smpl.plot.Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.PolarAxes.html">smpl.plot.PolarAxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Polygon.html">smpl.plot.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Rectangle.html">smpl.plot.Rectangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ScalarFormatter.html">smpl.plot.ScalarFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Slider.html">smpl.plot.Slider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Subplot.html">smpl.plot.Subplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.SubplotSpec.html">smpl.plot.SubplotSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Text.html">smpl.plot.Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.TickHelper.html">smpl.plot.TickHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Widget.html">smpl.plot.Widget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot2d.html">smpl.plot2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.stat.html">smpl.stat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.util.html">smpl.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="smpl.html">smpl</a> &raquo;</li>
+        
+          <li><a href="smpl.plot.html">smpl.plot</a> &raquo;</li>
+        
+      <li>smpl.plot.Circle</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/_autosummary/smpl.plot.Circle.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="smpl-plot-circle">
+<h1>smpl.plot.Circle<a class="headerlink" href="#smpl-plot-circle" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="smpl.plot.Circle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">Circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/patches.html#Circle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.Circle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Ellipse</span></code></p>
+<p>A circle patch.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/patches.html#Circle.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.Circle.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a true circle at center <em>xy</em> = (<em>x</em>, <em>y</em>) with given <em>radius</em>.</p>
+<p>Unlike <cite>CirclePolygon</cite> which is a polygonal approximation, this uses
+Bezier splines and is much closer to a scale-free circle.</p>
+<p>Valid keyword arguments are:</p>
+<dl class="simple">
+<dt>Properties:</dt><dd><p>agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array and two offsets from the bottom left corner of the image
+alpha: unknown
+animated: bool
+antialiased or aa: bool or None
+capstyle: <cite>.CapStyle</cite> or {‘butt’, ‘projecting’, ‘round’}
+clip_box: <cite>.Bbox</cite>
+clip_on: bool
+clip_path: Patch or (Path, Transform) or None
+color: color
+edgecolor or ec: color or None
+facecolor or fc: color or None
+figure: <cite>.Figure</cite>
+fill: bool
+gid: str
+hatch: {‘/’, ‘\’, ‘|’, ‘-’, ‘+’, ‘x’, ‘o’, ‘O’, ‘.’, ‘*’}
+in_layout: bool
+joinstyle: <cite>.JoinStyle</cite> or {‘miter’, ‘round’, ‘bevel’}
+label: object
+linestyle or ls: {‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (offset, on-off-seq), …}
+linewidth or lw: float or None
+mouseover: bool
+path_effects: <cite>.AbstractPathEffect</cite>
+picker: None or bool or float or callable
+rasterized: bool
+sketch_params: (scale: float, length: float, randomness: float)
+snap: bool or None
+transform: <cite>.Transform</cite>
+url: str
+visible: bool
+zorder: float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.__init__" title="smpl.plot.Circle.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(xy[, radius])</p></td>
+<td><p>Create a true circle at center <em>xy</em> = (<em>x</em>, <em>y</em>) with given <em>radius</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.add_callback" title="smpl.plot.Circle.add_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_callback</span></code></a>(func)</p></td>
+<td><p>Add a callback function that will be called whenever one of the <cite>.Artist</cite>'s properties changes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.contains" title="smpl.plot.Circle.contains"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contains</span></code></a>(mouseevent[, radius])</p></td>
+<td><p>Test whether the mouse event occurred in the patch.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.contains_point" title="smpl.plot.Circle.contains_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contains_point</span></code></a>(point[, radius])</p></td>
+<td><p>Return whether the given point is inside the patch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.contains_points" title="smpl.plot.Circle.contains_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contains_points</span></code></a>(points[, radius])</p></td>
+<td><p>Return whether the given points are inside the patch.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.convert_xunits" title="smpl.plot.Circle.convert_xunits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_xunits</span></code></a>(x)</p></td>
+<td><p>Convert <em>x</em> using the unit type of the xaxis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.convert_yunits" title="smpl.plot.Circle.convert_yunits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convert_yunits</span></code></a>(y)</p></td>
+<td><p>Convert <em>y</em> using the unit type of the yaxis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.draw" title="smpl.plot.Circle.draw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">draw</span></code></a>(renderer)</p></td>
+<td><p>Draw the Artist (and its children) using the given renderer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.findobj" title="smpl.plot.Circle.findobj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">findobj</span></code></a>([match, include_self])</p></td>
+<td><p>Find artist objects.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.format_cursor_data" title="smpl.plot.Circle.format_cursor_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_cursor_data</span></code></a>(data)</p></td>
+<td><p>Return a string representation of <em>data</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_aa" title="smpl.plot.Circle.get_aa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_aa</span></code></a>()</p></td>
+<td><p>Alias for <cite>get_antialiased</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_agg_filter" title="smpl.plot.Circle.get_agg_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_agg_filter</span></code></a>()</p></td>
+<td><p>Return filter function to be used for agg filter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_alpha" title="smpl.plot.Circle.get_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_alpha</span></code></a>()</p></td>
+<td><p>Return the alpha value used for blending - not supported on all backends.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_angle" title="smpl.plot.Circle.get_angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_angle</span></code></a>()</p></td>
+<td><p>Return the angle of the ellipse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_animated" title="smpl.plot.Circle.get_animated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_animated</span></code></a>()</p></td>
+<td><p>Return whether the artist is animated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_antialiased" title="smpl.plot.Circle.get_antialiased"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_antialiased</span></code></a>()</p></td>
+<td><p>Return whether antialiasing is used for drawing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_capstyle" title="smpl.plot.Circle.get_capstyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_capstyle</span></code></a>()</p></td>
+<td><p>Return the capstyle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_center" title="smpl.plot.Circle.get_center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_center</span></code></a>()</p></td>
+<td><p>Return the center of the ellipse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_children" title="smpl.plot.Circle.get_children"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_children</span></code></a>()</p></td>
+<td><p>Return a list of the child <cite>.Artist</cite>s of this <cite>.Artist</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_clip_box" title="smpl.plot.Circle.get_clip_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_clip_box</span></code></a>()</p></td>
+<td><p>Return the clipbox.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_clip_on" title="smpl.plot.Circle.get_clip_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_clip_on</span></code></a>()</p></td>
+<td><p>Return whether the artist uses clipping.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_clip_path" title="smpl.plot.Circle.get_clip_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_clip_path</span></code></a>()</p></td>
+<td><p>Return the clip path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_corners" title="smpl.plot.Circle.get_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_corners</span></code></a>()</p></td>
+<td><p>Return the corners of the ellipse bounding box.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_cursor_data" title="smpl.plot.Circle.get_cursor_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_cursor_data</span></code></a>(event)</p></td>
+<td><p>Return the cursor data for a given event.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_data_transform" title="smpl.plot.Circle.get_data_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_data_transform</span></code></a>()</p></td>
+<td><p>Return the <cite>~.transforms.Transform</cite> mapping data coordinates to physical coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_ec" title="smpl.plot.Circle.get_ec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ec</span></code></a>()</p></td>
+<td><p>Alias for <cite>get_edgecolor</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_edgecolor" title="smpl.plot.Circle.get_edgecolor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edgecolor</span></code></a>()</p></td>
+<td><p>Return the edge color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_extents" title="smpl.plot.Circle.get_extents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_extents</span></code></a>()</p></td>
+<td><p>Return the <cite>Patch</cite>'s axis-aligned extents as a <cite>~.transforms.Bbox</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_facecolor" title="smpl.plot.Circle.get_facecolor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_facecolor</span></code></a>()</p></td>
+<td><p>Return the face color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_fc" title="smpl.plot.Circle.get_fc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fc</span></code></a>()</p></td>
+<td><p>Alias for <cite>get_facecolor</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_figure" title="smpl.plot.Circle.get_figure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_figure</span></code></a>()</p></td>
+<td><p>Return the <cite>.Figure</cite> instance the artist belongs to.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_fill" title="smpl.plot.Circle.get_fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fill</span></code></a>()</p></td>
+<td><p>Return whether the patch is filled.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_gid" title="smpl.plot.Circle.get_gid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_gid</span></code></a>()</p></td>
+<td><p>Return the group id.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_hatch" title="smpl.plot.Circle.get_hatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_hatch</span></code></a>()</p></td>
+<td><p>Return the hatching pattern.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_height" title="smpl.plot.Circle.get_height"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_height</span></code></a>()</p></td>
+<td><p>Return the height of the ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_in_layout" title="smpl.plot.Circle.get_in_layout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_in_layout</span></code></a>()</p></td>
+<td><p>Return boolean flag, <code class="docutils literal notranslate"><span class="pre">True</span></code> if artist is included in layout calculations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_joinstyle" title="smpl.plot.Circle.get_joinstyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_joinstyle</span></code></a>()</p></td>
+<td><p>Return the joinstyle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_label" title="smpl.plot.Circle.get_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_label</span></code></a>()</p></td>
+<td><p>Return the label used for this artist in the legend.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_linestyle" title="smpl.plot.Circle.get_linestyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_linestyle</span></code></a>()</p></td>
+<td><p>Return the linestyle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_linewidth" title="smpl.plot.Circle.get_linewidth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_linewidth</span></code></a>()</p></td>
+<td><p>Return the line width in points.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_ls" title="smpl.plot.Circle.get_ls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ls</span></code></a>()</p></td>
+<td><p>Alias for <cite>get_linestyle</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_lw" title="smpl.plot.Circle.get_lw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_lw</span></code></a>()</p></td>
+<td><p>Alias for <cite>get_linewidth</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_mouseover" title="smpl.plot.Circle.get_mouseover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_mouseover</span></code></a>()</p></td>
+<td><p>Return whether this artist is queried for custom context information when the mouse cursor moves over it.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_patch_transform" title="smpl.plot.Circle.get_patch_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_patch_transform</span></code></a>()</p></td>
+<td><p>Return the <cite>~.transforms.Transform</cite> instance mapping patch coordinates to data coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_path" title="smpl.plot.Circle.get_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_path</span></code></a>()</p></td>
+<td><p>Return the path of the ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_path_effects</span></code>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_picker" title="smpl.plot.Circle.get_picker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_picker</span></code></a>()</p></td>
+<td><p>Return the picking behavior of the artist.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_radius" title="smpl.plot.Circle.get_radius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_radius</span></code></a>()</p></td>
+<td><p>Return the radius of the circle.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_rasterized" title="smpl.plot.Circle.get_rasterized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rasterized</span></code></a>()</p></td>
+<td><p>Return whether the artist is to be rasterized.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_sketch_params" title="smpl.plot.Circle.get_sketch_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sketch_params</span></code></a>()</p></td>
+<td><p>Return the sketch parameters for the artist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_snap" title="smpl.plot.Circle.get_snap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_snap</span></code></a>()</p></td>
+<td><p>Return the snap setting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_tightbbox" title="smpl.plot.Circle.get_tightbbox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tightbbox</span></code></a>([renderer])</p></td>
+<td><p>Like <cite>.Artist.get_window_extent</cite>, but includes any clipping.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_transform" title="smpl.plot.Circle.get_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transform</span></code></a>()</p></td>
+<td><p>Return the <cite>~.transforms.Transform</cite> applied to the <cite>Patch</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_transformed_clip_path_and_affine" title="smpl.plot.Circle.get_transformed_clip_path_and_affine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_transformed_clip_path_and_affine</span></code></a>()</p></td>
+<td><p>Return the clip path with the non-affine part of its transformation applied, and the remaining affine part of its transformation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_url" title="smpl.plot.Circle.get_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_url</span></code></a>()</p></td>
+<td><p>Return the url.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_verts" title="smpl.plot.Circle.get_verts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_verts</span></code></a>()</p></td>
+<td><p>Return a copy of the vertices used in this patch.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_visible" title="smpl.plot.Circle.get_visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_visible</span></code></a>()</p></td>
+<td><p>Return the visibility.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_width" title="smpl.plot.Circle.get_width"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_width</span></code></a>()</p></td>
+<td><p>Return the width of the ellipse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_window_extent" title="smpl.plot.Circle.get_window_extent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_window_extent</span></code></a>([renderer])</p></td>
+<td><p>Get the artist's bounding box in display space.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.get_zorder" title="smpl.plot.Circle.get_zorder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_zorder</span></code></a>()</p></td>
+<td><p>Return the artist's zorder.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.have_units" title="smpl.plot.Circle.have_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">have_units</span></code></a>()</p></td>
+<td><p>Return whether units are set on any axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.is_transform_set" title="smpl.plot.Circle.is_transform_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_transform_set</span></code></a>()</p></td>
+<td><p>Return whether the Artist has an explicitly set transform.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.pchanged" title="smpl.plot.Circle.pchanged"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pchanged</span></code></a>()</p></td>
+<td><p>Call all of the registered callbacks.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.pick" title="smpl.plot.Circle.pick"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pick</span></code></a>(mouseevent)</p></td>
+<td><p>Process a pick event.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.pickable" title="smpl.plot.Circle.pickable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pickable</span></code></a>()</p></td>
+<td><p>Return whether the artist is pickable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.properties" title="smpl.plot.Circle.properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">properties</span></code></a>()</p></td>
+<td><p>Return a dictionary of all the properties of the artist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.remove" title="smpl.plot.Circle.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove</span></code></a>()</p></td>
+<td><p>Remove the artist from the figure if possible.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.remove_callback" title="smpl.plot.Circle.remove_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_callback</span></code></a>(oid)</p></td>
+<td><p>Remove a callback based on its observer id.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set" title="smpl.plot.Circle.set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set</span></code></a>(*[, agg_filter, alpha, angle, animated, ...])</p></td>
+<td><p>Set multiple properties at once.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_aa" title="smpl.plot.Circle.set_aa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_aa</span></code></a>(aa)</p></td>
+<td><p>Alias for <cite>set_antialiased</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_agg_filter" title="smpl.plot.Circle.set_agg_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_agg_filter</span></code></a>(filter_func)</p></td>
+<td><p>Set the agg filter.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_alpha" title="smpl.plot.Circle.set_alpha"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_alpha</span></code></a>(alpha)</p></td>
+<td><p>Set the alpha value used for blending - not supported on all backends.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_angle" title="smpl.plot.Circle.set_angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_angle</span></code></a>(angle)</p></td>
+<td><p>Set the angle of the ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_animated" title="smpl.plot.Circle.set_animated"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_animated</span></code></a>(b)</p></td>
+<td><p>Set whether the artist is intended to be used in an animation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_antialiased" title="smpl.plot.Circle.set_antialiased"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_antialiased</span></code></a>(aa)</p></td>
+<td><p>Set whether to use antialiased rendering.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_capstyle" title="smpl.plot.Circle.set_capstyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_capstyle</span></code></a>(s)</p></td>
+<td><p>Set the <cite>.CapStyle</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_center" title="smpl.plot.Circle.set_center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_center</span></code></a>(xy)</p></td>
+<td><p>Set the center of the ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_clip_box" title="smpl.plot.Circle.set_clip_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_clip_box</span></code></a>(clipbox)</p></td>
+<td><p>Set the artist's clip <cite>.Bbox</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_clip_on" title="smpl.plot.Circle.set_clip_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_clip_on</span></code></a>(b)</p></td>
+<td><p>Set whether the artist uses clipping.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_clip_path" title="smpl.plot.Circle.set_clip_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_clip_path</span></code></a>(path[, transform])</p></td>
+<td><p>Set the artist's clip path.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_color" title="smpl.plot.Circle.set_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_color</span></code></a>(c)</p></td>
+<td><p>Set both the edgecolor and the facecolor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_ec" title="smpl.plot.Circle.set_ec"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ec</span></code></a>(color)</p></td>
+<td><p>Alias for <cite>set_edgecolor</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_edgecolor" title="smpl.plot.Circle.set_edgecolor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_edgecolor</span></code></a>(color)</p></td>
+<td><p>Set the patch edge color.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_facecolor" title="smpl.plot.Circle.set_facecolor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_facecolor</span></code></a>(color)</p></td>
+<td><p>Set the patch face color.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_fc" title="smpl.plot.Circle.set_fc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_fc</span></code></a>(color)</p></td>
+<td><p>Alias for <cite>set_facecolor</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_figure" title="smpl.plot.Circle.set_figure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_figure</span></code></a>(fig)</p></td>
+<td><p>Set the <cite>.Figure</cite> instance the artist belongs to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_fill" title="smpl.plot.Circle.set_fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_fill</span></code></a>(b)</p></td>
+<td><p>Set whether to fill the patch.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_gid" title="smpl.plot.Circle.set_gid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_gid</span></code></a>(gid)</p></td>
+<td><p>Set the (group) id for the artist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_hatch" title="smpl.plot.Circle.set_hatch"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_hatch</span></code></a>(hatch)</p></td>
+<td><p>Set the hatching pattern.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_height" title="smpl.plot.Circle.set_height"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_height</span></code></a>(height)</p></td>
+<td><p>Set the height of the ellipse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_in_layout" title="smpl.plot.Circle.set_in_layout"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_in_layout</span></code></a>(in_layout)</p></td>
+<td><p>Set if artist is to be included in layout calculations, E.g.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_joinstyle" title="smpl.plot.Circle.set_joinstyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_joinstyle</span></code></a>(s)</p></td>
+<td><p>Set the <cite>.JoinStyle</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_label" title="smpl.plot.Circle.set_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_label</span></code></a>(s)</p></td>
+<td><p>Set a label that will be displayed in the legend.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_linestyle" title="smpl.plot.Circle.set_linestyle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_linestyle</span></code></a>(ls)</p></td>
+<td><p>Set the patch linestyle.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_linewidth" title="smpl.plot.Circle.set_linewidth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_linewidth</span></code></a>(w)</p></td>
+<td><p>Set the patch linewidth in points.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_ls" title="smpl.plot.Circle.set_ls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_ls</span></code></a>(ls)</p></td>
+<td><p>Alias for <cite>set_linestyle</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_lw" title="smpl.plot.Circle.set_lw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_lw</span></code></a>(w)</p></td>
+<td><p>Alias for <cite>set_linewidth</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_mouseover" title="smpl.plot.Circle.set_mouseover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mouseover</span></code></a>(mouseover)</p></td>
+<td><p>Set whether this artist is queried for custom context information when the mouse cursor moves over it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_path_effects" title="smpl.plot.Circle.set_path_effects"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_path_effects</span></code></a>(path_effects)</p></td>
+<td><p>Set the path effects.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_picker" title="smpl.plot.Circle.set_picker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_picker</span></code></a>(picker)</p></td>
+<td><p>Define the picking behavior of the artist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_radius" title="smpl.plot.Circle.set_radius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_radius</span></code></a>(radius)</p></td>
+<td><p>Set the radius of the circle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_rasterized" title="smpl.plot.Circle.set_rasterized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_rasterized</span></code></a>(rasterized)</p></td>
+<td><p>Force rasterized (bitmap) drawing for vector graphics output.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_sketch_params" title="smpl.plot.Circle.set_sketch_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_sketch_params</span></code></a>([scale, length, randomness])</p></td>
+<td><p>Set the sketch parameters.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_snap" title="smpl.plot.Circle.set_snap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_snap</span></code></a>(snap)</p></td>
+<td><p>Set the snapping behavior.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_transform" title="smpl.plot.Circle.set_transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_transform</span></code></a>(t)</p></td>
+<td><p>Set the artist transform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_url" title="smpl.plot.Circle.set_url"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_url</span></code></a>(url)</p></td>
+<td><p>Set the url for the artist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_visible" title="smpl.plot.Circle.set_visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_visible</span></code></a>(b)</p></td>
+<td><p>Set the artist's visibility.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_width" title="smpl.plot.Circle.set_width"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_width</span></code></a>(width)</p></td>
+<td><p>Set the width of the ellipse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.set_zorder" title="smpl.plot.Circle.set_zorder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_zorder</span></code></a>(level)</p></td>
+<td><p>Set the zorder for the artist.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.update" title="smpl.plot.Circle.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>(props)</p></td>
+<td><p>Update this artist's properties from the dict <em>props</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.update_from" title="smpl.plot.Circle.update_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_from</span></code></a>(other)</p></td>
+<td><p>Copy properties from <em>other</em> to <em>self</em>.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.angle" title="smpl.plot.Circle.angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">angle</span></code></a></p></td>
+<td><p>Return the angle of the ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.axes" title="smpl.plot.Circle.axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axes</span></code></a></p></td>
+<td><p>The <cite>~.axes.Axes</cite> instance the artist resides in, or <em>None</em>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.center" title="smpl.plot.Circle.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">center</span></code></a></p></td>
+<td><p>Return the center of the ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.fill" title="smpl.plot.Circle.fill"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill</span></code></a></p></td>
+<td><p>Return whether the patch is filled.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.height" title="smpl.plot.Circle.height"><code class="xref py py-obj docutils literal notranslate"><span class="pre">height</span></code></a></p></td>
+<td><p>Return the height of the ellipse.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.mouseover" title="smpl.plot.Circle.mouseover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mouseover</span></code></a></p></td>
+<td><p>Return whether this artist is queried for custom context information when the mouse cursor moves over it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.radius" title="smpl.plot.Circle.radius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">radius</span></code></a></p></td>
+<td><p>Return the radius of the circle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.stale" title="smpl.plot.Circle.stale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stale</span></code></a></p></td>
+<td><p>Whether the artist is 'stale' and needs to be re-drawn for the output to match the internal state of the artist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.Circle.sticky_edges" title="smpl.plot.Circle.sticky_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sticky_edges</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> sticky edge lists for autoscaling.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.Circle.width" title="smpl.plot.Circle.width"><code class="xref py py-obj docutils literal notranslate"><span class="pre">width</span></code></a></p></td>
+<td><p>Return the width of the ellipse.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">zorder</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.add_callback">
+<span class="sig-name descname"><span class="pre">add_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.add_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a callback function that will be called whenever one of the
+<cite>.Artist</cite>’s properties changes.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>func<span class="classifier">callable</span></dt><dd><p>The callback function. It must have the signature:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">artist</span><span class="p">:</span> <span class="n">Artist</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span>
+</pre></div>
+</div>
+<p>where <em>artist</em> is the calling <cite>.Artist</cite>. Return values may exist
+but are ignored.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>int</dt><dd><p>The observer id associated with the callback. This id can be
+used for removing the callback with <cite>.remove_callback</cite> later.</p>
+</dd>
+</dl>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<p>remove_callback</p>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.angle">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">angle</span></span><a class="headerlink" href="#smpl.plot.Circle.angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle of the ellipse.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.axes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">axes</span></span><a class="headerlink" href="#smpl.plot.Circle.axes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <cite>~.axes.Axes</cite> instance the artist resides in, or <em>None</em>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.center">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center</span></span><a class="headerlink" href="#smpl.plot.Circle.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the center of the ellipse.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseevent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test whether the mouse event occurred in the patch.</p>
+<section id="id1">
+<h2>Returns<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>(bool, empty dict)</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.contains_point">
+<span class="sig-name descname"><span class="pre">contains_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.contains_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the given point is inside the patch.</p>
+<section id="id2">
+<h2>Parameters<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>point<span class="classifier">(float, float)</span></dt><dd><p>The point (x, y) to check, in target coordinates of
+<code class="docutils literal notranslate"><span class="pre">self.get_transform()</span></code>. These are display coordinates for patches
+that are added to a figure or axes.</p>
+</dd>
+<dt>radius<span class="classifier">float, optional</span></dt><dd><p>Add an additional margin on the patch in target coordinates of
+<code class="docutils literal notranslate"><span class="pre">self.get_transform()</span></code>. See <cite>.Path.contains_point</cite> for further
+details.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h2>Returns<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p>bool</p>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h2>
+<p>The proper use of this method depends on the transform of the patch.
+Isolated patches do not have a transform. In this case, the patch
+creation coordinates and the point coordinates match. The following
+example checks that the center of a circle is within the circle</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">center</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">contains_point</span><span class="p">(</span><span class="n">center</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>The convention of checking against the transformed patch stems from
+the fact that this method is predominantly used to check if display
+coordinates (e.g. from mouse events) are within the patch. If you want
+to do the above check with data coordinates, you have to properly
+transform them first:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">center</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_center</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get_transform</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">center</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">contains_point</span><span class="p">(</span><span class="n">transformed_center</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.contains_points">
+<span class="sig-name descname"><span class="pre">contains_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.contains_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the given points are inside the patch.</p>
+<section id="id4">
+<h2>Parameters<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>points<span class="classifier">(N, 2) array</span></dt><dd><p>The points to check, in target coordinates of
+<code class="docutils literal notranslate"><span class="pre">self.get_transform()</span></code>. These are display coordinates for patches
+that are added to a figure or axes. Columns contain x and y values.</p>
+</dd>
+<dt>radius<span class="classifier">float, optional</span></dt><dd><p>Add an additional margin on the patch in target coordinates of
+<code class="docutils literal notranslate"><span class="pre">self.get_transform()</span></code>. See <cite>.Path.contains_point</cite> for further
+details.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h2>Returns<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<p>length-N bool array</p>
+</section>
+<section id="id6">
+<h2>Notes<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<p>The proper use of this method depends on the transform of the patch.
+See the notes on <cite>.Patch.contains_point</cite>.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.convert_xunits">
+<span class="sig-name descname"><span class="pre">convert_xunits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.convert_xunits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert <em>x</em> using the unit type of the xaxis.</p>
+<p>If the artist is not contained in an Axes or if the xaxis does not
+have units, <em>x</em> itself is returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.convert_yunits">
+<span class="sig-name descname"><span class="pre">convert_yunits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.convert_yunits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert <em>y</em> using the unit type of the yaxis.</p>
+<p>If the artist is not contained in an Axes or if the yaxis does not
+have units, <em>y</em> itself is returned.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw the Artist (and its children) using the given renderer.</p>
+<p>This has no effect if the artist is not visible (<cite>.Artist.get_visible</cite>
+returns False).</p>
+<section id="id7">
+<h2>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
+<p>renderer : <cite>.RendererBase</cite> subclass.</p>
+</section>
+<section id="id8">
+<h2>Notes<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
+<p>This method is overridden in the Artist subclasses.</p>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.fill">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fill</span></span><a class="headerlink" href="#smpl.plot.Circle.fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the patch is filled.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.findobj">
+<span class="sig-name descname"><span class="pre">findobj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">match</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_self</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.findobj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find artist objects.</p>
+<p>Recursively find all <cite>.Artist</cite> instances contained in the artist.</p>
+<section id="id9">
+<h2>Parameters<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>match</dt><dd><p>A filter criterion for the matches. This can be</p>
+<ul class="simple">
+<li><p><em>None</em>: Return all objects contained in artist.</p></li>
+<li><p>A function with signature <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">match(artist:</span> <span class="pre">Artist)</span> <span class="pre">-&gt;</span> <span class="pre">bool</span></code>.
+The result will only contain artists for which the function
+returns <em>True</em>.</p></li>
+<li><p>A class instance: e.g., <cite>.Line2D</cite>. The result will only contain
+artists of this class or its subclasses (<code class="docutils literal notranslate"><span class="pre">isinstance</span></code> check).</p></li>
+</ul>
+</dd>
+<dt>include_self<span class="classifier">bool</span></dt><dd><p>Include <em>self</em> in the list to be checked for a match.</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h2>Returns<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
+<p>list of <cite>.Artist</cite></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.format_cursor_data">
+<span class="sig-name descname"><span class="pre">format_cursor_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.format_cursor_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string representation of <em>data</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is intended to be overridden by artist subclasses.
+As an end-user of Matplotlib you will most likely not call this
+method yourself.</p>
+</div>
+<p>The default implementation converts ints and floats and arrays of ints
+and floats into a comma-separated string enclosed in square brackets,
+unless the artist has an associated colorbar, in which case scalar
+values are formatted using the colorbar’s formatter.</p>
+<section id="id11">
+<h2>See Also<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<p>get_cursor_data</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_aa">
+<span class="sig-name descname"><span class="pre">get_aa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_aa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_antialiased</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_agg_filter">
+<span class="sig-name descname"><span class="pre">get_agg_filter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_agg_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return filter function to be used for agg filter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_alpha">
+<span class="sig-name descname"><span class="pre">get_alpha</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the alpha value used for blending - not supported on all
+backends.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_angle">
+<span class="sig-name descname"><span class="pre">get_angle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle of the ellipse.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_animated">
+<span class="sig-name descname"><span class="pre">get_animated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_animated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the artist is animated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_antialiased">
+<span class="sig-name descname"><span class="pre">get_antialiased</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_antialiased" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether antialiasing is used for drawing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_capstyle">
+<span class="sig-name descname"><span class="pre">get_capstyle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_capstyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the capstyle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_center">
+<span class="sig-name descname"><span class="pre">get_center</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the center of the ellipse.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_children">
+<span class="sig-name descname"><span class="pre">get_children</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the child <cite>.Artist</cite>s of this <cite>.Artist</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_clip_box">
+<span class="sig-name descname"><span class="pre">get_clip_box</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_clip_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the clipbox.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_clip_on">
+<span class="sig-name descname"><span class="pre">get_clip_on</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_clip_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the artist uses clipping.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_clip_path">
+<span class="sig-name descname"><span class="pre">get_clip_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_clip_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the clip path.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_corners">
+<span class="sig-name descname"><span class="pre">get_corners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_corners" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the corners of the ellipse bounding box.</p>
+<p>The bounding box orientation is moving anti-clockwise from the
+lower left corner defined before rotation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_cursor_data">
+<span class="sig-name descname"><span class="pre">get_cursor_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_cursor_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cursor data for a given event.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is intended to be overridden by artist subclasses.
+As an end-user of Matplotlib you will most likely not call this
+method yourself.</p>
+</div>
+<p>Cursor data can be used by Artists to provide additional context
+information for a given event. The default implementation just returns
+<em>None</em>.</p>
+<p>Subclasses can override the method and return arbitrary data. However,
+when doing so, they must ensure that <cite>.format_cursor_data</cite> can convert
+the data to a string representation.</p>
+<p>The only current use case is displaying the z-value of an <cite>.AxesImage</cite>
+in the status bar of a plot window, while moving the mouse.</p>
+<section id="id12">
+<h2>Parameters<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h2>
+<p>event : <cite>matplotlib.backend_bases.MouseEvent</cite></p>
+</section>
+<section id="id13">
+<h2>See Also<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h2>
+<p>format_cursor_data</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_data_transform">
+<span class="sig-name descname"><span class="pre">get_data_transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_data_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <cite>~.transforms.Transform</cite> mapping data coordinates to
+physical coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_ec">
+<span class="sig-name descname"><span class="pre">get_ec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_ec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_edgecolor</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_edgecolor">
+<span class="sig-name descname"><span class="pre">get_edgecolor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_edgecolor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the edge color.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_extents">
+<span class="sig-name descname"><span class="pre">get_extents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_extents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <cite>Patch</cite>’s axis-aligned extents as a <cite>~.transforms.Bbox</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_facecolor">
+<span class="sig-name descname"><span class="pre">get_facecolor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_facecolor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the face color.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_fc">
+<span class="sig-name descname"><span class="pre">get_fc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_fc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_facecolor</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_figure">
+<span class="sig-name descname"><span class="pre">get_figure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <cite>.Figure</cite> instance the artist belongs to.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_fill">
+<span class="sig-name descname"><span class="pre">get_fill</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the patch is filled.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_gid">
+<span class="sig-name descname"><span class="pre">get_gid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_gid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the group id.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_hatch">
+<span class="sig-name descname"><span class="pre">get_hatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_hatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the hatching pattern.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_height">
+<span class="sig-name descname"><span class="pre">get_height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the height of the ellipse.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_in_layout">
+<span class="sig-name descname"><span class="pre">get_in_layout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_in_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return boolean flag, <code class="docutils literal notranslate"><span class="pre">True</span></code> if artist is included in layout
+calculations.</p>
+<p>E.g. <span class="xref std std-doc">/tutorials/intermediate/constrainedlayout_guide</span>,
+<cite>.Figure.tight_layout()</cite>, and
+<code class="docutils literal notranslate"><span class="pre">fig.savefig(fname,</span> <span class="pre">bbox_inches='tight')</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_joinstyle">
+<span class="sig-name descname"><span class="pre">get_joinstyle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_joinstyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the joinstyle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_label">
+<span class="sig-name descname"><span class="pre">get_label</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the label used for this artist in the legend.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_linestyle">
+<span class="sig-name descname"><span class="pre">get_linestyle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_linestyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the linestyle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_linewidth">
+<span class="sig-name descname"><span class="pre">get_linewidth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_linewidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the line width in points.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_ls">
+<span class="sig-name descname"><span class="pre">get_ls</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_ls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_linestyle</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_lw">
+<span class="sig-name descname"><span class="pre">get_lw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_lw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>get_linewidth</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_mouseover">
+<span class="sig-name descname"><span class="pre">get_mouseover</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_mouseover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this artist is queried for custom context information
+when the mouse cursor moves over it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_patch_transform">
+<span class="sig-name descname"><span class="pre">get_patch_transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_patch_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <cite>~.transforms.Transform</cite> instance mapping patch coordinates
+to data coordinates.</p>
+<p>For example, one may define a patch of a circle which represents a
+radius of 5 by providing coordinates for a unit circle, and a
+transform which scales the coordinates (the patch coordinate) by 5.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_path">
+<span class="sig-name descname"><span class="pre">get_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path of the ellipse.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_picker">
+<span class="sig-name descname"><span class="pre">get_picker</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_picker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the picking behavior of the artist.</p>
+<p>The possible values are described in <cite>.set_picker</cite>.</p>
+<section id="id14">
+<h2>See Also<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
+<p>set_picker, pickable, pick</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_radius">
+<span class="sig-name descname"><span class="pre">get_radius</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/patches.html#Circle.get_radius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.Circle.get_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the radius of the circle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_rasterized">
+<span class="sig-name descname"><span class="pre">get_rasterized</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_rasterized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the artist is to be rasterized.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_sketch_params">
+<span class="sig-name descname"><span class="pre">get_sketch_params</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_sketch_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sketch parameters for the artist.</p>
+<section id="id15">
+<h2>Returns<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
+<p>tuple or None</p>
+<blockquote>
+<div><p>A 3-tuple with the following elements:</p>
+<ul class="simple">
+<li><p><em>scale</em>: The amplitude of the wiggle perpendicular to the
+source line.</p></li>
+<li><p><em>length</em>: The length of the wiggle along the line.</p></li>
+<li><p><em>randomness</em>: The scale factor by which the length is
+shrunken or expanded.</p></li>
+</ul>
+<p>Returns <em>None</em> if no sketch parameters were set.</p>
+</div></blockquote>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_snap">
+<span class="sig-name descname"><span class="pre">get_snap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_snap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the snap setting.</p>
+<p>See <cite>.set_snap</cite> for details.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_tightbbox">
+<span class="sig-name descname"><span class="pre">get_tightbbox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_tightbbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like <cite>.Artist.get_window_extent</cite>, but includes any clipping.</p>
+<section id="id16">
+<h2>Parameters<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>renderer<span class="classifier"><cite>.RendererBase</cite> subclass</span></dt><dd><p>renderer that will be used to draw the figures (i.e.
+<code class="docutils literal notranslate"><span class="pre">fig.canvas.get_renderer()</span></code>)</p>
+</dd>
+</dl>
+</section>
+<section id="id17">
+<h2>Returns<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt><cite>.Bbox</cite></dt><dd><p>The enclosing bounding box (in figure pixel coordinates).</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_transform">
+<span class="sig-name descname"><span class="pre">get_transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the <cite>~.transforms.Transform</cite> applied to the <cite>Patch</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_transformed_clip_path_and_affine">
+<span class="sig-name descname"><span class="pre">get_transformed_clip_path_and_affine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_transformed_clip_path_and_affine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the clip path with the non-affine part of its
+transformation applied, and the remaining affine part of its
+transformation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_url">
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the url.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_verts">
+<span class="sig-name descname"><span class="pre">get_verts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_verts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the vertices used in this patch.</p>
+<p>If the patch contains Bezier curves, the curves will be interpolated by
+line segments.  To access the curves as curves, use <cite>get_path</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_visible">
+<span class="sig-name descname"><span class="pre">get_visible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the visibility.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_width">
+<span class="sig-name descname"><span class="pre">get_width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of the ellipse.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_window_extent">
+<span class="sig-name descname"><span class="pre">get_window_extent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">renderer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_window_extent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the artist’s bounding box in display space.</p>
+<p>The bounding box’ width and height are nonnegative.</p>
+<p>Subclasses should override for inclusion in the bounding box
+“tight” calculation. Default is to return an empty bounding
+box at 0, 0.</p>
+<p>Be careful when using this function, the results will not update
+if the artist window extent of the artist changes.  The extent
+can change due to any changes in the transform stack, such as
+changing the axes limits, the figure size, or the canvas used
+(as is done when saving a figure).  This can lead to unexpected
+behavior where interactive figures will look fine on the screen,
+but will save incorrectly.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.get_zorder">
+<span class="sig-name descname"><span class="pre">get_zorder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.get_zorder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the artist’s zorder.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.have_units">
+<span class="sig-name descname"><span class="pre">have_units</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.have_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether units are set on any axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.height">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#smpl.plot.Circle.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the height of the ellipse.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.is_transform_set">
+<span class="sig-name descname"><span class="pre">is_transform_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.is_transform_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the Artist has an explicitly set transform.</p>
+<p>This is <em>True</em> after <cite>.set_transform</cite> has been called.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.mouseover">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mouseover</span></span><a class="headerlink" href="#smpl.plot.Circle.mouseover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this artist is queried for custom context information
+when the mouse cursor moves over it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.pchanged">
+<span class="sig-name descname"><span class="pre">pchanged</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.pchanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call all of the registered callbacks.</p>
+<p>This function is triggered internally when a property is changed.</p>
+<section id="id18">
+<h2>See Also<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h2>
+<p>add_callback
+remove_callback</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.pick">
+<span class="sig-name descname"><span class="pre">pick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseevent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.pick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a pick event.</p>
+<p>Each child artist will fire a pick event if <em>mouseevent</em> is over
+the artist and the artist has picker set.</p>
+<section id="id19">
+<h2>See Also<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h2>
+<p>set_picker, get_picker, pickable</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.pickable">
+<span class="sig-name descname"><span class="pre">pickable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.pickable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the artist is pickable.</p>
+<section id="id20">
+<h2>See Also<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h2>
+<p>set_picker, get_picker, pick</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.properties">
+<span class="sig-name descname"><span class="pre">properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of all the properties of the artist.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.radius">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">radius</span></span><a class="headerlink" href="#smpl.plot.Circle.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the radius of the circle.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the artist from the figure if possible.</p>
+<p>The effect will not be visible until the figure is redrawn, e.g.,
+with <cite>.FigureCanvasBase.draw_idle</cite>.  Call <cite>~.axes.Axes.relim</cite> to
+update the axes limits if desired.</p>
+<p>Note: <cite>~.axes.Axes.relim</cite> will not see collections even if the
+collection was added to the axes with <em>autolim</em> = True.</p>
+<p>Note: there is no support for removing the artist’s legend entry.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.remove_callback">
+<span class="sig-name descname"><span class="pre">remove_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.remove_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a callback based on its observer id.</p>
+<section id="id21">
+<h2>See Also<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h2>
+<p>add_callback</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agg_filter=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animated=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antialiased=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capstyle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_box=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_on=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_path=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edgecolor=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">facecolor=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gid=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hatch=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_layout=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joinstyle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mouseover=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_effects=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">picker=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rasterized=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sketch_params=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snap=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width=&lt;UNSET&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder=&lt;UNSET&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set multiple properties at once.</p>
+<p>Supported properties are</p>
+<dl class="simple">
+<dt>Properties:</dt><dd><p>agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array and two offsets from the bottom left corner of the image
+alpha: scalar or None
+angle: float
+animated: bool
+antialiased or aa: bool or None
+capstyle: <cite>.CapStyle</cite> or {‘butt’, ‘projecting’, ‘round’}
+center: (float, float)
+clip_box: <cite>.Bbox</cite>
+clip_on: bool
+clip_path: Patch or (Path, Transform) or None
+color: color
+edgecolor or ec: color or None
+facecolor or fc: color or None
+figure: <cite>.Figure</cite>
+fill: bool
+gid: str
+hatch: {‘/’, ‘\’, ‘|’, ‘-’, ‘+’, ‘x’, ‘o’, ‘O’, ‘.’, ‘*’}
+height: float
+in_layout: bool
+joinstyle: <cite>.JoinStyle</cite> or {‘miter’, ‘round’, ‘bevel’}
+label: object
+linestyle or ls: {‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (offset, on-off-seq), …}
+linewidth or lw: float or None
+mouseover: bool
+path_effects: <cite>.AbstractPathEffect</cite>
+picker: None or bool or float or callable
+radius: float
+rasterized: bool
+sketch_params: (scale: float, length: float, randomness: float)
+snap: bool or None
+transform: <cite>.Transform</cite>
+url: str
+visible: bool
+width: float
+zorder: float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_aa">
+<span class="sig-name descname"><span class="pre">set_aa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aa</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_aa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>set_antialiased</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_agg_filter">
+<span class="sig-name descname"><span class="pre">set_agg_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_agg_filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the agg filter.</p>
+<section id="id22">
+<h2>Parameters<a class="headerlink" href="#id22" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>filter_func<span class="classifier">callable</span></dt><dd><p>A filter function, which takes a (m, n, depth) float array
+and a dpi value, and returns a (m, n, depth) array and two
+offsets from the bottom left corner of the image</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_alpha">
+<span class="sig-name descname"><span class="pre">set_alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_alpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the alpha value used for blending - not supported on all backends.</p>
+<section id="id23">
+<h2>Parameters<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>alpha<span class="classifier">scalar or None</span></dt><dd><p><em>alpha</em> must be within the 0-1 range, inclusive.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_angle">
+<span class="sig-name descname"><span class="pre">set_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the angle of the ellipse.</p>
+<section id="id24">
+<h2>Parameters<a class="headerlink" href="#id24" title="Permalink to this heading">¶</a></h2>
+<p>angle : float</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_animated">
+<span class="sig-name descname"><span class="pre">set_animated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_animated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether the artist is intended to be used in an animation.</p>
+<p>If True, the artist is excluded from regular drawing of the figure.
+You have to call <cite>.Figure.draw_artist</cite> / <cite>.Axes.draw_artist</cite>
+explicitly on the artist. This approach is used to speed up animations
+using blitting.</p>
+<p>See also <cite>matplotlib.animation</cite> and
+<span class="xref std std-doc">/tutorials/advanced/blitting</span>.</p>
+<section id="id25">
+<h2>Parameters<a class="headerlink" href="#id25" title="Permalink to this heading">¶</a></h2>
+<p>b : bool</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_antialiased">
+<span class="sig-name descname"><span class="pre">set_antialiased</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aa</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_antialiased" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether to use antialiased rendering.</p>
+<section id="id26">
+<h2>Parameters<a class="headerlink" href="#id26" title="Permalink to this heading">¶</a></h2>
+<p>aa : bool or None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_capstyle">
+<span class="sig-name descname"><span class="pre">set_capstyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_capstyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <cite>.CapStyle</cite>.</p>
+<p>The default capstyle is ‘round’ for <cite>.FancyArrowPatch</cite> and ‘butt’ for
+all other patches.</p>
+<section id="id27">
+<h2>Parameters<a class="headerlink" href="#id27" title="Permalink to this heading">¶</a></h2>
+<p>s : <cite>.CapStyle</cite> or {‘butt’, ‘projecting’, ‘round’}</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_center">
+<span class="sig-name descname"><span class="pre">set_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the center of the ellipse.</p>
+<section id="id28">
+<h2>Parameters<a class="headerlink" href="#id28" title="Permalink to this heading">¶</a></h2>
+<p>xy : (float, float)</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_clip_box">
+<span class="sig-name descname"><span class="pre">set_clip_box</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clipbox</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_clip_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the artist’s clip <cite>.Bbox</cite>.</p>
+<section id="id29">
+<h2>Parameters<a class="headerlink" href="#id29" title="Permalink to this heading">¶</a></h2>
+<p>clipbox : <cite>.Bbox</cite></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_clip_on">
+<span class="sig-name descname"><span class="pre">set_clip_on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_clip_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether the artist uses clipping.</p>
+<p>When False artists will be visible outside of the Axes which
+can lead to unexpected results.</p>
+<section id="id30">
+<h2>Parameters<a class="headerlink" href="#id30" title="Permalink to this heading">¶</a></h2>
+<p>b : bool</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_clip_path">
+<span class="sig-name descname"><span class="pre">set_clip_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_clip_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the artist’s clip path.</p>
+<section id="id31">
+<h2>Parameters<a class="headerlink" href="#id31" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>path<span class="classifier"><cite>.Patch</cite> or <cite>.Path</cite> or <cite>.TransformedPath</cite> or None</span></dt><dd><p>The clip path. If given a <cite>.Path</cite>, <em>transform</em> must be provided as
+well. If <em>None</em>, a previously set clip path is removed.</p>
+</dd>
+<dt>transform<span class="classifier"><cite>~matplotlib.transforms.Transform</cite>, optional</span></dt><dd><p>Only used if <em>path</em> is a <cite>.Path</cite>, in which case the given <cite>.Path</cite>
+is converted to a <cite>.TransformedPath</cite> using <em>transform</em>.</p>
+</dd>
+</dl>
+</section>
+<section id="id32">
+<h2>Notes<a class="headerlink" href="#id32" title="Permalink to this heading">¶</a></h2>
+<p>For efficiency, if <em>path</em> is a <cite>.Rectangle</cite> this method will set the
+clipping box to the corresponding rectangle and set the clipping path
+to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>For technical reasons (support of <cite>~.Artist.set</cite>), a tuple
+(<em>path</em>, <em>transform</em>) is also accepted as a single positional
+parameter.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_color">
+<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_color" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set both the edgecolor and the facecolor.</p>
+<section id="id33">
+<h2>Parameters<a class="headerlink" href="#id33" title="Permalink to this heading">¶</a></h2>
+<p>c : color</p>
+</section>
+<section id="id34">
+<h2>See Also<a class="headerlink" href="#id34" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>Patch.set_facecolor, Patch.set_edgecolor</dt><dd><p>For setting the edge or face color individually.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_ec">
+<span class="sig-name descname"><span class="pre">set_ec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_ec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>set_edgecolor</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_edgecolor">
+<span class="sig-name descname"><span class="pre">set_edgecolor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_edgecolor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the patch edge color.</p>
+<section id="id35">
+<h2>Parameters<a class="headerlink" href="#id35" title="Permalink to this heading">¶</a></h2>
+<p>color : color or None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_facecolor">
+<span class="sig-name descname"><span class="pre">set_facecolor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_facecolor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the patch face color.</p>
+<section id="id36">
+<h2>Parameters<a class="headerlink" href="#id36" title="Permalink to this heading">¶</a></h2>
+<p>color : color or None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_fc">
+<span class="sig-name descname"><span class="pre">set_fc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_fc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>set_facecolor</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_figure">
+<span class="sig-name descname"><span class="pre">set_figure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_figure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <cite>.Figure</cite> instance the artist belongs to.</p>
+<section id="id37">
+<h2>Parameters<a class="headerlink" href="#id37" title="Permalink to this heading">¶</a></h2>
+<p>fig : <cite>.Figure</cite></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_fill">
+<span class="sig-name descname"><span class="pre">set_fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_fill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether to fill the patch.</p>
+<section id="id38">
+<h2>Parameters<a class="headerlink" href="#id38" title="Permalink to this heading">¶</a></h2>
+<p>b : bool</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_gid">
+<span class="sig-name descname"><span class="pre">set_gid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_gid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the (group) id for the artist.</p>
+<section id="id39">
+<h2>Parameters<a class="headerlink" href="#id39" title="Permalink to this heading">¶</a></h2>
+<p>gid : str</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_hatch">
+<span class="sig-name descname"><span class="pre">set_hatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hatch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_hatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the hatching pattern.</p>
+<p><em>hatch</em> can be one of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span>   <span class="o">-</span> <span class="n">diagonal</span> <span class="n">hatching</span>
+\   <span class="o">-</span> <span class="n">back</span> <span class="n">diagonal</span>
+<span class="o">|</span>   <span class="o">-</span> <span class="n">vertical</span>
+<span class="o">-</span>   <span class="o">-</span> <span class="n">horizontal</span>
+<span class="o">+</span>   <span class="o">-</span> <span class="n">crossed</span>
+<span class="n">x</span>   <span class="o">-</span> <span class="n">crossed</span> <span class="n">diagonal</span>
+<span class="n">o</span>   <span class="o">-</span> <span class="n">small</span> <span class="n">circle</span>
+<span class="n">O</span>   <span class="o">-</span> <span class="n">large</span> <span class="n">circle</span>
+<span class="o">.</span>   <span class="o">-</span> <span class="n">dots</span>
+<span class="o">*</span>   <span class="o">-</span> <span class="n">stars</span>
+</pre></div>
+</div>
+<p>Letters can be combined, in which case all the specified
+hatchings are done.  If same letter repeats, it increases the
+density of hatching of that pattern.</p>
+<p>Hatching is supported in the PostScript, PDF, SVG and Agg
+backends only.</p>
+<section id="id40">
+<h2>Parameters<a class="headerlink" href="#id40" title="Permalink to this heading">¶</a></h2>
+<p>hatch : {‘/’, ‘\’, ‘|’, ‘-’, ‘+’, ‘x’, ‘o’, ‘O’, ‘.’, ‘*’}</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_height">
+<span class="sig-name descname"><span class="pre">set_height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the height of the ellipse.</p>
+<section id="id41">
+<h2>Parameters<a class="headerlink" href="#id41" title="Permalink to this heading">¶</a></h2>
+<p>height : float</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_in_layout">
+<span class="sig-name descname"><span class="pre">set_in_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_layout</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_in_layout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set if artist is to be included in layout calculations,
+E.g. <span class="xref std std-doc">/tutorials/intermediate/constrainedlayout_guide</span>,
+<cite>.Figure.tight_layout()</cite>, and
+<code class="docutils literal notranslate"><span class="pre">fig.savefig(fname,</span> <span class="pre">bbox_inches='tight')</span></code>.</p>
+<section id="id42">
+<h2>Parameters<a class="headerlink" href="#id42" title="Permalink to this heading">¶</a></h2>
+<p>in_layout : bool</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_joinstyle">
+<span class="sig-name descname"><span class="pre">set_joinstyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_joinstyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the <cite>.JoinStyle</cite>.</p>
+<p>The default joinstyle is ‘round’ for <cite>.FancyArrowPatch</cite> and ‘miter’ for
+all other patches.</p>
+<section id="id43">
+<h2>Parameters<a class="headerlink" href="#id43" title="Permalink to this heading">¶</a></h2>
+<p>s : <cite>.JoinStyle</cite> or {‘miter’, ‘round’, ‘bevel’}</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_label">
+<span class="sig-name descname"><span class="pre">set_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a label that will be displayed in the legend.</p>
+<section id="id44">
+<h2>Parameters<a class="headerlink" href="#id44" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>s<span class="classifier">object</span></dt><dd><p><em>s</em> will be converted to a string by calling <cite>str</cite>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_linestyle">
+<span class="sig-name descname"><span class="pre">set_linestyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_linestyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the patch linestyle.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>linestyle</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'-'</span></code> or <code class="docutils literal notranslate"><span class="pre">'solid'</span></code></p></td>
+<td><p>solid line</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'--'</span></code> or  <code class="docutils literal notranslate"><span class="pre">'dashed'</span></code></p></td>
+<td><p>dashed line</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'-.'</span></code> or  <code class="docutils literal notranslate"><span class="pre">'dashdot'</span></code></p></td>
+<td><p>dash-dotted line</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">':'</span></code> or <code class="docutils literal notranslate"><span class="pre">'dotted'</span></code></p></td>
+<td><p>dotted line</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'none'</span></code>, <code class="docutils literal notranslate"><span class="pre">'None'</span></code>, <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>, or <code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>draw nothing</p></td>
+</tr>
+</tbody>
+</table>
+<p>Alternatively a dash tuple of the following form can be provided:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">onoffseq</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">onoffseq</span></code> is an even length tuple of on and off ink in points.</p>
+<section id="id45">
+<h2>Parameters<a class="headerlink" href="#id45" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ls<span class="classifier">{‘-’, ‘–’, ‘-.’, ‘:’, ‘’, (offset, on-off-seq), …}</span></dt><dd><p>The line style.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_linewidth">
+<span class="sig-name descname"><span class="pre">set_linewidth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_linewidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the patch linewidth in points.</p>
+<section id="id46">
+<h2>Parameters<a class="headerlink" href="#id46" title="Permalink to this heading">¶</a></h2>
+<p>w : float or None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_ls">
+<span class="sig-name descname"><span class="pre">set_ls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_ls" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>set_linestyle</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_lw">
+<span class="sig-name descname"><span class="pre">set_lw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_lw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <cite>set_linewidth</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_mouseover">
+<span class="sig-name descname"><span class="pre">set_mouseover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseover</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_mouseover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether this artist is queried for custom context information when
+the mouse cursor moves over it.</p>
+<section id="id47">
+<h2>Parameters<a class="headerlink" href="#id47" title="Permalink to this heading">¶</a></h2>
+<p>mouseover : bool</p>
+</section>
+<section id="id48">
+<h2>See Also<a class="headerlink" href="#id48" title="Permalink to this heading">¶</a></h2>
+<p>get_cursor_data
+.ToolCursorPosition
+.NavigationToolbar2</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_path_effects">
+<span class="sig-name descname"><span class="pre">set_path_effects</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_effects</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_path_effects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the path effects.</p>
+<section id="id49">
+<h2>Parameters<a class="headerlink" href="#id49" title="Permalink to this heading">¶</a></h2>
+<p>path_effects : <cite>.AbstractPathEffect</cite></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_picker">
+<span class="sig-name descname"><span class="pre">set_picker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">picker</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_picker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the picking behavior of the artist.</p>
+<section id="id50">
+<h2>Parameters<a class="headerlink" href="#id50" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>picker<span class="classifier">None or bool or float or callable</span></dt><dd><p>This can be one of the following:</p>
+<ul>
+<li><p><em>None</em>: Picking is disabled for this artist (default).</p></li>
+<li><p>A boolean: If <em>True</em> then picking will be enabled and the
+artist will fire a pick event if the mouse event is over
+the artist.</p></li>
+<li><p>A float: If picker is a number it is interpreted as an
+epsilon tolerance in points and the artist will fire
+off an event if its data is within epsilon of the mouse
+event.  For some artists like lines and patch collections,
+the artist may provide additional data to the pick event
+that is generated, e.g., the indices of the data within
+epsilon of the pick event</p></li>
+<li><p>A function: If picker is callable, it is a user supplied
+function which determines whether the artist is hit by the
+mouse event:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hit</span><span class="p">,</span> <span class="n">props</span> <span class="o">=</span> <span class="n">picker</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">mouseevent</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to determine the hit test.  if the mouse event is over the
+artist, return <em>hit=True</em> and props is a dictionary of
+properties you want added to the PickEvent attributes.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_radius">
+<span class="sig-name descname"><span class="pre">set_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/patches.html#Circle.set_radius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.Circle.set_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the radius of the circle.</p>
+<section id="id51">
+<h2>Parameters<a class="headerlink" href="#id51" title="Permalink to this heading">¶</a></h2>
+<p>radius : float</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_rasterized">
+<span class="sig-name descname"><span class="pre">set_rasterized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rasterized</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_rasterized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force rasterized (bitmap) drawing for vector graphics output.</p>
+<p>Rasterized drawing is not supported by all artists. If you try to
+enable this on an artist that does not support it, the command has no
+effect and a warning will be issued.</p>
+<p>This setting is ignored for pixel-based output.</p>
+<p>See also <span class="xref std std-doc">/gallery/misc/rasterization_demo</span>.</p>
+<section id="id52">
+<h2>Parameters<a class="headerlink" href="#id52" title="Permalink to this heading">¶</a></h2>
+<p>rasterized : bool</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_sketch_params">
+<span class="sig-name descname"><span class="pre">set_sketch_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_sketch_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the sketch parameters.</p>
+<section id="id53">
+<h2>Parameters<a class="headerlink" href="#id53" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>scale<span class="classifier">float, optional</span></dt><dd><p>The amplitude of the wiggle perpendicular to the source
+line, in pixels.  If scale is <cite>None</cite>, or not provided, no
+sketch filter will be provided.</p>
+</dd>
+<dt>length<span class="classifier">float, optional</span></dt><dd><p>The length of the wiggle along the line, in pixels
+(default 128.0)</p>
+</dd>
+<dt>randomness<span class="classifier">float, optional</span></dt><dd><p>The scale factor by which the length is shrunken or
+expanded (default 16.0)</p>
+<p>The PGF backend uses this argument as an RNG seed and not as
+described above. Using the same seed yields the same random shape.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_snap">
+<span class="sig-name descname"><span class="pre">set_snap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">snap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_snap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the snapping behavior.</p>
+<p>Snapping aligns positions with the pixel grid, which results in
+clearer images. For example, if a black line of 1px width was
+defined at a position in between two pixels, the resulting image
+would contain the interpolated value of that line in the pixel grid,
+which would be a grey value on both adjacent pixel positions. In
+contrast, snapping will move the line to the nearest integer pixel
+value, so that the resulting image will really contain a 1px wide
+black line.</p>
+<p>Snapping is currently only supported by the Agg and MacOSX backends.</p>
+<section id="id54">
+<h2>Parameters<a class="headerlink" href="#id54" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>snap<span class="classifier">bool or None</span></dt><dd><p>Possible values:</p>
+<ul class="simple">
+<li><p><em>True</em>: Snap vertices to the nearest pixel center.</p></li>
+<li><p><em>False</em>: Do not modify vertex positions.</p></li>
+<li><p><em>None</em>: (auto) If the path contains only rectilinear line
+segments, round to the nearest pixel center.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_transform">
+<span class="sig-name descname"><span class="pre">set_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the artist transform.</p>
+<section id="id55">
+<h2>Parameters<a class="headerlink" href="#id55" title="Permalink to this heading">¶</a></h2>
+<p>t : <cite>.Transform</cite></p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_url">
+<span class="sig-name descname"><span class="pre">set_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the url for the artist.</p>
+<section id="id56">
+<h2>Parameters<a class="headerlink" href="#id56" title="Permalink to this heading">¶</a></h2>
+<p>url : str</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_visible">
+<span class="sig-name descname"><span class="pre">set_visible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the artist’s visibility.</p>
+<section id="id57">
+<h2>Parameters<a class="headerlink" href="#id57" title="Permalink to this heading">¶</a></h2>
+<p>b : bool</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_width">
+<span class="sig-name descname"><span class="pre">set_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the width of the ellipse.</p>
+<section id="id58">
+<h2>Parameters<a class="headerlink" href="#id58" title="Permalink to this heading">¶</a></h2>
+<p>width : float</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.set_zorder">
+<span class="sig-name descname"><span class="pre">set_zorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.set_zorder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the zorder for the artist.  Artists with lower zorder
+values are drawn first.</p>
+<section id="id59">
+<h2>Parameters<a class="headerlink" href="#id59" title="Permalink to this heading">¶</a></h2>
+<p>level : float</p>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.stale">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stale</span></span><a class="headerlink" href="#smpl.plot.Circle.stale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the artist is ‘stale’ and needs to be re-drawn for the output
+to match the internal state of the artist.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.sticky_edges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sticky_edges</span></span><a class="headerlink" href="#smpl.plot.Circle.sticky_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> sticky edge lists for autoscaling.</p>
+<p>When performing autoscaling, if a data limit coincides with a value in
+the corresponding sticky_edges list, then no margin will be added–the
+view limit “sticks” to the edge. A typical use case is histograms,
+where one usually expects no margin on the bottom edge (0) of the
+histogram.</p>
+<p>Moreover, margin expansion “bumps” against sticky edges and cannot
+cross them.  For example, if the upper data limit is 1.0, the upper
+view limit computed by simple margin application is 1.2, but there is a
+sticky edge at 1.1, then the actual upper view limit will be 1.1.</p>
+<p>This attribute cannot be assigned to; however, the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>
+lists can be modified in place as needed.</p>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">artist</span><span class="o">.</span><span class="n">sticky_edges</span><span class="o">.</span><span class="n">x</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">artist</span><span class="o">.</span><span class="n">sticky_edges</span><span class="o">.</span><span class="n">y</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">props</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update this artist’s properties from the dict <em>props</em>.</p>
+<section id="id60">
+<h2>Parameters<a class="headerlink" href="#id60" title="Permalink to this heading">¶</a></h2>
+<p>props : dict</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.Circle.update_from">
+<span class="sig-name descname"><span class="pre">update_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.Circle.update_from" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy properties from <em>other</em> to <em>self</em>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.Circle.width">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#smpl.plot.Circle.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of the ellipse.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="smpl.plot.Enum.html" class="btn btn-neutral float-right" title="smpl.plot.Enum" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.plot.Button.html" class="btn btn-neutral float-left" title="smpl.plot.Button" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

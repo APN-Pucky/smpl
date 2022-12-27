@@ -1,0 +1,6 @@
+smpl.plot.rc\_context
+=====================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: rc_context

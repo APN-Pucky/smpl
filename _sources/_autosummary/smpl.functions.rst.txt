@@ -1,45 +1,47 @@
-﻿:mod:`smpl.functions` 
-======================
-
-.. currentmodule:: smpl.functions
-
+smpl.functions
+==============
 
 .. automodule:: smpl.functions
-   :members:
+  
    
-   .. autosummary:: 
    
-      const
    
-      cos
-   
-      cos_abs
-   
-      cube
-   
-      exp
-   
-      fac
-   
-      gauss
-   
-      line
-   
-      linear
-   
-      log
-   
-      lorentz
-   
-      sin
-   
-      sqrt
-   
-      square
-   
-      tan
+
    
    
    .. rubric:: Functions
 
+   .. autosummary::
+      :toctree:                                         
    
+      Gauss
+      const
+      cos
+      cos_abs
+      cube
+      exp
+      exponential
+      fac
+      gauss
+      line
+      linear
+      log
+      lorentz
+      order
+      sin
+      sqrt
+      square
+      tan
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

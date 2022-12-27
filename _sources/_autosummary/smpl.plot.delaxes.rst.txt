@@ -1,0 +1,6 @@
+smpl.plot.delaxes
+=================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: delaxes

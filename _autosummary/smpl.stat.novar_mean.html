@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.stat.novar_mean &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.stat.poisson_dist" href="smpl.stat.poisson_dist.html" />
+    <link rel="prev" title="smpl.stat.normalize" href="smpl.stat.normalize.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.fit.html">smpl.fit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.functions.html">smpl.functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.interpolate.html">smpl.interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.io.html">smpl.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.parallel.html">smpl.parallel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot.html">smpl.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot2d.html">smpl.plot2d</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="smpl.stat.html">smpl.stat</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.Chi2.html">smpl.stat.Chi2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.R2.html">smpl.stat.R2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.average_deviation.html">smpl.stat.average_deviation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.chi2.html">smpl.stat.chi2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.derivative.html">smpl.stat.derivative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.fft.html">smpl.stat.fft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.fftfreq.html">smpl.stat.fftfreq</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.fftshift.html">smpl.stat.fftshift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.floor.html">smpl.stat.floor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.get_domain.html">smpl.stat.get_domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.get_interesting_domain.html">smpl.stat.get_interesting_domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.is_monotone.html">smpl.stat.is_monotone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.log10.html">smpl.stat.log10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.mean.html">smpl.stat.mean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.no_dist.html">smpl.stat.no_dist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.noisy.html">smpl.stat.noisy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.normal.html">smpl.stat.normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.normalize.html">smpl.stat.normalize</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">smpl.stat.novar_mean</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#smpl.stat.novar_mean"><code class="docutils literal notranslate"><span class="pre">novar_mean()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.poisson_dist.html">smpl.stat.poisson_dist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.r2.html">smpl.stat.r2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.round_sig.html">smpl.stat.round_sig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.sfft.html">smpl.stat.sfft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.trim_domain.html">smpl.stat.trim_domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.unv.html">smpl.stat.unv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.unv_lambda.html">smpl.stat.unv_lambda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.stat.usd.html">smpl.stat.usd</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.util.html">smpl.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="smpl.html">smpl</a> &raquo;</li>
+        
+          <li><a href="smpl.stat.html">smpl.stat</a> &raquo;</li>
+        
+      <li>smpl.stat.novar_mean</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/_autosummary/smpl.stat.novar_mean.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="smpl-stat-novar-mean">
+<h1>smpl.stat.novar_mean<a class="headerlink" href="#smpl-stat-novar-mean" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="smpl.stat.novar_mean">
+<span class="sig-prename descclassname"><span class="pre">smpl.stat.</span></span><span class="sig-name descname"><span class="pre">novar_mean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/stat.html#novar_mean"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.stat.novar_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return mean of <code class="docutils literal notranslate"><span class="pre">n</span></code> with only the uncertainties of <code class="docutils literal notranslate"><span class="pre">n</span></code> and no variance.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="smpl.stat.poisson_dist.html" class="btn btn-neutral float-right" title="smpl.stat.poisson_dist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.stat.normalize.html" class="btn btn-neutral float-left" title="smpl.stat.normalize" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

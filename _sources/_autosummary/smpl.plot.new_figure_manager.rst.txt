@@ -1,0 +1,6 @@
+smpl.plot.new\_figure\_manager
+==============================
+
+.. currentmodule:: smpl.plot
+
+.. autofunction:: new_figure_manager

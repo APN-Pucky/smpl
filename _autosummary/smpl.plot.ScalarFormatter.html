@@ -1,0 +1,905 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>smpl.plot.ScalarFormatter &mdash; smpl  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/jupyter-sphinx.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/thebelab.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/thebelab-helper.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="smpl.plot.Slider" href="smpl.plot.Slider.html" />
+    <link rel="prev" title="smpl.plot.Rectangle" href="smpl.plot.Rectangle.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> smpl
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.fit.html">smpl.fit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.functions.html">smpl.functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.interpolate.html">smpl.interpolate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.io.html">smpl.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.parallel.html">smpl.parallel</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="smpl.plot.html">smpl.plot</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.acorr.html">smpl.plot.acorr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.angle_spectrum.html">smpl.plot.angle_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.annotate.html">smpl.plot.annotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.arrow.html">smpl.plot.arrow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.auto.html">smpl.plot.auto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.autoscale.html">smpl.plot.autoscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.autumn.html">smpl.plot.autumn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axes.html">smpl.plot.axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axhline.html">smpl.plot.axhline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axhspan.html">smpl.plot.axhspan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axis.html">smpl.plot.axis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axline.html">smpl.plot.axline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axvline.html">smpl.plot.axvline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axvspan.html">smpl.plot.axvspan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bar.html">smpl.plot.bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bar_label.html">smpl.plot.bar_label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.barbs.html">smpl.plot.barbs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.barh.html">smpl.plot.barh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bone.html">smpl.plot.bone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.box.html">smpl.plot.box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.boxplot.html">smpl.plot.boxplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.broken_barh.html">smpl.plot.broken_barh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cla.html">smpl.plot.cla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clabel.html">smpl.plot.clabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clf.html">smpl.plot.clf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clim.html">smpl.plot.clim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.close.html">smpl.plot.close</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cohere.html">smpl.plot.cohere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.colorbar.html">smpl.plot.colorbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.connect.html">smpl.plot.connect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.contour.html">smpl.plot.contour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.contourf.html">smpl.plot.contourf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cool.html">smpl.plot.cool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.copper.html">smpl.plot.copper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.csd.html">smpl.plot.csd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cycler.html">smpl.plot.cycler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.data.html">smpl.plot.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.data_split.html">smpl.plot.data_split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.delaxes.html">smpl.plot.delaxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.disconnect.html">smpl.plot.disconnect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw.html">smpl.plot.draw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw_all.html">smpl.plot.draw_all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw_if_interactive.html">smpl.plot.draw_if_interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.errorbar.html">smpl.plot.errorbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.eventplot.html">smpl.plot.eventplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figaspect.html">smpl.plot.figaspect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figimage.html">smpl.plot.figimage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figlegend.html">smpl.plot.figlegend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fignum_exists.html">smpl.plot.fignum_exists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figtext.html">smpl.plot.figtext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figure.html">smpl.plot.figure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill.html">smpl.plot.fill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill_between.html">smpl.plot.fill_between</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill_betweenx.html">smpl.plot.fill_betweenx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.findobj.html">smpl.plot.findobj</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fit.html">smpl.plot.fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.flag.html">smpl.plot.flag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.function.html">smpl.plot.function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gca.html">smpl.plot.gca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gcf.html">smpl.plot.gcf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gci.html">smpl.plot.gci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get.html">smpl.plot.get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_backend.html">smpl.plot.get_backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_cmap.html">smpl.plot.get_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_current_fig_manager.html">smpl.plot.get_current_fig_manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_figlabels.html">smpl.plot.get_figlabels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_fignums.html">smpl.plot.get_fignums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_fnc_legend.html">smpl.plot.get_fnc_legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_plot_commands.html">smpl.plot.get_plot_commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_scale_names.html">smpl.plot.get_scale_names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.getp.html">smpl.plot.getp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ginput.html">smpl.plot.ginput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gray.html">smpl.plot.gray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.grid.html">smpl.plot.grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hexbin.html">smpl.plot.hexbin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hist.html">smpl.plot.hist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hist2d.html">smpl.plot.hist2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hlines.html">smpl.plot.hlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hot.html">smpl.plot.hot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hsv.html">smpl.plot.hsv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imread.html">smpl.plot.imread</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imsave.html">smpl.plot.imsave</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imshow.html">smpl.plot.imshow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.inferno.html">smpl.plot.inferno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.init_plot.html">smpl.plot.init_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.install_repl_displayhook.html">smpl.plot.install_repl_displayhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.interactive.html">smpl.plot.interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ioff.html">smpl.plot.ioff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ion.html">smpl.plot.ion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.isinteractive.html">smpl.plot.isinteractive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.jet.html">smpl.plot.jet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.legend.html">smpl.plot.legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.locator_params.html">smpl.plot.locator_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.loglog.html">smpl.plot.loglog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.magma.html">smpl.plot.magma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.magnitude_spectrum.html">smpl.plot.magnitude_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.margins.html">smpl.plot.margins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.matshow.html">smpl.plot.matshow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.minorticks_off.html">smpl.plot.minorticks_off</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.minorticks_on.html">smpl.plot.minorticks_on</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.new_figure_manager.html">smpl.plot.new_figure_manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.nipy_spectral.html">smpl.plot.nipy_spectral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pause.html">smpl.plot.pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pcolor.html">smpl.plot.pcolor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pcolormesh.html">smpl.plot.pcolormesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.phase_spectrum.html">smpl.plot.phase_spectrum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pie.html">smpl.plot.pie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pink.html">smpl.plot.pink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plasma.html">smpl.plot.plasma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot.html">smpl.plot.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot2d.html">smpl.plot.plot2d</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot2d_kwargs.html">smpl.plot.plot2d_kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot_date.html">smpl.plot.plot_date</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot_kwargs.html">smpl.plot.plot_kwargs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_data.html">smpl.plot.plt_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_fit.html">smpl.plot.plt_fit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_fit_or_interpolate.html">smpl.plot.plt_fit_or_interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_interpolate.html">smpl.plot.plt_interpolate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_plt.html">smpl.plot.plt_plt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_residue.html">smpl.plot.plt_residue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.polar.html">smpl.plot.polar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.prism.html">smpl.plot.prism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.psd.html">smpl.plot.psd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.quiver.html">smpl.plot.quiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.quiverkey.html">smpl.plot.quiverkey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rc.html">smpl.plot.rc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rc_context.html">smpl.plot.rc_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rcdefaults.html">smpl.plot.rcdefaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.register_cmap.html">smpl.plot.register_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rgrids.html">smpl.plot.rgrids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.save_plot.html">smpl.plot.save_plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.savefig.html">smpl.plot.savefig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.sca.html">smpl.plot.sca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.scatter.html">smpl.plot.scatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.sci.html">smpl.plot.sci</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.semilogx.html">smpl.plot.semilogx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.semilogy.html">smpl.plot.semilogy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_cmap.html">smpl.plot.set_cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_loglevel.html">smpl.plot.set_loglevel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_plot_style.html">smpl.plot.set_plot_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.setp.html">smpl.plot.setp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.show.html">smpl.plot.show</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.specgram.html">smpl.plot.specgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.spring.html">smpl.plot.spring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.spy.html">smpl.plot.spy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stackplot.html">smpl.plot.stackplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stairs.html">smpl.plot.stairs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stem.html">smpl.plot.stem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.step.html">smpl.plot.step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.streamplot.html">smpl.plot.streamplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot.html">smpl.plot.subplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot2grid.html">smpl.plot.subplot2grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot_mosaic.html">smpl.plot.subplot_mosaic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot_tool.html">smpl.plot.subplot_tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplots.html">smpl.plot.subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplots_adjust.html">smpl.plot.subplots_adjust</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.summer.html">smpl.plot.summer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.suptitle.html">smpl.plot.suptitle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.switch_backend.html">smpl.plot.switch_backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.table.html">smpl.plot.table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.text.html">smpl.plot.text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.thetagrids.html">smpl.plot.thetagrids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tick_params.html">smpl.plot.tick_params</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ticklabel_format.html">smpl.plot.ticklabel_format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tight_layout.html">smpl.plot.tight_layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.title.html">smpl.plot.title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tricontour.html">smpl.plot.tricontour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tricontourf.html">smpl.plot.tricontourf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tripcolor.html">smpl.plot.tripcolor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.triplot.html">smpl.plot.triplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.twinx.html">smpl.plot.twinx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.twiny.html">smpl.plot.twiny</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.uninstall_repl_displayhook.html">smpl.plot.uninstall_repl_displayhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.unv.html">smpl.plot.unv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.usd.html">smpl.plot.usd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.violinplot.html">smpl.plot.violinplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.viridis.html">smpl.plot.viridis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.vlines.html">smpl.plot.vlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.waitforbuttonpress.html">smpl.plot.waitforbuttonpress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.winter.html">smpl.plot.winter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xcorr.html">smpl.plot.xcorr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xkcd.html">smpl.plot.xkcd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xlabel.html">smpl.plot.xlabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xlim.html">smpl.plot.xlim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xscale.html">smpl.plot.xscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xticks.html">smpl.plot.xticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ylabel.html">smpl.plot.ylabel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ylim.html">smpl.plot.ylim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.yscale.html">smpl.plot.yscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.yticks.html">smpl.plot.yticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Annotation.html">smpl.plot.Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Arrow.html">smpl.plot.Arrow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Artist.html">smpl.plot.Artist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.AutoLocator.html">smpl.plot.AutoLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Axes.html">smpl.plot.Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Button.html">smpl.plot.Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Circle.html">smpl.plot.Circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Enum.html">smpl.plot.Enum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ExitStack.html">smpl.plot.ExitStack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Figure.html">smpl.plot.Figure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FigureBase.html">smpl.plot.FigureBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FigureCanvasBase.html">smpl.plot.FigureCanvasBase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FixedFormatter.html">smpl.plot.FixedFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FixedLocator.html">smpl.plot.FixedLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FormatStrFormatter.html">smpl.plot.FormatStrFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Formatter.html">smpl.plot.Formatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FuncFormatter.html">smpl.plot.FuncFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.GridSpec.html">smpl.plot.GridSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.IndexLocator.html">smpl.plot.IndexLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Line2D.html">smpl.plot.Line2D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LinearLocator.html">smpl.plot.LinearLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Locator.html">smpl.plot.Locator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatter.html">smpl.plot.LogFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatterExponent.html">smpl.plot.LogFormatterExponent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatterMathtext.html">smpl.plot.LogFormatterMathtext</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogLocator.html">smpl.plot.LogLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MaxNLocator.html">smpl.plot.MaxNLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MouseButton.html">smpl.plot.MouseButton</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MultipleLocator.html">smpl.plot.MultipleLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Normalize.html">smpl.plot.Normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.NullFormatter.html">smpl.plot.NullFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.NullLocator.html">smpl.plot.NullLocator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Number.html">smpl.plot.Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.PolarAxes.html">smpl.plot.PolarAxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Polygon.html">smpl.plot.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Rectangle.html">smpl.plot.Rectangle</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">smpl.plot.ScalarFormatter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#smpl.plot.ScalarFormatter"><code class="docutils literal notranslate"><span class="pre">ScalarFormatter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Slider.html">smpl.plot.Slider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Subplot.html">smpl.plot.Subplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.SubplotSpec.html">smpl.plot.SubplotSpec</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Text.html">smpl.plot.Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.TickHelper.html">smpl.plot.TickHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Widget.html">smpl.plot.Widget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.plot2d.html">smpl.plot2d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.stat.html">smpl.stat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.util.html">smpl.util</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://smpl.readthedocs.io/en/stable/">RTD</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/">Stable</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apn-pucky.github.io/smpl/test/">Dev</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">smpl</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="smpl.html">smpl</a> &raquo;</li>
+        
+          <li><a href="smpl.plot.html">smpl.plot</a> &raquo;</li>
+        
+      <li>smpl.plot.ScalarFormatter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/_autosummary/smpl.plot.ScalarFormatter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="smpl-plot-scalarformatter">
+<h1>smpl.plot.ScalarFormatter<a class="headerlink" href="#smpl-plot-scalarformatter" title="Permalink to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">smpl.plot.</span></span><span class="sig-name descname"><span class="pre">ScalarFormatter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">useOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useMathText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useLocale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="smpl.plot.Formatter.html#smpl.plot.Formatter" title="matplotlib.ticker.Formatter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Formatter</span></code></a></p>
+<p>Format tick values as a number.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>useOffset<span class="classifier">bool or float, default: <a href="#id1"><span class="problematic" id="id2">:rc:`axes.formatter.useoffset`</span></a></span></dt><dd><p>Whether to use offset notation. See <cite>.set_useOffset</cite>.</p>
+</dd>
+<dt>useMathText<span class="classifier">bool, default: <a href="#id3"><span class="problematic" id="id4">:rc:`axes.formatter.use_mathtext`</span></a></span></dt><dd><p>Whether to use fancy math formatting. See <cite>.set_useMathText</cite>.</p>
+</dd>
+<dt>useLocale<span class="classifier">bool, default: <a href="#id5"><span class="problematic" id="id6">:rc:`axes.formatter.use_locale`</span></a>.</span></dt><dd><p>Whether to use locale settings for decimal sign and positive sign.
+See <cite>.set_useLocale</cite>.</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h2>
+<p>In addition to the parameters above, the formatting of scientific vs.
+floating point representation can be configured via <cite>.set_scientific</cite>
+and <cite>.set_powerlimits</cite>).</p>
+<p><strong>Offset notation and scientific notation</strong></p>
+<p>Offset notation and scientific notation look quite similar at first sight.
+Both split some information from the formatted tick values and display it
+at the end of the axis.</p>
+<ul class="simple">
+<li><p>The scientific notation splits up the order of magnitude, i.e. a
+multiplicative scaling factor, e.g. <code class="docutils literal notranslate"><span class="pre">1e6</span></code>.</p></li>
+<li><p>The offset notation separates an additive constant, e.g. <code class="docutils literal notranslate"><span class="pre">+1e6</span></code>. The
+offset notation label is always prefixed with a <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> sign
+and is thus distinguishable from the order of magnitude label.</p></li>
+</ul>
+<p>The following plot with x limits <code class="docutils literal notranslate"><span class="pre">1_000_000</span></code> to <code class="docutils literal notranslate"><span class="pre">1_000_010</span></code> illustrates
+the different formatting. Note the labels at the right edge of the x axis.</p>
+<p>(<a class="reference external" href="../_autosummary/smpl-plot-ScalarFormatter-1.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-plot-ScalarFormatter-1.png">png</a>, <a class="reference external" href="../_autosummary/smpl-plot-ScalarFormatter-1.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-plot-ScalarFormatter-1.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="../_images/smpl-plot-ScalarFormatter-1.png" class="plot-directive" src="../_images/smpl-plot-ScalarFormatter-1.png" />
+</figure>
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">useOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useMathText</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useLocale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.__init__" title="smpl.plot.ScalarFormatter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([useOffset, useMathText, useLocale])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_dummy_axis</span></code>(**kwargs)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.fix_minus" title="smpl.plot.ScalarFormatter.fix_minus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fix_minus</span></code></a>(s)</p></td>
+<td><p>Some classes may want to replace a hyphen for minus with the proper Unicode symbol (U+2212) for typographical correctness. This is a helper method to perform such a replacement when it is enabled via <a href="#id7"><span class="problematic" id="id8">:rc:`axes.unicode_minus`</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.format_data" title="smpl.plot.ScalarFormatter.format_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_data</span></code></a>(value)</p></td>
+<td><p>Return the full string representation of the value with the position unspecified.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.format_data_short" title="smpl.plot.ScalarFormatter.format_data_short"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_data_short</span></code></a>(value)</p></td>
+<td><p>Return a short string version of the tick value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.format_ticks" title="smpl.plot.ScalarFormatter.format_ticks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_ticks</span></code></a>(values)</p></td>
+<td><p>Return the tick labels for all the ticks at once.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.get_offset" title="smpl.plot.ScalarFormatter.get_offset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_offset</span></code></a>()</p></td>
+<td><p>Return scientific notation, plus offset.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.get_useLocale" title="smpl.plot.ScalarFormatter.get_useLocale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_useLocale</span></code></a>()</p></td>
+<td><p>Return whether locale settings are used for formatting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.get_useMathText" title="smpl.plot.ScalarFormatter.get_useMathText"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_useMathText</span></code></a>()</p></td>
+<td><p>Return whether to use fancy math formatting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.get_useOffset" title="smpl.plot.ScalarFormatter.get_useOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_useOffset</span></code></a>()</p></td>
+<td><p>Return whether automatic mode for offset notation is active.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_axis</span></code>(axis)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_bounds" title="smpl.plot.ScalarFormatter.set_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_bounds</span></code></a>(vmin, vmax)</p></td>
+<td><p>[<em>Deprecated</em>]</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_data_interval" title="smpl.plot.ScalarFormatter.set_data_interval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_data_interval</span></code></a>(vmin, vmax)</p></td>
+<td><p>[<em>Deprecated</em>]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_locs" title="smpl.plot.ScalarFormatter.set_locs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_locs</span></code></a>(locs)</p></td>
+<td><p>Set the locations of the ticks.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_powerlimits" title="smpl.plot.ScalarFormatter.set_powerlimits"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_powerlimits</span></code></a>(lims)</p></td>
+<td><p>Set size thresholds for scientific notation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_scientific" title="smpl.plot.ScalarFormatter.set_scientific"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_scientific</span></code></a>(b)</p></td>
+<td><p>Turn scientific notation on or off.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_useLocale" title="smpl.plot.ScalarFormatter.set_useLocale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_useLocale</span></code></a>(val)</p></td>
+<td><p>Set whether to use locale settings for decimal sign and positive sign.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_useMathText" title="smpl.plot.ScalarFormatter.set_useMathText"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_useMathText</span></code></a>(val)</p></td>
+<td><p>Set whether to use fancy math formatting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_useOffset" title="smpl.plot.ScalarFormatter.set_useOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_useOffset</span></code></a>(val)</p></td>
+<td><p>Set whether to use offset notation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.set_view_interval" title="smpl.plot.ScalarFormatter.set_view_interval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_view_interval</span></code></a>(vmin, vmax)</p></td>
+<td><p>[<em>Deprecated</em>]</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">locs</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.useLocale" title="smpl.plot.ScalarFormatter.useLocale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">useLocale</span></code></a></p></td>
+<td><p>Return whether locale settings are used for formatting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.useMathText" title="smpl.plot.ScalarFormatter.useMathText"><code class="xref py py-obj docutils literal notranslate"><span class="pre">useMathText</span></code></a></p></td>
+<td><p>Return whether to use fancy math formatting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#smpl.plot.ScalarFormatter.useOffset" title="smpl.plot.ScalarFormatter.useOffset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">useOffset</span></code></a></p></td>
+<td><p>Return whether automatic mode for offset notation is active.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.fix_minus">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fix_minus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.ScalarFormatter.fix_minus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Some classes may want to replace a hyphen for minus with the proper
+Unicode symbol (U+2212) for typographical correctness.  This is a
+helper method to perform such a replacement when it is enabled via
+<a href="#id9"><span class="problematic" id="id10">:rc:`axes.unicode_minus`</span></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.format_data">
+<span class="sig-name descname"><span class="pre">format_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.format_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.format_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the full string representation of the value with the
+position unspecified.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.format_data_short">
+<span class="sig-name descname"><span class="pre">format_data_short</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.format_data_short"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.format_data_short" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a short string version of the tick value.</p>
+<p>Defaults to the position-independent long value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.format_ticks">
+<span class="sig-name descname"><span class="pre">format_ticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.ScalarFormatter.format_ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tick labels for all the ticks at once.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.get_offset">
+<span class="sig-name descname"><span class="pre">get_offset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.get_offset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.get_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return scientific notation, plus offset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.get_useLocale">
+<span class="sig-name descname"><span class="pre">get_useLocale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.get_useLocale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.get_useLocale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether locale settings are used for formatting.</p>
+<section id="see-also">
+<h3>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h3>
+<p>ScalarFormatter.set_useLocale</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.get_useMathText">
+<span class="sig-name descname"><span class="pre">get_useMathText</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.get_useMathText"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.get_useMathText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether to use fancy math formatting.</p>
+<section id="id11">
+<h3>See Also<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<p>ScalarFormatter.set_useMathText</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.get_useOffset">
+<span class="sig-name descname"><span class="pre">get_useOffset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.get_useOffset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.get_useOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether automatic mode for offset notation is active.</p>
+<p>This returns True if <code class="docutils literal notranslate"><span class="pre">set_useOffset(True)</span></code>; it returns False if an
+explicit offset was set, e.g. <code class="docutils literal notranslate"><span class="pre">set_useOffset(1000)</span></code>.</p>
+<section id="id12">
+<h3>See Also<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<p>ScalarFormatter.set_useOffset</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_bounds">
+<span class="sig-name descname"><span class="pre">set_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Deprecated</em>]</p>
+<section id="id13">
+<h3>Notes<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h3>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.5: </span>Use <cite>.Axis.set_view_interval</cite> and <cite>.Axis.set_data_interval</cite> instead.</p>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_data_interval">
+<span class="sig-name descname"><span class="pre">set_data_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_data_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Deprecated</em>]</p>
+<section id="id14">
+<h3>Notes<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.5: </span>Use <cite>.Axis.set_data_interval</cite> instead.</p>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_locs">
+<span class="sig-name descname"><span class="pre">set_locs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">locs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.set_locs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_locs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the locations of the ticks.</p>
+<p>This method is called before computing the tick labels because some
+formatters need to know all tick locations to do so.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_powerlimits">
+<span class="sig-name descname"><span class="pre">set_powerlimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lims</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.set_powerlimits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_powerlimits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set size thresholds for scientific notation.</p>
+<section id="id15">
+<h3>Parameters<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
+<dl>
+<dt>lims<span class="classifier">(int, int)</span></dt><dd><p>A tuple <em>(min_exp, max_exp)</em> containing the powers of 10 that
+determine the switchover threshold. For a number representable as
+<span class="math notranslate nohighlight">\(a \times 10^\mathrm{exp}\)</span> with <span class="math notranslate nohighlight">\(1 &lt;= |a| &lt; 10\)</span>,
+scientific notation will be used if <code class="docutils literal notranslate"><span class="pre">exp</span> <span class="pre">&lt;=</span> <span class="pre">min_exp</span></code> or
+<code class="docutils literal notranslate"><span class="pre">exp</span> <span class="pre">&gt;=</span> <span class="pre">max_exp</span></code>.</p>
+<p>The default limits are controlled by <a href="#id16"><span class="problematic" id="id17">:rc:`axes.formatter.limits`</span></a>.</p>
+<p>In particular numbers with <em>exp</em> equal to the thresholds are
+written in scientific notation.</p>
+<p>Typically, <em>min_exp</em> will be negative and <em>max_exp</em> will be
+positive.</p>
+<p>For example, <code class="docutils literal notranslate"><span class="pre">formatter.set_powerlimits((-3,</span> <span class="pre">4))</span></code> will provide
+the following formatting:
+<span class="math notranslate nohighlight">\(1 \times 10^{-3}, 9.9 \times 10^{-3}, 0.01,\)</span>
+<span class="math notranslate nohighlight">\(9999, 1 \times 10^4\)</span>.</p>
+</dd>
+</dl>
+</section>
+<section id="id18">
+<h3>See Also<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h3>
+<p>ScalarFormatter.set_scientific</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_scientific">
+<span class="sig-name descname"><span class="pre">set_scientific</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.set_scientific"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_scientific" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn scientific notation on or off.</p>
+<section id="id19">
+<h3>See Also<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h3>
+<p>ScalarFormatter.set_powerlimits</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_useLocale">
+<span class="sig-name descname"><span class="pre">set_useLocale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.set_useLocale"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_useLocale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether to use locale settings for decimal sign and positive sign.</p>
+<section id="id20">
+<h3>Parameters<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>val<span class="classifier">bool or None</span></dt><dd><p><em>None</em> resets to <a href="#id21"><span class="problematic" id="id22">:rc:`axes.formatter.use_locale`</span></a>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_useMathText">
+<span class="sig-name descname"><span class="pre">set_useMathText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.set_useMathText"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_useMathText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether to use fancy math formatting.</p>
+<p>If active, scientific notation is formatted as <span class="math notranslate nohighlight">\(1.2 \times 10^3\)</span>.</p>
+<section id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>val<span class="classifier">bool or None</span></dt><dd><p><em>None</em> resets to <a href="#id24"><span class="problematic" id="id25">:rc:`axes.formatter.use_mathtext`</span></a>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_useOffset">
+<span class="sig-name descname"><span class="pre">set_useOffset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/matplotlib/ticker.html#ScalarFormatter.set_useOffset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_useOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whether to use offset notation.</p>
+<p>When formatting a set numbers whose value is large compared to their
+range, the formatter can separate an additive constant. This can
+shorten the formatted numbers so that they are less likely to overlap
+when drawn on an axis.</p>
+<section id="id26">
+<h3>Parameters<a class="headerlink" href="#id26" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>val<span class="classifier">bool or float</span></dt><dd><ul class="simple">
+<li><p>If False, do not use offset notation.</p></li>
+<li><p>If True (=automatic mode), use offset notation if it can make
+the residual numbers significantly shorter. The exact behavior
+is controlled by <a href="#id27"><span class="problematic" id="id28">:rc:`axes.formatter.offset_threshold`</span></a>.</p></li>
+<li><p>If a number, force an offset of the given value.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
+<p>With active offset notation, the values</p>
+<p><code class="docutils literal notranslate"><span class="pre">100_000,</span> <span class="pre">100_002,</span> <span class="pre">100_004,</span> <span class="pre">100_006,</span> <span class="pre">100_008</span></code></p>
+<p>will be formatted as <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">2,</span> <span class="pre">4,</span> <span class="pre">6,</span> <span class="pre">8</span></code> plus an offset <code class="docutils literal notranslate"><span class="pre">+1e5</span></code>, which
+is written to the edge of the axis.</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.set_view_interval">
+<span class="sig-name descname"><span class="pre">set_view_interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#smpl.plot.ScalarFormatter.set_view_interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>[<em>Deprecated</em>]</p>
+<section id="id29">
+<h3>Notes<a class="headerlink" href="#id29" title="Permalink to this heading">¶</a></h3>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.5: </span>Use <cite>.Axis.set_view_interval</cite> instead.</p>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.useLocale">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">useLocale</span></span><a class="headerlink" href="#smpl.plot.ScalarFormatter.useLocale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether locale settings are used for formatting.</p>
+<section id="id30">
+<h3>See Also<a class="headerlink" href="#id30" title="Permalink to this heading">¶</a></h3>
+<p>ScalarFormatter.set_useLocale</p>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.useMathText">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">useMathText</span></span><a class="headerlink" href="#smpl.plot.ScalarFormatter.useMathText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether to use fancy math formatting.</p>
+<section id="id31">
+<h3>See Also<a class="headerlink" href="#id31" title="Permalink to this heading">¶</a></h3>
+<p>ScalarFormatter.set_useMathText</p>
+</section>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="smpl.plot.ScalarFormatter.useOffset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">useOffset</span></span><a class="headerlink" href="#smpl.plot.ScalarFormatter.useOffset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether automatic mode for offset notation is active.</p>
+<p>This returns True if <code class="docutils literal notranslate"><span class="pre">set_useOffset(True)</span></code>; it returns False if an
+explicit offset was set, e.g. <code class="docutils literal notranslate"><span class="pre">set_useOffset(1000)</span></code>.</p>
+<section id="id32">
+<h3>See Also<a class="headerlink" href="#id32" title="Permalink to this heading">¶</a></h3>
+<p>ScalarFormatter.set_useOffset</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="smpl.plot.Slider.html" class="btn btn-neutral float-right" title="smpl.plot.Slider" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.plot.Rectangle.html" class="btn btn-neutral float-left" title="smpl.plot.Rectangle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Alexander Puck Neuwirth.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+smpl.plot.Normalize
+===================
+
+.. currentmodule:: smpl.plot
+
+.. autoclass:: Normalize
+   :members:                                   
+   :show-inheritance:                           
+   :inherited-members:                         
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Normalize.__init__
+      ~Normalize.autoscale
+      ~Normalize.autoscale_None
+      ~Normalize.inverse
+      ~Normalize.process_value
+      ~Normalize.scaled
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Normalize.clip
+      ~Normalize.vmax
+      ~Normalize.vmin
+   
+   
