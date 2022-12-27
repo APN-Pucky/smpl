@@ -15,15 +15,6 @@
 .. toctree::
    :glob:
    :hidden:
-   :caption: Versions:
-   :maxdepth: 3
-
-   Stable <https://apn-pucky.github.io/smpl/>
-   Dev <https://apn-pucky.github.io/smpl/test/>
-
-.. toctree::
-   :glob:
-   :hidden:
    :caption: Links:
    :maxdepth: 3
 
@@ -54,6 +45,18 @@
    :caption: Profiling:
 
    performance/*
+
+
+.. toctree::
+   :glob:
+   :hidden:
+   :caption: Versions:
+   :maxdepth: 3
+
+   RTD <https://smpl.readthedocs.io/en/stable/>
+   Stable <https://apn-pucky.github.io/smpl/>
+   Dev <https://apn-pucky.github.io/smpl/test/>
+
 
 
 
