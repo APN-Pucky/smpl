@@ -46,7 +46,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -78,7 +77,7 @@
             
             
               <div class="version">
-                1.1.0
+                1.2.1
               </div>
             
           
@@ -115,7 +114,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="smpl.animation.html">smpl.animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
@@ -259,6 +257,38 @@
 <dt class="sig sig-object py" id="smpl.interpolate.table">
 <span class="sig-prename descclassname"><span class="pre">smpl.interpolate.</span></span><span class="sig-name descname"><span class="pre">table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tabs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl_doc/doc.html#table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.interpolate.table" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add dict= {‘key’: [values…]} to a simple reST table.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<dl>
+<dt>dic<span class="classifier"><code class="docutils literal notranslate"><span class="pre">dict</span></code></span></dt><dd><p>Dictionary to be converted to a table.</p>
+</dd>
+<dt>top<span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> a top line is added.</p>
+</dd>
+<dt>bottom<span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> a bottom line is added.</p>
+</dd>
+<dt>init<span class="classifier"><code class="docutils literal notranslate"><span class="pre">bool</span></code></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> a tab is added at the beginning of the line.</p>
+</dd>
+<dt>tabs<span class="classifier"><code class="docutils literal notranslate"><span class="pre">int</span></code></span></dt><dd><p>Number of tabs to be added at the beginning of the line.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">str</span></code></dt><dd><p>The table as a string.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
+<span class="go">&#39;\t==================  ==================  ==================\n\ta                   1                   2                   3\n\tb                   4                   5                   6\n\t==================  ==================  ==================\n\t\n&#39;</span>
+</pre></div>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 1.0.3.1: </span>This will be removed in ?.?.?. Use <code class="xref py py-func docutils literal notranslate"><span class="pre">smpl_doc.array_table()</span></code> instead.</p>
+</div>
+</section>
 </dd></dl>
 
 </section>

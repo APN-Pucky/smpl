@@ -45,7 +45,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -75,7 +74,7 @@
             
             
               <div class="version">
-                1.1.0
+                1.2.1
               </div>
             
           
@@ -189,55 +188,60 @@
             
   <h1>Source code for smpl_doc.doc</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Simplified python code documentation.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">deprecation</span> <span class="kn">import</span> <span class="n">deprecated</span> <span class="k">as</span> <span class="n">_deprecated</span>
-
-<span class="c1"># from deprecation import deprecated as _deprecated</span>
-
-<span class="n">params</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">name</span> <span class="o">=</span> <span class="mi">1</span>
-
-
-<span class="k">def</span> <span class="nf">_append</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="n">txt</span>
-        <span class="k">return</span> <span class="n">target</span>
-
-    <span class="k">return</span> <span class="n">wrapper</span>
 
 
 <div class="viewcode-block" id="append"><a class="viewcode-back" href="../../_autosummary/smpl.doc.append.html#smpl.doc.append">[docs]</a><span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;TODO split cases doc/txt/plot?&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Append ``txt`` in the ``target`` function docstring.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; @append(&#39;hi&#39;)</span>
+<span class="sd">    ... def ho(): pass</span>
+<span class="sd">    &gt;&gt;&gt; ho.__doc__</span>
+<span class="sd">    &#39;hi&#39;</span>
+<span class="sd">    &gt;&gt;&gt; @append(ho)</span>
+<span class="sd">    ... def hi(): pass</span>
+<span class="sd">    &gt;&gt;&gt; hi.__doc__</span>
+<span class="sd">    &#39;hi&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">append_str</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s2">&quot;__doc__&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">append_doc</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Can&#39;t append docstring from type </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">txt</span><span class="p">)))</span>
     <span class="k">return</span> <span class="kc">None</span></div>
 
 
 <div class="viewcode-block" id="append_str"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.append_str.html#smpl.doc.append_str">[docs]</a><span class="k">def</span> <span class="nf">append_str</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">_append</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span></div>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Append ``txt`` in the ``target`` function docstring.</span>
 
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    txt : ``str``</span>
+<span class="sd">        ``txt`` is inserted to the ``__doc__`` of the ``target``</span>
 
-<div class="viewcode-block" id="append_plot"><a class="viewcode-back" href="../../_autosummary/smpl.doc.append_plot.html#smpl.doc.append_plot">[docs]</a><span class="k">def</span> <span class="nf">append_plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Append a plot to a function.&quot;&quot;&quot;</span>
-    <span class="c1"># return _append(&quot;\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t&gt;&gt;&gt; from &quot; + target.__module__ + &quot; import &quot; +target.__name__ + &quot;\n\t\t&gt;&gt;&gt; from smpl import plot\n\t\t&gt;&gt;&gt; plot.function(&quot;+ target.__name__ + &quot;,&quot; + &#39;,&#39;.join([str(a) for a in args]) + &quot;,xmin=&quot;+str(xmin) + &quot;,xmax=&quot; + str(xmax)+&quot;)&quot;)</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; def ho():</span>
+<span class="sd">    ...     &#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
+<span class="sd">    ...     print(ho.__doc__)</span>
+<span class="sd">    &gt;&gt;&gt; @append_doc(ho)</span>
+<span class="sd">    ... def hi():</span>
+<span class="sd">    ...     &#39;&#39;&#39;Hi&#39;&#39;&#39;</span>
+<span class="sd">    ...     print(hi.__doc__)</span>
+<span class="sd">    &gt;&gt;&gt; hi()</span>
+<span class="sd">    HiHo</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="p">(</span>
-            <span class="s2">&quot;</span><span class="se">\n\n\t</span><span class="s2">.. plot::</span><span class="se">\n\t\t</span><span class="s2">:include-source:</span><span class="se">\n\n\t\t</span><span class="s2">&gt;&gt;&gt; from &quot;</span>
-            <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__module__</span>
-            <span class="o">+</span> <span class="s2">&quot; import &quot;</span>
-            <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__name__</span>
-            <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\t\t</span><span class="s2">&gt;&gt;&gt; from smpl import plot</span><span class="se">\n\t\t</span><span class="s2">&gt;&gt;&gt; plot.function(&quot;</span>
-            <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__name__</span>
-            <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-            <span class="o">+</span> <span class="s2">&quot;,xmin=&quot;</span>
-            <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xmin</span><span class="p">)</span>
-            <span class="o">+</span> <span class="s2">&quot;,xmax=&quot;</span>
-            <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">xmax</span><span class="p">)</span>
-            <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
-        <span class="p">)</span>
-        <span class="c1"># print(target.__doc__)</span>
+        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="n">txt</span>
         <span class="k">return</span> <span class="n">target</span>
 
     <span class="k">return</span> <span class="n">wrapper</span></div>
@@ -265,21 +269,62 @@
 <span class="sd">    HiHo</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_append</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">append_str</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">_insert</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+<div class="viewcode-block" id="insert"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert.html#smpl.doc.insert">[docs]</a><span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Insert ``txt`` in the ``target`` function docstring.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; @insert(&#39;hi&#39;)</span>
+<span class="sd">    ... def ho(): pass</span>
+<span class="sd">    &gt;&gt;&gt; ho.__doc__</span>
+<span class="sd">    &#39;hi&#39;</span>
+<span class="sd">    &gt;&gt;&gt; @insert(ho)</span>
+<span class="sd">    ... def hi(): pass</span>
+<span class="sd">    &gt;&gt;&gt; hi.__doc__</span>
+<span class="sd">    &#39;hi&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">insert_str</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s2">&quot;__doc__&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">insert_doc</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Can&#39;t append docstring from type </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">txt</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="insert_str"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_str.html#smpl.doc.insert_str">[docs]</a><span class="k">def</span> <span class="nf">insert_str</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Insert ``txt`` in the ``target`` function docstring.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    txt : ``str``</span>
+<span class="sd">        ``txt`` is inserted to the ``__doc__`` of the ``target``</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; def ho():</span>
+<span class="sd">    ...     &#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
+<span class="sd">    ...     print(ho.__doc__)</span>
+<span class="sd">    &gt;&gt;&gt; @insert_doc(ho)</span>
+<span class="sd">    ... def hi():</span>
+<span class="sd">    ...     &#39;&#39;&#39;Hi&#39;&#39;&#39;</span>
+<span class="sd">    ...     print(hi.__doc__)</span>
+<span class="sd">    &gt;&gt;&gt; hi()</span>
+<span class="sd">    HoHi</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">txt</span> <span class="o">+</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span>
         <span class="k">return</span> <span class="n">target</span>
 
-    <span class="k">return</span> <span class="n">wrapper</span>
-
-
-<div class="viewcode-block" id="insert_str"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_str.html#smpl.doc.insert_str">[docs]</a><span class="k">def</span> <span class="nf">insert_str</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">wrapper</span></div>
 
 
 <div class="viewcode-block" id="insert_doc"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_doc.html#smpl.doc.insert_doc">[docs]</a><span class="k">def</span> <span class="nf">insert_doc</span><span class="p">(</span><span class="n">original</span><span class="p">):</span>
@@ -303,46 +348,45 @@
 <span class="sd">    &gt;&gt;&gt; hi()</span>
 <span class="sd">    HoHi</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_insert</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="insert_eq"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_eq.html#smpl.doc.insert_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_eq</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Inserts the function and its parameters and an equal sign.&quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="n">safe</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span>
-        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span>
-        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">:</span>
-            <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span>
-        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">+=</span> <span class="s2">&quot;) = &quot;</span> <span class="o">+</span> <span class="n">safe</span>
-        <span class="k">return</span> <span class="n">target</span>
-
-    <span class="k">return</span> <span class="n">wrapper</span></div>
-
-
-<div class="viewcode-block" id="insert_latex_eq"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_latex_eq.html#smpl.doc.insert_latex_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_latex_eq</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function with parameters.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">insert_eq</span><span class="p">()(</span><span class="n">insert_latex</span><span class="p">()(</span><span class="n">f</span><span class="p">))</span></div>
-
-
-<div class="viewcode-block" id="insert_latex"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_latex.html#smpl.doc.insert_latex">[docs]</a><span class="k">def</span> <span class="nf">insert_latex</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function.&quot;&quot;&quot;</span>
-    <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
-
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">wrap</span><span class="o">.</span><span class="n">get_latex</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">target</span>
-
-    <span class="k">return</span> <span class="n">wrapper</span></div>
+    <span class="k">return</span> <span class="n">insert_str</span><span class="p">(</span><span class="n">original</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="deprecated"><a class="viewcode-back" href="../../_autosummary/smpl.doc.deprecated.html#smpl.doc.deprecated">[docs]</a><span class="k">def</span> <span class="nf">deprecated</span><span class="p">(</span>
-    <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">deprecated_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">removed_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">deprecated_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">removed_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">reason</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">details</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator to mark a function as deprecated.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    version : ``str``</span>
+<span class="sd">        Version of the package when the function was deprecated.</span>
+<span class="sd">    deprecated_in : ``str``</span>
+<span class="sd">        Version of the package when the function was deprecated.</span>
+<span class="sd">    removed_in : ``str``</span>
+<span class="sd">        Version of the package when the function will be removed.</span>
+<span class="sd">    reason : ``str``</span>
+<span class="sd">        Reason for deprecation.</span>
+<span class="sd">    details : ``str``</span>
+<span class="sd">        Details about the deprecation.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; @deprecated(&#39;0.0.0&#39;,&quot;Old&quot;)</span>
+<span class="sd">    ... def ho():</span>
+<span class="sd">    ...     &#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
+<span class="sd">    ...     print(ho.__doc__)</span>
+<span class="sd">    &gt;&gt;&gt; ho()</span>
+<span class="sd">    Ho</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    .. deprecated:: 0.0.0</span>
+<span class="sd">       This will be removed in 0.2.0.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># merge details and reason</span>
     <span class="k">if</span> <span class="n">details</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">details</span> <span class="o">=</span> <span class="n">reason</span>
@@ -382,10 +426,37 @@
     <span class="p">)</span></div>
 
 
-<span class="c1"># @deprecated(version=&quot;1.0.3.1&quot;, reason=&quot;Use :func:`smpl.doc.array_table` instead.&quot;)</span>
-<div class="viewcode-block" id="table"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.table.html#smpl.doc.table">[docs]</a><span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="table"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.table.html#smpl.doc.table">[docs]</a><span class="nd">@deprecated</span><span class="p">(</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0.3.1&quot;</span><span class="p">,</span>
+    <span class="n">removed_in</span><span class="o">=</span><span class="s2">&quot;?.?.?&quot;</span><span class="p">,</span>
+    <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Use :func:`smpl_doc.array_table` instead.&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">table</span><span class="p">(</span><span class="n">dic</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tabs</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add dict= {&#39;key&#39;: [values...]} to a simple reST table.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dic : ``dict``</span>
+<span class="sd">        Dictionary to be converted to a table.</span>
+<span class="sd">    top : ``bool``</span>
+<span class="sd">        If ``True`` a top line is added.</span>
+<span class="sd">    bottom : ``bool``</span>
+<span class="sd">        If ``True`` a bottom line is added.</span>
+<span class="sd">    init : ``bool``</span>
+<span class="sd">        If ``True`` a tab is added at the beginning of the line.</span>
+<span class="sd">    tabs : ``int``</span>
+<span class="sd">        Number of tabs to be added at the beginning of the line.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ``str``</span>
+<span class="sd">        The table as a string.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; table({&#39;a&#39;: [1, 2, 3], &#39;b&#39;: [4, 5, 6]})</span>
+<span class="sd">    &#39;\\t==================  ==================  ==================\\n\\ta                   1                   2                   3\\n\\tb                   4                   5                   6\\n\\t==================  ==================  ==================\\n\\t\\n&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">t</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="n">tabs</span>
     <span class="n">rs</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -454,6 +525,12 @@
 <span class="sd">    ====== ======</span>
 <span class="sd">    hihi   hoho</span>
 <span class="sd">    ====== ======</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    &gt;&gt;&gt; print(trim_eol_spaces(array_table({&quot;a&quot;:[&quot;hihi&quot;,2],&quot;b&quot;: [&quot;hoho&quot;,3]},tabs=0,header=False)))</span>
+<span class="sd">    === ====== ===</span>
+<span class="sd">    a   hihi   2</span>
+<span class="sd">    b   hoho   3</span>
+<span class="sd">    === ====== ===</span>
 <span class="sd">    &lt;BLANKLINE&gt;</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
