@@ -37,9 +37,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/thebelab-helper.js"></script>
@@ -79,7 +76,7 @@
             
             
               <div class="version">
-                1.2.1-2-gf374d247
+                1.2.1-3-g51c0e13b
               </div>
             
           
@@ -124,7 +121,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../interpolate/Interpolate.html">Interpolate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../latex/latex.html">Latex</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../parallel/parallel.html">Parallel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../uncertainties/demo_uncertainties.html">uncertainties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../pandas/demo_pandas.html">pandas</a></li>
 </ul>
@@ -138,6 +134,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl_doc.html">smpl_doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl_util.html">smpl_util</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/smpl_parallel.html">smpl_parallel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -503,7 +500,7 @@ div.rendered_html tbody tr:hover {
 <h1>Lambda and string fit functions<a class="headerlink" href="#Lambda-and-string-fit-functions" title="Permalink to this heading">¶</a></h1>
 <p>Uses the last of the alphabetical sorted variables as the x-axis value unless xvar is set.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -515,8 +512,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -525,9 +522,16 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_lambda_test_lambda_2_0.png" src="../../../_images/example_fit_lambda_test_lambda_2_0.png" />
+</div>
+</div>
 <p>lambda fit does not work with sigma=N, as it needs unp.exp</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -536,8 +540,15 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_lambda_test_lambda_4_0.png" src="../../../_images/example_fit_lambda_test_lambda_4_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -546,8 +557,15 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_lambda_test_lambda_5_0.png" src="../../../_images/example_fit_lambda_test_lambda_5_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -556,6 +574,13 @@ div.rendered_html tbody tr:hover {
     <span class="k">return</span> <span class="n">unp</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">nu</span><span class="p">)</span><span class="o">*</span><span class="n">rho</span>
 <span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">e</span> <span class="p">,</span><span class="n">xvar</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="s2">&quot;x in a.u.&quot;</span><span class="p">,</span><span class="n">yaxis</span><span class="o">=</span><span class="s2">&quot;y in a.u.&quot;</span><span class="p">,</span><span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_lambda_test_lambda_6_0.png" src="../../../_images/example_fit_lambda_test_lambda_6_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

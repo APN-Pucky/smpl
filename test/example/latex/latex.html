@@ -37,9 +37,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
@@ -54,7 +51,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../parallel/Untitled.html" />
+    <link rel="next" title="uncertainties" href="../uncertainties/demo_uncertainties.html" />
     <link rel="prev" title="Interpolate" href="../interpolate/Interpolate.html" /> 
 </head>
 
@@ -79,7 +76,7 @@
             
             
               <div class="version">
-                1.2.1-2-gf374d247
+                1.2.1-3-g51c0e13b
               </div>
             
           
@@ -115,7 +112,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../fit/index.html">Fitting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../interpolate/Interpolate.html">Interpolate</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Latex</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../parallel/parallel.html">Parallel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../uncertainties/demo_uncertainties.html">uncertainties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/demo_pandas.html">pandas</a></li>
 </ul>
@@ -129,6 +125,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_doc.html">smpl_doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_util.html">smpl_util</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_parallel.html">smpl_parallel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -491,7 +488,7 @@ div.rendered_html tbody tr:hover {
 <section id="Latex">
 <h1>Latex<a class="headerlink" href="#Latex" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">smpl</span>
@@ -503,16 +500,24 @@ div.rendered_html tbody tr:hover {
 <br/></pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="o">.</span><span class="n">si</span><span class="p">(</span><span class="n">ufloat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">tesla&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+\SI{1.0+-1.0}{\tesla}
+</pre></div></div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">find_file</span><span class="p">(</span><span class="s1">&#39;test_linear_data.txt&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -525,29 +530,62 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="o">.</span><span class="n">si_line</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+\SI{0.00+-0.10}{}&amp;\SI{1.00+-0.20}{}&amp;\SI{2.00+-0.30}{}&amp;\SI{3.00+-0.10}{}&amp;\SI{4.00+-0.10}{}&amp;\SI{5.00+-0.10}{}\\
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="o">.</span><span class="n">si_tab</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+\SI{0.00+-0.10}{}&amp;\SI{1.00+-0.20}{}&amp;\SI{2.00+-0.30}{}&amp;\SI{3.00+-0.10}{}&amp;\SI{4.00+-0.10}{}&amp;\SI{5.00+-0.10}{}\\
+\SI{1.00+-0.20}{}&amp;\SI{2.00+-0.10}{}&amp;\SI{3.00+-0.10}{}&amp;\SI{5.0+-0.4}{}&amp;\SI{5.00+-0.10}{}&amp;\SI{6.00+-0.20}{}\\
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">latex</span><span class="o">.</span><span class="n">si_ttab</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]))</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+\SI{0.00+-0.10}{}&amp;\SI{1.00+-0.20}{}\\
+\SI{1.00+-0.20}{}&amp;\SI{2.00+-0.10}{}\\
+\SI{2.00+-0.30}{}&amp;\SI{3.00+-0.10}{}\\
+\SI{3.00+-0.10}{}&amp;\SI{5.0+-0.4}{}\\
+\SI{4.00+-0.10}{}&amp;\SI{5.00+-0.10}{}\\
+\SI{5.00+-0.10}{}&amp;\SI{6.00+-0.20}{}\\
+
+</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -573,7 +611,7 @@ div.rendered_html tbody tr:hover {
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../parallel/Untitled.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../uncertainties/demo_uncertainties.html" class="btn btn-neutral float-right" title="uncertainties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../interpolate/Interpolate.html" class="btn btn-neutral float-left" title="Interpolate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

@@ -36,9 +36,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
@@ -74,7 +71,7 @@
             
             
               <div class="version">
-                1.2.1-2-gf374d247
+                1.2.1-3-g51c0e13b
               </div>
             
           
@@ -115,6 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_doc.html">smpl_doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_util.html">smpl_util</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_parallel.html">smpl_parallel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -204,7 +202,7 @@
 
 <div class="viewcode-block" id="pushd"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.pushd.html#smpl_io.io.pushd">[docs]</a><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
 <span class="k">def</span> <span class="nf">pushd</span><span class="p">(</span><span class="n">new_dir</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Move to a new directory and return to the previous one after context.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">previous_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
@@ -216,7 +214,7 @@
 
 
 <div class="viewcode-block" id="glob_re"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.glob_re.html#smpl_io.io.glob_re">[docs]</a><span class="k">def</span> <span class="nf">glob_re</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns all strings that match the regex pattern.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)))</span></div>
@@ -224,7 +222,7 @@
 
 <span class="c1"># TODO add regex capabilities</span>
 <div class="viewcode-block" id="grep"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.grep.html#smpl_io.io.grep">[docs]</a><span class="k">def</span> <span class="nf">grep</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">inp</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Searches for ``pattern`` in ``inp``.</span>
 
 <span class="sd">    &gt;&gt;&gt; from smpl import io</span>
@@ -241,7 +239,7 @@
 
 
 <div class="viewcode-block" id="tail"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.tail.html#smpl_io.io.tail">[docs]</a><span class="k">def</span> <span class="nf">tail</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the last ``n`` lines of ``fname``.</span>
 
 <span class="sd">    Parameters</span>
@@ -272,7 +270,7 @@
 
 
 <div class="viewcode-block" id="head"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.head.html#smpl_io.io.head">[docs]</a><span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the first ``n`` lines of ``fname``.</span>
 
 <span class="sd">    Parameters</span>
@@ -306,7 +304,7 @@
 
 
 <div class="viewcode-block" id="read"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.read.html#smpl_io.io.read">[docs]</a><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Reads the file ``fname``.</span>
 
 <span class="sd">    Parameters</span>
@@ -334,7 +332,7 @@
 
 
 <div class="viewcode-block" id="write"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.write.html#smpl_io.io.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">create_dir</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Write to file by string or writable :obj:`destiantion`.</span>
 
 <span class="sd">    Parameters</span>
@@ -372,7 +370,7 @@
 
 
 <div class="viewcode-block" id="append"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.append.html#smpl_io.io.append">[docs]</a><span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a+&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Appends to file by string or writable :obj:`destiantion`.</span>
 
 <span class="sd">    Parameters</span>
@@ -394,7 +392,7 @@
 
 
 <div class="viewcode-block" id="gf"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.gf.html#smpl_io.io.gf">[docs]</a><span class="k">def</span> <span class="nf">gf</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Scientific number format.</span>
 
 <span class="sd">    Parameters</span>
@@ -421,7 +419,7 @@
 
 
 <div class="viewcode-block" id="find_file"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.find_file.html#smpl_io.io.find_file">[docs]</a><span class="k">def</span> <span class="nf">find_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">up</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Searches for ``fname`` in all down folders or up folder to given order respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
@@ -438,7 +436,7 @@
 
 
 <div class="viewcode-block" id="pwd"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.pwd.html#smpl_io.io.pwd">[docs]</a><span class="k">def</span> <span class="nf">pwd</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the path to the path of current file (in linux format).</span>
 
 <span class="sd">    Returns</span>
@@ -452,7 +450,7 @@
 
 
 <div class="viewcode-block" id="import_path"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.import_path.html#smpl_io.io.import_path">[docs]</a><span class="k">def</span> <span class="nf">import_path</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;../..&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Adds ``path`` to the ``sys.path``.</span>
 
 <span class="sd">    Parameters</span>
@@ -468,7 +466,7 @@
 
 
 <div class="viewcode-block" id="mkdirs"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.mkdirs.html#smpl_io.io.mkdirs">[docs]</a><span class="k">def</span> <span class="nf">mkdirs</span><span class="p">(</span><span class="n">fn</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Creates the neccessary directories above ``fn``.</span>
 
 <span class="sd">    Parameters</span>
@@ -484,7 +482,7 @@
 
 
 <div class="viewcode-block" id="pr"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.pr.html#smpl_io.io.pr">[docs]</a><span class="k">def</span> <span class="nf">pr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">nnl</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Prints the passed ``a``.</span>
 
 <span class="sd">    Parameters</span>
@@ -514,7 +512,7 @@
 
 
 <div class="viewcode-block" id="files"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.files.html#smpl_io.io.files">[docs]</a><span class="k">def</span> <span class="nf">files</span><span class="p">(</span><span class="n">ending</span><span class="p">,</span> <span class="n">folder</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get all the files in ``folder`` ending with ``ending``.</span>
 
 <span class="sd">    Parameters</span>
@@ -556,7 +554,7 @@
 
 
 <div class="viewcode-block" id="remove"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.remove.html#smpl_io.io.remove">[docs]</a><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Removes ``file``.</span>
 
 <span class="sd">    Parameters</span>

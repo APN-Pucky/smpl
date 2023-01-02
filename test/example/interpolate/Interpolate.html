@@ -37,9 +37,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
@@ -79,7 +76,7 @@
             
             
               <div class="version">
-                1.2.1-2-gf374d247
+                1.2.1-3-g51c0e13b
               </div>
             
           
@@ -123,7 +120,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../latex/latex.html">Latex</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../parallel/parallel.html">Parallel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../uncertainties/demo_uncertainties.html">uncertainties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/demo_pandas.html">pandas</a></li>
 </ul>
@@ -137,6 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_doc.html">smpl_doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_util.html">smpl_util</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_parallel.html">smpl_parallel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -499,7 +496,7 @@ div.rendered_html tbody tr:hover {
 <section id="Interpolate">
 <h1>Interpolate<a class="headerlink" href="#Interpolate" title="Permalink to this heading">¶</a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">plot</span>
@@ -515,8 +512,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <section id="Interpolate-1d">
 <h2>Interpolate 1d<a class="headerlink" href="#Interpolate-1d" title="Permalink to this heading">¶</a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -528,8 +525,22 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_3_0.png" src="../../_images/example_interpolate_Interpolate_3_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_3_1.png" src="../../_images/example_interpolate_Interpolate_3_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
@@ -541,8 +552,31 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_4_0.png" src="../../_images/example_interpolate_Interpolate_4_0.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;&#39;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_4_2.png" src="../../_images/example_interpolate_Interpolate_4_2.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -565,11 +599,27 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_5_0.png" src="../../_images/example_interpolate_Interpolate_5_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+lin Chi2:0.04480327967868099
+exp Chi2:8.850673937077662e-06
+</pre></div></div>
+</div>
 </section>
 <section id="Interpolate-2d">
 <h2>Interpolate 2d<a class="headerlink" href="#Interpolate-2d" title="Permalink to this heading">¶</a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
@@ -589,8 +639,47 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[  0. -25.   0.  75. 200. -25. -50. -25.  50. 175.   0. -25.   0.  75.
+ 200.  75.  50.  75. 150. 275. 200. 175. 200. 275. 400.]
+[ 1.49435089e-15 -2.50000000e+01 -3.55271368e-14  7.50000000e+01
+  2.00000000e+02 -2.50000000e+01 -5.00000000e+01 -2.50000000e+01
+  5.00000000e+01  1.75000000e+02  7.10542736e-15 -2.50000000e+01
+  3.37507799e-14  7.50000000e+01  2.00000000e+02  7.50000000e+01
+  5.00000000e+01  7.50000000e+01  1.50000000e+02  2.75000000e+02
+  2.00000000e+02  1.75000000e+02  2.00000000e+02  2.75000000e+02
+  4.00000000e+02]
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;interpolated data&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_7_2.png" src="../../_images/example_interpolate_Interpolate_7_2.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_7_3.png" src="../../_images/example_interpolate_Interpolate_7_3.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -620,11 +709,72 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/github/home/.cache/pypoetry/virtualenvs/smpl-4sWS420u-py3.8/lib/python3.8/site-packages/scipy/interpolate/_fitpack_impl.py:977: RuntimeWarning: No more knots can be added because the number of B-spline
+coefficients already exceeds the number of data points m.
+Probable causes: either s or m too small. (fp&gt;s)
+        kx,ky=3,3 nx,ny=10,8 m=20 fp=0.000000 s=0.000000
+  warnings.warn(RuntimeWarning(_iermess2[ierm][0] + _mess))
+/github/home/.cache/pypoetry/virtualenvs/smpl-4sWS420u-py3.8/lib/python3.8/site-packages/scipy/interpolate/_fitpack_impl.py:977: RuntimeWarning: No more knots can be added because the number of B-spline
+coefficients already exceeds the number of data points m.
+Probable causes: either s or m too small. (fp&gt;s)
+        kx,ky=1,1 nx,ny=7,7 m=20 fp=0.000000 s=0.000000
+  warnings.warn(RuntimeWarning(_iermess2[ierm][0] + _mess))
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;bivariatespline interpolated data&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_8_2.png" src="../../_images/example_interpolate_Interpolate_8_2.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_8_3.png" src="../../_images/example_interpolate_Interpolate_8_3.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_8_4.png" src="../../_images/example_interpolate_Interpolate_8_4.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_8_5.png" src="../../_images/example_interpolate_Interpolate_8_5.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_8_6.png" src="../../_images/example_interpolate_Interpolate_8_6.png" />
+</div>
+</div>
 <section id="scipy-vs-smpl-code">
 <h3>scipy vs smpl code<a class="headerlink" href="#scipy-vs-smpl-code" title="Permalink to this heading">¶</a></h3>
 <p>Example taken from <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.LinearNDInterpolator.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.LinearNDInterpolator.html</a></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -640,8 +790,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <section id="scipy-code">
 <h4>scipy code<a class="headerlink" href="#scipy-code" title="Permalink to this heading">¶</a></h4>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">LinearNDInterpolator</span>
@@ -660,11 +810,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_12_0.png" src="../../_images/example_interpolate_Interpolate_12_0.png" />
+</div>
+</div>
 </section>
 <section id="smpl-code">
 <h4>smpl code<a class="headerlink" href="#smpl-code" title="Permalink to this heading">¶</a></h4>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">interpolate</span> <span class="k">as</span> <span class="n">interpol</span>
@@ -674,13 +831,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_14_0.png" src="../../_images/example_interpolate_Interpolate_14_0.png" />
+</div>
+</div>
 </section>
 </section>
 <section id="Pre-and-Post-transformations">
 <h3>Pre and Post transformations<a class="headerlink" href="#Pre-and-Post-transformations" title="Permalink to this heading">¶</a></h3>
 <p>It might turn out that some behaviour/shape of the function is known. Including this into the interpolation improves the result as was seen in previos 1d expolential interpolation section.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -695,8 +859,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">tz</span><span class="p">,</span><span class="n">logz</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -705,8 +869,24 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x7efc29832be0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_17_1.png" src="../../_images/example_interpolate_Interpolate_17_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="n">interpol</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linearnd&#39;</span><span class="p">)</span>
@@ -719,8 +899,25 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Chi2: 0.0036509357430065106
+R2: -0.0355374940317259
+var: (0.5+/-2.3)e+02
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_18_1.png" src="../../_images/example_interpolate_Interpolate_18_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">=</span><span class="n">interpol</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">interpolator</span><span class="o">=</span><span class="s1">&#39;linearnd&#39;</span><span class="p">,</span><span class="n">pre</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">,</span><span class="n">post</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">)</span>
@@ -731,6 +928,23 @@ div.rendered_html tbody tr:hover {
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R2: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">R2</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;var: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">stat</span><span class="o">.</span><span class="n">average_deviation</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">)))</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Chi2: 2.2622723590241542e-05
+R2: -0.0005581269378238662
+var: 0.8+/-1.7
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/example_interpolate_Interpolate_19_1.png" src="../../_images/example_interpolate_Interpolate_19_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

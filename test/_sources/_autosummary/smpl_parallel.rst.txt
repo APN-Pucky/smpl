@@ -1,0 +1,32 @@
+﻿smpl\_parallel
+==============
+
+.. automodule:: smpl_parallel
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst                
+   :recursive:
+
+   smpl_parallel.parallel
+

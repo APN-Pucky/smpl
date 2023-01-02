@@ -36,9 +36,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
@@ -74,7 +71,7 @@
             
             
               <div class="version">
-                1.2.1-2-gf374d247
+                1.2.1-3-g51c0e13b
               </div>
             
           
@@ -115,6 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_doc.html">smpl_doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_util.html">smpl_util</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_parallel.html">smpl_parallel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -199,7 +197,7 @@
 
 
 <div class="viewcode-block" id="append_plot"><a class="viewcode-back" href="../../_autosummary/smpl.doc.append_plot.html#smpl.doc.append_plot">[docs]</a><span class="k">def</span> <span class="nf">append_plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Append a plot to a function.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Append a plot to a function.&quot;&quot;&quot;</span>
     <span class="c1"># return _append(&quot;\n\n\t.. plot::\n\t\t:include-source:\n\n\t\t&gt;&gt;&gt; from &quot; + target.__module__ + &quot; import &quot; +target.__name__ + &quot;\n\t\t&gt;&gt;&gt; from smpl import plot\n\t\t&gt;&gt;&gt; plot.function(&quot;+ target.__name__ + &quot;,&quot; + &#39;,&#39;.join([str(a) for a in args]) + &quot;,xmin=&quot;+str(xmin) + &quot;,xmax=&quot; + str(xmax)+&quot;)&quot;)</span>
 
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
@@ -226,7 +224,7 @@
 
 
 <div class="viewcode-block" id="insert_eq"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_eq.html#smpl.doc.insert_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_eq</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Inserts the function and its parameters and an equal sign.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inserts the function and its parameters and an equal sign.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -243,12 +241,12 @@
 
 
 <div class="viewcode-block" id="insert_latex_eq"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_latex_eq.html#smpl.doc.insert_latex_eq">[docs]</a><span class="k">def</span> <span class="nf">insert_latex_eq</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function with parameters.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function with parameters.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">insert_eq</span><span class="p">()(</span><span class="n">insert_latex</span><span class="p">()(</span><span class="n">f</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="insert_latex"><a class="viewcode-back" href="../../_autosummary/smpl.doc.insert_latex.html#smpl.doc.insert_latex">[docs]</a><span class="k">def</span> <span class="nf">insert_latex</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Inserts latexed code of a oneline function.&quot;&quot;&quot;</span>
     <span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">wrap</span>
 
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>

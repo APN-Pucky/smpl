@@ -36,9 +36,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
         <script src="../../_static/thebelab-helper.js"></script>
@@ -74,7 +71,7 @@
             
             
               <div class="version">
-                1.2.1-2-gf374d247
+                1.2.1-3-g51c0e13b
               </div>
             
           
@@ -115,6 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_doc.html">smpl_doc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_util.html">smpl_util</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_parallel.html">smpl_parallel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -200,7 +198,7 @@
 
 <div class="viewcode-block" id="times"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.times.html#smpl_util.util.times">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">deprecated</span><span class="p">(</span><span class="s2">&quot;1.0.3&quot;</span><span class="p">,</span> <span class="s2">&quot;Use `s*n` instead.&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Concats string ``s`` ``n`` times.</span>
 
 <span class="sd">    Examples</span>
@@ -215,7 +213,7 @@
 
 
 <div class="viewcode-block" id="rename"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.rename.html#smpl_util.util.rename">[docs]</a><span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">warning</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Annotation to replace the name of a function argument.</span>
 
 <span class="sd">    Examples</span>
@@ -259,7 +257,7 @@
 
 <span class="c1"># TODO split in to own package</span>
 <div class="viewcode-block" id="withify"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.withify.html#smpl_util.util.withify">[docs]</a><span class="k">def</span> <span class="nf">withify</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;with_&quot;</span><span class="p">,</span> <span class="n">sufix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">override</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Decorator to add with_ methods to a class.</span>
 
 <span class="sd">    Examples</span>
@@ -286,7 +284,7 @@
             <span class="k">if</span> <span class="n">override</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fun</span><span class="p">):</span>
 
                 <span class="k">def</span> <span class="nf">tmp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">ok</span><span class="p">):</span>
-                    <span class="sd">&quot;&quot;&quot;Set `value` and return self.&quot;&quot;&quot;</span>
+<span class="w">                    </span><span class="sd">&quot;&quot;&quot;Set `value` and return self.&quot;&quot;&quot;</span>
                     <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
                     <span class="k">return</span> <span class="bp">self</span>
 
@@ -298,7 +296,7 @@
 
 
 <div class="viewcode-block" id="get"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.get.html#smpl_util.util.get">[docs]</a><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns dict[key] if this exists else default.</span>
 
 <span class="sd">    Examples</span>
@@ -317,7 +315,7 @@
 
 
 <div class="viewcode-block" id="has"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.has.html#smpl_util.util.has">[docs]</a><span class="k">def</span> <span class="nf">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks if the key is in the dict and not None.</span>
 
 <span class="sd">    Examples</span>
@@ -334,7 +332,7 @@
 
 
 <div class="viewcode-block" id="true"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.true.html#smpl_util.util.true">[docs]</a><span class="k">def</span> <span class="nf">true</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks if the key is in the dict and not None and True.</span>
 
 <span class="sd">    Examples</span>
@@ -352,7 +350,7 @@
 
 
 <div class="viewcode-block" id="find_nearest_index"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.find_nearest_index.html#smpl_util.util.find_nearest_index">[docs]</a><span class="k">def</span> <span class="nf">find_nearest_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the index of the element in ``array`` closest to ``value``</span>
 
 <span class="sd">    Examples</span>
@@ -367,7 +365,7 @@
 
 
 <div class="viewcode-block" id="find_nearest"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.find_nearest.html#smpl_util.util.find_nearest">[docs]</a><span class="k">def</span> <span class="nf">find_nearest</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return the element in ``array`` closest to ``value``</span>
 
 <span class="sd">    Examples</span>
