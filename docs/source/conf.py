@@ -73,7 +73,7 @@ extensions = [
 nbsphinx_execute = "never"
 # nbsphinx_widgets_path=""
 autosummary_generate = True
-autosummary_imported_members = True
+# autosummary_imported_members = True
 
 # autoapi_type = "python"
 # autoapi_dirs = ["../../" + project]
