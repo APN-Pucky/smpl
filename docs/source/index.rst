@@ -43,6 +43,7 @@
    smpl_doc
    smpl_util
    smpl_io
+   smpl_parallel
 
 .. toctree::
    :glob:

@@ -70,7 +70,7 @@ extensions = [
     #'jupyter_sphinx.execute'
     # "autoapi.extension",
 ]
-nbsphinx_execute = "never"
+nbsphinx_execute = "always"
 # nbsphinx_widgets_path=""
 autosummary_generate = True
 # autosummary_imported_members = True
