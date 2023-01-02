@@ -1,2 +1,2 @@
-""" Moved to <https://apn-pucky.github.io/smpl_debug/>"""
+""" Moved to :py:mod:`smpl_debug.debug`"""
 from smpl_debug.debug import *

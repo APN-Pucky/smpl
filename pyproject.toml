@@ -25,8 +25,7 @@ iminuit = {version = "*", optional = true}
 smpl_animation= {version = "*", optional = true}
 
 [tool.poetry.extras]
-opt = ["iminuit", "smpl_animation"]
-animation = ["smpl_animation", ]
+opt = ["iminuit"]
 
 [tool.poetry.group.docs]
 optional = true

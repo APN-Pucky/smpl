@@ -1,2 +1,2 @@
-""" Moved to <https://apn-pucky.github.io/smpl_io/>"""
+""" Moved to :py:mod:`smpl_io.io`"""
 from smpl_io.io import *
