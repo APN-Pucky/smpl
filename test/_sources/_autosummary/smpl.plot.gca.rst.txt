@@ -1,6 +1,0 @@
-smpl.plot.gca
-=============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: gca

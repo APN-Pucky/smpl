@@ -1,6 +1,0 @@
-smpl.plot.fill\_between
-=======================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: fill_between

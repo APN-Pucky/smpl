@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.2.1
+                1.2.1-1-g92fd9788
               </div>
             
           
@@ -110,6 +110,11 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl.html">smpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_debug.html">smpl_debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_doc.html">smpl_doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_util.html">smpl_util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/smpl_io.html">smpl_io</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -193,7 +198,7 @@
 <span class="kn">from</span> <span class="nn">smpl_doc</span> <span class="kn">import</span> <span class="n">doc</span>
 
 
-<div class="viewcode-block" id="times"><a class="viewcode-back" href="../../_autosummary/smpl.util.times.html#smpl.util.times">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">deprecated</span><span class="p">(</span><span class="s2">&quot;1.0.3&quot;</span><span class="p">,</span> <span class="s2">&quot;Use `s*n` instead.&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="times"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.times.html#smpl_util.util.times">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">deprecated</span><span class="p">(</span><span class="s2">&quot;1.0.3&quot;</span><span class="p">,</span> <span class="s2">&quot;Use `s*n` instead.&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">times</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Concats string ``s`` ``n`` times.</span>
@@ -209,7 +214,7 @@
     <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span></div>
 
 
-<div class="viewcode-block" id="rename"><a class="viewcode-back" href="../../_autosummary/smpl.util.rename.html#smpl.util.rename">[docs]</a><span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">warning</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="rename"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.rename.html#smpl_util.util.rename">[docs]</a><span class="k">def</span> <span class="nf">rename</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">warning</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Annotation to replace the name of a function argument.</span>
 
@@ -253,7 +258,7 @@
 
 
 <span class="c1"># TODO split in to own package</span>
-<div class="viewcode-block" id="withify"><a class="viewcode-back" href="../../_autosummary/smpl.util.withify.html#smpl.util.withify">[docs]</a><span class="k">def</span> <span class="nf">withify</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;with_&quot;</span><span class="p">,</span> <span class="n">sufix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">override</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="withify"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.withify.html#smpl_util.util.withify">[docs]</a><span class="k">def</span> <span class="nf">withify</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;with_&quot;</span><span class="p">,</span> <span class="n">sufix</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">override</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Decorator to add with_ methods to a class.</span>
 
@@ -292,7 +297,7 @@
     <span class="k">return</span> <span class="n">_withify</span></div>
 
 
-<div class="viewcode-block" id="get"><a class="viewcode-back" href="../../_autosummary/smpl.util.get.html#smpl.util.get">[docs]</a><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="get"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.get.html#smpl_util.util.get">[docs]</a><span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns dict[key] if this exists else default.</span>
 
@@ -311,7 +316,7 @@
         <span class="k">return</span> <span class="n">default</span></div>
 
 
-<div class="viewcode-block" id="has"><a class="viewcode-back" href="../../_autosummary/smpl.util.has.html#smpl.util.has">[docs]</a><span class="k">def</span> <span class="nf">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
+<div class="viewcode-block" id="has"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.has.html#smpl_util.util.has">[docs]</a><span class="k">def</span> <span class="nf">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks if the key is in the dict and not None.</span>
 
@@ -328,7 +333,7 @@
     <span class="k">return</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ddict</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ddict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span></div>
 
 
-<div class="viewcode-block" id="true"><a class="viewcode-back" href="../../_autosummary/smpl.util.true.html#smpl.util.true">[docs]</a><span class="k">def</span> <span class="nf">true</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
+<div class="viewcode-block" id="true"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.true.html#smpl_util.util.true">[docs]</a><span class="k">def</span> <span class="nf">true</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Checks if the key is in the dict and not None and True.</span>
 
@@ -346,7 +351,7 @@
     <span class="k">return</span> <span class="n">has</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ddict</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ddict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="find_nearest_index"><a class="viewcode-back" href="../../_autosummary/smpl.util.find_nearest_index.html#smpl.util.find_nearest_index">[docs]</a><span class="k">def</span> <span class="nf">find_nearest_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="find_nearest_index"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.find_nearest_index.html#smpl_util.util.find_nearest_index">[docs]</a><span class="k">def</span> <span class="nf">find_nearest_index</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns the index of the element in ``array`` closest to ``value``</span>
 
@@ -361,7 +366,7 @@
     <span class="k">return</span> <span class="n">idx</span></div>
 
 
-<div class="viewcode-block" id="find_nearest"><a class="viewcode-back" href="../../_autosummary/smpl.util.find_nearest.html#smpl.util.find_nearest">[docs]</a><span class="k">def</span> <span class="nf">find_nearest</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="find_nearest"><a class="viewcode-back" href="../../_autosummary/smpl_util.util.find_nearest.html#smpl_util.util.find_nearest">[docs]</a><span class="k">def</span> <span class="nf">find_nearest</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Return the element in ``array`` closest to ``value``</span>
 
@@ -383,7 +388,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, Alexander Puck Neuwirth.
+        &#169; Copyright 2023, Alexander Puck Neuwirth.
 
     </p>
   </div>

@@ -1,6 +1,0 @@
-smpl.plot.clim
-==============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: clim

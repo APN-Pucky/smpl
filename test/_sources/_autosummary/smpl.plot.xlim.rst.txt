@@ -1,6 +1,0 @@
-smpl.plot.xlim
-==============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: xlim

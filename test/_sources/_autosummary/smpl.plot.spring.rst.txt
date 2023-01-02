@@ -1,6 +1,0 @@
-smpl.plot.spring
-================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: spring

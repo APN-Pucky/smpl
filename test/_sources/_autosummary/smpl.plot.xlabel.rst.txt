@@ -1,6 +1,0 @@
-smpl.plot.xlabel
-================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: xlabel

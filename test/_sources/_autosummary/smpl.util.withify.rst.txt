@@ -1,6 +1,0 @@
-smpl.util.withify
-=================
-
-.. currentmodule:: smpl.util
-
-.. autofunction:: withify

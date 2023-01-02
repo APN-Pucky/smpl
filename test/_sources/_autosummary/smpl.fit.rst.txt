@@ -21,8 +21,6 @@ smpl.fit
       fit
       fit_kwargs
       fit_split
-      unv
-      usd
    
    
 
@@ -35,21 +33,10 @@ smpl.fit
       :template: custom-class-template.rst               
    
       Fitter
-      Model
-      ODR
-      RealData
-      tqdm
    
    
 
    
-   
-   .. rubric:: Exceptions
-
-   .. autosummary::
-      :toctree:                                         
-   
-      LinAlgError
    
    
 

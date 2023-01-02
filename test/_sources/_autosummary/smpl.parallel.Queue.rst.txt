@@ -1,6 +1,0 @@
-smpl.parallel.Queue
-===================
-
-.. currentmodule:: smpl.parallel
-
-.. autofunction:: Queue

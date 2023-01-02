@@ -1,6 +1,0 @@
-smpl.plot.imshow
-================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: imshow

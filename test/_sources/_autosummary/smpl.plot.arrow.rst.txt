@@ -1,6 +1,0 @@
-smpl.plot.arrow
-===============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: arrow

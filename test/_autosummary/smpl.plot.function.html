@@ -52,8 +52,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="smpl.plot.gca" href="smpl.plot.gca.html" />
-    <link rel="prev" title="smpl.plot.flag" href="smpl.plot.flag.html" /> 
+    <link rel="next" title="smpl.plot.get_fnc_legend" href="smpl.plot.get_fnc_legend.html" />
+    <link rel="prev" title="smpl.plot.fit" href="smpl.plot.fit.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                1.2.1
+                1.2.1-1-g92fd9788
               </div>
             
           
@@ -113,7 +113,6 @@
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
@@ -124,122 +123,18 @@
 <li class="toctree-l2"><a class="reference internal" href="smpl.latex.html">smpl.latex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.parallel.html">smpl.parallel</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="smpl.plot.html">smpl.plot</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.acorr.html">smpl.plot.acorr</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.angle_spectrum.html">smpl.plot.angle_spectrum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.annotate.html">smpl.plot.annotate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.arrow.html">smpl.plot.arrow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.auto.html">smpl.plot.auto</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.autoscale.html">smpl.plot.autoscale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.autumn.html">smpl.plot.autumn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axes.html">smpl.plot.axes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axhline.html">smpl.plot.axhline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axhspan.html">smpl.plot.axhspan</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axis.html">smpl.plot.axis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axline.html">smpl.plot.axline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axvline.html">smpl.plot.axvline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.axvspan.html">smpl.plot.axvspan</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bar.html">smpl.plot.bar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bar_label.html">smpl.plot.bar_label</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.barbs.html">smpl.plot.barbs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.barh.html">smpl.plot.barh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.bone.html">smpl.plot.bone</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.box.html">smpl.plot.box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.boxplot.html">smpl.plot.boxplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.broken_barh.html">smpl.plot.broken_barh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cla.html">smpl.plot.cla</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clabel.html">smpl.plot.clabel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clf.html">smpl.plot.clf</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.clim.html">smpl.plot.clim</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.close.html">smpl.plot.close</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cohere.html">smpl.plot.cohere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.colorbar.html">smpl.plot.colorbar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.connect.html">smpl.plot.connect</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.contour.html">smpl.plot.contour</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.contourf.html">smpl.plot.contourf</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cool.html">smpl.plot.cool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.copper.html">smpl.plot.copper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.csd.html">smpl.plot.csd</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.cycler.html">smpl.plot.cycler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.data.html">smpl.plot.data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.data_split.html">smpl.plot.data_split</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.delaxes.html">smpl.plot.delaxes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.disconnect.html">smpl.plot.disconnect</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw.html">smpl.plot.draw</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw_all.html">smpl.plot.draw_all</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.draw_if_interactive.html">smpl.plot.draw_if_interactive</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.errorbar.html">smpl.plot.errorbar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.eventplot.html">smpl.plot.eventplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figaspect.html">smpl.plot.figaspect</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figimage.html">smpl.plot.figimage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figlegend.html">smpl.plot.figlegend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fignum_exists.html">smpl.plot.fignum_exists</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figtext.html">smpl.plot.figtext</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.figure.html">smpl.plot.figure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill.html">smpl.plot.fill</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill_between.html">smpl.plot.fill_between</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.fill_betweenx.html">smpl.plot.fill_betweenx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.findobj.html">smpl.plot.findobj</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.fit.html">smpl.plot.fit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.flag.html">smpl.plot.flag</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">smpl.plot.function</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#smpl.plot.function"><code class="docutils literal notranslate"><span class="pre">function()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gca.html">smpl.plot.gca</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gcf.html">smpl.plot.gcf</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gci.html">smpl.plot.gci</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get.html">smpl.plot.get</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_backend.html">smpl.plot.get_backend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_cmap.html">smpl.plot.get_cmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_current_fig_manager.html">smpl.plot.get_current_fig_manager</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_figlabels.html">smpl.plot.get_figlabels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_fignums.html">smpl.plot.get_fignums</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_fnc_legend.html">smpl.plot.get_fnc_legend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_plot_commands.html">smpl.plot.get_plot_commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.get_scale_names.html">smpl.plot.get_scale_names</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.getp.html">smpl.plot.getp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ginput.html">smpl.plot.ginput</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.gray.html">smpl.plot.gray</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.grid.html">smpl.plot.grid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hexbin.html">smpl.plot.hexbin</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hist.html">smpl.plot.hist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hist2d.html">smpl.plot.hist2d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hlines.html">smpl.plot.hlines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hot.html">smpl.plot.hot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.hsv.html">smpl.plot.hsv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imread.html">smpl.plot.imread</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imsave.html">smpl.plot.imsave</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.imshow.html">smpl.plot.imshow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.inferno.html">smpl.plot.inferno</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.init_plot.html">smpl.plot.init_plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.install_repl_displayhook.html">smpl.plot.install_repl_displayhook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.interactive.html">smpl.plot.interactive</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ioff.html">smpl.plot.ioff</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ion.html">smpl.plot.ion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.isinteractive.html">smpl.plot.isinteractive</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.jet.html">smpl.plot.jet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.legend.html">smpl.plot.legend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.locator_params.html">smpl.plot.locator_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.loglog.html">smpl.plot.loglog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.magma.html">smpl.plot.magma</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.magnitude_spectrum.html">smpl.plot.magnitude_spectrum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.margins.html">smpl.plot.margins</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.matshow.html">smpl.plot.matshow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.minorticks_off.html">smpl.plot.minorticks_off</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.minorticks_on.html">smpl.plot.minorticks_on</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.new_figure_manager.html">smpl.plot.new_figure_manager</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.nipy_spectral.html">smpl.plot.nipy_spectral</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pause.html">smpl.plot.pause</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pcolor.html">smpl.plot.pcolor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pcolormesh.html">smpl.plot.pcolormesh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.phase_spectrum.html">smpl.plot.phase_spectrum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pie.html">smpl.plot.pie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.pink.html">smpl.plot.pink</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plasma.html">smpl.plot.plasma</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot.html">smpl.plot.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot2d.html">smpl.plot.plot2d</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot2d_kwargs.html">smpl.plot.plot2d_kwargs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot_date.html">smpl.plot.plot_date</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plot_kwargs.html">smpl.plot.plot_kwargs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_data.html">smpl.plot.plt_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_fit.html">smpl.plot.plt_fit</a></li>
@@ -247,119 +142,9 @@
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_interpolate.html">smpl.plot.plt_interpolate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_plt.html">smpl.plot.plt_plt</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.plt_residue.html">smpl.plot.plt_residue</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.polar.html">smpl.plot.polar</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.prism.html">smpl.plot.prism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.psd.html">smpl.plot.psd</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.quiver.html">smpl.plot.quiver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.quiverkey.html">smpl.plot.quiverkey</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rc.html">smpl.plot.rc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rc_context.html">smpl.plot.rc_context</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rcdefaults.html">smpl.plot.rcdefaults</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.register_cmap.html">smpl.plot.register_cmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.rgrids.html">smpl.plot.rgrids</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.save_plot.html">smpl.plot.save_plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.savefig.html">smpl.plot.savefig</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.sca.html">smpl.plot.sca</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.scatter.html">smpl.plot.scatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.sci.html">smpl.plot.sci</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.semilogx.html">smpl.plot.semilogx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.semilogy.html">smpl.plot.semilogy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_cmap.html">smpl.plot.set_cmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_loglevel.html">smpl.plot.set_loglevel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.set_plot_style.html">smpl.plot.set_plot_style</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.setp.html">smpl.plot.setp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smpl.plot.show.html">smpl.plot.show</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.specgram.html">smpl.plot.specgram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.spring.html">smpl.plot.spring</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.spy.html">smpl.plot.spy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stackplot.html">smpl.plot.stackplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stairs.html">smpl.plot.stairs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.stem.html">smpl.plot.stem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.step.html">smpl.plot.step</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.streamplot.html">smpl.plot.streamplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot.html">smpl.plot.subplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot2grid.html">smpl.plot.subplot2grid</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot_mosaic.html">smpl.plot.subplot_mosaic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplot_tool.html">smpl.plot.subplot_tool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplots.html">smpl.plot.subplots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.subplots_adjust.html">smpl.plot.subplots_adjust</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.summer.html">smpl.plot.summer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.suptitle.html">smpl.plot.suptitle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.switch_backend.html">smpl.plot.switch_backend</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.table.html">smpl.plot.table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.text.html">smpl.plot.text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.thetagrids.html">smpl.plot.thetagrids</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tick_params.html">smpl.plot.tick_params</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ticklabel_format.html">smpl.plot.ticklabel_format</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tight_layout.html">smpl.plot.tight_layout</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.title.html">smpl.plot.title</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tricontour.html">smpl.plot.tricontour</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tricontourf.html">smpl.plot.tricontourf</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.tripcolor.html">smpl.plot.tripcolor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.triplot.html">smpl.plot.triplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.twinx.html">smpl.plot.twinx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.twiny.html">smpl.plot.twiny</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.uninstall_repl_displayhook.html">smpl.plot.uninstall_repl_displayhook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.unv.html">smpl.plot.unv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.usd.html">smpl.plot.usd</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.violinplot.html">smpl.plot.violinplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.viridis.html">smpl.plot.viridis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.vlines.html">smpl.plot.vlines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.waitforbuttonpress.html">smpl.plot.waitforbuttonpress</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.winter.html">smpl.plot.winter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xcorr.html">smpl.plot.xcorr</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xkcd.html">smpl.plot.xkcd</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xlabel.html">smpl.plot.xlabel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xlim.html">smpl.plot.xlim</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xscale.html">smpl.plot.xscale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.xticks.html">smpl.plot.xticks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ylabel.html">smpl.plot.ylabel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ylim.html">smpl.plot.ylim</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.yscale.html">smpl.plot.yscale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.yticks.html">smpl.plot.yticks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Annotation.html">smpl.plot.Annotation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Arrow.html">smpl.plot.Arrow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Artist.html">smpl.plot.Artist</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.AutoLocator.html">smpl.plot.AutoLocator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Axes.html">smpl.plot.Axes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Button.html">smpl.plot.Button</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Circle.html">smpl.plot.Circle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Enum.html">smpl.plot.Enum</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ExitStack.html">smpl.plot.ExitStack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Figure.html">smpl.plot.Figure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FigureBase.html">smpl.plot.FigureBase</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FigureCanvasBase.html">smpl.plot.FigureCanvasBase</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FixedFormatter.html">smpl.plot.FixedFormatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FixedLocator.html">smpl.plot.FixedLocator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FormatStrFormatter.html">smpl.plot.FormatStrFormatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Formatter.html">smpl.plot.Formatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.FuncFormatter.html">smpl.plot.FuncFormatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.GridSpec.html">smpl.plot.GridSpec</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.IndexLocator.html">smpl.plot.IndexLocator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Line2D.html">smpl.plot.Line2D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LinearLocator.html">smpl.plot.LinearLocator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Locator.html">smpl.plot.Locator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatter.html">smpl.plot.LogFormatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatterExponent.html">smpl.plot.LogFormatterExponent</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogFormatterMathtext.html">smpl.plot.LogFormatterMathtext</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.LogLocator.html">smpl.plot.LogLocator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MaxNLocator.html">smpl.plot.MaxNLocator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MouseButton.html">smpl.plot.MouseButton</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.MultipleLocator.html">smpl.plot.MultipleLocator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Normalize.html">smpl.plot.Normalize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.NullFormatter.html">smpl.plot.NullFormatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.NullLocator.html">smpl.plot.NullLocator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Number.html">smpl.plot.Number</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.PolarAxes.html">smpl.plot.PolarAxes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Polygon.html">smpl.plot.Polygon</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Rectangle.html">smpl.plot.Rectangle</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.ScalarFormatter.html">smpl.plot.ScalarFormatter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Slider.html">smpl.plot.Slider</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Subplot.html">smpl.plot.Subplot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.SubplotSpec.html">smpl.plot.SubplotSpec</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Text.html">smpl.plot.Text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.TickHelper.html">smpl.plot.TickHelper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smpl.plot.Widget.html">smpl.plot.Widget</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.plot2d.html">smpl.plot2d</a></li>
@@ -368,6 +153,11 @@
 <li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_debug.html">smpl_debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_doc.html">smpl_doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_util.html">smpl_util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_io.html">smpl_io</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
@@ -501,15 +291,15 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="smpl.plot.gca.html" class="btn btn-neutral float-right" title="smpl.plot.gca" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="smpl.plot.flag.html" class="btn btn-neutral float-left" title="smpl.plot.flag" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="smpl.plot.get_fnc_legend.html" class="btn btn-neutral float-right" title="smpl.plot.get_fnc_legend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="smpl.plot.fit.html" class="btn btn-neutral float-left" title="smpl.plot.fit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, Alexander Puck Neuwirth.
+        &#169; Copyright 2023, Alexander Puck Neuwirth.
 
     </p>
   </div>

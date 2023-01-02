@@ -1,6 +1,0 @@
-smpl.io.read
-============
-
-.. currentmodule:: smpl.io
-
-.. autofunction:: read

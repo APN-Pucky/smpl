@@ -1,6 +1,0 @@
-smpl.stat.derivative
-====================
-
-.. currentmodule:: smpl.stat
-
-.. autofunction:: derivative

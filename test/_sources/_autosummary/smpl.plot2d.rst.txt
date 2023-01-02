@@ -25,14 +25,6 @@ smpl.plot2d
 
    
    
-   .. rubric:: Classes
-
-   .. autosummary::
-      :toctree:                                         
-      :template: custom-class-template.rst               
-   
-      NonUniformImage
-   
    
 
    

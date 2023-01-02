@@ -1,6 +1,0 @@
-smpl.util.rename
-================
-
-.. currentmodule:: smpl.util
-
-.. autofunction:: rename

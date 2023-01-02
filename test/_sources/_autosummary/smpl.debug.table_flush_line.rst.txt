@@ -1,6 +1,0 @@
-smpl.debug.table\_flush\_line
-=============================
-
-.. currentmodule:: smpl.debug
-
-.. autofunction:: table_flush_line

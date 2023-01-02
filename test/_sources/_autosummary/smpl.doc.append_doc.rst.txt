@@ -1,6 +1,0 @@
-smpl.doc.append\_doc
-====================
-
-.. currentmodule:: smpl.doc
-
-.. autofunction:: append_doc

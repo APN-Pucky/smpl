@@ -1,6 +1,0 @@
-smpl.plot.tripcolor
-===================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: tripcolor

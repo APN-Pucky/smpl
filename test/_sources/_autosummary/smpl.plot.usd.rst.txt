@@ -1,6 +1,0 @@
-smpl.plot.usd
-=============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: usd

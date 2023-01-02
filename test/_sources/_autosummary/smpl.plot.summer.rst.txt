@@ -1,6 +1,0 @@
-smpl.plot.summer
-================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: summer

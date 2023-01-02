@@ -1,6 +1,0 @@
-smpl.plot.rcdefaults
-====================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: rcdefaults
