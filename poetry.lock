@@ -2204,11 +2204,11 @@ deprecation = "*"
 
 [[package]]
 name = "smpl-io"
-version = "1.0.5"
-description = "SiMPLe plotting and fitting"
+version = "1.0.6"
+description = "simple input and output for python"
 category = "main"
 optional = false
-python-versions = ">=3.8,<4.0"
+python-versions = ">=3.7,<4.0"
 
 [[package]]
 name = "smpl-parallel"
@@ -3504,6 +3504,7 @@ line-profiler = [
     {file = "line_profiler-4.0.2.tar.gz", hash = "sha256:25e8c9d4248dc48905801851ff8a75b9c74827a0871d118d1104d8e43d7fb0fc"},
 ]
 livereload = [
+    {file = "livereload-2.6.3-py2.py3-none-any.whl", hash = "sha256:ad4ac6f53b2d62bb6ce1a5e6e96f1f00976a32348afedcb4b6d68df2a1d346e4"},
     {file = "livereload-2.6.3.tar.gz", hash = "sha256:776f2f865e59fde56490a56bcc6773b6917366bce0c267c60ee8aaf1a0959869"},
 ]
 lockfile = [
@@ -3796,6 +3797,13 @@ pickleshare = [
     {file = "pickleshare-0.7.5.tar.gz", hash = "sha256:87683d47965c1da65cdacaf31c8441d12b8044cdec9aca500cd78fc2c683afca"},
 ]
 pillow = [
+    {file = "Pillow-9.4.0-1-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:1b4b4e9dda4f4e4c4e6896f93e84a8f0bcca3b059de9ddf67dac3c334b1195e1"},
+    {file = "Pillow-9.4.0-1-cp311-cp311-macosx_10_10_x86_64.whl", hash = "sha256:fb5c1ad6bad98c57482236a21bf985ab0ef42bd51f7ad4e4538e89a997624e12"},
+    {file = "Pillow-9.4.0-1-cp37-cp37m-macosx_10_10_x86_64.whl", hash = "sha256:f0caf4a5dcf610d96c3bd32932bfac8aee61c96e60481c2a0ea58da435e25acd"},
+    {file = "Pillow-9.4.0-1-cp38-cp38-macosx_10_10_x86_64.whl", hash = "sha256:3f4cc516e0b264c8d4ccd6b6cbc69a07c6d582d8337df79be1e15a5056b258c9"},
+    {file = "Pillow-9.4.0-1-cp39-cp39-macosx_10_10_x86_64.whl", hash = "sha256:b8c2f6eb0df979ee99433d8b3f6d193d9590f735cf12274c108bd954e30ca858"},
+    {file = "Pillow-9.4.0-1-pp38-pypy38_pp73-macosx_10_10_x86_64.whl", hash = "sha256:b70756ec9417c34e097f987b4d8c510975216ad26ba6e57ccb53bc758f490dab"},
+    {file = "Pillow-9.4.0-1-pp39-pypy39_pp73-macosx_10_10_x86_64.whl", hash = "sha256:43521ce2c4b865d385e78579a082b6ad1166ebed2b1a2293c3be1d68dd7ca3b9"},
     {file = "Pillow-9.4.0-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:2968c58feca624bb6c8502f9564dd187d0e1389964898f5e9e1fbc8533169157"},
     {file = "Pillow-9.4.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c5c1362c14aee73f50143d74389b2c158707b4abce2cb055b7ad37ce60738d47"},
     {file = "Pillow-9.4.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bd752c5ff1b4a870b7661234694f24b1d2b9076b8bf337321a814c612665f343"},
@@ -4344,8 +4352,8 @@ smpl-doc = [
     {file = "smpl_doc-1.1.0.tar.gz", hash = "sha256:fa52eb1c09b88a819dd0b2b826e2bfc4ecd3920b3f1c28d2581571225a2da59c"},
 ]
 smpl-io = [
-    {file = "smpl_io-1.0.5-py3-none-any.whl", hash = "sha256:c4bafaa9612256f6bc461d37b8396d86e8b96563bac865fb6c0d3ea469706cb7"},
-    {file = "smpl_io-1.0.5.tar.gz", hash = "sha256:71fe77a8ee35648729ae7352c9c15e7dbd98cac368a4ce4bc9351db8af9d95a8"},
+    {file = "smpl_io-1.0.6-py3-none-any.whl", hash = "sha256:29b948deacaf726385f00da1763f3b606b56e25261e0d3ec098115b7a4219472"},
+    {file = "smpl_io-1.0.6.tar.gz", hash = "sha256:cb5811576e0ab8a0b2c972b3c763fa90927f44ffe3c4b1ec1a52c2c915f42736"},
 ]
 smpl-parallel = [
     {file = "smpl_parallel-1.2.1.1-py3-none-any.whl", hash = "sha256:828849bf519793326f64957d13b636bb88d157e6ac95c99422e010f82f4c19e9"},
