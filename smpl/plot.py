@@ -54,7 +54,11 @@ default = {
     ],
     "fmt": [
         ".",
-        "Format for plotting fit function",
+        "Format for plotting fit function (could be a line style, marker or a combination of both or 'step')",
+    ],
+    "where": [
+        "mid",
+        "Where to place the ticks. Possible values are 'pre', 'post', 'mid', 'edge'. Might be incompatible with uncertainties.",
     ],
     "units": [
         None,
@@ -557,11 +561,11 @@ def plt_data(datax, datay, **kwargs):
                 )
         elif kwargs["fmt"] == "step":
             (ll,) = plt.step(
-                x, y, where="mid", label=kwargs["label"], color=kwargs["data_color"]
+                x, y, where=kwargs["where"], label=kwargs["label"], color=kwargs["data_color"]
             )
         elif kwargs["fmt"] == "hist":
             (ll,) = plt.step(
-                x, y, where="mid", label=kwargs["label"], color=kwargs["data_color"]
+                x, y, where=kwargs["where"], label=kwargs["label"], color=kwargs["data_color"]
             )
             plt.fill_between(x, y, step="mid", color=ll.get_color())
         else:
@@ -594,7 +598,7 @@ def plt_data(datax, datay, **kwargs):
                     linestyle=kwargs["linestyle"],
                 )
         elif kwargs["fmt"] == "step":
-            (ll,) = plt.step(x, y, where="mid", color=kwargs["data_color"])
+            (ll,) = plt.step(x, y, where=kwargs["where"], color=kwargs["data_color"])
             if xerr is not None:
                 for ix, xv in enumerate(x):
                     dx = xerr[ix]
