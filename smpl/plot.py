@@ -561,11 +561,19 @@ def plt_data(datax, datay, **kwargs):
                 )
         elif kwargs["fmt"] == "step":
             (ll,) = plt.step(
-                x, y, where=kwargs["where"], label=kwargs["label"], color=kwargs["data_color"]
+                x,
+                y,
+                where=kwargs["where"],
+                label=kwargs["label"],
+                color=kwargs["data_color"],
             )
         elif kwargs["fmt"] == "hist":
             (ll,) = plt.step(
-                x, y, where=kwargs["where"], label=kwargs["label"], color=kwargs["data_color"]
+                x,
+                y,
+                where=kwargs["where"],
+                label=kwargs["label"],
+                color=kwargs["data_color"],
             )
             plt.fill_between(x, y, step="mid", color=ll.get_color())
         else:
@@ -814,7 +822,7 @@ def save_plot(**kwargs):
     if "save" in kwargs and not kwargs["save"] is None:
         io.mkdirs(kwargs["save"])
         plt.savefig(kwargs["save"] + ".pdf")
-    plt.grid(b=kwargs["grid"])
+    plt.grid(visible=kwargs["grid"])
     if "show" in kwargs and kwargs["show"]:
         show(**kwargs)
 
@@ -822,7 +830,7 @@ def save_plot(**kwargs):
 def show(**kwargs):
     kwargs = plot_kwargs(kwargs)
 
-    plt.grid(b=kwargs["grid"])
+    plt.grid(visible=kwargs["grid"])
     plt.show()
 
 
