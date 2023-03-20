@@ -22,7 +22,7 @@ tqdm = "*"
 pandas = ">=1.0.0"
 deprecation ="*"
 
-iminuit = {version = "*", optional = true}
+iminuit = {version = "<=2.18.0", optional = true} # StopIteration error in >=2.21.0 ?
 smpl_animation= {version = "*", optional = true}
 
 [tool.poetry.extras]
