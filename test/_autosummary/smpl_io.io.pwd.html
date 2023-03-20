@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.2.1-4-g5020d9c9
+                1.2.1-9-gd44062a1
               </div>
             
           
@@ -99,11 +99,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
@@ -171,6 +167,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -248,31 +248,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="smpl-io-io-pwd">
+  <section id="smpl-io-io-pwd">
 <h1>smpl_io.io.pwd<a class="headerlink" href="#smpl-io-io-pwd" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl_io.io.pwd">
@@ -284,6 +260,13 @@
 <dt>str</dt><dd><p>path to the path of current file.</p>
 </dd>
 </dl>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pwd</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;smpl_io&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </section>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>

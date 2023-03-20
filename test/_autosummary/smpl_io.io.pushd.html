@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.2.1-4-g5020d9c9
+                1.2.1-9-gd44062a1
               </div>
             
           
@@ -99,11 +99,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
@@ -171,6 +167,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -248,36 +248,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="smpl-io-io-pushd">
+  <section id="smpl-io-io-pushd">
 <h1>smpl_io.io.pushd<a class="headerlink" href="#smpl-io-io-pushd" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl_io.io.pushd">
-<span class="sig-prename descclassname"><span class="pre">smpl_io.io.</span></span><span class="sig-name descname"><span class="pre">pushd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl_io/io.html#pushd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl_io.io.pushd" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">smpl_io.io.</span></span><span class="sig-name descname"><span class="pre">pushd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl_io/io.html#pushd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl_io.io.pushd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move to a new directory and return to the previous one after context.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<dl class="simple">
+<dt>new_dir<span class="classifier">str</span></dt><dd><p>new directory.</p>
+</dd>
+<dt>tmp: bool, optional</dt><dd><p>create the directory if it does not exist and delete after context, by default False</p>
+</dd>
+<dt>cd: bool, optional</dt><dd><p>change to (new) directory, by default True</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">pushd</span><span class="p">(</span><span class="s2">&quot;tmptest&quot;</span><span class="p">,</span><span class="n">tmp</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">pp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">pp</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="ow">and</span> <span class="n">pp</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;tmptest&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">pushd</span><span class="p">(</span><span class="s2">&quot;tmptest&quot;</span><span class="p">,</span><span class="n">tmp</span><span class="o">=</span><span class="kc">True</span><span class="p">,):</span>
+<span class="gp">... </span>    <span class="n">pp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="n">pp</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="ow">and</span> <span class="n">pp</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;tmptest&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</section>
 </dd></dl>
 
 </section>

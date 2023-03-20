@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.2.1-4-g5020d9c9
+                1.2.1-9-gd44062a1
               </div>
             
           
@@ -96,11 +96,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../example/index.html">Examples</a></li>
 </ul>
@@ -118,6 +114,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../performance/index.html">Graph Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -197,25 +197,79 @@
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">re</span>
-
+<span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">contextlib</span>
 
+
 <div class="viewcode-block" id="pushd"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.pushd.html#smpl_io.io.pushd">[docs]</a><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="k">def</span> <span class="nf">pushd</span><span class="p">(</span><span class="n">new_dir</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">pushd</span><span class="p">(</span><span class="n">new_dir</span><span class="p">,</span> <span class="n">tmp</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cd</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Move to a new directory and return to the previous one after context.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    new_dir : str</span>
+<span class="sd">        new directory.</span>
+<span class="sd">    tmp: bool, optional</span>
+<span class="sd">        create the directory if it does not exist and delete after context, by default False</span>
+<span class="sd">    cd: bool, optional</span>
+<span class="sd">        change to (new) directory, by default True</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import os</span>
+<span class="sd">    &gt;&gt;&gt; p = os.getcwd()</span>
+<span class="sd">    &gt;&gt;&gt; with pushd(&quot;tmptest&quot;,tmp=True):</span>
+<span class="sd">    ...     pp = os.getcwd()</span>
+<span class="sd">    ...     pp.startswith(p) and pp.endswith(&quot;tmptest&quot;)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; import os</span>
+<span class="sd">    &gt;&gt;&gt; p = os.getcwd()</span>
+<span class="sd">    &gt;&gt;&gt; with pushd(&quot;tmptest&quot;,tmp=True,):</span>
+<span class="sd">    ...     pp = os.getcwd()</span>
+<span class="sd">    ...     pp.startswith(p) and pp.endswith(&quot;tmptest&quot;)</span>
+<span class="sd">    True</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">previous_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">new_dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tmp</span><span class="p">:</span>
+        <span class="n">abspath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">new_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">abspath</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cd</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">new_dir</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">yield</span>
     <span class="k">finally</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">previous_dir</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="n">cd</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">previous_dir</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tmp</span><span class="p">:</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">abspath</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="glob_re"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.glob_re.html#smpl_io.io.glob_re">[docs]</a><span class="k">def</span> <span class="nf">glob_re</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns all strings that match the regex pattern.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pattern : str</span>
+<span class="sd">        regex pattern.</span>
+<span class="sd">    path : str</span>
+<span class="sd">        path to search in.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        list of filenames that match the regex pattern.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import os</span>
+<span class="sd">    &gt;&gt;&gt; with pushd(&quot;tmptest&quot;,tmp=True,cd=False):</span>
+<span class="sd">    ...     write(&quot;tmptest/test.txt&quot;,&quot;hi\\nho1\\n2\\n3\\n4\\n&quot;)</span>
+<span class="sd">    ...     glob_re(&quot;.*[xt][xt][xt]&quot;, &quot;tmptest&quot;)</span>
+<span class="sd">    [&#39;test.txt&#39;]</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)))</span></div>
 
@@ -225,7 +279,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Searches for ``pattern`` in ``inp``.</span>
 
-<span class="sd">    &gt;&gt;&gt; from smpl import io</span>
+<span class="sd">    &gt;&gt;&gt; from smpl_io import io</span>
 <span class="sd">    &gt;&gt;&gt; write(&quot;test.txt&quot;,&quot;hi\\nho1\\n2\\n3\\n4\\n&quot;)</span>
 <span class="sd">    &gt;&gt;&gt; grep(&quot;h&quot;,&quot;test.txt&quot;).read()</span>
 <span class="sd">    &#39;hi\\nho1\\n&#39;</span>
@@ -421,17 +475,41 @@
 <div class="viewcode-block" id="find_file"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.find_file.html#smpl_io.io.find_file">[docs]</a><span class="k">def</span> <span class="nf">find_file</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">up</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Searches for ``fname`` in all down folders or up folder to given order respectively.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname : str</span>
+<span class="sd">        file name.</span>
+<span class="sd">    up : int</span>
+<span class="sd">        number of up folders to search.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        path to the file.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import os</span>
+<span class="sd">    &gt;&gt;&gt; find_file(&quot;io.py&quot;,0)</span>
+<span class="sd">    &#39;smpl_io/io.py&#39;</span>
+<span class="sd">    &gt;&gt;&gt; os.chdir(&quot;smpl_io&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; find_file(&quot;io.py&quot;,0)</span>
+<span class="sd">    &#39;io.py&#39;</span>
+<span class="sd">    &gt;&gt;&gt; find_file(&quot;Makefile&quot;,1)</span>
+<span class="sd">    &#39;../Makefile&#39;</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span><span class="o">.</span><span class="n">parent</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)))</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">up</span><span class="p">):</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parent</span>
 
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)))</span>
     <span class="k">return</span> <span class="kc">None</span></div>
 
 
@@ -443,6 +521,12 @@
 <span class="sd">    -------</span>
 <span class="sd">    str</span>
 <span class="sd">        path to the path of current file.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; pwd().endswith(&quot;smpl_io&quot;)</span>
+<span class="sd">    True</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># pwd_ = &quot;/&quot;.join(debug.get_line_number_file(split=False, _back=1)[1].split(&quot;/&quot;)[:-1])</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span>
@@ -542,6 +626,22 @@
 
 
 <div class="viewcode-block" id="pn"><a class="viewcode-back" href="../../_autosummary/smpl_io.io.pn.html#smpl_io.io.pn">[docs]</a><span class="k">def</span> <span class="nf">pn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">nnl</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find variable with the same value as ``a`` in globals.</span>
+<span class="sd">    Then print its name and value.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : any</span>
+<span class="sd">        variable to find.</span>
+<span class="sd">    nnl : bool</span>
+<span class="sd">        no-new-line</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    a : any</span>
+<span class="sd">        unchanged ``a``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">gl</span> <span class="o">=</span> <span class="nb">globals</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">gl</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">gl</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">a</span><span class="p">:</span>

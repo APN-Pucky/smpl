@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.2.1-4-g5020d9c9
+                1.2.1-9-gd44062a1
               </div>
             
           
@@ -99,11 +99,7 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
@@ -171,6 +167,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -248,37 +248,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="smpl-io-io-grep">
+  <section id="smpl-io-io-grep">
 <h1>smpl_io.io.grep<a class="headerlink" href="#smpl-io-io-grep" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl_io.io.grep">
 <span class="sig-prename descclassname"><span class="pre">smpl_io.io.</span></span><span class="sig-name descname"><span class="pre">grep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl_io/io.html#grep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl_io.io.grep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches for <code class="docutils literal notranslate"><span class="pre">pattern</span></code> in <code class="docutils literal notranslate"><span class="pre">inp</span></code>.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">io</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">smpl_io</span> <span class="kn">import</span> <span class="n">io</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">,</span><span class="s2">&quot;hi</span><span class="se">\n</span><span class="s2">ho1</span><span class="se">\n</span><span class="s2">2</span><span class="se">\n</span><span class="s2">3</span><span class="se">\n</span><span class="s2">4</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">grep</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span><span class="s2">&quot;test.txt&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="go">&#39;hi\nho1\n&#39;</span>
