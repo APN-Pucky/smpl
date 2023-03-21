@@ -1,6 +1,0 @@
-smpl.plot.contour
-=================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: contour

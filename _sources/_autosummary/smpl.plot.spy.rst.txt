@@ -1,6 +1,0 @@
-smpl.plot.spy
-=============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: spy

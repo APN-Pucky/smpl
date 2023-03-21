@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>smpl 1.2.1 documentation &mdash; smpl  documentation</title>
+  <title>smpl 1.2.2 documentation &mdash; smpl  documentation</title>
   
 
   
@@ -37,9 +37,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/thebelab-helper.js"></script>
@@ -76,7 +73,7 @@
             
             
               <div class="version">
-                1.2.1
+                1.2.2
               </div>
             
           
@@ -101,22 +98,28 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="example/index.html">Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl.html">smpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl_debug.html">smpl_debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl_doc.html">smpl_doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl_util.html">smpl_util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/smpl_parallel.html">smpl_parallel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="performance/index.html">Graph Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -171,7 +174,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>smpl 1.2.1 documentation</li>
+      <li>smpl 1.2.2 documentation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,32 +193,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="project-version-documentation">
-<h1>smpl 1.2.1 documentation<a class="headerlink" href="#project-version-documentation" title="Permalink to this heading">¶</a></h1>
+  <section id="project-version-documentation">
+<h1>smpl 1.2.2 documentation<a class="headerlink" href="#project-version-documentation" title="Permalink to this heading">¶</a></h1>
 <section id="smpl">
 <h2>smpl<a class="headerlink" href="#smpl" title="Permalink to this heading">¶</a></h2>
 <p>Simplified plotting and fitting in python.</p>
@@ -233,11 +212,11 @@
 <tr class="row-odd"><td><p><a class="reference external" href="https://coveralls.io/github/APN-Pucky/smpl?branch=stable"><img alt="Coverage Status" src="https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=stable" /></a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://coveralls.io/github/APN-Pucky/smpl?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/APN-Pucky/smpl/badge.svg?branch=master" /></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Coverage?branch=stable"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2?branch=stable" /></a></p></td>
-<td class="text-center"><p><a class="reference external" href="https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Coverage"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2" /></a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=APN-Pucky/smpl&amp;amp;utm_campaign=Badge_Coverage?branch=stable"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2?branch=stable" /></a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=APN-Pucky/smpl&amp;amp;utm_campaign=Badge_Coverage"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Coverage/38630d0063814027bd4d0ffaa73790a2" /></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade?branch=stable"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2?branch=stable" /></a></p></td>
-<td class="text-center"><p><a class="reference external" href="https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2" /></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=APN-Pucky/smpl&amp;amp;utm_campaign=Badge_Grade?branch=stable"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2?branch=stable" /></a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=APN-Pucky/smpl&amp;amp;utm_campaign=Badge_Grade"><img alt="Codacy Badge" src="https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2" /></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://smpl.readthedocs.io/en/stable/?badge=stable"><img alt="Documentation" src="https://readthedocs.org/projects/smpl/badge/?version=stable" /></a></p></td>
 <td class="text-center"><p><a class="reference external" href="https://smpl.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation" src="https://readthedocs.org/projects/smpl/badge/?version=latest" /></a></p></td>
@@ -255,21 +234,19 @@
 <h3>Versions<a class="headerlink" href="#versions" title="Permalink to this heading">¶</a></h3>
 <section id="stable">
 <h4>Stable<a class="headerlink" href="#stable" title="Permalink to this heading">¶</a></h4>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install smpl
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>smpl
 </pre></div>
 </div>
 <p>Optional: –user or –upgrade</p>
 </section>
 <section id="dev">
 <h4>Dev<a class="headerlink" href="#dev" title="Permalink to this heading">¶</a></h4>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install --index-url https://test.pypi.org/simple/ smpl
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>--index-url<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>smpl
 </pre></div>
 </div>
 </section>
 </section>
 </section>
-<div class="toctree-wrapper compound">
-</div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
@@ -301,13 +278,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="example/latex/latex.html">Latex</a></li>
-<li class="toctree-l2"><a class="reference internal" href="example/parallel/parallel.html">Parallel</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="example/parallel/parallel.html#Non-parallelized">Non-parallelized</a></li>
-<li class="toctree-l3"><a class="reference internal" href="example/parallel/parallel.html#Auto-parallelized">Auto parallelized</a></li>
-<li class="toctree-l3"><a class="reference internal" href="example/parallel/parallel.html#Manual-parallelized">Manual parallelized</a></li>
-<li class="toctree-l3"><a class="reference internal" href="example/parallel/parallel.html#Lambda-usage">Lambda usage</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="example/uncertainties/demo_uncertainties.html">uncertainties</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="example/uncertainties/demo_uncertainties.html#Single-number">Single number</a></li>
 <li class="toctree-l3"><a class="reference internal" href="example/uncertainties/demo_uncertainties.html#Arrays">Arrays</a></li>
@@ -329,6 +299,24 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/smpl.html#module-smpl" title="smpl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smpl</span></code></a></p></td>
+<td><p>A collection of simplified utilities.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/smpl_io.html#module-smpl_io" title="smpl_io"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smpl_io</span></code></a></p></td>
+<td><p>A collection of simplified utilities.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/smpl_debug.html#module-smpl_debug" title="smpl_debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smpl_debug</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/smpl_doc.html#module-smpl_doc" title="smpl_doc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smpl_doc</span></code></a></p></td>
+<td><p>A collection of simplified utilities.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/smpl_util.html#module-smpl_util" title="smpl_util"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smpl_util</span></code></a></p></td>
+<td><p>A collection of simplified utilities.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/smpl_io.html#module-smpl_io" title="smpl_io"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smpl_io</span></code></a></p></td>
+<td><p>A collection of simplified utilities.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/smpl_parallel.html#module-smpl_parallel" title="smpl_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">smpl_parallel</span></code></a></p></td>
 <td><p>A collection of simplified utilities.</p></td>
 </tr>
 </tbody>
@@ -364,6 +352,8 @@
 </div>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 <section id="indices-and-tables">
 <h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">¶</a></h2>
@@ -388,7 +378,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, Alexander Puck Neuwirth.
+        &#169; Copyright 2023, Alexander Puck Neuwirth.
 
     </p>
   </div>

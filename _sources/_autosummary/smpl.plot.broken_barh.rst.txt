@@ -1,6 +1,0 @@
-smpl.plot.broken\_barh
-======================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: broken_barh

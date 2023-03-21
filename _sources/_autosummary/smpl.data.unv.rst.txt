@@ -1,6 +1,0 @@
-smpl.data.unv
-=============
-
-.. currentmodule:: smpl.data
-
-.. autofunction:: unv

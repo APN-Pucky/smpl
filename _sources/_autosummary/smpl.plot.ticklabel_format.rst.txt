@@ -1,6 +1,0 @@
-smpl.plot.ticklabel\_format
-===========================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: ticklabel_format

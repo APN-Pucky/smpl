@@ -1,6 +1,0 @@
-smpl.plot.cool
-==============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: cool

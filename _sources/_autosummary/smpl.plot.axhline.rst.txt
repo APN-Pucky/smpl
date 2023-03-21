@@ -1,6 +1,0 @@
-smpl.plot.axhline
-=================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: axhline

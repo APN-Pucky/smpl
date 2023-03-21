@@ -37,9 +37,6 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/thebelab-helper.js"></script>
@@ -79,7 +76,7 @@
             
             
               <div class="version">
-                1.2.1
+                1.2.2
               </div>
             
           
@@ -104,18 +101,13 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">Links:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Examples:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../example/index.html">Examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="smpl.html">smpl</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="smpl.version.html">smpl.version</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.data.html">smpl.data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.debug.html">smpl.debug</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smpl.doc.html">smpl.doc</a></li>
@@ -155,11 +147,21 @@
 <li class="toctree-l2"><a class="reference internal" href="smpl.wrap.html">smpl.wrap</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_debug.html">smpl_debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_doc.html">smpl_doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_util.html">smpl_util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_io.html">smpl_io</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smpl_parallel.html">smpl_parallel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Profiling:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../performance/index.html">Graph Profiling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../performance/line.html">Line Profiling</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/APN-Pucky/smpl">GitHub</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Versions:</span></p>
 <ul>
@@ -237,31 +239,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="smpl-functions-line">
+  <section id="smpl-functions-line">
 <h1>smpl.functions.line<a class="headerlink" href="#smpl-functions-line" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.functions.line">
@@ -272,7 +250,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">xmin</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span><span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../_autosummary/smpl-functions-line-1.py">Source code</a>, <a class="reference external" href="../_autosummary/smpl-functions-line-1.png">png</a>, <a class="reference external" href="../_autosummary/smpl-functions-line-1.hires.png">hires.png</a>, <a class="reference external" href="../_autosummary/smpl-functions-line-1.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/f28ad5e48af0327c1759d249a2386343/smpl-functions-line-1.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/1d38e1887706de628ba2fd879f23bf60/smpl-functions-line-1.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/4a990ca2a996d8cfc3f8179941a0dbe1/smpl-functions-line-1.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/ba7984fcbe2628bbd7e2589e97e956ff/smpl-functions-line-1.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="../_images/smpl-functions-line-1.png" class="plot-directive" src="../_images/smpl-functions-line-1.png" />
 </figure>
@@ -294,7 +272,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, Alexander Puck Neuwirth.
+        &#169; Copyright 2023, Alexander Puck Neuwirth.
 
     </p>
   </div>

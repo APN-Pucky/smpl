@@ -1,6 +1,0 @@
-smpl.plot.draw
-==============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: draw

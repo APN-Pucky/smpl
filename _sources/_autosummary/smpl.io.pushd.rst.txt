@@ -1,6 +1,0 @@
-smpl.io.pushd
-=============
-
-.. currentmodule:: smpl.io
-
-.. autofunction:: pushd

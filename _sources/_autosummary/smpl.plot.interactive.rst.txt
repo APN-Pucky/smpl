@@ -1,6 +1,0 @@
-smpl.plot.interactive
-=====================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: interactive

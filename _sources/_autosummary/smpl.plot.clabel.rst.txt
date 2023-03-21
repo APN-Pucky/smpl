@@ -1,6 +1,0 @@
-smpl.plot.clabel
-================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: clabel

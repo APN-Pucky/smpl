@@ -11,14 +11,6 @@
 .. include:: ../../README.md
    :parser: myst_parser.sphinx_
 
-
-.. toctree::
-   :glob:
-   :hidden:
-   :caption: Links:
-   :maxdepth: 3
-
-   GitHub <https://github.com/APN-Pucky/smpl>
  
 
 .. toctree::
@@ -38,6 +30,12 @@
    :caption: Modules:
 
    smpl
+   smpl_io
+   smpl_debug
+   smpl_doc
+   smpl_util
+   smpl_io
+   smpl_parallel
 
 .. toctree::
    :glob:
@@ -46,6 +44,14 @@
 
    performance/*
 
+
+.. toctree::
+   :glob:
+   :hidden:
+   :caption: Links:
+   :maxdepth: 3
+
+   GitHub <https://github.com/APN-Pucky/smpl>
 
 .. toctree::
    :glob:

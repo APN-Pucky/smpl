@@ -1,0 +1,6 @@
+smpl\_parallel.parallel.calc
+============================
+
+.. currentmodule:: smpl_parallel.parallel
+
+.. autofunction:: calc

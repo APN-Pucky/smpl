@@ -1,6 +1,0 @@
-smpl.plot.get\_plot\_commands
-=============================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: get_plot_commands

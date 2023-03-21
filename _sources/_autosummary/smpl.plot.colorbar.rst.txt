@@ -1,6 +1,0 @@
-smpl.plot.colorbar
-==================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: colorbar

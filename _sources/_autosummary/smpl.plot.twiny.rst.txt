@@ -1,6 +1,0 @@
-smpl.plot.twiny
-===============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: twiny

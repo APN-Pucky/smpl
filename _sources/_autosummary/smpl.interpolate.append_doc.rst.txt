@@ -1,6 +1,0 @@
-smpl.interpolate.append\_doc
-============================
-
-.. currentmodule:: smpl.interpolate
-
-.. autofunction:: append_doc

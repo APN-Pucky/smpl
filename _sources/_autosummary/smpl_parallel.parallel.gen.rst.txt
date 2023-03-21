@@ -1,0 +1,6 @@
+smpl\_parallel.parallel.gen
+===========================
+
+.. currentmodule:: smpl_parallel.parallel
+
+.. autofunction:: gen

@@ -1,6 +1,0 @@
-smpl.stat.usd
-=============
-
-.. currentmodule:: smpl.stat
-
-.. autofunction:: usd

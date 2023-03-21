@@ -1,6 +1,0 @@
-smpl.plot.savefig
-=================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: savefig

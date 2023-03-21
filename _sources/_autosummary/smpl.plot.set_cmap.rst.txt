@@ -1,6 +1,0 @@
-smpl.plot.set\_cmap
-===================
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: set_cmap

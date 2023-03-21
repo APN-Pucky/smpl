@@ -1,6 +1,0 @@
-smpl.plot.clf
-=============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: clf

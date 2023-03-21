@@ -1,6 +1,0 @@
-smpl.plot.title
-===============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: title

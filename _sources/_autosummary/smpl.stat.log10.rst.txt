@@ -1,6 +1,0 @@
-smpl.stat.log10
-===============
-
-.. currentmodule:: smpl.stat
-
-.. autofunction:: log10

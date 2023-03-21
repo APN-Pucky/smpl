@@ -1,6 +1,0 @@
-smpl.doc.table
-==============
-
-.. currentmodule:: smpl.doc
-
-.. autofunction:: table

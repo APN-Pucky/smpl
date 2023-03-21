@@ -1,6 +1,0 @@
-smpl.doc.trim\_eol\_spaces
-==========================
-
-.. currentmodule:: smpl.doc
-
-.. autofunction:: trim_eol_spaces

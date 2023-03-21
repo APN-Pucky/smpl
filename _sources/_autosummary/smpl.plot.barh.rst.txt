@@ -1,6 +1,0 @@
-smpl.plot.barh
-==============
-
-.. currentmodule:: smpl.plot
-
-.. autofunction:: barh
