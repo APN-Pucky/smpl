@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.2.1-10-gb1e2b0a0
+                1.2.2-1-gac6b0cf7
               </div>
             
           
@@ -300,14 +300,14 @@
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">ff</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="n">fy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="o">*</span><span class="n">ff</span><span class="p">)</span>
-            <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">LinAlgError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+                <span class="n">sum_sq</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">+</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">LinAlgError</span><span class="p">,</span> <span class="ne">OverflowError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
                 <span class="n">debug</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">ve</span><span class="p">)</span>
                 <span class="k">continue</span>
-            <span class="n">sum_sq</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">+</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-            <span class="p">)</span>
             <span class="k">if</span> <span class="n">min_sq</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">sum_sq</span> <span class="o">&lt;</span> <span class="n">min_sq</span><span class="p">:</span>
                 <span class="n">min_sq</span> <span class="o">=</span> <span class="n">sum_sq</span>
                 <span class="n">best_f</span> <span class="o">=</span> <span class="n">f</span>
