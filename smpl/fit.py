@@ -108,14 +108,14 @@ def auto(datax, datay, funcs=None, **kwargs):
             try:
                 ff = fit(datax, datay, f, **kwargs)
                 fy = f(datax, *ff)
-            except (ValueError, LinAlgError) as ve:
+                sum_sq = (
+                    np.sum((fy - datay) ** 2)
+                    + np.sum((fy + usd(fy) - datay) ** 2)
+                    + np.sum((fy - usd(fy) - datay) ** 2)
+                )
+            except (ValueError, LinAlgError, OverflowError) as ve:
                 debug.msg(ve)
                 continue
-            sum_sq = (
-                np.sum((fy - datay) ** 2)
-                + np.sum((fy + usd(fy) - datay) ** 2)
-                + np.sum((fy - usd(fy) - datay) ** 2)
-            )
             if min_sq is None or sum_sq < min_sq:
                 min_sq = sum_sq
                 best_f = f
