@@ -67,8 +67,10 @@ default = {
 
 @doc.append_doc(data.data_kwargs)
 @doc.append_str("\t")
-@doc.append_str(doc.table(default, init=False))
-@doc.append_str(doc.table({"fit_kwargs": ["default", "description"]}, bottom=False))
+@doc.append_str(doc.array_table(default, init=False))
+@doc.append_str(
+    doc.array_table({"fit_kwargs": ["default", "description"]}, bottom=False)
+)
 @doc.append_str("\n\n")
 def fit_kwargs(kwargs):
     """Set default :func:`fit_kwargs` if not set."""

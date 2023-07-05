@@ -11,8 +11,8 @@ import uncertainties.unumpy as unp
 from scipy import interpolate as interp
 
 # from smpl import plot as splot
-from smpl import data
-from smpl.doc import append_doc, append_str, table
+from smpl import data, doc
+from smpl.doc import append_doc, append_str
 
 unv = unp.nominal_values
 usd = unp.std_devs
@@ -45,8 +45,10 @@ default = {
 
 @append_doc(data.data_kwargs)
 @append_str("\t")
-@append_str(table(default, init=False))
-@append_str(table({"interpolate_kwargs": ["default", "description"]}, bottom=False))
+@append_str(doc.array_table(default, init=False))
+@append_str(
+    doc.array_table({"interpolate_kwargs": ["default", "description"]}, bottom=False)
+)
 def interpolate_kwargs(kwargs):
     """Set default interpolate_kwargs if not set."""
     kwargs = data.data_kwargs(kwargs)

@@ -30,8 +30,10 @@ default = {
 # @doc.insert_str("\tDefault kwargs\n\n\t")
 
 
-@doc.append_str(doc.table(default, init=False))
-@doc.append_str(doc.table({"plot2d_kwargs": ["default", "description"]}, bottom=False))
+@doc.append_str(doc.array_table(default, init=False))
+@doc.append_str(
+    doc.array_table({"plot2d_kwargs": ["default", "description"]}, bottom=False)
+)
 def plot2d_kwargs(kwargs):
     """Set default plot2d_kwargs if not set."""
     for k, v in default.items():

@@ -220,9 +220,9 @@ default = {
 
 @doc.append_doc(ffit.fit_kwargs)
 @doc.append_str("\t")
-@doc.append_str(doc.table(default, init=False))
+@doc.append_str(doc.array_table(default, init=False))
 @doc.append_str(
-    doc.table({"plot_kwargs        ": ["default", "description"]}, bottom=False)
+    doc.array_table({"plot_kwargs        ": ["default", "description"]}, bottom=False)
 )
 @doc.append_str("\n\n")
 def plot_kwargs(kwargs):
@@ -583,7 +583,11 @@ def plt_data(datax, datay, **kwargs):
     else:
         if kwargs["fmt"] is None:
             if kwargs["linestyle"] is None:
-                ll, _, _, = plt.errorbar(
+                (
+                    ll,
+                    _,
+                    _,
+                ) = plt.errorbar(
                     x,
                     y,
                     yerr=yerr,
@@ -594,7 +598,11 @@ def plt_data(datax, datay, **kwargs):
                     color=kwargs["data_color"],
                 )
             else:
-                ll, _, _, = plt.errorbar(
+                (
+                    ll,
+                    _,
+                    _,
+                ) = plt.errorbar(
                     x,
                     y,
                     yerr=yerr,
@@ -631,7 +639,11 @@ def plt_data(datax, datay, **kwargs):
                     color=ll.get_color(),
                 )
         elif kwargs["fmt"] == "hist":
-            ll, _, _, = plt.errorbar(
+            (
+                ll,
+                _,
+                _,
+            ) = plt.errorbar(
                 x,
                 y,
                 yerr=yerr,
@@ -644,7 +656,11 @@ def plt_data(datax, datay, **kwargs):
                 x, y, step="mid", label=kwargs["label"], color=ll.get_color()
             )
         else:
-            ll, _, _, = plt.errorbar(
+            (
+                ll,
+                _,
+                _,
+            ) = plt.errorbar(
                 x,
                 y,
                 yerr=yerr,

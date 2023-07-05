@@ -34,8 +34,10 @@ unv = unp.nominal_values
 usd = unp.std_devs
 
 
-@doc.append_str(doc.table(default, init=False))
-@doc.append_str(doc.table({"data_kwargs": ["default", "description"]}, bottom=False))
+@doc.append_str(doc.array_table(default, init=False))
+@doc.append_str(
+    doc.array_table({"data_kwargs": ["default", "description"]}, bottom=False)
+)
 @doc.append_str("\n\n")
 def data_kwargs(kwargs):
     """Set default :func:`data_kwargs` if not set."""
