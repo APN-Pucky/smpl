@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.2.2-69-gc7d2a9452
+                1.2.2-70-g09c9ca9e1
               </div>
             
           
@@ -203,8 +203,8 @@
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span> <span class="k">as</span> <span class="n">interp</span>
 
 <span class="c1"># from smpl import plot as splot</span>
-<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">data</span>
-<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append_doc</span><span class="p">,</span> <span class="n">append_str</span><span class="p">,</span> <span class="n">table</span>
+<span class="kn">from</span> <span class="nn">smpl</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">doc</span>
+<span class="kn">from</span> <span class="nn">smpl.doc</span> <span class="kn">import</span> <span class="n">append_doc</span><span class="p">,</span> <span class="n">append_str</span>
 
 <span class="n">unv</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">nominal_values</span>
 <span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
@@ -237,8 +237,10 @@
 
 <div class="viewcode-block" id="interpolate_kwargs"><a class="viewcode-back" href="../../_autosummary/smpl.interpolate.interpolate_kwargs.html#smpl.interpolate.interpolate_kwargs">[docs]</a><span class="nd">@append_doc</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">)</span>
 <span class="nd">@append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nd">@append_str</span><span class="p">(</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<span class="nd">@append_str</span><span class="p">(</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;interpolate_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">array_table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@append_str</span><span class="p">(</span>
+    <span class="n">doc</span><span class="o">.</span><span class="n">array_table</span><span class="p">({</span><span class="s2">&quot;interpolate_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
 <span class="k">def</span> <span class="nf">interpolate_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set default interpolate_kwargs if not set.&quot;&quot;&quot;</span>
     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
