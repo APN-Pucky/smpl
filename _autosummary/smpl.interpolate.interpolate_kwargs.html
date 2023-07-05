@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.2.2
+                1.2.4
               </div>
             
           
@@ -229,55 +229,22 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="smpl.interpolate.interpolate_kwargs">
 <span class="sig-prename descclassname"><span class="pre">smpl.interpolate.</span></span><span class="sig-name descname"><span class="pre">interpolate_kwargs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/smpl/interpolate.html#interpolate_kwargs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#smpl.interpolate.interpolate_kwargs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set default interpolate_kwargs if not set.      ==================  ==================  ==================
-interpolate_kwargs  default             description
-==================  ==================  ==================
-interpolator        cubic               Use ‘cubic’ (spline) or ‘linear’ (cf. &lt;<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html#scipy.interpolate.interp1d">https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html#scipy.interpolate.interp1d</a>&gt;).
-order               3                   Spline order.
-pre                 identity            pre interpolation
-post                identity            post interpolation
-interpolate_upper_uncertaintyTrue                Interpolate only using upper uncertainty.
-interpolate_lower_uncertaintyTrue                Interpolate only using lower uncertainty.
-==================  ==================  ==================</p>
-<p>Set default <code class="xref py py-func docutils literal notranslate"><span class="pre">data_kwargs()</span></code> if not set.</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>data_kwargs</p></th>
-<th class="head"><p>default</p></th>
-<th class="head"><p>description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>frange</p></td>
-<td><p>None</p></td>
-<td><p>Limit the fit to given range. First integer is the lowest and second the highest index.</p></td>
-</tr>
-<tr class="row-odd"><td><p>fselector</p></td>
-<td><p>None</p></td>
-<td><p>Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.</p></td>
-</tr>
-<tr class="row-even"><td><p>sortbyx</p></td>
-<td><p>True</p></td>
-<td><p>Enable sorting the x and y data so that x is sorted.</p></td>
-</tr>
-<tr class="row-odd"><td><p>bins</p></td>
-<td><p>0</p></td>
-<td><p>Number of bins for histogram</p></td>
-</tr>
-<tr class="row-even"><td><p>binunc</p></td>
-<td><p>poisson_dist</p></td>
-<td><p>Number of bins for histogram</p></td>
-</tr>
-<tr class="row-odd"><td><p>xerror</p></td>
-<td><p>True</p></td>
-<td><p>enable xerrors</p></td>
-</tr>
-<tr class="row-even"><td><p>yerror</p></td>
-<td><p>True</p></td>
-<td><p>enable yerrors</p></td>
-</tr>
-</tbody>
-</table>
+<dd><dl class="simple">
+<dt>Set default interpolate_kwargs if not set.      ==================== ========= =============</dt><dd><p>interpolate_kwargs   default   description   
+==================== ========= =============</p>
+</dd>
+</dl>
+<blockquote>
+<div><p>frange      None                                        Limit the fit to given range. First integer is the lowest and second the highest index.                                                                                                        
+=========== =========================================== ==============================================================================================================================================================================================
+fselector   None                                        Function that takes <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as parameters and returns an array mask in order to limit the data points for fitting. Alternatively a mask for selecting elements from datax and datay.   
+sortbyx     True                                        Enable sorting the x and y data so that x is sorted.                                                                                                                                           
+bins        0                                           Number of bins for histogram                                                                                                                                                                   
+binunc      &lt;function poisson_dist at 0x7fe85ea18790&gt;   Number of bins for histogram                                                                                                                                                                   
+xerror      True                                        enable xerrors                                                                                                                                                                                 
+yerror      True                                        enable yerrors                                                                                                                                                                                 
+=========== =========================================== ==============================================================================================================================================================================================</p>
+</div></blockquote>
 </dd></dl>
 
 </section>

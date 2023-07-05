@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                1.2.2
+                1.2.4
               </div>
             
           
@@ -241,7 +241,7 @@
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@deprecated</span><span class="p">(</span><span class="s1">&#39;0.0.0&#39;</span><span class="p">,</span><span class="s2">&quot;Old&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@deprecated</span><span class="p">(</span><span class="s1">&#39;0.0.0&#39;</span><span class="p">,</span><span class="n">removed_in</span><span class="o">=</span><span class="s1">&#39;0.2.0&#39;</span><span class="p">)</span>
 <span class="gp">... </span><span class="k">def</span> <span class="nf">ho</span><span class="p">():</span>
 <span class="gp">... </span><span class="w">    </span><span class="sd">&#39;&#39;&#39;Ho&#39;&#39;&#39;</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ho</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>

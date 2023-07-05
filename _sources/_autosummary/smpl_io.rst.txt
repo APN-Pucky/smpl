@@ -28,5 +28,10 @@
    :template: custom-module-template.rst                
    :recursive:
 
+   smpl_io.grep
+   smpl_io.head
    smpl_io.io
+   smpl_io.read_buffer
+   smpl_io.sed
+   smpl_io.tail
 

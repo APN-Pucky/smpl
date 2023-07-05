@@ -1,0 +1,31 @@
+smpl\_io.grep
+=============
+
+.. automodule:: smpl_io.grep
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      grep
+      grepf
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

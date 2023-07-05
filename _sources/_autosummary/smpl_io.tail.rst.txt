@@ -1,0 +1,31 @@
+smpl\_io.tail
+=============
+
+.. automodule:: smpl_io.tail
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      tail
+      tailf
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

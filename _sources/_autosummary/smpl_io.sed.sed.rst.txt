@@ -1,0 +1,6 @@
+smpl\_io.sed.sed
+================
+
+.. currentmodule:: smpl_io.sed
+
+.. autofunction:: sed

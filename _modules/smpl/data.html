@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.2.2
+                1.2.4
               </div>
             
           
@@ -226,8 +226,10 @@
 <span class="n">usd</span> <span class="o">=</span> <span class="n">unp</span><span class="o">.</span><span class="n">std_devs</span>
 
 
-<div class="viewcode-block" id="data_kwargs"><a class="viewcode-back" href="../../_autosummary/smpl.data.data_kwargs.html#smpl.data.data_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;data_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<div class="viewcode-block" id="data_kwargs"><a class="viewcode-back" href="../../_autosummary/smpl.data.data_kwargs.html#smpl.data.data_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">array_table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span>
+    <span class="n">doc</span><span class="o">.</span><span class="n">array_table</span><span class="p">({</span><span class="s2">&quot;data_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">data_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set default :func:`data_kwargs` if not set.&quot;&quot;&quot;</span>
@@ -276,7 +278,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="s2">&quot;fselector&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
         <span class="n">sel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;fselector&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">sel</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">__data_split</span><span class="p">(</span>
                 <span class="n">datax</span><span class="p">[</span><span class="n">sel</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">)],</span> <span class="n">datay</span><span class="p">[</span><span class="n">sel</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">)],</span> <span class="o">**</span><span class="n">kwargs</span>
             <span class="p">)</span>

@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                1.2.2
+                1.2.4
               </div>
             
           
@@ -259,8 +259,10 @@
 
 <div class="viewcode-block" id="fit_kwargs"><a class="viewcode-back" href="../../_autosummary/smpl.fit.fit_kwargs.html#smpl.fit.fit_kwargs">[docs]</a><span class="nd">@doc</span><span class="o">.</span><span class="n">append_doc</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data_kwargs</span><span class="p">)</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">table</span><span class="p">({</span><span class="s2">&quot;fit_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">array_table</span><span class="p">(</span><span class="n">default</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span>
+    <span class="n">doc</span><span class="o">.</span><span class="n">array_table</span><span class="p">({</span><span class="s2">&quot;fit_kwargs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">]},</span> <span class="n">bottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
 <span class="nd">@doc</span><span class="o">.</span><span class="n">append_str</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">fit_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set default :func:`fit_kwargs` if not set.&quot;&quot;&quot;</span>
@@ -296,18 +298,18 @@
     <span class="k">if</span> <span class="n">funcs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">funcs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">functions</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">funcs</span><span class="p">,</span> <span class="n">disable</span><span class="o">=</span><span class="ow">not</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;autotqdm&quot;</span><span class="p">]):</span>
-        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">ff</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="n">datay</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="n">fy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">datax</span><span class="p">,</span> <span class="o">*</span><span class="n">ff</span><span class="p">)</span>
-            <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">LinAlgError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+                <span class="n">sum_sq</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">+</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                    <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">LinAlgError</span><span class="p">,</span> <span class="ne">OverflowError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
                 <span class="n">debug</span><span class="o">.</span><span class="n">msg</span><span class="p">(</span><span class="n">ve</span><span class="p">)</span>
                 <span class="k">continue</span>
-            <span class="n">sum_sq</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">+</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-                <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fy</span> <span class="o">-</span> <span class="n">usd</span><span class="p">(</span><span class="n">fy</span><span class="p">)</span> <span class="o">-</span> <span class="n">datay</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-            <span class="p">)</span>
             <span class="k">if</span> <span class="n">min_sq</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">sum_sq</span> <span class="o">&lt;</span> <span class="n">min_sq</span><span class="p">:</span>
                 <span class="n">min_sq</span> <span class="o">=</span> <span class="n">sum_sq</span>
                 <span class="n">best_f</span> <span class="o">=</span> <span class="n">f</span>
@@ -380,8 +382,9 @@
             <span class="n">tmp_params</span> <span class="o">+=</span> <span class="p">[</span><span class="n">pi</span><span class="p">]</span>
     <span class="n">params</span> <span class="o">=</span> <span class="n">tmp_params</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">wlambda</span> <span class="o">=</span> <span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xvar&quot;</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">_wrapped_func</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_wrapped_func</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">x</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        wrapper for function with fixed parameters applied.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -391,7 +394,7 @@
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ntot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
             <span class="c1"># print(i,&quot; &quot;,j)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">util</span><span class="o">.</span><span class="n">has</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fixed</span><span class="p">):</span>
-                <span class="n">tmp_x</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
+                <span class="n">tmp_x</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]]</span>
                 <span class="c1"># print(x[j])</span>
                 <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="k">else</span><span class="p">:</span>
@@ -399,7 +402,7 @@
 
         <span class="c1"># print(Ntot)</span>
         <span class="c1"># print(tmp_x)</span>
-        <span class="k">return</span> <span class="n">unv</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">get_lambda</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;xvar&quot;</span><span class="p">])(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">*</span><span class="n">tmp_x</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">unv</span><span class="p">(</span><span class="n">wlambda</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">tmp_x</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">_wrapped_func</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">Ntot</span>
 
@@ -488,7 +491,7 @@
 <span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="kn">from</span> <span class="nn">scipy.odr.odrpack</span> <span class="kn">import</span> <span class="n">ODR</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">RealData</span>
+<span class="kn">from</span> <span class="nn">scipy.odr</span> <span class="kn">import</span> <span class="n">ODR</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">RealData</span>
 
 <span class="c1"># fittet ein dataset mit gegebenen x und y werten, eine funktion und ggf. anfangswerten und y-Fehler</span>
 <span class="c1"># gibt die passenden parameter der funktion, sowie dessen unsicherheiten zurueck</span>

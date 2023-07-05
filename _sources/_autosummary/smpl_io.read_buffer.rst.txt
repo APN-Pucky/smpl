@@ -1,0 +1,31 @@
+smpl\_io.read\_buffer
+=====================
+
+.. automodule:: smpl_io.read_buffer
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:                                         
+      :template: custom-class-template.rst               
+   
+      ReadBuffer
+   
+   
+
+   
+   
+   
+
+
+

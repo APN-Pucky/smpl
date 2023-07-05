@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                1.2.2
+                1.2.4
               </div>
             
           
@@ -431,12 +431,28 @@ Chi2 =  6.120448179271703
 <img alt="../../../_images/example_fit_linear_test_linear_17_1.png" src="../../../_images/example_fit_linear_test_linear_17_1.png" />
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ff</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">sigmas</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">lpos</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">fitter</span><span class="o">=</span><span class="n">fit</span><span class="o">.</span><span class="n">Fitter</span><span class="o">.</span><span class="n">SCIPY_ODR</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chi2 = &quot;</span><span class="p">,</span><span class="n">fit</span><span class="o">.</span><span class="n">Chi2</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">line</span><span class="p">,</span><span class="n">ff</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Chi2 =  14.504607009549222
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../_images/example_fit_linear_test_linear_18_1.png" src="../../../_images/example_fit_linear_test_linear_18_1.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">
