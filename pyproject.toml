@@ -7,22 +7,22 @@ readme = "README.md"
 repository = "https://github.com/APN-Pucky/smpl"
 
 [tool.poetry.dependencies]
+python = "^3.8"
 smpl_debug     = "^1.0.5"
 smpl_io        = "^1.0.5"
 smpl_doc       = "^1.0.5"
 smpl_util      = "^1.0.5"
-smpl_parallel      = "^1.0.5"
-python = "^3.8"
-uncertainties="*"
-numpy="*"
-matplotlib="*"
-scipy  = ">=1.7.0"
-sympy= "*"
+smpl_parallel  = "^1.0.5"
+uncertainties = "*"
+numpy = "*"
+matplotlib = "*"
+scipy = ">=1.7.0"
+sympy = "*"
 tqdm = "*"
 pandas = ">=1.0.0"
-deprecation ="*"
+deprecation = "*"
 
-iminuit = {version = "<=2.18.0", optional = true} # StopIteration error in >=2.21.0 ?
+iminuit = {version = "*", optional = true} 
 smpl_animation= {version = "*", optional = true}
 
 [tool.poetry.extras]

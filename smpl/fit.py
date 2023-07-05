@@ -188,8 +188,9 @@ def _wrap_func_and_param(function, **kwargs):
             tmp_params += [pi]
     params = tmp_params
     N = len(params)
+    wlambda = wrap.get_lambda(function, kwargs["xvar"])
 
-    def _wrapped_func(*x):
+    def _wrapped_func(x0, *x):
         """
         wrapper for function with fixed parameters applied.
         """
@@ -199,7 +200,7 @@ def _wrap_func_and_param(function, **kwargs):
         for i in range(1, Ntot + 1):
             # print(i," ",j)
             if not util.has(i, fixed):
-                tmp_x += [x[j]]
+                tmp_x += [x[j - 1]]
                 # print(x[j])
                 j = j + 1
             else:
@@ -207,7 +208,7 @@ def _wrap_func_and_param(function, **kwargs):
 
         # print(Ntot)
         # print(tmp_x)
-        return unv(wrap.get_lambda(function, kwargs["xvar"])(x[0], *tmp_x))
+        return unv(wlambda(x0, *tmp_x))
 
     return _wrapped_func, params, fixed, Ntot
 
