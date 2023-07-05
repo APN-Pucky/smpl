@@ -6,6 +6,7 @@ Uses scipy.curve_fit (no x errors) or scipy.odr (with x errors).
 import enum
 
 import numpy as np
+import scipy
 import uncertainties.unumpy as unp
 from numpy.linalg import LinAlgError
 from tqdm import tqdm
@@ -115,7 +116,13 @@ def auto(datax, datay, funcs=None, **kwargs):
                     + np.sum((fy + usd(fy) - datay) ** 2)
                     + np.sum((fy - usd(fy) - datay) ** 2)
                 )
-            except (ValueError, LinAlgError, OverflowError) as ve:
+            except (
+                ValueError,
+                LinAlgError,
+                OverflowError,
+                scipy.optimize._optimize.OptimizeWarning,
+                RuntimeWarning,
+            ) as ve:
                 debug.msg(ve)
                 continue
             if min_sq is None or sum_sq < min_sq:

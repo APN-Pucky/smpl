@@ -11,7 +11,7 @@ import uncertainties.unumpy as unp
 from matplotlib.pyplot import *
 
 # local imports
-from smpl import doc
+from smpl import debug, doc
 from smpl import fit as ffit
 from smpl import interpolate, io, stat, util, wrap
 
@@ -819,7 +819,10 @@ def save_plot(**kwargs):
     if "logx" in kwargs and kwargs["logx"]:
         plt.gca().set_xscale("log")
     if "tight" in kwargs and kwargs["tight"]:
-        plt.tight_layout()
+        try:
+            plt.tight_layout()
+        except UserWarning as e:
+            debug.msg(e)
     if "lpos" in kwargs and kwargs["lpos"] >= 0:
         if util.has("bbox_to_anchor", kwargs):
             if util.has("ncol", kwargs):

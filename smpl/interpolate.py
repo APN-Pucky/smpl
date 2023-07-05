@@ -144,7 +144,11 @@ def _interpolate(*data, **kwargs):
         elif kwargs["interpolator"] == "linearnd":
             ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
         else:
+            # RuntimeWarning: No more knots can be added because the number of B-spline coefficients already exceeds the number of data points m.
+            # But it works...
+            warnings.filterwarnings("ignore", category=RuntimeWarning)
             ret = interp.interp2d(*data[:-1], datay, kind=kwargs["interpolator"])
+            warnings.filterwarnings("default", category=RuntimeWarning)
     else:
         if kwargs["interpolator"] == "linear":
             ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
