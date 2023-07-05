@@ -1,0 +1,6 @@
+smpl\_io.head.headf
+===================
+
+.. currentmodule:: smpl_io.head
+
+.. autofunction:: headf

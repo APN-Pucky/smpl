@@ -1,0 +1,6 @@
+smpl\_io.grep.grep
+==================
+
+.. currentmodule:: smpl_io.grep
+
+.. autofunction:: grep

@@ -1,0 +1,30 @@
+smpl\_io.sed
+============
+
+.. automodule:: smpl_io.sed
+  
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:                                         
+   
+      sed
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

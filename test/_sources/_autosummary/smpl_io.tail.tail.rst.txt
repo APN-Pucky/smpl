@@ -1,0 +1,6 @@
+smpl\_io.tail.tail
+==================
+
+.. currentmodule:: smpl_io.tail
+
+.. autofunction:: tail

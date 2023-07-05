@@ -1,6 +1,6 @@
-smpl\_io.io.head
+smpl\_io.io.open
 ================
 
 .. currentmodule:: smpl_io.io
 
-.. autofunction:: head
+.. autofunction:: open

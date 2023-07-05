@@ -19,17 +19,15 @@ smpl\_io.io
       find_file
       gf
       glob_re
-      grep
-      head
       import_path
       mkdirs
+      open
       pn
       pr
       pushd
       pwd
       read
       remove
-      tail
       write
    
    
