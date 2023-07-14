@@ -795,7 +795,7 @@ def plt_fit(datax, datay, gfunction, **kwargs):
 
     def fitted(x):
         return func(x, *rfit)
-    
+
     vnames = wrap.get_varnames(gfunction, kwargs["xvar"])
     for v in vnames[1:]: # remove fixed parameters from kwargs
         if v in kwargs:
