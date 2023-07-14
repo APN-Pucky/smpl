@@ -407,28 +407,39 @@ def auto(*adata, funcs=None, **kwargs):
     return fit(function=funcs, *adata, **kwargs)
 
 
-def _function(func, xfit, **kwargs):
-    kargs = {}
-    if util.has("fmt", kwargs):
-        kargs["fmt"] = kwargs["fmt"]
-    if util.has("label", kwargs) and kwargs["label"] != "":
-        kargs["label"] = kwargs["label"]
-    if util.has("function_color", kwargs) and kwargs["function_color"] != "":
-        kargs["color"] = kwargs["function_color"]
-    if util.has("sigmas", kwargs) and kwargs["sigmas"] != "":
-        kargs["sigmas"] = kwargs["sigmas"]
-    if util.has("alpha", kwargs) and kwargs["alpha"] != "":
-        kargs["alpha"] = kwargs["alpha"]
-    __function(func, xfit, **kargs)
+def _function(func, xfit,fmt="-",label=None,function_color=None,sigmas=0.0,alpha=0.4, **kwargs):
+
+    #kargs = {}
+    #if util.has("fmt", kwargs):
+    #    kargs["fmt"] = kwargs["fmt"]
+    #if util.has("label", kwargs) and kwargs["label"] != "":
+    #    kargs["label"] = kwargs["label"]
+    #if util.has("function_color", kwargs) and kwargs["function_color"] != "":
+    #    kargs["color"] = kwargs["function_color"]
+    #if util.has("sigmas", kwargs) and kwargs["sigmas"] != "":
+    #    kargs["sigmas"] = kwargs["sigmas"]
+    #if util.has("alpha", kwargs) and kwargs["alpha"] != "":
+    #    kargs["alpha"] = kwargs["alpha"]
+    #__function(func, xfit,  **kargs)
+
+    if label == "":
+        label = None
+    if function_color == "":
+        function_color = None
+    if sigmas == "":
+        sigmas = 0.0
+    if alpha == "":
+        alpha = 0.4
+    __function(func, xfit, fmt=fmt, label=label,color=function_color,sigmas=sigmas, alpha=alpha, **kwargs)
 
 
-def plt_plt(x, y, fmt, color, label, linestyle):
+def plt_plt(x, y, fmt, color, label, linestyle,**kwargs):
     if linestyle is None and fmt is not None:
-        return plt.plot(x, y, fmt, label=label, color=color)
+        return plt.plot(x, y, fmt, label=label, color=color, **kwargs)
     elif linestyle is not None and fmt is None:
-        return plt.plot(x, y, label=label, color=color, linestyle=linestyle)
+        return plt.plot(x, y, label=label, color=color, linestyle=linestyle,**kwargs)
     elif linestyle is None and fmt is None:
-        return plt.plot(x, y, label=label, color=color)
+        return plt.plot(x, y, label=label, color=color,**kwargs)
 
 
 def __function(
@@ -441,7 +452,17 @@ def __function(
     sigmas=0.0,
     linestyle=None,
     alpha=0.4,
+    **kwargs
 ):
+    # filter unused bad kwargs here to avoid passing them down
+    # TODO it would be better to not pass them down in the first place
+    for key in ["xaxis","yaxis","xvar","xmin","xmax","xlabel","ylabel","bins","binunc","bbox_to_anchor","tight","residue","lpos","interpolate","params","also_fit","init","frange","epsfcn","units","fselector","maxfev","sortbyx","xerror","yerror","fixed_params","autotqdm","fitter",
+                "title","where","save", "prange","ss","also_data", "auto_fit","data_sigmas", "logy", "logx", "data_color", "fit_color", "fit_fmt", "show", "size", "number_format", "selector", "fitinline", "grid", "hist", "stairs", "capsize", "axes",  "xspace",  "extrapolate", "extrapolate_min", "extrapolate_max", "extrapolate_fmt", "extrapolate_hatch",
+                "function_color", "residue_err", "interpolate_fmt", "interpolate_label", "ncol", "steps","interpolator",
+                "next_color",
+                ]:
+        if key in kwargs:
+            del kwargs[key]
     func = gfunc
     x = xlinspace
     l = label
@@ -449,7 +470,7 @@ def __function(
     if isinstance(func(x)[0], uncertainties.UFloat):
         if sigmas > 0:
             (ll,) = plt_plt(
-                x, unv(func(x)), fmt, label=None, color=color, linestyle=linestyle
+                x, unv(func(x)), fmt, label=None, color=color, linestyle=linestyle,**kwargs
             )
             y = func(x)
             plt.fill_between(
@@ -460,13 +481,14 @@ def __function(
                 label=l,
                 color=ll.get_color(),
                 hatch=hatch,
+                **kwargs
             )
         else:
             (ll,) = plt_plt(
-                x, unv(func(x)), fmt, label=l, color=color, linestyle=linestyle
+                x, unv(func(x)), fmt, label=l, color=color, linestyle=linestyle,**kwargs
             )
     else:
-        (ll,) = plt_plt(x, func(x), fmt, label=l, color=color, linestyle=linestyle)
+        (ll,) = plt_plt(x, func(x), fmt, label=l, color=color, linestyle=linestyle,**kwargs)
     return ll
 
 
@@ -697,6 +719,12 @@ def get_fnc_legend(function, rfit, **kwargs):
 def plt_fit_or_interpolate(
     datax, datay, fitted, l=None, c=None, f=None, ls=None, **kwargs
 ):
+    # just filter these kwargs out, so they dont get passed down and are replaced by above args
+    # TODO why not pass label=XXX directly to this?
+    #      -> probably since there are cases where both e.g. color and replace color are needed
+    for key in ['color', 'label', 'fmt', 'linestyle', 'hatch']:
+        if key in kwargs:
+            del kwargs[key]
     if kwargs["prange"] is None:
         x, _, _, _ = ffit.fit_split(datax, datay, **kwargs)
         xfit = kwargs["xspace"](np.min(unv(x)), np.max(unv(x)), kwargs["steps"])
@@ -710,9 +738,8 @@ def plt_fit_or_interpolate(
         kwargs["fit_fmt"] if f is not None and ls is None else f,
         label=l,
         color=kwargs["fit_color"] if c is None else c,
-        sigmas=kwargs["sigmas"],
         linestyle=ls,
-        alpha=kwargs["alpha"],
+        **kwargs
     )
 
     if (
@@ -736,8 +763,7 @@ def plt_fit_or_interpolate(
                 util.get("extrapolate_fmt", kwargs, "--"),
                 color=ll.get_color(),
                 hatch=util.get("extrapolate_hatch", kwargs, r"||"),
-                sigmas=kwargs["sigmas"],
-                alpha=kwargs["alpha"],
+                **kwargs
             )
     return ll.get_color(), xfit, fitted(xfit)
 
@@ -760,7 +786,6 @@ def plt_interpolate(datax, datay, icolor=None, **kwargs):
         *plt_fit_or_interpolate(datax, datay, inter, c=icolor, **kargs, **kwargs),
     )
 
-
 def plt_fit(datax, datay, gfunction, **kwargs):
     """
     Fit and Plot that Fit.
@@ -770,6 +795,11 @@ def plt_fit(datax, datay, gfunction, **kwargs):
 
     def fitted(x):
         return func(x, *rfit)
+    
+    vnames = wrap.get_varnames(gfunction, kwargs["xvar"])
+    for v in vnames[1:]: # remove fixed parameters from kwargs
+        if v in kwargs:
+            del kwargs[v]
 
     l = get_fnc_legend(gfunction, rfit, **kwargs)
     return (rfit, *plt_fit_or_interpolate(datax, datay, fitted, l, **kwargs))
