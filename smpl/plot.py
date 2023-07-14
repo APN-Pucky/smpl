@@ -459,6 +459,7 @@ def __function(
     for key in ["xaxis","yaxis","xvar","xmin","xmax","xlabel","ylabel","bins","binunc","bbox_to_anchor","tight","residue","lpos","interpolate","params","also_fit","init","frange","epsfcn","units","fselector","maxfev","sortbyx","xerror","yerror","fixed_params","autotqdm","fitter",
                 "title","where","save", "prange","ss","also_data", "auto_fit","data_sigmas", "logy", "logx", "data_color", "fit_color", "fit_fmt", "show", "size", "number_format", "selector", "fitinline", "grid", "hist", "stairs", "capsize", "axes",  "xspace",  "extrapolate", "extrapolate_min", "extrapolate_max", "extrapolate_fmt", "extrapolate_hatch",
                 "function_color", "residue_err", "interpolate_fmt", "interpolate_label", "ncol", "steps","interpolator",
+                "next_color",
                 ]:
         if key in kwargs:
             del kwargs[key]
