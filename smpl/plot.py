@@ -442,7 +442,7 @@ def plt_plt(x, y, fmt, color, label, linestyle,**kwargs):
         return plt.plot(x, y, label=label, color=color,**kwargs)
 
 
-def __function( # TODO kwarg
+def __function(
     gfunc,
     xlinspace,
     fmt="-",
@@ -454,6 +454,14 @@ def __function( # TODO kwarg
     alpha=0.4,
     **kwargs
 ):
+    # filter unused bad kwargs here to avoid passing them down
+    # TODO it would be better to not pass them down in the first place
+    for key in ["xaxis","yaxis","xvar","xmin","xmax","xlabel","ylabel","bins","binunc","bbox_to_anchor","tight","residue","lpos","interpolate","params","also_fit","init","frange","epsfcn","units","fselector","maxfev","sortbyx","xerror","yerror","fixed_params","autotqdm","fitter",
+                "title","where","save", "prange","ss","also_data", "auto_fit","data_sigmas", "logy", "logx", "data_color", "fit_color", "fit_fmt", "show", "size", "number_format", "selector", "fitinline", "grid", "hist", "stairs", "capsize", "axes",  "xspace",  "extrapolate", "extrapolate_min", "extrapolate_max", "extrapolate_fmt", "extrapolate_hatch",
+                "function_color", "residue_err", "interpolate_fmt", "interpolate_label", "ncol", "steps","interpolator",
+                ]:
+        if key in kwargs:
+            del kwargs[key]
     func = gfunc
     x = xlinspace
     l = label
@@ -708,12 +716,14 @@ def get_fnc_legend(function, rfit, **kwargs):
 
 
 def plt_fit_or_interpolate(
-    datax, datay, fitted, l=None, c=None, f=None, ls=None,
+    datax, datay, fitted, l=None, c=None, f=None, ls=None, **kwargs
+):
     # just filter these kwargs out, so they dont get passed down and are replaced by above args
     # TODO why not pass label=XXX directly to this?
     #      -> probably since there are cases where both e.g. color and replace color are needed
-    color=None, label=None, fmt=None,linestyle=None,hatch=None, **kwargs
-):
+    for key in ['color', 'label', 'fmt', 'linestyle', 'hatch']:
+        if key in kwargs:
+            del kwargs[key]
     if kwargs["prange"] is None:
         x, _, _, _ = ffit.fit_split(datax, datay, **kwargs)
         xfit = kwargs["xspace"](np.min(unv(x)), np.max(unv(x)), kwargs["steps"])
@@ -775,7 +785,6 @@ def plt_interpolate(datax, datay, icolor=None, **kwargs):
         *plt_fit_or_interpolate(datax, datay, inter, c=icolor, **kargs, **kwargs),
     )
 
-
 def plt_fit(datax, datay, gfunction, **kwargs):
     """
     Fit and Plot that Fit.
@@ -785,6 +794,11 @@ def plt_fit(datax, datay, gfunction, **kwargs):
 
     def fitted(x):
         return func(x, *rfit)
+    
+    vnames = wrap.get_varnames(gfunction, kwargs["xvar"])
+    for v in vnames[1:]: # remove fixed parameters from kwargs
+        if v in kwargs:
+            del kwargs[v]
 
     l = get_fnc_legend(gfunction, rfit, **kwargs)
     return (rfit, *plt_fit_or_interpolate(datax, datay, fitted, l, **kwargs))
