@@ -22,7 +22,7 @@ def test_em():
                 b,
                 xaxis="$N$",
                 yaxis="$\\dot N$",
-                xmin=0,
+                xmin=0.1,
                 xmax=5,
                 init=False,
             )
@@ -39,7 +39,7 @@ def test_em():
                     c,
                     xaxis="$N$",
                     yaxis="$\\dot N$",
-                    xmin=0,
+                    xmin=0.1,
                     xmax=5,
                     init=False,
                 )

@@ -105,10 +105,10 @@ def cube(x, a, b, c, d):
     return a * x**3 + b * x**2 + c * x + d
 
 
-@doc.append_plot(1, 3.3, 0)
+@doc.append_plot(1, 3, 0)
 @doc.insert_latex_eq()
 def order(x, a, k, y):
-    return a * (x) ** k + y
+    return a * x**k + y
 
 
 @doc.append_plot(1, 3.3, 0, xmin=0)

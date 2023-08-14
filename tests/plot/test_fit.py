@@ -15,7 +15,7 @@ def test_fit():
         1,
         xaxis="$N$",
         yaxis="$\\dot N$",
-        xmin=0,
+        xmin=0.1,
         xmax=100,
     )
     plot.show(block=False)

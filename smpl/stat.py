@@ -1,6 +1,7 @@
 """Simplified statistics."""
 import math
 import statistics as stat
+import warnings
 from math import floor, log10
 
 import numpy as np
@@ -313,8 +314,10 @@ def get_domain(
         return 0.0, 0.0
 
     test = np.linspace(fmin, fmax, steps)
-
+    # We might probe the domain with a function that is not defined everywhere
+    warnings.filterwarnings("ignore", category=RuntimeWarning)
     r = unv(f(test))
+    warnings.filterwarnings("default", category=RuntimeWarning)
     mask = np.isfinite(r)
     tr = test[mask]
     if len(tr) > 0:
