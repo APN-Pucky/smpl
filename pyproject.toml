@@ -76,7 +76,6 @@ format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}.{{ distance
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-testpaths = ["tests"]
 addopts = [ "-v" ,"--cov=smpl" ,"--cov-config=.coveragerc" ,"--cov-append" ,"--line-profile" ,"--line-profile-no-print" ,"--cov-report=term " ,"--cov-report=xml" ,"--doctest-modules" ,"--ignore=docs/source/example/animation/render/Animation.py" ,"--ignore=docs/source/example/animation/histogram/histogram.py" ,"--ignore=docs/source/example/animation/interactive/interactive.py" ,"--ignore=docs/source/example/animation/subplots/SubplotAnimation.py" ,"--ignore=docs/source/example/animation/interactive/binomial_gauss_poisson.py" ,"--profile" ,"--profile-svg" ]
 filterwarnings = [
     'ignore: pkg_resources is deprecated as an API:DeprecationWarning'
