@@ -1027,16 +1027,6 @@ files = [
 ]
 
 [[package]]
-name = "future"
-version = "0.18.3"
-description = "Clean single-source support for Python 3 and 2"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-files = [
-    {file = "future-0.18.3.tar.gz", hash = "sha256:34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"},
-]
-
-[[package]]
 name = "gprof2dot"
 version = "2022.7.29"
 description = "Generate a dot graph from the output of several profilers."
@@ -4475,23 +4465,20 @@ files = [
 
 [[package]]
 name = "uncertainties"
-version = "3.1.7"
-description = "Transparent calculations with uncertainties on the quantities involved (aka error propagation); fast calculation of derivatives"
+version = "3.2.0"
+description = "Transparent calculations with uncertainties on the quantities involved (aka error propagation); fast calculation of derivatives')."
 optional = false
-python-versions = "*"
+python-versions = ">=3.8"
 files = [
-    {file = "uncertainties-3.1.7-py2.py3-none-any.whl", hash = "sha256:4040ec64d298215531922a68fa1506dc6b1cb86cd7cca8eca848fcfe0f987151"},
-    {file = "uncertainties-3.1.7.tar.gz", hash = "sha256:80111e0839f239c5b233cb4772017b483a0b7a1573a581b92ab7746a35e6faab"},
+    {file = "uncertainties-3.2.0-py3-none-any.whl", hash = "sha256:aa85dd4fc1078e24d238ca0adb611d97c210e70035c4226a07f6ccb3d252ba26"},
+    {file = "uncertainties-3.2.0.tar.gz", hash = "sha256:eaf567d93e2f16fb03a44c90f6538dd5002abf2865757f5537a353226bfd3e56"},
 ]
 
-[package.dependencies]
-future = "*"
-
 [package.extras]
-all = ["nose", "numpy", "sphinx"]
-docs = ["sphinx"]
-optional = ["numpy"]
-tests = ["nose", "numpy"]
+all = ["uncertainties[arrays,doc,test]"]
+arrays = ["numpy"]
+doc = ["python-docs-theme", "sphinx", "sphinx-copybutton"]
+test = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "uri-template"
