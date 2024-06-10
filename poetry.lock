@@ -4474,13 +4474,13 @@ files = [
 
 [[package]]
 name = "uncertainties"
-version = "3.2.0"
-description = "Transparent calculations with uncertainties on the quantities involved (aka error propagation); fast calculation of derivatives')."
+version = "3.2.1"
+description = "calculations with values with uncertainties, error propagation"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "uncertainties-3.2.0-py3-none-any.whl", hash = "sha256:aa85dd4fc1078e24d238ca0adb611d97c210e70035c4226a07f6ccb3d252ba26"},
-    {file = "uncertainties-3.2.0.tar.gz", hash = "sha256:eaf567d93e2f16fb03a44c90f6538dd5002abf2865757f5537a353226bfd3e56"},
+    {file = "uncertainties-3.2.1-py3-none-any.whl", hash = "sha256:80dea7f0c2fe37c9de6893b2352311b5f332be60060cbd6387f88050f7ec345d"},
+    {file = "uncertainties-3.2.1.tar.gz", hash = "sha256:b05417b58bdef236c20e711fb2fee18e4db7348a92edcec01318b32aab34925e"},
 ]
 
 [package.extras]
