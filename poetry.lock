@@ -4662,21 +4662,21 @@ files = [
 
 [[package]]
 name = "uncertainties"
-version = "3.2.2"
+version = "3.2.3"
 description = "calculations with values with uncertainties, error propagation"
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "uncertainties-3.2.2-py3-none-any.whl", hash = "sha256:fd8543355952f4052786ed4150acaf12e23117bd0f5bd03ea07de466bce646e7"},
-    {file = "uncertainties-3.2.2.tar.gz", hash = "sha256:e62c86fdc64429828229de6ab4e11466f114907e6bd343c077858994cc12e00b"},
+    {file = "uncertainties-3.2.3-py3-none-any.whl", hash = "sha256:313353900d8f88b283c9bad81e7d2b2d3d4bcc330cbace35403faaed7e78890a"},
+    {file = "uncertainties-3.2.3.tar.gz", hash = "sha256:76a5653e686f617a42922d546a239e9efce72e6b35411b7750a1d12dcba03031"},
 ]
 
 [package.extras]
 all = ["uncertainties[arrays,doc,test]"]
 arrays = ["numpy"]
 doc = ["python-docs-theme", "sphinx", "sphinx-copybutton"]
-test = ["pytest", "pytest-cov"]
+test = ["pytest", "pytest_codspeed", "pytest_cov", "scipy"]
 
 [[package]]
 name = "uri-template"
