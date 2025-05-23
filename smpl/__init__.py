@@ -1,7 +1,7 @@
 """A collection of simplified utilities."""
 
-from importlib.metadata import version
+from ._version import version as __version__
 
 package = "smpl"
 
-__version__ = version(package)
+__all__ = ["__version__", "package"]

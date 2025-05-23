@@ -1,78 +1,96 @@
-[tool.poetry]
-name = "smpl"
-version = "0.0.0"
-description = "SiMPLe plotting and fitting"
-authors = ["Alexander Puck Neuwirth <alexander@neuwirth-informatik.de>"]
-readme = "README.md"
-repository = "https://github.com/APN-Pucky/smpl"
-
-[tool.poetry.dependencies]
-python = "^3.8"
-smpl_debug     = "^1.0.5"
-smpl_io        = "^1.0.5"
-smpl_doc       = "^1.0.5"
-smpl_util      = "^1.0.5"
-smpl_parallel  = "^1.0.5"
-uncertainties = "*"
-numpy = "*"
-matplotlib = "*"
-scipy = ">=1.7.0"
-sympy = "*"
-tqdm = "*"
-pandas = ">=1.0.0"
-deprecation = "*"
-
-iminuit = {version = "*", optional = true} 
-smpl_animation= {version = "*", optional = true}
-
-[tool.poetry.extras]
-opt = ["iminuit"]
-
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
-sphinx = "<8.0.0" # https://github.com/readthedocs/sphinx_rtd_theme/issues/1463
-sphinx-rtd-theme = "*"
-sphinxcontrib-napoleon = "*"
-nbsphinx = "*"
-jupyter-sphinx = "*"
-sphinx-autoapi = "*"
-sphinx_autobuild = "*"
-sphinx_math_dollar = "*"
-pandoc = "*"
-numpydoc = "*"
-myst-parser  = "*"
-toml = "*"
-
-[tool.poetry.group.dev]
-optional = true
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = ">=2.20,<4.0"
-pytest = "*"
-pytest-cov =  "*"
-pytest-profiling =  "*"
-pytest-line-profiler-apn = ">=0.1.5"
-#pytest-line-profiler-apn = {path="/home/apn/git/pytest-line-profiler", develop = true}
-ipython =  "*"
-jupyterlab =  "*"
-jupyter = "*"
-poetry-dynamic-versioning = {extras = ["plugin"], version = ">=0.21.1,<1.8.0"}
-
 [build-system]
-requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = [
+  "hatchling",
+  "hatch-vcs",
+]
+build-backend = "hatchling.build"
 
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-style = "pep440"
-dirty = true
-# modified dunami default pattern without v
-pattern = '(?x)(?# ignore whitespace)^((?P<epoch>\d+)!)?(?P<base>\d+(\.\d+)*)(?# v1.2.3 or v1!2000.1.2)([-._]?((?P<stage>[a-zA-Z]+)[-._]?(?P<revision>\d+)?))?(?# b0)(\+(?P<tagged_metadata>.+))?$(?# +linux)'
-strict = true
-format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}.{{ distance }}{% endif %}"
+
+
+[project]
+name = "smpl"
+dynamic = ["version"]
+description = "SiMPLe plotting and fitting"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = []
+authors = [
+  { name = "Alexander Puck Neuwirth", email = "alexander@neuwirth-informatik.de" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = [
+  "smpl_debug >=1.0.5",
+  "smpl_io >=1.0.5",
+  "smpl_doc >=1.0.5",
+  "smpl_util >=1.0.5",
+  "smpl_parallel >=1.0.5",
+  "iminuit",
+  "smpl_animation",
+  "uncertainties",
+  "numpy",
+  "matplotlib",
+  "scipy >=1.7.0",
+  "sympy",
+  "tqdm",
+  "pandas >=1.0.0",
+]
+
+[project.urls]
+Documentation = "https://smpl.readthedocs.io/"
+Issues = "https://github.com/APN-Pucky/smpl/issues"
+Source = "https://github.com/APN-Pucky/smpl"
+
+[tool.hatch.envs.docs]
+dependencies = [
+    "sphinx < 8.0.0",
+    "sphinx-rtd-theme",
+    "sphinxcontrib-napoleon",
+    "nbsphinx",
+    "jupyter-sphinx",
+    "sphinx-autoapi",
+    "sphinx-autobuild",
+    "sphinx-math-dollar",
+    "pandoc",
+    "numpydoc",
+    "myst-parser",
+    "toml",
+]
+
+[tool.hatch.envs.dev]
+dependencies = [
+  "pre-commit >=2.20,<4.0",
+  "pytest",
+  "pytest-cov",
+  "pytest-profiling",
+  "pytest-line-profiler-apn >=0.1.5",
+  # pytest-line-profiler-apn = {path="/home/apn/git/pytest-line-profiler", develop = true}
+  "ipython",
+  "jupyterlab",
+  "jupyter",
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+local_scheme = "no-local-version"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "smpl/_version.py"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
@@ -81,3 +99,56 @@ filterwarnings = [
     'ignore: pkg_resources is deprecated as an API:DeprecationWarning'
 ]
 
+[tool.ruff.lint]
+extend-select = [
+  "B",        # flake8-bugbear
+  "I",        # isort
+  "ARG",      # flake8-unused-arguments
+  "C4",       # flake8-comprehensions
+  "EM",       # flake8-errmsg
+  "ICN",      # flake8-import-conventions
+  "G",        # flake8-logging-format
+  "PGH",      # pygrep-hooks
+  "PIE",      # flake8-pie
+  "PL",       # pylint
+  "PT",       # flake8-pytest-style
+  "RET",      # flake8-return
+  "RUF",      # Ruff-specific
+  "SIM",      # flake8-simplify
+  "UP",       # pyupgrade
+  "YTT",      # flake8-2020
+  "EXE",      # flake8-executable
+  "NPY",      # NumPy specific rules
+  "PD",       # pandas-vet
+  "FURB",     # refurb
+  "PYI",      # flake8-pyi
+]
+ignore = [
+  "PLR09",    # Too many <...>
+  "PLR2004",  # Magic value used in comparison
+  "ISC001",   # Conflicts with formatter
+  "RUF012",   # TODO: mutable class attributes
+  "SIM115",   # TODO: use context manager for opening files
+]
+
+
+[tool.coverage.run]
+source_pkgs = ["smpl", "tests"]
+branch = true
+parallel = true
+relative_files = true
+omit = [
+  "smpl/__about__.py",
+  "./docs/source/conf.py",
+]
+
+[tool.coverage.paths]
+smpl = ["smpl"]
+tests = ["tests", "smpl/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
