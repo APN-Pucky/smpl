@@ -527,10 +527,18 @@ def get_interesting_domain(f, min_ch=1e-6, maxiter=100):
         # min_x,max_x=omin_x,omax_x
     else:
         tmax_x = scipy.optimize.minimize(
-            lambda x: -f(x), 0.0, method="Nelder-Mead", bounds=[(omin_x, omax_x)], options = {"maxiter": maxiter}
+            lambda x: -f(x),
+            0.0,
+            method="Nelder-Mead",
+            bounds=[(omin_x, omax_x)],
+            options={"maxiter": maxiter},
         )
         tmin_x = scipy.optimize.minimize(
-            f, 0.0, method="Nelder-Mead", bounds=[(omin_x, omax_x)], options = {"maxiter": maxiter}
+            f,
+            0.0,
+            method="Nelder-Mead",
+            bounds=[(omin_x, omax_x)],
+            options={"maxiter": maxiter},
         )
         if tmax_x.success:
             tmax_x = tmax_x.x[0]

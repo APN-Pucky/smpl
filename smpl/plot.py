@@ -1,7 +1,5 @@
 """Simplified plotting."""
 
-import itertools
-
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -916,7 +914,7 @@ def init_plot(kwargs):
     if util.has("yaxis", kwargs) and kwargs["yaxis"] != "":
         plt.ylabel(kwargs["yaxis"])
     if util.has("next_color", kwargs) and not kwargs["next_color"]:
-        lines= plt.gca()._get_lines
+        lines = plt.gca()._get_lines
         tmp_color = lines._cycler_items[lines._idx]["color"]
 
         if kwargs["data_color"] is None:

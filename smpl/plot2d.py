@@ -3,9 +3,8 @@ import numpy as np
 from matplotlib import colors
 from matplotlib.image import NonUniformImage
 
-from smpl import doc
+from smpl import doc, util
 from smpl import plot as splot
-from smpl import util
 
 default = {
     "title": [None, "Plot title"],
@@ -38,7 +37,7 @@ default = {
 def plot2d_kwargs(kwargs):
     """Set default plot2d_kwargs if not set."""
     for k, v in default.items():
-        if not k in kwargs:
+        if k not in kwargs:
             kwargs[k] = v[0]
     return kwargs
 
@@ -126,7 +125,7 @@ def map_vplot(
     sort=True,
     fill_missing=True,
     zscale=1.0,
-    **kwargs
+    **kwargs,
 ):
     """ """
     vx = np.copy(tvx)
@@ -197,7 +196,7 @@ def scatter_vplot(
     sort=True,
     fill_missing=True,
     zscale=1.0,
-    **kwargs
+    **kwargs,
 ):
     if sort:
         vx, vy, vz = sort_xyz(vx, vy, vz)
