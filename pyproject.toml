@@ -54,24 +54,23 @@ Documentation = "https://smpl.readthedocs.io/"
 Issues = "https://github.com/APN-Pucky/smpl/issues"
 Source = "https://github.com/APN-Pucky/smpl"
 
-[tool.hatch.envs.doc]
-dependencies = [
-    "sphinx < 8.0.0",
-    "sphinx-rtd-theme",
-    "sphinxcontrib-napoleon",
-    "nbsphinx",
-    "jupyter-sphinx",
-    "sphinx-autoapi",
-    "sphinx-autobuild",
-    "sphinx-math-dollar",
-    "pandoc",
-    "numpydoc",
-    "myst-parser",
-    "toml",
+[project.optional-dependencies]
+doc = [
+  "sphinx < 8.0.0",
+  "sphinx-rtd-theme",
+  "sphinxcontrib-napoleon",
+  "nbsphinx",
+  "jupyter-sphinx",
+  "sphinx-autoapi",
+  "sphinx-autobuild",
+  "sphinx-math-dollar",
+  "pandoc",
+  "numpydoc",
+  "myst-parser",
+  "toml",
 ]
 
-[tool.hatch.envs.dev]
-dependencies = [
+dev = [
   "pre-commit >=2.20,<4.0",
   "pytest",
   "pytest-cov",
@@ -82,6 +81,13 @@ dependencies = [
   "jupyterlab",
   "jupyter",
 ]
+
+[tool.hatch.envs.doc]
+feature = ["doc"]
+
+[tool.hatch.envs.dev]
+feature = ["dev"]
+
 
 [tool.hatch.version]
 source = "vcs"
