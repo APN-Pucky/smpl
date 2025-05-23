@@ -46,17 +46,6 @@
 
    GitHub <https://github.com/APN-Pucky/smpl>
 
-.. toctree::
-   :glob:
-   :hidden:
-   :caption: Versions:
-   :maxdepth: 3
-
-   RTD <https://smpl.readthedocs.io/en/stable/>
-   Stable <https://apn-pucky.github.io/smpl/>
-   Dev <https://apn-pucky.github.io/smpl/test/>
-
-
 
 
 Indices and tables
