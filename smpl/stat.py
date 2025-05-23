@@ -56,7 +56,7 @@ def central_diff_weights(Np, ndiv=1):
     >>> Np = 3 # point number for central derivative
     >>> weights = central_diff_weights(Np) # weights for first derivative
     >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
-    >>> sum(w * v for (w, v) in zip(weights, vals))/h
+    >>> float(sum(w * v for (w, v) in zip(weights, vals))/h)
     11.79999999999998
 
     This value is close to the analytical solution:
@@ -115,7 +115,7 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
     --------
     >>> def f(x):
     ...     return x**3 + x**2
-    >>> derivative(f, 1.0, dx=1e-6)
+    >>> float(derivative(f, 1.0, dx=1e-6))
     4.9999999999...
 
     """
@@ -517,7 +517,7 @@ def is_monotone(f, tmin=None, tmax=None, steps=1000):
     if tmax is None and tmin is None:
         tmin, tmax = get_domain(f)
     test = np.linspace(tmin, tmax, steps)
-    return np.all(f(test[1:]) >= f(test[:-1]))
+    return bool(np.all(f(test[1:]) >= f(test[:-1])))
 
 
 def get_interesting_domain(f, min_ch=1e-6):
@@ -562,4 +562,4 @@ def get_interesting_domain(f, min_ch=1e-6):
         if np.isclose(min_x, max_x):
             min_x, max_x = trim_domain(f, omin_x, omax_x, min_ch=min_ch)
 
-    return min_x, max_x
+    return float(min_x), float(max_x)

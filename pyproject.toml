@@ -74,6 +74,7 @@ dev = [
   "pre-commit >=2.20,<4.0",
   "pytest",
   "pytest-cov",
+  "nbval",
   "pytest-profiling",
   "pytest-line-profiler-apn >=0.1.5",
   # pytest-line-profiler-apn = {path="/home/apn/git/pytest-line-profiler", develop = true}
@@ -98,12 +99,6 @@ local_scheme = "no-local-version"
 [tool.hatch.build.hooks.vcs]
 version-file = "smpl/_version.py"
 
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = [ "-v" ,"--cov=smpl" ,"--cov-config=.coveragerc" ,"--cov-append" ,"--line-profile" ,"--line-profile-no-print" ,"--cov-report=term" ,"--cov-report=xml" ,"--doctest-modules" ,"--ignore=docs/source/example/animation/render/Animation.py" ,"--ignore=docs/source/example/animation/histogram/histogram.py" ,"--ignore=docs/source/example/animation/interactive/interactive.py" ,"--ignore=docs/source/example/animation/subplots/SubplotAnimation.py" ,"--ignore=docs/source/example/animation/interactive/binomial_gauss_poisson.py" ,"--profile" ,"--profile-svg" ]
-filterwarnings = [
-    'ignore: pkg_resources is deprecated as an API:DeprecationWarning'
-]
 
 [tool.ruff.lint]
 extend-select = [
@@ -138,23 +133,16 @@ ignore = [
 ]
 
 
-[tool.coverage.run]
-source_pkgs = ["smpl", "tests"]
-branch = true
-parallel = true
-relative_files = true
-omit = [
-  "smpl/__about__.py",
-  "./docs/source/conf.py",
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = [ "-v" ,"--cov=smpl" ,"--cov-append","--cov-report=term" ,"--cov-report=xml" ,"--doctest-modules" ,"--nbval-lax", "--ignore=./docs/source/conf.py", "--ignore=./debug/"]
+filterwarnings = [
+    'ignore: pkg_resources is deprecated as an API:DeprecationWarning'
 ]
 
-[tool.coverage.paths]
-smpl = ["smpl"]
-tests = ["tests", "smpl/tests"]
-
-[tool.coverage.report]
-exclude_lines = [
-  "no cov",
-  "if __name__ == .__main__.:",
-  "if TYPE_CHECKING:",
+[tool.coverage.run]
+relative_files = true
+omit = [
+  "./docs/",
+  "./docs/source/conf.py",
 ]
