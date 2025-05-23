@@ -916,9 +916,9 @@ def init_plot(kwargs):
     if util.has("yaxis", kwargs) and kwargs["yaxis"] != "":
         plt.ylabel(kwargs["yaxis"])
     if util.has("next_color", kwargs) and not kwargs["next_color"]:
-        it1, it2 = itertools.tee(iter(plt.gca()._get_lines.prop_cycler))
-        plt.gca()._get_lines.prop_cycler = it2
-        tmp_color = next(it1)["color"]
+        lines= plt.gca()._get_lines
+        tmp_color = lines._cycler_items[lines._idx]["color"]
+
         if kwargs["data_color"] is None:
             kwargs["data_color"] = tmp_color
         if kwargs["fit_color"] is None:

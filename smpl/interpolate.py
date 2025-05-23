@@ -9,6 +9,7 @@ import numpy as np
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from scipy import interpolate as interp
+from scipy.interpolate import bisplrep, bisplev
 
 # from smpl import plot as splot
 from smpl import data, doc
@@ -16,6 +17,24 @@ from smpl.doc import append_doc, append_str
 
 unv = unp.nominal_values
 usd = unp.std_devs
+
+# mimick removed interp2d from scipy
+# https://scipy.github.io/devdocs/tutorial/interpolate/interp_transition_guide.html
+def interp_interp2d(xxr, yyr, zzr, kind="linear"):
+    kx = 1
+    ky = 1
+    if kind == "linear":
+        kx = 1
+        ky = 1
+    elif kind == "cubic":
+        kx = 3
+        ky = 3
+    else:
+        raise ValueError("kind must be 'linear' or 'cubic'")
+    tck = bisplrep(xxr, yyr, zzr, kx=kx, ky=ky)
+    return lambda x, y: bisplev(x, y, tck).T
+    
+
 
 
 def identity(x):
@@ -144,7 +163,7 @@ def _interpolate(*data, **kwargs):
         elif kwargs["interpolator"] == "linearnd":
             ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
         else:
-            ret = interp.interp2d(*data[:-1], datay, kind=kwargs["interpolator"])
+            ret = interp_interp2d(*data[:-1], datay, kind=kwargs["interpolator"])
     else:
         if kwargs["interpolator"] == "linear":
             ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)

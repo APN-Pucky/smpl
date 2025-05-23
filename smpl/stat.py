@@ -386,7 +386,7 @@ def trim_domain(
     fmax=np.finfo(np.float32).max / 2,
     steps=10000,
     min_ch=0.0001,
-    recursion_limit=100,
+    recursion_limit=10,
 ):
     """
     Get the domain of the function ``f`` with the ranges removed where the derivative of ``f`` is below ``min_ch``.
@@ -510,7 +510,7 @@ def is_monotone(f, tmin=None, tmax=None, steps=1000):
     return bool(np.all(f(test[1:]) >= f(test[:-1])))
 
 
-def get_interesting_domain(f, min_ch=1e-6):
+def get_interesting_domain(f, min_ch=1e-6, maxiter=100):
     """
     Return interesting xmin and xmax of function ``f``.
 
@@ -527,10 +527,10 @@ def get_interesting_domain(f, min_ch=1e-6):
         # min_x,max_x=omin_x,omax_x
     else:
         tmax_x = scipy.optimize.minimize(
-            lambda x: -f(x), 0.0, method="Nelder-Mead", bounds=[(omin_x, omax_x)]
+            lambda x: -f(x), 0.0, method="Nelder-Mead", bounds=[(omin_x, omax_x)], options = {"maxiter": maxiter}
         )
         tmin_x = scipy.optimize.minimize(
-            f, 0.0, method="Nelder-Mead", bounds=[(omin_x, omax_x)]
+            f, 0.0, method="Nelder-Mead", bounds=[(omin_x, omax_x)], options = {"maxiter": maxiter}
         )
         if tmax_x.success:
             tmax_x = tmax_x.x[0]

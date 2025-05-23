@@ -137,7 +137,8 @@ ignore = [
 minversion = "6.0"
 addopts = [ "-v" ,"--cov=smpl" ,"--cov-append","--cov-report=term" ,"--cov-report=xml" ,"--doctest-modules" ,"--nbval-lax", "--ignore=./docs/source/conf.py", "--ignore=./debug/"]
 filterwarnings = [
-    'ignore: pkg_resources is deprecated as an API:DeprecationWarning'
+    'ignore: pkg_resources is deprecated as an API:DeprecationWarning',
+    'ignore:RuntimeWarning',
 ]
 
 [tool.coverage.run]

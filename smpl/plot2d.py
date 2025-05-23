@@ -8,6 +8,7 @@ from smpl import plot as splot
 from smpl import util
 
 default = {
+    "title": [None, "Plot title"],
     "xaxis": [None, "."],
     "yaxis": [None, "."],
     "zaxis": [None, "."],
@@ -60,6 +61,8 @@ def plot2d(datax, datay, dataz, **kwargs):
         map_vplot(datax, datay, dataz, **kwargs)
     elif kwargs["style"] == "scatter":
         scatter_vplot(datax, datay, dataz, **kwargs)
+    if "title" in kwargs and kwargs["title"] is not None:
+        plt.title(kwargs["title"])
 
 
 def sort_xyz(x, y, z):
