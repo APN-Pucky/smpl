@@ -83,10 +83,10 @@ dev = [
 ]
 
 [tool.hatch.envs.doc]
-feature = ["doc"]
+features = ["doc"]
 
 [tool.hatch.envs.dev]
-feature = ["dev"]
+features = ["dev"]
 
 
 [tool.hatch.version]
