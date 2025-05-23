@@ -37,13 +37,6 @@
    smpl_io
    smpl_parallel
 
-.. toctree::
-   :glob:
-   :maxdepth: 3  
-   :caption: Profiling:
-
-   performance/*
-
 
 .. toctree::
    :glob:

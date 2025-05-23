@@ -74,9 +74,6 @@ dev = [
   "pytest",
   "pytest-cov",
   "nbval",
-  "pytest-profiling",
-  "pytest-line-profiler-apn >=0.1.5",
-  # pytest-line-profiler-apn = {path="/home/apn/git/pytest-line-profiler", develop = true}
   "ipython",
   "jupyterlab",
   "jupyter",
