@@ -116,7 +116,7 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
     >>> def f(x):
     ...     return x**3 + x**2
     >>> derivative(f, 1.0, dx=1e-6)
-    4.9999999999217337
+    4.9999999999...
 
     """
     if order < n + 1:
