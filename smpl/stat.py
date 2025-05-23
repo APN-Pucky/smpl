@@ -54,7 +54,7 @@ def central_diff_weights(Np, ndiv=1):
     >>> x = 3.0 # derivative point
     >>> h = 0.1 # differential step
     >>> Np = 3 # point number for central derivative
-    >>> weights = _central_diff_weights(Np) # weights for first derivative
+    >>> weights = central_diff_weights(Np) # weights for first derivative
     >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
     >>> sum(w * v for (w, v) in zip(weights, vals))/h
     11.79999999999998
@@ -115,7 +115,7 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
     --------
     >>> def f(x):
     ...     return x**3 + x**2
-    >>> _derivative(f, 1.0, dx=1e-6)
+    >>> derivative(f, 1.0, dx=1e-6)
     4.9999999999217337
 
     """
