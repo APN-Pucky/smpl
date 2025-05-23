@@ -38,6 +38,7 @@ dependencies = [
   "smpl_util >=1.0.5",
   "smpl_parallel >=1.0.5",
   "smpl_animation",
+  "smplr",
   "iminuit",
   "uncertainties",
   "numpy",
