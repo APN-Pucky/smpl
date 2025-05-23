@@ -40,8 +40,8 @@ pip install --index-url https://test.pypi.org/simple/ smpl
 
 [a s image]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml/badge.svg
 [a s link]: https://github.com/APN-Pucky/smpl/actions/workflows/stable.yml
-[a t link]: https://github.com/APN-Pucky/smpl/actions/workflows/test.yml
-[a t image]: https://github.com/APN-Pucky/smpl/actions/workflows/test.yml/badge.svg
+[a t link]: https://github.com/APN-Pucky/smpl/actions/workflows/ci.yml
+[a t image]: https://github.com/APN-Pucky/smpl/actions/workflows/ci.yml/badge.svg
 
 [cc s q i]: https://app.codacy.com/project/badge/Grade/38630d0063814027bd4d0ffaa73790a2?branch=stable
 [cc s q l]: https://www.codacy.com/gh/APN-Pucky/smpl/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=APN-Pucky/smpl&amp;utm_campaign=Badge_Grade?branch=stable
