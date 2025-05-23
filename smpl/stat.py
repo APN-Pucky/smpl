@@ -1,4 +1,5 @@
 """Simplified statistics."""
+
 import math
 import statistics as stat
 from math import floor, log10
@@ -8,10 +9,10 @@ import pandas as pd
 import scipy
 import uncertainties as unc
 import uncertainties.unumpy as unp
+from numpy import arange, array, hstack, newaxis, prod
+from scipy import linalg
 from scipy.fft import fft as sfft
 from scipy.fft import fftfreq, fftshift
-from numpy import arange, newaxis, hstack, prod, array
-from scipy import linalg
 
 from smpl import doc
 
@@ -68,9 +69,7 @@ def central_diff_weights(Np, ndiv=1):
 
     """
     if Np < ndiv + 1:
-        raise ValueError(
-            "Number of points must be at least the derivative order + 1."
-        )
+        raise ValueError("Number of points must be at least the derivative order + 1.")
     if Np % 2 == 0:
         raise ValueError("The number of points must be odd.")
 
@@ -126,8 +125,7 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
         )
     if order % 2 == 0:
         raise ValueError(
-            "'order' (the number of points used to compute the derivative) "
-            "must be odd."
+            "'order' (the number of points used to compute the derivative) must be odd."
         )
     # pre-computed for n=1 and 2 and low-order for speed.
     if n == 1:
@@ -150,8 +148,7 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
             weights = array([2, -27, 270, -490, 270, -27, 2]) / 180.0
         elif order == 9:
             weights = (
-                array([-9, 128, -1008, 8064, -14350, 8064, -1008, 128, -9])
-                / 5040.0
+                array([-9, 128, -1008, 8064, -14350, 8064, -1008, 128, -9]) / 5040.0
             )
         else:
             weights = central_diff_weights(order, 2)
@@ -162,7 +159,6 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
     for k in range(order):
         val += weights[k] * func(x0 + (k - ho) * dx, *args)
     return val / prod((dx,) * n, axis=0)
-
 
 
 def round_sig(x, sig=2):
@@ -438,12 +434,9 @@ def trim_domain(
                 )
                 if np.isclose(t3a, t3b):
                     return 0.0, 0.0
-                else:
-                    return t3a, t3b
-            else:
-                return t2a, t2b
-        else:
-            return t1a, t1b
+                return t3a, t3b
+            return t2a, t2b
+        return t1a, t1b
     return xmin, xmax
 
 
@@ -481,12 +474,9 @@ def get_domain(
             t3a, t3b = get_domain(f, tmin, tmax - (tmax - tmin) / 3)
             if np.isclose(t3a, t3b):
                 return 0.0, 0.0
-            else:
-                return t3a, t3b
-        else:
-            return t2a, t2b
-    else:
-        return t1a, t1b
+            return t3a, t3b
+        return t2a, t2b
+    return t1a, t1b
 
 
 def is_monotone(f, tmin=None, tmax=None, steps=1000):
