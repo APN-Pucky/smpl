@@ -9,7 +9,7 @@ jobs:
     build:
       runs-on: ubuntu-latest
       container:
-        image: apnpucky/ubuntu-poetry
+        image: apnpucky/ubuntu-hatch
       steps:
         - uses: APN-Pucky/make-python-action@main
           with:
