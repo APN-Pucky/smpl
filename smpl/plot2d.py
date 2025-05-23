@@ -1,5 +1,8 @@
+import warnings
+
 import matplotlib.pyplot as plt
 import numpy as np
+import smplr
 from matplotlib import colors
 from matplotlib.image import NonUniformImage
 
@@ -8,9 +11,9 @@ from smpl import plot as splot
 
 default = {
     "title": [None, "Plot title"],
-    "xaxis": [None, "."],
-    "yaxis": [None, "."],
-    "zaxis": [None, "."],
+    "xlabel": [None, "."],
+    "ylabel": [None, "."],
+    "zlabel": [None, "."],
     "logz": [True, "Colorbar in logarithmic scale."],
     "style": [
         "pcolormesh",
@@ -52,6 +55,16 @@ def plot2d(datax, datay, dataz, **kwargs):
         see :func:`plot2d_kwargs`.
     """
     kwargs = plot2d_kwargs(kwargs)
+    if "xaxis" in kwargs and not kwargs["xlabel"]:
+        warnings.warn("xaxis is deprecated. Use xlabel instead.", DeprecationWarning, 2)
+        kwargs["xlabel"] = kwargs["xaxis"]
+    if "yaxis" in kwargs and not kwargs["ylabel"]:
+        warnings.warn("yaxis is deprecated. Use ylabel instead.", DeprecationWarning, 2)
+        kwargs["ylabel"] = kwargs["yaxis"]
+    if "zaxis" in kwargs and not kwargs["zlabel"]:
+        warnings.warn("zaxis is deprecated. Use zlabel instead.", DeprecationWarning, 2)
+        kwargs["zlabel"] = kwargs["zaxis"]
+
     if util.has("axes", kwargs) and kwargs["axes"] is not None:
         plt.sca(kwargs["axes"])
     if kwargs["style"] == "pcolormesh":
@@ -60,8 +73,6 @@ def plot2d(datax, datay, dataz, **kwargs):
         map_vplot(datax, datay, dataz, **kwargs)
     elif kwargs["style"] == "scatter":
         scatter_vplot(datax, datay, dataz, **kwargs)
-    if "title" in kwargs and kwargs["title"] is not None:
-        plt.title(kwargs["title"])
 
 
 def sort_xyz(x, y, z):
@@ -77,7 +88,15 @@ def sort_xyz(x, y, z):
 
 
 def pcolormesh_vplot(
-    tvx, tvy, tvz, xaxis=None, yaxis=None, zaxis=None, logz=True, zscale=1.0, **kwargs
+    tvx,
+    tvy,
+    tvz,
+    xlabel=None,
+    ylabel=None,
+    zlabel=None,
+    logz=True,
+    zscale=1.0,
+    **kwargs,
 ):
     """
     Advantage over matplotlibs pcolor(mesh) is that does not require a meshgrid. Instead it uses the data points directly in three lists.
@@ -109,18 +128,17 @@ def pcolormesh_vplot(
     # ax.set_ylim(yl, ym)
 
     cb = plt.colorbar()
-    cb.set_label(zaxis)
-    plt.xlabel(xaxis)
-    plt.ylabel(yaxis)
+    cb.set_label(zlabel)
+    smplr.style_plot2d(xlabel=xlabel, ylabel=ylabel, **kwargs)
 
 
 def map_vplot(
     tvx,
     tvy,
     tvz,
-    xaxis=None,
-    yaxis=None,
-    zaxis=None,
+    xlabel=None,
+    ylabel=None,
+    zlabel=None,
     logz=True,
     sort=True,
     fill_missing=True,
@@ -154,7 +172,7 @@ def map_vplot(
             print("error too small map")
             return
         # x, y = y, x
-        xaxis, yaxis = yaxis, xaxis
+        xlabel, ylabel = ylabel, xlabel
         vx, vy = vy, vx
 
     grid = splot.unv(vz).reshape((int(np.rint(np.size(vx) / s)), s)) * zscale
@@ -180,22 +198,19 @@ def map_vplot(
     ax.set_ylim(yl, ym)
 
     cb = plt.colorbar(im)
-    cb.set_label(zaxis)
-    plt.xlabel(xaxis)
-    plt.ylabel(yaxis)
+    cb.set_label(zlabel)
+    smplr.style_plot2d(xlabel=xlabel, ylabel=ylabel, **kwargs)
 
 
 def scatter_vplot(
     vx,
     vy,
     vz,
-    xaxis=None,
-    yaxis=None,
-    zaxis=None,
+    xlabel=None,
+    ylabel=None,
+    zlabel=None,
     logz=True,
     sort=True,
-    fill_missing=True,
-    zscale=1.0,
     **kwargs,
 ):
     if sort:
@@ -232,6 +247,5 @@ def scatter_vplot(
     ax.set_ylim(yl, ym)
 
     cb = plt.colorbar(s)
-    cb.set_label(zaxis)
-    plt.xlabel(xaxis)
-    plt.ylabel(yaxis)
+    cb.set_label(zlabel)
+    smplr.style_plot2d(xlabel=xlabel, ylabel=ylabel, **kwargs)

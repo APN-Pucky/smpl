@@ -3,6 +3,7 @@
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+import smplr
 import sympy
 import uncertainties
 import uncertainties.unumpy as unp
@@ -905,14 +906,6 @@ def init_plot(kwargs):
             fig = plt.figure(figsize=kwargs["size"])
         if kwargs["residue"]:
             fig.add_axes((0.1, 0.3, 0.8, 0.6))
-    if util.has("xlabel", kwargs) and kwargs["xlabel"] != "":
-        plt.xlabel(kwargs["xlabel"])
-    if util.has("ylabel", kwargs) and kwargs["ylabel"] != "":
-        plt.ylabel(kwargs["ylabel"])
-    if util.has("xaxis", kwargs) and kwargs["xaxis"] != "":
-        plt.xlabel(kwargs["xaxis"])
-    if util.has("yaxis", kwargs) and kwargs["yaxis"] != "":
-        plt.ylabel(kwargs["yaxis"])
     if util.has("next_color", kwargs) and not kwargs["next_color"]:
         lines = plt.gca()._get_lines
         tmp_color = lines._cycler_items[lines._idx]["color"]
@@ -930,14 +923,7 @@ def save_plot(**kwargs):
     """
     save plot
     """
-    if "title" in kwargs and kwargs["title"] is not None:
-        plt.title(kwargs["title"])
-    if kwargs.get("logy"):
-        plt.gca().set_yscale("log")
-    if kwargs.get("logx"):
-        plt.gca().set_xscale("log")
-    if kwargs.get("tight"):
-        plt.tight_layout()
+    smplr.style_plot1d(kwargs)
     if "lpos" in kwargs and kwargs["lpos"] >= 0:
         if util.has("bbox_to_anchor", kwargs):
             if util.has("ncol", kwargs):
@@ -951,12 +937,9 @@ def save_plot(**kwargs):
                 plt.legend(loc=kwargs["lpos"], bbox_to_anchor=kwargs["bbox_to_anchor"])
         else:
             plt.legend(loc=kwargs["lpos"])
-    # plt.gca().set_xlim([kwargs['xmin'],kwargs['xmax']])
-    # plt.gca().set_ylim([kwargs['ymin'],kwargs['ymax']])
     if "save" in kwargs and kwargs["save"] is not None:
         io.mkdirs(kwargs["save"])
         plt.savefig(kwargs["save"] + ".pdf")
-    plt.grid(kwargs["grid"])
     if kwargs.get("show"):
         show(**kwargs)
 
@@ -964,7 +947,7 @@ def save_plot(**kwargs):
 def show(**kwargs):
     kwargs = plot_kwargs(kwargs)
 
-    plt.grid(kwargs["grid"])
+    smplr.style_plot1d(kwargs)
     plt.show()
 
 
