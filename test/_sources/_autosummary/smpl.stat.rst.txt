@@ -17,7 +17,9 @@ smpl.stat
       Chi2
       R2
       average_deviation
+      central_diff_weights
       chi2
+      derivative
       fft
       get_domain
       get_interesting_domain

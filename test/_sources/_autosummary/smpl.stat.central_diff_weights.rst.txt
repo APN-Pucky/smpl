@@ -1,0 +1,6 @@
+smpl.stat.central\_diff\_weights
+================================
+
+.. currentmodule:: smpl.stat
+
+.. autofunction:: central_diff_weights
