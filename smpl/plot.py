@@ -3,13 +3,13 @@
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+import smplr
 import sympy
 import uncertainties
 import uncertainties.unumpy as unp
 from matplotlib import pylab
 from matplotlib.pyplot import *
 
-import smplr
 # local imports
 from smpl import doc, interpolate, io, stat, util, wrap
 from smpl import fit as ffit
@@ -906,14 +906,6 @@ def init_plot(kwargs):
             fig = plt.figure(figsize=kwargs["size"])
         if kwargs["residue"]:
             fig.add_axes((0.1, 0.3, 0.8, 0.6))
-    if util.has("xlabel", kwargs) and kwargs["xlabel"] != "":
-        plt.xlabel(kwargs["xlabel"])
-    if util.has("ylabel", kwargs) and kwargs["ylabel"] != "":
-        plt.ylabel(kwargs["ylabel"])
-    if util.has("xaxis", kwargs) and kwargs["xaxis"] != "":
-        plt.xlabel(kwargs["xaxis"])
-    if util.has("yaxis", kwargs) and kwargs["yaxis"] != "":
-        plt.ylabel(kwargs["yaxis"])
     if util.has("next_color", kwargs) and not kwargs["next_color"]:
         lines = plt.gca()._get_lines
         tmp_color = lines._cycler_items[lines._idx]["color"]
