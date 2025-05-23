@@ -3,12 +3,14 @@ Simplified Interpolating.
 
 Uses scipy.interpolate.
 """
+
 import warnings
 
 import numpy as np
 import uncertainties as unc
 import uncertainties.unumpy as unp
 from scipy import interpolate as interp
+from scipy.interpolate import bisplev, bisplrep
 
 # from smpl import plot as splot
 from smpl import data, doc
@@ -16,6 +18,23 @@ from smpl.doc import append_doc, append_str
 
 unv = unp.nominal_values
 usd = unp.std_devs
+
+
+# mimick removed interp2d from scipy
+# https://scipy.github.io/devdocs/tutorial/interpolate/interp_transition_guide.html
+def interp_interp2d(xxr, yyr, zzr, kind="linear"):
+    kx = 1
+    ky = 1
+    if kind == "linear":
+        kx = 1
+        ky = 1
+    elif kind == "cubic":
+        kx = 3
+        ky = 3
+    else:
+        raise ValueError("kind must be 'linear' or 'cubic'")
+    tck = bisplrep(xxr, yyr, zzr, kx=kx, ky=ky)
+    return lambda x, y: bisplev(x, y, tck).T
 
 
 def identity(x):
@@ -53,7 +72,7 @@ def interpolate_kwargs(kwargs):
     """Set default interpolate_kwargs if not set."""
     kwargs = data.data_kwargs(kwargs)
     for k, v in default.items():
-        if not k in kwargs:
+        if k not in kwargs:
             kwargs[k] = v[0]
     return kwargs
 
@@ -81,43 +100,40 @@ def interpolate(*data, **kwargs):
     if dy is None:
         spl_center = _interpolate(*data[:-1], (y), **kwargs)
         ret = np.vectorize(spl_center, otypes=["float"])
+    elif (
+        kwargs["interpolate_upper_uncertainty"]
+        and kwargs["interpolate_lower_uncertainty"]
+    ):
+        spl_up = _interpolate(*data[:-1], (y + dy), **kwargs)
+        spl_down = _interpolate(*data[:-1], (y - dy), **kwargs)
+        ret = np.vectorize(
+            lambda *a: unc.ufloat(
+                spl_up(*a) / 2 + spl_down(*a) / 2,
+                np.abs(spl_up(*a) - spl_down(*a)) / 2,
+            ),
+            otypes=["object"],
+        )  # symmetrized error...
+        # return np.vectorize(Bounds(spl_up, spl_down), otypes=["object"])
+    elif not kwargs["interpolate_lower_uncertainty"]:
+        spl_center = _interpolate(*data[:-1], (y), **kwargs)
+        spl_up = _interpolate(*data[:-1], (y + dy), **kwargs)
+        ret = np.vectorize(
+            lambda *a: unc.ufloat(spl_center(*a), np.abs(spl_up(*a) - spl_center(*a))),
+            otypes=["object"],
+        )  # symmetrized error...
+    elif not kwargs["interpolate_upper_uncertainty"]:
+        spl_center = _interpolate(*data[:-1], (y), **kwargs)
+        spl_down = _interpolate(*data[:-1], (y - dy), **kwargs)
+        ret = np.vectorize(
+            lambda *a: unc.ufloat(
+                spl_center(*a), np.abs(spl_down(*a) - spl_center(*a))
+            ),
+            otypes=["object"],
+        )  # symmetrized error...
     else:
-        if (
-            kwargs["interpolate_upper_uncertainty"]
-            and kwargs["interpolate_lower_uncertainty"]
-        ):
-            spl_up = _interpolate(*data[:-1], (y + dy), **kwargs)
-            spl_down = _interpolate(*data[:-1], (y - dy), **kwargs)
-            ret = np.vectorize(
-                lambda *a: unc.ufloat(
-                    spl_up(*a) / 2 + spl_down(*a) / 2,
-                    np.abs(spl_up(*a) - spl_down(*a)) / 2,
-                ),
-                otypes=["object"],
-            )  # symmetrized error...
-            # return np.vectorize(Bounds(spl_up, spl_down), otypes=["object"])
-        elif not kwargs["interpolate_lower_uncertainty"]:
-            spl_center = _interpolate(*data[:-1], (y), **kwargs)
-            spl_up = _interpolate(*data[:-1], (y + dy), **kwargs)
-            ret = np.vectorize(
-                lambda *a: unc.ufloat(
-                    spl_center(*a), np.abs(spl_up(*a) - spl_center(*a))
-                ),
-                otypes=["object"],
-            )  # symmetrized error...
-        elif not kwargs["interpolate_upper_uncertainty"]:
-            spl_center = _interpolate(*data[:-1], (y), **kwargs)
-            spl_down = _interpolate(*data[:-1], (y - dy), **kwargs)
-            ret = np.vectorize(
-                lambda *a: unc.ufloat(
-                    spl_center(*a), np.abs(spl_down(*a) - spl_center(*a))
-                ),
-                otypes=["object"],
-            )  # symmetrized error...
-        else:
-            raise ValueError(
-                "interpolate_upper_uncertainty and interpolate_lower_uncertainty can't be both False"
-            )
+        raise ValueError(
+            "interpolate_upper_uncertainty and interpolate_lower_uncertainty can't be both False"
+        )
 
     if not check(ret, *data):
         warnings.warn("Bad interpolation. Increase Order or symmetrize error.")
@@ -144,10 +160,9 @@ def _interpolate(*data, **kwargs):
         elif kwargs["interpolator"] == "linearnd":
             ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
         else:
-            ret = interp.interp2d(*data[:-1], datay, kind=kwargs["interpolator"])
-    else:
-        if kwargs["interpolator"] == "linear":
-            ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
+            ret = interp_interp2d(*data[:-1], datay, kind=kwargs["interpolator"])
+    elif kwargs["interpolator"] == "linear":
+        ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
 
     # return np.vectorize(Post(ret, kwargs['post']), otypes=["object"])
     return np.vectorize(lambda *a: kwargs["post"](ret(*a)), otypes=["object"])

@@ -1,4 +1,5 @@
 """Simplified statistics."""
+
 import math
 import statistics as stat
 from math import floor, log10
@@ -8,10 +9,10 @@ import pandas as pd
 import scipy
 import uncertainties as unc
 import uncertainties.unumpy as unp
+from numpy import arange, array, hstack, newaxis, prod
+from scipy import linalg
 from scipy.fft import fft as sfft
 from scipy.fft import fftfreq, fftshift
-from numpy import arange, newaxis, hstack, prod, array
-from scipy import linalg
 
 from smpl import doc
 
@@ -56,7 +57,7 @@ def central_diff_weights(Np, ndiv=1):
     >>> Np = 3 # point number for central derivative
     >>> weights = central_diff_weights(Np) # weights for first derivative
     >>> vals = [f(x + (i - Np/2) * h) for i in range(Np)]
-    >>> sum(w * v for (w, v) in zip(weights, vals))/h
+    >>> float(sum(w * v for (w, v) in zip(weights, vals))/h)
     11.79999999999998
 
     This value is close to the analytical solution:
@@ -68,9 +69,7 @@ def central_diff_weights(Np, ndiv=1):
 
     """
     if Np < ndiv + 1:
-        raise ValueError(
-            "Number of points must be at least the derivative order + 1."
-        )
+        raise ValueError("Number of points must be at least the derivative order + 1.")
     if Np % 2 == 0:
         raise ValueError("The number of points must be odd.")
 
@@ -115,7 +114,7 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
     --------
     >>> def f(x):
     ...     return x**3 + x**2
-    >>> derivative(f, 1.0, dx=1e-6)
+    >>> float(derivative(f, 1.0, dx=1e-6))
     4.9999999999...
 
     """
@@ -126,8 +125,7 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
         )
     if order % 2 == 0:
         raise ValueError(
-            "'order' (the number of points used to compute the derivative) "
-            "must be odd."
+            "'order' (the number of points used to compute the derivative) must be odd."
         )
     # pre-computed for n=1 and 2 and low-order for speed.
     if n == 1:
@@ -150,8 +148,7 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
             weights = array([2, -27, 270, -490, 270, -27, 2]) / 180.0
         elif order == 9:
             weights = (
-                array([-9, 128, -1008, 8064, -14350, 8064, -1008, 128, -9])
-                / 5040.0
+                array([-9, 128, -1008, 8064, -14350, 8064, -1008, 128, -9]) / 5040.0
             )
         else:
             weights = central_diff_weights(order, 2)
@@ -162,7 +159,6 @@ def derivative(func, x0, dx=1.0, n=1, args=(), order=3):
     for k in range(order):
         val += weights[k] * func(x0 + (k - ho) * dx, *args)
     return val / prod((dx,) * n, axis=0)
-
 
 
 def round_sig(x, sig=2):
@@ -390,7 +386,7 @@ def trim_domain(
     fmax=np.finfo(np.float32).max / 2,
     steps=10000,
     min_ch=0.0001,
-    recursion_limit=100,
+    recursion_limit=10,
 ):
     """
     Get the domain of the function ``f`` with the ranges removed where the derivative of ``f`` is below ``min_ch``.
@@ -438,12 +434,9 @@ def trim_domain(
                 )
                 if np.isclose(t3a, t3b):
                     return 0.0, 0.0
-                else:
-                    return t3a, t3b
-            else:
-                return t2a, t2b
-        else:
-            return t1a, t1b
+                return t3a, t3b
+            return t2a, t2b
+        return t1a, t1b
     return xmin, xmax
 
 
@@ -481,12 +474,9 @@ def get_domain(
             t3a, t3b = get_domain(f, tmin, tmax - (tmax - tmin) / 3)
             if np.isclose(t3a, t3b):
                 return 0.0, 0.0
-            else:
-                return t3a, t3b
-        else:
-            return t2a, t2b
-    else:
-        return t1a, t1b
+            return t3a, t3b
+        return t2a, t2b
+    return t1a, t1b
 
 
 def is_monotone(f, tmin=None, tmax=None, steps=1000):
@@ -517,10 +507,10 @@ def is_monotone(f, tmin=None, tmax=None, steps=1000):
     if tmax is None and tmin is None:
         tmin, tmax = get_domain(f)
     test = np.linspace(tmin, tmax, steps)
-    return np.all(f(test[1:]) >= f(test[:-1]))
+    return bool(np.all(f(test[1:]) >= f(test[:-1])))
 
 
-def get_interesting_domain(f, min_ch=1e-6):
+def get_interesting_domain(f, min_ch=1e-6, maxiter=100):
     """
     Return interesting xmin and xmax of function ``f``.
 
@@ -537,10 +527,18 @@ def get_interesting_domain(f, min_ch=1e-6):
         # min_x,max_x=omin_x,omax_x
     else:
         tmax_x = scipy.optimize.minimize(
-            lambda x: -f(x), 0.0, method="Nelder-Mead", bounds=[(omin_x, omax_x)]
+            lambda x: -f(x),
+            0.0,
+            method="Nelder-Mead",
+            bounds=[(omin_x, omax_x)],
+            options={"maxiter": maxiter},
         )
         tmin_x = scipy.optimize.minimize(
-            f, 0.0, method="Nelder-Mead", bounds=[(omin_x, omax_x)]
+            f,
+            0.0,
+            method="Nelder-Mead",
+            bounds=[(omin_x, omax_x)],
+            options={"maxiter": maxiter},
         )
         if tmax_x.success:
             tmax_x = tmax_x.x[0]
@@ -562,4 +560,4 @@ def get_interesting_domain(f, min_ch=1e-6):
         if np.isclose(min_x, max_x):
             min_x, max_x = trim_domain(f, omin_x, omax_x, min_ch=min_ch)
 
-    return min_x, max_x
+    return float(min_x), float(max_x)
