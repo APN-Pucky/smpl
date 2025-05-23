@@ -54,7 +54,7 @@ Documentation = "https://smpl.readthedocs.io/"
 Issues = "https://github.com/APN-Pucky/smpl/issues"
 Source = "https://github.com/APN-Pucky/smpl"
 
-[tool.hatch.envs.docs]
+[tool.hatch.envs.doc]
 dependencies = [
     "sphinx < 8.0.0",
     "sphinx-rtd-theme",

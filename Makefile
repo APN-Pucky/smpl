@@ -1,13 +1,12 @@
 livehtml:
-	hatch run docs:$(MAKE) -C docs livehtml
+	hatch run doc:$(MAKE) -C docs livehtml
 
 html:
-	hatch run docs:$(MAKE) -C docs html
+	hatch run doc:$(MAKE) -C docs html
 
 doc: html
 
 install:
-	hatch install --with dev --with docs --extras opt
 	python3 -m pip install --user .[full]
 
 build:
@@ -15,8 +14,8 @@ build:
 
 test:
 	rm -f .coverage coverage.xml
-	find docs/source/example/ -type f -name '*.ipynb' | xargs poetry run jupyter nbconvert --to script
-	hatch run full:pytest
+	find docs/source/example/ -type f -name '*.ipynb' | xargs hatch run dev:jupyter nbconvert --to script
+	hatch run dev:pytest
 
 commit: 
 	-git add .
