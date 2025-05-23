@@ -9,6 +9,7 @@ import uncertainties.unumpy as unp
 from matplotlib import pylab
 from matplotlib.pyplot import *
 
+import smplr
 # local imports
 from smpl import doc, interpolate, io, stat, util, wrap
 from smpl import fit as ffit
@@ -930,14 +931,7 @@ def save_plot(**kwargs):
     """
     save plot
     """
-    if "title" in kwargs and kwargs["title"] is not None:
-        plt.title(kwargs["title"])
-    if kwargs.get("logy"):
-        plt.gca().set_yscale("log")
-    if kwargs.get("logx"):
-        plt.gca().set_xscale("log")
-    if kwargs.get("tight"):
-        plt.tight_layout()
+    smplr.style_plot1d(kwargs)
     if "lpos" in kwargs and kwargs["lpos"] >= 0:
         if util.has("bbox_to_anchor", kwargs):
             if util.has("ncol", kwargs):
@@ -951,12 +945,9 @@ def save_plot(**kwargs):
                 plt.legend(loc=kwargs["lpos"], bbox_to_anchor=kwargs["bbox_to_anchor"])
         else:
             plt.legend(loc=kwargs["lpos"])
-    # plt.gca().set_xlim([kwargs['xmin'],kwargs['xmax']])
-    # plt.gca().set_ylim([kwargs['ymin'],kwargs['ymax']])
     if "save" in kwargs and kwargs["save"] is not None:
         io.mkdirs(kwargs["save"])
         plt.savefig(kwargs["save"] + ".pdf")
-    plt.grid(kwargs["grid"])
     if kwargs.get("show"):
         show(**kwargs)
 
@@ -964,7 +955,7 @@ def save_plot(**kwargs):
 def show(**kwargs):
     kwargs = plot_kwargs(kwargs)
 
-    plt.grid(kwargs["grid"])
+    smplr.style_plot1d(kwargs)
     plt.show()
 
 
