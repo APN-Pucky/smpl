@@ -56,6 +56,9 @@ jobs:
       run: |
         pytest -r sx
 
+    - name: Report Coveralls
+      uses: AndreMiras/coveralls-python-action@develop
+
 #    - name: Report core project coverage with Codecov
 #      if: >-
 #        github.event_name != 'schedule'
