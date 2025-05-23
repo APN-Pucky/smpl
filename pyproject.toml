@@ -74,6 +74,8 @@ dev = [
   "pytest",
   "pytest-cov",
   "nbval",
+  "pytest-profiling",
+  "pytest-line-profiler-apn >=0.1.5",
   "ipython",
   "jupyterlab",
   "jupyter",
