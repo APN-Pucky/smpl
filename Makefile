@@ -1,22 +1,22 @@
 livehtml:
-	poetry run $(MAKE) -C docs livehtml
+	hatch run docs:$(MAKE) -C docs livehtml
 
 html:
-	poetry run $(MAKE) -C docs html
+	hatch run docs:$(MAKE) -C docs html
 
 doc: html
 
 install:
-	poetry install --with dev --with docs --extras opt
-	python3 -m pip install --user .[opt]
+	hatch install --with dev --with docs --extras opt
+	python3 -m pip install --user .[full]
 
 build:
-	poetry build
+	hatch build
 
 test:
 	rm -f .coverage coverage.xml
 	find docs/source/example/ -type f -name '*.ipynb' | xargs poetry run jupyter nbconvert --to script
-	poetry run pytest
+	hatch run full:pytest
 
 commit: 
 	-git add .
