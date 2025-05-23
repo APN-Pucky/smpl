@@ -128,6 +128,8 @@ ignore = [
   "ISC001",   # Conflicts with formatter
   "RUF012",   # TODO: mutable class attributes
   "SIM115",   # TODO: use context manager for opening files
+  "E741",
+  "E402",
 ]
 
 

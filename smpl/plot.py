@@ -17,7 +17,7 @@ from smpl import fit as ffit
 def set_plot_style():
     # fig_size = (8, 6)
     # fig_legendsize = 14
-    # fig_labelsize = 12 # ‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’.
+    # fig_labelsize = 12 #
     params = {
         "legend.fontsize": "x-large",
         "figure.figsize": (8, 6),
@@ -455,6 +455,7 @@ def plt_plt(x, y, fmt, color, label, linestyle, **kwargs):
         return plt.plot(x, y, label=label, color=color, linestyle=linestyle, **kwargs)
     if linestyle is None and fmt is None:
         return plt.plot(x, y, label=label, color=color, **kwargs)
+    return None
 
 
 def __function(
