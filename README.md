@@ -25,12 +25,6 @@ pip install smpl
 
 Optional: --user or --upgrade
 
-### Dev
-
-```sh
-pip install --index-url https://test.pypi.org/simple/ smpl
-```
-
 [doc stable]: https://apn-pucky.github.io/smpl/index.html
 [doc test]: https://apn-pucky.github.io/smpl/test/index.html
 
