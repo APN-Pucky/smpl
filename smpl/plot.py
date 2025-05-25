@@ -961,9 +961,3 @@ def plot2d(*args, **kwargs):
 
 def plot2d_kwargs(*args, **kwargs):
     _plot2d_kwargs(*args, **kwargs)
-
-
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
