@@ -193,7 +193,8 @@ def map_vplot(
     )
 
     im.set_data(np.unique(vx), np.unique(vy), grid)
-    ax.images.append(im)
+    ax.add_image(im)
+    # ax.images.append(im)
     ax.set_xlim(xl, xm)
     ax.set_ylim(yl, ym)
 
