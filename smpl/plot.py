@@ -923,7 +923,7 @@ def save_plot(**kwargs):
     """
     save plot
     """
-    smplr.style_plot1d(kwargs)
+    smplr.style_plot1d(**kwargs)
     if "lpos" in kwargs and kwargs["lpos"] >= 0:
         if util.has("bbox_to_anchor", kwargs):
             if util.has("ncol", kwargs):
@@ -947,7 +947,7 @@ def save_plot(**kwargs):
 def show(**kwargs):
     kwargs = plot_kwargs(kwargs)
 
-    smplr.style_plot1d(kwargs)
+    smplr.style_plot1d(**kwargs)
     plt.show()
 
 
