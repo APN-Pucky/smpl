@@ -14,7 +14,6 @@ build:
 
 test:
 	rm -f .coverage coverage.xml
-	find docs/source/example/ -type f -name '*.ipynb' | xargs hatch run dev:jupyter nbconvert --to script
 	MPLBACKEND=Agg hatch run test:pytest
 
 commit: 

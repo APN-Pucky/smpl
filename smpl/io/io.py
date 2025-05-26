@@ -239,7 +239,7 @@ def find_file(fname, up=0):
     --------
     >>> import os
     >>> find_file("io.py",0)
-    'smpl_io/io.py'
+    'smpl/io/io.py'
     >>> os.chdir("smpl_io")
     >>> find_file("io.py",0)
     'io.py'
@@ -271,7 +271,7 @@ def pwd() -> str:
 
     Examples
     --------
-    >>> pwd().endswith("smpl_io")
+    >>> pwd().endswith("smpl")
     True
 
     """
