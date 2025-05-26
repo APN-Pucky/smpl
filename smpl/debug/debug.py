@@ -326,7 +326,7 @@ def msg1(_msg, tag="", level=0, times=1, line_=False, _back=0, **kwargs):
     --------
     >>> for i in range(-2,2):
     ...     msg1(i, level = i)
-    DBG::<doctest smpl_debug.debug.msg1[0]>:2: -2
+    DBG::<doctest smpl.debug.debug.msg1[0]>:2: -2
     -2
     -1
     0

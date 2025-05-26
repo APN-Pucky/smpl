@@ -21,7 +21,7 @@ def cat(*inps):
     --------
     >>> from smpl import io
     >>> io.write("test.txt","hi\\nho1\\n2\\n3\\n4\\n")
-    >>> io.cat("test.txt")
+    >>> str(io.cat("test.txt"))
     'hi\\nho1\\n2\\n3\\n4\\n'
     """
     r = StringIO()
