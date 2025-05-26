@@ -1,6 +1,6 @@
 from io import StringIO
 
-from smpl_io.read_buffer import ReadBuffer
+from smpl.io.read_buffer import ReadBuffer
 
 
 def cat(*inps):
@@ -19,7 +19,7 @@ def cat(*inps):
 
     Examples
     --------
-    >>> from smpl_io import io
+    >>> from smpl import io
     >>> io.write("test.txt","hi\\nho1\\n2\\n3\\n4\\n")
     >>> io.cat("test.txt")
     'hi\\nho1\\n2\\n3\\n4\\n'

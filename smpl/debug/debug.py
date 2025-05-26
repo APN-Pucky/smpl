@@ -450,7 +450,7 @@ def table(
     1
     1
     1
-    >>> from smpl_io import io
+    >>> from smpl import io
     >>> print(io.read("debug_table.csv").strip())
     a;b;c;
     -2.000000000000000000000000000000e+00;4.000000000000000000000000000000e+00;2.500000000000000000000000000000e-01;

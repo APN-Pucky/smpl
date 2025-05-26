@@ -8,7 +8,7 @@ def sed(pattern, replace, *inps, open=True):
     """
     Replace ``pattern`` in ``inp``.
 
-    >>> from smpl_io import io
+    >>> from smpl import io
     >>> io.write("test.txt","hi\\n")
     >>> sed("hi","cool","test.txt").read()
     'cool\\n'

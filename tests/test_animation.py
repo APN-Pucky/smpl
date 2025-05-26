@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pytest
 import tqdm
+from smpl import animation
 
-from smpl_animation import animation
 from smpl import plot, stat
 from smpl.functions import fac
 from smpl.plot import init_plot
 
 # from smpl.animation.animation import FigAnimation
+
 
 # @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
 @pytest.mark.line_profile.with_args(plot.function, plot.fit, init_plot)
@@ -41,6 +42,7 @@ datax = 0
 datay = 0
 bahnh = 0
 bahnhs = 0
+
 
 # @pytest.mark.line_profile.with_args(plot.function,plot.fit,init_plot,FigAnimation.__init__)
 @pytest.mark.line_profile.with_args(plot.function, plot.fit, init_plot)

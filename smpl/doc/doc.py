@@ -248,7 +248,7 @@ def table_sep(tabs=1):
 @deprecated(
     version="1.0.3.1",
     removed_in="?.?.?",
-    reason="Use :func:`smpl_doc.array_table` instead.",
+    reason="Use :func:`smpl.doc.array_table` instead.",
 )
 def table(dic, top=True, bottom=True, init=True, tabs=1):
     """

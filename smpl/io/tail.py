@@ -24,7 +24,7 @@ def tail(*inps, open=True, n=1):
     Examples
     --------
 
-    >>> from smpl_io import io
+    >>> from smpl import io
     >>> import pandas as pd
     >>> io.write("test.txt","hi\\n1\\n2\\n3\\n4\\n")
     >>> pd.read_csv(tail("test.txt",n=2))
@@ -47,5 +47,5 @@ def tail(*inps, open=True, n=1):
 tailf = doc.deprecated(
     version="1.0.6.1",
     removed_in="2.0.0",
-    reason="Use :func:`smpl_io.tail(..., open=True)` instead.",
+    reason="Use :func:`smpl.io.tail(..., open=True)` instead.",
 )(tail)

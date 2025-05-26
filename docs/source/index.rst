@@ -30,12 +30,6 @@
    :caption: Modules:
 
    smpl
-   smpl_io
-   smpl_debug
-   smpl_doc
-   smpl_util
-   smpl_io
-   smpl_parallel
 
 
 .. toctree::
