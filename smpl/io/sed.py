@@ -17,7 +17,7 @@ def sed(pattern, replace, *inps, open=True):
     for inp in inps:
         with ReadBuffer(inp, open=open) as f:
             lines = f.readlines()
-            for i, line in enumerate(lines):
+            for _, line in enumerate(lines):
                 r.write(re.sub(pattern, replace, line))
     r.seek(0, 0)
     return r

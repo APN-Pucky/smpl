@@ -57,6 +57,7 @@ def between(pattern1, pattern2, *inps, regex=False, open=True):
     for inp in inps:
         with ReadBuffer(inp, open=open) as f:
             lines = f.readlines()
+            start = -1
             for i, line in enumerate(lines):
                 if pattern1 in line or (regex and re.search(pattern1, line)):
                     start = i
