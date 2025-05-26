@@ -40,7 +40,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        uv pip install --system '.[dev]'
+        uv pip install --system '.[test]'
         uv pip list
 
 #    - name: Install external packages

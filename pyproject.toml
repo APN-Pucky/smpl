@@ -70,14 +70,17 @@ doc = [
   "toml",
 ]
 
-dev = [
-  "pre-commit >=2.20,<4.0",
+test = [
   "pytest",
   "pytest-cov",
   "pytest-mpl",
   "nbval",
   "pytest-profiling",
   "pytest-line-profiler-apn >=0.1.5",
+]
+
+dev = [
+  "pre-commit >=2.20,<4.0",
   "ipython",
   "jupyterlab",
   "jupyter",
@@ -87,7 +90,10 @@ dev = [
 features = ["doc"]
 
 [tool.hatch.envs.dev]
-features = ["dev"]
+features = ["dev", "test", "doc"]
+
+[tool.hatch.envs.test]
+features = ["test"]
 
 
 [tool.hatch.version]
