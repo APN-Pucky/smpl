@@ -121,4 +121,4 @@ html_static_path = ["_static"]
 html_css_files = [
     "style.css",
 ]
-html_extra_path = ["../prof/combined.svg"]
+# html_extra_path = ["../prof/combined.svg"]
