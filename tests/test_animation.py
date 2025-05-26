@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pytest
+import scipy
 import tqdm
 
 from smpl import animation, plot, stat
 from smpl.plot import init_plot
 
-import scipy
 
 def fac(n):
     return scipy.special.gamma(n + 1)
