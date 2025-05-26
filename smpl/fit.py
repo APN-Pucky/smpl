@@ -83,27 +83,7 @@ def fit_kwargs(kwargs):
 
 
 # @append_doc(default_kwargs)
-def auto(
-    datax,
-    datay,
-    funcs=[
-        functions.const,
-        functions.linear,
-        functions.line,
-        functions.cos_abs,
-        functions.cos,
-        functions.sin,
-        functions.tan,
-        functions.lorentz,
-        functions.gauss,
-        functions.exponential,
-        functions.log,
-        functions.square,
-        functions.sqrt,
-        functions.order,
-    ],
-    **kwargs,
-):
+def auto(datax, datay, funcs=None, **kwargs):
     """
     Automatically loop over functions and fit the best one.
 
@@ -124,6 +104,10 @@ def auto(
     best_f = None
     best_ff = None
 
+    if funcs is None:
+        funcs = list(functions.__all__.values())
+        # gives weird fitting errors...
+        funcs.remove(functions.fac)
     for f in tqdm(funcs, disable=not kwargs["autotqdm"]):
         if callable(f):
             try:
