@@ -53,7 +53,7 @@ Issues = "https://github.com/APN-Pucky/smpl/issues"
 Source = "https://github.com/APN-Pucky/smpl"
 
 [project.optional-dependencies]
-doc = [
+docs = [
   "sphinx < 8.0.0",
   "sphinx-rtd-theme",
   "sphinxcontrib-napoleon",
@@ -84,11 +84,11 @@ dev = [
   "jupyter",
 ]
 
-[tool.hatch.envs.doc]
-features = ["doc"]
+[tool.hatch.envs.docs]
+features = ["docs"]
 
 [tool.hatch.envs.dev]
-features = ["dev", "test", "doc"]
+features = ["dev", "test", "docs"]
 
 [tool.hatch.envs.test]
 features = ["test"]
