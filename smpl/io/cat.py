@@ -21,11 +21,12 @@ def cat(*inps):
     --------
     >>> from smpl import io
     >>> io.write("test.txt","hi\\nho1\\n2\\n3\\n4\\n")
-    >>> str(io.cat("test.txt"))
+    >>> io.cat("test.txt").getvalue()
     'hi\\nho1\\n2\\n3\\n4\\n'
     """
     r = StringIO()
     for inp in inps:
         with ReadBuffer(inp) as f:
             r.write(f.read())
-    return r.getvalue()
+    r.seek(0, 0)
+    return r
