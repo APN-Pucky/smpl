@@ -97,8 +97,3 @@ def partitioned_parallel(f, arr, n_jobs=None):
 
 
 parallel = partitioned_parallel
-
-if __name__ == "__main__":
-    import doctest
-
-    doctest.testmod()
