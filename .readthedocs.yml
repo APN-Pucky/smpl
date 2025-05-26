@@ -13,7 +13,7 @@ build:
       - pip install hatch
     post_install:
       # Install dependencies
-      - pip install .[doc]
+      - pip install .[docs]
 
 submodules:
   include: all

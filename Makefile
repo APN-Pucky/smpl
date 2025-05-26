@@ -1,8 +1,8 @@
 livehtml:
-	hatch run doc:$(MAKE) -C docs livehtml
+	hatch run docs:$(MAKE) -C docs livehtml
 
 html:
-	hatch run doc:$(MAKE) -C docs html
+	hatch run docs:$(MAKE) -C docs html
 
 doc: html
 
