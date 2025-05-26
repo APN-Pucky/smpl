@@ -18,8 +18,8 @@ def tail(*inps, open=True, n=1):
 
     Returns
     -------
-    str
-        last ``n`` lines of ``fname``.
+    StringIO
+        A `StringIO` object containing the last ``n`` lines of ``fname``.
 
     Examples
     --------
