@@ -94,7 +94,7 @@ features = ["dev", "test", "doc"]
 features = ["test"]
 
 [tool.hatch.envs.test]
-features = ["test"]
+features = ["test", "dev"]
 
 
 [tool.hatch.version]
