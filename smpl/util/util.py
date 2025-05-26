@@ -167,7 +167,7 @@ def find_nearest_index(array, value):
 
     Examples
     --------
-    >>> find_nearest_index([1,7,6,2] , 1.9)
+    >>> int(find_nearest_index([1,7,6,2] , 1.9))
     3
 
     """

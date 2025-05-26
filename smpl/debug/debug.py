@@ -132,11 +132,11 @@ def get_line_number_file(split=True, _back=0):
     Examples
     --------
     >>> get_line_number_file()
-    (1, '<doctest smpl_debug.debug.get_line_number_file[0]>')
+    (1, '<doctest smpl.debug.debug.get_line_number_file[0]>')
     >>> for i in range(2):
     ...     get_line_number_file()
-    (2, '<doctest smpl_debug.debug.get_line_number_file[1]>')
-    (2, '<doctest smpl_debug.debug.get_line_number_file[1]>')
+    (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
+    (2, '<doctest smpl.debug.debug.get_line_number_file[1]>')
     """
     cf = get_frame(_back=_back + 1)
     fname = cf.f_code.co_filename
