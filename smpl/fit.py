@@ -3,6 +3,7 @@ Simplified Fitting.
 
 Uses scipy.curve_fit (no x errors) or scipy.odr (with x errors).
 """
+
 import enum
 
 import numpy as np
@@ -76,13 +77,33 @@ def fit_kwargs(kwargs):
     """Set default :func:`fit_kwargs` if not set."""
     kwargs = data.data_kwargs(kwargs)
     for k, v in default.items():
-        if not k in kwargs:
+        if k not in kwargs:
             kwargs[k] = v[0]
     return kwargs
 
 
 # @append_doc(default_kwargs)
-def auto(datax, datay, funcs=None, **kwargs):
+def auto(
+    datax,
+    datay,
+    funcs=[
+        functions.const,
+        functions.linear,
+        functions.line,
+        functions.cos_abs,
+        functions.cos,
+        functions.sin,
+        functions.tan,
+        functions.lorentz,
+        functions.gauss,
+        functions.exponential,
+        functions.log,
+        functions.square,
+        functions.sqrt,
+        functions.order,
+    ],
+    **kwargs,
+):
     """
     Automatically loop over functions and fit the best one.
 
@@ -103,8 +124,6 @@ def auto(datax, datay, funcs=None, **kwargs):
     best_f = None
     best_ff = None
 
-    if funcs is None:
-        funcs = list(functions.__dict__.values())
     for f in tqdm(funcs, disable=not kwargs["autotqdm"]):
         if callable(f):
             try:
@@ -161,7 +180,7 @@ def fit(datax, datay, function, **kwargs):
     elif fitter is Fitter.SCIPY_ODR:
         fitt = _fit_odr(x, y, tmp, params=params, xerr=xerr, yerr=yerr)
     else:
-        raise ValueError("Unknown fitter: {}".format(fitter))
+        raise ValueError(f"Unknown fitter: {fitter}")
 
     return _unwrap_param(fitt, fixed, Ntot)
 
@@ -319,7 +338,7 @@ def _fit_curvefit(datax, datay, function, params=None, yerr=None, **kwargs):
             sigma=yerr,
             epsfcn=util.get("epsfcn", kwargs, 0.0001),
             **kwargs,
-            maxfev=util.get("maxfev", kwargs, 10000)
+            maxfev=util.get("maxfev", kwargs, 10000),
         )
     except RuntimeError as e:
         debug.msg(str(e))
