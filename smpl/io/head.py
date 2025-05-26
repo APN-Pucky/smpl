@@ -18,8 +18,8 @@ def head(*inps, open=True, n=1):
 
     Returns
     -------
-    str
-        first ``n`` lines of ``fname``.
+    StringIO
+        A file-like object containing the first ``n`` lines of ``fname``.
 
     Examples
     --------
