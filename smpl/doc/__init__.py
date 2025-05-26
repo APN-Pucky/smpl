@@ -1,5 +1,6 @@
-""" Partially moved to :py:mod:`smpl_doc.doc`"""
-from smpl_doc.doc import *
+from .doc import *
+
+
 
 ## Functions below are not in the smpl_doc package sicne they are very specific but fit in doc perfectly.
 
