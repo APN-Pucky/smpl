@@ -1,6 +1,6 @@
 from .doc import *
 
-## Functions below are not in the smpl_doc package sicne they are very specific but fit in doc perfectly.
+## Functions below are not in the smpl.doc package sicne they are very specific but fit in doc perfectly.
 
 
 def append_plot(*args, xmin=-5, xmax=5):

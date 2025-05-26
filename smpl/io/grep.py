@@ -10,7 +10,7 @@ def grep(pattern, *inps, regex=False, open=True, A=0, B=0):
     """
     Searches for ``pattern`` in ``inp``.
 
-    >>> from smpl_io import io
+    >>> from smpl import io
     >>> io.write("test.txt","hi\\nho1\\n2\\n3\\n4\\n")
     >>> grep("h","test.txt").read()
     'hi\\nho1\\n'
@@ -40,7 +40,7 @@ def grep(pattern, *inps, regex=False, open=True, A=0, B=0):
 grepf = doc.deprecated(
     version="1.0.6.1",
     removed_in="2.0.0",
-    reason="Use :func:`smpl_io.grep(..., open=True)` instead.",
+    reason="Use :func:`smpl.io.grep(..., open=True)` instead.",
 )(grep)
 
 
@@ -48,7 +48,7 @@ def between(pattern1, pattern2, *inps, regex=False, open=True):
     """
     Searches for ``pattern1`` and ``pattern2`` in ``inp`` and returns the lines between them.
 
-    >>> from smpl_io import io
+    >>> from smpl import io
     >>> io.write("test.txt","hi\\nho1\\n2\\n3\\n4\\n")
     >>> between("hi","2","test.txt").read()
     'ho1\\n'
