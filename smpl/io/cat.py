@@ -3,7 +3,7 @@ from io import StringIO
 from smpl.io.read_buffer import ReadBuffer
 
 
-def cat(*inps):
+def cat(*inps, open=True):
     """
     Read all ``inps`` and return them as a single string.
 
@@ -26,7 +26,7 @@ def cat(*inps):
     """
     r = StringIO()
     for inp in inps:
-        with ReadBuffer(inp) as f:
+        with ReadBuffer(inp, open=open) as f:
             r.write(f.read())
     r.seek(0, 0)
     return r
