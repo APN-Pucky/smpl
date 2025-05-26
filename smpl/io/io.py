@@ -245,6 +245,7 @@ def find_file(fname, up=0):
     'io.py'
     >>> find_file("Makefile",2)
     '../../Makefile'
+    >>> os.chdir("../..")
 
     """
     p = Path(os.path.abspath(fname)).parent
