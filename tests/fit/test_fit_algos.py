@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 import uncertainties.unumpy as unp
 
-import smpl.fit as fit
+from smpl import fit, io
 from smpl import functions as f
 from smpl.fit import Fitter
 
@@ -48,7 +48,7 @@ def _test_fit_exponential(fitter, datax, datay):
 
 
 def _test_fit(fitter):
-    data = np.loadtxt("tests/test_linear.txt")
+    data = np.loadtxt(io.find_file("tests/test_linear.txt", up=2))
     datax, datay = data[:, 0], data[:, 1]
     _test_fit_linear(fitter, datax, datay)
     _test_fit_exponential(fitter, datax, datay)
@@ -61,8 +61,9 @@ def _test_fit(fitter):
     _test_fit_linear(fitter, datax, datay)
     _test_fit_exponential(fitter, datax, datay)
 
-    datax, datay = unp.uarray(data[:, 0], data[:, 2]), unp.uarray(
-        data[:, 1], data[:, 3]
+    datax, datay = (
+        unp.uarray(data[:, 0], data[:, 2]),
+        unp.uarray(data[:, 1], data[:, 3]),
     )
     _test_fit_linear(fitter, datax, datay)
     _test_fit_exponential(fitter, datax, datay)
