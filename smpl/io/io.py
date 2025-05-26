@@ -360,8 +360,8 @@ def files(ending, folder="."):
 
     Examples
     --------
-    >>> files(".ini")
-    [(0, 'pytest', './pytest.ini')]
+    >>> files(".toml")
+    [(0, 'pyproject', './pyproject.toml')]
     """
     r = []
     i = 0
