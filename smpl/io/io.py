@@ -1,4 +1,5 @@
 """Simplified input and output."""
+
 import contextlib
 import os
 import pathlib
@@ -10,11 +11,11 @@ from pathlib import Path
 
 import requests
 
+from .cat import *
 from .grep import *
 from .head import *
 from .sed import *
 from .tail import *
-from .cat import *
 
 
 def read(to_be_read: str):
@@ -45,13 +46,12 @@ def read(to_be_read: str):
     """
     if to_be_read.startswith("http"):
         return requests.get(to_be_read).text
-    elif to_be_read == "-":
+    if to_be_read == "-":
         return sys.stdin.read()
-    else:
-        if not os.path.exists(to_be_read):
-            return ""
-        with open(to_be_read, "r") as f:  # TODO should be checked here
-            return f.read()
+    if not os.path.exists(to_be_read):
+        return ""
+    with open(to_be_read, "r") as f:  # TODO should be checked here
+        return f.read()
 
 
 @contextlib.contextmanager
@@ -440,7 +440,6 @@ def open(to_be_read: str, mode="r"):
         return alias_open(to_be_read, mode)
     if to_be_read.startswith("http"):
         return StringIO(requests.get(to_be_read).text)
-    else:
-        if not os.path.exists(to_be_read):
-            return StringIO("")
-        return alias_open(to_be_read, "r")
+    if not os.path.exists(to_be_read):
+        return StringIO("")
+    return alias_open(to_be_read, "r")

@@ -1,6 +1,10 @@
 from io import StringIO
+
+from smpl import doc
+
 from .read_buffer import ReadBuffer
-import smpl_doc.doc as doc 
+
+
 def head(*inps, open=True, n=1):
     """
     Returns the first ``n`` lines of ``fname``.
@@ -33,11 +37,13 @@ def head(*inps, open=True, n=1):
     """
     r = StringIO()
     for inp in inps:
-        with ReadBuffer(inp,open=open) as inp:
+        with ReadBuffer(inp, open=open) as inp:
             r.write("\n".join(inp.readlines()[:n]))
-    r.seek(0,0)
+    r.seek(0, 0)
     return r
-headf= doc.deprecated(
+
+
+headf = doc.deprecated(
     version="1.0.6.1",
     removed_in="2.0.0",
     reason="Use :func:`smpl_io.head(..., open=True)` instead.",

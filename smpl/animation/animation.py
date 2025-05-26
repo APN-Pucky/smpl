@@ -1,23 +1,24 @@
 """Simplified Animations."""
+
 import io
+import itertools
 import os
 import uuid
 
+import ipywidgets as widgets
 import matplotlib as mpl
-import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib import animation
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from PIL import Image
-
-import ipywidgets as widgets
-import itertools
 
 from smpl import doc
 
 frames = []
 
-@doc.deprecated("1.0.5","Will be removed from main smpl")
+
+@doc.deprecated("1.0.5", "Will be removed from main smpl")
 def dict_product(dicts):
     """
     >>> d = {"number": [1,2], "color": ['a','b'] }
@@ -40,7 +41,6 @@ def list_product(lists):
 def interactive(
     func, *args, prerender=True, auto_png=True, rec=0, isls=None, plays=None, **kwargs
 ):
-
     if plays is None:
         plays = []
     if isls is None:
@@ -93,29 +93,28 @@ def interactive(
                             value=output.getvalue(),
                             format="png",
                         )
+                elif len(args) != 0:
+                    tout = interactive(
+                        lambda *ar, **kw: func(a, *ar, **kw),
+                        *args[1:],
+                        prerender=prerender,
+                        auto_png=auto_png,
+                        rec=rec + 1,
+                        plays=plays,
+                        isls=isls,
+                        **kwargs,
+                    )
                 else:
-                    if len(args) != 0:
-                        tout = interactive(
-                            lambda *ar, **kw: func(a, *ar, **kw),
-                            *args[1:],
-                            prerender=prerender,
-                            auto_png=auto_png,
-                            rec=rec + 1,
-                            plays=plays,
-                            isls=isls,
-                            **kwargs
-                        )
-                    else:
-                        dkw = dict(kwargs).pop(key)
-                        tout = interactive(
-                            lambda *ar, **kw: func(*ar, **{key: a}, **kw),
-                            prerender=prerender,
-                            auto_png=auto_png,
-                            rec=rec + 1,
-                            plays=plays,
-                            isls=isls,
-                            **dkw
-                        )
+                    dkw = dict(kwargs).pop(key)
+                    tout = interactive(
+                        lambda *ar, **kw: func(*ar, **{key: a}, **kw),
+                        prerender=prerender,
+                        auto_png=auto_png,
+                        rec=rec + 1,
+                        plays=plays,
+                        isls=isls,
+                        **dkw,
+                    )
             outs += [tout]
 
         tab = widgets.Tab(children=outs)
@@ -128,16 +127,15 @@ def interactive(
 
         if rec:
             return tab
-        else:
-            out = widgets.Output(layout={"border": "0px solid black"})
-            for i, isl in enumerate(isls):
-                if plays[i] is not None:
-                    out.append_display_data(widgets.HBox([plays[i], isl]))
-                else:
-                    out.append_display_data(isl)
-            out.append_display_data(tab)
-            plt.close()
-            return out
+        out = widgets.Output(layout={"border": "0px solid black"})
+        for i, isl in enumerate(isls):
+            if plays[i] is not None:
+                out.append_display_data(widgets.HBox([plays[i], isl]))
+            else:
+                out.append_display_data(isl)
+        out.append_display_data(tab)
+        plt.close()
+        return out
 
 
 # class WigAnimation(widget.Image):
@@ -145,7 +143,6 @@ def interactive(
 
 class FigAnimation(animation.FuncAnimation):
     def widget_gif(self):
-
         # convert to gif through save as anim.save wants a filename
         uf = str(uuid.uuid4())
         self.save(uf + ".gif")
@@ -202,7 +199,7 @@ class FigAnimation(animation.FuncAnimation):
             frames=len(figs) if update is None else frames,
             init_func=init,
             *args,
-            **kwargs
+            **kwargs,
         )
 
 
