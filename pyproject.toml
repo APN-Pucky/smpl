@@ -32,13 +32,8 @@ classifiers = [
   "Topic :: Scientific/Engineering",
 ]
 dependencies = [
-  "smpl_debug >=1.0.5",
-  "smpl_io >=1.0.5",
-  "smpl_doc >=1.0.5",
-  "smpl_util >=1.0.5",
-  "smpl_parallel >=1.0.5",
-  "smpl_animation",
   "smplr",
+  "requests",
   "iminuit",
   "uncertainties",
   "numpy",
@@ -46,6 +41,9 @@ dependencies = [
   "scipy >=1.7.0",
   "sympy",
   "tqdm",
+  "deprecation",
+  "pillow",
+  "ipywidgets",
   "pandas >=1.0.0",
 ]
 
