@@ -1,9 +1,16 @@
 """A list of various functions."""
 
 import numpy as np
+import scipy
 import uncertainties.unumpy as unp
 
 from smpl import doc
+
+
+@doc.append_plot()
+@doc.insert_str("Fac(x)")
+def fac(n):
+    return scipy.special.gamma(n + 1)
 
 
 # general fit functions
