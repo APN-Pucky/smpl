@@ -84,7 +84,7 @@ def partitioned_parallel(f, arr, n_jobs=None):
 
     Examples
     --------
-    >>> partitioned_parallel(lambda x : x**2, range(0,5))
+    >>> list(map(int, partitioned_parallel(lambda x : x**2, range(0,5))))
     [0, 1, 4, 9, 16]
 
     """

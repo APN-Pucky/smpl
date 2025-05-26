@@ -162,7 +162,7 @@ def line1(msg_, tag="", level=0, times=1, _back=0, **kwargs):
     --------
     >>> for i in range(-2,2):
     ...     line1(i,level=-1)
-    DBG::<doctest smpl_debug.debug.line1[0]>:2: line1(i,level=-1) = -2
+    DBG::<doctest smpl.debug.debug.line1[0]>:2: line1(i,level=-1) = -2
     """
     msg1(msg_, tag=tag, level=level, times=times, line_=True, _back=_back + 1, **kwargs)
 
@@ -276,7 +276,7 @@ def msg(msg, tag="", level=0, times=-1, line_=False, _back=0, **kwargs):
     Examples
     --------
     >>> msg("hi", level = -9999)
-    DBG::<doctest smpl_debug.debug.msg[0]>:1: hi
+    DBG::<doctest smpl.debug.debug.msg[0]>:1: hi
     'hi'
     >>> msg("hi")
     'hi'

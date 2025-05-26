@@ -243,8 +243,8 @@ def find_file(fname, up=0):
     >>> os.chdir("smpl/io")
     >>> find_file("io.py",0)
     'io.py'
-    >>> find_file("Makefile",1)
-    '../Makefile'
+    >>> find_file("Makefile",2)
+    '../../Makefile'
 
     """
     p = Path(os.path.abspath(fname)).parent
