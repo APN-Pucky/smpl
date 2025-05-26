@@ -54,7 +54,7 @@ jobs:
 
     - name: Test with pytest
       run: |
-        pytest -r sx
+        MPLBACKEND=Agg pytest -r sx
 
     - name: Report Coveralls
       uses: AndreMiras/coveralls-python-action@develop
