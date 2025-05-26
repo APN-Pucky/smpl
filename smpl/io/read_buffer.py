@@ -9,11 +9,11 @@ class ReadBuffer:
         self.file = None
 
     def __enter__(self):
-        if open and isinstance(self.input, str):
+        if self.open and isinstance(self.input, str):
             self.file = open(self.input)
             return self.file
         return self.input
 
     def __exit__(self, *args):
-        if open and isinstance(self.input, str):
+        if self.open and isinstance(self.input, str):
             self.file.close()
