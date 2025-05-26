@@ -1,6 +1,10 @@
 from io import StringIO
+
+from smpl import doc
+
 from .read_buffer import ReadBuffer
-import smpl_doc.doc as doc 
+
+
 def tail(*inps, open=True, n=1):
     """
     Returns the last ``n`` lines of ``fname``.
@@ -34,11 +38,13 @@ def tail(*inps, open=True, n=1):
     """
     ret = StringIO()
     for inp in inps:
-        with ReadBuffer(inp,open=open) as inp:
+        with ReadBuffer(inp, open=open) as inp:
             ret.write("\n".join(inp.readlines()[-n:]))
-    ret.seek(0,0)
+    ret.seek(0, 0)
     return ret
-tailf= doc.deprecated(
+
+
+tailf = doc.deprecated(
     version="1.0.6.1",
     removed_in="2.0.0",
     reason="Use :func:`smpl_io.tail(..., open=True)` instead.",

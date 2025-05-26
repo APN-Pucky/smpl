@@ -1,7 +1,7 @@
 import re
 from io import StringIO
 
-import smpl_doc.doc as doc
+from smpl import doc
 
 from .read_buffer import ReadBuffer
 
@@ -23,7 +23,10 @@ def grep(pattern, *inps, regex=False, open=True, A=0, B=0):
             lines = f.readlines()
             for i, line in enumerate(lines):
                 match = False
-                for j in range((i - A if A != float("inf") else 0), (i + B + 1 if B != float("inf") else len(lines))):
+                for j in range(
+                    (i - A if float("inf") != A else 0),
+                    (i + B + 1 if float("inf") != B else len(lines)),
+                ):
                     if j < 0 or j >= len(lines):
                         continue
                     if pattern in lines[j] or (regex and re.search(pattern, lines[j])):
@@ -40,7 +43,8 @@ grepf = doc.deprecated(
     reason="Use :func:`smpl_io.grep(..., open=True)` instead.",
 )(grep)
 
-def between(pattern1,pattern2, *inps,regex=False,open=True):
+
+def between(pattern1, pattern2, *inps, regex=False, open=True):
     """
     Searches for ``pattern1`` and ``pattern2`` in ``inp`` and returns the lines between them.
 
@@ -51,16 +55,16 @@ def between(pattern1,pattern2, *inps,regex=False,open=True):
     """
     r = StringIO()
     for inp in inps:
-        with ReadBuffer(inp,open=open) as f:
+        with ReadBuffer(inp, open=open) as f:
             lines = f.readlines()
             for i, line in enumerate(lines):
-                if pattern1 in line or (regex and re.search(pattern1, lines[i])):
+                if pattern1 in line or (regex and re.search(pattern1, line)):
                     start = i
-                if pattern2 in line or (regex and re.search(pattern2, lines[i])):
+                if pattern2 in line or (regex and re.search(pattern2, line)):
                     end = i
                     # only write after a closed block if a new block is found before
                     if start > -1:
-                        r.write("".join(lines[start+1:end]))
+                        r.write("".join(lines[start + 1 : end]))
                     start = -1
-    r.seek(0,0)
+    r.seek(0, 0)
     return r

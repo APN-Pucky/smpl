@@ -1,7 +1,5 @@
 from .doc import *
 
-
-
 ## Functions below are not in the smpl_doc package sicne they are very specific but fit in doc perfectly.
 
 

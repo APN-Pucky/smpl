@@ -1,7 +1,10 @@
 import re
 from io import StringIO
+
 from .read_buffer import ReadBuffer
-def sed(pattern,replace, *inps, open=True):
+
+
+def sed(pattern, replace, *inps, open=True):
     """
     Replace ``pattern`` in ``inp``.
 
@@ -12,9 +15,9 @@ def sed(pattern,replace, *inps, open=True):
     """
     r = StringIO()
     for inp in inps:
-        with ReadBuffer(inp,open=open) as f:
+        with ReadBuffer(inp, open=open) as f:
             lines = f.readlines()
             for i, line in enumerate(lines):
-                r.write(re.sub(pattern,replace,line))
-    r.seek(0,0)
+                r.write(re.sub(pattern, replace, line))
+    r.seek(0, 0)
     return r

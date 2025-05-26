@@ -1,4 +1,5 @@
 """Simplified python debuging."""
+
 import os
 from inspect import currentframe, getsource
 

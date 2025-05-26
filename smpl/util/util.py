@@ -1,7 +1,9 @@
 """Simplified general utilities."""
-import numpy as np
+
 import warnings
-from smpl_doc import doc
+
+import numpy as np
+from smpl import doc
 
 
 @doc.deprecated("1.0.3", "Use `s*n` instead.")
@@ -17,7 +19,7 @@ def times(s, n):
     .. deprecated:: 0.0.0
 
     """
-    return s.join(["" for i in range(0, n + 1)])
+    return s.join(["" for i in range(n + 1)])
 
 
 # TODO make nicer transparent with fields?
@@ -120,8 +122,7 @@ def get(key, ddict, default=None):
     """
     if has(key, ddict):
         return ddict[key]
-    else:
-        return default
+    return default
 
 
 def has(key, ddict):
@@ -138,7 +139,7 @@ def has(key, ddict):
 
 
     """
-    return key in ddict and not ddict[key] is None
+    return key in ddict and ddict[key] is not None
 
 
 def true(key, ddict):

@@ -1,4 +1,3 @@
-
 from io import StringIO
 
 from smpl_io.read_buffer import ReadBuffer
@@ -12,7 +11,7 @@ def cat(*inps):
     ----------
     inps : str, array_like, buffer
         object to read from
-    
+
     Returns
     -------
     str
