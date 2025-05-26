@@ -4,13 +4,7 @@ Animations
 
 .. jupyter-execute::
 
-    print('hi')
-    from ipywidgets import widgets
-    widgets.IntSlider(value=0,min=0,max=100)
-
-.. jupyter-execute::
-
-    from smpl_animation import animation
+    from smpl import animation
     from smpl import plot
     from ipywidgets import widgets
     import numpy as np
@@ -23,7 +17,7 @@ Animations
 
 .. jupyter-execute::
 
-    from smpl_animation import animation
+    from smpl import animation
     from smpl import plot
     import numpy as np
 
