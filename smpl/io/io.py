@@ -240,7 +240,7 @@ def find_file(fname, up=0):
     >>> import os
     >>> find_file("io.py",0)
     'smpl/io/io.py'
-    >>> os.chdir("smpl_io")
+    >>> os.chdir("smpl/io")
     >>> find_file("io.py",0)
     'io.py'
     >>> find_file("Makefile",1)
@@ -271,7 +271,7 @@ def pwd() -> str:
 
     Examples
     --------
-    >>> pwd().endswith("smpl")
+    >>> pwd().endswith("io")
     True
 
     """
