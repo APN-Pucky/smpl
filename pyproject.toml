@@ -99,10 +99,6 @@ features = ["dev", "test", "doc"]
 [tool.hatch.envs.test]
 features = ["test"]
 
-[tool.hatch.envs.test]
-features = ["test"]
-
-
 [tool.hatch.version]
 source = "vcs"
 
