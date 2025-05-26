@@ -28,5 +28,4 @@ def cat(*inps):
     for inp in inps:
         with ReadBuffer(inp) as f:
             r.write(f.read())
-    r.seek(0, 0)
-    return r
+    return r.getvalue()
