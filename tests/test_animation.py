@@ -4,8 +4,13 @@ import pytest
 import tqdm
 
 from smpl import animation, plot, stat
-from smpl.functions import fac
 from smpl.plot import init_plot
+
+import scipy
+
+def fac(n):
+    return scipy.special.gamma(n + 1)
+
 
 # from smpl.animation.animation import FigAnimation
 
