@@ -14,8 +14,8 @@ def cat(*inps, open=True):
 
     Returns
     -------
-    str
-        all ``inps`` as a single string.
+    StringIO
+        all ``inps`` as a StringIO buffer.
 
     Examples
     --------
