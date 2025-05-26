@@ -7,6 +7,17 @@ import numpy as np
 from smpl import doc
 
 
+def dict_unique_by_value(d: dict) -> dict:
+    seen_ids = set()
+    result = {}
+    for key, value in d.items():
+        value_id = id(value)
+        if value_id not in seen_ids:
+            result[key] = value
+            seen_ids.add(value_id)
+    return result
+
+
 @doc.deprecated("1.0.3", "Use `s*n` instead.")
 def times(s, n):
     """

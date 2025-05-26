@@ -12,6 +12,7 @@ from numpy.linalg import LinAlgError
 from tqdm import tqdm
 
 from smpl import data, debug, doc, functions, stat, util, wrap
+from smpl.util.util import dict_unique_by_value
 
 unv = unp.nominal_values
 usd = unp.std_devs
@@ -105,7 +106,8 @@ def auto(datax, datay, funcs=None, **kwargs):
     best_ff = None
 
     if funcs is None:
-        funcs = list(functions.__all__.values())
+        # TODO this contains aliased functions
+        funcs = list(dict_unique_by_value(functions.__dict__).values())
         # gives weird fitting errors...
         funcs.remove(functions.fac)
     for f in tqdm(funcs, disable=not kwargs["autotqdm"]):
