@@ -1,5 +1,7 @@
 """Simplified plotting."""
 
+import warnings
+
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -272,6 +274,15 @@ def fit(func, *adata, **kwargs):
         1.0
 
     """
+    if "xaxis" in kwargs and not kwargs["xlabel"]:
+        warnings.warn("xaxis is deprecated. Use xlabel instead.", DeprecationWarning, 2)
+        kwargs["xlabel"] = kwargs["xaxis"]
+        # TODO maybe pop
+    if "yaxis" in kwargs and not kwargs["ylabel"]:
+        warnings.warn("yaxis is deprecated. Use ylabel instead.", DeprecationWarning, 2)
+        kwargs["ylabel"] = kwargs["yaxis"]
+        # TODO maybe pop
+
     function = func
     if "function" in kwargs:
         function = kwargs["function"]
