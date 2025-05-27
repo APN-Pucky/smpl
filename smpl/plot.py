@@ -456,6 +456,11 @@ def plt_plt(x, y, fmt, color, label, linestyle, **kwargs):
         return plt.plot(x, y, label=label, color=color, linestyle=linestyle, **kwargs)
     if linestyle is None and fmt is None:
         return plt.plot(x, y, label=label, color=color, **kwargs)
+    # should not reach here
+    raise ValueError(
+        "Either fmt or linestyle must be given, but not both. fmt=%s, linestyle=%s"
+        % (fmt, linestyle)
+    )
 
 
 def __function(
@@ -583,7 +588,7 @@ def __function(
     return ll
 
 
-def function(func, *args, **kwargs):
+def function(func, *args, fmt="-", **kwargs):
     """
     Plot function ``func`` between ``xmin`` and ``xmax``
 
@@ -596,14 +601,13 @@ def function(func, *args, **kwargs):
     **kwargs : optional
         see :func:`plot_kwargs`.
     """
+    kwargs["fmt"] = fmt
     if not util.has("xmin", kwargs) or not util.has("xmax", kwargs):
         kwargs["xmin"], kwargs["xmax"] = stat.get_interesting_domain(func)
         # raise Exception("xmin or xmax missing.")
 
     # if not util.has('lpos', kwargs) and not util.has('label', kwargs):
     #    kwargs['lpos'] = -1
-    if not util.has("fmt", kwargs):
-        kwargs["fmt"] = "-"
 
     if "label" not in kwargs:
         kwargs = plot_kwargs(kwargs)
