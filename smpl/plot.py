@@ -632,7 +632,7 @@ def function(func, *args, fmt="-", **kwargs):
 def plt_residue(datax, datay, gfunction, rfit, fig, **kwargs):
     function = wrap.get_lambda(gfunction, kwargs["xvar"])
     fig.add_axes((0.1, 0.1, 0.8, 0.2))
-    kwargs["yaxis"] = "$\\Delta$" + kwargs["yaxis"]
+    kwargs["ylabel"] = "$\\Delta$" + kwargs["ylabel"]
     kwargs["data_color"] = kwargs["fit_color"]
 
     if kwargs["residue_err"]:
