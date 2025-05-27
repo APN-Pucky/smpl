@@ -44,6 +44,8 @@ def read(to_be_read: str):
     'GNU GENERAL PUBLIC LICENSE'
 
     """
+    if to_be_read is sys.stdout:
+        return ""
     if to_be_read.startswith("http"):
         return requests.get(to_be_read).text
     if to_be_read == "-":

@@ -478,6 +478,8 @@ def __function(
     # filter unused bad kwargs here to avoid passing them down
     # TODO it would be better to not pass them down in the first place
     for key in [
+        "pre",
+        "post",
         "xaxis",
         "yaxis",
         "xvar",
@@ -539,6 +541,7 @@ def __function(
         "residue_err",
         "interpolate_fmt",
         "interpolate_label",
+        "interpolate_lower_uncertainty",
         "ncol",
         "steps",
         "interpolator",
