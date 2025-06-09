@@ -99,11 +99,11 @@ source = "vcs"
 [tool.hatch.version.raw-options]
 local_scheme = "no-local-version"
 
-[tool.hatch.build]
-exclude = [
-  "docs/",
-  "debug/",
-]
+#[tool.hatch.build]
+#exclude = [
+#  "docs/",
+#  "debug/",
+#]
 
 [tool.hatch.build.hooks.vcs]
 version-file = "smpl/_version.py"
