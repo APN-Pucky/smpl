@@ -56,13 +56,13 @@ def plot2d(datax, datay, dataz, **kwargs):
     """
     kwargs = plot2d_kwargs(kwargs)
     if "xaxis" in kwargs and not kwargs["xlabel"]:
-        warnings.warn("xaxis is deprecated. Use xlabel instead.", DeprecationWarning, 2)
+        #warnings.warn("xaxis is deprecated. Use xlabel instead.", DeprecationWarning, 2)
         kwargs["xlabel"] = kwargs["xaxis"]
     if "yaxis" in kwargs and not kwargs["ylabel"]:
-        warnings.warn("yaxis is deprecated. Use ylabel instead.", DeprecationWarning, 2)
+        #warnings.warn("yaxis is deprecated. Use ylabel instead.", DeprecationWarning, 2)
         kwargs["ylabel"] = kwargs["yaxis"]
     if "zaxis" in kwargs and not kwargs["zlabel"]:
-        warnings.warn("zaxis is deprecated. Use zlabel instead.", DeprecationWarning, 2)
+        #warnings.warn("zaxis is deprecated. Use zlabel instead.", DeprecationWarning, 2)
         kwargs["zlabel"] = kwargs["zaxis"]
 
     if util.has("axes", kwargs) and kwargs["axes"] is not None:
