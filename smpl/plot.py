@@ -272,11 +272,11 @@ def fit(func, *adata, **kwargs):
         1.0
 
     """
-    if "xaxis" in kwargs and not kwargs["xlabel"]:
+    if "xaxis" in kwargs and ("xlabel" not in kwargs or not kwargs["xlabel"]):
         # warnings.warn("xaxis is deprecated. Use xlabel instead.", DeprecationWarning, 2)
         kwargs["xlabel"] = kwargs["xaxis"]
         # TODO maybe pop
-    if "yaxis" in kwargs and not kwargs["ylabel"]:
+    if "yaxis" in kwargs and ("ylabel" not in kwargs or not kwargs["ylabel"]):
         # warnings.warn("yaxis is deprecated. Use ylabel instead.", DeprecationWarning, 2)
         kwargs["ylabel"] = kwargs["yaxis"]
         # TODO maybe pop
