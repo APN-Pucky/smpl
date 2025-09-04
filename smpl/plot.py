@@ -558,7 +558,7 @@ def __function(
         "interpolator",
         "next_color",
         "append_chi2",
-        "append_r2"
+        "append_r2",
     ]:
         kwargs.pop(key, None)
     func = gfunc
@@ -821,7 +821,7 @@ def get_fnc_legend(function, rfit, datax=None, datay=None, **kwargs):
             l = l + ")"
         if kwargs["units"] is not None:
             l = l + " " + kwargs["units"][i - 1]
-    
+
     # Append Chi2 and R2 if requested and data is available
     if datax is not None and datay is not None:
         if kwargs.get("append_chi2", False):
@@ -834,7 +834,7 @@ def get_fnc_legend(function, rfit, datax=None, datay=None, **kwargs):
                     l = l + "$\\chi^2$=%s" % (chi2_val)
             except Exception:
                 pass  # Ignore errors in Chi2 calculation
-        
+
         if kwargs.get("append_r2", False):
             try:
                 r2_val = ffit.R2(datax, datay, function, rfit, **kwargs)
@@ -845,7 +845,7 @@ def get_fnc_legend(function, rfit, datax=None, datay=None, **kwargs):
                     l = l + "$R^2$=%s" % (r2_val)
             except Exception:
                 pass  # Ignore errors in R2 calculation
-    
+
     return l
 
 

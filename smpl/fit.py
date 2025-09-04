@@ -236,7 +236,7 @@ def _unwrap_param(fitt, fixed, Ntot):
 def Chi2(datax, datay, function, ff, **kwargs):
     kwargs = fit_kwargs(kwargs)
     x, y, _, yerr = fit_split(datax, datay, **kwargs)
-    sigmas = yerr
+    sigmas = (yerr**2 + usd(function(x, *ff))**2)**0.5
     return stat.Chi2(y, unv(function(x, *ff)), sigmas)
 
 
