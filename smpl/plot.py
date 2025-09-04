@@ -214,6 +214,8 @@ default = {
         "xspace gets called with xspace(xmin,xmax,steps) in :func:`function` to get the points of the function that will be drawn.",
     ],
     "alpha": [0.2, "alpha value for the fill_between plot"],
+    "append_chi2": [False, "Append chi2 to legend"],
+    "append_r2": [False, "Append r2 to legend"],
 }
 
 
@@ -555,6 +557,8 @@ def __function(
         "steps",
         "interpolator",
         "next_color",
+        "append_chi2",
+        "append_r2"
     ]:
         kwargs.pop(key, None)
     func = gfunc
@@ -799,7 +803,7 @@ def plt_data(datax, datay, **kwargs):
     return ll
 
 
-def get_fnc_legend(function, rfit, **kwargs):
+def get_fnc_legend(function, rfit, datax=None, datay=None, **kwargs):
     l = wrap.get_latex(function)
 
     vnames = wrap.get_varnames(function, kwargs["xvar"])
@@ -817,6 +821,31 @@ def get_fnc_legend(function, rfit, **kwargs):
             l = l + ")"
         if kwargs["units"] is not None:
             l = l + " " + kwargs["units"][i - 1]
+    
+    # Append Chi2 and R2 if requested and data is available
+    if datax is not None and datay is not None:
+        if kwargs.get("append_chi2", False):
+            try:
+                chi2_val = ffit.Chi2(datax, datay, function, rfit, **kwargs)
+                l = l + ("\n" if not kwargs["fitinline"] else " ")
+                if "number_format" in kwargs:
+                    l = l + "$\\chi^2$=" + kwargs["number_format"].format(chi2_val)
+                else:
+                    l = l + "$\\chi^2$=%s" % (chi2_val)
+            except Exception:
+                pass  # Ignore errors in Chi2 calculation
+        
+        if kwargs.get("append_r2", False):
+            try:
+                r2_val = ffit.R2(datax, datay, function, rfit, **kwargs)
+                l = l + ("\n" if not kwargs["fitinline"] else " ")
+                if "number_format" in kwargs:
+                    l = l + "$R^2$=" + kwargs["number_format"].format(r2_val)
+                else:
+                    l = l + "$R^2$=%s" % (r2_val)
+            except Exception:
+                pass  # Ignore errors in R2 calculation
+    
     return l
 
 
@@ -906,7 +935,7 @@ def plt_fit(datax, datay, gfunction, **kwargs):
     for v in vnames[1:]:  # remove fixed parameters from kwargs
         kwargs.pop(v, None)
 
-    l = get_fnc_legend(gfunction, rfit, **kwargs)
+    l = get_fnc_legend(gfunction, rfit, datax, datay, **kwargs)
     return (rfit, *plt_fit_or_interpolate(datax, datay, fitted, l, **kwargs))
 
 
