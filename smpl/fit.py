@@ -236,8 +236,29 @@ def _unwrap_param(fitt, fixed, Ntot):
 def Chi2(datax, datay, function, ff, **kwargs):
     kwargs = fit_kwargs(kwargs)
     x, y, _, yerr = fit_split(datax, datay, **kwargs)
-    sigmas = (yerr**2 + usd(function(x, *ff))**2)**0.5
-    return stat.Chi2(y, unv(function(x, *ff)), sigmas)
+    f = function(x, *ff)
+    sigmas = (yerr**2 + usd(f) ** 2) ** 0.5
+    return stat.Chi2(y, unv(f), sigmas)
+
+
+def Dof(datax, datay, function, ff, **kwargs):
+    """Calculate the degrees of freedom for a fit."""
+    kwargs = fit_kwargs(kwargs)
+    x, y, _, yerr = fit_split(datax, datay, **kwargs)
+    f = function(x, *ff)
+
+    # Obtain the number of fitted parameters
+    # by counting the number of non-fixed parameters
+    # This assumes that the fit function has parameters
+    # in the order: x, param1, param2, ..., paramN
+    # and that fixed parameters are provided in kwargs
+    _, _, fixed, Ntot = _wrap_func_and_param(function, **kwargs)
+
+    # Number of points fitted
+    N_points = len(y)
+
+    # Fixed parameters do not count towards degrees of freedom
+    return N_points - Ntot + len(fixed)
 
 
 @doc.insert_doc(stat.R2)
