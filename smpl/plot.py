@@ -134,6 +134,14 @@ default = {
         True,
         "Differences between fit and data will have errorbars",
     ],
+    "ratio": [
+        False,
+        "Display ratio between fit and data in a second plot",
+    ],
+    "ratio_err": [
+        True,
+        "Ratio between fit and data will have errorbars",
+    ],
     "show": [
         False,
         "Call plt.show()",
@@ -352,11 +360,15 @@ def _fit_impl(datax, datay, function, **kwargs):
         rfit, kwargs["fit_color"], _, _ = plt_fit(datax, datay, function, **kwargs)
     if kwargs["ss"]:
         kwargs["oldshow"] = kwargs["show"]
-        kwargs["show"] = kwargs["show"] and not kwargs["residue"]
+        kwargs["show"] = (
+            kwargs["show"] and not kwargs["residue"] and not kwargs["ratio"]
+        )
         save_plot(**kwargs)
         kwargs["show"] = kwargs["oldshow"]
     if kwargs["residue"] and fig is not None:
         plt_residue(datax, datay, function, rfit, fig, **kwargs)
+    if kwargs["ratio"] and fig is not None:
+        plt_ratio(datax, datay, function, rfit, fig, **kwargs)
     if not kwargs["also_fit"] and kwargs["interpolate"]:
         return (ifit, x, y)
         # return ifit
@@ -504,6 +516,7 @@ def __function(
         "bbox_to_anchor",
         "tight",
         "residue",
+        "ratio",
         "lpos",
         "interpolate",
         "params",
@@ -551,6 +564,7 @@ def __function(
         "extrapolate_hatch",
         "function_color",
         "residue_err",
+        "ratio_err",
         "interpolate_fmt",
         "interpolate_label",
         "interpolate_lower_uncertainty",
@@ -654,6 +668,21 @@ def plt_residue(datax, datay, gfunction, rfit, fig, **kwargs):
         plt_data(datax, datay - function(datax, *rfit), **kwargs)
     else:
         plt_data(unv(datax), unv(datay - function(datax, *rfit)), **kwargs)
+    kwargs["lpos"] = -1
+    save_plot(**kwargs)
+
+
+def plt_ratio(datax, datay, gfunction, rfit, fig, **kwargs):
+    function = wrap.get_lambda(gfunction, kwargs["xvar"])
+    fig.add_axes((0.1, 0.1, 0.8, 0.2))
+    kwargs["ylabel"] = "Ratio " + kwargs["ylabel"]
+    kwargs["data_color"] = kwargs["fit_color"]
+
+    fit_values = function(datax, *rfit)
+    if kwargs["ratio_err"]:
+        plt_data(datax, datay / fit_values, **kwargs)
+    else:
+        plt_data(unv(datax), unv(datay / fit_values), **kwargs)
     kwargs["lpos"] = -1
     save_plot(**kwargs)
 
@@ -958,12 +987,12 @@ def init_plot(kwargs):
     if util.has("axes", kwargs) and kwargs["axes"] is not None:
         plt.sca(kwargs["axes"])
         fig = kwargs["axes"].get_figure()
-    if kwargs["init"] or util.true("residue", kwargs):
+    if kwargs["init"] or util.true("residue", kwargs) or util.true("ratio", kwargs):
         if kwargs["size"] is None:
             fig = plt.figure()
         else:
             fig = plt.figure(figsize=kwargs["size"])
-        if kwargs["residue"]:
+        if kwargs["residue"] or kwargs["ratio"]:
             fig.add_axes((0.1, 0.3, 0.8, 0.6))
     if util.has("next_color", kwargs) and not kwargs["next_color"]:
         lines = plt.gca()._get_lines
