@@ -252,14 +252,13 @@ def Dof(datax, datay, function, ff, **kwargs):
     # This assumes that the fit function has parameters
     # in the order: x, param1, param2, ..., paramN
     # and that fixed parameters are provided in kwargs
-    _, _, fixed, Ntot = _wrap_func_and_param(function, **kwargs)
+    _, params, fixed, Ntot = _wrap_func_and_param(function, **kwargs)
 
     # Number of points fitted
     N_points = len(y)
 
     # Fixed parameters do not count towards degrees of freedom
-    return N_points - Ntot + len(fixed)
-
+    return N_points - Ntot + len(fixed) 
 
 @doc.insert_doc(stat.R2)
 def R2(datax, datay, function, ff, **kwargs):

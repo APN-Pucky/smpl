@@ -945,10 +945,11 @@ def plt_fit(datax, datay, gfunction, **kwargs):
         return func(x, *rfit)
 
     vnames = wrap.get_varnames(gfunction, kwargs["xvar"])
-    for v in vnames[1:]:  # remove fixed parameters from kwargs
-        kwargs.pop(v, None)
 
     l = get_fnc_legend(gfunction, rfit, datax, datay, **kwargs)
+    for v in vnames[1:]:  # remove fixed parameters from kwargs # APN TODO why?
+        kwargs.pop(v, None)
+
     return (rfit, *plt_fit_or_interpolate(datax, datay, fitted, l, **kwargs))
 
 
