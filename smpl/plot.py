@@ -224,7 +224,7 @@ default = {
     "alpha": [0.2, "alpha value for the fill_between plot"],
     "append_chi2": [False, "Append chi2 to legend"],
     "append_r2": [False, "Append r2 to legend"],
-    "append_dof": [False, "Append degrees of freedom to legend"],
+    "append_ndf": [False, "Append number of degrees of freedom to legend"],
 }
 
 
@@ -574,7 +574,7 @@ def __function(
         "next_color",
         "append_chi2",
         "append_r2",
-        "append_dof",
+        "append_ndf",
     ]:
         kwargs.pop(key, None)
     func = gfunc
@@ -853,7 +853,7 @@ def get_fnc_legend(function, rfit, datax=None, datay=None, **kwargs):
         if kwargs["units"] is not None:
             l = l + " " + kwargs["units"][i - 1]
 
-    # Append Chi2, R2, and DOF if requested and data is available
+    # Append Chi2, R2, and NDF if requested and data is available
     if datax is not None and datay is not None:
         if kwargs.get("append_chi2", False):
             try:
@@ -877,16 +877,16 @@ def get_fnc_legend(function, rfit, datax=None, datay=None, **kwargs):
             except Exception:
                 pass  # Ignore errors in R2 calculation
 
-        if kwargs.get("append_dof", False):
+        if kwargs.get("append_ndf", False):
             try:
-                dof_val = ffit.Dof(datax, datay, function, rfit, **kwargs)
+                ndf_val = ffit.Ndf(datax, datay, function, rfit, **kwargs)
                 l = l + ("\n" if not kwargs["fitinline"] else " ")
                 if "number_format" in kwargs:
-                    l = l + "DOF=" + kwargs["number_format"].format(dof_val)
+                    l = l + "NDF=" + kwargs["number_format"].format(ndf_val)
                 else:
-                    l = l + "DOF=%s" % (dof_val)
+                    l = l + "NDF=%s" % (ndf_val)
             except Exception:
-                pass  # Ignore errors in DOF calculation
+                pass  # Ignore errors in NDF calculation
 
     return l
 

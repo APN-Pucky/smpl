@@ -241,8 +241,8 @@ def Chi2(datax, datay, function, ff, **kwargs):
     return stat.Chi2(y, unv(f), sigmas)
 
 
-def Dof(datax, datay, function, ff, **kwargs):
-    """Calculate the degrees of freedom for a fit."""
+def Ndf(datax, datay, function, ff, **kwargs):
+    """Calculate the number of degrees of freedom for a fit."""
     kwargs = fit_kwargs(kwargs)
     x, y, _, yerr = fit_split(datax, datay, **kwargs)
     f = function(x, *ff)
