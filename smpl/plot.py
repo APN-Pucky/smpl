@@ -731,6 +731,16 @@ def plt_data(datax, datay, **kwargs):
                 label=kwargs["label"],
                 color=kwargs["data_color"],
             )
+        elif kwargs["fmt"] == "fill":
+            # Create invisible line to get color, then use for fill_between
+            (ll,) = plt.plot(x, y, " ", color=kwargs["data_color"])
+            plt.fill_between(
+                x,
+                y,
+                label=kwargs["label"],
+                color=ll.get_color(),
+                alpha=kwargs["alpha"],
+            )
         elif kwargs["fmt"] == "hist":
             (ll,) = plt.step(
                 x,
@@ -799,6 +809,32 @@ def plt_data(datax, datay, **kwargs):
                 label=kwargs["label"],
                 alpha=kwargs["alpha"],
                 step="mid",
+                color=ll.get_color(),
+            )
+    elif kwargs["fmt"] == "fill":
+        if xerr is not None:
+            # For multiple fill_between calls, create invisible line first
+            (ll,) = plt.plot([x[0]], [y[0]], " ", color=kwargs["data_color"])
+            for ix, xv in enumerate(x):
+                dx = xerr[ix]
+                tx = [xv - dx, xv + dx]
+                plt.fill_between(
+                    tx,
+                    y[ix] - yerr[ix],
+                    y[ix] + yerr[ix],
+                    label=kwargs["label"] if ix == 1 else None,
+                    alpha=kwargs["alpha"],
+                    color=ll.get_color(),
+                )
+        else:
+            # Create invisible line to get color, then use for fill_between
+            (ll,) = plt.plot(x, y, " ", color=kwargs["data_color"])
+            plt.fill_between(
+                x,
+                y - yerr,
+                y + yerr,
+                label=kwargs["label"],
+                alpha=kwargs["alpha"],
                 color=ll.get_color(),
             )
     elif kwargs["fmt"] == "hist":
