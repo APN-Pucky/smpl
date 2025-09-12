@@ -78,7 +78,7 @@ test = [
 ]
 
 dev = [
-  "pre-commit >=2.20,<4.0",
+  "pre-commit >=2.20,<5.0",
   "ipython",
   "jupyterlab",
   "jupyter",
