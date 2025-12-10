@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: 'smpl'
+version: 1.5.6
+abstract: Simplified plotting and fitting in python.
+message: If you use this software, please cite it using these metadata.
+authors:
+- family-names: "Neuwirth"
+  given-names: "Alexander Puck"
+  orcid: "https://orcid.org/0000-0002-2484-1328"
+doi: 10.5281/zenodo.15624550
+license: GPL-3.0-only
+type: software
+identifiers:
+  - description: Zenodo release
+    type: doi
+    value: "10.5281/zenodo.15624550"
