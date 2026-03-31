@@ -9,6 +9,8 @@ Simplified plotting and fitting in python.
 [![Codacy Badge][cc c i]][cc c l]
 [![Codacy Badge][cc q i]][cc q l]
 [![Documentation][rtd t i]][rtd t l]
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15624550.svg)](https://doi.org/10.5281/zenodo.15624550)
+
 
 ## Documentation
 
