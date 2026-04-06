@@ -54,7 +54,7 @@ Source = "https://github.com/APN-Pucky/smpl"
 
 [project.optional-dependencies]
 docs = [
-  "sphinx < 8.0.0",
+  "sphinx < 10.0.0",
   "sphinx-rtd-theme",
   "sphinxcontrib-napoleon",
   "nbsphinx",
