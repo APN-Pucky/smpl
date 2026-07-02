@@ -4,6 +4,8 @@ import pytest
 
 from smpl import plot
 
+plt.style.use("classic")
+
 
 @pytest.mark.mpl_image_compare(baseline_dir="baseline", remove_text=True)
 def test_style_scatter():
