@@ -154,9 +154,10 @@ def _interpolate(*data, **kwargs):
             ret = interp.interp1d(*data[:-1], datay, kind=kwargs["interpolator"])
     elif len(data) == 3:
         if kwargs["interpolator"] == "bivariatespline":
-            ret = interp.SmoothBivariateSpline(
+            spline = interp.SmoothBivariateSpline(
                 *data[:-1], datay, kx=kwargs["order"], ky=kwargs["order"]
             )
+            ret = lambda *a: spline(*a, grid=False)
         elif kwargs["interpolator"] == "linearnd":
             ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
         else:
