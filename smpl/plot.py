@@ -1031,8 +1031,13 @@ def init_plot(kwargs):
         if kwargs["residue"] or kwargs["ratio"]:
             fig.add_axes((0.1, 0.3, 0.8, 0.6))
     if util.has("next_color", kwargs) and not kwargs["next_color"]:
-        lines = plt.gca()._get_lines
-        tmp_color = lines._cycler_items[lines._idx]["color"]
+        ax = plt.gca()
+        if not ax.lines:
+            raise ValueError(
+                "next_color=False requires an existing Line2D on the axes. "
+                "Plot a line first or pass color=... explicitly."
+            )
+        tmp_color = ax.lines[-1].get_color()
 
         if kwargs["data_color"] is None:
             kwargs["data_color"] = tmp_color
