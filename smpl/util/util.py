@@ -104,8 +104,8 @@ def withify(prefix="with_", sufix="", override=False):
 
     def _withify(cls):
         inst = cls()
-        annotas = getattr(type(inst), "__annotations__", {})
-        for k in annotas:
+        annotations = getattr(cls, "__annotations__", {})
+        for k in annotations:
             fun = prefix + k + sufix
             ok = k
             if override or not hasattr(cls, fun):

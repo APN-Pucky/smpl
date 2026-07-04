@@ -1032,12 +1032,12 @@ def init_plot(kwargs):
             fig.add_axes((0.1, 0.3, 0.8, 0.6))
     if util.has("next_color", kwargs) and not kwargs["next_color"]:
         ax = plt.gca()
-        if not ax.lines:
-            raise ValueError(
-                "next_color=False requires an existing Line2D on the axes. "
-                "Plot a line first or pass color=... explicitly."
-            )
-        tmp_color = ax.lines[-1].get_color()
+        if ax.lines:
+            tmp_color = ax.lines[-1].get_color()
+        else:
+            tmp_color = plt.rcParams["axes.prop_cycle"].by_key().get("color", [None])[0]
+            if tmp_color is None:
+                raise ValueError("Could not determine a default line color from axes.prop_cycle.")
 
         if kwargs["data_color"] is None:
             kwargs["data_color"] = tmp_color
