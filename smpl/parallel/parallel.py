@@ -1,11 +1,16 @@
 """Simplified parallelization."""
 
 import multiprocessing
-from multiprocessing import Process, Queue
 
 import numpy as np
 
 from smpl.doc import append_doc
+
+
+def _get_context():
+    if "fork" in multiprocessing.get_all_start_methods():
+        return multiprocessing.get_context("fork")
+    return multiprocessing.get_context()
 
 
 def queued(q, f, *args, **kwargs):
@@ -40,8 +45,9 @@ def res(a):
 
 def gen(f, *args, **kwargs):
     """Generates parallel execution list generator."""
-    q = Queue()
-    p = Process(target=queued, args=(q, f, *args), kwargs=kwargs)
+    context = _get_context()
+    q = context.Queue()
+    p = context.Process(target=queued, args=(q, f, *args), kwargs=kwargs)
     yield p.start()
     yield [q.get(), p.join()][0]
 

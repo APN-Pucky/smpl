@@ -1031,8 +1031,13 @@ def init_plot(kwargs):
         if kwargs["residue"] or kwargs["ratio"]:
             fig.add_axes((0.1, 0.3, 0.8, 0.6))
     if util.has("next_color", kwargs) and not kwargs["next_color"]:
-        lines = plt.gca()._get_lines
-        tmp_color = lines._cycler_items[lines._idx]["color"]
+        ax = plt.gca()
+        if ax.lines:
+            tmp_color = ax.lines[-1].get_color()
+        else:
+            tmp_color = plt.rcParams["axes.prop_cycle"].by_key().get("color", [None])[0]
+            if tmp_color is None:
+                raise ValueError("Could not determine a default line color from axes.prop_cycle.")
 
         if kwargs["data_color"] is None:
             kwargs["data_color"] = tmp_color
