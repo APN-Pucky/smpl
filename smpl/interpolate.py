@@ -100,37 +100,32 @@ def interpolate(*data, **kwargs):
     ret = None
     if dy is None:
         spl_center = _interpolate(*data[:-1], (y), **kwargs)
-        ret = np.vectorize(spl_center, otypes=["float"])
+        ret = spl_center
+        #ret = np.vectorize(spl_center, otypes=["float"])
     elif (
         kwargs["interpolate_upper_uncertainty"]
         and kwargs["interpolate_lower_uncertainty"]
     ):
         spl_up = _interpolate(*data[:-1], (y + dy), **kwargs)
         spl_down = _interpolate(*data[:-1], (y - dy), **kwargs)
-        ret = np.vectorize(
-            lambda *a: unc.ufloat(
+        ret = lambda *a: unc.ufloat(
                 spl_up(*a) / 2 + spl_down(*a) / 2,
                 np.abs(spl_up(*a) - spl_down(*a)) / 2,
-            ),
-            otypes=["object"],
-        )  # symmetrized error...
+            ) # symmetrized error...
+        #ret = np.vectorize(ret , otypes=["object"],)  
         # return np.vectorize(Bounds(spl_up, spl_down), otypes=["object"])
     elif not kwargs["interpolate_lower_uncertainty"]:
         spl_center = _interpolate(*data[:-1], (y), **kwargs)
         spl_up = _interpolate(*data[:-1], (y + dy), **kwargs)
-        ret = np.vectorize(
-            lambda *a: unc.ufloat(spl_center(*a), np.abs(spl_up(*a) - spl_center(*a))),
-            otypes=["object"],
-        )  # symmetrized error...
+        ret = lambda *a: unc.ufloat(spl_center(*a), np.abs(spl_up(*a) - spl_center(*a)))  # symmetrized error...
+        #ret = np.vectorize(ret, otypes=["object"],)
     elif not kwargs["interpolate_upper_uncertainty"]:
         spl_center = _interpolate(*data[:-1], (y), **kwargs)
         spl_down = _interpolate(*data[:-1], (y - dy), **kwargs)
-        ret = np.vectorize(
-            lambda *a: unc.ufloat(
+        ret = lambda *a: unc.ufloat(
                 spl_center(*a), np.abs(spl_down(*a) - spl_center(*a))
-            ),
-            otypes=["object"],
-        )  # symmetrized error...
+            )  # symmetrized error...
+        #ret = np.vectorize( ret , otypes=["object"],)
     else:
         err = "interpolate_upper_uncertainty and interpolate_lower_uncertainty can't be both False"
         raise ValueError(err)
