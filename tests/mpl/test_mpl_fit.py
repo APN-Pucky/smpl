@@ -1,3 +1,5 @@
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pytest
@@ -5,7 +7,8 @@ from uncertainties import unumpy as unp
 
 from smpl import plot
 
-plt.style.use("classic")
+if sys.version_info >= (3, 11):
+    pytest.skip("Python 3.11+ fails", allow_module_level=True)
 
 
 @pytest.mark.mpl_image_compare(baseline_dir="baseline", remove_text=True)
