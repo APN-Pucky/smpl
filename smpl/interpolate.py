@@ -34,7 +34,22 @@ def interp_interp2d(xxr, yyr, zzr, kind="linear"):
         err = f"kind must be 'linear' or 'cubic', got {kind}"
         raise ValueError(err)
     tck = bisplrep(xxr, yyr, zzr, kx=kx, ky=ky)
-    return lambda x, y: bisplev(x, y, tck).T
+
+    def f(xnew, ynew):
+        xnew = np.asarray(xnew)
+        ynew = np.asarray(ynew)
+
+        if xnew.shape == ynew.shape:
+            return np.array(
+                [
+                    bisplev(float(xi), float(yi), tck)
+                    for xi, yi in zip(xnew.ravel(), ynew.ravel())
+                ]
+            ).reshape(xnew.shape)
+
+        return bisplev(xnew, ynew, tck).T
+
+    return f
 
 
 def identity(x):
