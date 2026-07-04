@@ -32,7 +32,8 @@ def interp_interp2d(xxr, yyr, zzr, kind="linear"):
         kx = 3
         ky = 3
     else:
-        raise ValueError("kind must be 'linear' or 'cubic'")
+        err = f"kind must be 'linear' or 'cubic', got {kind}"
+        raise ValueError(err)
     tck = bisplrep(xxr, yyr, zzr, kx=kx, ky=ky)
     return lambda x, y: bisplev(x, y, tck).T
 
@@ -131,12 +132,15 @@ def interpolate(*data, **kwargs):
             otypes=["object"],
         )  # symmetrized error...
     else:
-        raise ValueError(
-            "interpolate_upper_uncertainty and interpolate_lower_uncertainty can't be both False"
-        )
+        err = "interpolate_upper_uncertainty and interpolate_lower_uncertainty can't be both False"
+        raise ValueError(err)
 
     if not check(ret, *data):
-        warnings.warn("Bad interpolation. Increase Order or symmetrize error.")
+        warnings.warn(
+            "Bad interpolation. Increase Order or symmetrize error.",
+            UserWarning,
+            stacklevel=2,
+        )
     return ret
 
 
@@ -157,7 +161,11 @@ def _interpolate(*data, **kwargs):
             spline = interp.SmoothBivariateSpline(
                 *data[:-1], datay, kx=kwargs["order"], ky=kwargs["order"]
             )
-            ret = lambda *a: spline(*a, grid=False)
+
+            def spline_no_grid(*a):
+                return spline(*a, grid=False)
+
+            ret = spline_no_grid
         elif kwargs["interpolator"] == "linearnd":
             ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
         else:
@@ -166,9 +174,9 @@ def _interpolate(*data, **kwargs):
         ret = interp.LinearNDInterpolator(list(zip(*data[:-1])), datay)
 
     # return np.vectorize(Post(ret, kwargs['post']), otypes=["object"])
-    return np.vectorize(lambda *a: kwargs["post"](ret(*a)), otypes=["object"])
+    return lambda *a: kwargs["post"](ret(*a))
 
 
-def _interpolate_exp(x, y, **kwargs):
+def _interpolate_exp(x, y):
     ip = interp.interp1d(x, np.log(y), kind="linear")
     return lambda x_new: np.exp(ip(x_new))
