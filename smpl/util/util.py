@@ -61,6 +61,7 @@ def rename(old, new, warning=True):
                     warnings.warn(
                         f"Argument {old} and {new} are both set, {new} will be used.",
                         DeprecationWarning,
+                        stacklevel=2,
                     )
                 del kwargs[old]
             elif old in kwargs:
@@ -68,6 +69,7 @@ def rename(old, new, warning=True):
                     warnings.warn(
                         f"Argument {old} is deprecated, use {new} instead.",
                         DeprecationWarning,
+                        stacklevel=2,
                     )
                 kwargs[new] = kwargs[old]
                 del kwargs[old]
@@ -102,7 +104,8 @@ def withify(prefix="with_", sufix="", override=False):
 
     def _withify(cls):
         inst = cls()
-        for k in inst.__annotations__.keys():
+        annotas = getattr(type(inst), "__annotations__", {})
+        for k in annotas:
             fun = prefix + k + sufix
             ok = k
             if override or not hasattr(cls, fun):
@@ -183,8 +186,7 @@ def find_nearest_index(array, value):
 
     """
     array = np.asarray(array)
-    idx = (np.abs(array - value)).argmin()
-    return idx
+    return (np.abs(array - value)).argmin()
 
 
 def find_nearest(array, value):
